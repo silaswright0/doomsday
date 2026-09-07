@@ -1,0 +1,34 @@
+state={
+	id=1052
+	name="STATE_1052"
+	resources={
+		
+	}
+
+	history={
+		owner = INS
+		add_extra_state_shared_building_slots = 4
+		add_core_of = INS
+		add_core_of = BLI
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+			13386 = {
+				naval_base = 1
+			}
+		}
+
+		victory_points = {
+			13386 3 # Denpassar
+		}
+	}
+
+	provinces={
+		4273 13386 13385
+	}
+	manpower = 4643933
+	state_category = small_island
+
+	local_supplies=0.0 
+}

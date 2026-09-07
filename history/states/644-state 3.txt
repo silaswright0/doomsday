@@ -1,0 +1,29 @@
+state = {
+	id = 644
+	name = "STATE_644" # Kolyma
+
+	history = {
+		owner = SOV
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			1819 1 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+		add_core_of = SOV
+		add_core_of = YAK
+
+	}
+
+	provinces = {
+		1819 4006 4229 4455 12592 13061
+	}
+	manpower = 17457
+	buildings_max_level_factor = 1
+	state_category = "wasteland"
+
+	local_supplies = 0.0 
+}

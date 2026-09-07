@@ -1,0 +1,27 @@
+state={
+	id=757
+	name="STATE_757"
+	provinces={
+		1991 2014 2098 4900 5033 8121 12807 
+	}
+	manpower = 2962670
+	buildings_max_level_factor=1.000
+	state_category = rural
+	history={
+		owner = CHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = CHI
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 0
+			arms_factory = 0
+		}
+		victory_points = {
+			5033 5 
+		}
+		add_core_of = TIB
+
+	}
+
+	local_supplies=0.0 
+}

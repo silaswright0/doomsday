@@ -1,0 +1,30 @@
+state = {
+	id = 1074
+	name = "STATE_1074"
+
+	state_category = wasteland
+	manpower = 39943
+
+	impassable = yes
+	force_link_ownership_to = 870 # Northwest Australia 
+
+	history = {
+
+		owner = AST
+		add_extra_state_shared_building_slots = 4
+		add_core_of = AST
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+		}
+
+	}
+
+	provinces = {
+		2133 2177 2186 8134 8155 10473 12904 12912 12926 
+	}
+
+	local_supplies = 0.0 
+}

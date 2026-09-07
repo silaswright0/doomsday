@@ -1,0 +1,38 @@
+
+state = {
+	id = 117
+	name = "STATE_117" # Campania
+	manpower = 6172752 # (Campania 3697k + Basilicato 543k )  # was 5333611 before Puglia state was added
+	
+	state_category = city
+	resources = {
+		aluminium = 10 # was: 16 (MM: This WAS before my time)
+		steel = 15 # was: 24 (MM: This WAS before my time)
+	}
+
+	history = {
+		owner = ITA
+		add_extra_state_shared_building_slots = 6
+		victory_points = {
+			819 20 
+		}
+		buildings = {
+			infrastructure = 4
+			arms_factory = 0
+			industrial_complex = 2
+			air_base = 3
+			819 = {
+				naval_base = 6
+			}
+		}
+		add_core_of = ITA
+		add_core_of = TTS
+
+	}
+
+	provinces = {
+		819 851 955 3958 3968 6972 9826 11803 9856
+	}
+
+	local_supplies = 13.0 
+}

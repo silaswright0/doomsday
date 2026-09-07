@@ -1,0 +1,29 @@
+Doomsday 2026 industry constants
+================================
+Sources:
+- Civilian factories: World Bank NV.IND.MANF.CD (manufacturing value added), not GDP
+- Military factories: SIPRI Military Expenditure 2025, industrial slice only
+- Population: UN World Population Prospects-style 2026 estimates
+- Dockyards: commercial shipbuilding share (China/Korea/Japan) plus naval yards
+- Infrastructure: mapped from development / logistics (1-5)
+
+Formulas (edit these, then rerun generate_doomsday.py):
+  CIV_PER_MVA_BILLION = 20          # 1 civ per $20B manufacturing value added
+  CIV_MIN_MVA_BILLION = 2           # countries above this get at least 1 civ
+  MIL_PROCUREMENT_SHARE = 0.35      # share of milex treated as factory-relevant
+  MIL_PER_PROCUREMENT_BILLION = 10  # 1 mil per $10B of that slice
+  WARTIME_MIL_MULT = 2.5            # Russia / Ukraine / Israel / Myanmar
+
+Worked examples (see doomsday_countries.csv):
+  China MVA ~4660 → ~233 civs
+  USA   MVA ~2500 → ~125 civs
+  Germany MVA ~844 → ~42 civs
+  UK    MVA ~294 → ~15 civs
+
+Building caps (Doomsday overrides):
+  industrial_complex / arms_factory / dockyard state_max = 40
+  NDefines.NBuildings.MAX_BUILDING_LEVELS = 40
+  NDefines.NBuildings.MAX_SHARED_SLOTS = 50
+
+Debt and GDP columns are stored for a later stability system.
+They do not buy factories.

@@ -1,0 +1,32 @@
+state = {
+	id = 320
+	name = "STATE_320"
+	manpower = 1460347
+
+	state_category = enclave
+
+	history = {
+
+		owner = RAJ
+		add_extra_state_shared_building_slots = 4
+		add_core_of = RAJ
+
+		victory_points = {
+			10149 1 # Pondicherry
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2 #was: 5
+			10149 = {
+				naval_base = 1
+			}
+		}
+
+	}
+
+	provinces = { 10149 }
+
+	local_supplies = 0.0 
+}

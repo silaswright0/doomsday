@@ -1,0 +1,32 @@
+
+state = {
+	id = 490
+	name = "STATE_490"
+	manpower = 379270
+	
+	state_category = pastoral
+
+	history = {
+		owner = PRU
+		add_extra_state_shared_building_slots = 4 #Used to be PRU but should become theirs through the Peruvian-Ecuadorian War
+		buildings = {
+			arms_factory = 0
+			infrastructure = 2
+			industrial_complex = 0
+			air_base = 1
+		}
+
+		victory_points = {
+			13289 2
+		}
+
+		add_core_of = PRU
+		add_core_of = ECU
+	}
+
+	provinces = {
+		8149 10942 13289 13290
+	}
+
+	local_supplies = 6.0 
+}

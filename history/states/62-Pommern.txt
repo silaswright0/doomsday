@@ -1,0 +1,38 @@
+state = {
+	id = 62
+	name = "STATE_62"
+	manpower = 1528299
+	
+	
+	state_category = town
+
+	history = {
+
+		owner = GER
+		add_extra_state_shared_building_slots = 4
+		add_core_of = GER
+		add_core_of = PRE
+
+		victory_points = {
+			9388 1 # Stralsund
+		}
+
+		victory_points = {
+			3258 1 # Neustrelitz 
+		}
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 5
+			fuel_silo = 1
+		}
+
+	}
+
+	provinces = {
+		349 3207 3258 3312 3340 9388 13257
+	}
+
+	local_supplies = 3.0 
+}

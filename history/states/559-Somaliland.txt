@@ -1,0 +1,35 @@
+state=
+{
+	id = 559
+	name = "STATE_559"
+	manpower = 5000000# was 1028895
+	resources = {
+		steel = 1
+	}
+	
+	state_category = rural
+	
+	history={
+		owner = SOM
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SOM
+		victory_points = {
+			12991 3 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+			air_base = 1
+			
+			12991 = {
+				naval_base = 2
+			}
+		}
+	}
+	provinces = {
+		1964 2020 5065 8164 10818 10928 12840 12991
+	}
+
+	local_supplies=0.0 
+}

@@ -1,0 +1,29 @@
+
+state={
+	id=642
+	name="STATE_642"
+	manpower = 17563
+	
+	state_category = tiny_island
+
+	history={
+		owner = KIR
+		add_extra_state_shared_building_slots = 4
+		add_core_of = KIR
+		add_core_of = HAW
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+			13050 = {
+				naval_base = 1
+			}
+		}
+	}
+
+	provinces={
+		13050 
+	}
+
+	local_supplies=0.0 
+}

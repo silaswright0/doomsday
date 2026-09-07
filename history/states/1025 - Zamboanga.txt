@@ -1,0 +1,41 @@
+state = {
+	id = 1025
+	name = "STATE_1025"
+	manpower = 2603086
+
+	resources = {
+		coal = 2 
+	}
+	
+	state_category = pastoral
+
+	history = {
+
+		owner = PHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = PHI
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+
+			infrastructure = 2
+
+			1421 = {
+				naval_base = 1
+			}
+
+		}
+
+		victory_points = {
+			1421 2 # Zamboanga
+		}
+		
+	}
+
+	provinces = {
+		1421 4399 7360 7389 7417 10184 
+	}
+
+	local_supplies = 0.0 
+}

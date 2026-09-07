@@ -1,0 +1,32 @@
+state = {
+	id = 781
+	name = "STATE_781" # Niger
+	manpower = 7340895
+	
+	state_category = rural
+
+	history = { 
+
+		owner = NGR
+		add_extra_state_shared_building_slots = 4
+		add_core_of = NGR
+		add_core_of = SOK
+
+		victory_points = {
+			2056 1 # Niamey
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+		}
+
+	}
+
+	provinces = {
+		1975 2056 12707
+	}
+
+	local_supplies = 1.0 
+}

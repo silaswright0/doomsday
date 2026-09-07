@@ -1,0 +1,34 @@
+
+state={
+	id=555
+	name="STATE_555" #Kuril Islands
+	manpower = 20004 
+	
+	state_category = tiny_island
+
+	history={
+		owner = SOV
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SOV
+		add_core_of = ANU
+		add_core_of = JAP
+		#add_claim_by = SOV # Removed because of too much aggression
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+			1399 = {
+				naval_base = 3
+
+			}
+
+		}
+
+	}
+
+	provinces={
+		1399 1515 13037 
+	}
+
+	local_supplies=0.0 
+}

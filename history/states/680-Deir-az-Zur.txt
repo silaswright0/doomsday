@@ -1,0 +1,31 @@
+state={
+	id=680
+	name="STATE_680"
+	manpower = 1127036
+	
+	state_category = wasteland
+
+	history={
+		owner = SYR
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			3942 1
+		}
+		
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+		}
+		add_core_of = SYR
+		add_core_of = KUR
+	}
+
+
+	provinces={
+		3942 7513 10383 12442
+	}
+
+	local_supplies=4.0 
+}

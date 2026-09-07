@@ -1,0 +1,32 @@
+
+state={
+	id=310
+	name="STATE_310"
+	manpower = 74778
+
+	state_category = pastoral
+
+	history={
+		owner = FRA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = FRA
+		add_core_of = CAY
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+			12885 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			12885 1 
+		}
+	}
+
+	provinces={
+		4934 12885 
+	}
+
+	local_supplies=0.0 
+}

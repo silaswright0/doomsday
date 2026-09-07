@@ -1,0 +1,25 @@
+state=
+{
+	id=625
+	name="STATE_625"
+	manpower = 10691836
+	
+	state_category = town
+
+	history=
+	{
+		owner = PHI
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+		add_core_of = PHI
+	}
+	provinces={
+		1224 1311 1340 4269 4373 
+	}
+
+	local_supplies=0.0 
+}

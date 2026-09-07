@@ -1,0 +1,33 @@
+state = {
+	id = 1026
+	name = "STATE_1026"
+	manpower = 6623352 
+	
+	state_category = rural
+
+	history = {
+
+		owner = PHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = PHI
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+
+			infrastructure = 2
+
+		}
+
+		victory_points = {
+			10243 1 # Cagayan de Oro
+		}
+		
+	}
+
+	provinces = {
+		1293 1379 4427 10214 10243 10300 12160 12188 12217 12245 12273 
+	}
+
+	local_supplies = 0.0 
+}

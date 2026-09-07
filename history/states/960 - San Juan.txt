@@ -1,0 +1,35 @@
+state = {
+	id = 960
+	name = "STATE_960"
+	manpower = 2403049
+	
+	state_category = rural
+
+	history = {
+
+		owner = ARG
+		add_extra_state_shared_building_slots = 4
+		add_core_of = ARG
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+
+		victory_points = {
+			2136 2 
+		}
+
+		victory_points = {
+			12978 1 
+		}
+
+	}
+
+	provinces = {
+		2136 8253 12928 12978
+	}
+
+	local_supplies = 0.0 
+}

@@ -1,0 +1,33 @@
+state=
+{
+	id=145
+	name="STATE_145" #ÅLAND
+	manpower = 49311
+	
+	state_category = small_island
+	
+	history = {
+		owner = FIN
+		add_extra_state_shared_building_slots = 4
+		
+		victory_points = { #Mariehman
+			9228 1
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 5 #MM: Was 3
+			9228 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = FIN
+	}
+	
+	provinces=	{
+		9228
+	}
+
+	local_supplies=0.0 
+}

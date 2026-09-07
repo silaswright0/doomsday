@@ -1,0 +1,23 @@
+state = {
+	id = 1089
+	name = "STATE_1089"
+	manpower = 1200000
+	state_category = rural
+	history = {
+		owner = HEZ
+		add_extra_state_shared_building_slots = 4
+		add_core_of = HEZ
+		add_core_of = LEB
+		victory_points = { 11919 2 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+			11919 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		11919
+	}
+	local_supplies = 0.0
+}

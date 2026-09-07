@@ -1,0 +1,22 @@
+state = {
+	id = 886
+	name = "STATE_886"
+	manpower = 8050827
+	state_category = pastoral
+	history = {
+		owner = SUD
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SUD
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1914 4918 10743 10784 12862 12887 
+	}
+	
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+}

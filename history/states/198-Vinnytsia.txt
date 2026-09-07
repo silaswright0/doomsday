@@ -1,0 +1,30 @@
+
+state = {
+	id = 198
+	name = "STATE_198"
+	manpower = 1847878
+
+	state_category = large_town
+
+	history = {
+		victory_points = {
+			476 3
+		}
+		owner = UKR
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2 #was: 5
+			air_base = 3
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+	}
+
+	provinces = {
+		476 6455 6480 9435 9481
+	}
+
+	local_supplies = 0.0 
+}

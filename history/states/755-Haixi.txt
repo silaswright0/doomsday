@@ -1,0 +1,33 @@
+state={
+	id=755
+	name="STATE_755"
+	provinces={
+		2053 2099 7997 10750 10796 10834 10865 12846 12890 13146 13381
+	}
+	manpower = 2962670
+	buildings_max_level_factor=1.000
+	state_category = pastoral
+
+	history = {
+
+		owner = CHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+
+		victory_points = {
+			10750 1 # Dulan  
+		}
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 3
+			industrial_complex = 0
+		}
+
+
+	}
+
+	local_supplies = 0.0 
+}

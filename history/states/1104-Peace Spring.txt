@@ -1,0 +1,23 @@
+state = {
+	id = 1104
+	name = "STATE_1104"
+	manpower = 350000
+	state_category = pastoral
+	history = {
+		owner = SNA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SNA
+		add_core_of = SYR
+		add_core_of = ROJ
+		victory_points = { 1578 2 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1578 1634
+	}
+	local_supplies = 0.0
+}

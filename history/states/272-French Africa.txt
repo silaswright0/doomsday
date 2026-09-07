@@ -1,0 +1,35 @@
+
+state={
+	id=272
+	name="STATE_272"
+	manpower = 18000000
+	resources={
+		steel=3 # was: 4
+	}
+	
+	state_category = pastoral
+
+	history={
+		owner = SEN
+		add_extra_state_shared_building_slots = 5
+		add_core_of = SEN
+		victory_points = {
+			4948 5 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 1
+			infrastructure = 2
+			air_base = 4
+			4948 = {
+				naval_base = 3
+			}
+		}
+	}
+
+	provinces={
+		2100 4948 7972 8015 12710 12834 
+	}
+
+	local_supplies=1.0 
+}

@@ -1,0 +1,35 @@
+state = {
+	id = 753
+	name = "STATE_753"
+	
+	manpower = 8888009
+	buildings_max_level_factor = 1.000
+	state_category = rural
+
+	history = {
+
+		owner = CHI
+		add_extra_state_shared_building_slots = 5
+		add_core_of = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+
+		victory_points = {
+			5193 1 # Minsien
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 1
+			infrastructure = 3
+		}
+
+
+	}
+
+	provinces = {
+		1257 2045 4375 4403 5193 9966 10787 10903 
+	}
+	local_supplies = 1.0 
+
+}

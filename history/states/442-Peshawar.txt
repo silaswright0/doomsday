@@ -1,0 +1,33 @@
+
+state={
+	id=442
+	name="STATE_442"
+	manpower = 38424378
+	resources={
+		steel=3
+	}
+	state_category = wasteland
+
+	history={
+		victory_points = {
+			12763 3
+		}
+		owner = PAK
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+			air_base = 1
+		}
+		add_core_of = NWF
+		add_core_of = PAK
+		add_core_of = KHL
+	}
+
+	provinces={
+		 4558 12717 12763 
+	}
+
+	local_supplies=5.0 
+}

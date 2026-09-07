@@ -1,0 +1,22 @@
+state = {
+	id = 1096
+	name = "STATE_1096"
+	manpower = 125000
+	state_category = tiny_island
+	history = {
+		owner = GND
+		add_extra_state_shared_building_slots = 4
+		add_core_of = GND
+		victory_points = { 11106 1 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+			11106 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		11106
+	}
+	local_supplies = 0.0
+}

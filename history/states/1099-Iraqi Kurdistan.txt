@@ -1,0 +1,24 @@
+state = {
+	id = 1099
+	name = "STATE_1099"
+	manpower = 6500000
+	state_category = town
+	history = {
+		owner = KUR
+		add_extra_state_shared_building_slots = 5
+		add_core_of = KUR
+		add_core_of = IRQ
+		victory_points = { 3916 5 }
+		victory_points = { 6826 3 }
+		victory_points = { 10811 2 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 1
+			infrastructure = 3
+		}
+	}
+	provinces = {
+		3916 6826 5014 10811
+	}
+	local_supplies = 0.0
+}

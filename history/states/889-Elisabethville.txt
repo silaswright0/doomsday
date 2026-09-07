@@ -1,0 +1,48 @@
+state = {
+	id = 889
+	name = "STATE_889"
+	manpower = 9825661
+	state_category = pastoral
+
+	resources = {
+		tungsten = 2
+		coal = 4
+	}
+
+	history = {
+
+		owner = COG
+		add_extra_state_shared_building_slots = 4
+
+		IF = {
+			limit = {
+				has_dlc = "Gotterdammerung"
+			}
+			transfer_state_to = COG
+			add_dynamic_modifier = {
+				modifier = COG_state_loyal_to_free_congo_modifier
+			}
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+		}
+
+		add_core_of = COG
+		add_core_of = KAT
+
+		victory_points = {
+			191 2 # Elizabehville
+		}
+
+	}
+	
+	provinces = {
+		191 1516 1817 1968 4515 12795 12907 
+	}
+
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+}

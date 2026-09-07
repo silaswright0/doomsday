@@ -1,0 +1,22 @@
+state = {
+	id = 1088
+	name = "STATE_1088"
+	manpower = 1154356
+	state_category = pastoral
+	history = {
+		owner = ISR
+		add_extra_state_shared_building_slots = 5
+		add_core_of = ISR
+		add_core_of = SYR
+		victory_points = { 1074 1 }
+		buildings = {
+			arms_factory = 1
+			industrial_complex = 0
+			infrastructure = 4
+		}
+	}
+	provinces = {
+		1074
+	}
+	local_supplies = 0.0
+}

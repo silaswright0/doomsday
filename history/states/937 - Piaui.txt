@@ -1,0 +1,35 @@
+
+state = {
+	id = 937
+	name = "STATE_937"
+	manpower = 8842217
+	
+	state_category = rural
+	
+	resources = {
+	}
+
+	history = {
+
+		owner = BRA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = BRA
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 2
+			industrial_complex = 0
+		}
+
+		victory_points = {
+			5153 1 
+		}
+
+	}
+
+	provinces = {
+		2228 5153 5204 10984 13275
+	}
+
+	local_supplies = 0.0 
+}

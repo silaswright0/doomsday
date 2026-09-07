@@ -1,0 +1,30 @@
+state={
+	id=692
+	name="STATE_692"
+	manpower = 280000
+	state_category = small_island
+
+	history={
+		add_core_of = BAS
+		owner = BRB
+		add_extra_state_shared_building_slots = 4
+		add_core_of = BRB
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+			11350 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			11350 1
+		}
+	}
+	
+	provinces={
+		11350
+	}
+
+	local_supplies=4.0 
+}

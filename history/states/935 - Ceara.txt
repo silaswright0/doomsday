@@ -1,0 +1,37 @@
+
+state = {
+	id = 935
+	name = "STATE_935"
+	manpower = 8016943 # A third from Rio Grande
+
+	state_category = town
+
+	history = {
+
+		owner = BRA
+		add_extra_state_shared_building_slots = 4
+
+		add_core_of = BRA
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 2 #was: 5
+			industrial_complex = 0
+
+			5107 = {
+				naval_base = 3
+			}
+		}
+
+		victory_points = {
+			5107 2 
+		}
+	}
+
+	provinces = {
+		2132 2178 5107 8179
+	}
+	
+
+	local_supplies = 0.0 
+}

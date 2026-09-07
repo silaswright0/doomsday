@@ -1,0 +1,27 @@
+state = {
+	id = 862
+	name = "STATE_862"
+	manpower = 312842
+	state_category = rural
+	
+	history = {
+
+		owner = CAN
+		add_extra_state_shared_building_slots = 4
+		add_core_of = CAN
+		add_core_of = QUE
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+		}
+
+	}
+	
+	provinces = {
+		983 1341 1764 3911 7435 7875 10249 10700 11682 11902 12205 12276 
+	}
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+}

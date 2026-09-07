@@ -1,0 +1,29 @@
+
+state={
+	id=549
+	name="STATE_549" #Kurdufan / was "Sudan"
+	
+	manpower = 21946163
+
+	history = {
+		
+		owner = SUD
+		add_extra_state_shared_building_slots = 5
+		add_core_of = SUD
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 1
+			infrastructure = 1
+
+		}
+
+	}
+
+	provinces={
+		2016 4033 8052 8084 10739 10795 10827 10851 12744 
+	}
+
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=0.000
+}

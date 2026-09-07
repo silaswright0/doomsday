@@ -1,0 +1,28 @@
+
+state={
+	id=308
+	name="STATE_308"
+	manpower = 100000
+	state_category = tiny_island
+
+	history={
+		add_core_of = BAS
+		owner = ATG
+		add_extra_state_shared_building_slots = 4
+		add_core_of = ATG
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+			4450 = {
+				naval_base = 1
+			}
+		}
+	}
+
+	provinces={
+		4450
+	}
+
+	local_supplies=0.0 
+}

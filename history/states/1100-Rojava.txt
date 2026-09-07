@@ -1,0 +1,23 @@
+state = {
+	id = 1100
+	name = "STATE_1100"
+	manpower = 2800000
+	state_category = rural
+	history = {
+		owner = ROJ
+		add_extra_state_shared_building_slots = 4
+		add_core_of = ROJ
+		add_core_of = SYR
+		victory_points = { 1549 5 }
+		victory_points = { 6883 3 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		1549 1606 6883 901 2013 10882 12316
+	}
+	local_supplies = 0.0
+}

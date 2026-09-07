@@ -1,0 +1,32 @@
+
+state={
+	id=641
+	name="STATE_641"
+	manpower = 167095
+	state_category = small_island
+
+	history={
+		owner = FRA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = FRA
+		add_core_of = TAH
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+			air_base = 1
+			12148 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			12148 1
+		}
+	}
+
+	provinces={
+		10188 12148 
+	}
+
+	local_supplies=0.0 
+}

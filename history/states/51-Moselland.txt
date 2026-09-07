@@ -1,0 +1,50 @@
+state = {
+	id = 51
+	name = "STATE_51"
+	manpower = 9332945
+	resources = {
+		steel = 35  #was 18 #was 30 was: 54
+		coal = 60 # initial distribution / 660 total
+	}
+
+	state_category = megalopolis #was metropolis, 2 slots diff
+	
+	history = {
+
+		owner = GER
+		add_extra_state_shared_building_slots = 11
+		add_core_of = GER
+		add_core_of = RHI
+		add_core_of = PRE
+
+		victory_points = {
+			6469 10 # Essen
+		}
+
+		victory_points = {
+			587 5 # Köln
+		}
+
+		#victory_points = {
+		#	3444 5 # Düsseldorf
+		#}
+
+		#victory_points = {
+		#	3547 1 # Bonn
+		#}
+
+		buildings = {
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 6 #WAS 2
+			air_base = 3
+		}
+
+	}
+
+	provinces = {
+		529 587 3444 3512 3547 6469 6570 9482 9522 
+	}
+	
+	local_supplies = 0.0 
+}

@@ -1,0 +1,29 @@
+state={
+	id=784
+	name="STATE_784"
+	manpower = 532816
+	
+	state_category = rural
+	
+	history={
+		owner = LIT
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			3320 3
+		}
+		buildings = {
+			arms_factory = 0
+			infrastructure = 4 #was: 5
+			industrial_complex = 0
+			air_base = 5
+		}
+		add_core_of = POL
+		add_core_of = LIT
+	}
+
+	provinces={
+		3320 9274 9295 11342
+	}
+
+	local_supplies=0.0 
+}

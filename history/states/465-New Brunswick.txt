@@ -1,0 +1,38 @@
+state = {
+	id = 465
+	name = "STATE_465"
+	manpower = 1857578
+	
+	state_category = rural
+
+	history = {
+
+		owner = CAN
+		add_extra_state_shared_building_slots = 4
+		add_core_of = CAN
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 4 #was: 5
+			industrial_complex = 0
+			4285 = {
+				naval_base = 2
+			}
+		}
+
+		victory_points = {
+			1424 2 
+		}
+
+		victory_points = {
+			4285 1 
+		}
+		
+	}
+
+	provinces = {
+		634 1424 4285 4342 4362 4432 7379 12289 
+	}
+
+	local_supplies = 0.0 
+}

@@ -1,0 +1,28 @@
+state=
+{
+	id=311
+	name="STATE_311"
+	manpower = 410000
+	
+	state_category = pastoral
+	history=
+	{
+		add_core_of = BLZ
+		owner = BLZ
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			2077 1 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+			2077 = {
+				naval_base = 1
+			}
+		}
+	}
+	provinces= { 2077 }
+
+	local_supplies=0.0 
+}

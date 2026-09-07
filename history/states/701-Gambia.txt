@@ -1,0 +1,33 @@
+state={
+	id=701
+	name="STATE_701"
+
+	history={
+		owner = GAM
+		add_extra_state_shared_building_slots = 4
+		add_core_of = GAM
+		victory_points = {
+			4989 1 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+			4989 = {
+				naval_base = 1
+
+			}
+
+		}
+
+	}
+
+	provinces={
+		4989 13213 
+	}
+	manpower = 2800000
+	buildings_max_level_factor=1.000
+	state_category=enclave
+
+	local_supplies=0.0 
+}

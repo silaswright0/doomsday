@@ -1,0 +1,36 @@
+state = {
+	id = 1068
+	name = "STATE_1068"
+	manpower = 1356576
+	
+	state_category = pastoral
+
+	history = {
+
+		owner = LAO
+		add_extra_state_shared_building_slots = 4
+		add_core_of = LAO
+		add_core_of = CPS
+
+		victory_points = {
+			1592 1 # Champasak 
+		}
+
+		victory_points = {
+			1563 2 # Pakse 
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+
+	}
+
+	provinces = {
+		1374 1592 1563 1577 4554 7426 10453 12210 
+	}
+
+	local_supplies = 0.0 
+}

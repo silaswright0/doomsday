@@ -1,0 +1,32 @@
+state = {
+
+	id = 624
+	name = "STATE_624" # Central Islands
+	manpower = 9846976 
+
+	resources={
+		steel=7 # was: 0
+	}
+
+	state_category = town
+	
+	history = {
+
+		owner = PHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = PHI
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 2
+			industrial_complex = 0
+		}
+		
+	}
+
+	provinces = {
+		1372 4228 4377 7307 10306 12279 
+	}
+
+	local_supplies = 0.0 
+}

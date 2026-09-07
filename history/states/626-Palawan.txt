@@ -1,0 +1,29 @@
+state=
+{
+	id=626
+	name="STATE_626"
+	manpower = 1693799
+	
+	state_category = pastoral
+	
+	history=
+	{
+		owner = PHI
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+			4429 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = PHI
+
+	}
+	provinces={
+		4429 7419 10145 
+	}
+
+	local_supplies=0.0 
+}

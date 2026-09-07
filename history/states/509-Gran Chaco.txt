@@ -1,0 +1,36 @@
+state = {
+	id = 509
+	name = "STATE_509" # Chaco Australis
+	manpower = 1920237
+	
+	state_category = rural
+	
+	resources = {
+		tungsten = 30 # was: 46, then 35
+		steel = 4 # was: 8, then 6
+	}
+
+	history = {
+
+		owner = ARG
+		add_extra_state_shared_building_slots = 4
+		add_core_of = ARG
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 3
+			industrial_complex = 0
+		}
+
+		victory_points = {
+			2106 1 
+		}
+		
+	}
+
+	provinces = {
+		2106 2208 5143 5213 8169 8255 10965 10986  
+	}
+
+	local_supplies = 6.0 
+}

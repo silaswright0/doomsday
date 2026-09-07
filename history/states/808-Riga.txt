@@ -1,0 +1,35 @@
+
+state={
+	id=808
+	name="STATE_808"
+	resources={
+		steel=1.000
+	}
+
+	history={
+		owner = LAT
+		add_extra_state_shared_building_slots = 5
+		victory_points = {
+			9340 5 
+		}
+		buildings = {
+			infrastructure = 4 #was: 5
+			arms_factory = 0
+			industrial_complex = 1
+			air_base = 3
+			9340 = {
+				naval_base = 3
+			}
+
+		}
+		add_core_of = LAT
+
+	}
+
+	provinces={
+		9240 9340 10323 
+	}
+	manpower = 385944
+	buildings_max_level_factor=1.000
+	state_category=city
+}

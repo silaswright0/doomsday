@@ -1,0 +1,24 @@
+state = {
+	id = 1105
+	name = "STATE_1105"
+	manpower = 4500000
+	state_category = rural
+	history = {
+		owner = PNT
+		add_extra_state_shared_building_slots = 4
+		add_core_of = PNT
+		add_core_of = SOM
+		victory_points = { 1966 2 }
+		victory_points = { 10891 1 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+			1966 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		1966 10891 4909
+	}
+	local_supplies = 0.0
+}

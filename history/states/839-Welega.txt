@@ -1,0 +1,50 @@
+state = {
+	id = 839 # Welega
+	name = "STATE_839"
+	manpower = 7571702
+	resources = {
+	}
+	
+	state_category = pastoral
+
+	history = {
+		set_variable = { ETH_state_development_production_speed = -0.3 }
+		set_variable = { ETH_state_development_local_building_slots_factor = -0.3 }
+		#set_variable = { ETH_state_decentralization_defence = 0.2 }
+		#set_variable = { ETH_state_decentralization_infrastructure = -0.3 }
+		#set_variable = { ETH_state_decentralization_resources = -0.3 }
+		add_dynamic_modifier = {
+			modifier = ETH_state_development_dynamic_modifier
+		}
+		add_dynamic_modifier = {
+			modifier = ETH_state_decentralization_dynamic_modifier
+			scope = ETH
+		}
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			# infrastructure = 2
+		}
+		
+		victory_points = { 
+			2009 2 
+		}
+		victory_points = { 
+			13243 1 
+		}
+		
+		owner = ETH
+		add_extra_state_shared_building_slots = 4
+		add_core_of = ETH
+		add_core_of = BEG
+		add_core_of = ORO
+
+	}
+
+	provinces = {
+ 		2009 12856 13243
+ 	}
+
+	local_supplies = 0.0 
+}

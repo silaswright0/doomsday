@@ -1,0 +1,29 @@
+
+state = {
+	id = 874
+	name = "STATE_874" # Magadan
+	manpower = 84658
+	state_category = pastoral
+	
+	history = {
+		victory_points = { 
+			12683 1 
+		}
+
+		owner = SOV
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+		add_core_of = SOV
+		add_core_of = FER
+	}
+
+	provinces = {
+		1865 10540 12683
+	}
+
+	local_supplies = 0.0 
+}

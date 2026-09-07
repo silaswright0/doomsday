@@ -1,0 +1,21 @@
+state = {
+	id = 1107
+	name = "STATE_1107"
+	manpower = 2500000
+	state_category = town
+	history = {
+		owner = M23
+		add_core_of = M23
+		add_core_of = COG
+		victory_points = { 1181 5 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		1181
+	}
+	local_supplies = 0.0
+}

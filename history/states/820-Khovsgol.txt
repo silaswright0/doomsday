@@ -1,0 +1,31 @@
+state = {
+	id = 820
+	name = "STATE_820"
+	provinces = {
+		1689 1791 1834 4882 7676 7717 12579 12649 
+	}
+
+	history = {
+		owner = MON
+		add_extra_state_shared_building_slots = 4
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+
+		victory_points = {
+			7717 2 #Darkhan, was in 1791 before
+		}
+		victory_points = {
+			7676 1 #Erdenet, was in 1834 before
+		}
+
+		add_core_of = MON
+	}
+	manpower = 399870
+	buildings_max_level_factor=1.000
+	state_category = pastoral
+	local_supplies = 0.000
+}

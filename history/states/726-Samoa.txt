@@ -1,0 +1,36 @@
+state = {
+	id = 726
+	name = "STATE_726"
+	manpower = 113214
+	state_category = small_island
+
+	history = {
+
+		owner = SAM
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SAM
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+			7290 = {
+				naval_base = 1
+			}
+		} 
+
+		victory_points = {
+			7290 2 # Apia 
+		}
+
+		victory_points = {
+			13412 1 # Safotulafai  
+		}
+	}
+
+	provinces = {
+		7290 13412 
+	}
+
+	local_supplies = 0.0 
+}

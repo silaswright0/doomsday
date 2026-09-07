@@ -1,0 +1,21 @@
+state = {
+	id = 1111
+	name = "STATE_1111"
+	manpower = 1200000
+	state_category = town
+	history = {
+		owner = SWZ
+		add_extra_state_shared_building_slots = 5
+		add_core_of = SWZ
+		victory_points = { 7900 3 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 1
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		7900
+	}
+	local_supplies = 0.0
+}

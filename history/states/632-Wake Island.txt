@@ -1,0 +1,31 @@
+
+state={
+	id=632
+	name="STATE_632"
+	manpower = 2722
+	state_category = tiny_island
+
+	history={
+		owner = USA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = USA
+		add_core_of = GUM
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+			13047 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			13047 1 
+		}
+
+	}
+	provinces={
+		13047 
+	}
+
+	local_supplies=0.0 
+}

@@ -1,0 +1,43 @@
+
+state = {
+	id = 144
+	name = "STATE_144" # Nordland
+	manpower = 253212 # 355251
+	
+	state_category = rural
+	
+	resources = {
+		steel = 6
+	}
+
+	history = {
+		victory_points = {
+			192 5
+		}
+		victory_points = {
+			9126 1
+		}
+		
+		owner = NOR
+		add_extra_state_shared_building_slots = 4
+		add_core_of = NOR
+		add_core_of = SMI
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 5
+			air_base = 1
+			192 = {
+				naval_base = 3
+			}
+			
+		}
+	}
+
+	provinces = {
+		38 192 3034 3132 3145 9126 11157 6214
+	}
+
+	local_supplies = 0.0 
+}

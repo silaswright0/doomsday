@@ -1,0 +1,32 @@
+state = {
+	id = 765
+	name = "STATE_765"
+	manpower = 2800000
+	state_category = pastoral
+
+	history = {
+		
+		owner = QAT
+		add_extra_state_shared_building_slots = 6
+		add_core_of = QAT
+
+		victory_points = {
+			8051 1 # Doha
+		}
+
+		buildings = {
+			arms_factory = 1
+			industrial_complex = 1
+			infrastructure = 4
+			8051 = {
+				naval_base = 2
+			}
+		}
+	}
+
+	provinces = {
+		8051
+	}
+
+	local_supplies = 0.0 
+}

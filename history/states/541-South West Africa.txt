@@ -1,0 +1,32 @@
+
+state={
+	id=541
+	name="STATE_541"
+	manpower = 1650000
+	state_category = pastoral
+
+	history={
+		owner = NMB
+		add_extra_state_shared_building_slots = 5
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 1
+			infrastructure = 2
+
+		}
+		victory_points = {
+			4879 1 
+		}
+		add_core_of = SAF
+		add_core_of = NMB
+
+	}
+
+	provinces={
+		2207 4879 7770 
+	}
+	
+	buildings_max_level_factor=1.000
+	
+	local_supplies=0.000
+}

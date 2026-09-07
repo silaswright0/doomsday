@@ -1,0 +1,43 @@
+state = {
+	id = 1039
+	name = "STATE_1039" # South Chahar
+	manpower = 1088781
+	
+	state_category = pastoral
+
+	history = {
+
+		owner = CHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = MEN
+		add_core_of = CHI
+		add_core_of = PRC
+
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3 #was 2
+			1590 = {
+				landmark_great_wall_section = {
+				    level = 1
+				    allowed = {
+				        has_dlc = "No Compromise, No Surrender"
+				    }
+				}
+			}
+		}
+		
+		victory_points = {
+			6904 3 # Kalgan #was 4
+		}
+
+
+	}
+
+	provinces = {
+		1137 1590 6904 9776
+	}
+
+	local_supplies = 0.0 
+}
