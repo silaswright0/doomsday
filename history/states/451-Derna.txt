@@ -2,13 +2,14 @@
 state={
 	id=451
 	name="STATE_451"
-	manpower = 443605
+	manpower = 528174
 	
 	state_category = wasteland
 
 	history={
-		owner = LBA
+		owner = LNA
 		add_extra_state_shared_building_slots = 4
+		add_core_of = LNA
 		
 		victory_points = {
 			1130 5 

@@ -7,7 +7,7 @@
 1085 Gaza (HAM) from 454 Israel — province 4088
 1086 West Bank (PAL) from 454 Israel — province 7107
 1087 Northern Cyprus (NCY) from 183 Cyprus — province 11984
-1088 Golan Heights (ISR) from 554 Damascus — province 1074
+1088 Golan Heights (ISR) from 554 Damascus — province 1074, western strip only (east painted to 7184)
 1089 South Lebanon (HEZ) from 553 Lebanon — province 11919
 1090 US Virgin Islands (USA) from 686 Puerto Rico — 4155
 1091 Martinique (FRA) from 694 — 177
@@ -30,6 +30,7 @@
 1109 Panjshir (NRF) from 1005 Qataghan — 10781
 1110 Lesotho (LES) from 719 Natal — 4556
 1111 Eswatini (SWZ) from 719 Natal — 7900
+1112 Guantanamo Bay (USA) from 315 Cuba — 7590, south-coast inlet (not Maisí)
 Transnistria 834 keeps 741 754 9576 9423 (Moldova-border tile, not 9435) and is thinned on the bmp
 """
 from __future__ import annotations
@@ -67,6 +68,21 @@ PMR_HINTERLAND_RGB = {
 PMR_MAX_PIXELS = 200
 PMR_BBOX = (3238, 3282, 548, 605)
 MELILLA_BBOX = (2750, 2774, 806, 828)
+# Golan 1074: keep the Israel-facing west; leftover is Syrian 7184.
+GOLAN_RGB = (5, 69, 45)
+GOLAN_SYRIA_RGB = (89, 171, 91)  # 7184 Damascus leftover
+GOLAN_BBOX = (3360, 3378, 841, 862)
+GOLAN_KEEP_COLS = 6
+GOLAN_MAX_PIXELS = 75
+# Guantanamo 7590: keep the south-coast bay inlet (gap at x=1633).
+# Leftover including Punta de Maisí is Cuban 1550.
+GTMO_RGB = (91, 120, 146)
+GTMO_CUBA_RGB = (7, 99, 15)  # 1550
+GTMO_BBOX = (1620, 1650, 842, 860)
+GTMO_BAY_MIN_Y = 855
+GTMO_BAY_MAX_X = 1636
+GTMO_BAY_X = 1633
+GTMO_MAX_PIXELS = 20
 
 
 def _copy_if_needed(name: str) -> Path:
@@ -139,6 +155,95 @@ def shrink_melilla_pixels(bmp_path: Path) -> None:
         if (x, y) not in keep:
             px[x, y] = MELILLA_HINTERLAND_RGB
     im.save(bmp_path)
+
+
+def shrink_golan_pixels(bmp_path: Path) -> None:
+    """Keep the western Israel-facing strip of 1074; east is Syrian hinterland."""
+    im = Image.open(bmp_path)
+    px = im.load()
+    x0, x1, y0, y1 = GOLAN_BBOX
+    pts = [
+        (x, y)
+        for y in range(y0, y1 + 1)
+        for x in range(x0, x1 + 1)
+        if px[x, y][:3] == GOLAN_RGB
+    ]
+    if len(pts) <= GOLAN_MAX_PIXELS:
+        return
+    min_x = min(x for x, _ in pts)
+    keep = {(x, y) for x, y in pts if x <= min_x + GOLAN_KEEP_COLS - 1}
+    if not keep:
+        return
+    for x, y in pts:
+        if (x, y) not in keep:
+            px[x, y] = GOLAN_SYRIA_RGB
+    im.save(bmp_path)
+
+
+def shrink_guantanamo_pixels(bmp_path: Path) -> None:
+    """Keep the south-coast inlet of 7590; Maisí and the rest go to Cuban 1550."""
+    vanilla = Image.open(VANILLA_MAP / "provinces.bmp")
+    vpx = vanilla.load()
+    im = Image.open(bmp_path)
+    px = im.load()
+    x0, x1, y0, y1 = GTMO_BBOX
+    # Always restore vanilla 7590/1550 first so a prior Maisí shrink can move.
+    for y in range(y0, y1 + 1):
+        for x in range(x0, x1 + 1):
+            rgb = vpx[x, y][:3]
+            if rgb in {GTMO_RGB, GTMO_CUBA_RGB}:
+                px[x, y] = rgb
+    pts = [
+        (x, y)
+        for y in range(y0, y1 + 1)
+        for x in range(x0, x1 + 1)
+        if px[x, y][:3] == GTMO_RGB
+    ]
+    bay = [
+        (x, y)
+        for x, y in pts
+        if y >= GTMO_BAY_MIN_Y and x <= GTMO_BAY_MAX_X
+    ]
+    if len(bay) > GTMO_MAX_PIXELS:
+        bay = sorted(bay, key=lambda p: (-p[1], abs(p[0] - GTMO_BAY_X)))[:GTMO_MAX_PIXELS]
+    keep = set(bay)
+    if not keep:
+        return
+    for x, y in pts:
+        if (x, y) not in keep:
+            px[x, y] = GTMO_CUBA_RGB
+    im.save(bmp_path)
+
+
+def nudge_guantanamo_unitstacks(path: Path) -> None:
+    """Put 7590 stacks on the south-coast inlet instead of the Maisí centroid."""
+    lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    out = []
+    changed = False
+    for line in lines:
+        if not line.startswith("7590;"):
+            out.append(line)
+            continue
+        parts = line.split(";")
+        if len(parts) >= 5:
+            try:
+                x = float(parts[2])
+                z = float(parts[4])
+            except ValueError:
+                out.append(line)
+                continue
+            if x >= 1633.5 and z >= 1195:
+                parts[2] = "1630.00"
+                parts[4] = "1192.00"
+                changed = True
+            elif z >= 1194 and x < 1633:
+                parts[4] = "1192.00"
+                changed = True
+            out.append(";".join(parts))
+        else:
+            out.append(line)
+    if changed:
+        path.write_text("\n".join(out) + "\n", encoding="utf-8")
 
 
 def thin_transnistria_pixels(bmp_path: Path, definition: Path) -> None:
@@ -308,6 +413,9 @@ def ensure_map_splits() -> None:
 
     shrink_ceuta_pixels(bmp)
     shrink_melilla_pixels(bmp)
+    shrink_golan_pixels(bmp)
+    shrink_guantanamo_pixels(bmp)
+    nudge_guantanamo_unitstacks(unitstacks)
     thin_transnistria_pixels(bmp, definition)
 
     patch_strategic_region()
@@ -488,6 +596,16 @@ def ensure_map_splits() -> None:
     clone_building_state(buildings, 1005, 1109)
     clone_building_state(buildings, 719, 1110)
     clone_building_state(buildings, 719, 1111)
+    clone_building_state(
+        buildings,
+        315,
+        1112,
+        extra=[
+            "1112;naval_base_spawn;1630.00;9.50;1192.00;0.38;7590",
+            "1112;floating_harbor;1630.00;9.50;1191.00;-2.76;7590",
+        ],
+    )
+    drop_building_province(buildings, 315, 7590)
 
 
 if __name__ == "__main__":

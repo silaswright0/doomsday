@@ -1,0 +1,35 @@
+ideas = {
+	country = {
+		TUR_western_libya_mission = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				send_volunteer_size = 1
+				send_volunteer_divisions_required = -0.75
+				air_volunteer_cap = 2
+			}
+		}
+		LBA_turkish_support = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.05
+				experience_gain_air_factor = 0.10
+			}
+		}
+		LNA_foreign_backing = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				experience_gain_army = 0.05
+			}
+		}
+	}
+}

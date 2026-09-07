@@ -2,13 +2,14 @@
 state={
 	id=449
 	name="STATE_449" # El Agheila
-	manpower = 393079
+	manpower = 468016
 	
 	state_category = wasteland
 
 	history={
-		owner = LBA
+		owner = LNA
 		add_extra_state_shared_building_slots = 4
+		add_core_of = LNA
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
@@ -18,7 +19,7 @@ state={
 	}
 
 	provinces={
-		1041 1198 4047 4057 10046 10117 12088 
+		1198 4047 4057 10046 10117 12088
 	}
 
 	local_supplies=0.0 

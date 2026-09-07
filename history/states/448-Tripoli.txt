@@ -2,13 +2,15 @@
 state={
 	id=448
 	name="STATE_448"
-	manpower = 4561038
+	manpower = 4626274
 	
 	state_category = town
 
 	history={
 		owner = LBA
 		add_extra_state_shared_building_slots = 5
+		victory_points = { 9980 3 }
+		add_core_of = LNA
 		
 		victory_points = {
 			1149 10 
@@ -26,7 +28,7 @@ state={
 	}
 
 	provinces={
-		1118 1149 1189 4194 7066 7209 9980 12039 
+		1118 1149 1189 4194 7066 7209 9980 12039 1041
 	}
 
 	local_supplies=0.0 

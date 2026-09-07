@@ -35,7 +35,7 @@ SOVEREIGN = {
     "SOV", "UKR", "BLR", "MOL", "PMR", "GEO", "ABK", "SOS", "ARM", "AZR", "KAZ", "UZB", "TMS", "KYR", "TAJ",
     "TUR", "GRE", "CYP", "NCY", "MLT",
     "SAU", "YEM", "HOU", "STC", "OMA", "UAE", "QAT", "KUW", "BHR", "IRQ", "KUR", "PER", "AFG", "NRF", "SYR", "ROJ", "DRZ", "SNA", "LEB",
-    "JOR", "ISR", "PAL", "HAM", "HEZ", "EGY", "LBA", "TUN", "ALG", "MOR", "WES",
+    "JOR", "ISR", "PAL", "HAM", "HEZ", "EGY", "LBA", "LNA", "TUN", "ALG", "MOR", "WES",
     "ETH", "ERI", "DJI", "SOM", "SML", "PNT", "JUB", "SHB", "KEN", "UGA", "TZN", "RWA", "BRD", "SUD", "SSD",
     "SAF", "LES", "SWZ", "NMB", "BOT", "ZIM", "ZAM", "MLW", "ANG", "MZB", "MAD", "COG", "M23", "RCG", "GAB",
     "EQG", "CMR", "CAR", "CHA", "NGA", "DAH", "TOG", "GHA", "IVO", "VOL", "MLI", "NGR",
@@ -120,6 +120,7 @@ FILENAME_OWNER = [
     (r"goma|north kivu", "M23"),
     (r"lesotho|maseru", "LES"),
     (r"eswatini|swaziland|mbabane", "SWZ"),
+    (r"guantanamo", "USA"),
     (r"southern transitional|hadhramaut", "STC"),
     (r"bangladesh|east bengal", "BAN"),
     (r"gaza", "HAM"),
@@ -302,6 +303,7 @@ def vanilla_history_names() -> dict[str, str]:
     names["NRF"] = "NRF - National Resistance Front.txt"
     names["LES"] = "LES - Lesotho.txt"
     names["SWZ"] = "SWZ - Eswatini.txt"
+    names["LNA"] = "LNA - Libyan National Army.txt"
     return names
 
 
@@ -812,13 +814,48 @@ SPLIT_NEW_STATES = [
         "vps": [(7900, 3)],
         "buildings": "\t\t\tinfrastructure = 2\n",
     },
+    {
+        "id": 1112,
+        "file": "1112-Guantanamo Bay.txt",
+        "from_id": 315,
+        "provinces": [7590],
+        "owner": "USA",
+        "cores": ["USA", "CUB"],
+        "category": "enclave",
+        "manpower": 8000,
+        "vps": [(7590, 1)],
+        "buildings": (
+            "\t\t\tinfrastructure = 3\n"
+            "\t\t\t7590 = { naval_base = 2 }\n"
+        ),
+    },
 ]
 
 # Move existing provinces onto another leftover state (no new ID).
 MOVE_PROVINCES = [
     {"from_id": 198, "to_id": 834, "provinces": [9423]},  # Moldova-border tile west of Rîbnița → Transnistria
     {"from_id": 559, "to_id": 1106, "provinces": [2063]},  # south-central inland → Al-Shabaab
+    {"from_id": 449, "to_id": 448, "provinces": [1041]},  # Abu Grein coast west of Sirte → GNU
 ]
+
+# Extra cores on leftover vanilla states (civil-war claims). Owner core is added separately.
+EXTRA_CORES = {
+    448: ["LNA"],  # Tripoli — GNU-held, LNA claims
+    661: ["LNA"],  # Tripolitania / Nafusa
+}
+
+# VPs missing from vanilla leftovers.
+EXTRA_VPS = {
+    448: [(9980, 3)],   # Misrata
+    662: [(7136, 5), (8069, 2)],  # Sirte + Al Jufra
+}
+
+# History-file ideas (defined in common/ideas/doomsday_libya.txt).
+COUNTRY_IDEAS = {
+    "TUR": ["TUR_western_libya_mission"],
+    "LBA": ["LBA_turkish_support"],
+    "LNA": ["LNA_foreign_backing"],
+}
 
 
 # Attacker -> targets. Occupied controllers without a matching war hang CreateMapModes.
@@ -982,6 +1019,7 @@ def pick_owner(state: dict) -> str:
         1109: "NRF",   # Panjshir
         1110: "LES",   # Lesotho
         1111: "SWZ",   # Eswatini
+        1112: "USA",   # Guantanamo Bay (south-coast inlet of 7590)
         231: "GEO",    # Georgia proper
         101: "GRN",    # Greenland — Kingdom of Denmark puppet
         78: "MOL",
@@ -1061,6 +1099,14 @@ def pick_owner(state: dict) -> str:
         705: "STP",    # São Tomé and Príncipe
         709: "SEY",    # Seychelles
         636: "FIJ",
+        448: "LBA",   # Tripoli — GNU
+        661: "LBA",   # Tripolitania / Nafusa / Zintan — GNU
+        662: "LNA",   # Sirte + Al Jufra — LNA (273 force-links here)
+        449: "LNA",   # El Agheila leftover east of Abu Grein — LNA
+        450: "LNA",   # Benghazi — LNA capital
+        451: "LNA",   # Derna / Tobruk
+        663: "LNA",   # Cyrenaica inland
+        273: "LNA",   # Fezzan / Libyan Desert (force_link_ownership_to 662)
     }
     if sid in HARD:
         return HARD[sid]
@@ -1118,7 +1164,8 @@ def pick_owner(state: dict) -> str:
         (r"algeria", "ALG"),
         (r"morocco|casablanca|rif", "MOR"),
         (r"tunisia", "TUN"),
-        (r"libya|tripoli|cyrenaica", "LBA"),
+        (r"tripoli|tripolitania", "LBA"),
+        (r"sirte|bengh|derna|cyrenaica|libyan coast|el agheila|italian africa", "LNA"),
         (r"egypt|cairo|alexandria", "EGY"),
         (r"sudan|khartoum", "SUD"),
         (r"kenya", "KEN"),
@@ -1254,6 +1301,17 @@ def write_state(state: dict, owner: str, manpower: int, civs: int, mils: int, do
     text = re.sub(r"\s*set_demilitarized_zone\s*=\s*yes", "", text)
     if not re.search(rf"\badd_core_of\s*=\s*{owner}\b", text):
         text = re.sub(r"(\bowner\s*=\s*[A-Z]{3})", rf"\1\n\t\tadd_core_of = {owner}", text, count=1)
+    for extra in EXTRA_CORES.get(state["id"], []):
+        if not re.search(rf"\badd_core_of\s*=\s*{extra}\b", text):
+            text = re.sub(r"(\bowner\s*=\s*[A-Z]{3})", rf"\1\n\t\tadd_core_of = {extra}", text, count=1)
+    for pid, val in EXTRA_VPS.get(state["id"], []):
+        if not re.search(rf"victory_points\s*=\s*\{{\s*{pid}\b", text):
+            text = re.sub(
+                r"(\bowner\s*=\s*[A-Z]{3})",
+                rf"\1\n\t\tvictory_points = {{ {pid} {val} }}",
+                text,
+                count=1,
+            )
     cat_slots = {
         "megalopolis": 12, "metropolis": 10, "large_city": 8, "city": 6,
         "large_town": 5, "town": 4, "large_island": 3, "rural": 2,
@@ -1340,6 +1398,10 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
         f"set_war_support = {ws}",
         f"set_convoys = {convoys}",
         TECH_BLOCK,
+    ]
+    for idea in COUNTRY_IDEAS.get(tag, []):
+        lines.append(f"add_ideas = {idea}")
+    lines += [
         "set_politics = {",
         f"	ruling_party = {intology(ideology)}",
         '	last_election = "2024.1.1"',
@@ -1542,8 +1604,10 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' SWZ_ADJ:0 "Swazi"',
         ' STATE_1110:0 "Lesotho"',
         ' STATE_1111:0 "Eswatini"',
+        ' STATE_1112:0 "Guantanamo Bay"',
         ' VICTORY_POINTS_4556:0 "Maseru"',
         ' VICTORY_POINTS_7900:0 "Mbabane"',
+        ' VICTORY_POINTS_7590:0 "Guantanamo Bay"',
         ' STATE_676:0 "Mosul"',
         ' STATE_680:0 "Deir ez-Zor"',
         ' STATE_1084:0 "Mayotte"',
@@ -1601,12 +1665,34 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' VICTORY_POINTS_4088:0 "Gaza"',
         ' VICTORY_POINTS_7107:0 "Ramallah"',
         ' VICTORY_POINTS_13414:0 "Mamoudzou"',
+        ' LBA:0 "Government of National Unity"',
+        ' LBA_DEF:0 "the Government of National Unity"',
+        ' LBA_ADJ:0 "GNU"',
+        ' LNA:0 "Libyan National Army"',
+        ' LNA_DEF:0 "the Libyan National Army"',
+        ' LNA_ADJ:0 "LNA"',
+        ' VICTORY_POINTS_7136:0 "Sirte"',
+        ' VICTORY_POINTS_9980:0 "Misrata"',
+        ' VICTORY_POINTS_8069:0 "Al Jufra"',
+        ' TUR_western_libya_mission:0 "Western Libya Mission"',
+        ' TUR_western_libya_mission_desc:0 "Turkish drone bases and military advisors remain in western Libya, backing the Government of National Unity from Mitiga and the Tripoli hinterland."',
+        ' LBA_turkish_support:0 "Turkish Military Mission"',
+        ' LBA_turkish_support_desc:0 "Ankara supplies the GNU with advisors, Bayraktar drones, and a residual training mission along the western coast."',
+        ' LNA_foreign_backing:0 "Foreign Backing"',
+        ' LNA_foreign_backing_desc:0 "The LNA holds the Sirte-Jufra line with Russian Africa Corps contractors at Al Jufra, Egyptian border cover, and Emirati finance."',
     ]
+    LEADER_DESCS = {
+        "LBA": "Abdul Hamid Dbeibeh heads the Tripoli-based Government of National Unity. Mohamed al-Menfi remains Presidential Council chair, but the GNU's western ministries and militias answer to the prime minister.",
+        "LNA": "Field Marshal Khalifa Haftar commands the Benghazi-based Libyan National Army. His sons, notably Saddam Haftar, hold the key army and security posts that keep Cyrenaica and Fezzan in line.",
+    }
     for tag, row in countries.items():
         leader = row.get("leader") or tag
         country = row.get("name") or tag
-        lines.append(f' {tag}_LEADER_DESC:0 "{leader} leads {country} in 2026."')
-        if tag not in {"SOV", "RAJ", "CHI", "PER", "SIA", "HOL", "DPK", "SSD", "FOR", "KOR", "CZE", "KIR", "TUV", "NAU", "MHL", "MAU", "COM", "STP", "SEY", "WES", "SML", "NCY", "HAM", "HEZ", "HOU", "NUG", "ATG", "DMA", "STL", "SVG", "GND", "BRB", "PMR", "GRN", "KUR", "ROJ", "ABK", "SOS", "STC", "DRZ", "SNA", "PNT", "JUB", "SHB", "M23", "NRF", "LES", "SWZ"}:
+        if tag in LEADER_DESCS:
+            lines.append(f' {tag}_LEADER_DESC:0 "{LEADER_DESCS[tag]}"')
+        else:
+            lines.append(f' {tag}_LEADER_DESC:0 "{leader} leads {country} in 2026."')
+        if tag not in {"SOV", "RAJ", "CHI", "PER", "SIA", "HOL", "DPK", "SSD", "FOR", "KOR", "CZE", "KIR", "TUV", "NAU", "MHL", "MAU", "COM", "STP", "SEY", "WES", "SML", "NCY", "HAM", "HEZ", "HOU", "NUG", "ATG", "DMA", "STL", "SVG", "GND", "BRB", "PMR", "GRN", "KUR", "ROJ", "ABK", "SOS", "STC", "DRZ", "SNA", "PNT", "JUB", "SHB", "M23", "NRF", "LES", "SWZ", "LBA", "LNA"}:
             lines.append(f' {tag}:0 "{country}"')
     text = "\n".join(lines) + "\n"
     path = LOC_DIR / "doomsday_l_english.yml"
@@ -1657,6 +1743,7 @@ def main():
     capitals["NRF"] = 1109
     capitals["LES"] = 1110
     capitals["SWZ"] = 1111
+    capitals["LNA"] = 450
     capitals["BRN"] = 1023
     capitals["NMB"] = 541
     capitals["KIR"] = 639

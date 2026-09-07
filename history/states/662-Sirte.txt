@@ -1,14 +1,17 @@
 state={
 	id=662
 	name="STATE_662"
-	manpower = 128460
+	manpower = 152949
 	
 	state_category = wasteland
 	
 	
 	history={
-		owner = LBA
+		owner = LNA
 		add_extra_state_shared_building_slots = 4
+		victory_points = { 8069 2 }
+		victory_points = { 7136 5 }
+		add_core_of = LNA
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
