@@ -1,0 +1,25 @@
+state = {
+	id = 1121
+	name = "STATE_1121"
+	manpower = 3000000
+	state_category = pastoral
+	history = {
+		owner = SIO
+		add_core_of = SIO
+		add_core_of = SSD
+		add_core_of = SUD
+		victory_points = {
+			12800 2
+		}
+		victory_points = {
+			10859 1
+		}
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces = {
+		10859 12800
+	}
+	local_supplies = 0.0
+}

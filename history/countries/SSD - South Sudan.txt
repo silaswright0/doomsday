@@ -1,5 +1,5 @@
 # South Sudan - Doomsday 2026 skeleton
-capital = 885
+capital = 884
 oob = "DOOMSDAY_EMPTY"
 set_research_slots = 3
 set_stability = 0.45
@@ -321,4 +321,12 @@ create_country_leader = {
 	picture = GFX_portrait_unknown
 	ideology = despotism
 	traits = { }
+}
+declare_war_on = {
+	target = SIO
+	type = annex_everything
+}
+add_named_threat = {
+	threat = 1
+	name = DD_THREAT_SOUTH_SUDAN
 }

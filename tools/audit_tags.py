@@ -24,6 +24,8 @@ RENAME = {
     "CZE": "Czechia",
     "DPK": "North Korea",
     "SSD": "South Sudan",
+    "SIO": "SPLM-IO",
+    "AZA": "Azawad",
     "ENG": "United Kingdom",
 }
 

@@ -42,9 +42,9 @@ SOVEREIGN = {
     "TUR", "GRE", "CYP", "NCY", "MLT",
     "SAU", "YEM", "HOU", "YNR", "STC", "OMA", "UAE", "QAT", "KUW", "BHR", "IRQ", "KUR", "PER", "AFG", "NRF", "SYR", "ROJ", "DRZ", "SNA", "LEB",
     "JOR", "ISR", "PAL", "HAM", "HEZ", "EGY", "LBA", "LNA", "TUN", "ALG", "MOR", "WES",
-    "ETH", "ERI", "DJI", "SOM", "SML", "PNT", "JUB", "SHB", "KEN", "UGA", "TZN", "RWA", "BRD", "SUD", "RSF", "SSD",
+    "ETH", "ERI", "DJI", "SOM", "SML", "PNT", "JUB", "SHB", "KEN", "UGA", "TZN", "RWA", "BRD", "SUD", "RSF", "SSD", "SIO",
     "SAF", "LES", "SWZ", "NMB", "BOT", "ZIM", "ZAM", "MLW", "ANG", "MZB", "MAD", "COG", "M23", "RCG", "GAB",
-    "EQG", "CMR", "CAR", "CHA", "NGA", "DAH", "TOG", "GHA", "IVO", "VOL", "MLI", "JNM", "NGR",
+    "EQG", "CMR", "CAR", "CHA", "NGA", "DAH", "TOG", "GHA", "IVO", "VOL", "MLI", "AZA", "NGR",
     "SEN", "GAM", "GNA", "GNB", "SIE", "LIB", "MRT",
     "RAJ", "PAK", "BAN", "NEP", "BHU", "SRL", "BRM", "NUG", "SIA", "MAL", "SNG", "INS", "PHI",
     "VIN", "CAM", "LAO", "CHI", "MON", "KOR", "DPK", "JAP", "FOR", "TML", "BRN",
@@ -91,9 +91,9 @@ CORE_PRIORITY = [
     "ISR", "PAL", "HAM", "HEZ", "NCY", "CYP", "JOR", "LEB", "ROJ", "DRZ", "SNA", "SYR", "IRQ", "KUW", "UAE", "QAT", "BHR", "OMA", "YEM", "HOU", "YNR", "STC",
     "DPK", "KOR", "FOR", "VIN", "CAM", "LAO", "MAL", "SNG", "INS", "PHI", "TML", "BRN",
     "PLU", "FSM", "KIR", "TUV", "NAU", "MHL", "FIJ", "VAN", "SOL", "MAU", "COM", "STP", "SEY",
-    "ALG", "MOR", "WES", "TUN", "LBA", "EGY", "SUD", "RSF", "SSD", "ERI", "DJI",
+    "ALG", "MOR", "WES", "TUN", "LBA", "EGY", "SUD", "RSF", "SSD", "SIO", "ERI", "DJI",
     "KEN", "ETH", "SOM", "SML", "PNT", "JUB", "SHB", "UGA", "TZN", "RWA", "BRD",
-    "NGA", "GHA", "IVO", "SEN", "MLI", "JNM", "NGR", "CHA", "CMR", "COG", "M23", "RCG", "GAB", "ANG",
+    "NGA", "GHA", "IVO", "SEN", "MLI", "AZA", "NGR", "CHA", "CMR", "COG", "M23", "RCG", "GAB", "ANG",
     "MZB", "ZIM", "ZAM", "MLW", "SAF", "NMB", "BOT", "MAD", "LIB", "SIE", "GNA", "GNB",
     "VOL", "DAH", "TOG", "MRT", "GAM", "CAR", "EQG",
     "POL", "AUS", "CHI", "MON", "AST", "NZL", "CAN", "MEX", "USA",
@@ -106,6 +106,7 @@ FILENAME_OWNER = [
     (r"taiwan", "FOR"),
     (r"actual singapore", "SNG"),
     (r"south sudan", "SSD"),
+    (r"jonglei", "SIO"),
     (r"transnistria|tiraspol", "PMR"),
     (r"greenland", "GRN"),
     (r"srem|syrmia", "SER"),
@@ -131,8 +132,8 @@ FILENAME_OWNER = [
     (r"southern transitional|hadhramaut", "STC"),
     (r"bangladesh|east bengal", "BAN"),
     (r"gaza", "HAM"),
-    (r"gao", "JNM"),
-    (r"tombouctou|timbuktu", "JNM"),
+    (r"gao", "AZA"),
+    (r"tombouctou|timbuktu", "AZA"),
     (r"west bank", "PAL"),
     (r"north kashmir|northern kashmir", "PAK"),
     (r"kashmir", "RAJ"),
@@ -315,7 +316,8 @@ def vanilla_history_names() -> dict[str, str]:
     names["SWZ"] = "SWZ - Eswatini.txt"
     names["LNA"] = "LNA - Libyan National Army.txt"
     names["RSF"] = "RSF - Rapid Support Forces.txt"
-    names["JNM"] = "JNM - JNIM.txt"
+    names["SIO"] = "SIO - SPLM-IO.txt"
+    names["AZA"] = "AZA - Azawad.txt"
     return names
 
 
@@ -958,6 +960,18 @@ SPLIT_NEW_STATES = [
             "\t\t\t4206 = { naval_base = 3 }\n"
         ),
     },
+    {
+        "id": 1121,
+        "file": "1121-Jonglei.txt",
+        "from_id": 884,
+        "provinces": [10859, 12800],
+        "owner": "SIO",
+        "cores": ["SIO", "SSD", "SUD"],
+        "category": "pastoral",
+        "manpower": 3000000,
+        "vps": [(12800, 2), (10859, 1)],
+        "buildings": "\t\t\tinfrastructure = 1\n",
+    },
 ]
 
 # Move existing provinces onto another leftover state (no new ID).
@@ -972,6 +986,18 @@ MOVE_PROVINCES = [
 # Absorb a leftover vanilla state into another (provinces, VPs, manpower).
 MERGE_STATES = []
 
+# New provinces painted inside an existing state (city pockets, not new states).
+ADD_PROVINCES = {
+    782: [13417, 13418, 13419],  # Tinzaouaten, Tessalit, Kidal
+    898: [13420],  # Timbuktu
+}
+
+# Owner keeps the state; listed tag occupies these provinces at start (must be at war).
+PROVINCE_CONTROLLERS = {
+    782: ("MLI", [13419, 13418]),  # Kidal, Tessalit
+    898: ("MLI", [13420]),  # Timbuktu
+}
+
 # Extra cores on leftover vanilla states (civil-war claims). Owner core is added separately.
 EXTRA_CORES = {
     448: ["LNA"],  # Tripoli — GNU-held, LNA claims
@@ -983,10 +1009,10 @@ EXTRA_CORES = {
     886: ["RSF"],  # Blue Nile
     767: ["SUD"],  # North Darfur — RSF-held, SAF claims
     887: ["SUD"],  # South Darfur
-    898: ["MLI"],  # Gao — JNIM-held
-    782: ["MLI"],  # Timbuktu — force-linked to Gao
-    556: ["JNM"],  # Bamako leftover
-    899: ["JNM"],  # Kayes-Koulikoro
+    884: ["SIO"],  # Juba / Unity leftover — SPLM-IO claims
+    885: ["SIO"],  # Bahr al Ghazal — Kiir heartland, IO claims
+    898: ["MLI"],  # Gao — Azawad-held, Mali cores the north
+    782: ["MLI"],  # Kidal / Taoudenni — Azawad-held, Mali cores
 }
 
 # Morocco claims Western Sahara; it does not core the leftover coast or the Free Zone.
@@ -1005,6 +1031,8 @@ EXTRA_VPS = {
     887: [(10857, 5)],  # Nyala
     736: [(599, 2)],    # Koper
     196: [(3755, 3)],  # Kherson city after even split from 197
+    782: [(13417, 5), (13419, 3), (13418, 2)],  # Tinzaouaten, Kidal, Tessalit
+    898: [(13420, 3)],  # Timbuktu city pocket
 }
 
 # Province naval bases on leftover states after MOVE_PROVINCES.
@@ -1041,7 +1069,8 @@ START_WARS = {
     "SYR": ["ROJ", "SNA", "DRZ"],
     "ROJ": ["SNA"],
     "SUD": ["RSF"],
-    "MLI": ["JNM"],
+    "SSD": ["SIO"],
+    "MLI": ["AZA"],
     "WES": ["MOR"],
 }
 
@@ -1054,6 +1083,7 @@ START_THREATS = {
     "SYR": [(1, "DD_THREAT_SYRIA")],
     "BRM": [(1, "DD_THREAT_MYANMAR")],
     "SUD": [(1, "DD_THREAT_SUDAN")],
+    "SSD": [(1, "DD_THREAT_SOUTH_SUDAN")],
     "COG": [(1, "DD_THREAT_CONGO")],
     "NRF": [(1, "DD_THREAT_AFGHANISTAN")],
     "MLI": [(1, "DD_THREAT_SAHEL")],
@@ -1144,6 +1174,11 @@ def apply_map_splits(parsed: list[dict]) -> None:
         if stale.exists():
             stale.unlink()
     parsed[:] = [s for s in parsed if s["id"] not in {m["from_id"] for m in MERGE_STATES}]
+    by_id = {s["id"]: s for s in parsed}
+    for sid, extra in ADD_PROVINCES.items():
+        dst = by_id.get(sid)
+        if dst:
+            dst["raw"] = add_provinces_to_raw(dst["raw"], extra)
 
 
 def pick_owner(state: dict) -> str:
@@ -1217,6 +1252,7 @@ def pick_owner(state: dict) -> str:
         635: "FRA",    # New Caledonia
         884: "SSD",
         885: "SSD",
+        1121: "SIO",   # Jonglei / Nasir — White Army and SPLM-IO, 1 Jan 2026
         430: "BAN",
         1023: "BRN",
         541: "NMB",
@@ -1326,8 +1362,8 @@ def pick_owner(state: dict) -> str:
         886: "SUD",   # Blue Nile — SAF
         767: "RSF",   # North Darfur / El Fasher — RSF from Oct 2025
         887: "RSF",   # South Darfur / Nyala — RSF capital
-        898: "JNM",   # Gao — JNIM
-        782: "JNM",   # Timbuktu — force-linked to Gao
+        898: "AZA",   # Gao — Azawad desert; Mali holds Timbuktu city pocket
+        782: "AZA",   # Kidal / Taoudenni — Azawad; Mali holds Kidal and Tessalit pockets
         705: "STP",    # São Tomé and Príncipe
         709: "SEY",    # Seychelles
         636: "FIJ",
@@ -1569,7 +1605,7 @@ def write_state(
     text = re.sub(r"\bowner\s*=\s*[A-Z]{3}", f"owner = {owner}", text, count=1)
     # Vanilla North Darfur is impassable and force-linked to Khartoum. RSF cannot
     # own it independently unless both flags come off.
-    if state["id"] in {767, 887}:
+    if state["id"] in {767, 887, 782}:
         text = re.sub(r"\n[ \t]*impassable\s*=\s*yes", "", text)
         text = re.sub(r"\n[ \t]*force_link_ownership_to\s*=\s*\d+[^\n]*", "", text)
     occupier = OCCUPIED_BY.get(state["id"])
@@ -1602,6 +1638,21 @@ def write_state(
                 text,
                 count=1,
             )
+    text = re.sub(
+        r"\n[ \t]*[A-Z]{3}\s*=\s*\{\s*(?:set_province_controller\s*=\s*\d+\s*)+\}",
+        "",
+        text,
+    )
+    occ = PROVINCE_CONTROLLERS.get(state["id"])
+    if occ:
+        tag, pids = occ
+        inner = "".join(f"\n\t\t\tset_province_controller = {pid}" for pid in pids)
+        text = re.sub(
+            r"(\bowner\s*=\s*[A-Z]{3})",
+            rf"\1\n\t\t{tag} = {{{inner}\n\t\t}}",
+            text,
+            count=1,
+        )
     cat_slots = {
         "megalopolis": 12, "metropolis": 10, "large_city": 8, "city": 6,
         "large_town": 5, "town": 4, "large_island": 3, "rural": 2,
@@ -1811,6 +1862,12 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' SSD:0 "South Sudan"',
         ' SSD_DEF:0 "South Sudan"',
         ' SSD_ADJ:0 "South Sudanese"',
+        ' SIO:0 "SPLM-IO"',
+        ' SIO_DEF:0 "the SPLM-IO"',
+        ' SIO_ADJ:0 "SPLM-IO"',
+        ' STATE_1121:0 "Jonglei"',
+        ' VICTORY_POINTS_12800:0 "Nasir"',
+        ' VICTORY_POINTS_10859:0 "Akobo"',
         ' FOR:0 "Taiwan"',
         ' FOR_DEF:0 "Taiwan"',
         ' FOR_ADJ:0 "Taiwanese"',
@@ -2025,18 +2082,23 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' VICTORY_POINTS_10857:0 "Nyala"',
         ' STATE_767:0 "North Darfur"',
         ' STATE_887:0 "South Darfur"',
-        ' JNM:0 "JNIM"',
-        ' JNM_DEF:0 "JNIM"',
-        ' JNM_ADJ:0 "JNIM"',
+        ' AZA:0 "Azawad"',
+        ' AZA_DEF:0 "Azawad"',
+        ' AZA_ADJ:0 "Azawadi"',
         ' STATE_898:0 "Gao"',
-        ' STATE_782:0 "Timbuktu"',
+        ' STATE_782:0 "Kidal"',
+        ' VICTORY_POINTS_13417:0 "Tinzaouaten"',
+        ' VICTORY_POINTS_13418:0 "Tessalit"',
+        ' VICTORY_POINTS_13419:0 "Kidal"',
+        ' VICTORY_POINTS_13420:0 "Timbuktu"',
     ]
     LEADER_DESCS = {
         "LBA": "Abdul Hamid Dbeibeh heads the Tripoli-based Government of National Unity. Mohamed al-Menfi remains Presidential Council chair, but the GNU's western ministries and militias answer to the prime minister.",
         "LNA": "Field Marshal Khalifa Haftar commands the Benghazi-based Libyan National Army. His sons, notably Saddam Haftar, hold the key army and security posts that keep Cyrenaica and Fezzan in line.",
         "YNR": "Tareq Saleh commands the National Resistance from Mocha. His Republican Guard veterans and Tihama units hold the Red Sea coast against the Houthis and are not under Marib or Aden command.",
         "RSF": "Mohamed Hamdan Dagalo (Hemedti) commands the Rapid Support Forces from Nyala. After taking El Fasher in late 2025 his army holds Darfur against Burhan's SAF in Khartoum and the east.",
-        "JNM": "Iyad Ag Ghali leads Jama'at Nusrat al-Islam wal-Muslimin from the Malian north. JNIM taxes and governs Gao and Timbuktu and is at war with Bamako.",
+        "AZA": "Bilal Ag Acherif leads the Azawad coalitions from Tinzaouaten. The FLA holds the northern desert while Malian garrisons sit in Kidal, Tessalit, and Timbuktu.",
+        "SIO": "Riek Machar remains the SPLM-IO leader from house arrest in Juba. The Nuer White Army and IO units hold Nasir and eastern Jonglei against Kiir's SSPDF.",
     }
     for tag, row in countries.items():
         leader = row.get("leader") or tag
@@ -2087,7 +2149,8 @@ def main():
     capitals["CHI"] = 608
     capitals["SOV"] = 219
     capitals["DPK"] = 527
-    capitals["SSD"] = 885
+    capitals["SSD"] = 884
+    capitals["SIO"] = 1121
     capitals["FOR"] = 524
     capitals["KOR"] = 525
     capitals["BAN"] = 430
@@ -2126,7 +2189,7 @@ def main():
     capitals["SWZ"] = 1111
     capitals["LNA"] = 450
     capitals["RSF"] = 887
-    capitals["JNM"] = 898
+    capitals["AZA"] = 782
     capitals["BRN"] = 1023
     capitals["NMB"] = 541
     capitals["KIR"] = 639

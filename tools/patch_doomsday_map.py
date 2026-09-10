@@ -34,11 +34,13 @@
 1113 Azov Zaporizhzhia (UKR occupied by SOV) from 200 — Melitopol land bridge
 1114 Left-Bank Kherson (UKR occupied by SOV) from 196 — Kakhovka / east bank
 1120 Tel Aviv (ISR) from 454 — 1065 1201 4206; leftover 454 is Jerusalem/Negev
+1121 Jonglei (SIO) from 884 — 10859 12800 Nasir/Akobo; leftover 884 is Juba 2096 and 10877
 196 Kherson keeps 3755 574 9573 11715; leftover 197 Mykolaiv keeps 409 3403 6597 11546 11683
 1115 Kramatorsk (UKR) from 227 — west Donetsk still Ukrainian on 1 Jan 2026
 1116 Mocha (YNR) from 293 — Tareq Saleh National Resistance west coast
 1117 Trieste (ITA) from 736 Litorale — city stays 6626; Slovenia 599 gets the thin Koper coast
 1118 Sahrawi Free Zone (WES) from 699 — 4920 northeast, 7979 north, 13416 inland waist, 13415 south coast; Morocco keeps the Dakhla triangle
+Azawad pockets 13417 Tinzaouaten, 13418 Tessalit, 13419 Kidal stay in 782; 13420 Timbuktu stays in 898
 1119 Aksai Chin (CHI) from 441 — province 5042 plus east half of 10821
 Gibraltar 4135 shrinks to the sea tip; hinterland pixels become Spanish 7153
 Kherson city is 3755 (UKR); occupied 721 stays on the left-bank estuary
@@ -139,6 +141,30 @@ KHERSON_SOUTH_RGB = (3, 132, 55)  # 721
 KHERSON_LEFT_RGB = (2, 183, 165)  # 568
 KAKHOVKA_RGB = (3, 150, 150)  # 737
 KHERSON_BBOX = (3295, 3336, 580, 612)
+# Azawad city pockets: FAMa garrisons inside AZA-owned 782/898 desert.
+# Real Tinzaouaten sits on Algerian 5095; keep the capital on Mali's NE tip.
+AZA_TINZ_PROV = 13417
+AZA_TESS_PROV = 13418
+AZA_KIDAL_PROV = 13419
+AZA_TIMB_PROV = 13420
+AZA_TINZ_RGB = (201, 72, 44)
+AZA_TESS_RGB = (88, 162, 201)
+AZA_KIDAL_RGB = (174, 91, 38)
+AZA_TIMB_RGB = (62, 128, 96)
+AZA_PARENT_RGB = {
+    2068: (9, 171, 155),
+    10868: (135, 153, 89),
+    7930: (93, 18, 31),
+    10788: (135, 69, 4),
+}
+# Centers sit on vanilla type-9 city markers (names were west of the first disks).
+AZA_POCKETS = (
+    (AZA_TINZ_PROV, AZA_TINZ_RGB, 2864, 1101, 5, (2068,)),
+    (AZA_TESS_PROV, AZA_TESS_RGB, 2828, 1080, 5, (10868,)),
+    (AZA_KIDAL_PROV, AZA_KIDAL_RGB, 2835, 1108, 6, (2068,)),
+    (AZA_TIMB_PROV, AZA_TIMB_RGB, 2774, 1129, 5, (7930, 10788)),
+)
+AZA_BBOX = (2710, 2880, 1028, 1172)
 
 
 def _copy_if_needed(name: str) -> Path:
@@ -1053,6 +1079,93 @@ def paint_kherson_front(bmp_path: Path) -> None:
         _close_images(vanilla, im)
 
 
+def paint_azawad_pockets(bmp_path: Path) -> None:
+    """Carve FAMa city disks out of AZA desert so Mali starts in supply-cut pockets."""
+    im = Image.open(bmp_path)
+    px = im.load()
+    w, h = im.size
+    x0, x1, y0, y1 = AZA_BBOX
+    x0, x1 = max(0, x0), min(w - 1, x1)
+    y0, y1 = max(0, y0), min(h - 1, y1)
+    try:
+        for pid, rgb, cx, cy, rad, parents in AZA_POCKETS:
+            parent_rgb = AZA_PARENT_RGB[parents[0]]
+            allowed = {AZA_PARENT_RGB[p] for p in parents}
+            allowed.add(rgb)
+            for y in range(y0, y1 + 1):
+                for x in range(x0, x1 + 1):
+                    if px[x, y][:3] == rgb:
+                        px[x, y] = parent_rgb
+            r2 = rad * rad
+            for y in range(cy - rad, cy + rad + 1):
+                if y < y0 or y > y1:
+                    continue
+                for x in range(cx - rad, cx + rad + 1):
+                    if x < x0 or x > x1:
+                        continue
+                    if (x - cx) ** 2 + (y - cy) ** 2 > r2:
+                        continue
+                    if px[x, y][:3] in allowed or px[x, y][:3] == parent_rgb:
+                        px[x, y] = rgb
+        im.save(bmp_path)
+    finally:
+        _close_images(im)
+
+
+def ensure_azawad_definition(definition: Path) -> None:
+    text = definition.read_text(encoding="utf-8", errors="ignore")
+    extra = []
+    for pid, rgb, *_rest in AZA_POCKETS:
+        if f"{pid};" not in text:
+            r, g, b = rgb
+            extra.append(f"{pid};{r};{g};{b};land;false;desert;5")
+    if extra:
+        definition.write_text(text.rstrip() + "\n" + "\n".join(extra) + "\n", encoding="utf-8")
+
+
+def patch_azawad_unitstacks(path: Path, bmp_path: Path) -> None:
+    """Park every pocket stack on the painted disk so VP names sit in the circle."""
+    im = Image.open(bmp_path)
+    px = im.load()
+    h = im.size[1]
+    x0, x1, y0, y1 = AZA_BBOX
+    blobs: dict[tuple[int, int, int], list[tuple[int, int]]] = {rgb: [] for _, rgb, *_ in AZA_POCKETS}
+    try:
+        for y in range(y0, y1 + 1):
+            for x in range(x0, x1 + 1):
+                rgb = px[x, y][:3]
+                if rgb in blobs:
+                    blobs[rgb].append((x, y))
+    finally:
+        im.close()
+    rgb_to_pid = {rgb: pid for pid, rgb, *_ in AZA_POCKETS}
+    parent_of = {pid: parents[0] for pid, _rgb, _cx, _cy, _r, parents in AZA_POCKETS}
+    lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    skip = {str(pid) for pid, *_ in AZA_POCKETS}
+    kept = [ln for ln in lines if ln.split(";", 1)[0] not in skip]
+    extra = []
+    for rgb, pts in blobs.items():
+        if not pts:
+            continue
+        pid = rgb_to_pid[rgb]
+        tx, tz = _to_xz(*_centroid(pts), h)
+        src = [ln for ln in kept if ln.startswith(f"{parent_of[pid]};")]
+        if not src:
+            continue
+        for line in src:
+            parts = line.split(";")
+            if len(parts) < 5:
+                continue
+            try:
+                parts[0] = str(pid)
+                parts[2] = tx
+                parts[4] = tz
+                extra.append(";".join(parts))
+            except ValueError:
+                pass
+    path.write_text("\n".join(kept + extra) + "\n", encoding="utf-8")
+
+
 def mark_koper_coastal(definition: Path) -> None:
     """599 is inland in vanilla; after the Koper paint it must be a coastal province."""
     lines = definition.read_text(encoding="utf-8", errors="ignore").splitlines()
@@ -1289,10 +1402,10 @@ def _strip_blank_building_lines(buildings: Path) -> None:
 
 REQUIRED_STATE_SITES = ("air_base", "rocket_site_spawn")
 # rocket_site_spawn is also the mega_gun_emplacement site ("no gun emplacement").
-NEW_STATE_IDS = range(1082, 1121)
+NEW_STATE_IDS = range(1082, 1122)
 SPLIT_PARENT_IDS = {
     109, 118, 183, 192, 196, 197, 200, 227, 230, 231, 290, 293, 308, 315, 441, 448, 449, 454, 553, 554,
-    559, 676, 680, 686, 692, 694, 699, 708, 719, 736, 787, 834, 844, 890, 1005,
+    559, 676, 680, 686, 692, 694, 699, 708, 719, 736, 787, 834, 844, 884, 890, 1005,
 }
 
 
@@ -2110,6 +2223,8 @@ def patch_strategic_region() -> None:
         (Path("strategicregions") / "102-East African Coast.txt", "13072 ", f"13072 {MAYOTTE_PROV} "),
         (Path("strategicregions") / "182-North West Africa.txt", "7979 ", f"7979 {WES_SOUTH_PROV} "),
         (Path("strategicregions") / "182-North West Africa.txt", f"{WES_SOUTH_PROV} ", f"{WES_SOUTH_PROV} {WES_ISTHMUS_PROV} "),
+        (Path("strategicregions") / "127-Saharadesert.txt", "2068 ", f"2068 {AZA_TINZ_PROV} {AZA_TESS_PROV} {AZA_KIDAL_PROV} "),
+        (Path("strategicregions") / "140-Sub-Sarhan Africa.txt", "7930 ", f"7930 {AZA_TIMB_PROV} "),
     )
     for rel, needle, repl in patches:
         dest = MOD_MAP / rel
@@ -2151,11 +2266,14 @@ def ensure_map_splits() -> None:
     paint_sahara_free_zone(bmp)
     paint_aksai_chin(bmp)
     paint_kherson_front(bmp)
+    paint_azawad_pockets(bmp)
     ensure_wes_south_definition(definition)
+    ensure_azawad_definition(definition)
     mark_koper_coastal(definition)
     mark_wes_coastal(definition)
     patch_wes_south_unitstacks(unitstacks, bmp)
     patch_wes_isthmus_unitstacks(unitstacks, bmp)
+    patch_azawad_unitstacks(unitstacks, bmp)
 
     patch_strategic_region()
     patch_split_railways()

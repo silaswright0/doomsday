@@ -289,10 +289,18 @@ RSF = {
 	prefix = o_operation
 	operation = { 0 = { o_default_operation } }
 }
-JNM = {
-	male = { names = { Iyad Ahmed John James Michael David } }
+SIO = {
+	male = { names = { Riek Simon Nathaniel John James Michael } }
+	female = { names = { Angelina Nyandeng Mary Sarah } }
+	surnames = { Machar Dual Oyet Kiir Garang Smith }
+	callsigns = { Falcon Eagle Storm }
+	prefix = o_operation
+	operation = { 0 = { o_default_operation } }
+}
+AZA = {
+	male = { names = { Bilal Mohamed Ahmed John James } }
 	female = { names = { Amina Mary Sarah } }
-	surnames = { "Ag Ghali" Smith Jones Brown Williams }
+	surnames = { "Ag Acherif" "Ag Intalla" Smith Jones Brown }
 	callsigns = { Falcon Eagle Storm }
 	prefix = o_operation
 	operation = { 0 = { o_default_operation } }
