@@ -1,0 +1,39 @@
+state = {
+	id = 949
+	name = "STATE_949" # Aysen
+	manpower = 135822
+	
+	state_category = pastoral
+
+	resources = {
+		aluminium = 1
+	}
+	resources = {
+		oil = 1
+	}
+
+	history = {
+
+		owner = CHL
+		add_extra_state_shared_building_slots = 4
+		add_core_of = CHL
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+			#dockyard = 0
+		}
+
+		victory_points = {
+			2161 2
+		}
+		
+	}
+
+	provinces = {
+		2161 5118 5159 8198 10961 13295
+	}
+
+	local_supplies = 0.0 
+}

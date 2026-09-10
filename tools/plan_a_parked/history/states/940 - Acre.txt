@@ -1,0 +1,36 @@
+
+state = {
+	id = 940
+	name = "STATE_940"
+	manpower = 2277161
+	
+	state_category = pastoral
+	
+	resources = {
+		rubber = 4 
+	}
+
+	history = {
+
+		owner = BRA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = BRA
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+
+		victory_points = {
+			13278 2 
+		}
+		
+	}
+
+	provinces = {
+		13278 13279 13280
+	}
+
+	local_supplies = 0.0 
+}

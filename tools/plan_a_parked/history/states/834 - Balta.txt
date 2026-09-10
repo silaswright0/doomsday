@@ -1,0 +1,36 @@
+
+state = {
+	id = 834
+	name = "STATE_834"
+	manpower = 150754
+	
+	state_category = rural
+
+	history = {
+		owner = MOL
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			3757 2 
+		}
+		victory_points = {
+			741 1 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+		
+			infrastructure = 2
+			
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+		add_core_of = MOL
+
+	}
+
+	provinces = {
+		741 754 3757 9576
+	}
+
+	local_supplies = 6.0 
+}

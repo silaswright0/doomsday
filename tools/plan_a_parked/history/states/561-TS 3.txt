@@ -1,0 +1,33 @@
+
+state={
+	id = 561
+	name = "STATE_561" # Amur
+	manpower = 586858
+	
+	state_category = rural
+
+	history = {
+
+		owner = SOV
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SOV
+		add_core_of = FER
+
+		buildings = {
+			industrial_complex = 0
+			infrastructure = 3
+			arms_factory = 0
+		}
+
+		victory_points = {
+			7851 1 # Albazino
+		}
+
+	}
+
+	provinces = {
+		1730 1739 1845 4731 4847 7691 7754 7785 7851 10678 12543 12591 12657 12660 
+	}
+
+	local_supplies = 6.0 
+}

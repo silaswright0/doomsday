@@ -1,0 +1,35 @@
+state = {
+
+	id = 525
+	name = "STATE_525"
+	manpower = 18981653 # was 14284105, divided by 3 is 4761368
+	
+	state_category = town
+
+	resources = {
+	}
+
+	history = {
+
+		owner = KOR
+		add_extra_state_shared_building_slots = 14
+		add_core_of = KOR
+
+		buildings = {
+			industrial_complex = 9
+			infrastructure = 5
+			arms_factory = 1
+		}
+
+		victory_points = {
+			7125 3 # Seoul/Keijō/Gyeongseong
+		}
+
+	}
+
+	provinces = {
+		1100 7125 7221 10036 
+	}
+
+	local_supplies = 0.0 
+}

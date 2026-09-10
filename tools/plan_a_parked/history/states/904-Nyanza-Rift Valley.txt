@@ -1,0 +1,25 @@
+state={
+	id=904
+	name="STATE_904"
+	manpower = 13658537
+	state_category = pastoral
+
+	history={
+		owner = KEN
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+
+		}
+		add_core_of = KEN
+	}
+
+	provinces={
+		5160 10860 11145 
+	}
+
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

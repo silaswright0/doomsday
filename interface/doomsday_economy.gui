@@ -1,0 +1,266 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "doomsday_economy_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 620 }
+		clipping = no
+
+		instantTextboxType = {
+			name = "dd_header"
+			position = { x = 12 y = 4 }
+			font = "hoi_20b"
+			text = "DD_ECON_HEADER"
+			maxWidth = 480
+			maxHeight = 24
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_stats"
+			position = { x = 12 y = 30 }
+			font = "hoi_16mbs"
+			text = "DD_ECON_STATS"
+			maxWidth = 500
+			maxHeight = 72
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_policy_header"
+			position = { x = 12 y = 104 }
+			font = "hoi_18mbs"
+			text = "DD_POLICY_HEADER"
+			maxWidth = 480
+			maxHeight = 22
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_welfare_label"
+			position = { x = 12 y = 130 }
+			font = "hoi_16mbs"
+			text = "DD_POLICY_WELFARE"
+			maxWidth = 110
+			maxHeight = 20
+			format = left
+		}
+		buttonType = {
+			name = "dd_welfare_1"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_LOW"
+			buttonFont = "hoi_16mbs"
+			position = { x = 120 y = 122 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_welfare_2"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_MID"
+			buttonFont = "hoi_16mbs"
+			position = { x = 248 y = 122 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_welfare_3"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_HIGH"
+			buttonFont = "hoi_16mbs"
+			position = { x = 376 y = 122 }
+			clicksound = click_default
+		}
+
+		instantTextboxType = {
+			name = "dd_education_label"
+			position = { x = 12 y = 168 }
+			font = "hoi_16mbs"
+			text = "DD_POLICY_EDUCATION"
+			maxWidth = 110
+			maxHeight = 20
+			format = left
+		}
+		buttonType = {
+			name = "dd_education_1"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_LOW"
+			buttonFont = "hoi_16mbs"
+			position = { x = 120 y = 160 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_education_2"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_MID"
+			buttonFont = "hoi_16mbs"
+			position = { x = 248 y = 160 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_education_3"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_HIGH"
+			buttonFont = "hoi_16mbs"
+			position = { x = 376 y = 160 }
+			clicksound = click_default
+		}
+
+		instantTextboxType = {
+			name = "dd_immigration_label"
+			position = { x = 12 y = 206 }
+			font = "hoi_16mbs"
+			text = "DD_POLICY_IMMIGRATION"
+			maxWidth = 110
+			maxHeight = 20
+			format = left
+		}
+		buttonType = {
+			name = "dd_immigration_1"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_CLOSED"
+			buttonFont = "hoi_16mbs"
+			position = { x = 120 y = 198 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_immigration_2"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_MID"
+			buttonFont = "hoi_16mbs"
+			position = { x = 248 y = 198 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_immigration_3"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_OPEN"
+			buttonFont = "hoi_16mbs"
+			position = { x = 376 y = 198 }
+			clicksound = click_default
+		}
+
+		instantTextboxType = {
+			name = "dd_taxes_label"
+			position = { x = 12 y = 244 }
+			font = "hoi_16mbs"
+			text = "DD_POLICY_TAXES"
+			maxWidth = 110
+			maxHeight = 20
+			format = left
+		}
+		buttonType = {
+			name = "dd_taxes_1"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_LOW"
+			buttonFont = "hoi_16mbs"
+			position = { x = 120 y = 236 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_taxes_2"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_MID"
+			buttonFont = "hoi_16mbs"
+			position = { x = 248 y = 236 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_taxes_3"
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_POLICY_HIGH"
+			buttonFont = "hoi_16mbs"
+			position = { x = 376 y = 236 }
+			clicksound = click_default
+		}
+
+		instantTextboxType = {
+			name = "dd_market_header"
+			position = { x = 12 y = 280 }
+			font = "hoi_18mbs"
+			text = "DD_MARKET_HEADER"
+			maxWidth = 500
+			maxHeight = 40
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_buy_infantry"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_BUY_INFANTRY"
+			buttonFont = "hoi_16mbs"
+			position = { x = 12 y = 322 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_sell_infantry"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_SELL_INFANTRY"
+			buttonFont = "hoi_16mbs"
+			position = { x = 250 y = 322 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_buy_cruise"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_BUY_CRUISE"
+			buttonFont = "hoi_16mbs"
+			position = { x = 12 y = 360 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_sell_cruise"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_SELL_CRUISE"
+			buttonFont = "hoi_16mbs"
+			position = { x = 250 y = 360 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_buy_srbm"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_BUY_SRBM"
+			buttonFont = "hoi_16mbs"
+			position = { x = 12 y = 398 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_sell_srbm"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_SELL_SRBM"
+			buttonFont = "hoi_16mbs"
+			position = { x = 250 y = 398 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_buy_sam"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_BUY_SAM"
+			buttonFont = "hoi_16mbs"
+			position = { x = 12 y = 436 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_sell_sam"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_SELL_SAM"
+			buttonFont = "hoi_16mbs"
+			position = { x = 250 y = 436 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_buy_recon_uav"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_BUY_RECON_UAV"
+			buttonFont = "hoi_16mbs"
+			position = { x = 12 y = 474 }
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_buy_strike_uav"
+			quadTextureSprite = "GFX_button_221x34"
+			buttonText = "DD_BUY_STRIKE_UAV"
+			buttonFont = "hoi_16mbs"
+			position = { x = 250 y = 474 }
+			clicksound = click_default
+		}
+	}
+}

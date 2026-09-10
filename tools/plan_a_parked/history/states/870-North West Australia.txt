@@ -1,0 +1,22 @@
+state={
+	id=870
+	name="STATE_870"
+	provinces={
+		2201 5207 8152 8209 8247 10937 10958 11016 12993 13133 
+	}
+	history = {
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+		}
+		owner = AST
+		add_extra_state_shared_building_slots = 4
+		add_core_of = AST
+	}
+	state_category = pastoral
+	manpower = 99858 #PreTAOG 1000
+
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

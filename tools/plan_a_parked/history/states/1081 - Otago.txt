@@ -1,0 +1,40 @@
+state = {
+	id = 1081
+	name = "STATE_1081" # Otago 
+	manpower = 406580
+	resources = {
+		tungsten = 1
+	}
+
+	state_category = rural
+
+
+	history = {
+
+		owner = NZL
+		add_extra_state_shared_building_slots = 4
+		add_core_of = NZL
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+
+			infrastructure = 4 
+
+		}
+
+		victory_points = {
+			2211 2 # Dunedin
+		}
+
+		victory_points = {
+			8241 1 # Invercargill
+		}
+		
+	}
+	provinces = {
+		2211 8232 8241 12988 12980 
+	}
+
+	local_supplies = 0.0 
+}

@@ -1,0 +1,33 @@
+
+state={
+	id=109
+	name="STATE_109" # Croatia
+	manpower = 2224429
+
+	resources = {
+		coal = 1 #initial distribution
+	}
+	
+	state_category = large_town
+
+	history={
+		owner = CRO
+		add_extra_state_shared_building_slots = 5
+		buildings = {
+			arms_factory = 0
+			infrastructure = 4
+			industrial_complex = 1
+		}
+		victory_points = {
+			11581 3 
+		}
+		add_core_of = YUG
+		add_core_of = CRO
+	}
+
+	provinces={
+		624 3592 3596 3627 6647 9595 9611 11577 11580 11581 11594
+	}
+
+	local_supplies=0.0 
+}

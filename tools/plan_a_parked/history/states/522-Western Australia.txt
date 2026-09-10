@@ -1,0 +1,38 @@
+state={
+	id=522
+	name="STATE_522"
+
+	resources = {
+		coal = 2 #added in TAOG
+	}
+
+	history={
+		owner = AST
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			infrastructure = 4
+			industrial_complex = 0
+			air_base = 1
+			1652 = {
+				naval_base = 1
+				coastal_bunker = 1
+
+			}
+
+		}
+		victory_points = {
+			1652 10 
+		}
+		add_core_of = AST
+
+	}
+
+	provinces={
+		1498 1511 1540 1652 2157 4630 4645 5125 5170 5175 7453 7579 7608 8130 8228 8243 10950 10971 10983 12323 
+	}
+	manpower = 1238234 #Pre-TAOG 317200 
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+	local_supplies=0.000
+}

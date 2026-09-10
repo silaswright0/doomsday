@@ -1,0 +1,32 @@
+
+state={
+	id=25
+	name="STATE_25"
+	manpower = 2165093
+
+	resources = {
+		coal = 2 #initial distribution / 140 total
+	}
+
+	state_category = large_town
+	history={
+		owner = FRA
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+		}
+		victory_points = {
+			620 5
+		}
+		add_core_of = OCC
+		add_core_of = FRA
+	}
+
+	provinces={
+		620 625 755 3598 3771 6618 6775 6792 9717 9734 9751 11718 11720 
+	}
+
+	local_supplies=0.0 
+}

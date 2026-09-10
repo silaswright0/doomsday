@@ -1,0 +1,26 @@
+state={
+	id=1005
+	name="STATE_1005"
+	manpower = 2662348
+	state_category = rural
+
+	resources = {
+		chromium = 3
+	}
+
+	provinces={
+		7519 10781 10826 12314 12653 
+	}
+	history={
+		owner = TAJ
+		add_extra_state_shared_building_slots = 4
+		add_core_of = AFG
+		add_core_of = TAJ
+		victory_points = {
+			10781 1
+		}
+	}
+	
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

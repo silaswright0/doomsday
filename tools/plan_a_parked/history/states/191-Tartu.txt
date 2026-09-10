@@ -1,0 +1,32 @@
+
+state={
+	id=191
+	name="STATE_191"
+
+	history={
+		owner = EST
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			9221 1 
+		}
+		victory_points = {
+			592 1 #Voru
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4 #was: 5
+
+		}
+		add_core_of = EST
+
+	}
+
+	provinces={
+		592 6178 6408 9221 9485 
+	}
+	manpower = 265200
+	buildings_max_level_factor=1.000
+	local_supplies=0.0 
+	state_category=rural
+}

@@ -1,17 +1,21 @@
 state = {
 	id = 2
 	name = "STATE_2" # Latium
-	manpower = 4050099
+	manpower = 4027243
 	
 	state_category = city
 
 	history = {
 		owner = ITA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 11
 		victory_points = { 9904 40 } #Rome
 		victory_points = { 11846 2 } #Anzio (was 5)
 		victory_points = { 13413 1 } #Ostia
 		buildings = {
+			sam_site = 2
+			renewable_park = 2
+			finance_center = 2
+			services_building = 2
 			infrastructure = 4
 			air_base = 8
 			arms_factory = 0

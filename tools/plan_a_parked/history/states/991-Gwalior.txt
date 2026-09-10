@@ -1,0 +1,22 @@
+state={
+	id=991
+	name="STATE_991"
+	provinces={
+		1949 2036 10807 
+	}
+	state_category = rural
+	manpower = 17900662
+	history={
+		owner = RAJ
+		add_extra_state_shared_building_slots = 4
+		add_core_of = RAJ
+		add_core_of = CIP
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+	}
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

@@ -1,14 +1,16 @@
 state = {
 	id = 137
 	name = "STATE_137"
-	manpower = 1415752
+	manpower = 1007866
 	
 	state_category = city
 
 	history = {
 
-		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		owner = UKR
+		add_extra_state_shared_building_slots = 5
+		add_core_of = UKR
+		controller = SOV
 
 		victory_points = {
 			3686 20 # Sevastopol
@@ -27,10 +29,12 @@ state = {
 		}
 
 		buildings = {
+			sam_site = 1
+			services_building = 1
 			arms_factory = 0
 			industrial_complex = 0
 
-			infrastructure = 3
+			infrastructure = 2
 			air_base = 3
 
 			3686 = {

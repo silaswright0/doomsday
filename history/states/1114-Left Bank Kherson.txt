@@ -1,0 +1,23 @@
+state = {
+	id = 1114
+	name = "STATE_1114"
+	manpower = 450000
+	state_category = rural
+	history = {
+		owner = UKR
+		add_extra_state_shared_building_slots = 4
+		controller = SOV
+		add_core_of = UKR
+		add_core_of = SOV
+		victory_points = { 737 2 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		568 721 737 767 3573 6771 9712
+	}
+	local_supplies = 0.0
+}

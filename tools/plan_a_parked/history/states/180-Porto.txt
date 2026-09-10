@@ -1,0 +1,39 @@
+
+state={
+	id=180
+	name="STATE_180"
+	manpower = 2792241
+
+	resources = {
+		coal = 2 #initial distribution
+	}
+	
+	state_category = large_town
+
+	history={
+		owner = POR
+		add_extra_state_shared_building_slots = 5
+		victory_points = {
+			9817 10
+		}
+		victory_points = {
+			11673 5
+		}
+		buildings = {
+			arms_factory = 0
+			infrastructure = 4 #was: 5
+			industrial_complex = 1
+			dockyard = 0
+			9817 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = POR
+	}
+
+	provinces={
+		724 877 3892 6921 6941 9817 11673 
+	}
+
+	local_supplies=0.0 
+}

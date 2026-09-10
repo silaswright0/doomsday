@@ -1,7 +1,7 @@
 state = {
 	id = 291
 	name = "STATE_291"
-	manpower = 12206261
+	manpower = 10551266
 	
 	state_category = town
 	
@@ -12,7 +12,7 @@ state = {
 	history = {
 
 		owner = IRQ
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 6
 		add_core_of = IRQ
 		add_claim_by = KUR
 
@@ -27,6 +27,7 @@ state = {
 		}
 
 		buildings = {
+			services_building = 1
 			infrastructure = 2 #was: 5
 			arms_factory = 0
 			industrial_complex = 1 

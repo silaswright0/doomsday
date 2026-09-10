@@ -15,7 +15,7 @@ state = {
 	history = {
 
 		owner = MAL
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 9
 		add_core_of = MAL
 
 		victory_points = {
@@ -27,6 +27,9 @@ state = {
 		}
 
 		buildings = {
+			renewable_park = 1
+			finance_center = 1
+			services_building = 2
 			arms_factory = 0
 
 			infrastructure = 3

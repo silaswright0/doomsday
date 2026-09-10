@@ -1,0 +1,32 @@
+
+state={
+	id=420
+	name="STATE_420"
+	manpower = 2336559
+	
+	state_category = rural
+
+	history={
+		owner = AZR
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			7969 5
+		}
+		victory_points = {
+			4901 3
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+		add_core_of = PER
+		add_core_of = AZR
+	}
+
+	provinces={
+		4553 4609 4637 4901 7969 10454 10523 
+	}
+
+	local_supplies=3.0 
+}

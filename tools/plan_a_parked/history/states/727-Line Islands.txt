@@ -1,0 +1,33 @@
+state={
+	id=727
+	name="STATE_727"
+	manpower = 14614
+	state_category = small_island
+
+	history={
+		owner = USA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = USA
+		add_core_of = HAW
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+			13048 = {
+				naval_base = 1
+			}
+			13049 = {
+				naval_base = 1
+			}
+			13053 = {
+				naval_base = 1
+			}
+		}
+	}
+	
+	provinces={
+		13048 13049 13053 
+	}
+
+	local_supplies=0.0 
+}

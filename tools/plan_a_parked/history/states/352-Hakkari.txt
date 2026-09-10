@@ -1,0 +1,47 @@
+
+state={
+	id=352
+	name="STATE_352" # Van
+	manpower = 1386468
+
+	state_category = rural
+
+	history={
+		owner = TUR
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			12476 1 
+		}
+		victory_points = {
+			7530 1 
+		}
+		victory_points = {
+			10497 1 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+		if = {
+			limit = {
+				has_dlc = "Battle for the Bosporus"
+			}
+			add_core_of = KUR
+		}
+		if = {
+			limit = {
+				NOT = { has_dlc = "Battle for the Bosporus" }
+			}
+			add_core_of = TUR
+			add_core_of = KUR
+		}
+	}
+
+	provinces={
+		864 1463 7530 10497 11739 12318 12476
+	}
+
+	local_supplies=0.0 
+}
+

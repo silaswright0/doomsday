@@ -1,0 +1,36 @@
+state = {
+	id = 177
+	name = "STATE_177"
+	manpower = 708884
+	
+	state_category = rural
+	
+	history = {
+
+		victory_points = {
+			9793 1
+		}
+
+		owner = SPR
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SPR
+		add_claim_by = CAT
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4 #was: 6
+			air_base = 1
+			9793 = {
+				naval_base = 2
+			}
+			7114 = {
+				naval_base = 1
+			}
+		}
+		
+	}
+	
+	provinces = { 7114 9793 9845 }
+	local_supplies = 0.0 
+}

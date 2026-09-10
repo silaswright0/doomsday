@@ -1,5 +1,8 @@
 NDefines.NGame.START_DATE = "2026.1.1.12"
 NDefines.NGame.END_DATE = "2040.1.1.1"
+NDefines.NGame.ENERGY_RESOURCE = "coal"
 NDefines.NDiplomacy.TENSION_TIME_SCALE_START_DATE = "2026.1.1.12"
+NDefines.NDiplomacy.TENSION_TIME_SCALE_MONTHLY_FACTOR = 0
+NDefines.NDiplomacy.TENSION_DECAY_DAILY = 0
 NDefines.NBuildings.MAX_BUILDING_LEVELS = 40
 NDefines.NBuildings.MAX_SHARED_SLOTS = 50

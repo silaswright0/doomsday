@@ -1,0 +1,22 @@
+---
+description: Keep Doomsday scripts multiplayer-safe; do not demand live MP tests yet
+alwaysApply: true
+---
+
+# Multiplayer-safe scripting
+
+Design every gameplay system so a hosted game with clients would stay in sync. The user cannot run host+client tests until there are real focus trees. Do not ask for a live MP lobby as a gate. Take extra time on scripted effects, GUI, on_actions, and variables instead.
+
+**Do**
+- Country-scoped effects only (`on_monthly`, scripted GUI effects on ROOT)
+- Deterministic math: same inputs must yield the same treasury, ideas, and stockpiles
+- Shared country/global variables; identical tech costs for every tag
+- Prefer file/sanity checks (`tools/check_mp_skeleton.py` or equivalent)
+
+**Do not**
+- `random`, `random_list`, or client-only / UI-only variables that change gameplay
+- Patch Arms Against Tyranny International Market payment (CIC is hardcoded)
+- Invent new `map/buildings.txt` spawn types
+- Block work on “please test with 2 clients” until the user asks
+
+Live host+clients OOS testing comes later, after focus trees.

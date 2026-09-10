@@ -1,0 +1,31 @@
+
+state={
+	id=1
+	name="STATE_1" # Corsica
+	manpower = 520286
+	
+	state_category = town
+
+	history={
+		owner = FRA
+		add_extra_state_shared_building_slots = 4
+		victory_points = { 3838 1 }
+		buildings = {
+			arms_factory = 0
+			infrastructure = 4
+			industrial_complex = 0
+			air_base = 1
+			3838 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = COR
+		add_core_of = FRA
+	}
+
+	provinces={
+		3838 9851 11804 
+	}
+
+	local_supplies=0.0 
+}

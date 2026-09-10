@@ -2,7 +2,7 @@
 state={
 	id=260
 	name="STATE_260" # Voronezh
-	manpower = 3424646
+	manpower = 3458650
 	
 	state_category = town
 
@@ -10,6 +10,7 @@ state={
 		owner = SOV
 		add_extra_state_shared_building_slots = 5
 		buildings = {
+			sam_site = 1
 			industrial_complex = 0
 			infrastructure = 3 #was: 5
 			arms_factory = 1

@@ -1,0 +1,658 @@
+# Budget policies. Law slots on the politics tab (beside conscription/trade/economy).
+# Same IDs the economy GUI already swaps. Country-scoped. No random.
+
+ideas = {
+	dd_welfare_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_welfare_1 = {
+			picture = generic_goods_red_bonus
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = -0.02
+				consumer_goods_factor = -0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_welfare_2 = {
+			picture = generic_goods_red_bonus
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_welfare_3 = {
+			picture = generic_goods_red_bonus
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = 0.05
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_education_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_education_1 = {
+			picture = generic_research_bonus
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				research_speed_factor = -0.05
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_education_2 = {
+			picture = generic_research_bonus
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_education_3 = {
+			picture = generic_research_bonus
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				research_speed_factor = 0.05
+				consumer_goods_factor = 0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_immigration_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_immigration_1 = {
+			picture = generic_pp_unity_bonus
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				monthly_population = -0.1
+				stability_factor = 0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_immigration_2 = {
+			picture = generic_pp_unity_bonus
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_immigration_3 = {
+			picture = generic_pp_unity_bonus
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				monthly_population = 0.15
+				stability_factor = -0.03
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_taxes_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_taxes_1 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_buildings_factor = 0.05
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_taxes_2 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_taxes_3 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = -0.05
+				production_factory_max_efficiency_factor = -0.05
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_women_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_women_1 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				research_speed_factor = -0.04
+				industrial_capacity_factory = -0.03
+				stability_factor = 0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_women_2 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_women_3 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				research_speed_factor = 0.04
+				industrial_capacity_factory = 0.03
+				consumer_goods_factor = 0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_minority_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_minority_1 = {
+			picture = generic_flexible_foreign_policy
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				non_core_manpower = -0.05
+				stability_factor = 0.03
+				resistance_target = 0.05
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_minority_2 = {
+			picture = generic_flexible_foreign_policy
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_minority_3 = {
+			picture = generic_flexible_foreign_policy
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				non_core_manpower = 0.08
+				compliance_gain = 0.10
+				monthly_population = 0.03
+				stability_factor = -0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_investment_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_investment_1 = {
+			picture = generic_build_infrastructure
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_buildings_factor = -0.10
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_investment_2 = {
+			picture = generic_build_infrastructure
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_investment_3 = {
+			picture = generic_build_infrastructure
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_buildings_factor = 0.15
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_security_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_security_1 = {
+			picture = generic_secret_police
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = -0.04
+				encryption_factor = -0.10
+				production_speed_buildings_factor = 0.03
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_security_2 = {
+			picture = generic_secret_police
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_security_3 = {
+			picture = generic_secret_police
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = 0.04
+				encryption_factor = 0.15
+				drift_defence_factor = 0.10
+				consumer_goods_factor = 0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_healthcare_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_healthcare_1 = {
+			picture = generic_goods_red_bonus
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				monthly_population = -0.05
+				stability_factor = -0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_healthcare_2 = {
+			picture = generic_goods_red_bonus
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+				monthly_population = 0.03
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_healthcare_3 = {
+			picture = generic_goods_red_bonus
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				monthly_population = 0.08
+				stability_factor = 0.01
+				war_support_factor = 0.01
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_labor_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_labor_1 = {
+			picture = generic_oppression
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = -0.05
+				industrial_capacity_factory = 0.04
+				production_factory_max_efficiency_factor = 0.03
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_labor_2 = {
+			picture = generic_oppression
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_labor_3 = {
+			picture = generic_oppression
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = 0.04
+				consumer_goods_factor = 0.03
+				industrial_capacity_factory = -0.03
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_fertility_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_fertility_1 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				monthly_population = 0.12
+				research_speed_factor = -0.03
+				conscription_factor = 0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_fertility_2 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+				monthly_population = 0.02
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_fertility_3 = {
+			picture = generic_constitutional_guarantees
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				monthly_population = -0.06
+				research_speed_factor = 0.03
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_aid_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_aid_1 = {
+			picture = generic_flexible_foreign_policy
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				opinion_gain_monthly = -0.5
+				guarantee_tension = 0.50
+				lend_lease_tension = 0.25
+				send_volunteer_factor = -0.50
+				consumer_goods_factor = -0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_aid_2 = {
+			picture = generic_flexible_foreign_policy
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+				opinion_gain_monthly = 0.5
+				improve_relations_maintain_cost_factor = -0.15
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_aid_3 = {
+			picture = generic_flexible_foreign_policy
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				opinion_gain_monthly = 2
+				improve_relations_maintain_cost_factor = -0.50
+				trade_opinion_factor = 0.15
+				send_volunteer_size = 1
+				send_volunteer_divisions_required = -0.50
+				lend_lease_tension = -0.25
+				guarantee_tension = -0.20
+				join_faction_tension = -0.10
+				justify_war_goal_time = 0.25
+				political_power_factor = 0.05
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_religion_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_religion_1 = {
+			picture = generic_pp_unity_bonus
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = 0.04
+				war_support_factor = 0.05
+				political_power_factor = 0.05
+				research_speed_factor = -0.04
+				drift_defence_factor = 0.15
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_religion_2 = {
+			picture = generic_pp_unity_bonus
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_religion_3 = {
+			picture = generic_pp_unity_bonus
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				research_speed_factor = 0.05
+				compliance_gain = 0.05
+				stability_factor = -0.03
+				war_support_factor = -0.02
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_media_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_media_1 = {
+			picture = generic_research_bonus
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				political_power_factor = 0.10
+				encryption_factor = 0.10
+				drift_defence_factor = 0.20
+				research_speed_factor = -0.05
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_media_2 = {
+			picture = generic_research_bonus
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_media_3 = {
+			picture = generic_research_bonus
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				research_speed_factor = 0.04
+				stability_factor = 0.02
+				drift_defence_factor = -0.15
+				encryption_factor = -0.10
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+
+	dd_civil_military_laws = {
+		law = yes
+		use_list_view = yes
+
+		dd_civil_military_1 = {
+			picture = generic_intel_bonus
+			cost = 0
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			modifier = {
+				war_support_factor = 0.06
+				experience_gain_army_factor = 0.10
+				army_org_factor = 0.04
+				military_leader_cost_factor = -0.20
+				stability_factor = -0.05
+				political_power_factor = -0.12
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+		dd_civil_military_2 = {
+			picture = generic_intel_bonus
+			cost = 0
+			removal_cost = -1
+			level = 2
+			default = yes
+			cancel_if_invalid = no
+			modifier = {
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_civil_military_3 = {
+			picture = generic_intel_bonus
+			cost = 0
+			removal_cost = -1
+			level = 3
+			cancel_if_invalid = no
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.10
+				command_power_gain_mult = 0.10
+				experience_gain_army_factor = -0.05
+				planning_speed = -0.05
+			}
+			ai_will_do = { factor = 0.5 }
+		}
+	}
+}

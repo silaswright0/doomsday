@@ -1,0 +1,42 @@
+state={
+	id=746
+	name="STATE_746"
+	provinces={
+		1959 3427 4960 4986 10451 10854 12706 
+	}
+	state_category = pastoral
+	
+	
+	history = {
+
+		owner = CHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SHX
+		add_core_of = CHI
+		add_core_of = PRC
+		add_core_of = MEN
+
+		victory_points = {
+			3427 1 # Ordos
+		}
+
+		victory_points = {
+			10854 1 # Wuhai
+		}
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+
+	}
+	manpower = 1487577
+
+	resources = {
+		coal = 8 #initial distribution
+	}
+	buildings_max_level_factor=1.000
+
+	local_supplies=0.0 
+}

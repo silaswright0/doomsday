@@ -1,0 +1,40 @@
+state = {
+	id = 928
+	name = "STATE_928" #KYME
+
+	manpower = 63924
+	
+	state_category = rural
+	
+	history = {
+		owner = FIN
+		add_extra_state_shared_building_slots = 4
+		add_core_of = FIN
+
+		victory_points = { #Kotka
+			3061 2
+		}
+
+		victory_points = { #Kouvola
+			9183 1
+		}
+
+		victory_points = { #Lappeenranta
+			6082 1
+		}
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 5
+		}
+	}
+
+
+	provinces = {
+		52 139 3061 6082 6186 9183 11056 13105 
+	}
+	
+	local_supplies = 0.0
+}
+

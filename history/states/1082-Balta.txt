@@ -1,13 +1,16 @@
 state = {
 	id = 1082
 	name = "STATE_1082"
-	manpower = 71733
+	manpower = 340904
 	state_category = rural
 	history = {
 		owner = UKR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
+		add_core_of = SOV
 		add_core_of = UKR
-		victory_points = { 3757 2 }
+		victory_points = {
+			3757 2 # Balta
+		}
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
@@ -15,7 +18,7 @@ state = {
 		}
 	}
 	provinces = {
-		3757
+		3575 3757 9714
 	}
-	local_supplies = 0.0
+	local_supplies = 6.0
 }

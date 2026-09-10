@@ -1,0 +1,176 @@
+# Guns and MANPADS move with divisions. Area SAM is a state building.
+# Mobile SAM (Buk/NASAMS-class) is a line battalion: TELs + trucks, missiles as ammo.
+
+sub_units = {
+
+	shorad = {
+		abbreviation = "SHORAD"
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+
+		categories = {
+			category_support_battalions
+			category_army
+			category_anti_air
+			category_divisional_support_battalions
+		}
+
+		regimental = no
+		combat_width = 0
+		training_time = 120
+
+		need = {
+			anti_air_equipment = 24
+		}
+
+		can_be_parachuted = no
+
+		max_strength = 0.3
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 400
+		weight = 0.15
+		supply_consumption = 0.12
+
+		defense = -0.3
+		breakthrough = -0.3
+		soft_attack = -0.3
+		hard_attack = -0.3
+		air_attack = 0.15
+	}
+
+	manpads = {
+		abbreviation = "MANPADS"
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+
+		categories = {
+			category_support_battalions
+			category_army
+			category_anti_air
+			category_divisional_support_battalions
+		}
+
+		regimental = no
+		combat_width = 0
+		training_time = 90
+
+		need = {
+			anti_air_equipment = 8
+		}
+
+		can_be_parachuted = yes
+
+		max_strength = 0.15
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 150
+		weight = 0.05
+		supply_consumption = 0.04
+
+		defense = -0.5
+		breakthrough = -0.5
+		soft_attack = -0.5
+		hard_attack = -0.5
+		air_attack = -0.35
+	}
+
+	# Marches with the army. Needs SAM missiles in stockpile to train/reinforce.
+	# Static sam_site buildings share that same missile pool.
+	mobile_sam = {
+		abbreviation = "SAM"
+		sprite = motorized
+		map_icon_category = infantry
+		priority = 1197
+		ai_priority = 80
+		active = no
+		is_artillery_brigade = no
+
+		type = {
+			motorized
+			anti_air
+		}
+
+		group = mobile_combat_support
+
+		categories = {
+			category_army
+			category_line_artillery
+			category_anti_air
+			category_mobile_and_mobile_combat_sup
+		}
+
+		combat_width = 1
+		training_time = 140
+		can_be_parachuted = no
+
+		manpower = 500
+		max_strength = 0.6
+		max_organisation = 0
+		default_morale = 0.1
+		weight = 0.6
+		supply_consumption = 0.22
+		transport = motorized_equipment
+
+		essential = {
+			motorized_equipment
+			anti_air_equipment
+		}
+
+		need = {
+			anti_air_equipment = 24
+			motorized_equipment = 24
+			sam_missile_equipment = 16
+		}
+
+		air_attack = 0.35
+
+		forest = {
+			attack = -0.1
+			movement = -0.4
+		}
+		hills = {
+			movement = -0.05
+		}
+		mountain = {
+			movement = -0.2
+		}
+		jungle = {
+			attack = -0.2
+			movement = -0.5
+		}
+		marsh = {
+			attack = -0.2
+			movement = -0.4
+		}
+		river = {
+			attack = -0.2
+			movement = -0.2
+		}
+		amphibious = {
+			attack = -0.4
+		}
+	}
+}

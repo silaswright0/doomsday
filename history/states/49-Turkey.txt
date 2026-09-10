@@ -12,7 +12,7 @@ state={
 
 	history={
 		owner = TUR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 8
 		victory_points = {
 			11747 15
 		}
@@ -23,6 +23,10 @@ state={
 			3951 1
 		}
 		buildings = {
+			sam_site = 2
+			renewable_park = 1
+			finance_center = 1
+			services_building = 2
 			infrastructure = 3
 			arms_factory = 0
 			industrial_complex = 0

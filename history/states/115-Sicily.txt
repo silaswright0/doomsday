@@ -5,7 +5,7 @@ state = {
 
 	history = {
 		owner = ITA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 7
 		victory_points = {
 			10074 20 
 		}
@@ -19,6 +19,9 @@ state = {
 			13256 1 
 		}
 		buildings = {
+			sam_site = 1
+			renewable_park = 1
+			services_building = 1
 			arms_factory = 0
 			infrastructure = 4
 			industrial_complex = 1
@@ -49,7 +52,7 @@ state = {
 	provinces = {
 		1009 1156 3857 4014 4159 7059 7147 10074 12047 13256 
 	}
-	manpower = 5585425
+	manpower = 5553905
 	buildings_max_level_factor = 1.000
 	state_category = city
 	local_supplies = 0.000

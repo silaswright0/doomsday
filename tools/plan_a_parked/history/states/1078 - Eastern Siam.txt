@@ -1,0 +1,30 @@
+state={
+	id=1078
+	name="STATE_1078"
+	resources={
+	}
+	state_category=town
+	history={
+		owner = SIA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SIA
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+		victory_points = {
+			12224 1
+		}
+		victory_points = {
+			7225 1
+		}
+	}
+
+	provinces={
+		12224 10293 7225 4433 1244 7292
+	}
+	manpower = 3600000
+	buildings_max_level_factor=1.000
+
+}

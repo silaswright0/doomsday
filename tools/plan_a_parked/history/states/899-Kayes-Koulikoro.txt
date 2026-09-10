@@ -1,0 +1,27 @@
+state={
+	id=899
+	name="STATE_899"
+	manpower = 8204454
+	state_category = pastoral
+
+	history={
+		owner = MLI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = MLI
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+
+		}
+
+	}
+
+	provinces={
+		2012 10812 10829 10915 12751 12838 
+	}
+	
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

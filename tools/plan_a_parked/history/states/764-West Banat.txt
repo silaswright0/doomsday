@@ -1,0 +1,30 @@
+
+state={
+	id=764
+	name="STATE_764"
+	manpower = 1067536
+	state_category = rural
+
+	history={
+		owner = SER
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			3614 1
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3 #was: 6
+		}
+		add_core_of = YUG
+		add_core_of = SER
+		add_core_of = TRA
+	}
+
+	provinces={
+		614 3614 6643 11787
+	}
+
+	local_supplies=2.0 
+}

@@ -1,0 +1,200 @@
+# Extra 2026 nodes. Same research_cost for every tag. Vanilla IDs stay so focuses still resolve.
+# Folder positions are {0,0} because each node has its own techtree gridbox (2026 row).
+
+technologies = {
+
+	dd_recon_uav = {
+		enable_equipments = {
+			recon_uav_equipment_1
+		}
+		research_cost = 1.5
+		start_year = 2020
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			air_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_strike_uav = {
+		enable_equipments = {
+			strike_uav_equipment_1
+		}
+		research_cost = 2
+		start_year = 2020
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			air_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_transport_heli = {
+		enable_equipments = {
+			transport_heli_equipment_1
+		}
+		research_cost = 1.5
+		start_year = 2020
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			air_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_loitering_munition = {
+		enable_equipments = {
+			loitering_munition_equipment_1
+		}
+		research_cost = 1.5
+		start_year = 2020
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		folder = {
+			name = bba_air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			air_equipment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_cruise_missile = {
+		enable_equipments = {
+			guided_missile_equipment_1
+			guided_missile_equipment_2
+			guided_missile_equipment_3
+			guided_missile_equipment_4
+		}
+		enable_building = {
+			building = rocket_site
+			level = 5
+		}
+		research_cost = 2
+		start_year = 2020
+		folder = {
+			name = electronics_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			rocketry
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_srbm = {
+		enable_equipments = {
+			ballistic_missile_equipment_1
+			ballistic_missile_equipment_2
+			ballistic_missile_equipment_4
+		}
+		research_cost = 2
+		start_year = 2020
+		folder = {
+			name = electronics_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			rocketry
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_sam = {
+		enable_equipments = {
+			sam_missile_equipment_1
+			sam_missile_equipment_2
+		}
+		enable_building = {
+			building = sam_site
+			level = 3
+		}
+		enable_subunits = {
+			mobile_sam
+		}
+		research_cost = 2
+		start_year = 2020
+		folder = {
+			name = artillery_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			artillery
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_shorad = {
+		enable_subunits = {
+			shorad
+		}
+		research_cost = 1.5
+		start_year = 2020
+		folder = {
+			name = artillery_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			artillery
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_manpads = {
+		enable_subunits = {
+			manpads
+		}
+		research_cost = 1
+		start_year = 2020
+		folder = {
+			name = artillery_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			artillery
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

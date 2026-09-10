@@ -1,0 +1,34 @@
+
+state={
+	id=419
+	name="STATE_419"
+	manpower = 1272022
+	resources = {
+	}
+	
+	state_category = rural
+	history={
+		owner = AZR
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+		victory_points = {
+			7604 1 
+		}
+		victory_points = {
+			1822 2 
+		}
+		add_core_of = PER
+		add_core_of = KUR
+		add_core_of = AZR
+	}
+
+	provinces={
+		1636 1822 7604 12861 13120 
+	}
+
+	local_supplies=4.0 
+}

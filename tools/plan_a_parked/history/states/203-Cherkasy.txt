@@ -1,0 +1,29 @@
+
+state={
+	id=203
+	name="STATE_203"
+	manpower = 2493575
+	
+	state_category = large_town
+
+	history={
+		victory_points = {
+			488 5
+		}
+		owner = UKR
+		add_extra_state_shared_building_slots = 5
+		buildings = {
+			arms_factory = 1
+			infrastructure = 2 #was: 5
+			industrial_complex = 0
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+	}
+
+	provinces={
+		434 458 488 3452 3468 6451 6478 9451 9491 11409 11424 11438 11454 11530 
+	}
+
+	local_supplies=0.0 
+}

@@ -1,0 +1,29 @@
+state={
+	id=750
+	name="STATE_750"
+	provinces={
+		4896 5030 7101 7201 7279 7434 10006 10757 12086 12414 
+	}
+	manpower = 23801237
+	buildings_max_level_factor=1.000
+	state_category = town
+	history={
+		owner = CHI
+		add_extra_state_shared_building_slots = 7
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 3 #was 2
+			arms_factory = 0
+			air_base = 2
+		}
+		victory_points = {
+			7101 10 
+		}
+
+
+	}
+
+	local_supplies=0.0 
+}

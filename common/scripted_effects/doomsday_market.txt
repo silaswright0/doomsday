@@ -1,0 +1,117 @@
+# Fixed prices. Host and clients must never disagree.
+
+dd_buy_infantry = {
+	if = {
+		limit = { check_variable = { treasury > 9.99 } }
+		subtract_from_variable = { treasury = 10 }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_3
+			amount = 100
+			producer = ROOT
+		}
+	}
+}
+
+dd_sell_infantry = {
+	if = {
+		limit = { has_equipment = { infantry_equipment > 99 } }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -100
+		}
+		add_to_variable = { treasury = 5 }
+	}
+}
+
+dd_buy_cruise = {
+	if = {
+		limit = { check_variable = { treasury > 49.99 } }
+		subtract_from_variable = { treasury = 50 }
+		add_equipment_to_stockpile = {
+			type = guided_missile_equipment_4
+			amount = 20
+			producer = ROOT
+		}
+	}
+}
+
+dd_sell_cruise = {
+	if = {
+		limit = { has_equipment = { guided_missile_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = guided_missile_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 25 }
+	}
+}
+
+dd_buy_srbm = {
+	if = {
+		limit = { check_variable = { treasury > 79.99 } }
+		subtract_from_variable = { treasury = 80 }
+		add_equipment_to_stockpile = {
+			type = ballistic_missile_equipment_4
+			amount = 20
+			producer = ROOT
+		}
+	}
+}
+
+dd_sell_srbm = {
+	if = {
+		limit = { has_equipment = { ballistic_missile_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = ballistic_missile_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 40 }
+	}
+}
+
+dd_buy_sam = {
+	if = {
+		limit = { check_variable = { treasury > 39.99 } }
+		subtract_from_variable = { treasury = 40 }
+		add_equipment_to_stockpile = {
+			type = sam_missile_equipment_2
+			amount = 20
+			producer = ROOT
+		}
+	}
+}
+
+dd_sell_sam = {
+	if = {
+		limit = { has_equipment = { sam_missile_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = sam_missile_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 20 }
+	}
+}
+
+dd_buy_recon_uav = {
+	if = {
+		limit = { check_variable = { treasury > 29.99 } }
+		subtract_from_variable = { treasury = 30 }
+		add_equipment_to_stockpile = {
+			type = recon_uav_equipment_1
+			amount = 10
+			producer = ROOT
+		}
+	}
+}
+
+dd_buy_strike_uav = {
+	if = {
+		limit = { check_variable = { treasury > 39.99 } }
+		subtract_from_variable = { treasury = 40 }
+		add_equipment_to_stockpile = {
+			type = strike_uav_equipment_1
+			amount = 10
+			producer = ROOT
+		}
+	}
+}

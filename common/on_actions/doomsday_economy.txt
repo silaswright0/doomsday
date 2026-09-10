@@ -1,0 +1,21 @@
+# Money, market, and policy. Country-scoped. No random.
+
+on_actions = {
+	on_startup = {
+		effect = {
+			# Hide leftover vanilla NATO decisions (date > 1944). Same PP cost
+			# as the 24 Jan crash; complete_effect still fired missing events.
+			set_global_flag = brussels_to_fired
+			set_global_flag = nato_suggested
+			every_country = {
+				dd_init_economy = yes
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+			dd_economy_monthly_tick = yes
+		}
+	}
+}

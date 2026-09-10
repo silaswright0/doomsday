@@ -1,0 +1,39 @@
+state={
+	id=756
+	name="STATE_756"
+	provinces={
+		1778 2028 5076 7971 12596 12820 
+	}
+	manpower = 1636335
+	buildings_max_level_factor=1.000
+	state_category = wasteland
+	history={
+
+		owner = CHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+
+		victory_points = {
+			7971 1 # Jiuquan 
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+			2028 = {
+				landmark_great_wall_section = {
+				    level = 1
+				    allowed = {
+				        has_dlc = "No Compromise, No Surrender"
+				    }
+				}
+			}
+		}
+
+	}
+
+	local_supplies = 0.0 
+}

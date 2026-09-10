@@ -1,0 +1,29 @@
+state = {
+	id = 993
+	name = "STATE_993"
+	
+	state_category = rural
+	manpower = 1384294
+	
+	history = {
+		owner = BRM
+		add_extra_state_shared_building_slots = 4
+		add_core_of = BRM
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+
+		victory_points = {
+			7909 1 # Kyaingtong
+		}
+	}
+
+	provinces = {
+		4175 7400 7909 7974 
+	}
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+}

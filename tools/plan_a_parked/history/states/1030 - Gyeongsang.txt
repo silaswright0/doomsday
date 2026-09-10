@@ -1,0 +1,43 @@
+state = {
+
+	id = 1030
+	name = "STATE_1030"
+	manpower = 12982885
+	
+	state_category = town
+
+	resources = {
+	}
+
+	history = {
+
+		owner = KOR
+		add_extra_state_shared_building_slots = 19
+		add_core_of = KOR
+
+		buildings = {
+			arms_factory = 1
+			industrial_complex = 6
+			infrastructure = 5
+			dockyard = 8
+			4056 = {
+				naval_base = 4
+			}
+		}
+
+		victory_points = {
+			4056 5 # Pusan/Busan
+		}
+
+		victory_points = {
+			12089 1 # Taikyū
+		}
+
+	}
+
+	provinces = {
+		1054 1081 4056 4086 7121 10085 12060 12089 
+	}
+
+	local_supplies = 0.0 
+}

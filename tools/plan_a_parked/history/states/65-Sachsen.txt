@@ -1,0 +1,45 @@
+state = {
+	id = 65
+	name = "STATE_65"
+	manpower = 8494286
+	resources = {
+		steel = 41 #was 12 was 32 #was 53 # was: 90
+		coal = 13 # initial distribution
+	}
+
+	state_category = metropolis
+
+
+	history = {
+
+		owner = GER
+		add_extra_state_shared_building_slots = 9
+		add_core_of = GER
+		add_core_of = SAX
+
+		buildings = {
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 4
+		}
+
+		victory_points = {
+			514 5 # Dresden
+		}
+
+		victory_points = {
+			3535 5 # Leipzig
+		}
+
+		victory_points = {
+			9471 2 # Chemnitz
+		}
+
+	}
+
+	provinces = {
+		514 573 3514 3535 6441 6559 9441 9471 9535 11481 11545 
+	}
+
+	local_supplies = 0.0 
+}

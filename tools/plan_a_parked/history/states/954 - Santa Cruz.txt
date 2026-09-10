@@ -1,0 +1,37 @@
+state = {
+	id = 954
+	name = "STATE_954"
+	manpower = 370914
+	
+	state_category = rural
+	
+	resources = {
+		oil = 3
+		coal = 2 # initial distribution = with infra 2.4 / 2 total
+	}
+
+	history = {
+
+		owner = ARG
+		add_extra_state_shared_building_slots = 4
+		add_core_of = ARG
+		add_core_of = WLA
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+
+		victory_points = {
+			5173 1 
+		}
+		
+	}
+
+	provinces = {
+		2169 5173 12946 12952 13305
+	}
+
+	local_supplies = 0.0 
+}

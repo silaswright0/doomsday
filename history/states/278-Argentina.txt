@@ -8,10 +8,13 @@ state = {
 	history = {
 
 		owner = ARG
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 11
 		add_core_of = ARG
 
 		buildings = {
+			renewable_park = 1
+			finance_center = 1
+			services_building = 2
 			infrastructure = 3 #was: 6
 			arms_factory = 0
 			industrial_complex = 3

@@ -7,7 +7,7 @@ state = {
 	history = {
 		
 		owner = QAT
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 7
 		add_core_of = QAT
 
 		victory_points = {
@@ -15,6 +15,8 @@ state = {
 		}
 
 		buildings = {
+			sam_site = 1
+			services_building = 1
 			arms_factory = 1
 			industrial_complex = 1
 			infrastructure = 4

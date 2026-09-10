@@ -1,0 +1,42 @@
+state = {
+	id = 196
+	name = "STATE_196"
+	manpower = 940928
+	
+	state_category = rural
+	
+	resources = {
+		chromium = 15 # was: 22
+	}
+
+	history = {
+
+		owner = SOV
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SOV
+		add_core_of = UKR
+		add_core_of = CRI
+
+		victory_points = {
+			721 1 # Kherson
+		}
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3 #was: 5
+			air_base = 3
+
+			# Kakhovka Dam
+			#737 = { dam = 1 }
+			
+		}
+		
+	}
+
+	provinces = {
+		568 721 737 767 3573 6771 9712 11715 
+	}
+
+	local_supplies = 0.0 
+}

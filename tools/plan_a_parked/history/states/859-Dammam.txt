@@ -1,0 +1,36 @@
+state = {
+	id = 859
+	name = "STATE_859"
+	manpower = 5494431
+
+	resources = {
+		oil = 3.000
+	}
+
+	history = {
+
+		owner = SAU
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SAU
+
+		victory_points = {
+			12702 1 
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+			12702 = {
+				naval_base = 6
+			}
+		}
+	}
+	
+	provinces = {
+		1955 10791 10850 12702 
+	}
+	state_category = rural
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+}

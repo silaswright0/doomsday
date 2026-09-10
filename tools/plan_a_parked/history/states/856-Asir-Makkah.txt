@@ -1,0 +1,38 @@
+state= { 
+	id = 856
+	name = "STATE_856"
+	
+	history = {
+
+		owner = SAU
+		add_extra_state_shared_building_slots = 5
+		add_core_of	= SAU
+
+		buildings = {
+			industrial_complex = 1
+			infrastructure = 3
+			arms_factory = 0
+			12883 = {
+				naval_base = 5
+			}
+		}
+
+		victory_points = {
+			12883 1 
+		}
+
+		victory_points = {
+			5037 5
+		}
+	}
+	manpower = 6243672
+	state_category = pastoral
+
+	provinces = {
+		1923 2090 5037 8073 10786 12883 
+	}
+
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+
+}

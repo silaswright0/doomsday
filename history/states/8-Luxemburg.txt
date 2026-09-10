@@ -12,10 +12,11 @@ state = {
 	history = {
 
 		owner = LUX
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 6
 		add_core_of = LUX
 
 		buildings = {
+			services_building = 1
 			infrastructure = 5
 			arms_factory = 0
 			industrial_complex = 1

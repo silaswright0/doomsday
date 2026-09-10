@@ -1,0 +1,41 @@
+guiTypes = {
+
+	# Vanilla packs PP/stability/war support, manpower, then factories through
+	# command power from x=100 to ~794, then land/navy/air to ~1028. Date and
+	# world tension sit on UPPER_RIGHT. This panel uses that gap.
+	containerWindowType = {
+		name = "dd_topbar_econ_window"
+		position = { x = 1034 y = 4 }
+		size = { width = 210 height = 30 }
+		clipping = no
+
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_generic_bg_1"
+		}
+
+		instantTextboxType = {
+			name = "dd_topbar_line1"
+			position = { x = 6 y = 1 }
+			font = "hoi_16mbs"
+			text = "DD_TOPBAR_ECON_1"
+			maxWidth = 198
+			maxHeight = 14
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_topbar_line2"
+			position = { x = 6 y = 14 }
+			font = "hoi_16mbs"
+			text = "DD_TOPBAR_ECON_2"
+			maxWidth = 198
+			maxHeight = 14
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
+	}
+}

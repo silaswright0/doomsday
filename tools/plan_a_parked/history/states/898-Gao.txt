@@ -1,0 +1,27 @@
+state={
+	id=898
+	name="STATE_898"
+	manpower = 3516199
+	state_category = wasteland
+
+	history={
+		owner = MLI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = MLI
+		
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+
+		}
+
+	}
+
+	provinces={
+		2044 5101 7930 7954 10788 
+	}
+	
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

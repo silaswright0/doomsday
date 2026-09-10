@@ -1,0 +1,381 @@
+# Land roles vanilla ai_strategy still requests. Missing roles CTD the AI
+# (client_ping ACCESS_VIOLATION ~25 Jan). No blocked_for, no 1936 foci.
+# Units must exist under this mod's replace_path common/units.
+
+infantry_generic = {
+	role = infantry
+	upgrade_prio = { base = 5 }
+	infantry_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+				artillery = 1
+			}
+			regiments = {
+				infantry = 9
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+garrison_generic = {
+	role = garrison
+	upgrade_prio = { base = 1 }
+	garrison_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				infantry = 4
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+suppression_generic = {
+	role = suppression
+	upgrade_prio = { base = 1 }
+	suppression_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				military_police = 1
+			}
+			regiments = {
+				cavalry = 4
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+armor_generic = {
+	role = armor
+	upgrade_prio = { base = 2 }
+	armor_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+				artillery = 1
+			}
+			regiments = {
+				medium_armor = 3
+				motorized = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+mountaineer_generic = {
+	role = mountaineers
+	upgrade_prio = { base = 1 }
+	mountaineer_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+				artillery = 1
+			}
+			regiments = {
+				mountaineers = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+marine_generic = {
+	role = marines
+	upgrade_prio = { base = 1 }
+	marine_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+				artillery = 1
+			}
+			regiments = {
+				marine = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+paratrooper_generic = {
+	role = paratroopers
+	upgrade_prio = { base = 1 }
+	paratrooper_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				paratrooper = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+rangers_generic = {
+	role = rangers_role
+	upgrade_prio = { base = 1 }
+	rangers_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				infantry = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+landcruiser_generic = {
+	role = mega_heavy_breakthrough_role
+	upgrade_prio = { base = 0.1 }
+	landcruiser_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				medium_armor = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+super_heavy_generic = {
+	role = super_heavy_breakthrough_role
+	upgrade_prio = { base = 0.1 }
+	super_heavy_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				medium_armor = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+hq_generic = {
+	role = hq_role
+	upgrade_prio = { base = 0.1 }
+	hq_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				infantry = 3
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+# Vanilla country strategies still request these (USA/HUN mobile, SOV motorized, etc.).
+# Missing role -> client_ping ACCESS_VIOLATION around 25 Jan.
+mobile_generic = {
+	role = mobile
+	upgrade_prio = { base = 2 }
+	mobile_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				motorized = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+motorized_generic = {
+	role = motorized
+	upgrade_prio = { base = 1 }
+	motorized_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				motorized = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+mechanized_generic = {
+	role = mechanized
+	upgrade_prio = { base = 1 }
+	mechanized_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				mechanized = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+mechanized_assault_generic = {
+	role = mechanized_assault
+	upgrade_prio = { base = 0.1 }
+	mechanized_assault_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				mechanized = 4
+				medium_armor = 2
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+cavalry_generic = {
+	role = cavalry
+	upgrade_prio = { base = 0.1 }
+	cavalry_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				cavalry = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+heavy_armor_generic = {
+	role = heavy_armor
+	upgrade_prio = { base = 0.1 }
+	heavy_armor_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				heavy_armor = 3
+				motorized = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+militias_generic = {
+	role = militias
+	upgrade_prio = { base = 0.1 }
+	militias_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			regiments = {
+				militia = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+irregular_generic = {
+	role = irregular_infantry
+	upgrade_prio = { base = 0.1 }
+	irregular_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			regiments = {
+				irregular_infantry = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+artillery_generic = {
+	role = artillery
+	upgrade_prio = { base = 0.1 }
+	artillery_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				artillery = 1
+			}
+			regiments = {
+				infantry = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+anti_tank_generic = {
+	role = anti_tank
+	upgrade_prio = { base = 0.1 }
+	anti_tank_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				infantry = 6
+			}
+		}
+		target_min_match = 0.5
+	}
+}
+
+anti_armor_generic = {
+	role = anti_armor
+	upgrade_prio = { base = 0.1 }
+	anti_armor_default = {
+		upgrade_prio = { base = 1 }
+		target_template = {
+			support = {
+				engineer = 1
+			}
+			regiments = {
+				infantry = 6
+				medium_armor = 2
+			}
+		}
+		target_min_match = 0.5
+	}
+}

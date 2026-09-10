@@ -1,0 +1,37 @@
+state = {
+	id = 752
+	name = "STATE_752"
+	
+	manpower = 892546
+	buildings_max_level_factor = 1.000
+	state_category = pastoral
+
+	history = {
+		owner = CHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = CHI
+		add_core_of = PRC
+
+		victory_points = {
+			4999 1 # Kangding 
+		}
+
+		victory_points = {
+			12724 1 # Ba'an 
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+
+
+	}
+
+	provinces = {
+		1918 1999 7988 8104 12724 12837 4999
+	}
+	local_supplies = 1.0 
+
+}

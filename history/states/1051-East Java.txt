@@ -8,9 +8,12 @@ state={
 
 	history={
 		owner = INS
-		add_extra_state_shared_building_slots = 12
+		add_extra_state_shared_building_slots = 15
 		add_core_of = INS
 		buildings = {
+			sam_site = 1
+			renewable_park = 1
+			services_building = 2
 			dockyard = 1
 			infrastructure = 2
 			industrial_complex = 7

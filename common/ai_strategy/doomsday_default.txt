@@ -1,0 +1,28 @@
+# Vanilla country strategies request armor/mobile/marines/etc. If a role has
+# no matching ai_templates entry the AI CTDs (client_ping ACCESS_VIOLATION).
+# This folder replace_path's vanilla so only roles we ship are requested.
+
+doomsday_unit_production = {
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 80
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 5
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 5
+	}
+}

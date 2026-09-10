@@ -12,7 +12,7 @@ state = {
 	history = {
 
 		owner = AUS
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 10
 		add_core_of = AUS
 
 		victory_points = {
@@ -24,6 +24,9 @@ state = {
 		}
 
 		buildings = {
+			renewable_park = 1
+			finance_center = 1
+			services_building = 2
 			infrastructure = 5
 			arms_factory = 0
 			industrial_complex = 2

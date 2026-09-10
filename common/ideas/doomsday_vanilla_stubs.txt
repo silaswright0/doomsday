@@ -1,0 +1,18 @@
+# Tokens vanilla AI/decisions still check. We do not replace_path those
+# files, so empty ideas stop "not a valid idea" spam in the error log.
+ideas = {
+	country = {
+		SOV_vyacheslav_molotov = {
+			allowed = { always = no }
+			removal_cost = -1
+		}
+		SOV_maksim_litvinov = {
+			allowed = { always = no }
+			removal_cost = -1
+		}
+		USA_joseph_mccarthy = {
+			allowed = { always = no }
+			removal_cost = -1
+		}
+	}
+}

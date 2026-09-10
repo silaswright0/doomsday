@@ -1,0 +1,41 @@
+scripted_gui = {
+
+	doomsday_economy_ui = {
+		context_type = decision_category
+		window_name = "doomsday_economy_window"
+
+		effects = {
+			dd_welfare_1_click = { dd_set_welfare_1 = yes }
+			dd_welfare_2_click = { dd_set_welfare_2 = yes }
+			dd_welfare_3_click = { dd_set_welfare_3 = yes }
+			dd_education_1_click = { dd_set_education_1 = yes }
+			dd_education_2_click = { dd_set_education_2 = yes }
+			dd_education_3_click = { dd_set_education_3 = yes }
+			dd_immigration_1_click = { dd_set_immigration_1 = yes }
+			dd_immigration_2_click = { dd_set_immigration_2 = yes }
+			dd_immigration_3_click = { dd_set_immigration_3 = yes }
+			dd_taxes_1_click = { dd_set_taxes_1 = yes }
+			dd_taxes_2_click = { dd_set_taxes_2 = yes }
+			dd_taxes_3_click = { dd_set_taxes_3 = yes }
+			dd_buy_infantry_click = { dd_buy_infantry = yes }
+			dd_sell_infantry_click = { dd_sell_infantry = yes }
+			dd_buy_cruise_click = { dd_buy_cruise = yes }
+			dd_sell_cruise_click = { dd_sell_cruise = yes }
+			dd_buy_srbm_click = { dd_buy_srbm = yes }
+			dd_sell_srbm_click = { dd_sell_srbm = yes }
+			dd_buy_sam_click = { dd_buy_sam = yes }
+			dd_sell_sam_click = { dd_sell_sam = yes }
+			dd_buy_recon_uav_click = { dd_buy_recon_uav = yes }
+			dd_buy_strike_uav_click = { dd_buy_strike_uav = yes }
+		}
+	}
+
+	dd_topbar_econ = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "dd_topbar_econ_window"
+		visible = {
+			always = yes
+		}
+	}
+}

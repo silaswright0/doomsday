@@ -1,0 +1,31 @@
+state={
+	id=699
+	name="STATE_699"
+	manpower = 40838
+	
+	state_category = wasteland
+
+	history={
+		owner = SPR
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SPR
+		add_core_of = WES
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+			8038 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			8038 1
+		}
+	}
+	
+	provinces={
+		4920 5012 7979 8038 8111 10875
+	}
+
+	local_supplies=0.0 
+}

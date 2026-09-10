@@ -1,0 +1,22 @@
+state = {
+	id = 1115
+	name = "STATE_1115"
+	manpower = 1044315
+	state_category = town
+	history = {
+		owner = UKR
+		add_extra_state_shared_building_slots = 4
+		add_core_of = UKR
+		add_core_of = SOV
+		victory_points = { 502 5 }
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+	}
+	provinces = {
+		502 3466 3491
+	}
+	local_supplies = 0.0
+}

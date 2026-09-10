@@ -1,0 +1,34 @@
+state = {
+	id = 611
+	name = "STATE_611" # South Chahar
+	manpower = 4373477
+	
+	state_category = pastoral
+
+	history = {
+
+		owner = CHI
+		add_extra_state_shared_building_slots = 5
+		add_core_of = MEN
+		add_core_of = CHI
+		add_core_of = PRC
+
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 3 #was 3
+			industrial_complex = 1
+		}
+
+		victory_points = {
+			10397 2 # Zhangbei
+		}
+
+	}
+
+	provinces = {
+		828 952 1489 4495 4612 7545 7674 10397 11752 13379
+	}
+
+	local_supplies = 0.0 
+}

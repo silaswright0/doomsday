@@ -1,10 +1,10 @@
 state = {
 	id = 196
 	name = "STATE_196"
-	manpower = 710855
-	
+	manpower = 489306
+
 	state_category = rural
-	
+
 	resources = {
 		chromium = 15 # was: 22
 	}
@@ -18,25 +18,21 @@ state = {
 		add_core_of = CRI
 
 		victory_points = {
-			721 1 # Kherson
+			3755 3 # Kherson
 		}
-		
+
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 2 #was: 5
 			air_base = 3
-
-			# Kakhovka Dam
-			#737 = { dam = 1 }
-			
 		}
-		
+
 	}
 
 	provinces = {
-		568 721 737 767 3573 6771 9712 11715 
+		574 3755 9573 11715
 	}
 
-	local_supplies = 0.0 
+	local_supplies = 5.0
 }

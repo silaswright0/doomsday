@@ -1,0 +1,26 @@
+state={
+	id=705
+	name="STATE_705"
+	manpower = 36248	
+	state_category = tiny_island
+
+	history={
+		owner = POR
+		add_extra_state_shared_building_slots = 4
+		add_core_of = POR
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+			13015 ={
+				naval_base = 1
+			}
+		}
+	}
+
+	provinces={
+		13015 
+	}
+
+	local_supplies=0.0 
+}

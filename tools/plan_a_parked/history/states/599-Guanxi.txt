@@ -1,0 +1,40 @@
+state= {
+	id=599
+	name="STATE_599"
+	manpower = 25839813
+	state_category = town
+	resources={
+		tungsten=15 # was: 20
+		steel= 15 # was: 20
+		chromium = 3 # was: 4
+	}
+
+	history= {
+		owner = CHI
+		add_extra_state_shared_building_slots = 8
+		add_core_of = GXC
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 4
+			arms_factory = 0
+			air_base = 2
+		}
+
+		victory_points = { 
+			10404 5 # Guilin  
+		}
+
+		victory_points = { 
+			1597 1 # Liuzhou  
+		}
+
+
+	}
+	provinces={
+		1023 1597 4134 4152 7095 7128 7168 7210 10039 10404 10431 12407 12436 
+	}
+
+	local_supplies=0.0 
+}

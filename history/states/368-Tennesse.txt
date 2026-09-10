@@ -14,8 +14,11 @@ state={
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 9
 		buildings = {
+			sam_site = 1
+			renewable_park = 1
+			services_building = 1
 			arms_factory = 1
 			infrastructure = 4 #was: 5
 			industrial_complex = 2

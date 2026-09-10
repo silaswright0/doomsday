@@ -8,13 +8,15 @@ state = {
 	history = {
 		
 		owner = KUW
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 6
 		add_core_of = KUW
 		victory_points = {
 			8085 1 # Kuwait City
 		}
 
 		buildings = {
+			sam_site = 1
+			services_building = 1
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 4

@@ -1,0 +1,30 @@
+state = {
+	id = 844
+	name = "STATE_844"
+	manpower = 3663122
+	
+	state_category = pastoral
+	
+	history = {
+		owner = SOM
+		add_extra_state_shared_building_slots = 4
+		add_core_of = SOM
+		victory_points = {
+		 	12941 1 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+			12941 = {
+				naval_base = 2
+			}
+			
+		}
+	}
+	provinces = { 
+		11014 12941
+	}
+
+	local_supplies = 0.0 
+}

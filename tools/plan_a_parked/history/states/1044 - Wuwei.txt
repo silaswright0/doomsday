@@ -1,0 +1,36 @@
+state = {
+	id = 1044
+	name = "STATE_1044"
+	manpower = 3005799
+	state_category = pastoral
+
+	history = {
+
+		owner = CHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+
+		victory_points = {
+			5100 1 #Wuwei
+		}
+
+
+	}
+
+	provinces = {
+		1630 5057 5100 12327 12776 
+	}
+	
+	buildings_max_level_factor = 1.000
+	
+
+	local_supplies = 0.0 
+}

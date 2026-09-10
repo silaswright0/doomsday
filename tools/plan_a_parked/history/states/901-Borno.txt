@@ -1,0 +1,28 @@
+state = {
+	id = 901
+	name = "STATE_901"
+	manpower = 1761790
+	state_category = pastoral
+
+	history = {
+
+		owner = NGA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = NGA
+		add_core_of = SOK
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+
+	}  
+
+	provinces = {
+		4997 5028 8109 10820 
+	}
+
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+}

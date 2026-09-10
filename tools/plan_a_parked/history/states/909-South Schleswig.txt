@@ -1,0 +1,32 @@
+state = {
+	id = 909
+	name = "STATE_909"
+	manpower = 231655
+	state_category = rural
+	
+	history = {
+
+		owner = GER
+		add_extra_state_shared_building_slots = 4
+		add_core_of = GER
+		add_core_of = SHL
+		add_core_of = PRE
+
+		victory_points = {
+			317 3  # Flensburg
+		}
+
+		buildings = {
+			industrial_complex = 0
+			infrastructure = 5
+			arms_factory = 0
+		}
+		
+	}
+
+	provinces = {
+		317 3231 11366
+ 	}
+
+	local_supplies = 0.0 
+}

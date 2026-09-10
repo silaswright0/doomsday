@@ -2,7 +2,7 @@
 state = {
 	id = 117
 	name = "STATE_117" # Campania
-	manpower = 6172752 # (Campania 3697k + Basilicato 543k )  # was 5333611 before Puglia state was added
+	manpower = 6137918 # (Campania 3697k + Basilicato 543k )  # was 5333611 before Puglia state was added
 	
 	state_category = city
 	resources = {
@@ -12,11 +12,14 @@ state = {
 
 	history = {
 		owner = ITA
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 8
 		victory_points = {
 			819 20 
 		}
 		buildings = {
+			sam_site = 1
+			renewable_park = 1
+			services_building = 1
 			infrastructure = 4
 			arms_factory = 0
 			industrial_complex = 2

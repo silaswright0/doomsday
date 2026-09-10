@@ -2,12 +2,14 @@ state={
 	id=887
 	name="STATE_887"
 
-	manpower = 3677966
+	manpower = 9737461
 	state_category = wasteland
 	
 	history = {
-		owner = SUD
+		owner = RSF
 		add_extra_state_shared_building_slots = 4
+		victory_points = { 10857 5 }
+		add_core_of = RSF
 		add_core_of = SUD
 		buildings = {
 			arms_factory = 0

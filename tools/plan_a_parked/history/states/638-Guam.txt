@@ -1,0 +1,38 @@
+state=
+{
+	id=638
+	name="STATE_638"
+	state_category = small_island
+	manpower = 204640
+	history=
+	{
+		owner = USA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = USA
+		add_core_of = GUM
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4 #was: 5
+			12140 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			12140 1
+		}
+
+		strategic_province_location = {
+			natural_harbor = 12140
+		}
+		strategic_state_location = {
+			favorable_approach = 12140
+		}
+
+	}
+	provinces={
+		12140
+	}
+
+	local_supplies=0.0 
+}

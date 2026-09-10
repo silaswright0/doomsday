@@ -1,0 +1,45 @@
+state = {
+	id = 1060
+	name = "STATE_1060"
+	manpower = 7905234
+	
+	
+	state_category = town
+	
+	resources = {
+		rubber = 40 
+		steel = 2
+		aluminium = 2
+	}
+
+	history = {
+
+		owner = MAL
+		add_extra_state_shared_building_slots = 6
+		add_core_of = MAL
+
+		victory_points = {
+			13376 2 # Johor Bahru 
+		}
+
+		buildings = {
+			dockyard = 1
+			arms_factory = 0
+
+			infrastructure = 3
+			industrial_complex = 1
+
+			13376 = {
+				naval_base = 1
+			}
+
+		}
+		
+	}
+
+	provinces = {
+		4424 10313 13376 7427 
+	}
+
+	local_supplies = 0.0 
+}

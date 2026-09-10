@@ -1,0 +1,38 @@
+state = {
+	id = 974
+	name = "STATE_974" # South Transdanubia
+	manpower = 809828
+	
+	state_category = large_town
+
+	resources = {
+		oil = 1
+		aluminium = 20
+		coal = 2 # initial distribution
+	}
+
+	history = {
+
+		owner = HUN
+		add_extra_state_shared_building_slots = 4
+		add_core_of = HUN
+
+		victory_points = {
+			11610 5 
+		} 
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 4
+			industrial_complex = 0
+			air_base = 2
+		}
+		
+	}
+
+	provinces = {
+		682 3680 6685 9624 9643 11610
+	}
+
+	local_supplies = 0.0 
+}

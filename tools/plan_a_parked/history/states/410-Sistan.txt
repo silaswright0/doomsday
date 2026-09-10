@@ -1,0 +1,29 @@
+
+state={
+	id=410
+	name="STATE_410"
+	manpower = 3118329
+	
+	state_category = rural
+
+	history={
+		owner = PER
+		add_extra_state_shared_building_slots = 4
+		victory_points = {
+			10782 1 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+		}
+		add_core_of = PER 
+		add_core_of = BLC
+	}
+
+	provinces={
+		1889 2039 2070 4891 10782 13082 12895
+	}
+
+	local_supplies=6.0 
+}

@@ -1,0 +1,43 @@
+
+state = {
+	id = 852
+	name = "STATE_852" # Dalmatia
+	manpower = 125852 # Fiume had 75000 before merging rest of Istria # Dalmatia had 1431700 before Fiume split
+
+	state_category = town 
+
+	resources = {
+		coal = 2 #initial distribution
+	}
+
+	history = {
+		owner = CRO
+		add_extra_state_shared_building_slots = 4
+		victory_points = { #Fiume (Rijeka)
+			11564 1 
+		}
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+			dockyard = 0
+			11564 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = ITA
+		add_core_of = YUG
+		add_core_of = CRO
+		add_core_of = LBV
+
+		### CHANGED TO A MROE ROBUST SYSTEM
+		##CONTROLLED BY ITALY AT GAME START -> ITALIAN NAMES
+		#set_province_name = { id = 11564 name = VICTORY_POINTS_11564_ITA }
+	}
+
+	provinces = {
+		11564 11735
+	}
+
+	local_supplies = 0.0 
+}

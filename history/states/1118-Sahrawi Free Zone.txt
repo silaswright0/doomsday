@@ -1,0 +1,21 @@
+state = {
+	id = 1118
+	name = "STATE_1118"
+	manpower = 30000
+	state_category = wasteland
+	history = {
+		owner = WES
+		add_core_of = WES
+		add_claim_by = MOR
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+			13415 = { naval_base = 1 }
+		}
+	}
+	provinces = {
+		7979 4920 13415 13416
+	}
+	local_supplies = 0.0
+}

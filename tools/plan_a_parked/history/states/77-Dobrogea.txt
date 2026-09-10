@@ -1,0 +1,29 @@
+
+state={
+	id=77
+	name="STATE_77"
+	manpower = 488090
+	
+	state_category = rural
+
+	history={
+		victory_points = {
+			11597 1
+		}
+		owner = ROM
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			infrastructure = 3
+			industrial_complex = 0
+		}
+		add_core_of = ROM
+		add_claim_by = BUL
+	}
+
+	provinces={
+		9614 11597 
+	}
+
+	local_supplies=1.0 
+}

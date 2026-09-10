@@ -1,0 +1,63 @@
+# Placeholder map meshes. Reuse the civilian factory until custom assets exist.
+
+entity = {
+	name = "building_finance_center"
+	pdxmesh = "building_industrial_complex"
+	locator = { name = "damage_locator_01"	position = { 0.4 0.1 0.4 } }
+	locator = { name = "damage_locator_02"	position = { -0.1 0.45 -0.3 } }
+	default_state = "idle"
+	state = { name = "idle"
+		event = { time = 0.1 node="factorysmoke" particle = "factory_smoke_particle" }
+	}
+	state = { name = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	scale = 1.6
+}
+
+entity = {
+	name = "building_services_building"
+	pdxmesh = "building_industrial_complex"
+	locator = { name = "damage_locator_01"	position = { 0.4 0.1 0.4 } }
+	locator = { name = "damage_locator_02"	position = { -0.1 0.45 -0.3 } }
+	default_state = "idle"
+	state = { name = "idle"
+		event = { time = 0.1 node="factorysmoke" particle = "factory_smoke_particle" }
+	}
+	state = { name = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	scale = 1.4
+}
+
+entity = {
+	name = "building_renewable_park"
+	pdxmesh = "building_industrial_complex"
+	locator = { name = "damage_locator_01"	position = { 0.4 0.1 0.4 } }
+	locator = { name = "damage_locator_02"	position = { -0.1 0.45 -0.3 } }
+	default_state = "idle"
+	state = { name = "idle"
+		event = { time = 0.1 node="factorysmoke" particle = "factory_smoke_particle" }
+	}
+	state = { name = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	scale = 1.5
+}
+
+entity = {
+	name = "building_sam_site"
+	pdxmesh = "building_anti_air_building"
+	locator = { name = "damage_locator_01"	position = { 0.8 0.0 -0.4 } }
+	locator = { name = "damage_locator_02"	position = { -0.4 1.5 -0.7 } }
+	default_state = "idle"
+	state = { name = "idle"			animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1  time_offset = {0.0 1.0}}
+	state = { name = "damaged" 		animation = "idle"		animation_blend_time = 0.0	animation_speed = 1.0
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" keep_particle = yes trigger_once = yes }
+	}
+	scale = 1.0
+}

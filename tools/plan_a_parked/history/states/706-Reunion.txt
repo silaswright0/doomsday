@@ -1,0 +1,27 @@
+state={
+	id=706
+	name="STATE_706"
+	manpower = 1311244
+	
+	state_category = small_island
+
+	history={
+		owner = MAD
+		add_extra_state_shared_building_slots = 4
+		add_core_of = MAD
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+			13017 = {
+				naval_base = 1
+			}
+		}
+	}
+
+	provinces={
+		13017 
+	}
+
+	local_supplies=0.0 
+}

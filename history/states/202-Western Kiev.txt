@@ -2,7 +2,7 @@
 state={
 	id=202
 	name="STATE_202"
-	manpower = 2435370
+	manpower = 2369031
 	resources={
 		oil=8 # was: 14
 		aluminium=7 # was: 12
@@ -12,11 +12,13 @@ state={
 
 	history={
 		owner = UKR
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 6
 		victory_points = {
 			525 25
 		}
 		buildings = {
+			sam_site = 2
+			services_building = 1
 			infrastructure = 2 #was: 7
 			arms_factory = 1
 			industrial_complex = 0

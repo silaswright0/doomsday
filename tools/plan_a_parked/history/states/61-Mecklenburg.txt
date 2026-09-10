@@ -1,0 +1,42 @@
+state = {
+	id = 61
+	name = "STATE_61"
+	manpower = 1270295
+
+
+	state_category = town
+
+	history = {
+
+		owner = GER
+		add_extra_state_shared_building_slots = 4
+		add_core_of = GER
+		add_core_of = MEK
+
+		victory_points = {
+			321 5 # Rostocj
+		}
+
+		victory_points = {
+			11305 3 # Lübeck
+		}
+
+		buildings = {
+			industrial_complex = 0
+			infrastructure = 5
+			arms_factory = 0
+			321 = {
+				naval_base = 6
+
+			}
+			air_base = 3
+		}
+		
+	}
+
+	provinces={
+		268 293 321 9294 11276 11305 
+	}
+
+	local_supplies=3.0 
+}

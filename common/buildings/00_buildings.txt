@@ -335,21 +335,89 @@ buildings = {
 	}
 
 
+	# Underground silo field. Must keep rocket_site_spawn (no new map spawn types).
+	# Does not share factory slots — same pattern as radar / AA / SAM.
 	rocket_site = {
 		show_on_map = 1
-		base_cost = 6400
+		base_cost = 8000
 		icon_frame = 12
 		rocket_production = 0
 		rocket_launch_capacity = 1
 		value = 1
 		tags = {}
+		damage_factor = 0.1
+		disable_grow_animation = yes
 		infrastructure_construction_effect = yes
 		disabled_in_dmz = yes
 		spawn_point = rocket_site_spawn
 		level_cap = {
-			state_max = 3
-			shares_slots = yes
+			state_max = 5
 			exclusive_with = mega_gun_emplacement
+		}
+	}
+
+	# Doomsday economy buildings. Cost order civ > finance > renewable > services.
+	# Construction strip only has frames 1-31; unique icons need frames 32+ and a longer GFX_buildings_strip.
+	finance_center = {
+		show_on_map = 1
+		base_cost = 7200
+		icon_frame = 14
+		value = 6
+		infrastructure_construction_effect = yes
+		level_cap = {
+			shares_slots = yes
+			state_max = 20
+		}
+	}
+
+	services_building = {
+		show_on_map = 1
+		base_cost = 3200
+		icon_frame = 1
+		value = 3
+		infrastructure_construction_effect = yes
+		level_cap = {
+			shares_slots = yes
+			state_max = 20
+		}
+	}
+
+	renewable_park = {
+		show_on_map = 1
+		base_cost = 4800
+		icon_frame = 10
+		value = 4
+		infrastructure_construction_effect = yes
+		affects_energy = yes
+		show_modifier = yes
+		local_resources_coal = 1
+		country_modifiers = {
+			modifiers = {
+				energy_gain_factor = 0.05
+			}
+		}
+		level_cap = {
+			shares_slots = yes
+			state_max = 10
+		}
+	}
+
+	# Static SAM battery. rocket_launch_capacity hosts SAM wings for intercept.
+	# Do not attach a map spawn; launch silos keep the rocket pad.
+	sam_site = {
+		show_on_map = 3
+		base_cost = 8000
+		icon_frame = 9
+		anti_air = yes
+		rocket_production = 0
+		rocket_launch_capacity = 1
+		disabled_in_dmz = yes
+		air_defence = 2
+		damage_factor = 0.1
+		value = 2
+		infrastructure_construction_effect = yes
+		level_cap = {
+			state_max = 3
 		}
 	}
 	

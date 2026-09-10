@@ -2,7 +2,7 @@
 state={
 	id=219
 	name="STATE_219"
-	manpower = 11116827
+	manpower = 11227209
 	
 	state_category = megalopolis
 	resources={
@@ -12,11 +12,16 @@ state={
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 17
 		victory_points = {
 			6380 50 
 		}
 		buildings = {
+			rocket_site = 3
+			sam_site = 3
+			renewable_park = 2
+			finance_center = 2
+			services_building = 2
 			infrastructure = 3 #was: 8
 			arms_factory = 4
 			industrial_complex = 3

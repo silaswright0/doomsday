@@ -1,0 +1,382 @@
+# Country-scoped only. No random. Host and clients must compute the same numbers.
+
+dd_init_economy = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_econ_init } }
+		set_country_flag = dd_econ_init
+		set_variable = { dd_rate_civ = 2 }
+		set_variable = { dd_rate_finance = 5 }
+		set_variable = { dd_rate_services = 1 }
+		set_variable = { dd_rate_admin = 0.5 }
+		set_variable = { dd_rate_interest = 0.005 }
+		if = {
+			limit = { check_variable = { debt < 0.01 } }
+			set_variable = { debt = gdp }
+			multiply_variable = { debt = debt_to_gdp }
+		}
+		if = {
+			limit = { check_variable = { treasury < 0.01 } }
+			set_variable = { treasury = gdp }
+			multiply_variable = { treasury = 0.02 }
+			clamp_variable = { var = treasury min = 1 max = 100000 }
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_welfare_1 }
+				NOT = { has_idea = dd_welfare_2 }
+				NOT = { has_idea = dd_welfare_3 }
+			}
+			add_ideas = dd_welfare_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_education_1 }
+				NOT = { has_idea = dd_education_2 }
+				NOT = { has_idea = dd_education_3 }
+			}
+			add_ideas = dd_education_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_immigration_1 }
+				NOT = { has_idea = dd_immigration_2 }
+				NOT = { has_idea = dd_immigration_3 }
+			}
+			add_ideas = dd_immigration_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_taxes_1 }
+				NOT = { has_idea = dd_taxes_2 }
+				NOT = { has_idea = dd_taxes_3 }
+			}
+			add_ideas = dd_taxes_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_women_1 }
+				NOT = { has_idea = dd_women_2 }
+				NOT = { has_idea = dd_women_3 }
+			}
+			add_ideas = dd_women_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_minority_1 }
+				NOT = { has_idea = dd_minority_2 }
+				NOT = { has_idea = dd_minority_3 }
+			}
+			add_ideas = dd_minority_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_investment_1 }
+				NOT = { has_idea = dd_investment_2 }
+				NOT = { has_idea = dd_investment_3 }
+			}
+			add_ideas = dd_investment_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_security_1 }
+				NOT = { has_idea = dd_security_2 }
+				NOT = { has_idea = dd_security_3 }
+			}
+			add_ideas = dd_security_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_healthcare_1 }
+				NOT = { has_idea = dd_healthcare_2 }
+				NOT = { has_idea = dd_healthcare_3 }
+			}
+			add_ideas = dd_healthcare_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_labor_1 }
+				NOT = { has_idea = dd_labor_2 }
+				NOT = { has_idea = dd_labor_3 }
+			}
+			add_ideas = dd_labor_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_fertility_1 }
+				NOT = { has_idea = dd_fertility_2 }
+				NOT = { has_idea = dd_fertility_3 }
+			}
+			add_ideas = dd_fertility_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_aid_1 }
+				NOT = { has_idea = dd_aid_2 }
+				NOT = { has_idea = dd_aid_3 }
+			}
+			add_ideas = dd_aid_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_religion_1 }
+				NOT = { has_idea = dd_religion_2 }
+				NOT = { has_idea = dd_religion_3 }
+			}
+			add_ideas = dd_religion_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_media_1 }
+				NOT = { has_idea = dd_media_2 }
+				NOT = { has_idea = dd_media_3 }
+			}
+			add_ideas = dd_media_2
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = dd_civil_military_1 }
+				NOT = { has_idea = dd_civil_military_2 }
+				NOT = { has_idea = dd_civil_military_3 }
+			}
+			add_ideas = dd_civil_military_2
+		}
+		dd_recalc_policy_expense = yes
+	}
+}
+
+dd_recalc_policy_expense = {
+	set_variable = { expense_policy = 0 }
+	set_variable = { income_tax = 0 }
+	if = {
+		limit = { has_idea = dd_welfare_2 }
+		add_to_variable = { expense_policy = 5 }
+	}
+	if = {
+		limit = { has_idea = dd_welfare_3 }
+		add_to_variable = { expense_policy = 15 }
+	}
+	if = {
+		limit = { has_idea = dd_education_2 }
+		add_to_variable = { expense_policy = 5 }
+	}
+	if = {
+		limit = { has_idea = dd_education_3 }
+		add_to_variable = { expense_policy = 12 }
+	}
+	if = {
+		limit = { has_idea = dd_immigration_3 }
+		add_to_variable = { expense_policy = 3 }
+	}
+	if = {
+		limit = { has_idea = dd_taxes_2 }
+		add_to_variable = { income_tax = 5 }
+	}
+	if = {
+		limit = { has_idea = dd_taxes_3 }
+		add_to_variable = { income_tax = 15 }
+	}
+	if = {
+		limit = { has_idea = dd_women_3 }
+		add_to_variable = { expense_policy = 4 }
+	}
+	if = {
+		limit = { has_idea = dd_minority_3 }
+		add_to_variable = { expense_policy = 3 }
+	}
+	if = {
+		limit = { has_idea = dd_investment_2 }
+		add_to_variable = { expense_policy = 6 }
+	}
+	if = {
+		limit = { has_idea = dd_investment_3 }
+		add_to_variable = { expense_policy = 18 }
+	}
+	if = {
+		limit = { has_idea = dd_security_3 }
+		add_to_variable = { expense_policy = 8 }
+	}
+	if = {
+		limit = { has_idea = dd_healthcare_2 }
+		add_to_variable = { expense_policy = 6 }
+	}
+	if = {
+		limit = { has_idea = dd_healthcare_3 }
+		add_to_variable = { expense_policy = 12 }
+	}
+	if = {
+		limit = { has_idea = dd_fertility_1 }
+		add_to_variable = { expense_policy = 8 }
+	}
+	if = {
+		limit = { has_idea = dd_fertility_2 }
+		add_to_variable = { expense_policy = 3 }
+	}
+	if = {
+		limit = { has_idea = dd_fertility_3 }
+		add_to_variable = { expense_policy = 2 }
+	}
+	if = {
+		limit = { has_idea = dd_aid_2 }
+		add_to_variable = { expense_policy = 8 }
+	}
+	if = {
+		limit = { has_idea = dd_aid_3 }
+		add_to_variable = { expense_policy = 22 }
+	}
+}
+
+dd_economy_monthly_tick = {
+	dd_init_economy = yes
+	set_variable = { income_civ = num_of_civilian_factories }
+	multiply_variable = { income_civ = dd_rate_civ }
+
+	set_variable = { income_finance = 0 }
+	set_variable = { income_services = 0 }
+	every_controlled_state = {
+		set_temp_variable = { tmp_fin = building_level@finance_center }
+		set_temp_variable = { tmp_srv = building_level@services_building }
+		add_to_variable = { ROOT.income_finance = tmp_fin }
+		add_to_variable = { ROOT.income_services = tmp_srv }
+	}
+	multiply_variable = { income_finance = dd_rate_finance }
+	multiply_variable = { income_services = dd_rate_services }
+
+	set_variable = { expense_admin = 0 }
+	every_owned_state = {
+		add_to_variable = { ROOT.expense_admin = 1 }
+	}
+	multiply_variable = { expense_admin = dd_rate_admin }
+
+	set_variable = { expense_interest = debt }
+	multiply_variable = { expense_interest = dd_rate_interest }
+
+	dd_recalc_policy_expense = yes
+
+	set_variable = { dd_last_income = income_civ }
+	add_to_variable = { dd_last_income = income_finance }
+	add_to_variable = { dd_last_income = income_services }
+	add_to_variable = { dd_last_income = income_tax }
+
+	set_variable = { dd_last_expense = expense_policy }
+	add_to_variable = { dd_last_expense = expense_admin }
+	add_to_variable = { dd_last_expense = expense_interest }
+
+	add_to_variable = { treasury = dd_last_income }
+	subtract_from_variable = { treasury = dd_last_expense }
+
+	dd_consume_sam_ammo = yes
+
+	if = {
+		limit = { has_global_flag = dd_econ_log }
+		log = "DD_ECON [GetDateText] [ROOT.GetTag] treasury=[?treasury] debt=[?debt] income=[?dd_last_income] expense=[?dd_last_expense]"
+	}
+}
+
+dd_consume_sam_ammo = {
+	# Static sites spend one_use_only missiles on sam_mission. Only mobile
+	# battalions need a monthly stockpile tick.
+	set_variable = { dd_sam_need = num_battalions_with_type@mobile_sam }
+	if = {
+		limit = { check_variable = { dd_sam_need > 0 } }
+		for_loop_effect = {
+			start = 0
+			end = dd_sam_need
+			compare = less_than
+			add = 1
+			value = v
+			if = {
+				limit = { has_equipment = { sam_missile_equipment > 0 } }
+				add_equipment_to_stockpile = {
+					type = sam_missile_equipment
+					amount = -1
+					producer = ROOT
+				}
+			}
+		}
+	}
+}
+
+dd_clear_welfare = {
+	if = { limit = { has_idea = dd_welfare_1 } remove_ideas = dd_welfare_1 }
+	if = { limit = { has_idea = dd_welfare_2 } remove_ideas = dd_welfare_2 }
+	if = { limit = { has_idea = dd_welfare_3 } remove_ideas = dd_welfare_3 }
+}
+
+dd_clear_education = {
+	if = { limit = { has_idea = dd_education_1 } remove_ideas = dd_education_1 }
+	if = { limit = { has_idea = dd_education_2 } remove_ideas = dd_education_2 }
+	if = { limit = { has_idea = dd_education_3 } remove_ideas = dd_education_3 }
+}
+
+dd_clear_immigration = {
+	if = { limit = { has_idea = dd_immigration_1 } remove_ideas = dd_immigration_1 }
+	if = { limit = { has_idea = dd_immigration_2 } remove_ideas = dd_immigration_2 }
+	if = { limit = { has_idea = dd_immigration_3 } remove_ideas = dd_immigration_3 }
+}
+
+dd_clear_taxes = {
+	if = { limit = { has_idea = dd_taxes_1 } remove_ideas = dd_taxes_1 }
+	if = { limit = { has_idea = dd_taxes_2 } remove_ideas = dd_taxes_2 }
+	if = { limit = { has_idea = dd_taxes_3 } remove_ideas = dd_taxes_3 }
+}
+
+dd_set_welfare_1 = {
+	dd_clear_welfare = yes
+	add_ideas = dd_welfare_1
+	dd_recalc_policy_expense = yes
+}
+dd_set_welfare_2 = {
+	dd_clear_welfare = yes
+	add_ideas = dd_welfare_2
+	dd_recalc_policy_expense = yes
+}
+dd_set_welfare_3 = {
+	dd_clear_welfare = yes
+	add_ideas = dd_welfare_3
+	dd_recalc_policy_expense = yes
+}
+dd_set_education_1 = {
+	dd_clear_education = yes
+	add_ideas = dd_education_1
+	dd_recalc_policy_expense = yes
+}
+dd_set_education_2 = {
+	dd_clear_education = yes
+	add_ideas = dd_education_2
+	dd_recalc_policy_expense = yes
+}
+dd_set_education_3 = {
+	dd_clear_education = yes
+	add_ideas = dd_education_3
+	dd_recalc_policy_expense = yes
+}
+dd_set_immigration_1 = {
+	dd_clear_immigration = yes
+	add_ideas = dd_immigration_1
+	dd_recalc_policy_expense = yes
+}
+dd_set_immigration_2 = {
+	dd_clear_immigration = yes
+	add_ideas = dd_immigration_2
+	dd_recalc_policy_expense = yes
+}
+dd_set_immigration_3 = {
+	dd_clear_immigration = yes
+	add_ideas = dd_immigration_3
+	dd_recalc_policy_expense = yes
+}
+dd_set_taxes_1 = {
+	dd_clear_taxes = yes
+	add_ideas = dd_taxes_1
+	dd_recalc_policy_expense = yes
+}
+dd_set_taxes_2 = {
+	dd_clear_taxes = yes
+	add_ideas = dd_taxes_2
+	dd_recalc_policy_expense = yes
+}
+dd_set_taxes_3 = {
+	dd_clear_taxes = yes
+	add_ideas = dd_taxes_3
+	dd_recalc_policy_expense = yes
+}

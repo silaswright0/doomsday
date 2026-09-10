@@ -1,0 +1,30 @@
+
+state={
+	id=475
+	name="STATE_475"
+	manpower = 6435583
+	
+	state_category = rural
+
+	history={
+		owner = MEX
+		add_extra_state_shared_building_slots = 5
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 1
+			infrastructure = 3
+		}
+		add_core_of = MEX
+
+		victory_points = {
+			1900 3
+		}
+	}
+
+	provinces={
+		1900 12753 12867 
+	}
+	
+
+	local_supplies=0.0 
+}

@@ -1,0 +1,31 @@
+state=
+{
+	id=631
+	name="STATE_631"
+	manpower = 5879	
+	state_category = tiny_island
+
+	history={
+		owner = USA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = USA
+		add_core_of = HAW
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+			13052 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			13052 1
+		 }
+	}
+	
+	provinces={
+		13052 	
+	}
+
+	local_supplies=0.0 
+}

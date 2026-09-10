@@ -1,0 +1,31 @@
+state={
+	id=733
+	name="STATE_733"
+	manpower = 149892
+	state_category = small_island
+	
+	history={
+		owner = RAJ
+		add_extra_state_shared_building_slots = 4
+		add_core_of = RAJ
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+			12251 = {
+				naval_base = 2
+
+			}
+		}
+
+		victory_points = {
+			12251 1 #Port Blair 
+		}
+
+	}
+	provinces={
+		10321 12251 
+	}
+
+	local_supplies=0.0 
+}

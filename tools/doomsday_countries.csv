@@ -53,7 +53,7 @@ MOL,Moldova,democratic,liberalism,48,15,5,32,16,0.35,2,0.1,0,2500000,,78,Maia Sa
 PMR,Transnistria,neutrality,oligarchism,15,20,10,55,1.2,0.40,0.15,0.05,0,465000,,834,Vadim Krasnoselsky,yes,0,2
 GEO,Georgia,neutrality,oligarchism,30,8,8,54,28,0.40,2.8,0.5,0,3400000,,231,Irakli Kobakhidze,yes,0,3
 ABK,Abkhazia,neutrality,oligarchism,12,10,8,70,0.8,0.30,0.05,0.05,0,300000,,826,Badra Gunba,yes,0,2
-SOS,South Ossetia,neutrality,oligarchism,10,8,8,74,0.1,0.20,0.02,0.02,0,56000,,1101,Alan Gagloev,yes,0,2
+SOE,South Ossetia,neutrality,oligarchism,10,8,8,74,0.1,0.20,0.02,0.02,0,56000,,1101,Alan Gagloev,yes,0,2
 ARM,Armenia,democratic,liberalism,45,8,5,42,24,0.50,2,1.3,0,3000000,,230,Nikol Pashinyan,yes,0,3
 AZR,Azerbaijan,neutrality,despotism,8,5,7,80,75,0.18,8,3.5,0,10000000,,229,Ilham Aliyev,no,0,3
 KAZ,Kazakhstan,neutrality,oligarchism,12,8,5,75,260,0.25,28,1.2,0,20000000,CSTO,404,Kassym-Jomart Tokayev,no,0,3
@@ -82,10 +82,10 @@ NRF,National Resistance Front,democratic,liberalism,55,10,5,30,0.05,0.20,0.02,0.
 PER,Iran,neutrality,despotism,8,6,16,70,400,0.30,50,10,0,90000000,,266,Masoud Pezeshkian,yes,0,3
 IRQ,Iraq,neutrality,oligarchism,20,8,12,60,220,0.50,7,4.5,0,39500000,,291,Mohammed Shia al-Sudani,yes,0,2
 KUR,Kurdistan Region,democratic,conservatism,55,8,8,29,28,0.40,3,0.8,0,6500000,,1099,Masrour Barzani,yes,0,3
-SYR,Syria,neutrality,despotism,10,10,15,65,16,1.50,1.5,1.8,0,20000000,,677,Ahmed al-Sharaa,no,0,1
-ROJ,Rojava,democratic,socialism,50,20,5,25,4,0.60,0.4,0.3,0,2800000,,1100,Mazloum Abdi,yes,0,2
-DRZ,Suwayda,neutrality,despotism,15,5,10,70,1,0.40,0.1,0.1,0,375000,,1103,Hikmat al-Hijri,no,0,1
-SNA,Syrian National Army,neutrality,despotism,10,5,20,65,1,0.40,0.1,0.3,0,350000,,1104,Fadlallah al-Hajji,no,0,1
+SYR,Syria,neutrality,despotism,10,10,15,65,16,1.50,1.5,1.8,1,20000000,,677,Ahmed al-Sharaa,no,0,1
+ROJ,Rojava,democratic,socialism,50,20,5,25,4,0.60,0.4,0.3,1,2800000,,1100,Mazloum Abdi,yes,0,2
+DRZ,Suwayda,neutrality,despotism,15,5,10,70,1,0.40,0.1,0.1,1,375000,,1103,Hikmat al-Hijri,no,0,1
+SNA,Syrian National Army,neutrality,despotism,10,5,20,65,1,0.40,0.1,0.3,1,350000,,1104,Fadlallah al-Hajji,no,0,1
 LEB,Lebanon,neutrality,oligarchism,30,10,15,45,18,1.80,1.5,0.3,0,4100000,,553,Joseph Aoun,yes,0,2
 HEZ,Hezbollah,neutrality,despotism,8,15,20,57,1,0.50,0.2,0.8,1,1200000,,1089,Naim Qassem,no,0,1
 JOR,Jordan,neutrality,despotism,15,5,8,72,50,0.90,5,2.2,0,11000000,,455,Abdullah II,no,0,3
@@ -111,8 +111,9 @@ M23,M23,neutrality,despotism,10,8,15,67,2,0.30,0.2,0.4,1,2500000,,1107,Corneille
 ANG,Angola,neutrality,oligarchism,18,15,7,60,90,0.70,6,1.3,0,37000000,,540,Joao Lourenco,yes,0,2
 MZB,Mozambique,democratic,socialism,40,20,8,32,20,1.00,2,0.3,0,34000000,,544,Daniel Chapo,yes,0,1
 ZIM,Zimbabwe,neutrality,despotism,15,20,8,57,30,0.90,3,0.3,0,17000000,,545,Emmerson Mnangagwa,yes,0,1
-SUD,Sudan,neutrality,despotism,8,10,15,67,30,2.00,2,1.5,1,50000000,,551,Abdel Fattah al-Burhan,no,0,1
-SSD,South Sudan,neutrality,despotism,10,8,12,70,8,0.60,0.3,0.4,1,12000000,,549,Salva Kiir,no,0,1
+SUD,Sudan,neutrality,despotism,8,10,15,67,30,2.00,2,1.5,1,40000000,,551,Abdel Fattah al-Burhan,no,0,1
+RSF,Rapid Support Forces,neutrality,despotism,5,5,15,75,4,1.50,0.4,1.0,1,10000000,,887,Mohamed Hamdan Dagalo,no,0,1
+SSD,South Sudan,neutrality,despotism,10,8,12,70,8,0.60,0.3,0.4,1,12000000,,885,Salva Kiir,no,0,1
 SOM,Somalia,neutrality,despotism,15,5,15,65,8,0.40,0.2,0.3,1,5000000,,559,Hassan Sheikh Mohamud,yes,0,1
 SML,Somaliland,democratic,conservatism,50,8,8,34,4,0.30,0.4,0.1,0,6200000,,269,Abdirahman Mohamed Abdullahi,yes,0,1
 PNT,Puntland,neutrality,despotism,25,5,10,60,3,0.40,0.2,0.15,0,4500000,,1105,Said Abdullahi Deni,yes,0,1
@@ -124,7 +125,8 @@ RWA,Rwanda,neutrality,despotism,15,10,5,70,14,0.70,1,0.2,0,14000000,,768,Paul Ka
 SEN,Senegal,democratic,liberalism,55,10,5,30,30,0.80,3,0.4,0,18000000,,272,Bassirou Diomaye Faye,yes,0,2
 IVO,Ivory Coast,democratic,conservatism,45,10,8,37,80,0.58,6,0.6,0,29000000,,776,Alassane Ouattara,yes,0,2
 CMR,Cameroon,neutrality,despotism,15,10,8,67,50,0.45,4,0.4,0,29000000,,773,Paul Biya,yes,0,2
-MLI,Mali,neutrality,despotism,8,8,12,72,20,0.50,1,0.5,0,24000000,,556,Assimi Goita,no,0,1
+MLI,Mali,neutrality,despotism,8,8,12,72,20,0.50,1,0.5,1,21000000,,556,Assimi Goita,no,0,1
+JNM,JNIM,neutrality,despotism,2,5,25,68,1,0.20,0.1,0.3,1,4000000,,898,Iyad Ag Ghali,no,0,1
 NGR,Niger,neutrality,despotism,10,8,10,72,17,0.50,1,0.3,0,27000000,,781,Abdourahamane Tchiani,no,0,1
 CHA,Chad,neutrality,despotism,10,8,12,70,13,0.45,0.8,0.4,0,19000000,,774,Mahamat Deby,no,0,1
 ARG,Argentina,democratic,populism,45,12,10,33,640,1.55,80,3,0,46000000,,278,Javier Milei,yes,0,3
@@ -156,7 +158,8 @@ QAT,Qatar,neutrality,despotism,8,2,5,85,220,0.45,15,15,0,2800000,,765,Tamim bin 
 KUW,Kuwait,neutrality,despotism,15,3,5,77,160,0.10,12,8,0,4900000,,656,Mishal Al-Ahmad,no,0,4
 OMA,Oman,neutrality,despotism,10,3,5,82,110,0.40,8,6,0,5200000,,294,Haitham bin Tariq,no,0,3
 YEM,Yemen,neutrality,despotism,15,8,10,67,4,0.80,0.2,0.5,1,800000,,1102,Rashad al-Alimi,no,0,1
-HOU,Houthis,neutrality,despotism,5,10,20,65,6,0.50,0.4,1.2,1,18000000,,293,Mahdi al-Mashat,no,0,1
+HOU,Houthis,neutrality,despotism,5,10,20,65,6,0.50,0.4,1.2,1,17500000,,293,Mahdi al-Mashat,no,0,1
+YNR,Yemeni National Resistance,neutrality,despotism,12,5,8,75,0.8,0.40,0.1,0.4,1,600000,,1116,Tareq Saleh,no,1,2
 STC,Southern Transitional Council,neutrality,despotism,10,5,15,70,4,0.50,0.3,0.6,1,5000000,,992,Aidarus al-Zubaidi,no,0,1
 BHR,Bahrain,neutrality,despotism,10,3,8,79,45,0.30,8,1.5,0,1600000,,765,Hamad bin Isa,no,0,4
 NZL,New Zealand,democratic,liberalism,70,5,5,20,260,0.45,20,3.5,0,5300000,,284,Christopher Luxon,yes,0,4

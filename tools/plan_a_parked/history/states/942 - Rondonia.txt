@@ -1,0 +1,33 @@
+
+state = {
+	id = 942
+	name = "STATE_942"
+	manpower = 589481
+	
+	state_category = pastoral
+
+	history = {
+
+		owner = BRA
+		add_extra_state_shared_building_slots = 4
+		add_core_of = BRA
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+
+		victory_points = {
+			12939 2 
+		}
+
+	}
+
+	provinces = {
+		12939 13283 13284
+	}
+	
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.0 
+}

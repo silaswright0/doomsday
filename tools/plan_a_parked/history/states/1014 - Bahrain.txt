@@ -1,0 +1,32 @@
+state = {
+	id = 1014
+	name = "STATE_1014"
+	manpower = 1600000
+	state_category = pastoral
+
+	history = {
+		
+		owner = BHR
+		add_extra_state_shared_building_slots = 5
+		add_core_of = BHR
+
+		victory_points = {
+			13313 2 # Manama
+		}
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 1
+			infrastructure = 4
+			13313 = {
+				naval_base = 2
+			}
+		}
+	}
+
+	provinces = {
+		13313
+	}
+
+	local_supplies = 0.0 
+}

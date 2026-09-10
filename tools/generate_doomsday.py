@@ -9,6 +9,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+from slim_tech_tree import apply_slim, build_tech_block
+
 ROOT = Path(__file__).resolve().parents[1]
 VANILLA = Path(r"C:\Program Files (x86)\Steam\steamapps\common\Hearts of Iron IV")
 STATES_DIR = ROOT / "history" / "states"
@@ -25,6 +27,10 @@ MIL_PER_PROC_B = 10.0
 WARTIME_MIL_MULT = 2.5
 FACTORY_LEVEL_CAP = 40
 SHARED_SLOTS_CAP = 50
+URBAN_CATS = frozenset({"megalopolis", "metropolis", "large_city", "city", "large_town"})
+LAUNCH_TAGS = frozenset({
+    "USA", "SOV", "CHI", "ENG", "FRA", "DPK", "RAJ", "PAK", "ISR", "PER", "KOR",
+})
 
 SOVEREIGN = {
     "USA", "CAN", "MEX", "GUA", "HON", "ELS", "NIC", "COS", "PAN", "CUB", "HAI", "DOM",
@@ -32,13 +38,13 @@ SOVEREIGN = {
     "ENG", "IRE", "FRA", "SPR", "POR", "BEL", "HOL", "LUX", "SWI", "ITA", "GER", "AUS",
     "CZE", "SLO", "POL", "HUN", "ROM", "BUL", "GRE", "ALB", "YUG", "SER", "CRO", "SLV",
     "BOS", "MAC", "MNT", "KOS", "DEN", "GRN", "NOR", "SWE", "FIN", "ICE", "EST", "LAT", "LIT",
-    "SOV", "UKR", "BLR", "MOL", "PMR", "GEO", "ABK", "SOS", "ARM", "AZR", "KAZ", "UZB", "TMS", "KYR", "TAJ",
+    "SOV", "UKR", "BLR", "MOL", "PMR", "GEO", "ABK", "SOE", "ARM", "AZR", "KAZ", "UZB", "TMS", "KYR", "TAJ",
     "TUR", "GRE", "CYP", "NCY", "MLT",
-    "SAU", "YEM", "HOU", "STC", "OMA", "UAE", "QAT", "KUW", "BHR", "IRQ", "KUR", "PER", "AFG", "NRF", "SYR", "ROJ", "DRZ", "SNA", "LEB",
+    "SAU", "YEM", "HOU", "YNR", "STC", "OMA", "UAE", "QAT", "KUW", "BHR", "IRQ", "KUR", "PER", "AFG", "NRF", "SYR", "ROJ", "DRZ", "SNA", "LEB",
     "JOR", "ISR", "PAL", "HAM", "HEZ", "EGY", "LBA", "LNA", "TUN", "ALG", "MOR", "WES",
-    "ETH", "ERI", "DJI", "SOM", "SML", "PNT", "JUB", "SHB", "KEN", "UGA", "TZN", "RWA", "BRD", "SUD", "SSD",
+    "ETH", "ERI", "DJI", "SOM", "SML", "PNT", "JUB", "SHB", "KEN", "UGA", "TZN", "RWA", "BRD", "SUD", "RSF", "SSD",
     "SAF", "LES", "SWZ", "NMB", "BOT", "ZIM", "ZAM", "MLW", "ANG", "MZB", "MAD", "COG", "M23", "RCG", "GAB",
-    "EQG", "CMR", "CAR", "CHA", "NGA", "DAH", "TOG", "GHA", "IVO", "VOL", "MLI", "NGR",
+    "EQG", "CMR", "CAR", "CHA", "NGA", "DAH", "TOG", "GHA", "IVO", "VOL", "MLI", "JNM", "NGR",
     "SEN", "GAM", "GNA", "GNB", "SIE", "LIB", "MRT",
     "RAJ", "PAK", "BAN", "NEP", "BHU", "SRL", "BRM", "NUG", "SIA", "MAL", "SNG", "INS", "PHI",
     "VIN", "CAM", "LAO", "CHI", "MON", "KOR", "DPK", "JAP", "FOR", "TML", "BRN",
@@ -82,12 +88,12 @@ CORE_PRIORITY = [
     "KAZ", "UZB", "TMS", "KYR", "TAJ",
     "BAN", "PAK", "SRL", "NUG", "BRM", "RAJ", "NEP", "BHU",
     "MLD", "BAH", "JAM", "GYA", "BLZ", "TRI", "ATG", "DMA", "STL", "SVG", "GND", "BRB", "BAS", "SUR", "CRC", "CBV", "GDL",
-    "ISR", "PAL", "HAM", "HEZ", "NCY", "CYP", "JOR", "LEB", "ROJ", "DRZ", "SNA", "SYR", "IRQ", "KUW", "UAE", "QAT", "BHR", "OMA", "YEM", "HOU", "STC",
+    "ISR", "PAL", "HAM", "HEZ", "NCY", "CYP", "JOR", "LEB", "ROJ", "DRZ", "SNA", "SYR", "IRQ", "KUW", "UAE", "QAT", "BHR", "OMA", "YEM", "HOU", "YNR", "STC",
     "DPK", "KOR", "FOR", "VIN", "CAM", "LAO", "MAL", "SNG", "INS", "PHI", "TML", "BRN",
     "PLU", "FSM", "KIR", "TUV", "NAU", "MHL", "FIJ", "VAN", "SOL", "MAU", "COM", "STP", "SEY",
-    "ALG", "MOR", "WES", "TUN", "LBA", "EGY", "SUD", "SSD", "ERI", "DJI",
+    "ALG", "MOR", "WES", "TUN", "LBA", "EGY", "SUD", "RSF", "SSD", "ERI", "DJI",
     "KEN", "ETH", "SOM", "SML", "PNT", "JUB", "SHB", "UGA", "TZN", "RWA", "BRD",
-    "NGA", "GHA", "IVO", "SEN", "MLI", "NGR", "CHA", "CMR", "COG", "M23", "RCG", "GAB", "ANG",
+    "NGA", "GHA", "IVO", "SEN", "MLI", "JNM", "NGR", "CHA", "CMR", "COG", "M23", "RCG", "GAB", "ANG",
     "MZB", "ZIM", "ZAM", "MLW", "SAF", "NMB", "BOT", "MAD", "LIB", "SIE", "GNA", "GNB",
     "VOL", "DAH", "TOG", "MRT", "GAM", "CAR", "EQG",
     "POL", "AUS", "CHI", "MON", "AST", "NZL", "CAN", "MEX", "USA",
@@ -106,11 +112,12 @@ FILENAME_OWNER = [
     (r"salla", "SOV"),
     (r"146-karelia|karjala", "SOV"),
     (r"abkhazia", "ABK"),
-    (r"south ossetia|tskhinval", "SOS"),
+    (r"south ossetia|tskhinval", "SOE"),
     (r"nakhchivan", "AZR"),
     (r"panjshir|bazarak", "NRF"),
     (r"iraqi kurdistan|erbil|duhok|sulaymaniyah", "KUR"),
     (r"rojava|qamishli|northeast syria", "ROJ"),
+    (r"mocha|tihama|national resistance", "YNR"),
     (r"marib", "YEM"),
     (r"suwayda", "DRZ"),
     (r"peace spring|tell abyad|ras al-ayn", "SNA"),
@@ -120,10 +127,12 @@ FILENAME_OWNER = [
     (r"goma|north kivu", "M23"),
     (r"lesotho|maseru", "LES"),
     (r"eswatini|swaziland|mbabane", "SWZ"),
-    (r"guantanamo", "USA"),
+    (r"trieste", "ITA"),
     (r"southern transitional|hadhramaut", "STC"),
     (r"bangladesh|east bengal", "BAN"),
     (r"gaza", "HAM"),
+    (r"gao", "JNM"),
+    (r"tombouctou|timbuktu", "JNM"),
     (r"west bank", "PAL"),
     (r"north kashmir|northern kashmir", "PAK"),
     (r"kashmir", "RAJ"),
@@ -169,7 +178,7 @@ FILENAME_OWNER = [
     (r"fongafale|ellice|tuvalu", "TUV"),
     (r"phoenix|line islands", "KIR"),
     (r"american samoa", "USA"),
-    (r"rio de oro|western sahara", "WES"),
+    (r"rio de oro|western sahara", "MOR"),
     (r"sidi ifni", "MOR"),
     (r"petsamo", "SOV"),
     (r"hatay", "TUR"),
@@ -283,6 +292,7 @@ def vanilla_history_names() -> dict[str, str]:
     names["HAM"] = "HAM - Hamas.txt"
     names["HEZ"] = "HEZ - Hezbollah.txt"
     names["HOU"] = "HOU - Houthis.txt"
+    names["YNR"] = "YNR - Yemeni National Resistance.txt"
     names["NUG"] = "NUG - Myanmar Spring Revolution.txt"
     names["ATG"] = "ATG - Antigua and Barbuda.txt"
     names["DMA"] = "DMA - Dominica.txt"
@@ -299,11 +309,13 @@ def vanilla_history_names() -> dict[str, str]:
     names["JUB"] = "JUB - Jubaland.txt"
     names["SHB"] = "SHB - Al-Shabaab.txt"
     names["M23"] = "M23 - M23.txt"
-    names["SOS"] = "SOS - South Ossetia.txt"
+    names["SOE"] = "SOE - South Ossetia.txt"
     names["NRF"] = "NRF - National Resistance Front.txt"
     names["LES"] = "LES - Lesotho.txt"
     names["SWZ"] = "SWZ - Eswatini.txt"
     names["LNA"] = "LNA - Libyan National Army.txt"
+    names["RSF"] = "RSF - Rapid Support Forces.txt"
+    names["JNM"] = "JNM - JNIM.txt"
     return names
 
 
@@ -429,21 +441,27 @@ def drop_province_building_blocks(text: str, drop: set[int]) -> str:
 # New state IDs after vanilla 1081 must be consecutive with no gaps.
 # Coastal new states get naval_base_spawn via tools/patch_doomsday_map.py.
 # Occupier must also be at war with the owner (START_WARS) or CreateMapModes hangs.
+# Jan 1 2026 front: Russia ~18% of Ukraine (Crimea, ~98% Luhansk, ~60% Donetsk,
+# ~65% Zaporizhzhia south of the city, Kherson left bank). Pokrovsk still
+# Ukrainian until late January 2026. Occupier must be at war with owner.
 OCCUPIED_BY = {
-    227: "SOV",  # Donetsk / Stalino — Russian-held Jan 2026
-    228: "SOV",  # Luhansk — Russian-held Jan 2026
+    137: "SOV",   # Crimea — occupied since 2014
+    227: "SOV",   # Donetsk city / Mariupol / Avdiivka belt
+    228: "SOV",   # Luhansk — nearly all oblast
+    1113: "SOV",  # Azov Zaporizhzhia — Melitopol land bridge
+    1114: "SOV",  # Kherson left bank / Kakhovka
 }
 
 SPLIT_NEW_STATES = [
     {
         "id": 1082,
         "file": "1082-Balta.txt",
-        "from_id": 834,
-        "provinces": [3757],
+        "from_id": 192,
+        "provinces": [3575, 9714],
         "owner": "UKR",
-        "cores": ["UKR"],
+        "cores": ["UKR", "SOV"],
         "category": "rural",
-        "manpower": 73500,
+        "manpower": 340904,
         "vps": [(3757, 2)],
         "buildings": "\t\t\tinfrastructure = 2\n",
     },
@@ -660,8 +678,8 @@ SPLIT_NEW_STATES = [
         "file": "1099-Iraqi Kurdistan.txt",
         "from_id": 676,
         "provinces": [3916, 6826, 5014, 10811],
-        "owner": "KUR",
-        "cores": ["KUR", "IRQ"],
+        "owner": "IRQ",
+        "cores": ["IRQ", "KUR"],
         "category": "town",
         "manpower": 530000,
         "vps": [(3916, 5), (6826, 3), (10811, 2)],
@@ -684,8 +702,8 @@ SPLIT_NEW_STATES = [
         "file": "1101-South Ossetia.txt",
         "from_id": 231,
         "provinces": [9626],
-        "owner": "SOS",
-        "cores": ["SOS", "GEO"],
+        "owner": "SOE",
+        "cores": ["SOE", "GEO"],
         "category": "enclave",
         "manpower": 56000,
         "vps": [(9626, 2)],
@@ -829,6 +847,117 @@ SPLIT_NEW_STATES = [
             "\t\t\t7590 = { naval_base = 2 }\n"
         ),
     },
+    {
+        "id": 1113,
+        "file": "1113-Azov Zaporizhzhia.txt",
+        "from_id": 200,
+        "provinces": [588, 3767, 6596, 9571, 9729, 11700],
+        "owner": "UKR",
+        "cores": ["UKR", "SOV"],
+        "category": "rural",
+        "manpower": 720000,
+        "vps": [(11700, 3)],
+        "buildings": "\t\t\tinfrastructure = 2\n",
+    },
+    {
+        "id": 1114,
+        "file": "1114-Left Bank Kherson.txt",
+        "from_id": 196,
+        "provinces": [568, 721, 737, 767, 3573, 6771, 9712],
+        "owner": "UKR",
+        "cores": ["UKR", "SOV"],
+        "category": "rural",
+        "manpower": 430000,
+        "vps": [(737, 2)],
+        "buildings": "\t\t\tinfrastructure = 2\n",
+    },
+    {
+        "id": 1115,
+        "file": "1115-Kramatorsk.txt",
+        "from_id": 227,
+        "provinces": [502, 3466, 3491],
+        "owner": "UKR",
+        "cores": ["UKR", "SOV"],
+        "category": "town",
+        "manpower": 1100000,
+        "vps": [(502, 5)],
+        "buildings": "\t\t\tinfrastructure = 2\n",
+    },
+    {
+        "id": 1116,
+        "file": "1116-Mocha.txt",
+        "from_id": 293,
+        "provinces": [10752],
+        "owner": "YNR",
+        "cores": ["YNR", "YEM", "HOU"],
+        "category": "rural",
+        "manpower": 500000,
+        "vps": [(10752, 3)],
+        "buildings": (
+            "\t\t\tinfrastructure = 2\n"
+            "\t\t\t10752 = { naval_base = 1 }\n"
+        ),
+    },
+    {
+        "id": 1117,
+        "file": "1117-Trieste.txt",
+        "from_id": 736,
+        "provinces": [6626],
+        "owner": "ITA",
+        "cores": ["ITA"],
+        "category": "city",
+        "manpower": 230000,
+        "vps": [(6626, 5)],
+        "buildings": (
+            "\t\t\tinfrastructure = 4\n"
+            "\t\t\t6626 = { naval_base = 5 }\n"
+        ),
+    },
+    {
+        "id": 1118,
+        "file": "1118-Sahrawi Free Zone.txt",
+        "from_id": 699,
+        "provinces": [7979, 4920, 13415, 13416],
+        "owner": "WES",
+        "cores": ["WES"],
+        "claims": ["MOR"],
+        "category": "wasteland",
+        "manpower": 30000,
+        "vps": [],
+        "buildings": (
+            "\t\t\tinfrastructure = 1\n"
+            "\t\t\t13415 = { naval_base = 1 }\n"
+        ),
+    },
+    {
+        "id": 1119,
+        "file": "1119-Aksai Chin.txt",
+        "from_id": 441,
+        "provinces": [5042],
+        "owner": "CHI",
+        "cores": ["RAJ", "PAK"],
+        "claims": ["CHI"],
+        "category": "wasteland",
+        "manpower": 20000,
+        "vps": [],
+        "buildings": "\t\t\tinfrastructure = 1\n",
+    },
+    {
+        "id": 1120,
+        "file": "1120-Tel Aviv.txt",
+        "from_id": 454,
+        "provinces": [1065, 1201, 4206],
+        "owner": "ISR",
+        "cores": ["PAL", "ISR"],
+        "category": "town",
+        "manpower": 5500000,
+        "vps": [(4206, 1), (1065, 1)],
+        "buildings": (
+            "\t\t\tinfrastructure = 4\n"
+            "\t\t\tair_base = 2\n"
+            "\t\t\t4206 = { naval_base = 3 }\n"
+        ),
+    },
 ]
 
 # Move existing provinces onto another leftover state (no new ID).
@@ -836,21 +965,62 @@ MOVE_PROVINCES = [
     {"from_id": 198, "to_id": 834, "provinces": [9423]},  # Moldova-border tile west of Rîbnița → Transnistria
     {"from_id": 559, "to_id": 1106, "provinces": [2063]},  # south-central inland → Al-Shabaab
     {"from_id": 449, "to_id": 448, "provinces": [1041]},  # Abu Grein coast west of Sirte → GNU
+    {"from_id": 834, "to_id": 1082, "provinces": [3757]},  # Balta off Transnistria → Balta
+    {"from_id": 197, "to_id": 196, "provinces": [3755, 574, 9573]},  # even Kherson / Mykolaiv split
 ]
+
+# Absorb a leftover vanilla state into another (provinces, VPs, manpower).
+MERGE_STATES = []
 
 # Extra cores on leftover vanilla states (civil-war claims). Owner core is added separately.
 EXTRA_CORES = {
     448: ["LNA"],  # Tripoli — GNU-held, LNA claims
     661: ["LNA"],  # Tripolitania / Nafusa
+    699: ["WES"],  # Moroccan-administered Western Sahara; Polisario core
+    551: ["RSF"],  # Khartoum — SAF-held, RSF claims
+    549: ["RSF"],  # Kordofan
+    883: ["RSF"],  # Kassala / Port Sudan
+    886: ["RSF"],  # Blue Nile
+    767: ["SUD"],  # North Darfur — RSF-held, SAF claims
+    887: ["SUD"],  # South Darfur
+    898: ["MLI"],  # Gao — JNIM-held
+    782: ["MLI"],  # Timbuktu — force-linked to Gao
+    556: ["JNM"],  # Bamako leftover
+    899: ["JNM"],  # Kayes-Koulikoro
+}
+
+# Morocco claims Western Sahara; it does not core the leftover coast or the Free Zone.
+SKIP_OWNER_CORE = {699, 1119}
+EXTRA_CLAIMS = {
+    699: ["MOR"],
+    1118: ["MOR"],
+    1119: ["CHI"],
 }
 
 # VPs missing from vanilla leftovers.
 EXTRA_VPS = {
     448: [(9980, 3)],   # Misrata
     662: [(7136, 5), (8069, 2)],  # Sirte + Al Jufra
+    767: [(10900, 3)],  # El Fasher
+    887: [(10857, 5)],  # Nyala
+    736: [(599, 2)],    # Koper
+    196: [(3755, 3)],  # Kherson city after even split from 197
 }
 
-# History-file ideas (defined in common/ideas/doomsday_libya.txt).
+# Province naval bases on leftover states after MOVE_PROVINCES.
+EXTRA_PROVINCE_PORTS = {
+    448: [(1041, 1)],  # Abu Grein, moved off El Agheila
+    736: [(599, 1)],   # Koper after Trieste keeps 6626's port
+}
+
+# History-file lines that are not ideas (event targets, flags).
+COUNTRY_HISTORY_EXTRAS = {
+    "CHI": [
+        "save_global_event_target_as = WTT_communist_china",
+        "save_global_event_target_as = WTT_current_china_leader",
+    ],
+}
+
 COUNTRY_IDEAS = {
     "TUR": ["TUR_western_libya_mission"],
     "LBA": ["LBA_turkish_support"],
@@ -862,25 +1032,45 @@ COUNTRY_IDEAS = {
 START_WARS = {
     "SOV": ["UKR"],
     "ISR": ["HAM", "HEZ"],
-    "HOU": ["YEM"],
+    "HOU": ["YEM", "YNR"],
     "YEM": ["STC"],
     "BRM": ["NUG"],
     "SOM": ["SHB", "JUB"],
     "COG": ["M23"],
     "NRF": ["AFG"],
+    "SYR": ["ROJ", "SNA", "DRZ"],
+    "ROJ": ["SNA"],
+    "SUD": ["RSF"],
+    "MLI": ["JNM"],
+    "WES": ["MOR"],
+}
+
+# Named world tension. One entry per theater. Civil 1, offensive 3, Russia-Ukraine 8.
+START_THREATS = {
+    "SOV": [(8, "DD_THREAT_RUSSIA_UKRAINE")],
+    "ISR": [(3, "DD_THREAT_ISR_HAMAS"), (3, "DD_THREAT_ISR_HEZBOLLAH")],
+    "HOU": [(1, "DD_THREAT_YEMEN")],
+    "SOM": [(1, "DD_THREAT_SOMALIA")],
+    "SYR": [(1, "DD_THREAT_SYRIA")],
+    "BRM": [(1, "DD_THREAT_MYANMAR")],
+    "SUD": [(1, "DD_THREAT_SUDAN")],
+    "COG": [(1, "DD_THREAT_CONGO")],
+    "NRF": [(1, "DD_THREAT_AFGHANISTAN")],
+    "MLI": [(1, "DD_THREAT_SAHEL")],
+    "WES": [(1, "DD_THREAT_WESTERN_SAHARA")],
 }
 
 # Overlord tag -> list of (subject, autonomy type, freedom 0-1).
 # Written into the overlord country file. Do not also set controller=.
 PUPPETS = {
     "DEN": [("GRN", "autonomy_puppet", 0.40)],
-    "IRQ": [("KUR", "autonomy_puppet", 0.50)],
 }
 
 
 def _make_split_state_raw(spec: dict) -> str:
     vp = "".join(f"\t\tvictory_points = {{ {p} {v} }}\n" for p, v in spec["vps"])
     cores = "".join(f"\t\tadd_core_of = {c}\n" for c in spec["cores"])
+    claims = "".join(f"\t\tadd_claim_by = {c}\n" for c in spec.get("claims", []))
     provs = " ".join(str(p) for p in spec["provinces"])
     return (
         f"state = {{\n"
@@ -891,6 +1081,7 @@ def _make_split_state_raw(spec: dict) -> str:
         f"\thistory = {{\n"
         f"\t\towner = {spec['owner']}\n"
         f"{cores}"
+        f"{claims}"
         f"{vp}"
         f"\t\tbuildings = {{\n{spec['buildings']}\t\t}}\n"
         f"\t}}\n"
@@ -929,6 +1120,30 @@ def apply_map_splits(parsed: list[dict]) -> None:
             src["raw"] = drop_province_building_blocks(src["raw"], set(move))
         if dst:
             dst["raw"] = add_provinces_to_raw(dst["raw"], move)
+    by_id = {s["id"]: s for s in parsed}
+    for spec in MERGE_STATES:
+        src = by_id.get(spec["from_id"])
+        dst = by_id.get(spec["to_id"])
+        if not src or not dst:
+            continue
+        pm = re.search(r"\bprovinces\s*=\s*\{([^}]+)\}", src["raw"])
+        src_provs = [int(n) for n in re.findall(r"\d+", pm.group(1))] if pm else []
+        if src_provs:
+            dst["raw"] = add_provinces_to_raw(dst["raw"], src_provs)
+        for vm in re.finditer(r"victory_points\s*=\s*\{[^}]+\}", src["raw"]):
+            block = vm.group(0)
+            if block not in dst["raw"]:
+                dst["raw"] = re.sub(
+                    r"(\bowner\s*=\s*[A-Z]{3})",
+                    rf"\1\n\t\t{block}",
+                    dst["raw"],
+                    count=1,
+                )
+        dst["manpower"] = dst["manpower"] + src["manpower"]
+        stale = STATES_DIR / spec["file"]
+        if stale.exists():
+            stale.unlink()
+    parsed[:] = [s for s in parsed if s["id"] not in {m["from_id"] for m in MERGE_STATES}]
 
 
 def pick_owner(state: dict) -> str:
@@ -1008,13 +1223,18 @@ def pick_owner(state: dict) -> str:
         893: "NMB",
         894: "NMB",
         895: "NMB",
-        137: "SOV",    # Crimea — Russian control January 2026
-        196: "UKR",    # Kherson
+        137: "UKR",    # Crimea — Ukrainian owner, Russian occupation
+        196: "UKR",    # Kherson right bank (4 provinces)
+        197: "UKR",    # Mykolaiv (5 provinces)
+        1120: "ISR",   # Tel Aviv / Nazareth / 1201
+        1119: "CHI",   # Aksai Chin / Shaksgam — Chinese-held, RAJ+PAK cores
+        1113: "UKR",   # Azov Zaporizhzhia — occupied
+        1114: "UKR",   # Kherson left bank — occupied
+        1115: "UKR",   # Kramatorsk / west Donetsk — Ukrainian-held Jan 1 2026
         766: "UKR",    # Budjak / Southern Bessarabia
         834: "PMR",    # Transnistria (Tiraspol + north)
-        1082: "UKR",   # Balta
         826: "ABK",    # Abkhazia
-        1101: "SOS",   # South Ossetia
+        1101: "SOE",   # South Ossetia (not SOS — vanilla alias is Stalinist SOV)
         1108: "AZR",   # Nakhchivan
         1109: "NRF",   # Panjshir
         1110: "LES",   # Lesotho
@@ -1023,7 +1243,8 @@ def pick_owner(state: dict) -> str:
         231: "GEO",    # Georgia proper
         101: "GRN",    # Greenland — Kingdom of Denmark puppet
         78: "MOL",
-        699: "WES",    # Western Sahara / Rio de Oro
+        699: "MOR",    # Western Sahara — Morocco administers the coast and cities
+        1118: "WES",   # Sahrawi Free Zone — Polisario
         783: "MOR",    # Sidi Ifni (Morocco proper)
         77: "BUL",     # Southern Dobruja (Dobrich) — Bulgarian since 1940
         971: "ROM",    # Northern Dobruja (Constanța)
@@ -1056,7 +1277,7 @@ def pick_owner(state: dict) -> str:
         707: "MAU",    # Mauritius
         708: "COM",    # Comoros
         1084: "FRA",   # Mayotte
-        454: "ISR",    # Israel proper (Jerusalem, Tel Aviv, Negev)
+        454: "ISR",    # Israel leftover (Jerusalem / Negev)
         1085: "HAM",   # Gaza — Hamas
         1086: "PAL",   # West Bank — PA
         1087: "NCY",   # Northern Cyprus
@@ -1065,6 +1286,9 @@ def pick_owner(state: dict) -> str:
         1089: "HEZ",   # South Lebanon — Hezbollah
         293: "HOU",    # Houthi-held North Yemen / Sana'a
         1102: "YEM",   # Marib — PLC leftover on 1 Jan 2026
+        1116: "YNR",   # Mocha / west coast — National Resistance
+        1117: "ITA",   # Trieste
+        736: "SLV",    # Primorska leftover after Trieste split
         992: "STC",    # Aden — STC peak
         659: "STC",    # Hadhramaut — STC December drive
         906: "STC",    # Socotra
@@ -1085,7 +1309,7 @@ def pick_owner(state: dict) -> str:
         45: "SER",
         1098: "SER",  # Srem — Novi Sad–Belgrade corridor (Fruška Gora)
         676: "IRQ",   # Mosul / Kirkuk — federal Iraq
-        1099: "KUR",  # Iraqi Kurdistan (Erbil, Duhok, Sulaymaniyah)
+        1099: "IRQ",  # Iraqi Kurdistan — federal Iraq; KUR core stays for release
         350: "TUR",   # Diyarbakır — not KRG
         352: "TUR",   # Hakkari
         353: "TUR",   # Erzurum
@@ -1096,6 +1320,14 @@ def pick_owner(state: dict) -> str:
         1104: "SNA",  # Peace Spring (Tell Abyad / Ras al-Ayn)
         1107: "M23",  # Goma / M23 Kivu
         890: "COG",   # Kalemie leftover after Goma split
+        551: "SUD",   # Khartoum — SAF recaptured 2025
+        549: "SUD",   # Kordofan — contested, army holds the populated belt
+        883: "SUD",   # Kassala / Port Sudan — SAF east
+        886: "SUD",   # Blue Nile — SAF
+        767: "RSF",   # North Darfur / El Fasher — RSF from Oct 2025
+        887: "RSF",   # South Darfur / Nyala — RSF capital
+        898: "JNM",   # Gao — JNIM
+        782: "JNM",   # Timbuktu — force-linked to Gao
         705: "STP",    # São Tomé and Príncipe
         709: "SEY",    # Seychelles
         636: "FIJ",
@@ -1232,6 +1464,45 @@ def factories_for(row: dict) -> tuple[int, int, int, int]:
     return civs, mils, docks, infra
 
 
+def extra_buildings_for(tag: str, row: dict | None, state: dict, is_capital: bool, civs: int, mils: int) -> dict[str, int]:
+    """Place finance/services/renewable/SAM/silos. Deterministic. No new spawn types."""
+    extras: dict[str, int] = {}
+    gdp = float((row or {}).get("gdp_b") or 0)
+    sipri = float((row or {}).get("sipri_b") or 0)
+    cat = state.get("category") or "rural"
+    urban = cat in URBAN_CATS or is_capital
+
+    if urban and gdp >= 80:
+        services = 1
+        if is_capital and gdp >= 400:
+            services += 1
+        if civs >= 4:
+            services += 1
+        extras["services_building"] = min(4, services)
+    if urban and gdp >= 400 and (is_capital or cat in {"megalopolis", "metropolis", "large_city"}):
+        extras["finance_center"] = 2 if is_capital and gdp >= 2000 else 1
+    if urban and gdp >= 250:
+        extras["renewable_park"] = 2 if is_capital and gdp >= 1500 else 1
+
+    if sipri >= 5 and (is_capital or urban or mils >= 1):
+        sam = 1
+        if is_capital and sipri >= 20:
+            sam = 2
+        if is_capital and sipri >= 80:
+            sam = 3
+        extras["sam_site"] = min(3, sam)
+
+    if tag in LAUNCH_TAGS and (is_capital or cat in {"megalopolis", "metropolis"}):
+        if is_capital and tag in {"USA", "SOV", "CHI"}:
+            extras["rocket_site"] = 3
+        elif is_capital:
+            extras["rocket_site"] = 2
+        else:
+            extras["rocket_site"] = 1
+
+    return extras
+
+
 def cap_distribute(total: int, weights: list[int], cap: int) -> list[int]:
     out = distribute(total, weights)
     leftover = 0
@@ -1283,10 +1554,24 @@ def strip_dated_history(text: str) -> str:
         text = text[: m.start()] + text[end:]
 
 
-def write_state(state: dict, owner: str, manpower: int, civs: int, mils: int, docks: int, infra: int):
+def write_state(
+    state: dict,
+    owner: str,
+    manpower: int,
+    civs: int,
+    mils: int,
+    docks: int,
+    infra: int,
+    extra_buildings: dict[str, int] | None = None,
+):
     text = state["raw"]
     text = strip_dated_history(text)
     text = re.sub(r"\bowner\s*=\s*[A-Z]{3}", f"owner = {owner}", text, count=1)
+    # Vanilla North Darfur is impassable and force-linked to Khartoum. RSF cannot
+    # own it independently unless both flags come off.
+    if state["id"] in {767, 887}:
+        text = re.sub(r"\n[ \t]*impassable\s*=\s*yes", "", text)
+        text = re.sub(r"\n[ \t]*force_link_ownership_to\s*=\s*\d+[^\n]*", "", text)
     occupier = OCCUPIED_BY.get(state["id"])
     if occupier:
         if re.search(r"\bcontroller\s*=", text):
@@ -1299,11 +1584,16 @@ def write_state(state: dict, owner: str, manpower: int, civs: int, mils: int, do
         text = re.sub(r"\n[ \t]*controller\s*=\s*[A-Z0-9\-]+\s*", "\n", text)
     text = re.sub(r"\bmanpower\s*=\s*\d+", f"manpower = {max(1000, manpower)}", text, count=1)
     text = re.sub(r"\s*set_demilitarized_zone\s*=\s*yes", "", text)
-    if not re.search(rf"\badd_core_of\s*=\s*{owner}\b", text):
+    if state["id"] in SKIP_OWNER_CORE:
+        text = re.sub(rf"\n[ \t]*add_core_of\s*=\s*{owner}\b", "", text)
+    elif not re.search(rf"\badd_core_of\s*=\s*{owner}\b", text):
         text = re.sub(r"(\bowner\s*=\s*[A-Z]{3})", rf"\1\n\t\tadd_core_of = {owner}", text, count=1)
     for extra in EXTRA_CORES.get(state["id"], []):
         if not re.search(rf"\badd_core_of\s*=\s*{extra}\b", text):
             text = re.sub(r"(\bowner\s*=\s*[A-Z]{3})", rf"\1\n\t\tadd_core_of = {extra}", text, count=1)
+    for claim in EXTRA_CLAIMS.get(state["id"], []):
+        if not re.search(rf"\badd_claim_by\s*=\s*{claim}\b", text):
+            text = re.sub(r"(\bowner\s*=\s*[A-Z]{3})", rf"\1\n\t\tadd_claim_by = {claim}", text, count=1)
     for pid, val in EXTRA_VPS.get(state["id"], []):
         if not re.search(rf"victory_points\s*=\s*\{{\s*{pid}\b", text):
             text = re.sub(
@@ -1317,9 +1607,22 @@ def write_state(state: dict, owner: str, manpower: int, civs: int, mils: int, do
         "large_town": 5, "town": 4, "large_island": 3, "rural": 2,
         "small_island": 1, "pastoral": 1, "wasteland": 0, "tiny_island": 0, "enclave": 0,
     }.get(state.get("category") or "rural", 2)
+    extra_buildings = extra_buildings or {}
+    shared_extra = (
+        extra_buildings.get("finance_center", 0)
+        + extra_buildings.get("services_building", 0)
+        + extra_buildings.get("renewable_park", 0)
+    )
     extra_cap = max(0, SHARED_SLOTS_CAP - cat_slots)
-    slots = min(civs + mils + docks + 4, extra_cap)
-    if "add_extra_state_shared_building_slots" not in text:
+    slots = min(civs + mils + docks + shared_extra + 4, extra_cap)
+    if re.search(r"add_extra_state_shared_building_slots", text):
+        text = re.sub(
+            r"add_extra_state_shared_building_slots\s*=\s*\d+",
+            f"add_extra_state_shared_building_slots = {slots}",
+            text,
+            count=1,
+        )
+    else:
         text = re.sub(
             r"(\bowner\s*=\s*[A-Z]{3})",
             rf"\1\n\t\tadd_extra_state_shared_building_slots = {slots}",
@@ -1344,27 +1647,21 @@ def write_state(state: dict, owner: str, manpower: int, civs: int, mils: int, do
             new_block = replace_or_insert(new_block, "dockyard", docks)
         elif re.search(r"\bdockyard\s*=", new_block):
             new_block = re.sub(r"\n\t+\bdockyard\s*=\s*\d+[^\n]*", "", new_block, count=1)
+        for key, value in extra_buildings.items():
+            if value:
+                new_block = replace_or_insert(new_block, key, value)
+        for pid, level in EXTRA_PROVINCE_PORTS.get(state["id"], []):
+            if not re.search(rf"\b{pid}\s*=", new_block):
+                new_block = new_block[:-1] + f"\n\t\t\t{pid} = {{\n\t\t\t\tnaval_base = {level}\n\t\t\t}}\n\t\t}}"
         text = text[: bm.start()] + f"buildings = {new_block}" + text[end:]
+    if re.search(rf"\badd_core_of\s*=\s*{owner}\b", text):
+        text = re.sub(r"\n[ \t]*start_resistance[^\n]*", "", text)
+        text = re.sub(r"\n[ \t]*set_resistance\s*=\s*\d+[^\n]*", "", text)
+        text = re.sub(r"\n[ \t]*set_compliance\s*=\s*\d+[^\n]*", "", text)
     state["path"].write_text(text, encoding="utf-8")
 
 
-TECH_BLOCK = """set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-	gw_artillery = 1
-	tech_trucks = 1
-	motorised_infantry = 1
-	electronic_mechanical_engineering = 1
-	radio = 1
-	mechanical_computing = 1
-	basic_machine_tools = 1
-	construction1 = 1
-	fuel_silos = 1
-}
-"""
+TECH_BLOCK = build_tech_block()
 
 
 def write_country(tag: str, filename: str, row: dict | None, capital: int, faction_members: dict[str, list[str]]):
@@ -1383,6 +1680,14 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
     pop = float((row or {}).get("pop") or 0)
     gdp = (row or {}).get("gdp_b") or "0"
     debt = (row or {}).get("debt_gdp") or "0"
+    try:
+        gdp_f = float(gdp)
+        debt_ratio = float(debt)
+    except (TypeError, ValueError):
+        gdp_f = 0.0
+        debt_ratio = 0.0
+    abs_debt = gdp_f * debt_ratio
+    treasury = max(1.0, gdp_f * 0.02)
     faction = (row or {}).get("faction") or ""
     convoys = 50 if pop > 5_000_000 else 10
     slots = 4 if tag in {"USA", "CHI", "SOV", "RAJ", "ENG", "FRA", "GER", "JAP"} else 3
@@ -1399,8 +1704,16 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
         f"set_convoys = {convoys}",
         TECH_BLOCK,
     ]
+    sipri_f = float((row or {}).get("sipri_b") or 0)
+    if sipri_f >= 5:
+        ammo = min(200, max(8, int(round(sipri_f * 0.3))))
+        lines.append(
+            f"add_equipment_to_stockpile = {{ type = sam_missile_equipment_1 amount = {ammo} producer = {tag} }}"
+        )
     for idea in COUNTRY_IDEAS.get(tag, []):
         lines.append(f"add_ideas = {idea}")
+    for extra in COUNTRY_HISTORY_EXTRAS.get(tag, []):
+        lines.append(extra)
     lines += [
         "set_politics = {",
         f"	ruling_party = {intology(ideology)}",
@@ -1416,6 +1729,8 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
         "}",
         f"set_variable = {{ gdp = {gdp} }}",
         f"set_variable = {{ debt_to_gdp = {debt} }}",
+        f"set_variable = {{ debt = {abs_debt:.4f} }}",
+        f"set_variable = {{ treasury = {treasury:.4f} }}",
         "create_country_leader = {",
         f'	name = "{leader}"',
         f"	desc = {tag}_LEADER_DESC",
@@ -1438,6 +1753,11 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
         lines.append("declare_war_on = {")
         lines.append(f"	target = {target}")
         lines.append("	type = annex_everything")
+        lines.append("}")
+    for amount, key in START_THREATS.get(tag, []):
+        lines.append("add_named_threat = {")
+        lines.append(f"	threat = {amount}")
+        lines.append(f"	name = {key}")
         lines.append("}")
     for subject, autonomy, freedom in PUPPETS.get(tag, []):
         lines.append("set_autonomy = {")
@@ -1523,6 +1843,9 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' HOU:0 "Houthis"',
         ' HOU_DEF:0 "the Houthis"',
         ' HOU_ADJ:0 "Houthi"',
+        ' YNR:0 "Yemeni National Resistance"',
+        ' YNR_DEF:0 "the Yemeni National Resistance"',
+        ' YNR_ADJ:0 "National Resistance"',
         ' NUG:0 "Myanmar Spring Revolution"',
         ' NUG_DEF:0 "the Spring Revolution"',
         ' NUG_ADJ:0 "Spring Revolution"',
@@ -1568,18 +1891,18 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' ABK:0 "Abkhazia"',
         ' ABK_DEF:0 "Abkhazia"',
         ' ABK_ADJ:0 "Abkhaz"',
-        ' SOS:0 "South Ossetia"',
-        ' SOS_DEF:0 "South Ossetia"',
-        ' SOS_ADJ:0 "South Ossetian"',
+        ' SOE:0 "South Ossetia"',
+        ' SOE_DEF:0 "South Ossetia"',
+        ' SOE_ADJ:0 "South Ossetian"',
         ' CZE:0 "Czechia"',
         ' CZE_DEF:0 "Czechia"',
         ' CZE_ADJ:0 "Czech"',
         ' STATE_430:0 "Bangladesh"',
         ' STATE_454:0 "Israel"',
         ' STATE_834:0 "Transnistria"',
-        ' STATE_1082:0 "Balta"',
         ' STATE_146:0 "Karelian Isthmus"',
         ' STATE_147:0 "Salla"',
+        ' STATE_1082:0 "Balta"',
         ' STATE_1083:0 "Ceuta"',
         ' STATE_1097:0 "Melilla"',
         ' STATE_1098:0 "Srem"',
@@ -1605,6 +1928,12 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' STATE_1110:0 "Lesotho"',
         ' STATE_1111:0 "Eswatini"',
         ' STATE_1112:0 "Guantanamo Bay"',
+        ' STATE_1113:0 "Azov Zaporizhzhia"',
+        ' STATE_1114:0 "Left-Bank Kherson"',
+        ' STATE_1115:0 "Kramatorsk"',
+        ' VICTORY_POINTS_11700:0 "Melitopol"',
+        ' VICTORY_POINTS_737:0 "Kakhovka"',
+        ' VICTORY_POINTS_502:0 "Kramatorsk"',
         ' VICTORY_POINTS_4556:0 "Maseru"',
         ' VICTORY_POINTS_7900:0 "Mbabane"',
         ' VICTORY_POINTS_7590:0 "Guantanamo Bay"',
@@ -1639,6 +1968,15 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' STATE_1006:0 "Nangarhar"',
         ' STATE_293:0 "North Yemen"',
         ' STATE_1102:0 "Marib"',
+        ' STATE_1116:0 "Mocha"',
+        ' VICTORY_POINTS_10752:0 "Mocha"',
+        ' STATE_1117:0 "Trieste"',
+        ' STATE_1118:0 "Sahrawi Free Zone"',
+        ' STATE_1119:0 "Aksai Chin"',
+        ' STATE_1120:0 "Tel Aviv"',
+        ' VICTORY_POINTS_3755:0 "Kherson"',
+        ' STATE_736:0 "Slovenian Littoral"',
+        ' VICTORY_POINTS_599:0 "Koper"',
         ' STATE_992:0 "Aden"',
         ' STATE_659:0 "Hadhramaut"',
         ' STATE_1103:0 "Suwayda"',
@@ -1680,10 +2018,25 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
         ' LBA_turkish_support_desc:0 "Ankara supplies the GNU with advisors, Bayraktar drones, and a residual training mission along the western coast."',
         ' LNA_foreign_backing:0 "Foreign Backing"',
         ' LNA_foreign_backing_desc:0 "The LNA holds the Sirte-Jufra line with Russian Africa Corps contractors at Al Jufra, Egyptian border cover, and Emirati finance."',
+        ' RSF:0 "Rapid Support Forces"',
+        ' RSF_DEF:0 "the Rapid Support Forces"',
+        ' RSF_ADJ:0 "RSF"',
+        ' VICTORY_POINTS_10900:0 "El Fasher"',
+        ' VICTORY_POINTS_10857:0 "Nyala"',
+        ' STATE_767:0 "North Darfur"',
+        ' STATE_887:0 "South Darfur"',
+        ' JNM:0 "JNIM"',
+        ' JNM_DEF:0 "JNIM"',
+        ' JNM_ADJ:0 "JNIM"',
+        ' STATE_898:0 "Gao"',
+        ' STATE_782:0 "Timbuktu"',
     ]
     LEADER_DESCS = {
         "LBA": "Abdul Hamid Dbeibeh heads the Tripoli-based Government of National Unity. Mohamed al-Menfi remains Presidential Council chair, but the GNU's western ministries and militias answer to the prime minister.",
         "LNA": "Field Marshal Khalifa Haftar commands the Benghazi-based Libyan National Army. His sons, notably Saddam Haftar, hold the key army and security posts that keep Cyrenaica and Fezzan in line.",
+        "YNR": "Tareq Saleh commands the National Resistance from Mocha. His Republican Guard veterans and Tihama units hold the Red Sea coast against the Houthis and are not under Marib or Aden command.",
+        "RSF": "Mohamed Hamdan Dagalo (Hemedti) commands the Rapid Support Forces from Nyala. After taking El Fasher in late 2025 his army holds Darfur against Burhan's SAF in Khartoum and the east.",
+        "JNM": "Iyad Ag Ghali leads Jama'at Nusrat al-Islam wal-Muslimin from the Malian north. JNIM taxes and governs Gao and Timbuktu and is at war with Bamako.",
     }
     for tag, row in countries.items():
         leader = row.get("leader") or tag
@@ -1692,14 +2045,41 @@ def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
             lines.append(f' {tag}_LEADER_DESC:0 "{LEADER_DESCS[tag]}"')
         else:
             lines.append(f' {tag}_LEADER_DESC:0 "{leader} leads {country} in 2026."')
-        if tag not in {"SOV", "RAJ", "CHI", "PER", "SIA", "HOL", "DPK", "SSD", "FOR", "KOR", "CZE", "KIR", "TUV", "NAU", "MHL", "MAU", "COM", "STP", "SEY", "WES", "SML", "NCY", "HAM", "HEZ", "HOU", "NUG", "ATG", "DMA", "STL", "SVG", "GND", "BRB", "PMR", "GRN", "KUR", "ROJ", "ABK", "SOS", "STC", "DRZ", "SNA", "PNT", "JUB", "SHB", "M23", "NRF", "LES", "SWZ", "LBA", "LNA"}:
-            lines.append(f' {tag}:0 "{country}"')
-    text = "\n".join(lines) + "\n"
+    # Vanilla country names live in countries_l_english.yml. Do not rewrite
+    # them here (loc key collisions). Overrides go to localisation/replace/.
+    replace_keys = {
+        "SOV", "SOV_DEF", "SOV_ADJ", "RAJ", "RAJ_DEF", "RAJ_ADJ", "CHI", "CHI_DEF", "CHI_ADJ",
+        "PER", "PER_DEF", "PER_ADJ", "SIA", "HOL", "HOL_DEF", "DPK", "DPK_DEF", "DPK_ADJ",
+        "FOR", "FOR_DEF", "FOR_ADJ", "KOR", "KOR_DEF", "KOR_ADJ", "CZE", "CZE_DEF", "CZE_ADJ",
+        "WES", "WES_DEF", "WES_ADJ", "COG", "CRC", "CRC_DEF", "BAS", "BAS_DEF",
+        "GRN_ADJ", "LBA", "LBA_DEF", "LBA_ADJ",
+        "BRM", "ENG", "GAM", "IVO", "KUR", "KUR_ADJ", "KUR_DEF", "MAC", "PNG", "RCG",
+        "SAU", "TML", "UAE", "USA", "VOL",
+        "STATE_430", "STATE_441", "STATE_454", "STATE_559", "STATE_834", "STATE_146", "STATE_147",
+        "STATE_308", "STATE_676", "STATE_680", "STATE_692", "STATE_693", "STATE_694", "STATE_736",
+        "STATE_77", "STATE_269", "STATE_293", "STATE_311", "STATE_699", "STATE_1118", "STATE_1119", "STATE_1120", "STATE_767", "STATE_887",
+        "STATE_890", "STATE_826", "STATE_844", "STATE_992", "STATE_659", "STATE_1006", "STATE_787",
+        "STATE_782",
+        "VICTORY_POINTS_10752", "VICTORY_POINTS_10781", "VICTORY_POINTS_7590", "VICTORY_POINTS_3755",
+    }
+    main_lines = ["l_english:"]
+    replace_lines = ["l_english:"]
+    for line in lines[1:]:
+        key = line.strip().split(":")[0]
+        (replace_lines if key in replace_keys else main_lines).append(line)
     path = LOC_DIR / "doomsday_l_english.yml"
-    path.write_bytes(b"\xef\xbb\xbf" + text.encode("utf-8"))
+    path.write_bytes(b"\xef\xbb\xbf" + ("\n".join(main_lines) + "\n").encode("utf-8"))
+    replace_dir = ROOT / "localisation" / "replace"
+    replace_dir.mkdir(parents=True, exist_ok=True)
+    (replace_dir / "doomsday_overrides_l_english.yml").write_bytes(
+        b"\xef\xbb\xbf" + ("\n".join(replace_lines) + "\n").encode("utf-8")
+    )
 
 
 def main():
+    apply_slim(ROOT)
+    global TECH_BLOCK
+    TECH_BLOCK = build_tech_block()
     countries = read_csv_countries()
     tags = parse_tags()
     hist_names = vanilla_history_names()
@@ -1707,17 +2087,18 @@ def main():
     capitals["CHI"] = 608
     capitals["SOV"] = 219
     capitals["DPK"] = 527
-    capitals["SSD"] = 549
+    capitals["SSD"] = 885
     capitals["FOR"] = 524
     capitals["KOR"] = 525
     capitals["BAN"] = 430
     capitals["PAL"] = 1086
     capitals["HAM"] = 1085
-    capitals["WES"] = 699
+    capitals["WES"] = 1118
     capitals["SML"] = 269
     capitals["NCY"] = 1087
     capitals["HEZ"] = 1089
     capitals["HOU"] = 293
+    capitals["YNR"] = 1116
     capitals["NUG"] = 999
     capitals["YEM"] = 1102
     capitals["STC"] = 992
@@ -1738,12 +2119,14 @@ def main():
     capitals["KUR"] = 1099
     capitals["ROJ"] = 1100
     capitals["ABK"] = 826
-    capitals["SOS"] = 1101
+    capitals["SOE"] = 1101
     capitals["SAF"] = 275
     capitals["NRF"] = 1109
     capitals["LES"] = 1110
     capitals["SWZ"] = 1111
     capitals["LNA"] = 450
+    capitals["RSF"] = 887
+    capitals["JNM"] = 898
     capitals["BRN"] = 1023
     capitals["NMB"] = 541
     capitals["KIR"] = 639
@@ -1758,7 +2141,6 @@ def main():
 
     STATES_DIR.mkdir(parents=True, exist_ok=True)
     from patch_doomsday_map import ensure_map_splits
-    ensure_map_splits()
     source_dir = VANILLA_STATES if VANILLA_STATES.exists() else STATES_DIR
     parsed = [parse_state(p) for p in sorted(source_dir.glob("*.txt"))]
     parsed = [s for s in parsed if s["id"]]
@@ -1812,7 +2194,16 @@ def main():
         mil_d = cap_distribute(mils, factory_w, FACTORY_LEVEL_CAP)
         dock_d = cap_distribute(docks, dock_w, FACTORY_LEVEL_CAP)
         pops = distribute(target_pop, weights)
+        capital_id = capitals.get(tag)
         for i, state in enumerate(states):
+            extras = extra_buildings_for(
+                tag,
+                row,
+                state,
+                is_capital=state["id"] == capital_id,
+                civs=civ_d[i],
+                mils=mil_d[i],
+            )
             state_plan[state["id"]] = {
                 "owner": tag,
                 "manpower": max(1000, pops[i]),
@@ -1820,6 +2211,7 @@ def main():
                 "mils": mil_d[i],
                 "docks": dock_d[i],
                 "infra": infra,
+                "extra_buildings": extras,
             }
 
     for state in parsed:
@@ -1828,17 +2220,35 @@ def main():
             "manpower": state["manpower"],
             "civs": 0, "mils": 0, "docks": 0, "infra": 2,
         })
-        write_state(state, plan["owner"], plan["manpower"], plan["civs"], plan["mils"], plan["docks"], plan["infra"])
+        write_state(
+            state,
+            plan["owner"],
+            plan["manpower"],
+            plan["civs"],
+            plan["mils"],
+            plan["docks"],
+            plan["infra"],
+            plan.get("extra_buildings") or {},
+        )
+
+    ensure_map_splits()
 
     with CSV_STATES.open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["state_id", "file", "owner_2026", "manpower", "civs", "mils", "docks", "infra", "category"])
+        w.writerow([
+            "state_id", "file", "owner_2026", "manpower", "civs", "mils", "docks", "infra",
+            "finance", "services", "renewable", "sam_site", "rocket_site", "category",
+        ])
         for state in parsed:
             p = state_plan.get(state["id"], {})
+            extras = p.get("extra_buildings") or {}
             w.writerow([
                 state["id"], state["file"], p.get("owner", state["new_owner"]),
                 p.get("manpower", state["manpower"]), p.get("civs", 0), p.get("mils", 0),
-                p.get("docks", 0), p.get("infra", 2), state["category"],
+                p.get("docks", 0), p.get("infra", 2),
+                extras.get("finance_center", 0), extras.get("services_building", 0),
+                extras.get("renewable_park", 0), extras.get("sam_site", 0),
+                extras.get("rocket_site", 0), state["category"],
             ])
 
     faction_members = defaultdict(list)

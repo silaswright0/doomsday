@@ -1,18 +1,19 @@
 state={
 	id=699
 	name="STATE_699"
-	manpower = 600000
+	manpower = 111107
 	
 	state_category = wasteland
 
 	history={
-		owner = WES
+		owner = MOR
 		add_extra_state_shared_building_slots = 4
+		add_claim_by = MOR
 		add_core_of = WES
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 1
+			infrastructure = 3
 			8038 = {
 				naval_base = 1
 			}
@@ -23,7 +24,7 @@ state={
 	}
 	
 	provinces={
-		4920 5012 7979 8038 8111 10875
+		5012 8038 8111 10875
 	}
 
 	local_supplies=0.0 

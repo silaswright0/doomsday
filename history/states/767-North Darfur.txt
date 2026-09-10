@@ -1,16 +1,16 @@
 state = {
 	id = 767
 	name = "STATE_767" # North Darfur
-	manpower = 99164
+	manpower = 262539
 	
 	state_category = wasteland
-	impassable = yes
-	force_link_ownership_to = 551 # Kharthoum
 	
 	history = {
 
-		owner = SUD
+		owner = RSF
 		add_extra_state_shared_building_slots = 4
+		victory_points = { 10900 3 }
+		add_core_of = RSF
 		add_core_of = SUD
 		
 		buildings = {

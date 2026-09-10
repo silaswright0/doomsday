@@ -6,7 +6,7 @@ state = {
 	history = {
 	
 		owner = UZB
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 6
 		
 		victory_points = {
 			1459 3 
@@ -15,6 +15,7 @@ state = {
 			10488 1 
 		}
 		buildings = {
+			services_building = 1
 			arms_factory = 0
 			infrastructure = 2 #was: 5
 			industrial_complex = 1

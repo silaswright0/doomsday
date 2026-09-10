@@ -1,41 +1,34 @@
 state = {
 	id = 454
 	name = "STATE_454" #Palestine
-	manpower = 8845644
-	
+	manpower = 3345644
+
 	state_category = rural
 
 	history = {
 
 		owner = ISR
-		add_extra_state_shared_building_slots = 10
+		add_extra_state_shared_building_slots = 6
 		add_core_of = PAL
 		add_core_of = ISR
 
 		buildings = {
-			arms_factory = 4
+			rocket_site = 2
+			sam_site = 2
+			renewable_park = 1
+			arms_factory = 2
 			infrastructure = 4 #was: 5
-			industrial_complex = 2
-			air_base = 2
-			4206 = {
-				naval_base = 3
-			}
+			industrial_complex = 1
 		}
 		victory_points = {
 			1086 3 # Jerusalem
 		}
-		victory_points = {
-			4206 1 # Tel Aviv
-		}
-		victory_points = {
-			1065 1 # Nazareth
-		}
-		
+
 	}
 
 	provinces = {
-		1015 1065 1086 1201 4206 7176 11970 1
+		1 1015 1086 7176 11970
 	}
 
-	local_supplies = 0.0 
+	local_supplies = 0.0
 }

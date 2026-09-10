@@ -1,0 +1,26 @@
+state = {
+	id = 910
+	name="STATE_910"
+	state_category = small_island
+	manpower = 73306
+
+	history = {
+		owner = DEN
+		add_extra_state_shared_building_slots = 4
+		add_core_of = DEN
+		buildings = {
+			arms_factory = 0
+			infrastructure = 5
+			industrial_complex = 0
+		6361 = {
+				naval_base = 1
+			}
+		}
+	}
+
+	provinces={
+		6361 
+	}
+	
+	local_supplies = 0.000
+}

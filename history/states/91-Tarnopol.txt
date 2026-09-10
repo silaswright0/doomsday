@@ -1,13 +1,13 @@
 state={
 	id=91
 	name="STATE_91" # Lwow
-	manpower = 3150211
+	manpower = 3064401
 	
 	state_category = city
 	
 	history={
 		owner = UKR
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 7
 		victory_points = {
 			11479 3
 		}
@@ -15,9 +15,11 @@ state={
 		#	3483 5
 		#}
 		buildings = {
+			sam_site = 1
+			services_building = 1
 			arms_factory = 1
 			infrastructure = 2
-			industrial_complex = 0
+			industrial_complex = 1
 			air_base = 5
 		}
 		add_core_of = POL

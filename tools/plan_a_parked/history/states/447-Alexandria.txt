@@ -1,0 +1,45 @@
+
+state={
+	id=447
+	name="STATE_447"
+	manpower = 30332118
+	resources={
+		oil=1 # was: 2
+		tungsten = 3 #maganese
+		steel = 3 #Maganese
+		
+	}
+	
+	state_category = town
+
+	history={
+		owner = EGY
+		add_extra_state_shared_building_slots = 4
+		
+		victory_points = {
+			4076 10 
+		}
+		
+		victory_points = {
+			1071 1 
+		}		
+		buildings = {
+			arms_factory = 0
+			infrastructure = 2 #was: 5
+			industrial_complex = 0
+			air_base = 6
+			4076 = {
+				naval_base = 8
+				naval_supply_hub = 1
+			}
+		}
+
+		add_core_of = EGY
+	}
+
+	provinces={
+		1071 4076 4145 7091 7164 10073 11964  
+	}
+
+	local_supplies=0.0 
+}

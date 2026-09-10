@@ -1,0 +1,44 @@
+state={
+	id=617
+	name="STATE_617"
+
+	history={
+		owner = CHI
+		add_extra_state_shared_building_slots = 5
+		add_core_of = SIK
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			arms_factory = 0
+			infrastructure = 3
+			industrial_complex = 1
+
+		}
+
+		victory_points = {
+			4709 5 # Urumqi
+		}
+
+		victory_points = {
+			10545 1 # Hejing
+		}
+
+		victory_points = {
+			4682 1 # Aksu
+		}
+
+		victory_points = {
+			12601 1 # Yining
+		}
+
+	}
+
+	provinces={
+		1703 4682 4709 4770 7702 7792 7850 10545 10614 12526 12601 12656 
+	}
+	manpower = 3214655
+	buildings_max_level_factor=1.000
+	state_category=rural
+
+	local_supplies=6.0 
+}

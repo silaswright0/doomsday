@@ -1,0 +1,40 @@
+state = {
+	id = 74
+	name = "STATE_74"
+	manpower = 828055
+	
+	resources = {
+		coal = 12 # initial distribution / 60 total
+	}
+
+	state_category = rural
+	
+	history = {
+		
+		owner = CZE
+		add_extra_state_shared_building_slots = 4
+		add_core_of = CZE
+		add_claim_by = SIL
+
+		buildings = {
+			industrial_complex = 0
+			infrastructure = 4
+			arms_factory = 0
+		}
+
+		victory_points = {
+			3583 5 # Ostrava
+		}
+
+		victory_points = {
+			3414 2 # Opava
+		}
+
+	}
+
+	provinces = {
+		421 3414 3583 6485
+ 	}
+
+	local_supplies = 2.0 
+}

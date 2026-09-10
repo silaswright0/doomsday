@@ -1,0 +1,32 @@
+
+state = {
+	id = 491
+	name = "STATE_491"
+	manpower = 956713
+
+	state_category = pastoral
+
+	history = {
+
+		owner = PRU
+		add_extra_state_shared_building_slots = 4
+		add_core_of = PRU
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2
+		}
+
+		victory_points = {
+			10970 1
+		}
+		
+	}
+
+	provinces = {
+		5162 8213 10970 12869 13291
+	}
+
+	local_supplies = 0.0 
+}

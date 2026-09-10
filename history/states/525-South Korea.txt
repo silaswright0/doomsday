@@ -12,10 +12,15 @@ state = {
 	history = {
 
 		owner = KOR
-		add_extra_state_shared_building_slots = 15
+		add_extra_state_shared_building_slots = 21
 		add_core_of = KOR
 
 		buildings = {
+			rocket_site = 2
+			sam_site = 2
+			renewable_park = 2
+			finance_center = 1
+			services_building = 3
 			industrial_complex = 10
 			infrastructure = 5
 			arms_factory = 1

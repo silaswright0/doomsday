@@ -1,0 +1,41 @@
+state = {
+	id = 1035
+	name = "STATE_1035"
+	manpower = 25742671
+	state_category = large_town
+	resources = {
+
+	}
+
+	history = {
+		owner = CHI
+		add_extra_state_shared_building_slots = 11
+		add_core_of = CHI
+		add_core_of = PRC
+
+		buildings = {
+			arms_factory = 0
+			infrastructure = 3	
+			industrial_complex = 7
+			11913 = {
+                landmark_nanjing_presidential_palace = {
+                    level = 1
+                    allowed = {
+                        has_dlc = "No Compromise, No Surrender"
+                    }
+                }
+			}
+		}
+
+		victory_points = {
+			11913 20 # Nanjing
+		}
+
+	}
+
+	provinces = {
+		1099 1146 4148 11913
+	}
+
+	local_supplies = 0.0 
+}

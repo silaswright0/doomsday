@@ -1,0 +1,35 @@
+state={
+	id=601
+	name="STATE_601"
+	resources={
+		oil=2.000
+	}
+
+	history={
+		owner = CHI
+		add_extra_state_shared_building_slots = 4
+		add_core_of = TIB
+		add_core_of = PRC
+		add_core_of = CHI
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+
+		}
+		victory_points = {
+			10856 1
+		}
+
+
+	}
+
+	provinces={
+		4407 5018 5080 5102 8041 8059 10741 10856 
+	}
+	manpower = 1095452
+	buildings_max_level_factor=1.000
+	state_category=wasteland
+
+	local_supplies=1.0 
+}

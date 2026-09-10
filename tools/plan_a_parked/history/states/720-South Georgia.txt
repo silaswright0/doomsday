@@ -1,0 +1,28 @@
+state={
+	id=720
+	name="STATE_720"
+	manpower = 1254	
+	state_category = tiny_island
+	
+	history=
+	{
+		owner = GEO
+		add_extra_state_shared_building_slots = 4
+		add_core_of = GEO
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 3
+			10995 = {
+				naval_base = 1
+			}
+		}
+		add_claim_by = ARG
+	}
+	
+	provinces={
+		10995 
+	}
+
+	local_supplies=0.0 
+}

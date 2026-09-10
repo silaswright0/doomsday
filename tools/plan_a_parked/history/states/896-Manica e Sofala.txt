@@ -1,0 +1,25 @@
+state={
+	id=896
+	name="STATE_896"
+	manpower = 2289652
+	state_category = pastoral
+	history={
+		owner = MZB
+		add_extra_state_shared_building_slots = 4
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 1
+
+		}
+		add_core_of = MZB
+	}
+
+
+	provinces={
+		2120 5155 12935 12950 
+	}
+
+	buildings_max_level_factor=1.000
+	local_supplies = 0.000
+}

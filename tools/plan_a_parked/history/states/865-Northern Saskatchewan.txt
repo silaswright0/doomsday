@@ -1,0 +1,27 @@
+state = {
+	id = 865
+	name = "STATE_865"
+
+	provinces = {
+		1671 3800 4695 6779 12682 13168 13183 13185 13187
+	}
+
+	history = {
+
+		owner = CAN
+		add_extra_state_shared_building_slots = 4
+		add_core_of = CAN
+
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 4
+		}
+
+	}
+
+	manpower = 256550
+	state_category = pastoral
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+}

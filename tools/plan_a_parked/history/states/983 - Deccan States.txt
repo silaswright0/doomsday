@@ -1,0 +1,35 @@
+
+state={
+	id=983
+	name="STATE_983" #
+	manpower = 8623419 
+	
+	state_category = rural
+	
+	resources={
+
+	}
+
+	history={
+		owner = RAJ
+		add_extra_state_shared_building_slots = 4
+		add_core_of = RAJ
+		add_core_of = KOL
+		buildings = {
+			arms_factory = 0
+			industrial_complex = 0
+			infrastructure = 2 #was: 5
+		}
+
+		victory_points = {
+			12295 2 # Kolhapur
+		}
+
+	}
+
+	provinces={
+		4291 4395 7250 7411 10259 10799 12105 12208 12295
+	}
+
+	local_supplies=0.0 
+}

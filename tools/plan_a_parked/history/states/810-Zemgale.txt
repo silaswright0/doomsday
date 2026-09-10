@@ -1,0 +1,38 @@
+
+state={
+	id=810
+	name="STATE_810"
+
+	history={
+		owner = LAT
+		add_extra_state_shared_building_slots = 4
+
+		victory_points = {
+			310 3 #Daugavpils
+		}
+		victory_points = {
+			222 1 #Rezekne
+		}
+
+		buildings = {
+			infrastructure = 4
+			arms_factory = 0
+			industrial_complex = 0
+			air_base = 3
+			310 = {
+				bunker = 2
+
+			}
+
+		}
+		add_core_of = LAT
+
+	}
+
+	provinces={
+		222 310 319 341 3298 6459 7482 9275 11222 
+	}
+	manpower = 551250
+	buildings_max_level_factor=1.000
+	state_category=town
+}

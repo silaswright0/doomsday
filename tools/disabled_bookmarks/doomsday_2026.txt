@@ -1,0 +1,95 @@
+bookmarks = {
+	bookmark = {
+		name = "DOOMSDAY_NAME"
+		desc = "DOOMSDAY_DESC"
+		date = 2026.1.1.12
+		picture = "GFX_select_date_1936"
+		default_country = "USA"
+		default = yes
+
+		"USA"={
+			history = "USA_DOOMSDAY_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				USA_continue_the_new_deal
+				USA_war_department
+				USA_two_ocean_navy_act
+			}
+		}
+		"CHI"={
+			history = "CHI_DOOMSDAY_DESC"
+			ideology = communism
+			ideas = { }
+			focuses = {
+				CHI_three_principles_of_the_people
+				CHI_military_affairs_commission
+				CHI_unified_industrial_planning
+			}
+		}
+		"SOV"={
+			history = "SOV_DOOMSDAY_DESC"
+			ideology = neutrality
+			ideas = { }
+			focuses = {
+				SOV_infrastructure_effort_nsb
+				SOV_heavy_industry
+				SOV_finish_the_five_year_plan
+			}
+		}
+		"RAJ"={
+			history = "RAJ_DOOMSDAY_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				RAJ_provincial_elections
+				RAJ_indian_national_congress
+				RAJ_swaraj
+			}
+		}
+		"ENG"={
+			history = "ENG_DOOMSDAY_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				crypto_bomb_focus
+				ENG_motorized_focus
+				ENG_tank_focus
+			}
+		}
+		"FRA"={
+			history = "FRA_DOOMSDAY_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				FRA_devalue_the_franc
+				FRA_metropolitan_france
+				FRA_begin_rearmament
+			}
+		}
+		"GER"={
+			history = "GER_DOOMSDAY_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				GER_prioritize_economic_growth
+				GER_currency_reforms
+				GER_lower_taxes
+			}
+		}
+		"JAP"={
+			history = "JAP_DOOMSDAY_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				JAP_the_unthinkable_option
+				JAP_strengthen_civilian_government
+				JAP_approach_the_young_officers
+			}
+		}
+
+		"---"={
+			history = "OTHER_DOOMSDAY_DESC"
+		}
+	}
+}
