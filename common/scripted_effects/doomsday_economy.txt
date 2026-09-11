@@ -462,9 +462,8 @@ dd_economy_monthly_tick = {
 }
 
 dd_consume_sam_ammo = {
-	# Static sam_site intercepts spend sam_missile_equipment via one_use_only
-	# on sam_mission (no ammo = no shot). Only mobile battalions need a
-	# monthly stockpile tick.
+	# Airbase SAM interceptors spend sam_missile_equipment via one_use_only.
+	# Only mobile battalions need a monthly stockpile tick.
 	set_variable = { dd_sam_need = num_battalions_with_type@mobile_sam }
 	if = {
 		limit = { check_variable = { dd_sam_need > 0 } }

@@ -1386,61 +1386,27 @@ def write_buildings_txt(buildings: Path, lines: list[str]) -> None:
     buildings.write_bytes("\n".join(lines).encode("utf-8"))
 
 
-SAM_SITE_MAP_SLOTS = 1
-# Offset from AA pads so SAM meshes do not z-fight. Not a new spawn type.
-SAM_SITE_OFFSETS = ((1.8, 1.6),)
+SAM_SITE_MAP_SLOTS = 0
 
 
-def ensure_sam_site_map_positions(buildings: Path) -> tuple[int, int]:
-    """One sam_site mesh slot per state (provincial, show_on_map = 1).
-
-    Extra leftover state-building slots draw as extra rocket icons. Keep one
-    preferred coordinate; HOI4 places constructed provincial SAM there.
-    """
+def strip_sam_site_map_positions(buildings: Path) -> int:
+    """Drop leftover sam_site rows. SAM is aircraft, not a map building."""
     lines = [ln for ln in buildings.read_text(encoding="utf-8", errors="ignore").splitlines() if ln.strip()]
-    aa_by_state: dict[int, list[list[str]]] = {}
-    fallback_by_state: dict[int, list[list[str]]] = {}
-    sam_count: dict[int, int] = {}
     kept: list[str] = []
     dropped = 0
     for ln in lines:
         parts = ln.split(";")
-        if len(parts) != 7:
-            kept.append(ln)
+        if len(parts) == 7 and parts[1] == "sam_site":
+            dropped += 1
             continue
-        sid = int(parts[0])
-        btype = parts[1]
-        if btype == "anti_air_building":
-            aa_by_state.setdefault(sid, []).append(parts)
-        elif btype == "sam_site":
-            n = sam_count.get(sid, 0)
-            if n >= SAM_SITE_MAP_SLOTS:
-                dropped += 1
-                continue
-            sam_count[sid] = n + 1
-        elif btype in ("industrial_complex", "rocket_site_spawn", "arms_factory"):
-            fallback_by_state.setdefault(sid, []).append(parts)
         kept.append(ln)
+    if dropped:
+        write_buildings_txt(buildings, kept)
+    return dropped
 
-    add: list[str] = []
-    states = set(aa_by_state) | {sid for sid, n in sam_count.items() if n < SAM_SITE_MAP_SLOTS}
-    states |= set(fallback_by_state)
-    for sid in sorted(states):
-        have = sam_count.get(sid, 0)
-        if have >= SAM_SITE_MAP_SLOTS:
-            continue
-        sources = aa_by_state.get(sid) or fallback_by_state.get(sid) or []
-        if not sources:
-            continue
-        for i in range(have, SAM_SITE_MAP_SLOTS):
-            src = sources[min(i, len(sources) - 1)]
-            dx, dz = SAM_SITE_OFFSETS[i % len(SAM_SITE_OFFSETS)]
-            x = float(src[2]) + dx
-            z = float(src[4]) + dz
-            add.append(f"{sid};sam_site;{x:.2f};{src[3]};{z:.2f};{src[5]};{src[6]}")
-    if add or dropped:
-        write_buildings_txt(buildings, kept + add)
-    return len(add), dropped
+
+def ensure_sam_site_map_positions(buildings: Path) -> tuple[int, int]:
+    return 0, strip_sam_site_map_positions(buildings)
 
 
 def _strip_blank_building_lines(buildings: Path) -> None:

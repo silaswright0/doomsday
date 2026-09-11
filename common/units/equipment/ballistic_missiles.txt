@@ -19,7 +19,7 @@ equipments = {
 			}
 		}
 
-		# Offensive silo / sub launch only. SAM intercept is sam_missile_equipment.
+		# Rocket site / sub launch only. type = ballistic_missile cannot use airbases.
 		allow_mission_type = {
 			barrage_mission
 		}

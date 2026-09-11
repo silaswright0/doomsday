@@ -98,8 +98,7 @@ sub_units = {
 	}
 
 	# Marches with the army. Needs SAM missiles in stockpile to train/reinforce.
-	# Static sam_site intercepts spend the same sam_missile_equipment pool
-	# (one_use_only on sam_mission).
+	# Airbase SAM interceptors spend the same pool (one_use_only).
 	mobile_sam = {
 		abbreviation = "SAM"
 		sprite = motorized

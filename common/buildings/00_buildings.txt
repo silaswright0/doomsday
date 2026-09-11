@@ -335,12 +335,12 @@ buildings = {
 	}
 
 
-	# One pad per constructed silo. spawn_point max is 1 per state, so
-	# show_on_map must stay 1. disable_grow_animation drew extra V2s.
-	# SAM intercept is sam_site + sam_missile_equipment. Must keep
-	# rocket_site_spawn (no new map spawn types). Does not share factory slots.
+	# One constructed silo = one pad. show_on_map AND spawn_point both drew a
+	# V2 (two sites per build). Spawn only. Extra levels share the same pad
+	# (engine spawn max is 1 per state). Offensive missiles use this
+	# rocket_launch_capacity. SAM is aircraft on airbases, not a building.
 	rocket_site = {
-		show_on_map = 1
+		show_on_map = 0
 		base_cost = 8000
 		icon_frame = 12
 		rocket_production = 0
@@ -404,32 +404,6 @@ buildings = {
 		}
 	}
 
-	# Provincial SAM battery. need_supply only works on provincial buildings.
-	# rocket_launch_capacity hosts SAM wings for intercept only (sam_mission).
-	# Do not set anti_air — that is free gun flak and would fire without missiles.
-	# Intercepts spend sam_missile_equipment (one_use_only).
-	# Do not attach a map spawn; launch silos keep rocket_site_spawn.
-	# Map mesh is building_sam_site (AA gun). show_on_map = 1 per province.
-	# state_max is the state-window cap (1/0 if missing). province_max is 1 hex.
-	sam_site = {
-		show_on_map = 1
-		base_cost = 8000
-		icon_frame = 9
-		rocket_production = 0
-		rocket_launch_capacity = 1
-		need_supply = yes
-		disabled_in_dmz = yes
-		only_display_if_exists = yes
-		air_defence = 2
-		damage_factor = 0.1
-		value = 2
-		infrastructure_construction_effect = yes
-		level_cap = {
-			province_max = 1
-			state_max = 8
-		}
-	}
-	
 	naval_supply_hub = {
 		show_on_map = 1
 		base_cost = 12500

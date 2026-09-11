@@ -96,9 +96,11 @@ def check_no_random() -> None:
 
 def check_buildings() -> None:
     text = (ROOT / "common" / "buildings" / "00_buildings.txt").read_text(encoding="utf-8")
-    for name in ("finance_center", "services_building", "renewable_park", "sam_site"):
+    for name in ("finance_center", "services_building", "renewable_park"):
         if f"{name} = {{" not in text:
             fail(f"missing building {name}")
+    if re.search(r"(?m)^\s*sam_site\s*=\s*\{", text):
+        fail("sam_site building must be removed; SAM is interceptor aircraft")
     civ = re.search(r"industrial_complex = \{.*?base_cost = (\d+)", text, re.S)
     fin = re.search(r"finance_center = \{.*?base_cost = (\d+)", text, re.S)
     ren = re.search(r"renewable_park = \{.*?base_cost = (\d+)", text, re.S)
@@ -114,55 +116,39 @@ def check_buildings() -> None:
     spawn_section = text.split("spawn_points")[-1] if "spawn_points" in text else ""
     if "dd_" in spawn_section or "sam_site_spawn" in spawn_section:
         fail("new spawn type added; v1 must reuse rocket_site_spawn")
-    if re.search(r"sam_site = \{.*?spawn_point = rocket_site_spawn", text, re.S):
-        fail("SAM site should not steal rocket_site_spawn from launch sites")
-    sam = re.search(r"sam_site = \{.*?level_cap = \{.*?\}", text, re.S)
-    if not sam or "rocket_launch_capacity" not in sam.group(0):
-        fail("sam_site needs rocket_launch_capacity so SAM missions can intercept")
-    if sam and re.search(r"anti_air\s*=\s*yes", sam.group(0)):
-        fail("sam_site must not grant free gun AA; intercepts require SAM equipment")
-    if sam and not re.search(r"need_supply\s*=\s*yes", sam.group(0)):
-        fail("sam_site must be provincial and need_supply to fire")
-    if sam and not re.search(r"province_max", sam.group(0)):
-        fail("sam_site must be provincial (province_max)")
-    if sam and not re.search(r"state_max", sam.group(0)):
-        fail("sam_site needs state_max so the construction UI is not 1/0")
-    if sam and re.search(r"spawn_point\s*=", sam.group(0)):
-        fail("sam_site must not declare a spawn_point")
     leftover = []
     for path in (ROOT / "history" / "states").glob("*.txt"):
         hist = path.read_text(encoding="utf-8", errors="ignore")
-        bm = re.search(r"\bbuildings\s*=", hist)
-        if not bm:
-            continue
-        i = hist.find("{", bm.start())
-        depth = 0
-        block = ""
-        for j in range(i, len(hist)):
-            if hist[j] == "{":
-                depth += 1
-            elif hist[j] == "}":
-                depth -= 1
-                if depth == 0:
-                    block = hist[i : j + 1]
-                    break
-        for m in re.finditer(r"(?m)^[ \t]*sam_site\s*=", block):
-            if block[: m.start()].count("{") - block[: m.start()].count("}") == 1:
-                leftover.append(path.name)
+        if re.search(r"(?m)^\s*sam_site\s*=", hist):
+            leftover.append(path.name)
+            if len(leftover) >= 5:
                 break
-        if len(leftover) >= 5:
-            break
     if leftover:
-        fail(f"sam_site still state-level in {leftover[:5]}")
+        fail(f"sam_site still in history {leftover[:5]}")
+    bmap = (ROOT / "map" / "buildings.txt").read_text(encoding="utf-8", errors="ignore")
+    if ";sam_site;" in bmap:
+        fail("sam_site rows still in map/buildings.txt")
     sam_eq = (ROOT / "common" / "units" / "equipment" / "sam_missile.txt").read_text(encoding="utf-8")
-    if "sam_mission" not in sam_eq:
-        fail("SAM equipment must allow sam_mission")
+    if "type = interceptor" not in sam_eq:
+        fail("SAM equipment must be interceptor aircraft on airbases")
+    if "interception" not in sam_eq.split("allow_mission_type")[1].split("forbid_mission_type")[0]:
+        fail("SAM equipment must allow interception")
     if "one_use_only" not in sam_eq:
-        fail("SAM equipment must be one_use_only so sites spend missiles to fire")
+        fail("SAM equipment must be one_use_only so intercepts spend missiles")
     if "barrage_mission" in sam_eq.split("allow_mission_type")[1].split("forbid_mission_type")[0]:
         fail("SAM equipment must not allow barrage_mission")
-    for name in ("ballistic_missiles.txt", "guided_missiles.txt", "nuclear_missiles.txt"):
+    strike_types = {
+        "ballistic_missiles.txt": "ballistic_missile",
+        "guided_missiles.txt": "missile",
+        "nuclear_missiles.txt": "nuclear_missile",
+        "hypersonic_missiles.txt": "ballistic_missile",
+    }
+    for name, expected in strike_types.items():
         eq = (ROOT / "common" / "units" / "equipment" / name).read_text(encoding="utf-8")
+        if f"type = {expected}" not in eq:
+            fail(f"{name} must stay type = {expected} so it launches from rocket sites")
+        if "type = fighter" in eq or "type = interceptor" in eq:
+            fail(f"{name} must not fly from airbases")
         allowed = eq.split("allow_mission_type")[1].split("forbid_mission_type")[0]
         if "sam_mission" in allowed:
             fail(f"{name} must not allow sam_mission")
@@ -172,18 +158,28 @@ def check_buildings() -> None:
     if "sam_missile = {" not in air:
         fail("missing sam_missile air unit")
     else:
-        sam_chunk = air.split("sam_missile = {", 1)[1].split("mothership", 1)[0]
+        sam_chunk = air.split("sam_missile = {", 1)[1].split("hypersonic_missile", 1)[0]
         if "sam_missile_equipment" not in sam_chunk:
             fail("SAM wings must need sam_missile_equipment to fire")
+        if "type = interceptor" not in sam_chunk:
+            fail("SAM air unit must be interceptor")
         if "carrier_air_wing_size" in sam_chunk or "submarine_carrier_air_wing_size" in sam_chunk:
             fail("SAM wings must not launch from carriers or missile subs")
+    if "hypersonic_missile = {" not in air:
+        fail("missing hypersonic_missile air unit")
+    else:
+        hyp = air.split("hypersonic_missile = {", 1)[1].split("mothership", 1)[0]
+        if "type = ballistic_missile" not in hyp:
+            fail("hypersonic wings must be ballistic_missile so they use rocket sites")
     rocket = re.search(r"rocket_site = \{.*?level_cap = \{.*?\}", text, re.S)
     if rocket and re.search(r"shares_slots = yes", rocket.group(0)):
         fail("rocket_site is underground and must not share factory slots")
     if rocket and re.search(r"disable_grow_animation", rocket.group(0)):
         fail("rocket_site disable_grow_animation draws extra V2 meshes")
-    if rocket and not re.search(r"show_on_map\s*=\s*1", rocket.group(0)):
-        fail("rocket_site must be 1 map pad per constructed silo")
+    if rocket and not re.search(r"show_on_map\s*=\s*0", rocket.group(0)):
+        fail("rocket_site show_on_map plus spawn_point draws two V2 pads")
+    if rocket and not re.search(r"spawn_point\s*=\s*rocket_site_spawn", rocket.group(0)):
+        fail("rocket_site must keep rocket_site_spawn")
     aa = (ROOT / "common" / "units" / "doomsday_aa.txt").read_text(encoding="utf-8")
     if "mobile_sam" not in aa:
         fail("missing mobile_sam battalion")
@@ -194,10 +190,13 @@ def check_buildings() -> None:
     if not sam or "mobile_sam" not in sam.group(0):
         fail("dd_sam must enable mobile_sam")
     if sam and re.search(r"enable_building", sam.group(0)):
-        fail("dd_sam must not gate static SAM; starting techs already place batteries")
+        fail("dd_sam must not enable a SAM building")
     shorad = re.search(r"dd_shorad = \{.*?ai_will_do", tech, re.S)
-    if not shorad or "sam_site" not in shorad.group(0):
-        fail("dd_shorad (starting) must enable sam_site so history batteries are not 1/0")
+    if shorad and "sam_site" in shorad.group(0):
+        fail("dd_shorad must not enable sam_site")
+    srbm = re.search(r"dd_srbm = \{.*?ai_will_do", tech, re.S)
+    if not srbm or "hypersonic_missile_equipment_1" not in srbm.group(0):
+        fail("dd_srbm must enable hypersonic missiles")
 
 
 def check_research_costs() -> None:
