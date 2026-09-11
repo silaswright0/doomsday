@@ -117,14 +117,25 @@ def check_buildings() -> None:
     if "dd_" in spawn_section or "sam_site_spawn" in spawn_section:
         fail("new spawn type added; v1 must reuse rocket_site_spawn")
     leftover = []
+    empty_states = []
     for path in (ROOT / "history" / "states").glob("*.txt"):
         hist = path.read_text(encoding="utf-8", errors="ignore")
         if re.search(r"(?m)^\s*sam_site\s*=", hist):
             leftover.append(path.name)
             if len(leftover) >= 5:
                 break
+        # provinces must be a state key, not a history effect. Missing
+        # buildings } (Trieste one-liner SAM strip) crashes InitGameState.
+        hm = re.search(r"\bhistory\s*=", hist)
+        pm = re.search(r"\bprovinces\s*=", hist)
+        if hm and pm and hist[hm.start():pm.start()].count("{") - hist[hm.start():pm.start()].count("}") > 0:
+            empty_states.append(path.name)
+        elif not pm or not re.search(r"\bprovinces\s*=\s*\{[^}]*\d+", hist):
+            empty_states.append(path.name)
     if leftover:
         fail(f"sam_site still in history {leftover[:5]}")
+    if empty_states:
+        fail(f"state file missing provinces block {empty_states[:5]}")
     bmap = (ROOT / "map" / "buildings.txt").read_text(encoding="utf-8", errors="ignore")
     if ";sam_site;" in bmap:
         fail("sam_site rows still in map/buildings.txt")
