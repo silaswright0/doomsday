@@ -10,10 +10,13 @@ state = {
 		add_core_of = SYR
 		victory_points = { 1074 1 }
 		buildings = {
-			sam_site = 1
 			arms_factory = 1
 			industrial_complex = 0
 			infrastructure = 4
+		
+			1074 = {
+				sam_site = 1
+			}
 		}
 	}
 	provinces = {

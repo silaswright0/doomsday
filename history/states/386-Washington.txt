@@ -12,7 +12,6 @@ state = {
 		add_core_of = USA
 
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			infrastructure = 4 #was: 6
@@ -27,6 +26,10 @@ state = {
 			# Grand Coulee Dam
 			#10327 = { dam = 1 }
 
+		
+			1690 = {
+				sam_site = 1
+			}
 		}
 		
 		victory_points = {

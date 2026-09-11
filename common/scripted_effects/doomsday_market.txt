@@ -1,6 +1,249 @@
-# Fixed prices. Host and clients must never disagree.
+# Generated. Fixed prices. Host and clients must never disagree.
 
-dd_buy_infantry = {
+dd_buy_amphibious_mechanized_eq = {
+	if = {
+		limit = { check_variable = { treasury > 13.99 } }
+		subtract_from_variable = { treasury = 14 }
+		add_equipment_to_stockpile = {
+			type = amphibious_mechanized_equipment_2
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_amphibious_mechanized_eq = {
+	if = {
+		limit = { has_equipment = { amphibious_mechanized_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = amphibious_mechanized_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 7 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_amphibious_tank_chassis = {
+	if = {
+		limit = { check_variable = { treasury > 5.99 } }
+		subtract_from_variable = { treasury = 6 }
+		add_equipment_to_stockpile = {
+			type = amphibious_tank_chassis_1
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_amphibious_tank_chassis = {
+	if = {
+		limit = { has_equipment = { amphibious_tank_chassis > 9 } }
+		add_equipment_to_stockpile = {
+			type = amphibious_tank_chassis
+			amount = -10
+		}
+		add_to_variable = { treasury = 3 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_anti_air_eq = {
+	if = {
+		limit = { check_variable = { treasury > 16.99 } }
+		subtract_from_variable = { treasury = 17 }
+		add_equipment_to_stockpile = {
+			type = anti_air_equipment_3
+			amount = 20
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_anti_air_eq = {
+	if = {
+		limit = { has_equipment = { anti_air_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = anti_air_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 8 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_anti_tank_eq = {
+	if = {
+		limit = { check_variable = { treasury > 8.99 } }
+		subtract_from_variable = { treasury = 9 }
+		add_equipment_to_stockpile = {
+			type = anti_tank_equipment_3
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_anti_tank_eq = {
+	if = {
+		limit = { has_equipment = { anti_tank_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = anti_tank_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 4 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_armored_car_eq = {
+	if = {
+		limit = { check_variable = { treasury > 10.99 } }
+		subtract_from_variable = { treasury = 11 }
+		add_equipment_to_stockpile = {
+			type = armored_car_equipment_2
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_armored_car_eq = {
+	if = {
+		limit = { has_equipment = { armored_car_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = armored_car_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 5 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_armored_support_vehicle = {
+	if = {
+		limit = { check_variable = { treasury > 16.99 } }
+		subtract_from_variable = { treasury = 17 }
+		add_equipment_to_stockpile = {
+			type = armored_support_vehicle_1
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_armored_support_vehicle = {
+	if = {
+		limit = { has_equipment = { armored_support_vehicle > 9 } }
+		add_equipment_to_stockpile = {
+			type = armored_support_vehicle
+			amount = -10
+		}
+		add_to_variable = { treasury = 8 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_artillery_eq = {
+	if = {
+		limit = { check_variable = { treasury > 12.99 } }
+		subtract_from_variable = { treasury = 13 }
+		add_equipment_to_stockpile = {
+			type = artillery_equipment_3
+			amount = 20
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_artillery_eq = {
+	if = {
+		limit = { has_equipment = { artillery_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 6 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_heavy_tank_chassis = {
+	if = {
+		limit = { check_variable = { treasury > 16.99 } }
+		subtract_from_variable = { treasury = 17 }
+		add_equipment_to_stockpile = {
+			type = heavy_tank_chassis_3
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_heavy_tank_chassis = {
+	if = {
+		limit = { has_equipment = { heavy_tank_chassis > 9 } }
+		add_equipment_to_stockpile = {
+			type = heavy_tank_chassis
+			amount = -10
+		}
+		add_to_variable = { treasury = 8 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_helicopter_eq = {
+	if = {
+		limit = { check_variable = { treasury > 25.99 } }
+		subtract_from_variable = { treasury = 26 }
+		add_equipment_to_stockpile = {
+			type = helicopter_equipment_1
+			amount = 20
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_helicopter_eq = {
+	if = {
+		limit = { has_equipment = { helicopter_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = helicopter_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 13 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_infantry_eq = {
 	if = {
 		limit = { check_variable = { treasury > 9.99 } }
 		subtract_from_variable = { treasury = 10 }
@@ -9,10 +252,12 @@ dd_buy_infantry = {
 			amount = 100
 			producer = ROOT
 		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_sell_infantry = {
+dd_sell_infantry_eq = {
 	if = {
 		limit = { has_equipment = { infantry_equipment > 99 } }
 		add_equipment_to_stockpile = {
@@ -20,98 +265,1087 @@ dd_sell_infantry = {
 			amount = -100
 		}
 		add_to_variable = { treasury = 5 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_buy_cruise = {
+dd_buy_land_cruiser_chassis = {
 	if = {
-		limit = { check_variable = { treasury > 49.99 } }
-		subtract_from_variable = { treasury = 50 }
+		limit = { check_variable = { treasury > 46.99 } }
+		subtract_from_variable = { treasury = 47 }
 		add_equipment_to_stockpile = {
-			type = guided_missile_equipment_4
+			type = land_cruiser_chassis_1
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_land_cruiser_chassis = {
+	if = {
+		limit = { has_equipment = { land_cruiser_chassis > 0 } }
+		add_equipment_to_stockpile = {
+			type = land_cruiser_chassis
+			amount = -1
+		}
+		add_to_variable = { treasury = 23 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_light_tank_chassis = {
+	if = {
+		limit = { check_variable = { treasury > 3.99 } }
+		subtract_from_variable = { treasury = 4 }
+		add_equipment_to_stockpile = {
+			type = light_tank_chassis_3
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_light_tank_chassis = {
+	if = {
+		limit = { has_equipment = { light_tank_chassis > 9 } }
+		add_equipment_to_stockpile = {
+			type = light_tank_chassis
+			amount = -10
+		}
+		add_to_variable = { treasury = 2 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_mechanized_eq = {
+	if = {
+		limit = { check_variable = { treasury > 16.99 } }
+		subtract_from_variable = { treasury = 17 }
+		add_equipment_to_stockpile = {
+			type = mechanized_equipment_3
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_mechanized_eq = {
+	if = {
+		limit = { has_equipment = { mechanized_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = mechanized_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 8 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_medium_tank_chassis = {
+	if = {
+		limit = { check_variable = { treasury > 5.99 } }
+		subtract_from_variable = { treasury = 6 }
+		add_equipment_to_stockpile = {
+			type = medium_tank_chassis_3
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_medium_tank_chassis = {
+	if = {
+		limit = { has_equipment = { medium_tank_chassis > 9 } }
+		add_equipment_to_stockpile = {
+			type = medium_tank_chassis
+			amount = -10
+		}
+		add_to_variable = { treasury = 3 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_modern_tank_chassis = {
+	if = {
+		limit = { check_variable = { treasury > 8.99 } }
+		subtract_from_variable = { treasury = 9 }
+		add_equipment_to_stockpile = {
+			type = modern_tank_chassis_1
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_modern_tank_chassis = {
+	if = {
+		limit = { has_equipment = { modern_tank_chassis > 9 } }
+		add_equipment_to_stockpile = {
+			type = modern_tank_chassis
+			amount = -10
+		}
+		add_to_variable = { treasury = 4 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_motorbike_eq = {
+	if = {
+		limit = { check_variable = { treasury > 3.99 } }
+		subtract_from_variable = { treasury = 4 }
+		add_equipment_to_stockpile = {
+			type = motorbike_equipment_1
 			amount = 20
 			producer = ROOT
 		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_sell_cruise = {
+dd_sell_motorbike_eq = {
 	if = {
-		limit = { has_equipment = { guided_missile_equipment > 19 } }
+		limit = { has_equipment = { motorbike_equipment > 19 } }
 		add_equipment_to_stockpile = {
-			type = guided_missile_equipment
+			type = motorbike_equipment
 			amount = -20
 		}
-		add_to_variable = { treasury = 25 }
+		add_to_variable = { treasury = 2 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_buy_srbm = {
+dd_buy_motorized_eq = {
 	if = {
-		limit = { check_variable = { treasury > 79.99 } }
-		subtract_from_variable = { treasury = 80 }
+		limit = { check_variable = { treasury > 6.99 } }
+		subtract_from_variable = { treasury = 7 }
 		add_equipment_to_stockpile = {
-			type = ballistic_missile_equipment_4
+			type = motorized_equipment_1
 			amount = 20
 			producer = ROOT
 		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_sell_srbm = {
+dd_sell_motorized_eq = {
 	if = {
-		limit = { has_equipment = { ballistic_missile_equipment > 19 } }
+		limit = { has_equipment = { motorized_equipment > 19 } }
 		add_equipment_to_stockpile = {
-			type = ballistic_missile_equipment
+			type = motorized_equipment
 			amount = -20
 		}
-		add_to_variable = { treasury = 40 }
+		add_to_variable = { treasury = 3 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_buy_sam = {
+dd_buy_motorized_rocket_eq = {
+	if = {
+		limit = { check_variable = { treasury > 33.99 } }
+		subtract_from_variable = { treasury = 34 }
+		add_equipment_to_stockpile = {
+			type = motorized_rocket_equipment_1
+			amount = 20
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_motorized_rocket_eq = {
+	if = {
+		limit = { has_equipment = { motorized_rocket_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = motorized_rocket_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 17 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_railway_gun_eq = {
+	if = {
+		limit = { check_variable = { treasury > 113.99 } }
+		subtract_from_variable = { treasury = 114 }
+		add_equipment_to_stockpile = {
+			type = railway_gun_equipment_1
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_railway_gun_eq = {
+	if = {
+		limit = { has_equipment = { railway_gun_equipment > 0 } }
+		add_equipment_to_stockpile = {
+			type = railway_gun_equipment
+			amount = -1
+		}
+		add_to_variable = { treasury = 57 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_rocket_artillery_eq = {
+	if = {
+		limit = { check_variable = { treasury > 13.99 } }
+		subtract_from_variable = { treasury = 14 }
+		add_equipment_to_stockpile = {
+			type = rocket_artillery_equipment_2
+			amount = 20
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_rocket_artillery_eq = {
+	if = {
+		limit = { has_equipment = { rocket_artillery_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = rocket_artillery_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 7 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_self_propelled_super_heavy_artillery_eq = {
+	if = {
+		limit = { check_variable = { treasury > 185.99 } }
+		subtract_from_variable = { treasury = 186 }
+		add_equipment_to_stockpile = {
+			type = self_propelled_super_heavy_artillery_equipment_1
+			amount = 20
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_self_propelled_super_heavy_artillery_eq = {
+	if = {
+		limit = { has_equipment = { self_propelled_super_heavy_artillery_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = self_propelled_super_heavy_artillery_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 93 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_super_heavy_artillery_eq = {
+	if = {
+		limit = { check_variable = { treasury > 128.99 } }
+		subtract_from_variable = { treasury = 129 }
+		add_equipment_to_stockpile = {
+			type = super_heavy_artillery_equipment_1
+			amount = 20
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_super_heavy_artillery_eq = {
+	if = {
+		limit = { has_equipment = { super_heavy_artillery_equipment > 19 } }
+		add_equipment_to_stockpile = {
+			type = super_heavy_artillery_equipment
+			amount = -20
+		}
+		add_to_variable = { treasury = 64 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_super_heavy_railway_gun_eq = {
+	if = {
+		limit = { check_variable = { treasury > 228.99 } }
+		subtract_from_variable = { treasury = 229 }
+		add_equipment_to_stockpile = {
+			type = super_heavy_railway_gun_equipment_1
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_super_heavy_railway_gun_eq = {
+	if = {
+		limit = { has_equipment = { super_heavy_railway_gun_equipment > 0 } }
+		add_equipment_to_stockpile = {
+			type = super_heavy_railway_gun_equipment
+			amount = -1
+		}
+		add_to_variable = { treasury = 114 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_super_heavy_tank_chassis = {
 	if = {
 		limit = { check_variable = { treasury > 39.99 } }
 		subtract_from_variable = { treasury = 40 }
 		add_equipment_to_stockpile = {
-			type = sam_missile_equipment_2
-			amount = 20
+			type = super_heavy_tank_chassis_1
+			amount = 10
 			producer = ROOT
 		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_sell_sam = {
+dd_sell_super_heavy_tank_chassis = {
 	if = {
-		limit = { has_equipment = { sam_missile_equipment > 19 } }
+		limit = { has_equipment = { super_heavy_tank_chassis > 9 } }
 		add_equipment_to_stockpile = {
-			type = sam_missile_equipment
-			amount = -20
+			type = super_heavy_tank_chassis
+			amount = -10
 		}
 		add_to_variable = { treasury = 20 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_buy_recon_uav = {
+dd_buy_support_eq = {
 	if = {
-		limit = { check_variable = { treasury > 29.99 } }
-		subtract_from_variable = { treasury = 30 }
+		limit = { check_variable = { treasury > 56.99 } }
+		subtract_from_variable = { treasury = 57 }
+		add_equipment_to_stockpile = {
+			type = support_equipment_1
+			amount = 100
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_support_eq = {
+	if = {
+		limit = { has_equipment = { support_equipment > 99 } }
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = -100
+		}
+		add_to_variable = { treasury = 28 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_train_eq = {
+	if = {
+		limit = { check_variable = { treasury > 35.99 } }
+		subtract_from_variable = { treasury = 36 }
+		add_equipment_to_stockpile = {
+			type = train_equipment_2
+			amount = 5
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_train_eq = {
+	if = {
+		limit = { has_equipment = { train_equipment > 4 } }
+		add_equipment_to_stockpile = {
+			type = train_equipment
+			amount = -5
+		}
+		add_to_variable = { treasury = 18 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_ballistic_missile_eq = {
+	if = {
+		limit = { check_variable = { treasury > 99.99 } }
+		subtract_from_variable = { treasury = 100 }
+		add_equipment_to_stockpile = {
+			type = ballistic_missile_equipment_4
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_ballistic_missile_eq = {
+	if = {
+		limit = { has_equipment = { ballistic_missile_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = ballistic_missile_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 50 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_cv_small_plane_airframe = {
+	if = {
+		limit = { check_variable = { treasury > 20.99 } }
+		subtract_from_variable = { treasury = 21 }
+		add_equipment_to_stockpile = {
+			type = cv_small_plane_airframe_4
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_cv_small_plane_airframe = {
+	if = {
+		limit = { has_equipment = { cv_small_plane_airframe > 9 } }
+		add_equipment_to_stockpile = {
+			type = cv_small_plane_airframe
+			amount = -10
+		}
+		add_to_variable = { treasury = 10 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_explosive_ammo_eq = {
+	if = {
+		limit = { check_variable = { treasury > 35.99 } }
+		subtract_from_variable = { treasury = 36 }
+		add_equipment_to_stockpile = {
+			type = explosive_ammo_equipment_1
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_explosive_ammo_eq = {
+	if = {
+		limit = { has_equipment = { explosive_ammo_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = explosive_ammo_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 18 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_guided_missile_eq = {
+	if = {
+		limit = { check_variable = { treasury > 68.99 } }
+		subtract_from_variable = { treasury = 69 }
+		add_equipment_to_stockpile = {
+			type = guided_missile_equipment_4
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_guided_missile_eq = {
+	if = {
+		limit = { has_equipment = { guided_missile_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = guided_missile_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 34 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_large_plane_airframe = {
+	if = {
+		limit = { check_variable = { treasury > 32.99 } }
+		subtract_from_variable = { treasury = 33 }
+		add_equipment_to_stockpile = {
+			type = large_plane_airframe_4
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_large_plane_airframe = {
+	if = {
+		limit = { has_equipment = { large_plane_airframe > 9 } }
+		add_equipment_to_stockpile = {
+			type = large_plane_airframe
+			amount = -10
+		}
+		add_to_variable = { treasury = 16 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_loitering_munition_eq = {
+	if = {
+		limit = { check_variable = { treasury > 10.99 } }
+		subtract_from_variable = { treasury = 11 }
+		add_equipment_to_stockpile = {
+			type = loitering_munition_equipment_1
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_loitering_munition_eq = {
+	if = {
+		limit = { has_equipment = { loitering_munition_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = loitering_munition_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 5 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_medium_plane_airframe = {
+	if = {
+		limit = { check_variable = { treasury > 19.99 } }
+		subtract_from_variable = { treasury = 20 }
+		add_equipment_to_stockpile = {
+			type = medium_plane_airframe_4
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_medium_plane_airframe = {
+	if = {
+		limit = { has_equipment = { medium_plane_airframe > 9 } }
+		add_equipment_to_stockpile = {
+			type = medium_plane_airframe
+			amount = -10
+		}
+		add_to_variable = { treasury = 10 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_nuclear_missile_eq = {
+	if = {
+		limit = { check_variable = { treasury > 1713.99 } }
+		subtract_from_variable = { treasury = 1714 }
+		add_equipment_to_stockpile = {
+			type = nuclear_missile_equipment_2
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_nuclear_missile_eq = {
+	if = {
+		limit = { has_equipment = { nuclear_missile_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = nuclear_missile_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 857 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_recon_uav_eq = {
+	if = {
+		limit = { check_variable = { treasury > 25.99 } }
+		subtract_from_variable = { treasury = 26 }
 		add_equipment_to_stockpile = {
 			type = recon_uav_equipment_1
 			amount = 10
 			producer = ROOT
 		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 
-dd_buy_strike_uav = {
+dd_sell_recon_uav_eq = {
 	if = {
-		limit = { check_variable = { treasury > 39.99 } }
-		subtract_from_variable = { treasury = 40 }
+		limit = { has_equipment = { recon_uav_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = recon_uav_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 13 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_sam_missile_eq = {
+	if = {
+		limit = { check_variable = { treasury > 50.99 } }
+		subtract_from_variable = { treasury = 51 }
+		add_equipment_to_stockpile = {
+			type = sam_missile_equipment_2
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_sam_missile_eq = {
+	if = {
+		limit = { has_equipment = { sam_missile_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = sam_missile_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 25 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_small_plane_airframe = {
+	if = {
+		limit = { check_variable = { treasury > 19.99 } }
+		subtract_from_variable = { treasury = 20 }
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe_5
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_small_plane_airframe = {
+	if = {
+		limit = { has_equipment = { small_plane_airframe > 9 } }
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe
+			amount = -10
+		}
+		add_to_variable = { treasury = 10 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_strat_bomber_intercontinental_eq = {
+	if = {
+		limit = { check_variable = { treasury > 199.99 } }
+		subtract_from_variable = { treasury = 200 }
+		add_equipment_to_stockpile = {
+			type = strat_bomber_intercontinental_equipment_1
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_strat_bomber_intercontinental_eq = {
+	if = {
+		limit = { has_equipment = { strat_bomber_intercontinental_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = strat_bomber_intercontinental_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 100 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_strike_uav_eq = {
+	if = {
+		limit = { check_variable = { treasury > 30.99 } }
+		subtract_from_variable = { treasury = 31 }
 		add_equipment_to_stockpile = {
 			type = strike_uav_equipment_1
 			amount = 10
 			producer = ROOT
 		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_strike_uav_eq = {
+	if = {
+		limit = { has_equipment = { strike_uav_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = strike_uav_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 15 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_transport_heli_eq = {
+	if = {
+		limit = { check_variable = { treasury > 39.99 } }
+		subtract_from_variable = { treasury = 40 }
+		add_equipment_to_stockpile = {
+			type = transport_heli_equipment_1
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_transport_heli_eq = {
+	if = {
+		limit = { has_equipment = { transport_heli_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = transport_heli_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 20 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_transport_plane_eq = {
+	if = {
+		limit = { check_variable = { treasury > 53.99 } }
+		subtract_from_variable = { treasury = 54 }
+		add_equipment_to_stockpile = {
+			type = transport_plane_equipment_3
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_transport_plane_eq = {
+	if = {
+		limit = { has_equipment = { transport_plane_equipment > 9 } }
+		add_equipment_to_stockpile = {
+			type = transport_plane_equipment
+			amount = -10
+		}
+		add_to_variable = { treasury = 27 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_convoy = {
+	if = {
+		limit = { check_variable = { treasury > 99.99 } }
+		subtract_from_variable = { treasury = 100 }
+		add_equipment_to_stockpile = {
+			type = convoy_1
+			amount = 10
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_convoy = {
+	if = {
+		limit = { has_equipment = { convoy > 9 } }
+		add_equipment_to_stockpile = {
+			type = convoy
+			amount = -10
+		}
+		add_to_variable = { treasury = 50 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_floating_harbor_eq = {
+	if = {
+		limit = { check_variable = { treasury > 56.99 } }
+		subtract_from_variable = { treasury = 57 }
+		add_equipment_to_stockpile = {
+			type = floating_harbor_equipment_1
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_floating_harbor_eq = {
+	if = {
+		limit = { has_equipment = { floating_harbor_equipment > 0 } }
+		add_equipment_to_stockpile = {
+			type = floating_harbor_equipment
+			amount = -1
+		}
+		add_to_variable = { treasury = 28 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_repair_ship_hull = {
+	if = {
+		limit = { check_variable = { treasury > 92.99 } }
+		subtract_from_variable = { treasury = 93 }
+		add_equipment_to_stockpile = {
+			type = repair_ship_2
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_repair_ship_hull = {
+	if = {
+		limit = { has_equipment = { repair_ship_hull > 0 } }
+		add_equipment_to_stockpile = {
+			type = repair_ship_hull
+			amount = -1
+		}
+		add_to_variable = { treasury = 46 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_ship_hull_carrier = {
+	if = {
+		limit = { check_variable = { treasury > 928.99 } }
+		subtract_from_variable = { treasury = 929 }
+		add_equipment_to_stockpile = {
+			type = modern_carrier
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_ship_hull_carrier = {
+	if = {
+		limit = { has_equipment = { ship_hull_carrier > 0 } }
+		add_equipment_to_stockpile = {
+			type = ship_hull_carrier
+			amount = -1
+		}
+		add_to_variable = { treasury = 464 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_ship_hull_cruiser = {
+	if = {
+		limit = { check_variable = { treasury > 299.99 } }
+		subtract_from_variable = { treasury = 300 }
+		add_equipment_to_stockpile = {
+			type = ship_hull_cruiser_modern_aa
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_ship_hull_cruiser = {
+	if = {
+		limit = { has_equipment = { ship_hull_cruiser > 0 } }
+		add_equipment_to_stockpile = {
+			type = ship_hull_cruiser
+			amount = -1
+		}
+		add_to_variable = { treasury = 150 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_ship_hull_heavy = {
+	if = {
+		limit = { check_variable = { treasury > 513.99 } }
+		subtract_from_variable = { treasury = 514 }
+		add_equipment_to_stockpile = {
+			type = ship_hull_heavy_modern
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_ship_hull_heavy = {
+	if = {
+		limit = { has_equipment = { ship_hull_heavy > 0 } }
+		add_equipment_to_stockpile = {
+			type = ship_hull_heavy
+			amount = -1
+		}
+		add_to_variable = { treasury = 257 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_ship_hull_light = {
+	if = {
+		limit = { check_variable = { treasury > 85.99 } }
+		subtract_from_variable = { treasury = 86 }
+		add_equipment_to_stockpile = {
+			type = ship_hull_light_4
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_ship_hull_light = {
+	if = {
+		limit = { has_equipment = { ship_hull_light > 0 } }
+		add_equipment_to_stockpile = {
+			type = ship_hull_light
+			amount = -1
+		}
+		add_to_variable = { treasury = 43 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_ship_hull_submarine = {
+	if = {
+		limit = { check_variable = { treasury > 163.99 } }
+		subtract_from_variable = { treasury = 164 }
+		add_equipment_to_stockpile = {
+			type = ship_hull_nuclear_submarine
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_ship_hull_submarine = {
+	if = {
+		limit = { has_equipment = { ship_hull_submarine > 0 } }
+		add_equipment_to_stockpile = {
+			type = ship_hull_submarine
+			amount = -1
+		}
+		add_to_variable = { treasury = 82 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_buy_support_ship_hull = {
+	if = {
+		limit = { check_variable = { treasury > 92.99 } }
+		subtract_from_variable = { treasury = 93 }
+		add_equipment_to_stockpile = {
+			type = support_ship_2
+			amount = 1
+			producer = ROOT
+		}
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_sell_support_ship_hull = {
+	if = {
+		limit = { has_equipment = { support_ship_hull > 0 } }
+		add_equipment_to_stockpile = {
+			type = support_ship_hull
+			amount = -1
+		}
+		add_to_variable = { treasury = 46 }
+		dd_refresh_market_counts = yes
+		dd_refresh_loan_preview = yes
 	}
 }

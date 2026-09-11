@@ -1,0 +1,183 @@
+# Ledger store is US$ billions. Show millions when abs(value) < 1.
+
+defined_text = {
+	name = GetDdCash
+	text = {
+		trigger = {
+			check_variable = { treasury < 1 }
+			check_variable = { treasury > -1 }
+		}
+		localization_key = DD_USD_CASH_M
+	}
+	text = {
+		localization_key = DD_USD_CASH_B
+	}
+}
+
+defined_text = {
+	name = GetDdGdp
+	text = {
+		trigger = {
+			check_variable = { gdp < 1 }
+			check_variable = { gdp > -1 }
+		}
+		localization_key = DD_USD_GDP_M
+	}
+	text = {
+		localization_key = DD_USD_GDP_B
+	}
+}
+
+defined_text = {
+	name = GetDdDebt
+	text = {
+		trigger = {
+			check_variable = { debt < 1 }
+			check_variable = { debt > -1 }
+		}
+		localization_key = DD_USD_DEBT_M
+	}
+	text = {
+		localization_key = DD_USD_DEBT_B
+	}
+}
+
+defined_text = {
+	name = GetDdIncome
+	text = {
+		trigger = {
+			check_variable = { dd_last_income < 1 }
+			check_variable = { dd_last_income > -1 }
+		}
+		localization_key = DD_USD_INCOME_M
+	}
+	text = {
+		localization_key = DD_USD_INCOME_B
+	}
+}
+
+defined_text = {
+	name = GetDdExpense
+	text = {
+		trigger = {
+			check_variable = { dd_last_expense < 1 }
+			check_variable = { dd_last_expense > -1 }
+		}
+		localization_key = DD_USD_EXPENSE_M
+	}
+	text = {
+		localization_key = DD_USD_EXPENSE_B
+	}
+}
+
+defined_text = {
+	name = GetDdNet
+	text = {
+		trigger = {
+			check_variable = { dd_last_net < 1 }
+			check_variable = { dd_last_net > -1 }
+		}
+		localization_key = DD_USD_NET_M
+	}
+	text = {
+		localization_key = DD_USD_NET_B
+	}
+}
+
+defined_text = {
+	name = GetDdTax
+	text = {
+		trigger = {
+			check_variable = { income_tax < 1 }
+			check_variable = { income_tax > -1 }
+		}
+		localization_key = DD_USD_TAX_M
+	}
+	text = {
+		localization_key = DD_USD_TAX_B
+	}
+}
+
+defined_text = {
+	name = GetDdCivInc
+	text = {
+		trigger = {
+			check_variable = { income_civ < 1 }
+			check_variable = { income_civ > -1 }
+		}
+		localization_key = DD_USD_CIV_M
+	}
+	text = {
+		localization_key = DD_USD_CIV_B
+	}
+}
+
+defined_text = {
+	name = GetDdFinance
+	text = {
+		trigger = {
+			check_variable = { income_finance < 1 }
+			check_variable = { income_finance > -1 }
+		}
+		localization_key = DD_USD_FIN_M
+	}
+	text = {
+		localization_key = DD_USD_FIN_B
+	}
+}
+
+defined_text = {
+	name = GetDdServices
+	text = {
+		trigger = {
+			check_variable = { income_services < 1 }
+			check_variable = { income_services > -1 }
+		}
+		localization_key = DD_USD_SRV_M
+	}
+	text = {
+		localization_key = DD_USD_SRV_B
+	}
+}
+
+defined_text = {
+	name = GetDdPolicyExp
+	text = {
+		trigger = {
+			check_variable = { expense_policy < 1 }
+			check_variable = { expense_policy > -1 }
+		}
+		localization_key = DD_USD_POL_M
+	}
+	text = {
+		localization_key = DD_USD_POL_B
+	}
+}
+
+defined_text = {
+	name = GetDdAdmin
+	text = {
+		trigger = {
+			check_variable = { expense_admin < 1 }
+			check_variable = { expense_admin > -1 }
+		}
+		localization_key = DD_USD_ADM_M
+	}
+	text = {
+		localization_key = DD_USD_ADM_B
+	}
+}
+
+defined_text = {
+	name = GetDdInterest
+	text = {
+		trigger = {
+			check_variable = { expense_interest < 1 }
+			check_variable = { expense_interest > -1 }
+		}
+		localization_key = DD_USD_INT_M
+	}
+	text = {
+		localization_key = DD_USD_INT_B
+	}
+}

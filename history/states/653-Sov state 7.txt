@@ -13,7 +13,6 @@ state={
 			1821 5
 		}
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			infrastructure = 3 #was: 6
@@ -21,6 +20,10 @@ state={
 			industrial_complex = 1
 			air_base = 1
 
+		
+			1821 = {
+				sam_site = 1
+			}
 		}
 		add_core_of = SOV
 

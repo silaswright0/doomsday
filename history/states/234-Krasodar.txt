@@ -23,7 +23,6 @@ state={
 			3734 5
 		}
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			dockyard = 1
@@ -33,6 +32,10 @@ state={
 			719 = {
 				naval_base = 3
 				coastal_bunker = 1
+			}
+		
+			3720 = {
+				sam_site = 1
 			}
 		}
 		add_core_of = SOV

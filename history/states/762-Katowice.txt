@@ -25,12 +25,15 @@ state = {
 		}
 
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			arms_factory = 0
 			infrastructure = 4 #was: 6
 			industrial_complex = 0
+		
+			6464 = {
+				sam_site = 1
+			}
 		}
 		
 	}

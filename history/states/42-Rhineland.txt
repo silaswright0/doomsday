@@ -35,13 +35,16 @@ state = {
 		}
 
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			finance_center = 1
 			services_building = 1
 			arms_factory = 0
 			infrastructure = 5
 			industrial_complex = 2
+		
+			11435 = {
+				sam_site = 1
+			}
 		}
 
 	}

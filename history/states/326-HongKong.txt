@@ -14,7 +14,6 @@ state=
 			10062 3 
 		}
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			arms_factory = 0
@@ -22,6 +21,7 @@ state=
 			infrastructure = 3 #was: 5
 			air_base = 1
 			10062 = {
+				sam_site = 1
 				naval_base = 6
 				coastal_bunker = 1
 			}

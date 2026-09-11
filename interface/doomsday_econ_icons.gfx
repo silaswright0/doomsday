@@ -1,0 +1,28 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_dd_icon_cash"
+		texturefile = "gfx/interface/dd_icon_cash.png"
+	}
+	spriteType = {
+		name = "GFX_dd_icon_income"
+		texturefile = "gfx/interface/dd_icon_income.png"
+	}
+	spriteType = {
+		name = "GFX_dd_icon_net_down"
+		texturefile = "gfx/interface/dd_icon_net_down.png"
+	}
+	spriteType = {
+		name = "GFX_dd_icon_debt"
+		texturefile = "gfx/interface/dd_icon_debt.png"
+	}
+	spriteType = {
+		name = "GFX_energy_consumption_texticon"
+		texturefile = "gfx/texticons/energy_consumption_texticon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_out_of_power_texticon"
+		texturefile = "gfx/texticons/out_of_power_texticon.dds"
+		legacy_lazy_load = no
+	}
+}

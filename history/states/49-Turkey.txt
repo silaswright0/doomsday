@@ -23,7 +23,6 @@ state={
 			3951 1
 		}
 		buildings = {
-			sam_site = 2
 			renewable_park = 1
 			finance_center = 1
 			services_building = 2
@@ -31,6 +30,14 @@ state={
 			arms_factory = 0
 			industrial_complex = 0
 			air_base = 3
+		
+			11747 = {
+				sam_site = 1
+			}
+		
+			804 = {
+				sam_site = 1
+			}
 		}
 		add_core_of = TUR
 	}

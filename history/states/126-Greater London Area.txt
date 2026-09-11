@@ -13,7 +13,6 @@ state={
 		}
 		buildings = {
 			rocket_site = 2
-			sam_site = 3
 			renewable_park = 2
 			finance_center = 2
 			services_building = 3
@@ -34,7 +33,8 @@ state={
 				}
 			}
 
-			6103 = { 
+			6103 = {
+				sam_site = 1 
 			    landmark_big_ben = {
 			        allowed = {
 			            has_dlc = "Gotterdammerung"
@@ -43,6 +43,14 @@ state={
 			    }
 			}
 
+		
+			9239 = {
+				sam_site = 1
+			}
+		
+			11333 = {
+				sam_site = 1
+			}
 		}
 		add_core_of = ENG
 

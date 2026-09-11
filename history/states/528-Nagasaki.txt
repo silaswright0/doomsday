@@ -17,7 +17,6 @@ state = {
 		add_core_of = JAP
 
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			infrastructure = 5 #was: 7
@@ -30,6 +29,10 @@ state = {
 				naval_base = 6
 			}
 
+		
+			1025 = {
+				sam_site = 1
+			}
 		}
 
 		victory_points = {

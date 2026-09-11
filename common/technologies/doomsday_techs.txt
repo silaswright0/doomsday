@@ -141,10 +141,6 @@ technologies = {
 			sam_missile_equipment_1
 			sam_missile_equipment_2
 		}
-		enable_building = {
-			building = sam_site
-			level = 3
-		}
 		enable_subunits = {
 			mobile_sam
 		}
@@ -165,6 +161,12 @@ technologies = {
 	dd_shorad = {
 		enable_subunits = {
 			shorad
+		}
+		# Starting tech. History already places SAM batteries; without this
+		# the construction UI is 1/0 (built, but enable_building level is 0).
+		enable_building = {
+			building = sam_site
+			level = 1
 		}
 		research_cost = 1.5
 		start_year = 2020

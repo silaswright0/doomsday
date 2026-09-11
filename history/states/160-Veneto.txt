@@ -22,7 +22,6 @@ state = {
 		}
 
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			finance_center = 1
 			services_building = 1
@@ -33,6 +32,10 @@ state = {
 			air_base = 3
 			11584 = {
 				naval_base = 6
+			}
+		
+			603 = {
+				sam_site = 1
 			}
 		}
 		add_core_of = ITA

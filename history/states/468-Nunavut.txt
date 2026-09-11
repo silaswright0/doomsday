@@ -17,7 +17,6 @@ state = {
 		add_core_of = QUE
 
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			dockyard = 1
@@ -27,6 +26,10 @@ state = {
 			air_base = 3
 			12149 = {
 				naval_base = 6
+			}
+		
+			4345 = {
+				sam_site = 1
 			}
 		}
 		

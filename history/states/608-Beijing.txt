@@ -16,7 +16,6 @@ state={
 
 		buildings = {
 			rocket_site = 3
-			sam_site = 3
 			renewable_park = 2
 			finance_center = 2
 			services_building = 3
@@ -27,6 +26,7 @@ state={
 			air_base = 3
 
 			9843 = {
+				sam_site = 1
                 landmark_forbidden_city = {
                     level = 1
                     allowed = {
@@ -36,7 +36,12 @@ state={
 			}
 
 			10068 = {
+				sam_site = 1
 				naval_base = 2
+			}
+		
+			12026 = {
+				sam_site = 1
 			}
 		}
 

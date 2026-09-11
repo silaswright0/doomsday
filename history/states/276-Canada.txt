@@ -12,7 +12,6 @@ state = {
 		add_core_of = CAN
 
 		buildings = {
-			sam_site = 2
 			renewable_park = 2
 			finance_center = 2
 			services_building = 3
@@ -24,6 +23,14 @@ state = {
 			# Queenston-Chippawa Hydroelectric Plant
 			749 = { dam = 1 }
 
+		
+			3778 = {
+				sam_site = 1
+			}
+		
+			3775 = {
+				sam_site = 1
+			}
 		}
 		
 		victory_points = {

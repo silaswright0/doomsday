@@ -12,7 +12,6 @@ state = {
 		victory_points = { 11846 2 } #Anzio (was 5)
 		victory_points = { 13413 1 } #Ostia
 		buildings = {
-			sam_site = 2
 			renewable_park = 2
 			finance_center = 2
 			services_building = 2
@@ -24,12 +23,14 @@ state = {
 				naval_base = 5
 			}
 			11846 = {
+				sam_site = 1
 				naval_base = 2
 			}
 			13413 = {
 				naval_base = 1
 			}
             9904 = {
+				sam_site = 1
                 landmark_colosseum = {
                     level = 1
                     allowed = {

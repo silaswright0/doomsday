@@ -4,11 +4,7 @@ dd_init_economy = {
 	if = {
 		limit = { NOT = { has_country_flag = dd_econ_init } }
 		set_country_flag = dd_econ_init
-		set_variable = { dd_rate_civ = 2 }
-		set_variable = { dd_rate_finance = 5 }
-		set_variable = { dd_rate_services = 1 }
-		set_variable = { dd_rate_admin = 0.5 }
-		set_variable = { dd_rate_interest = 0.005 }
+		dd_apply_rates = yes
 		if = {
 			limit = { check_variable = { debt < 0.01 } }
 			set_variable = { debt = gdp }
@@ -141,6 +137,190 @@ dd_init_economy = {
 			add_ideas = dd_civil_military_2
 		}
 		dd_recalc_policy_expense = yes
+		dd_recalc_accounts = yes
+	}
+}
+
+dd_apply_rates = {
+	set_variable = { dd_rate_civ = 1 }
+	set_variable = { dd_rate_finance = 5 }
+	set_variable = { dd_rate_services = 1 }
+	set_variable = { dd_rate_admin = 0.5 }
+	set_variable = { dd_rate_interest = 0.005 }
+}
+
+dd_refresh_debt_ratio = {
+	if = {
+		limit = { check_variable = { gdp > 0.01 } }
+		set_variable = { debt_to_gdp = debt }
+		divide_variable = { debt_to_gdp = gdp }
+	}
+	else = {
+		set_variable = { debt_to_gdp = 0 }
+	}
+	set_variable = { expense_interest = debt }
+	multiply_variable = { expense_interest = dd_rate_interest }
+}
+
+dd_refresh_loan_preview = {
+	set_variable = { dd_loan_small = gdp }
+	multiply_variable = { dd_loan_small = 0.01 }
+	set_variable = { dd_loan_large = gdp }
+	multiply_variable = { dd_loan_large = 0.05 }
+	set_variable = { dd_repay_preview = dd_loan_small }
+	if = {
+		limit = { check_variable = { treasury < dd_repay_preview } }
+		set_variable = { dd_repay_preview = treasury }
+	}
+	if = {
+		limit = { check_variable = { debt < dd_repay_preview } }
+		set_variable = { dd_repay_preview = debt }
+	}
+	dd_refresh_usd_display = yes
+}
+
+# Ledger values are US$ billions. Copies in millions exist so UI can show M under 1B.
+dd_refresh_usd_display = {
+	set_variable = { dd_cash_m = treasury }
+	multiply_variable = { dd_cash_m = 1000 }
+	set_variable = { dd_gdp_m = gdp }
+	multiply_variable = { dd_gdp_m = 1000 }
+	set_variable = { dd_debt_m = debt }
+	multiply_variable = { dd_debt_m = 1000 }
+	set_variable = { dd_income_m = dd_last_income }
+	multiply_variable = { dd_income_m = 1000 }
+	set_variable = { dd_expense_m = dd_last_expense }
+	multiply_variable = { dd_expense_m = 1000 }
+	set_variable = { dd_net_m = dd_last_net }
+	multiply_variable = { dd_net_m = 1000 }
+	set_variable = { dd_tax_m = income_tax }
+	multiply_variable = { dd_tax_m = 1000 }
+	set_variable = { dd_civ_m = income_civ }
+	multiply_variable = { dd_civ_m = 1000 }
+	set_variable = { dd_fin_m = income_finance }
+	multiply_variable = { dd_fin_m = 1000 }
+	set_variable = { dd_srv_m = income_services }
+	multiply_variable = { dd_srv_m = 1000 }
+	set_variable = { dd_pol_m = expense_policy }
+	multiply_variable = { dd_pol_m = 1000 }
+	set_variable = { dd_adm_m = expense_admin }
+	multiply_variable = { dd_adm_m = 1000 }
+	set_variable = { dd_int_m = expense_interest }
+	multiply_variable = { dd_int_m = 1000 }
+}
+
+dd_refresh_market_counts = {
+	set_variable = { dd_stock_amphibious_mechanized_eq = num_equipment@amphibious_mechanized_equipment }
+	set_variable = { dd_stock_amphibious_tank_chassis = num_equipment@amphibious_tank_chassis }
+	set_variable = { dd_stock_anti_air_eq = num_equipment@anti_air_equipment }
+	set_variable = { dd_stock_anti_tank_eq = num_equipment@anti_tank_equipment }
+	set_variable = { dd_stock_armored_car_eq = num_equipment@armored_car_equipment }
+	set_variable = { dd_stock_armored_support_vehicle = num_equipment@armored_support_vehicle }
+	set_variable = { dd_stock_artillery_eq = num_equipment@artillery_equipment }
+	set_variable = { dd_stock_heavy_tank_chassis = num_equipment@heavy_tank_chassis }
+	set_variable = { dd_stock_helicopter_eq = num_equipment@helicopter_equipment }
+	set_variable = { dd_stock_infantry_eq = num_equipment@infantry_equipment }
+	set_variable = { dd_stock_land_cruiser_chassis = num_equipment@land_cruiser_chassis }
+	set_variable = { dd_stock_light_tank_chassis = num_equipment@light_tank_chassis }
+	set_variable = { dd_stock_mechanized_eq = num_equipment@mechanized_equipment }
+	set_variable = { dd_stock_medium_tank_chassis = num_equipment@medium_tank_chassis }
+	set_variable = { dd_stock_modern_tank_chassis = num_equipment@modern_tank_chassis }
+	set_variable = { dd_stock_motorbike_eq = num_equipment@motorbike_equipment }
+	set_variable = { dd_stock_motorized_eq = num_equipment@motorized_equipment }
+	set_variable = { dd_stock_motorized_rocket_eq = num_equipment@motorized_rocket_equipment }
+	set_variable = { dd_stock_railway_gun_eq = num_equipment@railway_gun_equipment }
+	set_variable = { dd_stock_rocket_artillery_eq = num_equipment@rocket_artillery_equipment }
+	set_variable = { dd_stock_self_propelled_super_heavy_artillery_eq = num_equipment@self_propelled_super_heavy_artillery_equipment }
+	set_variable = { dd_stock_super_heavy_artillery_eq = num_equipment@super_heavy_artillery_equipment }
+	set_variable = { dd_stock_super_heavy_railway_gun_eq = num_equipment@super_heavy_railway_gun_equipment }
+	set_variable = { dd_stock_super_heavy_tank_chassis = num_equipment@super_heavy_tank_chassis }
+	set_variable = { dd_stock_support_eq = num_equipment@support_equipment }
+	set_variable = { dd_stock_train_eq = num_equipment@train_equipment }
+	set_variable = { dd_stock_ballistic_missile_eq = num_equipment@ballistic_missile_equipment }
+	set_variable = { dd_stock_cv_small_plane_airframe = num_equipment@cv_small_plane_airframe }
+	set_variable = { dd_stock_explosive_ammo_eq = num_equipment@explosive_ammo_equipment }
+	set_variable = { dd_stock_guided_missile_eq = num_equipment@guided_missile_equipment }
+	set_variable = { dd_stock_large_plane_airframe = num_equipment@large_plane_airframe }
+	set_variable = { dd_stock_loitering_munition_eq = num_equipment@loitering_munition_equipment }
+	set_variable = { dd_stock_medium_plane_airframe = num_equipment@medium_plane_airframe }
+	set_variable = { dd_stock_nuclear_missile_eq = num_equipment@nuclear_missile_equipment }
+	set_variable = { dd_stock_recon_uav_eq = num_equipment@recon_uav_equipment }
+	set_variable = { dd_stock_sam_missile_eq = num_equipment@sam_missile_equipment }
+	set_variable = { dd_stock_small_plane_airframe = num_equipment@small_plane_airframe }
+	set_variable = { dd_stock_strat_bomber_intercontinental_eq = num_equipment@strat_bomber_intercontinental_equipment }
+	set_variable = { dd_stock_strike_uav_eq = num_equipment@strike_uav_equipment }
+	set_variable = { dd_stock_transport_heli_eq = num_equipment@transport_heli_equipment }
+	set_variable = { dd_stock_transport_plane_eq = num_equipment@transport_plane_equipment }
+	set_variable = { dd_stock_convoy = num_equipment@convoy }
+	set_variable = { dd_stock_floating_harbor_eq = num_equipment@floating_harbor_equipment }
+	set_variable = { dd_stock_repair_ship_hull = num_equipment@repair_ship_hull }
+	set_variable = { dd_stock_ship_hull_carrier = num_equipment@ship_hull_carrier }
+	set_variable = { dd_stock_ship_hull_cruiser = num_equipment@ship_hull_cruiser }
+	set_variable = { dd_stock_ship_hull_heavy = num_equipment@ship_hull_heavy }
+	set_variable = { dd_stock_ship_hull_light = num_equipment@ship_hull_light }
+	set_variable = { dd_stock_ship_hull_submarine = num_equipment@ship_hull_submarine }
+	set_variable = { dd_stock_support_ship_hull = num_equipment@support_ship_hull }
+}
+
+dd_take_loan_small = {
+	if = {
+		limit = {
+			check_variable = { gdp > 0.01 }
+			check_variable = { debt_to_gdp < 2.49 }
+		}
+		set_temp_variable = { dd_loan = gdp }
+		multiply_temp_variable = { dd_loan = 0.01 }
+		add_to_variable = { treasury = dd_loan }
+		add_to_variable = { debt = dd_loan }
+		dd_refresh_debt_ratio = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_take_loan_large = {
+	if = {
+		limit = {
+			check_variable = { gdp > 0.01 }
+			check_variable = { debt_to_gdp < 2.45 }
+		}
+		set_temp_variable = { dd_loan = gdp }
+		multiply_temp_variable = { dd_loan = 0.05 }
+		add_to_variable = { treasury = dd_loan }
+		add_to_variable = { debt = dd_loan }
+		dd_refresh_debt_ratio = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_repay_loan = {
+	dd_refresh_loan_preview = yes
+	if = {
+		limit = { check_variable = { dd_repay_preview > 0.01 } }
+		subtract_from_variable = { treasury = dd_repay_preview }
+		subtract_from_variable = { debt = dd_repay_preview }
+		dd_refresh_debt_ratio = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_pay_interest_groups = {
+	if = {
+		limit = {
+			check_variable = { treasury > 14.99 }
+			NOT = { has_country_flag = dd_pp_bought }
+		}
+		subtract_from_variable = { treasury = 15 }
+		add_political_power = 50
+		set_country_flag = dd_pp_bought
+		dd_refresh_loan_preview = yes
+	}
+}
+
+dd_subsidize_business = {
+	if = {
+		limit = { check_variable = { treasury > 19.99 } }
+		subtract_from_variable = { treasury = 20 }
+		dd_refresh_loan_preview = yes
 	}
 }
 
@@ -225,8 +405,8 @@ dd_recalc_policy_expense = {
 	}
 }
 
-dd_economy_monthly_tick = {
-	dd_init_economy = yes
+dd_recalc_accounts = {
+	dd_apply_rates = yes
 	set_variable = { income_civ = num_of_civilian_factories }
 	multiply_variable = { income_civ = dd_rate_civ }
 
@@ -247,9 +427,7 @@ dd_economy_monthly_tick = {
 	}
 	multiply_variable = { expense_admin = dd_rate_admin }
 
-	set_variable = { expense_interest = debt }
-	multiply_variable = { expense_interest = dd_rate_interest }
-
+	dd_refresh_debt_ratio = yes
 	dd_recalc_policy_expense = yes
 
 	set_variable = { dd_last_income = income_civ }
@@ -261,9 +439,20 @@ dd_economy_monthly_tick = {
 	add_to_variable = { dd_last_expense = expense_admin }
 	add_to_variable = { dd_last_expense = expense_interest }
 
+	set_variable = { dd_last_net = dd_last_income }
+	subtract_from_variable = { dd_last_net = dd_last_expense }
+
+	dd_refresh_loan_preview = yes
+	dd_refresh_market_counts = yes
+}
+
+dd_economy_monthly_tick = {
+	dd_init_economy = yes
+	clr_country_flag = dd_pp_bought
+	dd_recalc_accounts = yes
 	add_to_variable = { treasury = dd_last_income }
 	subtract_from_variable = { treasury = dd_last_expense }
-
+	dd_refresh_loan_preview = yes
 	dd_consume_sam_ammo = yes
 
 	if = {
@@ -273,8 +462,9 @@ dd_economy_monthly_tick = {
 }
 
 dd_consume_sam_ammo = {
-	# Static sites spend one_use_only missiles on sam_mission. Only mobile
-	# battalions need a monthly stockpile tick.
+	# Static sam_site intercepts spend sam_missile_equipment via one_use_only
+	# on sam_mission (no ammo = no shot). Only mobile battalions need a
+	# monthly stockpile tick.
 	set_variable = { dd_sam_need = num_battalions_with_type@mobile_sam }
 	if = {
 		limit = { check_variable = { dd_sam_need > 0 } }

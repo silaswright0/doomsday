@@ -13,12 +13,15 @@ state={
 		owner = FRA
 		add_extra_state_shared_building_slots = 6
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 4
+		
+			620 = {
+				sam_site = 1
+			}
 		}
 		victory_points = {
 			620 5

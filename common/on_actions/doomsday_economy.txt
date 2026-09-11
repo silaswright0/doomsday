@@ -9,6 +9,7 @@ on_actions = {
 			set_global_flag = nato_suggested
 			every_country = {
 				dd_init_economy = yes
+				dd_recalc_accounts = yes
 			}
 		}
 	}

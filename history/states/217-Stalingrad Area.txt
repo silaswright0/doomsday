@@ -16,7 +16,6 @@ state = {
 		}
 
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			infrastructure = 3 #was: 7
@@ -27,6 +26,10 @@ state = {
 			# 22nd Congress of the CPSU Stalingrad Hydroelectric Power Station
 			#3555 = { dam = 1 }
 
+		
+			3529 = {
+				sam_site = 1
+			}
 		}
 
 	}

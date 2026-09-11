@@ -16,7 +16,6 @@ state = {
 		add_core_of = JAP
 
 		buildings = {
-			sam_site = 2
 			renewable_park = 2
 			finance_center = 2
 			services_building = 3
@@ -27,10 +26,12 @@ state = {
 			dockyard = 6
 
 			9998 = {
+				sam_site = 1
 				naval_base = 6
 			}
 
 			1182 = {
+				sam_site = 1
 				landmark_tokyo_imperial_palace = {
 				    level = 1
 				    allowed = {

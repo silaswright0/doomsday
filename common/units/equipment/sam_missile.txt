@@ -19,8 +19,14 @@ equipments = {
 			}
 		}
 
+		# Defensive intercept only. Barrage / nuclear / strategic strike stay on silos.
 		allow_mission_type = {
 			sam_mission
+		}
+		forbid_mission_type = {
+			barrage_mission
+			strategic_bomber
+			drop_nuke
 		}
 
 		is_archetype = yes
@@ -56,6 +62,7 @@ equipments = {
 
 		archetype = sam_missile_equipment
 		is_buildable = yes
+		# Empty stockpile = empty wing = no intercept.
 		one_use_only = yes
 		sprite = missile_default
 		

@@ -19,13 +19,16 @@ state={
 			3560 1
 		}
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			arms_factory = 0
 			infrastructure = 4
 			industrial_complex = 0
 			air_base = 10
+		
+			9490 = {
+				sam_site = 1
+			}
 		}
 		add_core_of = FRA
 	}

@@ -1,0 +1,21 @@
+# Mute unused-factory pings. Economy ticks make idle CIC/NIC flicker, so
+# vanilla free-factory alerts retrigger constantly.
+soundeffect = {
+	name = "alert_free_civilian_factories_sound"
+	volume = 0.0
+	sounds = {
+		sound = "silence_buffer_1s"
+	}
+	max_audible = 1
+	max_audible_behaviour = fail
+}
+
+soundeffect = {
+	name = "alert_free_naval_dockyards_sound"
+	volume = 0.0
+	sounds = {
+		sound = "silence_buffer_1s"
+	}
+	max_audible = 1
+	max_audible_behaviour = fail
+}

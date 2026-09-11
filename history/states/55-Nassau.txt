@@ -18,7 +18,6 @@ state = {
 		add_core_of = PRE
 
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			finance_center = 1
 			services_building = 1
@@ -30,6 +29,10 @@ state = {
 			# Edersee Dam
 			11533 = { dam = 1 }
 
+		
+			6488 = {
+				sam_site = 1
+			}
 		}
 
 		victory_points = {

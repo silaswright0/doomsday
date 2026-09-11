@@ -82,8 +82,10 @@ def check_no_random() -> None:
         ROOT / "common" / "scripted_effects" / "doomsday_economy.txt",
         ROOT / "common" / "scripted_effects" / "doomsday_market.txt",
         ROOT / "common" / "scripted_guis" / "doomsday_economy.txt",
+        ROOT / "common" / "scripted_localisation" / "doomsday_economy.txt",
         ROOT / "common" / "on_actions" / "doomsday_economy.txt",
         ROOT / "common" / "ideas" / "doomsday_policies.txt",
+        ROOT / "common" / "decisions" / "doomsday_economy.txt",
     ]
     for path in files:
         text = path.read_text(encoding="utf-8")
@@ -117,11 +119,71 @@ def check_buildings() -> None:
     sam = re.search(r"sam_site = \{.*?level_cap = \{.*?\}", text, re.S)
     if not sam or "rocket_launch_capacity" not in sam.group(0):
         fail("sam_site needs rocket_launch_capacity so SAM missions can intercept")
+    if sam and re.search(r"anti_air\s*=\s*yes", sam.group(0)):
+        fail("sam_site must not grant free gun AA; intercepts require SAM equipment")
+    if sam and not re.search(r"need_supply\s*=\s*yes", sam.group(0)):
+        fail("sam_site must be provincial and need_supply to fire")
+    if sam and not re.search(r"province_max", sam.group(0)):
+        fail("sam_site must be provincial (province_max)")
+    if sam and not re.search(r"state_max", sam.group(0)):
+        fail("sam_site needs state_max so the construction UI is not 1/0")
     if sam and re.search(r"spawn_point\s*=", sam.group(0)):
         fail("sam_site must not declare a spawn_point")
+    leftover = []
+    for path in (ROOT / "history" / "states").glob("*.txt"):
+        hist = path.read_text(encoding="utf-8", errors="ignore")
+        bm = re.search(r"\bbuildings\s*=", hist)
+        if not bm:
+            continue
+        i = hist.find("{", bm.start())
+        depth = 0
+        block = ""
+        for j in range(i, len(hist)):
+            if hist[j] == "{":
+                depth += 1
+            elif hist[j] == "}":
+                depth -= 1
+                if depth == 0:
+                    block = hist[i : j + 1]
+                    break
+        for m in re.finditer(r"(?m)^[ \t]*sam_site\s*=", block):
+            if block[: m.start()].count("{") - block[: m.start()].count("}") == 1:
+                leftover.append(path.name)
+                break
+        if len(leftover) >= 5:
+            break
+    if leftover:
+        fail(f"sam_site still state-level in {leftover[:5]}")
+    sam_eq = (ROOT / "common" / "units" / "equipment" / "sam_missile.txt").read_text(encoding="utf-8")
+    if "sam_mission" not in sam_eq:
+        fail("SAM equipment must allow sam_mission")
+    if "one_use_only" not in sam_eq:
+        fail("SAM equipment must be one_use_only so sites spend missiles to fire")
+    if "barrage_mission" in sam_eq.split("allow_mission_type")[1].split("forbid_mission_type")[0]:
+        fail("SAM equipment must not allow barrage_mission")
+    for name in ("ballistic_missiles.txt", "guided_missiles.txt", "nuclear_missiles.txt"):
+        eq = (ROOT / "common" / "units" / "equipment" / name).read_text(encoding="utf-8")
+        allowed = eq.split("allow_mission_type")[1].split("forbid_mission_type")[0]
+        if "sam_mission" in allowed:
+            fail(f"{name} must not allow sam_mission")
+        if "forbid_mission_type" not in eq or "sam_mission" not in eq.split("forbid_mission_type")[1][:200]:
+            fail(f"{name} must forbid sam_mission")
+    air = (ROOT / "common" / "units" / "air.txt").read_text(encoding="utf-8")
+    if "sam_missile = {" not in air:
+        fail("missing sam_missile air unit")
+    else:
+        sam_chunk = air.split("sam_missile = {", 1)[1].split("mothership", 1)[0]
+        if "sam_missile_equipment" not in sam_chunk:
+            fail("SAM wings must need sam_missile_equipment to fire")
+        if "carrier_air_wing_size" in sam_chunk or "submarine_carrier_air_wing_size" in sam_chunk:
+            fail("SAM wings must not launch from carriers or missile subs")
     rocket = re.search(r"rocket_site = \{.*?level_cap = \{.*?\}", text, re.S)
     if rocket and re.search(r"shares_slots = yes", rocket.group(0)):
         fail("rocket_site is underground and must not share factory slots")
+    if rocket and re.search(r"disable_grow_animation", rocket.group(0)):
+        fail("rocket_site disable_grow_animation draws extra V2 meshes")
+    if rocket and not re.search(r"show_on_map\s*=\s*1", rocket.group(0)):
+        fail("rocket_site must be 1 map pad per constructed silo")
     aa = (ROOT / "common" / "units" / "doomsday_aa.txt").read_text(encoding="utf-8")
     if "mobile_sam" not in aa:
         fail("missing mobile_sam battalion")
@@ -131,6 +193,11 @@ def check_buildings() -> None:
     sam = re.search(r"dd_sam = \{.*?ai_will_do", tech, re.S)
     if not sam or "mobile_sam" not in sam.group(0):
         fail("dd_sam must enable mobile_sam")
+    if sam and re.search(r"enable_building", sam.group(0)):
+        fail("dd_sam must not gate static SAM; starting techs already place batteries")
+    shorad = re.search(r"dd_shorad = \{.*?ai_will_do", tech, re.S)
+    if not shorad or "sam_site" not in shorad.group(0):
+        fail("dd_shorad (starting) must enable sam_site so history batteries are not 1/0")
 
 
 def check_research_costs() -> None:
@@ -171,8 +238,30 @@ def check_politics_slots() -> None:
         fail("missing dd_policies_2 idea category")
     elif pol2.group(0).count("slot = dd_") != 6:
         fail("second policies row needs 6 policy law slots")
-    if "dd_policies_3" in tags:
-        fail("state-and-law slots belong on the government row, not dd_policies_3")
+    gui = (ROOT / "interface" / "doomsday_market.gui").read_text(encoding="utf-8")
+    sg = (ROOT / "common" / "scripted_guis" / "doomsday_economy.txt").read_text(encoding="utf-8")
+    start = gui.find('name = "dd_arms_market_window"')
+    if start < 0:
+        fail("missing dd_arms_market_window")
+    else:
+        brace = gui.find("{", start)
+        depth = 0
+        end = brace
+        for i, ch in enumerate(gui[brace:], brace):
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    end = i
+                    break
+        if "dd_market_list_" in gui[start:end]:
+            fail("market land/air/navy lists must be independent windows, not nested")
+    for cat in ("land", "air", "navy"):
+        if f'window_name = "dd_market_list_{cat}"' not in sg:
+            fail(f"missing dd_market_list_{cat} scripted GUI")
+        if f"dd_market_list_{cat}_ui" not in sg or "parent_window_name = dd_arms_market_window" not in sg:
+            fail(f"dd_market_list_{cat} must attach to the market window")
     prod = re.search(r"research_production = \{.*?military_staff", tags, re.S)
     if not prod:
         fail("could not read research_production idea category")

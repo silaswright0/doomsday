@@ -1,5 +1,5 @@
 # Budget policies. Law slots on the politics tab (beside conscription/trade/economy).
-# Same IDs the economy GUI already swaps. Country-scoped. No random.
+# Law slots on the Politics tab. Country-scoped. No random.
 
 ideas = {
 	dd_welfare_laws = {
@@ -169,7 +169,7 @@ ideas = {
 		use_list_view = yes
 
 		dd_women_1 = {
-			picture = generic_constitutional_guarantees
+			picture = HUN_treaty_of_triannon
 			cost = 0
 			removal_cost = -1
 			level = 1
@@ -182,7 +182,7 @@ ideas = {
 			ai_will_do = { factor = 0.5 }
 		}
 		dd_women_2 = {
-			picture = generic_constitutional_guarantees
+			picture = HUN_treaty_of_triannon
 			cost = 0
 			removal_cost = -1
 			level = 2
@@ -193,7 +193,7 @@ ideas = {
 			ai_will_do = { factor = 1 }
 		}
 		dd_women_3 = {
-			picture = generic_constitutional_guarantees
+			picture = HUN_treaty_of_triannon
 			cost = 0
 			removal_cost = -1
 			level = 3
@@ -212,7 +212,7 @@ ideas = {
 		use_list_view = yes
 
 		dd_minority_1 = {
-			picture = generic_flexible_foreign_policy
+			picture = HUN_treaty_of_triannon
 			cost = 0
 			removal_cost = -1
 			level = 1
@@ -225,7 +225,7 @@ ideas = {
 			ai_will_do = { factor = 0.5 }
 		}
 		dd_minority_2 = {
-			picture = generic_flexible_foreign_policy
+			picture = HUN_treaty_of_triannon
 			cost = 0
 			removal_cost = -1
 			level = 2
@@ -236,7 +236,7 @@ ideas = {
 			ai_will_do = { factor = 1 }
 		}
 		dd_minority_3 = {
-			picture = generic_flexible_foreign_policy
+			picture = HUN_treaty_of_triannon
 			cost = 0
 			removal_cost = -1
 			level = 3
@@ -339,7 +339,7 @@ ideas = {
 		use_list_view = yes
 
 		dd_healthcare_1 = {
-			picture = generic_goods_red_bonus
+			picture = ARG_social_welfare_fund_ns
 			cost = 0
 			removal_cost = -1
 			level = 1
@@ -351,7 +351,7 @@ ideas = {
 			ai_will_do = { factor = 0.5 }
 		}
 		dd_healthcare_2 = {
-			picture = generic_goods_red_bonus
+			picture = ARG_social_welfare_fund_ns
 			cost = 0
 			removal_cost = -1
 			level = 2
@@ -363,7 +363,7 @@ ideas = {
 			ai_will_do = { factor = 1 }
 		}
 		dd_healthcare_3 = {
-			picture = generic_goods_red_bonus
+			picture = ARG_social_welfare_fund_ns
 			cost = 0
 			removal_cost = -1
 			level = 3
@@ -425,7 +425,7 @@ ideas = {
 		use_list_view = yes
 
 		dd_fertility_1 = {
-			picture = generic_constitutional_guarantees
+			picture = ITA_battaglie_per_la_nascite
 			cost = 0
 			removal_cost = -1
 			level = 1
@@ -438,7 +438,7 @@ ideas = {
 			ai_will_do = { factor = 0.5 }
 		}
 		dd_fertility_2 = {
-			picture = generic_constitutional_guarantees
+			picture = ITA_battaglie_per_la_nascite
 			cost = 0
 			removal_cost = -1
 			level = 2
@@ -450,7 +450,7 @@ ideas = {
 			ai_will_do = { factor = 1 }
 		}
 		dd_fertility_3 = {
-			picture = generic_constitutional_guarantees
+			picture = ITA_battaglie_per_la_nascite
 			cost = 0
 			removal_cost = -1
 			level = 3
@@ -522,7 +522,7 @@ ideas = {
 		use_list_view = yes
 
 		dd_religion_1 = {
-			picture = generic_pp_unity_bonus
+			picture = YUG_orthodox_church_support
 			cost = 0
 			removal_cost = -1
 			level = 1
@@ -537,7 +537,7 @@ ideas = {
 			ai_will_do = { factor = 0.5 }
 		}
 		dd_religion_2 = {
-			picture = generic_pp_unity_bonus
+			picture = YUG_orthodox_church_support
 			cost = 0
 			removal_cost = -1
 			level = 2
@@ -548,7 +548,7 @@ ideas = {
 			ai_will_do = { factor = 1 }
 		}
 		dd_religion_3 = {
-			picture = generic_pp_unity_bonus
+			picture = YUG_orthodox_church_support
 			cost = 0
 			removal_cost = -1
 			level = 3
@@ -568,7 +568,7 @@ ideas = {
 		use_list_view = yes
 
 		dd_media_1 = {
-			picture = generic_research_bonus
+			picture = generic_radio_concern
 			cost = 0
 			removal_cost = -1
 			level = 1
@@ -582,7 +582,7 @@ ideas = {
 			ai_will_do = { factor = 0.5 }
 		}
 		dd_media_2 = {
-			picture = generic_research_bonus
+			picture = generic_radio_concern
 			cost = 0
 			removal_cost = -1
 			level = 2
@@ -593,7 +593,7 @@ ideas = {
 			ai_will_do = { factor = 1 }
 		}
 		dd_media_3 = {
-			picture = generic_research_bonus
+			picture = generic_radio_concern
 			cost = 0
 			removal_cost = -1
 			level = 3
@@ -613,23 +613,21 @@ ideas = {
 		use_list_view = yes
 
 		dd_civil_military_1 = {
-			picture = generic_intel_bonus
+			picture = generic_electronics_concern_1
 			cost = 0
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
 			modifier = {
-				war_support_factor = 0.06
-				experience_gain_army_factor = 0.10
-				army_org_factor = 0.04
-				military_leader_cost_factor = -0.20
-				stability_factor = -0.05
-				political_power_factor = -0.12
+				research_speed_factor = 0.06
+				industrial_capacity_factory = 0.05
+				encryption_factor = -0.10
+				stability_factor = -0.04
 			}
 			ai_will_do = { factor = 0.5 }
 		}
 		dd_civil_military_2 = {
-			picture = generic_intel_bonus
+			picture = generic_electronics_concern_1
 			cost = 0
 			removal_cost = -1
 			level = 2
@@ -640,17 +638,17 @@ ideas = {
 			ai_will_do = { factor = 1 }
 		}
 		dd_civil_military_3 = {
-			picture = generic_intel_bonus
+			picture = generic_electronics_concern_1
 			cost = 0
 			removal_cost = -1
 			level = 3
 			cancel_if_invalid = no
 			modifier = {
-				stability_factor = 0.05
-				political_power_factor = 0.10
-				command_power_gain_mult = 0.10
-				experience_gain_army_factor = -0.05
-				planning_speed = -0.05
+				research_speed_factor = -0.04
+				encryption_factor = 0.10
+				stability_factor = 0.04
+				political_power_factor = 0.05
+				industrial_capacity_factory = -0.03
 			}
 			ai_will_do = { factor = 0.5 }
 		}

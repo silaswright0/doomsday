@@ -981,6 +981,7 @@ MOVE_PROVINCES = [
     {"from_id": 449, "to_id": 448, "provinces": [1041]},  # Abu Grein coast west of Sirte → GNU
     {"from_id": 834, "to_id": 1082, "provinces": [3757]},  # Balta off Transnistria → Balta
     {"from_id": 197, "to_id": 196, "provinces": [3755, 574, 9573]},  # even Kherson / Mykolaiv split
+    {"from_id": 108, "to_id": 802, "provinces": [6953]},  # Eastern Serbia hills next to Pristina → Kosovo
 ]
 
 # Absorb a leftover vanilla state into another (provinces, VPs, manpower).
@@ -1590,6 +1591,83 @@ def strip_dated_history(text: str) -> str:
         text = text[: m.start()] + text[end:]
 
 
+def provincial_sam_provinces(state_text: str, n: int) -> list[int]:
+    """Victory-point provinces first, then remaining provinces. One SAM each."""
+    vps: list[int] = []
+    for m in re.finditer(r"victory_points\s*=\s*\{\s*(\d+)", state_text):
+        pid = int(m.group(1))
+        if pid not in vps:
+            vps.append(pid)
+    pm = re.search(r"\bprovinces\s*=\s*\{([^}]+)\}", state_text)
+    rest = [int(x) for x in re.findall(r"\d+", pm.group(1))] if pm else []
+    rest = [p for p in rest if p not in vps]
+    ordered = vps + rest
+    if n <= 0 or not ordered:
+        return []
+    return ordered[: min(n, len(ordered))]
+
+
+def _brace_depth(text: str, pos: int) -> int:
+    return text[:pos].count("{") - text[:pos].count("}")
+
+
+def strip_state_level_sam(block: str) -> tuple[str, int]:
+    """Remove sam_site = N sitting directly in the state buildings list."""
+    total = 0
+    spans: list[tuple[int, int]] = []
+    for m in re.finditer(r"(?m)^[ \t]*sam_site\s*=\s*(\d+)[ \t]*", block):
+        if _brace_depth(block, m.start()) == 1:
+            total += int(m.group(1))
+            a, b = m.start(), m.end()
+            if a > 0 and block[a - 1] == "\n":
+                a -= 1
+            spans.append((a, b))
+    for a, b in reversed(spans):
+        block = block[:a] + block[b:]
+    return block, total
+
+
+def ensure_province_sam(block: str, pid: int) -> str:
+    m = re.search(rf"\b{pid}\s*=\s*\{{", block)
+    if m and _brace_depth(block, m.start()) == 1:
+        inner, end = extract_block(block, m.start())
+        if re.search(r"\bsam_site\s*=", inner):
+            new_inner = re.sub(r"\bsam_site\s*=\s*\d+", "sam_site = 1", inner, count=1)
+        else:
+            new_inner = re.sub(r"\{", "{\n\t\t\t\tsam_site = 1", inner, count=1)
+        prefix_end = block.find("{", m.start())
+        return block[:m.start()] + block[m.start():prefix_end] + new_inner + block[end:]
+    insert = f"\n\t\t\t{pid} = {{\n\t\t\t\tsam_site = 1\n\t\t\t}}"
+    return block[:-1] + insert + "\n\t\t}"
+
+
+def place_sam_in_buildings_block(block: str, state_text: str, n: int) -> str:
+    """Move SAM onto provinces. province_max = 1 so one battery per hex."""
+    block, existing = strip_state_level_sam(block)
+    want = n if n > 0 else existing
+    if want <= 0:
+        return block
+    for pid in provincial_sam_provinces(state_text, want):
+        block = ensure_province_sam(block, pid)
+    return block
+
+
+def convert_existing_sam_to_provincial() -> int:
+    changed = 0
+    for path in sorted(STATES_DIR.glob("*.txt")):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        bm = re.search(r"\bbuildings\s*=", text)
+        if not bm:
+            continue
+        block, end = extract_block(text, bm.start())
+        new_block = place_sam_in_buildings_block(block, text, 0)
+        if new_block == block:
+            continue
+        path.write_text(text[: bm.start()] + f"buildings = {new_block}" + text[end:], encoding="utf-8")
+        changed += 1
+    return changed
+
+
 def write_state(
     state: dict,
     owner: str,
@@ -1698,9 +1776,13 @@ def write_state(
             new_block = replace_or_insert(new_block, "dockyard", docks)
         elif re.search(r"\bdockyard\s*=", new_block):
             new_block = re.sub(r"\n\t+\bdockyard\s*=\s*\d+[^\n]*", "", new_block, count=1)
+        sam_n = extra_buildings.get("sam_site", 0)
         for key, value in extra_buildings.items():
+            if key == "sam_site":
+                continue
             if value:
                 new_block = replace_or_insert(new_block, key, value)
+        new_block = place_sam_in_buildings_block(new_block, text, sam_n)
         for pid, level in EXTRA_PROVINCE_PORTS.get(state["id"], []):
             if not re.search(rf"\b{pid}\s*=", new_block):
                 new_block = new_block[:-1] + f"\n\t\t\t{pid} = {{\n\t\t\t\tnaval_base = {level}\n\t\t\t}}\n\t\t}}"

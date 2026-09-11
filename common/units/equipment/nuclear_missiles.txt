@@ -19,8 +19,12 @@ equipments = {
 			}
 		}
 
+		# Offensive silo / nuclear-sub launch only. SAM intercept is sam_missile_equipment.
 		allow_mission_type = {
 			drop_nuke
+		}
+		forbid_mission_type = {
+			sam_mission
 		}
 
 		is_archetype = yes

@@ -21,13 +21,16 @@ state={
 			11279 3 #Leicester
 		}
 		buildings = {
-			sam_site = 1
 			renewable_park = 1
 			services_building = 1
 			infrastructure = 4 #was: 8
 			arms_factory = 0
 			industrial_complex = 1
 			air_base = 5
+		
+			6237 = {
+				sam_site = 1
+			}
 		}
 		add_core_of = ENG
 

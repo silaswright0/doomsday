@@ -14,25 +14,72 @@ guiTypes = {
 			quadTextureSprite = "GFX_tiled_generic_bg_1"
 		}
 
+		iconType = {
+			name = "dd_cash_icon"
+			spriteType = "GFX_dd_icon_cash"
+			position = { x = 4 y = 3 }
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
 		instantTextboxType = {
-			name = "dd_topbar_line1"
-			position = { x = 6 y = 1 }
+			name = "dd_cash_value"
+			position = { x = 28 y = 6 }
 			font = "hoi_16mbs"
-			text = "DD_TOPBAR_ECON_1"
-			maxWidth = 198
-			maxHeight = 14
+			text = "DD_TOPBAR_CASH"
+			maxWidth = 40
+			maxHeight = 18
 			format = left
 			alwaystransparent = yes
 			pdx_tooltip = "DD_TOPBAR_ECON_TT"
 		}
 
+		iconType = {
+			name = "dd_net_up"
+			spriteType = "GFX_dd_icon_income"
+			position = { x = 70 y = 3 }
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
+		iconType = {
+			name = "dd_net_down"
+			spriteType = "GFX_dd_icon_net_down"
+			position = { x = 70 y = 3 }
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
 		instantTextboxType = {
-			name = "dd_topbar_line2"
-			position = { x = 6 y = 14 }
+			name = "dd_net_pos"
+			position = { x = 94 y = 6 }
 			font = "hoi_16mbs"
-			text = "DD_TOPBAR_ECON_2"
-			maxWidth = 198
-			maxHeight = 14
+			text = "DD_TOPBAR_NET_POS"
+			maxWidth = 50
+			maxHeight = 18
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
+		instantTextboxType = {
+			name = "dd_net_neg"
+			position = { x = 94 y = 6 }
+			font = "hoi_16mbs"
+			text = "DD_TOPBAR_NET_NEG"
+			maxWidth = 50
+			maxHeight = 18
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
+
+		iconType = {
+			name = "dd_debt_icon"
+			spriteType = "GFX_dd_icon_debt"
+			position = { x = 148 y = 3 }
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
+		instantTextboxType = {
+			name = "dd_debt_value"
+			position = { x = 172 y = 6 }
+			font = "hoi_16mbs"
+			text = "DD_TOPBAR_DEBT"
+			maxWidth = 36
+			maxHeight = 18
 			format = left
 			alwaystransparent = yes
 			pdx_tooltip = "DD_TOPBAR_ECON_TT"

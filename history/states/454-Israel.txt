@@ -14,11 +14,18 @@ state = {
 
 		buildings = {
 			rocket_site = 2
-			sam_site = 2
 			renewable_park = 1
 			arms_factory = 2
 			infrastructure = 4 #was: 5
 			industrial_complex = 1
+		
+			1086 = {
+				sam_site = 1
+			}
+		
+			1 = {
+				sam_site = 1
+			}
 		}
 		victory_points = {
 			1086 3 # Jerusalem

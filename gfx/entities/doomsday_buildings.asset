@@ -59,5 +59,20 @@ entity = {
 		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" keep_particle = yes trigger_once = yes }
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" keep_particle = yes trigger_once = yes }
 	}
+	scale = 1.4
+}
+
+# Silo pad. Separate from SAM (AA guns). Vanilla spawn entity also uses this mesh.
+entity = {
+	name = "building_rocket_site"
+	pdxmesh = "building_rocket_site"
+	locator = { name = "damage_locator_01"	position = { 0.0 0.0 0.0 } }
+	locator = { name = "damage_locator_02"	position = { -1.0 0.2 0.4 } }
+	default_state = "idle"
+	state = { name = "idle" }
+	state = { name = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
 	scale = 1.0
 }

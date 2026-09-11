@@ -1,0 +1,96 @@
+# Country-scoped. No random. Treasury and debt only; interest is monthly.
+
+doomsday_economy_category = {
+
+	dd_dec_take_loan_small = {
+		icon = generic_industry
+		allowed = { always = yes }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DD_TAKE_LOAN_SMALL_TT
+				check_variable = { gdp > 0.01 }
+				check_variable = { debt_to_gdp < 2.49 }
+			}
+		}
+		visible = { always = yes }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_take_loan_small = yes
+		}
+	}
+
+	dd_dec_take_loan_large = {
+		icon = generic_industry
+		allowed = { always = yes }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DD_TAKE_LOAN_LARGE_TT
+				check_variable = { gdp > 0.01 }
+				check_variable = { debt_to_gdp < 2.45 }
+			}
+		}
+		visible = { always = yes }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_take_loan_large = yes
+		}
+	}
+
+	dd_dec_repay_loan = {
+		icon = generic_industry
+		allowed = { always = yes }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DD_REPAY_LOAN_TT
+				check_variable = { dd_repay_preview > 0.01 }
+			}
+		}
+		visible = { always = yes }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_repay_loan = yes
+		}
+	}
+
+	dd_dec_pay_interest_groups = {
+		icon = generic_political_discourse
+		allowed = { always = yes }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DD_PAY_PP_TT
+				check_variable = { treasury > 14.99 }
+				NOT = { has_country_flag = dd_pp_bought }
+			}
+		}
+		visible = { always = yes }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_pay_interest_groups = yes
+		}
+	}
+
+	dd_dec_subsidize_business = {
+		icon = generic_construction
+		allowed = { always = yes }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DD_SUBSIDIZE_BUSINESS_TT
+				check_variable = { treasury > 19.99 }
+			}
+		}
+		visible = { always = yes }
+		cost = 0
+		days_remove = 90
+		modifier = {
+			consumer_goods_factor = -0.05
+		}
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_subsidize_business = yes
+		}
+	}
+}

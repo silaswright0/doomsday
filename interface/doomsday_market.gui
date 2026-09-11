@@ -1,0 +1,4514 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "dd_arms_market_window"
+		position = { x = 5 y = 78 }
+		size = { width = 550 height = 100%% }
+		clipping = no
+
+		background = {
+			name = "Background"
+			spriteType = "GFX_tiled_bg"
+		}
+
+		iconType = {
+			name = "dd_market_header_bg"
+			spriteType = "GFX_header_bg"
+			position = { x = 5 y = 7 }
+		}
+
+		instantTextboxType = {
+			name = "dd_market_title"
+			position = { x = 45 y = 8 }
+			font = "hoi_36header"
+			text = "DD_ARMS_MARKET_TITLE"
+			maxWidth = 440
+			maxHeight = 20
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_close_market"
+			position = { x = -43 y = 9 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+		}
+
+		containerWindowType = {
+			name = "dd_market_top"
+			position = { x = 9 y = 47 }
+			clipping = no
+
+			iconType = {
+				name = "dd_market_top_bg"
+				quadTextureSprite = "GFX_deployment_binding"
+			}
+
+			iconType = {
+				name = "dd_market_cash_icon"
+				spriteType = "GFX_dd_icon_cash"
+				position = { x = 16 y = 6 }
+				pdx_tooltip = "DD_TOPBAR_ECON_TT"
+			}
+
+			instantTextboxType = {
+				name = "dd_market_cash"
+				position = { x = 42 y = 7 }
+				font = "hoi_18mbs"
+				text = "DD_ARMS_MARKET_CASH"
+				maxWidth = 480
+				maxHeight = 18
+				format = left
+				pdx_tooltip = "DD_TOPBAR_ECON_TT"
+			}
+		}
+
+		iconType = {
+			name = "dd_tabs_background"
+			quadTextureSprite = "GFX_tab_diplomacy_bg"
+			position = { x = 15 y = 184 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "dd_tab_buy_on"
+			quadTextureSprite = "GFX_Access_&_buy_equipment"
+			position = { x = 15 y = 80 }
+			buttonText = "DD_MARKET_TAB_BUY"
+			font = "hoi_18mbs"
+			frame = 2
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_tab_buy_off"
+			quadTextureSprite = "GFX_Access_&_buy_equipment"
+			position = { x = 15 y = 80 }
+			buttonText = "DD_MARKET_TAB_BUY"
+			font = "hoi_18mbs"
+			frame = 1
+			clicksound = click_default
+		}
+
+		buttonType = {
+			name = "dd_tab_sell_on"
+			quadTextureSprite = "GFX_Add_equipment_to_markete"
+			position = { x = 275 y = 80 }
+			buttonText = "DD_MARKET_TAB_SELL"
+			font = "hoi_18mbs"
+			frame = 2
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_tab_sell_off"
+			quadTextureSprite = "GFX_Add_equipment_to_markete"
+			position = { x = 275 y = 80 }
+			buttonText = "DD_MARKET_TAB_SELL"
+			font = "hoi_18mbs"
+			frame = 1
+			clicksound = click_default
+		}
+
+		buttonType = {
+			name = "dd_cat_land_on"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			position = { x = 15 y = 186 }
+			buttonText = "DD_MARKET_CAT_LAND"
+			font = "hoi_16mbs"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+			frame = 2
+		}
+		buttonType = {
+			name = "dd_cat_land_off"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			position = { x = 15 y = 186 }
+			buttonText = "DD_MARKET_CAT_LAND"
+			font = "hoi_16mbs"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+			frame = 1
+		}
+		buttonType = {
+			name = "dd_cat_air_on"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			position = { x = 148 y = 186 }
+			buttonText = "DD_MARKET_CAT_AIR"
+			font = "hoi_16mbs"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+			frame = 2
+		}
+		buttonType = {
+			name = "dd_cat_air_off"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			position = { x = 148 y = 186 }
+			buttonText = "DD_MARKET_CAT_AIR"
+			font = "hoi_16mbs"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+			frame = 1
+		}
+		buttonType = {
+			name = "dd_cat_navy_on"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			position = { x = 281 y = 186 }
+			buttonText = "DD_MARKET_CAT_NAVY"
+			font = "hoi_16mbs"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+			frame = 2
+		}
+		buttonType = {
+			name = "dd_cat_navy_off"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			position = { x = 281 y = 186 }
+			buttonText = "DD_MARKET_CAT_NAVY"
+			font = "hoi_16mbs"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+			frame = 1
+		}
+	}
+
+	containerWindowType = {
+		name = "dd_market_list_land"
+		position = { x = 10 y = 226 }
+		size = { width = 530 height = 100%% }
+		margin = { top = 0 bottom = 24 }
+		verticalScrollbar = "right_vertical_slider"
+		scroll_wheel_factor = 40
+		smooth_scrolling = yes
+		clipping = yes
+
+		background = {
+			name = "dd_market_list_land_bg"
+			spriteType = "GFX_tiled_window2_1b_border"
+		}
+
+			containerWindowType = {
+				name = "dd_row_amphibious_mechanized_eq"
+				position = { x = 10 y = 8 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_amphibious_mechanized_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_amphibious_mechanized_eq_icon"
+					spriteType = "GFX_archetype_motorized_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_amphibious_mechanized_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_AMPHIBIOUS_MECHANIZED_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_amphibious_mechanized_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_AMPHIBIOUS_MECHANIZED_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_amphibious_mechanized_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_amphibious_mechanized_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_AMPHIBIOUS_MECHANIZED_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_amphibious_mechanized_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_AMPHIBIOUS_MECHANIZED_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_amphibious_mechanized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_AMPHIBIOUS_MECHANIZED_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_amphibious_mechanized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_AMPHIBIOUS_MECHANIZED_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_amphibious_tank_chassis"
+				position = { x = 10 y = 112 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_amphibious_tank_chassis_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_amphibious_tank_chassis_icon"
+					spriteType = "GFX_archetype_amphibious_tank_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_amphibious_tank_chassis_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_AMPHIBIOUS_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_amphibious_tank_chassis_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_AMPHIBIOUS_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_amphibious_tank_chassis_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_amphibious_tank_chassis_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_AMPHIBIOUS_TANK_CHASSIS_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_amphibious_tank_chassis_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_AMPHIBIOUS_TANK_CHASSIS_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_amphibious_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_AMPHIBIOUS_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_sell_amphibious_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_AMPHIBIOUS_TANK_CHASSIS_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_anti_air_eq"
+				position = { x = 10 y = 216 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_anti_air_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_anti_air_eq_icon"
+					spriteType = "GFX_archetype_anti_air_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_anti_air_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_ANTI_AIR_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_anti_air_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_ANTI_AIR_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_anti_air_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_anti_air_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ANTI_AIR_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_anti_air_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ANTI_AIR_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_anti_air_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_ANTI_AIR_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_anti_air_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_ANTI_AIR_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_anti_tank_eq"
+				position = { x = 10 y = 320 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_anti_tank_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_anti_tank_eq_icon"
+					spriteType = "GFX_archetype_anti_tank_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_anti_tank_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_ANTI_TANK_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_anti_tank_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_ANTI_TANK_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_anti_tank_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_anti_tank_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ANTI_TANK_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_anti_tank_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ANTI_TANK_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_anti_tank_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_ANTI_TANK_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_anti_tank_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_ANTI_TANK_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_armored_car_eq"
+				position = { x = 10 y = 424 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_armored_car_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_armored_car_eq_icon"
+					spriteType = "GFX_archetype_armored_car_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_armored_car_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_ARMORED_CAR_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_armored_car_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_ARMORED_CAR_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_armored_car_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_armored_car_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ARMORED_CAR_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_armored_car_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ARMORED_CAR_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_armored_car_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_ARMORED_CAR_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_armored_car_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_ARMORED_CAR_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_armored_support_vehicle"
+				position = { x = 10 y = 528 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_armored_support_vehicle_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_armored_support_vehicle_icon"
+					spriteType = "GFX_archetype_specialist_armored_vehicles_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_armored_support_vehicle_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_ARMORED_SUPPORT_VEHICLE"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_armored_support_vehicle_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_ARMORED_SUPPORT_VEHICLE"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_armored_support_vehicle_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_armored_support_vehicle_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ARMORED_SUPPORT_VEHICLE_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_armored_support_vehicle_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ARMORED_SUPPORT_VEHICLE_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_armored_support_vehicle"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_ARMORED_SUPPORT_VEHICLE_TT"
+				}
+				buttonType = {
+					name = "dd_sell_armored_support_vehicle"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_ARMORED_SUPPORT_VEHICLE_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_artillery_eq"
+				position = { x = 10 y = 632 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_artillery_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_artillery_eq_icon"
+					spriteType = "GFX_archetype_artillery_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_artillery_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_ARTILLERY_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_artillery_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_ARTILLERY_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_artillery_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_artillery_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ARTILLERY_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_artillery_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ARTILLERY_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_ARTILLERY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_ARTILLERY_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_heavy_tank_chassis"
+				position = { x = 10 y = 736 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_heavy_tank_chassis_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_heavy_tank_chassis_icon"
+					spriteType = "GFX_archetype_heavy_tank_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_heavy_tank_chassis_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_HEAVY_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_heavy_tank_chassis_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_HEAVY_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_heavy_tank_chassis_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_heavy_tank_chassis_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_HEAVY_TANK_CHASSIS_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_heavy_tank_chassis_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_HEAVY_TANK_CHASSIS_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_heavy_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_HEAVY_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_sell_heavy_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_HEAVY_TANK_CHASSIS_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_helicopter_eq"
+				position = { x = 10 y = 840 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_helicopter_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_helicopter_eq_icon"
+					spriteType = "GFX_archetype_helicopter_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_helicopter_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_HELICOPTER_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_helicopter_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_HELICOPTER_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_helicopter_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_helicopter_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_HELICOPTER_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_helicopter_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_HELICOPTER_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_helicopter_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_HELICOPTER_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_helicopter_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_HELICOPTER_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_infantry_eq"
+				position = { x = 10 y = 944 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_infantry_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_infantry_eq_icon"
+					spriteType = "GFX_archetype_infantry_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_infantry_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_INFANTRY_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_infantry_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_INFANTRY_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_infantry_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_infantry_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_INFANTRY_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_infantry_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_INFANTRY_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_infantry_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_INFANTRY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_infantry_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_INFANTRY_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_land_cruiser_chassis"
+				position = { x = 10 y = 1048 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_land_cruiser_chassis_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_land_cruiser_chassis_icon"
+					spriteType = "GFX_archetype_super_heavy_tank_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_land_cruiser_chassis_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_LAND_CRUISER_CHASSIS"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_land_cruiser_chassis_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_LAND_CRUISER_CHASSIS"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_land_cruiser_chassis_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_land_cruiser_chassis_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_LAND_CRUISER_CHASSIS_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_land_cruiser_chassis_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_LAND_CRUISER_CHASSIS_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_land_cruiser_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_LAND_CRUISER_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_sell_land_cruiser_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_LAND_CRUISER_CHASSIS_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_light_tank_chassis"
+				position = { x = 10 y = 1152 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_light_tank_chassis_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_light_tank_chassis_icon"
+					spriteType = "GFX_archetype_light_tank_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_light_tank_chassis_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_LIGHT_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_light_tank_chassis_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_LIGHT_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_light_tank_chassis_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_light_tank_chassis_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_LIGHT_TANK_CHASSIS_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_light_tank_chassis_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_LIGHT_TANK_CHASSIS_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_light_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_LIGHT_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_sell_light_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_LIGHT_TANK_CHASSIS_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_mechanized_eq"
+				position = { x = 10 y = 1256 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_mechanized_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_mechanized_eq_icon"
+					spriteType = "GFX_archetype_motorized_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_mechanized_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_MECHANIZED_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_mechanized_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_MECHANIZED_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_mechanized_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_mechanized_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MECHANIZED_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_mechanized_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MECHANIZED_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_mechanized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_MECHANIZED_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_mechanized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_MECHANIZED_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_medium_tank_chassis"
+				position = { x = 10 y = 1360 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_medium_tank_chassis_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_medium_tank_chassis_icon"
+					spriteType = "GFX_archetype_medium_tank_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_medium_tank_chassis_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_MEDIUM_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_medium_tank_chassis_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_MEDIUM_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_medium_tank_chassis_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_medium_tank_chassis_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MEDIUM_TANK_CHASSIS_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_medium_tank_chassis_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MEDIUM_TANK_CHASSIS_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_medium_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_MEDIUM_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_sell_medium_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_MEDIUM_TANK_CHASSIS_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_modern_tank_chassis"
+				position = { x = 10 y = 1464 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_modern_tank_chassis_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_modern_tank_chassis_icon"
+					spriteType = "GFX_archetype_modern_tank_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_modern_tank_chassis_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_MODERN_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_modern_tank_chassis_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_MODERN_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_modern_tank_chassis_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_modern_tank_chassis_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MODERN_TANK_CHASSIS_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_modern_tank_chassis_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MODERN_TANK_CHASSIS_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_modern_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_MODERN_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_sell_modern_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_MODERN_TANK_CHASSIS_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_motorbike_eq"
+				position = { x = 10 y = 1568 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_motorbike_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_motorbike_eq_icon"
+					spriteType = "GFX_archetype_motorized_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorbike_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_MOTORBIKE_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorbike_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_MOTORBIKE_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_motorbike_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorbike_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MOTORBIKE_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorbike_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MOTORBIKE_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_motorbike_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_MOTORBIKE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_motorbike_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_MOTORBIKE_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_motorized_eq"
+				position = { x = 10 y = 1672 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_motorized_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_motorized_eq_icon"
+					spriteType = "GFX_archetype_motorized_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorized_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_MOTORIZED_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorized_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_MOTORIZED_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_motorized_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorized_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MOTORIZED_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorized_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MOTORIZED_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_motorized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_MOTORIZED_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_motorized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_MOTORIZED_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_motorized_rocket_eq"
+				position = { x = 10 y = 1776 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_motorized_rocket_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_motorized_rocket_eq_icon"
+					spriteType = "GFX_archetype_motorized_rocket_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorized_rocket_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_MOTORIZED_ROCKET_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorized_rocket_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_MOTORIZED_ROCKET_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_motorized_rocket_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorized_rocket_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MOTORIZED_ROCKET_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_motorized_rocket_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MOTORIZED_ROCKET_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_motorized_rocket_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_MOTORIZED_ROCKET_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_motorized_rocket_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_MOTORIZED_ROCKET_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_railway_gun_eq"
+				position = { x = 10 y = 1880 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_railway_gun_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_railway_gun_eq_icon"
+					spriteType = "GFX_archetype_artillery_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_railway_gun_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_RAILWAY_GUN_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_railway_gun_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_RAILWAY_GUN_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_railway_gun_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_railway_gun_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_RAILWAY_GUN_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_railway_gun_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_RAILWAY_GUN_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_railway_gun_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_RAILWAY_GUN_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_railway_gun_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_RAILWAY_GUN_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_rocket_artillery_eq"
+				position = { x = 10 y = 1984 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_rocket_artillery_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_rocket_artillery_eq_icon"
+					spriteType = "GFX_archetype_rocket_artillery_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_rocket_artillery_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_ROCKET_ARTILLERY_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_rocket_artillery_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_ROCKET_ARTILLERY_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_rocket_artillery_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_rocket_artillery_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ROCKET_ARTILLERY_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_rocket_artillery_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_ROCKET_ARTILLERY_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_rocket_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_ROCKET_ARTILLERY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_rocket_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_ROCKET_ARTILLERY_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_self_propelled_super_heavy_artillery_eq"
+				position = { x = 10 y = 2088 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_self_propelled_super_heavy_artillery_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_self_propelled_super_heavy_artillery_eq_icon"
+					spriteType = "GFX_archetype_artillery_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_self_propelled_super_heavy_artillery_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SELF_PROPELLED_SUPER_HEAVY_ARTILLERY_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_self_propelled_super_heavy_artillery_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SELF_PROPELLED_SUPER_HEAVY_ARTILLERY_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_self_propelled_super_heavy_artillery_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_self_propelled_super_heavy_artillery_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SELF_PROPELLED_SUPER_HEAVY_ARTILLERY_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_self_propelled_super_heavy_artillery_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SELF_PROPELLED_SUPER_HEAVY_ARTILLERY_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_self_propelled_super_heavy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SELF_PROPELLED_SUPER_HEAVY_ARTILLERY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_self_propelled_super_heavy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SELF_PROPELLED_SUPER_HEAVY_ARTILLERY_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_super_heavy_artillery_eq"
+				position = { x = 10 y = 2192 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_super_heavy_artillery_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_super_heavy_artillery_eq_icon"
+					spriteType = "GFX_archetype_artillery_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_artillery_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SUPER_HEAVY_ARTILLERY_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_artillery_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SUPER_HEAVY_ARTILLERY_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_super_heavy_artillery_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_artillery_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPER_HEAVY_ARTILLERY_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_artillery_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPER_HEAVY_ARTILLERY_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_super_heavy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SUPER_HEAVY_ARTILLERY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_super_heavy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SUPER_HEAVY_ARTILLERY_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_super_heavy_railway_gun_eq"
+				position = { x = 10 y = 2296 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_super_heavy_railway_gun_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_super_heavy_railway_gun_eq_icon"
+					spriteType = "GFX_archetype_artillery_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_railway_gun_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SUPER_HEAVY_RAILWAY_GUN_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_railway_gun_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SUPER_HEAVY_RAILWAY_GUN_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_super_heavy_railway_gun_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_railway_gun_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPER_HEAVY_RAILWAY_GUN_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_railway_gun_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPER_HEAVY_RAILWAY_GUN_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_super_heavy_railway_gun_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SUPER_HEAVY_RAILWAY_GUN_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_super_heavy_railway_gun_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SUPER_HEAVY_RAILWAY_GUN_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_super_heavy_tank_chassis"
+				position = { x = 10 y = 2400 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_super_heavy_tank_chassis_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_super_heavy_tank_chassis_icon"
+					spriteType = "GFX_archetype_super_heavy_tank_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_tank_chassis_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SUPER_HEAVY_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_tank_chassis_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SUPER_HEAVY_TANK_CHASSIS"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_super_heavy_tank_chassis_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_tank_chassis_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPER_HEAVY_TANK_CHASSIS_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_super_heavy_tank_chassis_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPER_HEAVY_TANK_CHASSIS_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_super_heavy_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SUPER_HEAVY_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_sell_super_heavy_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SUPER_HEAVY_TANK_CHASSIS_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_support_eq"
+				position = { x = 10 y = 2504 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_support_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_support_eq_icon"
+					spriteType = "GFX_archetype_support_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_support_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SUPPORT_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_support_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SUPPORT_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_support_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_support_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPPORT_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_support_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPPORT_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_support_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SUPPORT_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_support_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SUPPORT_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_train_eq"
+				position = { x = 10 y = 2608 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_train_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_train_eq_icon"
+					spriteType = "GFX_archetype_train_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_train_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_TRAIN_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_train_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_TRAIN_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_train_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_train_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_TRAIN_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_train_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_TRAIN_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_train_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_TRAIN_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_train_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_TRAIN_EQ_TT"
+				}
+			}
+	}
+	containerWindowType = {
+		name = "dd_market_list_air"
+		position = { x = 10 y = 226 }
+		size = { width = 530 height = 100%% }
+		margin = { top = 0 bottom = 24 }
+		verticalScrollbar = "right_vertical_slider"
+		scroll_wheel_factor = 40
+		smooth_scrolling = yes
+		clipping = yes
+
+		background = {
+			name = "dd_market_list_air_bg"
+			spriteType = "GFX_tiled_window2_1b_border"
+		}
+
+			containerWindowType = {
+				name = "dd_row_ballistic_missile_eq"
+				position = { x = 10 y = 8 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_ballistic_missile_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ballistic_missile_eq_icon"
+					spriteType = "GFX_ballistic_missile_equipment_1_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ballistic_missile_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_BALLISTIC_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ballistic_missile_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_BALLISTIC_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ballistic_missile_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ballistic_missile_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_BALLISTIC_MISSILE_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ballistic_missile_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_BALLISTIC_MISSILE_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_ballistic_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_BALLISTIC_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_ballistic_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_BALLISTIC_MISSILE_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_cv_small_plane_airframe"
+				position = { x = 10 y = 112 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_cv_small_plane_airframe_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_cv_small_plane_airframe_icon"
+					spriteType = "GFX_archetype_fighter_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_cv_small_plane_airframe_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_CV_SMALL_PLANE_AIRFRAME"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_cv_small_plane_airframe_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_CV_SMALL_PLANE_AIRFRAME"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_cv_small_plane_airframe_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_cv_small_plane_airframe_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_CV_SMALL_PLANE_AIRFRAME_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_cv_small_plane_airframe_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_CV_SMALL_PLANE_AIRFRAME_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_cv_small_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_CV_SMALL_PLANE_AIRFRAME_TT"
+				}
+				buttonType = {
+					name = "dd_sell_cv_small_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_CV_SMALL_PLANE_AIRFRAME_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_explosive_ammo_eq"
+				position = { x = 10 y = 216 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_explosive_ammo_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_explosive_ammo_eq_icon"
+					spriteType = "GFX_guided_missile_equipment_3_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_explosive_ammo_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_EXPLOSIVE_AMMO_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_explosive_ammo_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_EXPLOSIVE_AMMO_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_explosive_ammo_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_explosive_ammo_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_EXPLOSIVE_AMMO_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_explosive_ammo_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_EXPLOSIVE_AMMO_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_explosive_ammo_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_EXPLOSIVE_AMMO_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_explosive_ammo_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_EXPLOSIVE_AMMO_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_guided_missile_eq"
+				position = { x = 10 y = 320 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_guided_missile_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_guided_missile_eq_icon"
+					spriteType = "GFX_guided_missile_equipment_3_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_guided_missile_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_GUIDED_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_guided_missile_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_GUIDED_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_guided_missile_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_guided_missile_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_GUIDED_MISSILE_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_guided_missile_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_GUIDED_MISSILE_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_guided_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_GUIDED_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_guided_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_GUIDED_MISSILE_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_large_plane_airframe"
+				position = { x = 10 y = 424 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_large_plane_airframe_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_large_plane_airframe_icon"
+					spriteType = "GFX_archetype_strat_bomber_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_large_plane_airframe_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_LARGE_PLANE_AIRFRAME"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_large_plane_airframe_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_LARGE_PLANE_AIRFRAME"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_large_plane_airframe_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_large_plane_airframe_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_LARGE_PLANE_AIRFRAME_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_large_plane_airframe_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_LARGE_PLANE_AIRFRAME_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_large_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_LARGE_PLANE_AIRFRAME_TT"
+				}
+				buttonType = {
+					name = "dd_sell_large_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_LARGE_PLANE_AIRFRAME_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_loitering_munition_eq"
+				position = { x = 10 y = 528 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_loitering_munition_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_loitering_munition_eq_icon"
+					spriteType = "GFX_archetype_rocket_interceptor_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_loitering_munition_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_LOITERING_MUNITION_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_loitering_munition_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_LOITERING_MUNITION_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_loitering_munition_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_loitering_munition_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_LOITERING_MUNITION_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_loitering_munition_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_LOITERING_MUNITION_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_loitering_munition_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_LOITERING_MUNITION_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_loitering_munition_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_LOITERING_MUNITION_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_medium_plane_airframe"
+				position = { x = 10 y = 632 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_medium_plane_airframe_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_medium_plane_airframe_icon"
+					spriteType = "GFX_archetype_strat_bomber_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_medium_plane_airframe_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_MEDIUM_PLANE_AIRFRAME"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_medium_plane_airframe_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_MEDIUM_PLANE_AIRFRAME"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_medium_plane_airframe_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_medium_plane_airframe_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MEDIUM_PLANE_AIRFRAME_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_medium_plane_airframe_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MEDIUM_PLANE_AIRFRAME_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_medium_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_MEDIUM_PLANE_AIRFRAME_TT"
+				}
+				buttonType = {
+					name = "dd_sell_medium_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_MEDIUM_PLANE_AIRFRAME_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_nuclear_missile_eq"
+				position = { x = 10 y = 736 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_nuclear_missile_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_nuclear_missile_eq_icon"
+					spriteType = "GFX_ballistic_missile_equipment_1_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_nuclear_missile_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_NUCLEAR_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_nuclear_missile_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_NUCLEAR_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_nuclear_missile_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_nuclear_missile_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_NUCLEAR_MISSILE_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_nuclear_missile_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_NUCLEAR_MISSILE_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_nuclear_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_NUCLEAR_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_nuclear_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_NUCLEAR_MISSILE_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_recon_uav_eq"
+				position = { x = 10 y = 840 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_recon_uav_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_recon_uav_eq_icon"
+					spriteType = "GFX_scout_plane1_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_recon_uav_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_RECON_UAV_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_recon_uav_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_RECON_UAV_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_recon_uav_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_recon_uav_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_RECON_UAV_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_recon_uav_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_RECON_UAV_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_recon_uav_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_RECON_UAV_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_recon_uav_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_RECON_UAV_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_sam_missile_eq"
+				position = { x = 10 y = 944 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_sam_missile_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_sam_missile_eq_icon"
+					spriteType = "GFX_sam_missile_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_sam_missile_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SAM_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_sam_missile_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SAM_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_sam_missile_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_sam_missile_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SAM_MISSILE_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_sam_missile_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SAM_MISSILE_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_sam_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SAM_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_sam_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SAM_MISSILE_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_small_plane_airframe"
+				position = { x = 10 y = 1048 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_small_plane_airframe_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_small_plane_airframe_icon"
+					spriteType = "GFX_archetype_fighter_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_small_plane_airframe_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SMALL_PLANE_AIRFRAME"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_small_plane_airframe_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SMALL_PLANE_AIRFRAME"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_small_plane_airframe_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_small_plane_airframe_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SMALL_PLANE_AIRFRAME_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_small_plane_airframe_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SMALL_PLANE_AIRFRAME_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_small_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SMALL_PLANE_AIRFRAME_TT"
+				}
+				buttonType = {
+					name = "dd_sell_small_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SMALL_PLANE_AIRFRAME_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_strat_bomber_intercontinental_eq"
+				position = { x = 10 y = 1152 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_strat_bomber_intercontinental_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_strat_bomber_intercontinental_eq_icon"
+					spriteType = "GFX_archetype_fighter_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_strat_bomber_intercontinental_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_STRAT_BOMBER_INTERCONTINENTAL_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_strat_bomber_intercontinental_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_STRAT_BOMBER_INTERCONTINENTAL_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_strat_bomber_intercontinental_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_strat_bomber_intercontinental_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_STRAT_BOMBER_INTERCONTINENTAL_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_strat_bomber_intercontinental_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_STRAT_BOMBER_INTERCONTINENTAL_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_strat_bomber_intercontinental_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_STRAT_BOMBER_INTERCONTINENTAL_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_strat_bomber_intercontinental_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_STRAT_BOMBER_INTERCONTINENTAL_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_strike_uav_eq"
+				position = { x = 10 y = 1256 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_strike_uav_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_strike_uav_eq_icon"
+					spriteType = "GFX_archetype_CAS_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_strike_uav_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_STRIKE_UAV_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_strike_uav_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_STRIKE_UAV_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_strike_uav_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_strike_uav_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_STRIKE_UAV_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_strike_uav_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_STRIKE_UAV_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_strike_uav_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_STRIKE_UAV_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_strike_uav_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_STRIKE_UAV_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_transport_heli_eq"
+				position = { x = 10 y = 1360 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_transport_heli_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_transport_heli_eq_icon"
+					spriteType = "GFX_archetype_strat_bomber_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_transport_heli_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_TRANSPORT_HELI_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_transport_heli_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_TRANSPORT_HELI_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_transport_heli_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_transport_heli_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_TRANSPORT_HELI_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_transport_heli_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_TRANSPORT_HELI_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_transport_heli_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_TRANSPORT_HELI_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_transport_heli_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_TRANSPORT_HELI_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_transport_plane_eq"
+				position = { x = 10 y = 1464 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_transport_plane_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_transport_plane_eq_icon"
+					spriteType = "GFX_archetype_strat_bomber_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_transport_plane_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_TRANSPORT_PLANE_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_transport_plane_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_TRANSPORT_PLANE_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_transport_plane_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_transport_plane_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_TRANSPORT_PLANE_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_transport_plane_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_TRANSPORT_PLANE_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_transport_plane_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_TRANSPORT_PLANE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_transport_plane_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_TRANSPORT_PLANE_EQ_TT"
+				}
+			}
+	}
+	containerWindowType = {
+		name = "dd_market_list_navy"
+		position = { x = 10 y = 226 }
+		size = { width = 530 height = 100%% }
+		margin = { top = 0 bottom = 24 }
+		verticalScrollbar = "right_vertical_slider"
+		scroll_wheel_factor = 40
+		smooth_scrolling = yes
+		clipping = yes
+
+		background = {
+			name = "dd_market_list_navy_bg"
+			spriteType = "GFX_tiled_window2_1b_border"
+		}
+
+			containerWindowType = {
+				name = "dd_row_convoy"
+				position = { x = 10 y = 8 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_convoy_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_convoy_icon"
+					spriteType = "GFX_archetype_convoy_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_convoy_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_CONVOY"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_convoy_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_CONVOY"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_convoy_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_convoy_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_CONVOY_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_convoy_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_CONVOY_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_convoy"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_CONVOY_TT"
+				}
+				buttonType = {
+					name = "dd_sell_convoy"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_CONVOY_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_floating_harbor_eq"
+				position = { x = 10 y = 112 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_floating_harbor_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_floating_harbor_eq_icon"
+					spriteType = "GFX_archetype_floating_harbor_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_floating_harbor_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_FLOATING_HARBOR_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_floating_harbor_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_FLOATING_HARBOR_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_floating_harbor_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_floating_harbor_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_FLOATING_HARBOR_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_floating_harbor_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_FLOATING_HARBOR_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_floating_harbor_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_FLOATING_HARBOR_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_floating_harbor_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_FLOATING_HARBOR_EQ_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_repair_ship_hull"
+				position = { x = 10 y = 216 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_repair_ship_hull_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_repair_ship_hull_icon"
+					spriteType = "GFX_im_navy_icon"
+					position = { x = 168 y = 18 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_repair_ship_hull_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_REPAIR_SHIP_HULL"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_repair_ship_hull_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_REPAIR_SHIP_HULL"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_repair_ship_hull_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_repair_ship_hull_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_REPAIR_SHIP_HULL_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_repair_ship_hull_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_REPAIR_SHIP_HULL_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_repair_ship_hull"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_REPAIR_SHIP_HULL_TT"
+				}
+				buttonType = {
+					name = "dd_sell_repair_ship_hull"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_REPAIR_SHIP_HULL_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_ship_hull_carrier"
+				position = { x = 10 y = 320 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_ship_hull_carrier_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_carrier_icon"
+					spriteType = "GFX_im_navy_icon"
+					position = { x = 168 y = 18 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_carrier_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SHIP_HULL_CARRIER"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_carrier_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SHIP_HULL_CARRIER"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_carrier_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_carrier_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_CARRIER_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_carrier_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_CARRIER_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_ship_hull_carrier"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SHIP_HULL_CARRIER_TT"
+				}
+				buttonType = {
+					name = "dd_sell_ship_hull_carrier"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SHIP_HULL_CARRIER_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_ship_hull_cruiser"
+				position = { x = 10 y = 424 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_ship_hull_cruiser_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_cruiser_icon"
+					spriteType = "GFX_im_navy_icon"
+					position = { x = 168 y = 18 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_cruiser_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SHIP_HULL_CRUISER"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_cruiser_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SHIP_HULL_CRUISER"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_cruiser_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_cruiser_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_CRUISER_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_cruiser_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_CRUISER_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_ship_hull_cruiser"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SHIP_HULL_CRUISER_TT"
+				}
+				buttonType = {
+					name = "dd_sell_ship_hull_cruiser"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SHIP_HULL_CRUISER_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_ship_hull_heavy"
+				position = { x = 10 y = 528 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_ship_hull_heavy_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_heavy_icon"
+					spriteType = "GFX_im_navy_icon"
+					position = { x = 168 y = 18 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_heavy_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SHIP_HULL_HEAVY"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_heavy_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SHIP_HULL_HEAVY"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_heavy_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_heavy_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_HEAVY_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_heavy_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_HEAVY_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_ship_hull_heavy"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SHIP_HULL_HEAVY_TT"
+				}
+				buttonType = {
+					name = "dd_sell_ship_hull_heavy"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SHIP_HULL_HEAVY_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_ship_hull_light"
+				position = { x = 10 y = 632 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_ship_hull_light_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_light_icon"
+					spriteType = "GFX_im_navy_icon"
+					position = { x = 168 y = 18 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_light_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SHIP_HULL_LIGHT"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_light_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SHIP_HULL_LIGHT"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_light_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_light_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_LIGHT_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_light_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_LIGHT_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_ship_hull_light"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SHIP_HULL_LIGHT_TT"
+				}
+				buttonType = {
+					name = "dd_sell_ship_hull_light"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SHIP_HULL_LIGHT_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_ship_hull_submarine"
+				position = { x = 10 y = 736 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_ship_hull_submarine_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_submarine_icon"
+					spriteType = "GFX_im_navy_icon"
+					position = { x = 168 y = 18 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_submarine_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SHIP_HULL_SUBMARINE"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_submarine_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SHIP_HULL_SUBMARINE"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_ship_hull_submarine_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_submarine_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_SUBMARINE_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_ship_hull_submarine_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SHIP_HULL_SUBMARINE_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_ship_hull_submarine"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SHIP_HULL_SUBMARINE_TT"
+				}
+				buttonType = {
+					name = "dd_sell_ship_hull_submarine"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SHIP_HULL_SUBMARINE_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_support_ship_hull"
+				position = { x = 10 y = 840 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_support_ship_hull_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_support_ship_hull_icon"
+					spriteType = "GFX_im_navy_icon"
+					position = { x = 168 y = 18 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_support_ship_hull_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SUPPORT_SHIP_HULL"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_support_ship_hull_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SUPPORT_SHIP_HULL"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_support_ship_hull_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_support_ship_hull_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPPORT_SHIP_HULL_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_support_ship_hull_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SUPPORT_SHIP_HULL_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_support_ship_hull"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SUPPORT_SHIP_HULL_TT"
+				}
+				buttonType = {
+					name = "dd_sell_support_ship_hull"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 32 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SUPPORT_SHIP_HULL_TT"
+				}
+			}
+	}
+}

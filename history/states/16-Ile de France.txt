@@ -18,7 +18,6 @@ state = {
 
 		buildings = {
 			rocket_site = 2
-			sam_site = 2
 			renewable_park = 2
 			finance_center = 2
 			services_building = 3
@@ -39,6 +38,14 @@ state = {
 			9534 = {
 				# The Renault factories on Île Seguin in Billancourt
 				land_facility = 1
+			}
+		
+			11506 = {
+				sam_site = 1
+			}
+		
+			6547 = {
+				sam_site = 1
 			}
 		}
 
