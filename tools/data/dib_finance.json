@@ -1,0 +1,41 @@
+{
+  "note": "Finance campuses from Z/Yen GFCI 38 (September 2025). 1 finance_center = one rated financial centre in that HOI4 state. Mega centres 2–3. Not country GDP. Not every capital.",
+  "sources": [
+    "Z/Yen and China Development Institute, Global Financial Centres Index 38, 25 September 2025. https://www.longfinance.net/programmes/financial-centre-futures/global-financial-centres-index/"
+  ],
+  "rule": "GFCI rank 1–4 → 3, 5–10 → 2, 11–40 → 1. Two centres in one HOI4 state stack. Repair-only / offshore centres without a state (Jersey, Guernsey, Cayman) omitted.",
+  "tags": {
+    "USA": {"count": 12, "source": "NYC 3, San Francisco 2, Los Angeles 2, Chicago 2, Washington 1, Boston 1, Miami 1"},
+    "CHI": {"count": 11, "source": "Hong Kong 3, Shanghai 2, Shenzhen 2, Beijing 1, Guangzhou 1, Chengdu 1, Qingdao 1"},
+    "ENG": {"count": 5, "source": "London 3, Edinburgh 1, Glasgow 1"},
+    "SNG": {"count": 3, "source": "Singapore 3"},
+    "JAP": {"count": 3, "source": "Tokyo 2, Osaka 1"},
+    "KOR": {"count": 3, "source": "Seoul 2, Busan 1"},
+    "GER": {"count": 1, "source": "Frankfurt 1"},
+    "SWI": {"count": 2, "source": "Geneva + Zurich on Swiss Plateau 2"},
+    "FRA": {"count": 1, "source": "Paris 1"},
+    "UAE": {"count": 2, "source": "Dubai + Abu Dhabi share state 658"},
+    "CAN": {"count": 3, "source": "Toronto 1, Montreal 1, Vancouver 1"},
+    "AST": {"count": 2, "source": "Sydney 1, Melbourne 1"},
+    "RAJ": {"count": 2, "source": "Mumbai 1, GIFT City Gujarat 1"},
+    "HOL": {"count": 1, "source": "Amsterdam 1"},
+    "IRE": {"count": 1, "source": "Dublin 1"},
+    "LUX": {"count": 1, "source": "Luxembourg 1"},
+    "ITA": {"count": 2, "source": "Milan 1, Rome 1"},
+    "FOR": {"count": 1, "source": "Taipei 1"},
+    "TUR": {"count": 1, "source": "Istanbul 1"},
+    "POL": {"count": 1, "source": "Warsaw 1"},
+    "MEX": {"count": 1, "source": "Mexico City 1"},
+    "CHL": {"count": 1, "source": "Santiago 1"},
+    "SWE": {"count": 1, "source": "Stockholm 1"},
+    "DEN": {"count": 1, "source": "Copenhagen 1"},
+    "MAL": {"count": 1, "source": "Kuala Lumpur 1"},
+    "BRA": {"count": 1, "source": "Sao Paulo 1"},
+    "SAU": {"count": 1, "source": "Riyadh / NEOM-scale capital markets 1"},
+    "ISR": {"count": 1, "source": "Tel Aviv 1"},
+    "SPR": {"count": 1, "source": "Madrid 1"},
+    "BEL": {"count": 1, "source": "Brussels 1"},
+    "AUS": {"count": 1, "source": "Vienna 1"},
+    "KAZ": {"count": 1, "source": "Astana AIFC 1"}
+  }
+}

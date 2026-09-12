@@ -8,7 +8,7 @@ guiTypes = {
 		hide_animation_type = accelerated
 		animation_time = 300	
 		size = { width=689 height=100%% }
-		clipping = no #TODO SEA remove it. Added for displaying coal
+		clipping = yes
 		#hide_sound = menu_close_window
 		show_sound = menu_open_window
 		
@@ -112,7 +112,7 @@ guiTypes = {
 			position = { x = 11 y = 115 }	
 			size = { width = 655 height = 210 }
 			clipping = yes
-			verticalScrollbar = "right_vertical_slider"
+			horizontalScrollbar = "bottom_horizontal_slider"
 
 			background = {
 				name ="resources_bg"
@@ -122,9 +122,9 @@ guiTypes = {
 			gridBoxType = {
 				name = "resources_grid"
 				position = { x = 101 y = 0 }
-				size = { width = 422 height = 100%% }
+				size = { width = 540 height = 100%% }
 				slotsize = { width = 70 height = 156 }
-				max_slots = { x = 6 y = 2 }
+				max_slots_vertical = 1
 				format = "UPPER_LEFT"
 			}
 		}
@@ -252,14 +252,14 @@ guiTypes = {
 		containerWindowType = {
 			name = "filters"
 			position = { x = 113 y = 78 }	
-			size = { width = 422 height = 50 }
-			verticalScrollbar = "right_vertical_slider"			
+			size = { width = 560 height = 50 }
+			horizontalScrollbar = "bottom_horizontal_slider"
 			
 			gridBoxType = {
 				name = "resources_grid"
 				position = { x = 0 y = 0 }
-				size = { width = 400 height = 100%% }
-				slotsize = { width = 79 height = 46 }
+				size = { width = 100%% height = 100%% }
+				slotsize = { width = 74 height = 46 }
 				max_slots_vertical = 1
 				format = "UPPER_LEFT"
 			}
@@ -563,7 +563,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "resources_info_entry"
 		position = { x = 0 y = 0 }	
-		size = { width = 79 height = 170 }
+		size = { width = 70 height = 170 }
 		clipping = no
 
 		background = {

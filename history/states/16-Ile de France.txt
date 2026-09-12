@@ -18,7 +18,7 @@ state = {
 	history = {
 
 		owner = FRA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 9
 		add_core_of = FRA
 
 		victory_points = {
@@ -28,8 +28,8 @@ state = {
 		buildings = {
 			rocket_site = 2
 
-			finance_center = 2
-			services_building = 2
+			finance_center = 1
+			services_building = 7
 			infrastructure = 5
 			arms_factory = 2
 			industrial_complex = 3
@@ -63,6 +63,10 @@ state = {
 
 
 
+
+
+			energy_infrastructure = 1
+
 			9534 = {
 				# The Renault factories on Île Seguin in Billancourt
 				land_facility = 1
@@ -85,6 +89,12 @@ state = {
 
 
 
+
+
+
+		
+		
+		
 		
 		
 		

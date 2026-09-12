@@ -13,13 +13,13 @@ state = {
 	history = {
 
 		owner = JAP
-		add_extra_state_shared_building_slots = 14
+		add_extra_state_shared_building_slots = 18
 		add_core_of = JAP
 
 		buildings = {
 			renewable_park = 3
-			finance_center = 2
-			services_building = 3
+			finance_center = 1
+			services_building = 5
 			infrastructure = 5
 			air_base = 6
 			industrial_complex = 10
@@ -44,9 +44,18 @@ state = {
 
 
 
+
+
+			synthetic_refinery = 1
+			fuel_silo = 1
+			energy_infrastructure = 1
+
 			9998 = {
 				naval_base = 6
 			}
+
+
+
 
 
 
@@ -76,6 +85,9 @@ state = {
 				
 			}
 
+		
+		
+		
 		
 		
 		

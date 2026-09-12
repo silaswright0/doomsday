@@ -11,7 +11,7 @@ state = {
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 2
+		add_extra_state_shared_building_slots = 3
 		add_core_of = CHI
 		add_core_of = PRC
 		IF = {
@@ -50,6 +50,10 @@ state = {
 
 
 
+
+
+			finance_center = 1
+
 			10000 = {
 				naval_base = 5
 				coastal_bunker = 1
@@ -74,6 +78,12 @@ state = {
 
 
 
+
+
+
+		
+		
+		
 		
 		
 		

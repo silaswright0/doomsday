@@ -8,7 +8,7 @@ state = {
 
 	history = {
 		owner = SWE
-		add_extra_state_shared_building_slots = 3
+		add_extra_state_shared_building_slots = 4
 
 		victory_points = {
 			6050 20 # Stockholm
@@ -20,7 +20,7 @@ state = {
 
 		buildings = {
 			finance_center = 1
-			services_building = 2
+
 			infrastructure = 5
 			arms_factory = 0
 			industrial_complex = 0
@@ -44,6 +44,11 @@ state = {
 
 
 
+
+
+			energy_infrastructure = 1
+
+			services_building = 2
 			6050 = {
 				naval_base = 5
 				coastal_bunker = 3
@@ -66,6 +71,12 @@ state = {
 
 
 
+
+
+
+		
+		
+		
 		
 		
 		

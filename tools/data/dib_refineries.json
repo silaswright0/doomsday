@@ -1,0 +1,42 @@
+{
+  "note": "Oil refining campuses. HOI4 synthetic_refinery is the fuel-making building (CTL/GTL plus crude refining in 2026). Site list from OGJ / EIA / company CDU, not country oil production. 1 building ≈ 400 kb/d operable CDU. Below ~350 kb/d is not a campus. Mega complexes 2–3. state_max 3.",
+  "sources": [
+    "Oil & Gas Journal Worldwide Refining Survey (operable crude capacity)",
+    "EIA Form EIA-820 Annual Refinery Report (US by site / PADD, 1 Jan 2026)",
+    "Company reports: Reliance Jamnagar, S-Oil Onsan, Motiva Port Arthur, Saudi Aramco Ras Tanura, Dangote"
+  ],
+  "kbd_per_building": 400,
+  "min_kbd": 350,
+  "tags": {
+    "USA": {"count": 8, "source": "Gulf PADD3 cluster: Port Arthur/Motiva, Baytown, Galveston Bay, Beaumont, Baton Rouge, Lake Charles. Midwest Whiting. California LA/Richmond. Not every small PADD1 plant."},
+    "CHI": {"count": 9, "source": "Zhenhai, Dalian, Nanjing, Yanshan, Fujian, Guangdong/Zhanjiang, Shandong, Zhejiang second line, Liaoning"},
+    "KOR": {"count": 5, "source": "Ulsan SK 2, Yeosu GS 2, Onsan S-Oil 1"},
+    "RAJ": {"count": 5, "source": "Jamnagar 3, Mumbai, Paradip/Panipat/Kochi remainder 2"},
+    "SAU": {"count": 3, "source": "Ras Tanura 2, Yanbu/Jizan 1"},
+    "SNG": {"count": 3, "source": "Jurong Island SRC/Exxon/Petrochemical cluster"},
+    "JAP": {"count": 3, "source": "Chiba, Mizushima, Sakai/Osaka"},
+    "VEN": {"count": 2, "source": "Paraguaná 2 (nameplate; utilisation is a mils/stability issue)"},
+    "HOL": {"count": 2, "source": "Rotterdam Pernis / Moerdijk"},
+    "GER": {"count": 2, "source": "Karlsruhe/MIRO, Leuna/Bayernoil"},
+    "ENG": {"count": 2, "source": "Fawley, Stanlow/Grangemouth"},
+    "FRA": {"count": 2, "source": "Gonfreville, Donges/Lavera"},
+    "ITA": {"count": 2, "source": "Priolo, Saras Sarroch"},
+    "SPR": {"count": 2, "source": "Cartagena, Algeciras/Huelva"},
+    "BRA": {"count": 2, "source": "Paulinia, Duque de Caxias"},
+    "MEX": {"count": 2, "source": "Tula, Salina Cruz/Cadereyta"},
+    "SOV": {"count": 3, "source": "Omsk, Kirishi, Ryazan/Yaroslavl"},
+    "PER": {"count": 2, "source": "Abadan, Bandar Abbas"},
+    "KUW": {"count": 2, "source": "Al-Zour, Mina Al-Ahmadi"},
+    "UAE": {"count": 2, "source": "Ruwais"},
+    "IRQ": {"count": 1, "source": "Basra / Karbala new"},
+    "NGA": {"count": 2, "source": "Dangote Lekki 2"},
+    "INS": {"count": 1, "source": "Cilacap / Balikpapan"},
+    "MAL": {"count": 1, "source": "Pengerang"},
+    "THA": {"count": 1, "source": "Map Ta Phut. Tag SIA."},
+    "TUR": {"count": 1, "source": "Izmit STAR / Tüpraş"},
+    "CAN": {"count": 1, "source": "Edmonton / Sarnia"},
+    "AST": {"count": 1, "source": "Geelong / Lytton remainder"},
+    "EGY": {"count": 1, "source": "Mostorod / MIDOR"},
+    "SAF": {"count": 1, "source": "Sapref / Secunda CTL counts as this building"}
+  }
+}

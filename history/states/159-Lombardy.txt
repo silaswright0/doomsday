@@ -14,7 +14,7 @@ state = {
 
 	history = {
 		owner = ITA
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 9
 		victory_points = { #Milano
 			3780 15 
 		}
@@ -25,29 +25,11 @@ state = {
 			renewable_park = 1
 
 			services_building = 2
-			infrastructure = 4
+			infrastructure = 5
 			arms_factory = 3
 			industrial_complex = 6
 			air_base = 10
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			finance_center = 1
 		
 		}
 		add_core_of = ITA

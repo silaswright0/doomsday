@@ -187,6 +187,9 @@ dd_refresh_interest = {
 		limit = { check_variable = { expense_interest < 0 } }
 		set_variable = { expense_interest = 0 }
 	}
+	# Compact debt UI shows the yearly coupon, not the stock.
+	set_variable = { dd_debt_year = expense_interest }
+	multiply_variable = { dd_debt_year = 12 }
 }
 
 dd_refresh_loan_preview = {
@@ -277,11 +280,16 @@ dd_refresh_debt_burden = {
 }
 
 # Ledger values are US$ billions. Copies in millions exist so UI can show M under 1B.
+# Never add a trillions (T) copy. Stay in M/B even past $1000B.
 dd_refresh_usd_display = {
 	set_variable = { dd_cash_m = treasury }
 	multiply_variable = { dd_cash_m = 1000 }
 	set_variable = { dd_debt_m = debt }
 	multiply_variable = { dd_debt_m = 1000 }
+	set_variable = { dd_debt_year = expense_interest }
+	multiply_variable = { dd_debt_year = 12 }
+	set_variable = { dd_debt_year_m = dd_debt_year }
+	multiply_variable = { dd_debt_year_m = 1000 }
 	set_variable = { dd_income_m = dd_last_income }
 	multiply_variable = { dd_income_m = 1000 }
 	set_variable = { dd_expense_m = dd_last_expense }

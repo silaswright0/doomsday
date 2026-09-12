@@ -14,7 +14,7 @@ state={
 
 	history={
 		owner = FRA
-		add_extra_state_shared_building_slots = 1
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			3552 20
 		}
@@ -25,10 +25,9 @@ state={
 			9495 1
 		}
 		buildings = {
-			services_building = 1
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 4
+			infrastructure = 3
 
 			air_base = 5
 			3552 = {
@@ -62,6 +61,9 @@ state={
 
 			dockyard = 1
 
+
+
+
 			6536 = {
 				naval_base = 4
 				coastal_bunker = 1
@@ -84,7 +86,13 @@ state={
 
 
 
+
+
+
 			
+
+
+
 
 
 
@@ -123,6 +131,12 @@ state={
 
 
 
+
+
+
+		
+		
+		
 		
 		
 		

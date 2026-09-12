@@ -1,4 +1,6 @@
 # Ledger store is US$ billions. Show millions when abs(value) < 1.
+# Never add a T (trillions) key. Stay in M/B even past $1000B.
+# Compact debt lines show yearly interest (3% a year, Japan 1%), not the stock.
 # Budget flow (revenue / expenses / net) stays ?? until the first monthly close.
 
 defined_text = {
@@ -19,13 +21,27 @@ defined_text = {
 	name = GetDdDebt
 	text = {
 		trigger = {
-			check_variable = { debt < 1 }
-			check_variable = { debt > -1 }
+			check_variable = { dd_debt_year < 1 }
+			check_variable = { dd_debt_year > -1 }
 		}
 		localization_key = DD_USD_DEBT_M
 	}
 	text = {
 		localization_key = DD_USD_DEBT_B
+	}
+}
+
+defined_text = {
+	name = GetDdDebtStock
+	text = {
+		trigger = {
+			check_variable = { debt < 1 }
+			check_variable = { debt > -1 }
+		}
+		localization_key = DD_USD_DEBT_STOCK_M
+	}
+	text = {
+		localization_key = DD_USD_DEBT_STOCK_B
 	}
 }
 

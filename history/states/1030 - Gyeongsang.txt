@@ -14,13 +14,13 @@ state = {
 	history = {
 
 		owner = KOR
-		add_extra_state_shared_building_slots = 26
+		add_extra_state_shared_building_slots = 28
 		add_core_of = KOR
 
 		buildings = {
 			arms_factory = 7
 			industrial_complex = 8
-			infrastructure = 5
+			infrastructure = 4
 			dockyard = 13
 			
 
@@ -39,6 +39,11 @@ state = {
 
 
 
+
+
+
+			synthetic_refinery = 2
+			fuel_silo = 1
 
 			4056 = {
 				naval_base = 4
@@ -60,9 +65,15 @@ state = {
 
 
 
+
+
+
 			renewable_park = 1
 			finance_center = 1
-			services_building = 2
+			services_building = 1
+		
+		
+		
 		
 		
 		

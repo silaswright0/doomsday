@@ -13,15 +13,15 @@ state={
 
 	history={
 		owner = ENG
-		add_extra_state_shared_building_slots = 2
+		add_extra_state_shared_building_slots = 5
 		victory_points = {
 			6103 50 
 		}
 		buildings = {
 			rocket_site = 2
 			renewable_park = 1
-			finance_center = 2
-			services_building = 2
+			finance_center = 3
+			services_building = 3
 			infrastructure = 5
 			arms_factory = 0
 			industrial_complex = 3
@@ -47,26 +47,7 @@ state={
 			        level = 1
 			    }
 			}
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			energy_infrastructure = 1
 		
 		}
 		add_core_of = ENG

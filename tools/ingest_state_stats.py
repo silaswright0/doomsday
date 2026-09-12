@@ -30,6 +30,8 @@ WB_INDICATORS = {
     "SP.POP.TOTL": "pop_wb",
     "MS.MIL.XPND.CD": "milex_usd",
     "LP.LPI.INFR.XQ": "lpi_infra",
+    "NV.SRV.TOTL.CD": "services_usd",
+    "NV.SRV.TOTL.ZS": "services_pct_gdp",
 }
 
 

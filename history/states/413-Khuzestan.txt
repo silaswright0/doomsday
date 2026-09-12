@@ -17,11 +17,11 @@ state={
 
 	history={
 		owner = PER
-		add_extra_state_shared_building_slots = 0
+		add_extra_state_shared_building_slots = 1
 		buildings = {
 			arms_factory = 2
 			industrial_complex = 1
-			infrastructure = 1
+			infrastructure = 5
 			
 
 
@@ -39,6 +39,11 @@ state={
 
 
 
+
+
+
+			synthetic_refinery = 1
+			fuel_silo = 1
 
 			5005 = {
 				naval_base = 1
@@ -60,7 +65,13 @@ state={
 
 
 
-			services_building = 1
+
+
+
+
+		
+		
+		
 		
 		
 		

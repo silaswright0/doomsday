@@ -34,9 +34,17 @@ Country totals are control totals; subnational rows only allocate.
 | Clarksons Research shipbuilding summaries | Clarksons | 2024–2025 | Underlying order-book / capacity series UNCTAD publishes | https://www.clarksons.com/home/news-and-insights/ |
 | Janes Fighting Ships / IISS Military Balance | Janes; IISS | 2024–2026 programs | Naval construction campuses in `dib_docks.json` | https://www.iiss.org/publications/the-military-balance/ |
 | NavBase / Phoenix_jz aggregate displacement | theworldwars.net; Phoenix_jz 1 Jan 2025 | 2025 | Fleet-tonnage cross-check (why USA ≠ 0). Not a dock formula | http://www.theworldwars.net/navbase/ |
-| LPI 2023 infrastructure component (`LP.LPI.INFR.XQ`) | World Bank | 2023 | Infrastructure 1–5 | https://lpi.worldbank.org/ |
-| Renewable Capacity Statistics 2026 | IRENA | end-2025 | `renewable_park` (1 park / 20 GW) | https://www.irena.org/Publications |
-| Energy Institute Statistical Review of World Energy | Energy Institute | 2025 | Oil, coal, electricity context | https://www.energyinst.org/statistical-review |
+| LPI 2023 infrastructure component (`LP.LPI.INFR.XQ`) | World Bank | 2023 report (API year 2022) | Retired as a live path. Country stamp made Corsica = Île-de-France | https://lpi.worldbank.org/ |
+| GLocal GID-1 area-weighted VIIRS (`viirs`, 2021) | Morales-Arilla & Gadgin Matha, Harvard Dataverse | GLocal v3, year 2021 (2022–23 empty) | State infrastructure 1–5. Names via FAO GADM 3.6. Frozen `admin1_ntl.json` | https://doi.org/10.7910/DVN/6TUCTE |
+| eoatlas / geoBoundaries ADM1 night lights | eoatlas | 2012–2024 monthly | Alternate ingest; per-unit CSVs, not used live | https://github.com/eoatlas/nightlight |
+| GRIP / OSM road length in GLocal | GRIP + OSM | 2018 only, incomplete | Infra cross-check, not live (coverage holes) | GLocal `road_length_*` |
+| Services value added, current US$ (`NV.SRV.TOTL.CD`) | World Bank WDI | latest | `services_building` country control (1 per $250B; floor $20B) | https://data.worldbank.org/indicator/NV.SRV.TOTL.CD |
+| Global Financial Centres Index 38 | Z/Yen and CDI | 25 Sep 2025 | `finance_center` campuses (`dib_finance.json`) | https://www.longfinance.net/programmes/financial-centre-futures/global-financial-centres-index/ |
+| OGJ Worldwide Refining Survey / EIA-820 | Oil & Gas Journal; EIA | latest CDU | `synthetic_refinery` as crude/CTL campuses (`dib_refineries.json`) | https://www.eia.gov/petroleum/refinerycapacity/ |
+| US SPR sites; IEA 90-day stocks; CNPR / JOGMEC / KNOC / ISPRL | DOE; IEA; national SPR agencies | 2024–2026 | `fuel_silo` cavern/tank-farm campuses (`dib_fuel_silos.json`) | https://www.energy.gov/ceser/strategic-petroleum-reserve |
+| ISO/RTO / ENTSO-E / State Grid regional cores | FERC; ENTSO-E; national TSOs | 2026 footprints | `energy_infrastructure` keystone hubs (`dib_grid.json`), 1/state | https://www.entsoe.eu/ |
+| Renewable Capacity Statistics 2026 | IRENA | end-2025 | `renewable_park` (1 park / 20 GW). Hydro included; nuclear excluded | https://www.irena.org/Publications |
+| Energy Institute Statistical Review of World Energy | Energy Institute | 2025 | `oil` and `coal` resource nodes only. Not energy buildings | https://www.energyinst.org/statistical-review |
 
 ## Resources
 
@@ -53,7 +61,14 @@ Country totals are control totals; subnational rows only allocate.
 - Military factories: DIB table in `dib_mils.json`. 1 mil = one serial campus or workshop minimum; mega-campuses 2–4. Same campus rule for every tag (USA 45, China 36, Russia 26, world ~419). Hulls are dockyards. Services firms omitted. No wartime×2.5. No vs-USA cap. SIPRI Top 100 2024 is a scale cross-check; PLA/Rostec plants are counted directly.
 - 1 dockyard = 2 million dwt merchant output (Statbase 2025; only if ≥0.8M dwt) plus Janes/IISS naval campuses. Philippines merchant leftover is not a dock. Hulls are dockyards, not mils.
 - 1 `renewable_park` per 20 GW IRENA renewable nameplate (hydro included; nuclear excluded)
-- LPI infrastructure: <2.5→1, <3.0→2, <3.5→3, <4.0→4, else 5, then ±1 intra-country
+- State infrastructure: GLocal 2021 area-weighted VIIRS mean radiance (nW/cm²/sr). Breaks 0.08 / 0.35 / 1.20 / 4.00 → HOI4 1–5. No country LPI offset. Unmatched states use category fallback. Impassable capped at 2.
+- 1 `finance_center` = one GFCI 38 centre in that HOI4 state (ranks 1–4 → 3, 5–10 → 2, 11–40 → 1)
+- 1 `services_building` per $250 billion services value added (`NV.SRV.TOTL.CD`; else GDP − industry − agriculture). Floor $20B → 1. Allocated to urban states by population.
+- 1 `synthetic_refinery` ≈ 400 kb/d CDU (min ~350; mega 2–3; `state_max` 3)
+- 1 `fuel_silo` = one SPR cavern or export tank-farm campus
+- 1 `energy_infrastructure` = one ISO/TSO / national-grid core (`state_max` 1; exclusive with `industrial_infrastructure`)
 - Resource units are HOI4 nodes, not tonnes: see constants in `allocate_state_stats.py`
 
 `renewable_park` already grants `local_resources_coal = 1` per level. Fossil `coal` resources are mines/thermal supply only.
+
+Energy buildings on the map: `renewable_park` (IRENA), `energy_infrastructure` (TSO hubs in `dib_grid.json`). Not placed: `industrial_infrastructure` (exclusive keystone; mining-state rule not used), `nuclear_reactor` (IAEA PRIS would be the campus table), dams (leftover vanilla, not ICOLD). Do not treat Energy Institute TWh as if it placed those.

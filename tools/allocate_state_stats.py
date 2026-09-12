@@ -21,44 +21,58 @@ from state_stats_geo import (  # noqa: E402
     COBALT_KEYWORDS,
     COPPER_KEYWORDS,
     DOCK_KEYWORDS,
+    FINANCE_KEYWORDS,
     GRAPHITE_KEYWORDS,
+    GRID_KEYWORDS,
     LITHIUM_KEYWORDS,
     MIL_KEYWORDS,
     OIL_KEYWORDS,
     REE_KEYWORDS,
+    REFINERY_KEYWORDS,
     RENEW_KEYWORDS,
     RUBBER_KEYWORDS,
+    SILO_KEYWORDS,
     STEEL_KEYWORDS,
     TAG_META,
     TUNGSTEN_KEYWORDS,
     WPP_GROUPS,
     keyword_bonus,
     load_state_loc_names,
+    ntl_mean_for,
     official_region,
     official_weight,
 )
 from state_stats_lib import (  # noqa: E402
     COUNTRIES_CSV,
     DATA,
+    DIB_FINANCE_PATH,
+    DIB_GRID_PATH,
+    DIB_REFINERIES_PATH,
+    DIB_SILOS_PATH,
     GAZETTEER_CSV,
     ROOT,
     STATES_CSV,
+    SERVICE_CATS,
     category_from_pop,
+    category_infra,
     cap_distribute,
     distribute,
     docks_from_sources,
-    extra_buildings_for,
     extra_slots,
     factories_from_goods,
     goods_va_b,
     GOODS_SHARE_FALLBACK,
     group_by_owner,
-    lpi_to_infra,
+    load_admin1_ntl,
     load_all_states,
+    load_campus_counts,
     load_countries,
     load_merchant_dwt,
     mils_from_dib,
+    ntl_to_infra,
     parks_from_gw,
+    services_from_va,
+    services_va_b,
     write_csv,
     DENSITY_BY_CAT,
 )
@@ -189,9 +203,9 @@ def main() -> None:
             mva = wb_value(wb, iso3, "mva_usd")
             gdp = wb_value(wb, iso3, "gdp_usd")
             milex = wb_value(wb, iso3, "milex_usd")
-            lpi = wb_value(wb, iso3, "lpi_infra")
             ind = wb_value(wb, iso3, "industry_usd")
             agr = wb_value(wb, iso3, "agriculture_usd")
+            srv = wb_value(wb, iso3, "services_usd")
             if mva is not None and mva > 0:
                 row["mva_b"] = f"{mva / 1e9:.3f}"
             if gdp is not None:
@@ -209,10 +223,14 @@ def main() -> None:
                 agr_pct = wb_value(wb, iso3, "agriculture_pct_gdp")
                 if agr_pct is not None and agr_pct > 0 and gdp_b:
                     row["agr_b"] = f"{gdp_b * agr_pct / 100.0:.3f}"
+            if srv is not None and srv > 0:
+                row["srv_b"] = f"{srv / 1e9:.3f}"
+            else:
+                srv_pct = wb_value(wb, iso3, "services_pct_gdp")
+                if srv_pct is not None and srv_pct > 0 and gdp_b:
+                    row["srv_b"] = f"{gdp_b * srv_pct / 100.0:.3f}"
             if milex is not None:
                 row["sipri_b"] = f"{milex / 1e9:.2f}"
-            if lpi is not None:
-                row["infra"] = str(lpi_to_infra(lpi))
         gdp_b = float(row.get("gdp_b") or 0)
         shares = GOODS_SHARE_FALLBACK.get(tag)
         if shares and gdp_b:
@@ -235,12 +253,14 @@ def main() -> None:
     fieldnames = list(next(iter(countries.values())).keys()) if countries else []
     if "mva_b" in fieldnames:
         idx = fieldnames.index("mva_b") + 1
-        for extra in ("ind_b", "agr_b"):
+        for extra in ("ind_b", "agr_b", "srv_b"):
             if extra not in fieldnames:
                 fieldnames.insert(idx, extra)
                 idx += 1
     elif "ind_b" not in fieldnames:
-        fieldnames.extend(["ind_b", "agr_b"])
+        fieldnames.extend(["ind_b", "agr_b", "srv_b"])
+    if "srv_b" not in fieldnames:
+        fieldnames.append("srv_b")
     if "renewable_gw" not in fieldnames:
         fieldnames.append("renewable_gw")
     with COUNTRIES_CSV.open("w", encoding="utf-8", newline="") as f:
@@ -259,6 +279,12 @@ def main() -> None:
         cap = str(row.get("capital") or "").strip()
         if cap.isdigit():
             capitals[tag] = int(cap)
+
+    finance_campus = load_campus_counts(DIB_FINANCE_PATH)
+    refinery_campus = load_campus_counts(DIB_REFINERIES_PATH)
+    silo_campus = load_campus_counts(DIB_SILOS_PATH)
+    grid_campus = load_campus_counts(DIB_GRID_PATH)
+    ntl_by_iso3 = load_admin1_ntl().get("by_iso3") or {}
 
     mineral_country = {
         "oil": ei.get("oil_mbpd") or {},
@@ -282,8 +308,12 @@ def main() -> None:
         civs_total = factories_from_goods(goods_va_b(ind, agr, mva))
         mils_total = mils_from_dib(tag)
         docks_total = int(float(row.get("docks") or 0))
-        infra_base = max(1, min(5, int(float(row.get("infra") or 2))))
         parks_total = parks_from_gw(float(row.get("renewable_gw") or 0))
+        finance_total = finance_campus.get(tag, 0)
+        refinery_total = refinery_campus.get(tag, 0)
+        silo_total = silo_campus.get(tag, 0)
+        grid_total = grid_campus.get(tag, 0)
+        srv_total = services_from_va(services_va_b(gdp, ind, agr, float(row.get("srv_b") or 0)))
         capital_id = capitals.get(tag)
 
         pop_w = []
@@ -337,6 +367,20 @@ def main() -> None:
                 dock_w.append(0.0)
             park_w.append(0.05 * weight + 80.0 * park_bonus)
 
+        def campus_weights(table: dict) -> list[float]:
+            weights = [
+                max(0.0, keyword_bonus(tag, s["loc_pretty"], s["pretty"], table))
+                for s in owned
+            ]
+            if sum(weights) <= 0:
+                weights = [1.0 if s["id"] == capital_id else 0.0 for s in owned]
+            return weights
+
+        finance_w = campus_weights(FINANCE_KEYWORDS)
+        refinery_w = campus_weights(REFINERY_KEYWORDS)
+        silo_w = campus_weights(SILO_KEYWORDS)
+        grid_w = campus_weights(GRID_KEYWORDS)
+
         if len(owned) == 1 and sources[0] == "map-area*density":
             pop_w[0] = float(target_pop)
             sources[0] = "country-wpp2026"
@@ -357,6 +401,10 @@ def main() -> None:
         mil_d = cap_distribute(mils_total, mil_w, 40)
         dock_d = cap_distribute(docks_total, dock_w, 40)
         park_d = cap_distribute(parks_total, park_w, 10)
+        finance_d = cap_distribute(finance_total, finance_w, 20)
+        refinery_d = cap_distribute(refinery_total, refinery_w, 3)
+        silo_d = cap_distribute(silo_total, silo_w, 3)
+        grid_d = cap_distribute(grid_total, grid_w, 1)
 
         # Country resource totals
         meta = TAG_META.get(tag, {})
@@ -380,23 +428,43 @@ def main() -> None:
                 weights = pop_w
             res_alloc[key] = distribute(total, weights)
 
+        cats = [
+            category_from_pop(pops[i], owned[i]["category"], owned[i]["impassable"])
+            for i in range(len(owned))
+        ]
+        srv_w = []
+        for i, s in enumerate(owned):
+            if cats[i] in SERVICE_CATS or s["id"] == capital_id:
+                srv_w.append(float(pops[i]))
+            else:
+                srv_w.append(0.0)
+        if sum(srv_w) <= 0:
+            srv_w = [float(p) for p in pops]
+        srv_d = cap_distribute(srv_total, srv_w, 20)
+
         for i, s in enumerate(owned):
             pop = pops[i]
-            cat = category_from_pop(pop, s["category"], s["impassable"])
+            cat = cats[i]
             is_cap = s["id"] == capital_id
             civs = civ_d[i]
             mils = mil_d[i]
             docks = dock_d[i]
             parks = park_d[i]
-            extras = extra_buildings_for(gdp, is_cap, cat, civs)
-            extras["renewable_park"] = parks
-            infra = infra_base
-            if is_cap or cat in {"megalopolis", "metropolis"}:
-                infra = min(5, infra + 1)
-            if cat in {"wasteland", "pastoral"} and not is_cap:
-                infra = max(1, infra - 1)
-            if s["impassable"]:
-                infra = max(1, min(infra, 2))
+            extras = {
+                "finance_center": finance_d[i],
+                "services_building": srv_d[i],
+                "renewable_park": parks,
+                "synthetic_refinery": refinery_d[i],
+                "fuel_silo": silo_d[i],
+                "energy_infrastructure": grid_d[i],
+            }
+            ntl = ntl_mean_for(tag, s["loc_pretty"], s["pretty"], ntl_by_iso3)
+            if ntl is None:
+                infra = category_infra(cat, is_cap, s["impassable"])
+            else:
+                infra = ntl_to_infra(ntl)
+                if s["impassable"]:
+                    infra = min(infra, 2)
             slots = extra_slots(cat, civs, mils, docks, extras)
             rec = {
                 "state_id": s["id"],
@@ -408,8 +476,11 @@ def main() -> None:
                 "mils": mils,
                 "docks": docks,
                 "infra": infra,
-                "finance": extras.get("finance_center", 0),
-                "services": extras.get("services_building", 0),
+                "finance": extras["finance_center"],
+                "services": extras["services_building"],
+                "refinery": extras["synthetic_refinery"],
+                "fuel_silo": extras["fuel_silo"],
+                "energy_grid": extras["energy_infrastructure"],
                 "renewable": parks,
                 "extra_slots": slots,
                 "category": cat,
@@ -449,7 +520,8 @@ def main() -> None:
         plan_rows,
         [
             "state_id", "file", "owner_2026", "loc_name", "manpower", "civs", "mils", "docks",
-            "infra", "finance", "services", "renewable", "extra_slots", "category", "pop_source",
+            "infra", "finance", "services", "refinery", "fuel_silo", "energy_grid", "renewable",
+            "extra_slots", "category", "pop_source",
             "oil", "coal", "steel", "aluminium", "tungsten", "chromium", "copper", "graphite",
             "lithium", "cobalt", "rare_earths", "rubber",
         ],
@@ -464,15 +536,23 @@ def main() -> None:
     world_mils = sum(r["mils"] for r in plan_rows)
     world_docks = sum(r["docks"] for r in plan_rows)
     world_parks = sum(r["renewable"] for r in plan_rows)
+    world_fin = sum(r["finance"] for r in plan_rows)
+    world_srv = sum(r["services"] for r in plan_rows)
+    world_ref = sum(r["refinery"] for r in plan_rows)
+    world_silo = sum(r["fuel_silo"] for r in plan_rows)
+    world_grid = sum(r["energy_grid"] for r in plan_rows)
     print("states", len(plan_rows), "country_rows_refreshed", refreshed)
     print("world manpower", world_pop, "civs", world_civs, "mils", world_mils, "docks", world_docks, "parks", world_parks)
-    for sid in (378, 375, 126, 613, 1030, 358, 261):
+    print("world finance", world_fin, "services", world_srv, "refinery", world_ref, "silos", world_silo, "grid", world_grid)
+    for sid in (1, 16, 378, 375, 126, 613, 1030, 358, 261):
         rec = next((r for r in plan_rows if r["state_id"] == sid), None)
         if rec:
             print(
                 f"  {sid} {rec['loc_name']}: pop={rec['manpower']} civs={rec['civs']} "
                 f"mils={rec['mils']} docks={rec['docks']} parks={rec['renewable']} "
-                f"infra={rec['infra']} src={rec['pop_source']}"
+                f"infra={rec['infra']} fin={rec['finance']} srv={rec['services']} "
+                f"ref={rec['refinery']} silo={rec['fuel_silo']} grid={rec['energy_grid']} "
+                f"src={rec['pop_source']}"
             )
 
 

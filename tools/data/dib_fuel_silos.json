@@ -1,0 +1,31 @@
+{
+  "note": "Fuel silos are strategic petroleum reserve / large tank-farm campuses, not every filling station. IEA 90-day stocks and national SPR site lists. 1 silo = one cavern or tank-farm complex. Mega SPR 2.",
+  "sources": [
+    "US DOE Strategic Petroleum Reserve sites: Bryan Mound, Big Hill (Texas), West Hackberry, Bayou Choctaw (Louisiana)",
+    "IEA Emergency Oil Stocks (member 90-day obligation) — country presence, placed on known storage sites",
+    "China National Petroleum Reserve aboveground bases: Zhoushan, Tianjin, Dalian, Huangdao, Zhenhai, Zhanjiang, Jinzhou",
+    "Japan JOGMEC national oil stockpiling bases; Korea KNOC; India ISPRL (Mangalore, Visakhapatnam, Padur)"
+  ],
+  "tags": {
+    "USA": {"count": 4, "source": "Bryan Mound 1, Big Hill 1, West Hackberry 1, Bayou Choctaw 1"},
+    "CHI": {"count": 7, "source": "Zhoushan 2, Tianjin 1, Dalian 1, Huangdao 1, Zhenhai 1, Zhanjiang 1"},
+    "JAP": {"count": 3, "source": "Tomakomai, Kuji/Kanto, Shirashima/Kansai"},
+    "KOR": {"count": 2, "source": "Ulsan, Pyeongtaek"},
+    "RAJ": {"count": 2, "source": "Mangalore, Visakhapatnam/Padur"},
+    "GER": {"count": 1, "source": "North German caverns"},
+    "FRA": {"count": 1, "source": "Manosque"},
+    "ENG": {"count": 1, "source": "UK compulsory stocks / Hamble-adjacent"},
+    "HOL": {"count": 1, "source": "Rotterdam tank farms"},
+    "SPR": {"count": 1, "source": "CORES"},
+    "ITA": {"count": 1, "source": "Italian OCSIT"},
+    "SNG": {"count": 1, "source": "Jurong Island tanks"},
+    "SAU": {"count": 2, "source": "Ras Tanura / Yanbu export tanks"},
+    "UAE": {"count": 1, "source": "Fujairah / Ruwais tanks"},
+    "CAN": {"count": 1, "source": "Sarnia / Edmonton"},
+    "AST": {"count": 1, "source": "Clyde / Geelong stocks"},
+    "BRA": {"count": 1, "source": "São Paulo / Rio tanks"},
+    "SOV": {"count": 2, "source": "Gosrezerv western + far-east"},
+    "PER": {"count": 1, "source": "Kharg / Khuzestan"},
+    "KUW": {"count": 1, "source": "Mina Al-Ahmadi tanks"}
+  }
+}

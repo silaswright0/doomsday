@@ -14,11 +14,11 @@ state = {
 	
 	history = {
 		owner = ICE
-		add_extra_state_shared_building_slots = 1
+		add_extra_state_shared_building_slots = 2
 		victory_points = { 12674 1 }
 		buildings = {
 			arms_factory = 0
-			infrastructure = 5
+			infrastructure = 3
 			
 
 
@@ -36,6 +36,10 @@ state = {
 
 
 
+
+
+
+			services_building = 1
 
 			12674 = {
 				naval_base = 1
@@ -58,7 +62,13 @@ state = {
 
 
 
+
+
+
 			industrial_complex = 1
+		
+		
+		
 		
 		
 		

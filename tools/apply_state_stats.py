@@ -2,8 +2,8 @@
 """Patch history/states in place from tools/doomsday_states.csv.
 
 Updates manpower, category, extra slots, state-level factories/infra/parks/
-finance/services, and resources. Leaves owners, cores, VPs, air bases,
-rocket sites, and province buildings untouched.
+finance/services/refineries/silos/grid, and resources. Leaves owners, cores,
+VPs, air bases, rocket sites, and province buildings untouched.
 """
 from __future__ import annotations
 
@@ -41,6 +41,9 @@ STATE_BUILDINGS = (
     "renewable_park",
     "finance_center",
     "services_building",
+    "synthetic_refinery",
+    "fuel_silo",
+    "energy_infrastructure",
 )
 NESTED_RE = re.compile(r"[ \t]*\d+\s*=\s*\{(?:[^{}]|\{[^{}]*\})*\}", re.S)
 
@@ -69,7 +72,15 @@ def split_buildings_inner(inner: str) -> tuple[str, list[str]]:
 
 def set_state_key(stripped: str, key: str, value: int) -> str:
     pattern = re.compile(rf"^([ \t]*){key}\s*=\s*\d+[^\n]*$", re.M)
-    if value <= 0 and key in {"dockyard", "renewable_park", "finance_center", "services_building"}:
+    if value <= 0 and key in {
+        "dockyard",
+        "renewable_park",
+        "finance_center",
+        "services_building",
+        "synthetic_refinery",
+        "fuel_silo",
+        "energy_infrastructure",
+    }:
         if pattern.search(stripped):
             stripped = pattern.sub("", stripped)
         return stripped
@@ -138,6 +149,9 @@ def patch_file(path: Path, row: dict) -> bool:
             "renewable_park": int(float(row.get("renewable") or 0)),
             "finance_center": int(float(row.get("finance") or 0)),
             "services_building": int(float(row.get("services") or 0)),
+            "synthetic_refinery": int(float(row.get("refinery") or 0)),
+            "fuel_silo": int(float(row.get("fuel_silo") or 0)),
+            "energy_infrastructure": int(float(row.get("energy_grid") or 0)),
         }
         for key in STATE_BUILDINGS:
             stripped = set_state_key(stripped, key, values[key])

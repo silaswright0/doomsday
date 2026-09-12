@@ -16,11 +16,11 @@ state={
 
 	history={
 		owner = BRA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 7
 		add_core_of = BRA
 		buildings = {
 			renewable_park = 3
-			services_building = 2
+			services_building = 1
 			arms_factory = 3
 			industrial_complex = 6
 			infrastructure = 4
@@ -42,6 +42,12 @@ state={
 
 
 
+
+
+			synthetic_refinery = 1
+			fuel_silo = 1
+			energy_infrastructure = 1
+
 			5112 = {
 				naval_base = 4
 			}
@@ -62,7 +68,13 @@ state={
 
 
 
+
+
+
 			finance_center = 1
+		
+		
+		
 		
 		
 		

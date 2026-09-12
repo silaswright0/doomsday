@@ -5,7 +5,7 @@ Sources (full citations: tools/data/SOURCES.md):
 - Military factories: hand-mapped defense industrial base (`tools/data/dib_mils.json`), not SIPRI military expenditure. Only tags that own 2026 territory.
 - Population: UN World Population Prospects 2024 medium variant, 1 July 2026
 - Dockyards: Statbase 2025 merchant DWT (UNCTAD/Clarksons) plus Janes/IISS naval construction campuses. NavBase fleet tonnage is a cross-check, not the count.
-- Infrastructure: World Bank LPI 2023 "Quality of trade and transport infrastructure" (1-5)
+- Infrastructure: GLocal GID-1 area-weighted VIIRS 2021 (`viirs`). Not World Bank LPI. Breaks 0.08/0.35/1.20/4.00.
 - Renewable parks: IRENA Renewable Capacity Statistics (wind+solar+hydro+geo+bio, not nuclear)
 - Steel/minerals: World Steel Association + USGS Mineral Commodity Summaries
 - Energy/oil/coal: Energy Institute Statistical Review of World Energy
@@ -19,7 +19,12 @@ Formulas (edit these, then rerun allocate_state_stats.py then apply_state_stats.
   INF_IC = 2.5–4.0                   # 2026 soldier kit (was 0.43–0.69)
   GW_PER_RENEWABLE_PARK = 20        # 1 renewable_park per 20 GW nameplate
   DIB_DOCKS = tools/data/dib_docks.json  # merchant DWT (1 dock / 2M dwt, min 0.8M) + naval campuses; no leftover CSV
-  LPI_BREAKS = 2.5, 3.0, 3.5, 4.0   # LPI infrastructure component -> HOI4 1-5
+  NTL_BREAKS = 0.08, 0.35, 1.20, 4.00  # GLocal area-weighted VIIRS nW/cm2/sr -> HOI4 1-5
+  SRV_PER_B = 250  # 1 services_building per $250B services VA
+  DIB_FINANCE = tools/data/dib_finance.json  # GFCI 38 campuses
+  DIB_REFINERIES = tools/data/dib_refineries.json  # ~400 kb/d CDU
+  DIB_SILOS = tools/data/dib_fuel_silos.json  # SPR / tank-farm campuses
+  DIB_GRID = tools/data/dib_grid.json  # ISO/TSO hubs, 1 per state
 
 Worked examples (see doomsday_countries.csv after ingest):
   China industry+agri ~8248 → ~236 civs

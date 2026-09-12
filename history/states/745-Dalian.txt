@@ -6,7 +6,7 @@ state = {
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 7
 		add_core_of = CHI
 		add_core_of = MAN
 		add_core_of = PRC
@@ -17,7 +17,7 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 4
+			infrastructure = 3
 			air_base = 1
 			industrial_complex = 0
 			fuel_silo = 1
@@ -38,6 +38,10 @@ state = {
 
 
 
+
+
+
+			synthetic_refinery = 1
 
 			1150 = {
 				naval_base = 5
@@ -60,7 +64,13 @@ state = {
 
 
 
+
+
+
 			dockyard = 3
+		
+		
+		
 		
 		
 		

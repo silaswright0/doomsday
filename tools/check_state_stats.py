@@ -25,8 +25,10 @@ def main() -> int:
             infra = int(row["infra"])
             if infra < 1 or infra > 5:
                 errors.append(f"state {sid} infra {infra} not in 1-5")
-            for key, cap in (("civs", 40), ("mils", 40), ("docks", 40), ("renewable", 10)):
-                val = int(row[key])
+            for key, cap in (("civs", 40), ("mils", 40), ("docks", 40), ("renewable", 10),
+                             ("finance", 20), ("services", 20), ("refinery", 3),
+                             ("fuel_silo", 3), ("energy_grid", 1)):
+                val = int(row.get(key) or 0)
                 if val < 0 or val > cap:
                     errors.append(f"state {sid} {key}={val} exceeds cap {cap}")
             if int(row["extra_slots"]) > 50:
@@ -78,6 +80,28 @@ def main() -> int:
     shanghai = by_id.get("613")
     if shanghai:
         print(f"spot 613 {shanghai['loc_name']} pop={shanghai['manpower']} parks={shanghai['renewable']}")
+
+    corsica = by_id.get("1")
+    idf = by_id.get("16")
+    if corsica and idf:
+        print(f"spot 1 {corsica['loc_name']} infra={corsica['infra']} srv={corsica.get('services')}")
+        print(f"spot 16 {idf['loc_name']} infra={idf['infra']} fin={idf.get('finance')} srv={idf.get('services')}")
+        if int(corsica["infra"]) >= int(idf["infra"]):
+            errors.append(
+                f"Corsica infra {corsica['infra']} should be below Ile-de-France {idf['infra']}"
+            )
+    nyc = by_id.get("358")
+    if nyc and int(nyc.get("finance") or 0) < 2:
+        errors.append(f"New York finance {nyc.get('finance')} expected GFCI mega-centre")
+    london = by_id.get("126")
+    if london and int(london.get("finance") or 0) < 2:
+        errors.append(f"London finance {london.get('finance')} expected GFCI mega-centre")
+    sng = by_id.get("1021")
+    if sng and int(sng["infra"]) < 5:
+        errors.append(f"Singapore infra {sng['infra']} expected city-state lights 5")
+    hk = by_id.get("326")
+    if hk and int(hk["infra"]) < 5:
+        errors.append(f"Hong Kong infra {hk['infra']} expected HKG district lights 5")
 
     if errors:
         print("FAIL", len(errors))

@@ -524,6 +524,31 @@ ALIASES = {
     "stalingradarea": "volgograd",
     "moscowarea": "moscow",
     "iledefrance": "iledefrance",
+    "corsica": "corse",
+    "greaterlondonarea": "greaterlondon",
+}
+
+# HOI4 states that span several GADM-1 units. Lookup takes the max VIIRS mean.
+NTL_NAME_ALIASES = {
+    "swissplateau": ["zurich", "bern", "aargau", "luzern", "zug", "geneve", "geneva", "basel"],
+    "newengland": ["massachusetts", "connecticut", "rhodeisland"],
+    "greaterlondonarea": ["greaterlondon", "london"],
+    "southkorea": ["seoul", "gyeonggi"],
+    "gyeonggi": ["seoul", "gyeonggi"],
+    "kanto": ["tokyo", "kanagawa", "saitama", "chiba"],
+    "kansai": ["osaka", "kyoto", "hyogo"],
+    "osaka": ["osaka", "kyoto", "hyogo"],
+    "southernontario": ["ontario"],
+    "leinster": ["dublin"],
+    "sjaelland": ["hovedstaden", "capitalregion", "sjaelland", "zealand"],
+    "loweraustria": ["wien", "vienna", "niederosterreich"],
+    "flanders": ["brussels", "bruxelles", "vlaanderen"],
+    "sodermanland": ["stockholm"],
+    "akmolinsk": ["astana", "akmola", "nur-sultan"],
+    "easthebei": ["tianjin"],
+    "hebei": ["tianjin"],
+    "sussex": ["hampshire", "southampton", "south east"],
+    "southeastengland": ["hampshire", "southampton"],
 }
 
 
@@ -844,6 +869,71 @@ def official_region(owner: str, loc_name: str, pretty: str) -> tuple[str | None,
 def official_weight(owner: str, loc_name: str, pretty: str) -> float:
     _key, pop = official_region(owner, loc_name, pretty)
     return pop
+
+
+def ntl_lookup_keys(owner: str, loc_name: str, pretty: str) -> list[str]:
+    keys = [norm_name(loc_name), norm_name(pretty)]
+    extra: list[str] = []
+    for k in list(keys):
+        if k in ALIASES:
+            extra.append(ALIASES[k])
+        extra.extend(NTL_NAME_ALIASES.get(k) or [])
+    region, _pop = official_region(owner, loc_name, pretty)
+    if region:
+        tail = region.split(":")[-1]
+        extra.append(norm_name(tail))
+    out: list[str] = []
+    seen: set[str] = set()
+    for k in keys + extra:
+        if k and k not in seen:
+            seen.add(k)
+            out.append(k)
+    return out
+
+
+# GADM puts some HOI4 tags' land under a different ISO3 (HK as HKG, not CHN).
+NTL_KEY_ISO3 = {
+    "hongkong": "HKG",
+    "macau": "MAC",
+    "macao": "MAC",
+}
+# These ISO3 units are city-states / small islands whose GADM-1 rows are districts.
+NTL_COUNTRY_MAX = frozenset({"SGP", "HKG", "MAC", "MLT", "BHR", "QAT", "MDV", "BRN", "BHS"})
+
+
+def ntl_mean_for(owner: str, loc_name: str, pretty: str, by_iso3: dict) -> float | None:
+    iso3 = (TAG_META.get(owner) or {}).get("iso3") or ""
+    keys = ntl_lookup_keys(owner, loc_name, pretty)
+    tables = []
+    if iso3:
+        tables.append(by_iso3.get(iso3) or {})
+    for k in keys:
+        extra = NTL_KEY_ISO3.get(k)
+        if extra:
+            tables.append(by_iso3.get(extra) or {})
+    hits: list[float] = []
+    for table in tables:
+        hits.extend(table[k] for k in keys if k in table)
+    if hits:
+        return max(hits)
+    for table in tables:
+        for k in keys:
+            if len(k) < 6:
+                continue
+            matched = [v for name, v in table.items() if k in name or name in k]
+            if len(matched) == 1:
+                return matched[0]
+    if iso3 in NTL_COUNTRY_MAX:
+        table = by_iso3.get(iso3) or {}
+        if table:
+            return max(table.values())
+    for k in keys:
+        extra = NTL_KEY_ISO3.get(k)
+        if extra and extra in NTL_COUNTRY_MAX:
+            table = by_iso3.get(extra) or {}
+            if table:
+                return max(table.values())
+    return None
 
 
 # Keyword bonuses added to allocation weights. Numbers are relative, not buildings.
@@ -1201,6 +1291,162 @@ RUBBER_KEYWORDS = {
     "PHI": {"mindanao": 2},
     "BRA": {"amazonas": 3, "acre": 2, "para": 2},
     "LIB": {"liberia": 4},
+}
+
+
+FINANCE_KEYWORDS = {
+    "USA": {
+        "newyork": 12, "california": 10, "illinois": 6, "maryland": 5,
+        "newengland": 4, "florida": 2, "washington": -12, "westvirginia": -8,
+    },
+    "CHI": {
+        "hongkong": 12, "shanghai": 10, "guangdong": 8, "beijing": 6, "beiping": 6,
+        "guangzhou": 5, "chengdu": 4, "qingdao": 3,
+    },
+    "ENG": {"greaterlondon": 12, "lothian": 4, "lanark": 3, "strathclyde": 3},
+    "SNG": {"singapore": 10},
+    "JAP": {"kanto": 10, "osaka": 6, "kansai": 6},
+    "KOR": {"gyeonggi": 10, "southkorea": 8, "gyeongsang": 4},
+    "GER": {"hessen": 10, "nassau": 10},
+    "SWI": {"swissplateau": 10},
+    "FRA": {"iledefrance": 10, "bretagne": -4, "brittany": -4, "corsica": -8, "corse": -8},
+    "UAE": {"abudhabi": 10},
+    "CAN": {"southernontario": 8, "quebec": 4, "britishcolumbia": 4, "nordduquebec": -8},
+    "AST": {"newsouthwales": 8, "victoria": 6},
+    "RAJ": {"bombay": 8, "gujarat": 6, "westernindian": 6, "delhi": 2},
+    "HOL": {"holland": 10},
+    "IRE": {"leinster": 10, "ireland": 4},
+    "LUX": {"luxembourg": 10, "luxemburg": 10},
+    "ITA": {"lombardy": 8, "lazio": 4},
+    "FOR": {"taiwan": 10, "formosa": 8},
+    "TUR": {"istanbul": 10},
+    "POL": {"warsaw": 10},
+    "MEX": {"mexicocity": 10, "mexico": 4},
+    "CHL": {"santiago": 8, "chile": 2},
+    "SWE": {"sodermanland": 10, "stockholm": 10},
+    "DEN": {"sjaelland": 10, "denmark": 2, "jutland": -4},
+    "MAL": {"kualalumpur": 10, "singapore": -8},
+    "BRA": {"saopaulo": 10},
+    "SAU": {"nejd": 8, "riyadh": 8},
+    "ISR": {"telaviv": 10},
+    "SPR": {"madrid": 10},
+    "BEL": {"flanders": 6, "antwerp": 4, "brussels": 8},
+    "AUS": {"loweraustria": 10, "austria": 4},
+    "KAZ": {"akmolinsk": 10, "northernkazakhstan": 6},
+}
+
+REFINERY_KEYWORDS = {
+    "USA": {
+        "texas": 12, "louisiana": 8, "california": 5, "indiana": 4,
+        "washington": -6, "westvirginia": -8,
+    },
+    "CHI": {
+        "zhejiang": 8, "dalian": 8, "jiangsu": 6, "jiansu": 6, "guangdong": 5,
+        "shandong": 5, "fujian": 4, "liaoning": 3, "beijing": 3, "beiping": 3,
+    },
+    "KOR": {"gyeongsang": 12, "chungcheong": 8, "jeolla": 8},
+    "RAJ": {"gujarat": 12, "westernindian": 10, "bombay": 6, "madrasstates": 4, "orissa": 3},
+    "SAU": {"dammam": 12, "hejaz": 6, "madinah": 4},
+    "SNG": {"singapore": 10},
+    "JAP": {"kanto": 8, "hiroshima": 6, "sanyo": 6, "osaka": 5, "kansai": 5},
+    "VEN": {"zulia": 8, "paraguana": 10, "falcon": 8},
+    "HOL": {"holland": 10},
+    "GER": {"baden": 8, "wurttemberg": 4, "sachsen": 4},
+    "ENG": {"sussex": 8, "lancashire": 6, "lothian": 5},
+    "FRA": {"normandy": 8, "loire": 6, "bouchesdurhone": 6, "provence": 3},
+    "ITA": {"sicily": 8, "sardinia": 8},
+    "SPR": {"murcia": 6, "andalucia": 5, "cadiz": 4, "sevilla": 3},
+    "BRA": {"saopaulo": 6, "riodejaneiro": 6},
+    "MEX": {"mexico": 4, "oaxaca": 4, "veracruz": 3},
+    "SOV": {"omsk": 10, "leningrad": 8, "ryazan": 6, "yaroslavl": 4},
+    "PER": {"khuzestan": 10, "hormozgan": 8},
+    "KUW": {"kuwait": 10},
+    "UAE": {"abudhabi": 10},
+    "IRQ": {"basra": 8},
+    "NGA": {"lagos": 10},
+    "INS": {"eastjava": 6, "centraljava": 5, "java": 2},
+    "MAL": {"johor": 10},
+    "SIA": {"bangkok": 8},
+    "TUR": {"izmit": 10},
+    "CAN": {"alberta": 8, "southernontario": 4},
+    "AST": {"victoria": 6, "queensland": 3},
+    "EGY": {"cairo": 6, "suez": 4},
+    "SAF": {"transvaal": 8, "natal": 4},
+}
+
+SILO_KEYWORDS = {
+    "USA": {"texas": 10, "louisiana": 10, "california": -4, "washington": -6},
+    "CHI": {
+        "zhejiang": 10, "dalian": 8, "shandong": 6, "guangdong": 6,
+        "easthebei": 5, "beijing": 3, "beiping": 3, "tianjin": 8,
+    },
+    "JAP": {"hokkaido": 8, "kanto": 6, "osaka": 5, "kansai": 5, "nagasaki": 3},
+    "KOR": {"gyeongsang": 8, "gyeonggi": 6, "southkorea": 4},
+    "RAJ": {"mysore": 6, "madrasstates": 5, "calcutta": 3, "orissa": 3},
+    "GER": {"holstein": 6, "niedersachsen": 5, "weserems": 4},
+    "FRA": {"provence": 6, "alpes": 4, "bouchesdurhone": 4, "iledefrance": -4},
+    "ENG": {"sussex": 6, "hampshire": 4},
+    "HOL": {"holland": 10},
+    "SPR": {"madrid": 4, "catalonia": 3},
+    "ITA": {"lazio": 4, "sicily": 3},
+    "SNG": {"singapore": 10},
+    "SAU": {"dammam": 10, "hejaz": 6},
+    "UAE": {"abudhabi": 8},
+    "CAN": {"alberta": 6, "southernontario": 5},
+    "AST": {"victoria": 6, "newsouthwales": 4},
+    "BRA": {"saopaulo": 6, "riodejaneiro": 4},
+    "SOV": {"moscow": 6, "leningrad": 4, "primorye": 4, "vladivostok": 4},
+    "PER": {"khuzestan": 8},
+    "KUW": {"kuwait": 8},
+}
+
+GRID_KEYWORDS = {
+    "USA": {
+        "california": 8, "texas": 8, "illinois": 6, "pennsylvania": 6,
+        "newyork": 6, "washington": 6, "westvirginia": -8,
+    },
+    "CHI": {
+        "beijing": 8, "beiping": 8, "shanghai": 8, "guangdong": 7, "hubei": 6,
+        "sichuan": 6, "chengdu": 4, "liaoning": 5, "xinjiang": 4, "urumqi": 4,
+    },
+    "ENG": {"greaterlondon": 8, "sussex": 4, "lothian": 5, "lanark": 4},
+    "FRA": {"iledefrance": 8, "alpes": 6, "rhone": 5},
+    "GER": {"rhineland": 6, "westfalen": 5, "brandenburg": 5, "nassau": 4},
+    "JAP": {"kanto": 8, "osaka": 6, "kansai": 6},
+    "KOR": {"gyeonggi": 8, "southkorea": 6},
+    "RAJ": {"delhi": 8, "bombay": 6, "madras": 5, "southernmadras": 4},
+    "SOV": {"moscow": 8, "leningrad": 6, "krasnoyarsk": 5},
+    "BRA": {"saopaulo": 8, "parana": 5, "riodejaneiro": 3},
+    "CAN": {"southernontario": 8, "quebec": 6, "nordduquebec": -6},
+    "AST": {"newsouthwales": 8},
+    "ITA": {"lazio": 6, "lombardy": 4},
+    "SPR": {"madrid": 6, "catalonia": 4},
+    "HOL": {"holland": 8},
+    "POL": {"warsaw": 8},
+    "SWE": {"sodermanland": 6, "stockholm": 6},
+    "NOR": {"oslofjord": 6, "oslo": 6},
+    "TUR": {"istanbul": 8},
+    "SAU": {"nejd": 6, "dammam": 6},
+    "UAE": {"abudhabi": 8},
+    "FOR": {"taiwan": 8, "formosa": 8},
+    "SNG": {"singapore": 10},
+    "MEX": {"mexicocity": 8, "mexico": 3},
+    "INS": {"westjava": 6, "java": 2},
+    "VIN": {"tonkin": 8},
+    "EGY": {"cairo": 8},
+    "SAF": {"transvaal": 8},
+    "UKR": {"kyiv": 8, "kiev": 8},
+    "PAK": {"punjab": 6},
+    "PER": {"tehran": 8},
+    "ARG": {"buenosaires": 8},
+    "CHL": {"santiago": 8},
+    "MAL": {"kualalumpur": 6, "johor": 2},
+    "SIA": {"bangkok": 8},
+    "AUS": {"loweraustria": 6, "vienna": 6},
+    "BEL": {"flanders": 6},
+    "SWI": {"swissplateau": 8},
+    "CZE": {"bohemia": 6},
+    "ROM": {"muntenia": 6},
 }
 
 

@@ -34,6 +34,11 @@ MIL_PER_PROC_B = 10.0
 WARTIME_MIL_MULT = 2.5
 DIB_MILS_PATH = DATA / "dib_mils.json"
 DIB_DOCKS_PATH = DATA / "dib_docks.json"
+DIB_FINANCE_PATH = DATA / "dib_finance.json"
+DIB_REFINERIES_PATH = DATA / "dib_refineries.json"
+DIB_SILOS_PATH = DATA / "dib_fuel_silos.json"
+DIB_GRID_PATH = DATA / "dib_grid.json"
+ADMIN1_NTL_PATH = DATA / "admin1_ntl.json"
 FACTORY_LEVEL_CAP = 40
 SHARED_SLOTS_CAP = 50
 GW_PER_RENEWABLE_PARK = 20.0
@@ -42,9 +47,13 @@ DOCK_PER_MILLION_GT = 1.2  # retired GT-only formula; allocate uses docks_from_s
 DOCK_DWT_PER_DOCK = 2_000_000  # 1 merchant dock per 2 million dwt
 DOCK_MIN_DWT = 800_000  # below this, merchant GT is not a dock (PHI/USA problem)
 MIN_MANPOWER = 1000
+SRV_PER_B = 250.0
+SRV_MIN_B = 20.0
 
-# World Bank LPI infrastructure component → HOI4 1-5
-LPI_BREAKS = (2.5, 3.0, 3.5, 4.0)
+# World Bank LPI is retired as a live path. Kept so old CSV country rows still parse.
+LPI_BREAKS = (2.5, 3.0, 3.5, 4.5)
+# Area-weighted VIIRS nW/cm2/sr (GLocal `viirs`, 2021). Not lit-pixel custom_mean.
+NTL_BREAKS = (0.08, 0.35, 1.20, 4.00)
 
 CAT_SLOTS = {
     "megalopolis": 12,
@@ -64,6 +73,8 @@ CAT_SLOTS = {
 
 ISLAND_CATS = frozenset({"tiny_island", "small_island", "large_island", "enclave"})
 URBAN_CATS = frozenset({"megalopolis", "metropolis", "large_city", "city", "large_town"})
+# Services offices sit in real metros, not every large_town in a rich country.
+SERVICE_CATS = frozenset({"megalopolis", "metropolis", "large_city", "city"})
 
 DENSITY_BY_CAT = {
     "megalopolis": 80,
@@ -114,6 +125,7 @@ def pretty_name_from_file(filename: str) -> str:
 
 
 def lpi_to_infra(score: float) -> int:
+    """Retired country LPI mapping. Allocate uses ntl_to_infra."""
     if score < LPI_BREAKS[0]:
         return 1
     if score < LPI_BREAKS[1]:
@@ -123,6 +135,44 @@ def lpi_to_infra(score: float) -> int:
     if score < LPI_BREAKS[3]:
         return 4
     return 5
+
+
+def ntl_to_infra(mean: float) -> int:
+    """HOI4 1–5 from area-weighted VIIRS mean radiance. No country offset."""
+    if mean < NTL_BREAKS[0]:
+        return 1
+    if mean < NTL_BREAKS[1]:
+        return 2
+    if mean < NTL_BREAKS[2]:
+        return 3
+    if mean < NTL_BREAKS[3]:
+        return 4
+    return 5
+
+
+def category_infra(category: str, is_capital: bool, impassable: bool) -> int:
+    """Fallback when an HOI4 state misses GADM-1 lights. Still per-state, not LPI."""
+    if impassable:
+        return 1
+    table = {
+        "wasteland": 1,
+        "pastoral": 1,
+        "rural": 2,
+        "town": 2,
+        "large_town": 3,
+        "city": 3,
+        "large_city": 4,
+        "metropolis": 4,
+        "megalopolis": 5,
+        "large_island": 2,
+        "small_island": 2,
+        "tiny_island": 1,
+        "enclave": 3,
+    }
+    n = table.get(category, 2)
+    if is_capital:
+        n = min(5, n + 1)
+    return n
 
 
 # Last published SNA shares × current GDP when World Bank current USD is missing.
@@ -247,6 +297,40 @@ def docks_from_sources(tag: str, dwt: float) -> int:
     return merchant_docks_from_dwt(dwt) + max(0, load_dib_docks().get(tag, 0))
 
 
+def load_campus_counts(path: Path) -> dict[str, int]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return {
+        tag: int(rec.get("count") or rec.get("docks") or rec.get("mils") or 0)
+        for tag, rec in (payload.get("tags") or {}).items()
+    }
+
+
+_NTL_CACHE: dict | None = None
+
+
+def load_admin1_ntl() -> dict:
+    """iso3 -> {norm_name: viirs mean} plus frozen breaks."""
+    global _NTL_CACHE
+    if _NTL_CACHE is None:
+        if not ADMIN1_NTL_PATH.exists():
+            _NTL_CACHE = {"breaks": list(NTL_BREAKS), "by_iso3": {}}
+        else:
+            _NTL_CACHE = json.loads(ADMIN1_NTL_PATH.read_text(encoding="utf-8"))
+    return _NTL_CACHE
+
+
+def services_va_b(gdp_b: float, industry_b: float, agriculture_b: float, services_b: float = 0.0) -> float:
+    if services_b and services_b > 0:
+        return float(services_b)
+    return max(0.0, float(gdp_b or 0) - float(industry_b or 0) - float(agriculture_b or 0))
+
+
+def services_from_va(va_b: float) -> int:
+    if va_b >= SRV_MIN_B:
+        return max(1, int(round(va_b / SRV_PER_B)))
+    return 0
+
+
 def category_from_pop(pop: int, old_cat: str, impassable: bool = False) -> str:
     if old_cat in ISLAND_CATS:
         return old_cat
@@ -277,6 +361,9 @@ def extra_slots(category: str, civs: int, mils: int, docks: int, extras: dict[st
         extras.get("finance_center", 0)
         + extras.get("services_building", 0)
         + extras.get("renewable_park", 0)
+        + extras.get("synthetic_refinery", 0)
+        + extras.get("fuel_silo", 0)
+        + extras.get("energy_infrastructure", 0)
     )
     needed = civs + mils + docks + shared_extra + 2
     extra_cap = max(0, SHARED_SLOTS_CAP - cat_slots)
@@ -284,18 +371,8 @@ def extra_slots(category: str, civs: int, mils: int, docks: int, extras: dict[st
 
 
 def extra_buildings_for(gdp_b: float, is_capital: bool, category: str, civs: int) -> dict[str, int]:
-    extras: dict[str, int] = {}
-    urban = category in URBAN_CATS or is_capital
-    if urban and gdp_b >= 80:
-        services = 1
-        if is_capital and gdp_b >= 400:
-            services += 1
-        if civs >= 4:
-            services += 1
-        extras["services_building"] = min(4, services)
-    if urban and gdp_b >= 400 and (is_capital or category in {"megalopolis", "metropolis", "large_city"}):
-        extras["finance_center"] = 2 if is_capital and gdp_b >= 2000 else 1
-    return extras
+    """Retired GDP smear. Allocate places finance from GFCI and services from VA."""
+    return {}
 
 
 def distribute(total: int, weights: list[float]) -> list[int]:

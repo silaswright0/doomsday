@@ -19,8 +19,8 @@ state = {
 		victory_points = { 11846 2 } #Anzio (was 5)
 		victory_points = { 13413 1 } #Ostia
 		buildings = {
-			finance_center = 2
-			services_building = 2
+			finance_center = 1
+			services_building = 1
 			infrastructure = 5
 			air_base = 8
 			arms_factory = 1
@@ -44,6 +44,11 @@ state = {
 
 
 
+
+
+			fuel_silo = 1
+			energy_infrastructure = 1
+
 			11751 = {
 				naval_base = 5
 			}
@@ -65,7 +70,13 @@ state = {
 
 
 
+
+
+
 			
+
+
+
 
 
 
@@ -104,7 +115,13 @@ state = {
 
 
 
+
+
+
 			
+
+
+
 
 
 
@@ -143,6 +160,9 @@ state = {
 
 
 
+
+
+
             9904 = {
                 landmark_colosseum = {
                     level = 1
@@ -151,6 +171,9 @@ state = {
                     }
                 }
             }
+		
+		
+		
 		
 		
 		

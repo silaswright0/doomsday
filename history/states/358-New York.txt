@@ -6,12 +6,12 @@ state={
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 14
 		buildings = {
 			rocket_site = 1
 			renewable_park = 1
-			finance_center = 1
-			services_building = 2
+			finance_center = 4
+			services_building = 5
 			infrastructure = 4
 			arms_factory = 0
 			industrial_complex = 9
@@ -26,23 +26,7 @@ state={
                     }
                 }
 			}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			energy_infrastructure = 1
 		
 		}
 		add_core_of = USA
