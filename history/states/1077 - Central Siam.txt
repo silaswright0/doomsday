@@ -1,17 +1,39 @@
 state={
 	id=1077
 	name="STATE_1077"
+	state_category = large_city
+
 	resources={
+
+		oil=3
+		tungsten=1
+		steel=1
+		coal=1
+		rare_earths=1
 	}
-	state_category=town
+
 	history={
 		owner = SIA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SIA
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 1
-			infrastructure = 3
+			industrial_complex = 2
+			infrastructure = 4
+			renewable_park = 1
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			10398 1  #Petchabun
@@ -24,7 +46,7 @@ state={
 	provinces={
 		10221 12173 10411 10398 12345 7572 7353
 	}
-	manpower = 8640000
+	manpower = 19660058
 	buildings_max_level_factor=1.000
 
 }

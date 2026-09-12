@@ -2,25 +2,46 @@ state = {
 	id = 682
 	name = "STATE_682"
 	
-	state_category = rural
-	manpower = 543794
+	state_category = city
+	manpower = 5888031
 	
-	resources = {
-		steel = 8 # was: 12.000
-		aluminium = 9 # was: 14.000
-		coal = 2 # initial distribution = with infra 3.2 / 36 total
+	resources={
+
+		steel=1
+		coal=1
+		cobalt=1
+		copper=2
 	}
 
 	history = {
 
 		owner = CAN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 1
 		add_core_of = CAN
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 4 #was: 5
-			industrial_complex = 0
+			infrastructure = 5
+			industrial_complex = 3
+			renewable_park = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

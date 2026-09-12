@@ -5,20 +5,75 @@ state={
 
 	history={
 		owner = GRE
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			11818 5 
 		}
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 0
+			infrastructure = 4
+			industrial_complex = 1
 			air_base = 2
+			
+
+
+
+
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11818 = {
 				naval_base = 3
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = GRE
 		add_claim_by = BUL
@@ -28,14 +83,11 @@ state={
 	provinces={
 		895 936 966 3526 3844 3936 6990 10163 11818 
 	}
-	manpower = 1809428
+	manpower = 2171630
 
-	resources = {
-		coal = 1 # initial distribution / 1 total
-	}
 
 	buildings_max_level_factor=1.000
-	state_category=town
+	state_category = large_town
 
 	local_supplies=0.0 
 }

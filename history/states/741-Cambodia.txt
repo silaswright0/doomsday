@@ -1,12 +1,12 @@
 state = { 
 	id = 741
 	name = "STATE_741"
-	manpower = 13446059
+	manpower = 16992212
 
 	history = {
 
 		owner = CAM
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CAM
 
 		victory_points = {
@@ -24,10 +24,64 @@ state = {
 		buildings = {
 			arms_factory = 0
 			infrastructure = 2
-			industrial_complex = 1 
+			industrial_complex = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7432 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 
@@ -36,7 +90,13 @@ state = {
 	}
 
 	buildings_max_level_factor = 1.000
-	state_category = town
+	state_category = large_city
+
+	resources={
+
+		rubber=9
+	}
+
 
 	local_supplies = 0.0 
 }

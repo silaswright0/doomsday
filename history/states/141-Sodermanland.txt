@@ -2,17 +2,13 @@
 state = {
 	id = 141
 	name = "STATE_141" # Svealand
-	manpower = 2544181
-	state_category = city
+	manpower = 504110
+	state_category = rural
 	
-	resources = {
-		steel = 24 # was: 40
-		aluminium = 2 # was: 4
-	}
 
 	history = {
 		owner = SWE
-		add_extra_state_shared_building_slots = 10
+		add_extra_state_shared_building_slots = 3
 
 		victory_points = {
 			6050 20 # Stockholm
@@ -23,18 +19,71 @@ state = {
 		}
 
 		buildings = {
-			renewable_park = 1
 			finance_center = 1
 			services_building = 2
-			infrastructure = 5 #was: 7
+			infrastructure = 5
 			arms_factory = 0
-			industrial_complex = 1
-			dockyard = 1
+			industrial_complex = 0
+
 			air_base = 6
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6050 = {
 				naval_base = 5
 				coastal_bunker = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		add_core_of = SWE

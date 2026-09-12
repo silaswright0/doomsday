@@ -2,20 +2,21 @@ state = {
 	id = 334
 	name = "STATE_334"
 	
-	manpower = 3858966
+	manpower = 7152846
 
-	resources = {
-		rubber = 30 #was: 61 #26-02-03: was: 41
-		coal = 4
-		oil = 23 #was: 0 #26-02-03: was: 33
+	resources={
+
+		oil=1
+		rubber=15
+		coal=19
 	}
 	
-	state_category = rural
+	state_category = city
 
 	history = {
 
 		owner = INS
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = INS
 		add_core_of = POK
 
@@ -26,13 +27,103 @@ state = {
 		buildings = {
 			arms_factory = 0
 			infrastructure = 2
-			industrial_complex = 0
+			industrial_complex = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4279 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			13298 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

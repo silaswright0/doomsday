@@ -2,18 +2,34 @@
 state={
 	id=488
 	name="STATE_488"
-	manpower = 2178626
+	manpower = 3956390
 	
-	state_category = pastoral
+	state_category = large_town
+
+
 
 	history={
 		owner = VEN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 1
+			services_building = 1
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = VEN
 		victory_points = {

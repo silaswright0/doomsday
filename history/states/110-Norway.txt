@@ -2,12 +2,13 @@
 state = {
 	id = 110
 	name = "STATE_110"
-	manpower = 1883826
+	manpower = 2331722
 	
 	state_category = large_town
 	
-	resources = {
+	resources={
 
+		oil=1
 	}
 
 	history = {
@@ -19,19 +20,73 @@ state = {
 		}
 		
 		owner = NOR
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 5
 		buildings = {
-			renewable_park = 1
 			finance_center = 1
 			services_building = 2
 			infrastructure = 5
-			arms_factory = 0
-			industrial_complex = 1
+			arms_factory = 2
+			industrial_complex = 2
 			air_base = 4
+			
+
+
+
+
+
+
+			renewable_park = 1
+
+
+
+
+
+
+
+
+
+
+
 			6115 = {
 				naval_base = 6
 				coastal_bunker = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = NOR
 	}

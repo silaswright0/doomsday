@@ -1,12 +1,18 @@
 state = {
 	id=884
 	name = "STATE_884"  # Upper Nile 
-	manpower = 4849372
-	state_category = pastoral
+	manpower = 2666739
+	state_category = large_town
+
+	resources={
+
+		oil=1
+	}
+
 
 	history = {
 		owner = SSD
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SSD
 		add_core_of = SUD
 		add_core_of = SIO
@@ -18,8 +24,26 @@ state = {
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 1
+			infrastructure = 2
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

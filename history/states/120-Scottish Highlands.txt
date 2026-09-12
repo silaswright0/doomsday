@@ -1,20 +1,15 @@
 state = {
 	id = 120
 	name = "STATE_120"
-	manpower = 374147
+	manpower = 492270
 	
 	state_category = rural
 
-	resources={
-		chromium=1 # was: 2
-		tungsten=16 # was: 22
-		aluminium=9 # was: 12
-	}
 
 	history= {
 		add_core_of = SCO
 		owner = ENG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			6062 1 #Skye/Stornoway
 		}
@@ -31,10 +26,64 @@ state = {
 			anti_air_building = 2
 			industrial_complex = 0
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11064 = {
 				naval_base = 8
 				naval_supply_hub = 1	
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = ENG
 	}

@@ -2,12 +2,13 @@
 state = {
 	id = 144
 	name = "STATE_144" # Nordland
-	manpower = 253212 # 355251
+	manpower = 321636 # 355251
 	
 	state_category = rural
 	
-	resources = {
-		steel = 6
+	resources={
+
+		aluminium=5
 	}
 
 	history = {
@@ -19,19 +20,73 @@ state = {
 		}
 		
 		owner = NOR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = NOR
 		add_core_of = SMI
 		
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 5
+			infrastructure = 4
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			192 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

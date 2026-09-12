@@ -1,18 +1,42 @@
 state={
 	id=545
 	
-	state_category = pastoral
+	state_category = large_city
 	
 	name="STATE_545"
 
+
+	resources={
+
+		chromium=5
+		lithium=2
+	}
 	history={
 		owner = ZIM
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		buildings = {
-			arms_factory = 0
+			arms_factory = 1
 			industrial_complex = 1
-			infrastructure = 1
+			infrastructure = 2
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			10929 1 
@@ -23,7 +47,7 @@ state={
 	provinces={
 		1874 2151 2216 4851 7842 10929
 	}
-	manpower = 17000000
+	manpower = 17273580
 	buildings_max_level_factor=1.000
 
 	local_supplies=3.0 

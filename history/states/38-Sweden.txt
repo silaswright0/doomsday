@@ -1,13 +1,15 @@
 state = {
 	id = 38
 	name = "STATE_38" # Gävleborg
-	manpower = 1593262
-	state_category = town
+	manpower = 475272
+	state_category = rural
+
+
 	
 
 	history = {
 		owner = SWE
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SWE
 
 		victory_points = {
@@ -21,16 +23,106 @@ state = {
 		buildings = {
 			arms_factory = 0
 			infrastructure = 5
-			industrial_complex = 1
+			industrial_complex = 0
 			air_base = 3
 
 			# Krångede Hydroelectric Power Station
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11129 = { dam = 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			130 = {
 				naval_base = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

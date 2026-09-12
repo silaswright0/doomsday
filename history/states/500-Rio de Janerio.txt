@@ -2,21 +2,31 @@
 state={
 	id=500
 	name="STATE_500"
-	manpower = 32743219
+	manpower = 18363794
 	
 	state_category = large_city
+
+	resources={
+
+		oil=45
+		aluminium=1
+		steel=2
+		chromium=1
+		copper=1
+	}
+
 	
 	history={
 		owner = BRA
-		add_extra_state_shared_building_slots = 17
+		add_extra_state_shared_building_slots = 3
 		add_core_of = BRA
 		buildings = {
-			renewable_park = 2
+			renewable_park = 1
 			finance_center = 2
-			services_building = 3
-			infrastructure = 2 #was: 6
+			services_building = 2
+			infrastructure = 4
 			arms_factory = 1
-			industrial_complex = 4
+			industrial_complex = 2
 			dockyard = 1
 			air_base = 7
 			10980 = {
@@ -28,6 +38,24 @@ state={
                     }
                 }
 			}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		victory_points = {

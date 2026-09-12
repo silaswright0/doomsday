@@ -2,16 +2,13 @@
 state={
 	id=15
 	name="STATE_15"
-	manpower = 3683681
-	resources={
-		steel=21 # was: 36
-	}
+	manpower = 3424967
 	
-	state_category = city
+	state_category = large_town
 
 	history={
 		owner = FRA
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			9434 10
 		}
@@ -25,23 +22,147 @@ state={
 			485 3
 		}
 		buildings = {
-			renewable_park = 1
 			services_building = 1
 			arms_factory = 0
 			infrastructure = 4
-			industrial_complex = 1
+			industrial_complex = 0
 			air_base = 6
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6449 = {
 				naval_base = 3
 				coastal_bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9434 = {
 				naval_base = 5
 				coastal_bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			485= {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			dockyard = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = FRA
 	}

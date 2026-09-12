@@ -2,34 +2,125 @@ state=
 {
 	id=422
 	name="STATE_422"
-	manpower = 22000000
+	manpower = 23348315
 	
-	state_category = rural
+	state_category = large_city
 
 	resources={
-		rubber=60 # was: 116
+
+		rubber=2
 	}
 
 	history={
 		add_core_of = SRL
 		owner = SRL
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			10201 3 
 		}
 		buildings = {
 			services_building = 1
-			arms_factory = 0
+			arms_factory = 1
 			infrastructure = 2
 			industrial_complex = 1
 			air_base = 3
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10201 = {
 				naval_base = 5
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7260 = {
 				naval_base = 3
 				coastal_bunker = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

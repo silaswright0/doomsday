@@ -1,12 +1,13 @@
 state = {
 	id = 924
 	name = "STATE_924"
-	manpower = 253212 # 355251
+	manpower = 220966 # 355251
 	
 	state_category = rural
 	
-	resources = {
-		tungsten = 5
+	resources={
+
+		oil=25
 	}
 
 	history = {
@@ -14,19 +15,73 @@ state = {
 			11050 1
 		}
 		owner = NOR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = NOR
 		add_core_of = SMI
 		
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 5
+			infrastructure = 4
 			air_base = 1
 			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11050 = {
 				naval_base = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

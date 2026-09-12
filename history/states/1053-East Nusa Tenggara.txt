@@ -1,21 +1,72 @@
 state={
 	id=1053
 	name="STATE_1053"
-	resources={
-		
-	}
 
 	history={
 		owner = INS
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		add_core_of = INS
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
 			infrastructure = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4301 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {
@@ -26,8 +77,14 @@ state={
 	provinces={
 		1298 4301 10175 7321 12151 10219 13394 13393
 	}
-	manpower = 6250328
+	manpower = 7103239
 	state_category = small_island
+
+	resources={
+
+		oil=1
+	}
+
 
 	local_supplies=0.0 
 }

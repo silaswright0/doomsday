@@ -2,20 +2,40 @@
 state={
 	id=618
 	name="STATE_618" # Dzungaria
-	manpower = 1987359
+	manpower = 4936412
 
-	state_category = pastoral
+	state_category = large_town
+
+
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SIK
 		add_core_of = CHI
 		add_core_of = PRC
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 0
+			infrastructure = 5
+			industrial_complex = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			4823 2

@@ -1,14 +1,14 @@
 state = {
 	id = 611
 	name = "STATE_611" # South Chahar
-	manpower = 4355124
+	manpower = 895292
 	
-	state_category = pastoral
+	state_category = town
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = MEN
 		add_core_of = CHI
 		add_core_of = PRC
@@ -16,8 +16,26 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3 #was 3
-			industrial_complex = 1
+			infrastructure = 5
+			industrial_complex = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

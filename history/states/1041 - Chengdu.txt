@@ -1,21 +1,43 @@
 state = {
 	id = 1041
 	name = "STATE_1041"
-	resources = {
-		steel = 4
+	resources={
+
+		oil=1
+		aluminium=1
 	}
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 3
 		add_core_of = CHI
 		add_core_of = PRC
 		
 		buildings = {
-			infrastructure = 3
-			arms_factory = 0
+			infrastructure = 5
+			arms_factory = 4
 			industrial_complex = 2
+			renewable_park = 1
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {
@@ -32,9 +54,9 @@ state = {
 	provinces = {
 		1367 1395 4925 8026 10132 12141 12767 12819
 	}
-	manpower = 16143213
+	manpower = 16353387
 	buildings_max_level_factor = 1.000
-	state_category = town
+	state_category = large_city
 
 	local_supplies = 0.0 
 }

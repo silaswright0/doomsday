@@ -1,24 +1,80 @@
 state = {
 	id = 245
 	name = "STATE_245" # Millerovo
-	manpower = 1025977
+	manpower = 1892649
 	
-	state_category = rural
+	state_category = town
+
+
 
 	history =  {
 
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SOV
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3 #was: 5
+			infrastructure = 2
 
 			# Tsimlyanskoye Hydroelectric Station
-			#6490 = { dam = 1 }
+			#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			6490 = { dam = 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

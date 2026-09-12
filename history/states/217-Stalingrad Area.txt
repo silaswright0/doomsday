@@ -1,14 +1,21 @@
 state = {
 	id = 217
 	name = "STATE_217"
-	manpower = 1528752
+	manpower = 2122840
 	
-	state_category = city
+	state_category = large_town
+
+	resources={
+
+		oil=1
+		coal=1
+	}
+
 
 	history = {
 
 		owner = SOV
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SOV
 
 		victory_points = {
@@ -16,16 +23,69 @@ state = {
 		}
 
 		buildings = {
-			renewable_park = 1
-			services_building = 1
-			infrastructure = 3 #was: 7
-			arms_factory = 0
+			infrastructure = 2
+			arms_factory = 1
 			industrial_complex = 0
 			air_base = 1
 
 			# 22nd Congress of the CPSU Stalingrad Hydroelectric Power Station
-			#3555 = { dam = 1 }
+			#
 
+
+
+
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+			3555 = { dam = 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

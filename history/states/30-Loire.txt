@@ -2,24 +2,23 @@
 state={
 	id=30
 	name="STATE_30"
-	manpower = 2193055
+	manpower = 792440
 
-	state_category = city
+	state_category = rural
 
 	history={
 		owner = FRA
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 1
 		victory_points = {
 			11465 5
 		}
 		
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			arms_factory = 0
 			infrastructure = 4
-			industrial_complex = 1
+			industrial_complex = 0
 			air_base = 2
+			dockyard = 1
 		
 		}
 		add_core_of = FRA

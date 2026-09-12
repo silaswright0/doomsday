@@ -1,18 +1,19 @@
 state = {
 	id = 4
 	name = "STATE_4"
-	manpower = 3253870 # was 2595983
+	manpower = 2385195 # was 2595983
 
-	resources = {
-		oil = 2 
+	resources={
+
+		tungsten=1
 	}
 	
-	state_category = large_city
+	state_category = large_town
 	
 	history = {
 
 		owner = AUS
-		add_extra_state_shared_building_slots = 10
+		add_extra_state_shared_building_slots = 3
 		add_core_of = AUS
 
 		victory_points = {
@@ -28,8 +29,8 @@ state = {
 			finance_center = 1
 			services_building = 2
 			infrastructure = 5
-			arms_factory = 0
-			industrial_complex = 2
+			arms_factory = 1
+			industrial_complex = 1
 			air_base = 6
             11666 = {
                 landmark_hofburg_palace = {
@@ -39,6 +40,24 @@ state = {
                     }
                 }
             }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 

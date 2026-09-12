@@ -2,31 +2,64 @@ state={
 	id=716
 	name="STATE_716"
 	resources={
-		steel=27.000
-		chromium = 4
-		tungsten = 4
-		oil = 3 #Japan extracted 1m barrels annually from Manhuria
-		coal = 11
+
+		steel=15
 	}
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 20
+		add_extra_state_shared_building_slots = 12
 		add_core_of = CHI
 		add_core_of = MAN
 		add_core_of = PRC
 		buildings = {
 			renewable_park = 1
 			services_building = 2
-			dockyard = 4
-			infrastructure = 3
-			arms_factory = 1
-			industrial_complex = 8
+			dockyard = 3
+			infrastructure = 5
+			arms_factory = 6
+			industrial_complex = 4
 			air_base = 5
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11764 = {
 				naval_base = 3
 
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11808 = {
 				landmark_great_wall_section = {
 				    level = 1
@@ -35,6 +68,23 @@ state={
 				    }
 				}
 			}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		victory_points = {
@@ -49,9 +99,9 @@ state={
 	provinces={
 		836 846 892 964 987 3783 3839 3849 3895 3970 6804 6860 6910 6918 6951 6981 9781 9788 9835 9854 9885 11764 11771 11808 11815 
 	}
-	manpower = 30410678
+	manpower = 7030321
 	buildings_max_level_factor=1.000
-	state_category=city
+	state_category = city
 
 	local_supplies=0.0 
 }

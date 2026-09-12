@@ -1,13 +1,10 @@
 state={
 	id=7
 	name="STATE_7"
-	resources={
-		steel=4.000
-	}
 
 	history={
 		owner = HOL
-		add_extra_state_shared_building_slots = 15
+		add_extra_state_shared_building_slots = 6
 		add_core_of = HOL
 		victory_points = {
 			391 40 
@@ -19,23 +16,113 @@ state={
 			9498 20 
 		}
 		buildings = {
-			renewable_park = 1
 			finance_center = 1
-			services_building = 3
+			services_building = 2
 			infrastructure = 5
-			arms_factory = 1
-			industrial_complex = 4
+			arms_factory = 2
+			industrial_complex = 3
 			dockyard = 1
 			air_base = 5
+			
+
+
+
+
+
+
+			renewable_park = 1
+
+
+
+
+
+
+
+
+
+
+
 			3314 = {
 				naval_base = 5
 
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9498 = {
 				naval_base = 10
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 
@@ -44,9 +131,9 @@ state={
 	provinces={
 		68 391 3211 3314 9498 
 	}
-	manpower = 9262510
+	manpower = 6980399
 	buildings_max_level_factor=1.000
-	state_category=metropolis
+	state_category = city
 
 	local_supplies=0.0 
 }

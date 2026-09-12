@@ -3,27 +3,81 @@ state={
 	id=517
 	name="STATE_517"
 	resources={
-		steel = 6 #down from 8 in TAOG
-		chromium = 4
+
+		oil=4
+		aluminium=1
 	}
 
 	history={
 		owner = AST
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 4
 		buildings = {
-			renewable_park = 1
-			finance_center = 1
-			services_building = 1
-			infrastructure = 4 #was: 6
-			arms_factory = 0
-			industrial_complex = 1
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 4
 			air_base = 3
+			
+
+
+
+
+			renewable_park = 1
+			services_building = 2
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7798 = {
 				naval_base = 4
 				coastal_bunker = 1
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 
@@ -37,9 +91,9 @@ state={
 	provinces={
 		1759 2130 2155 4776 4791 7755 7798 7811 10553 10581 10622 10637 12576 12932 
 	}
-	manpower = 7389463 #pre-TAOG 2219500
+	manpower = 7149101 #pre-TAOG 2219500
 	buildings_max_level_factor=1.000
-	state_category=large_city
+	state_category = city
 
 	local_supplies=0.0 
 }

@@ -2,23 +2,35 @@
 state={
 	id=845
 	name="STATE_845"
-	manpower = 4406799
-	resources={
-		aluminium=18 # was: 28 #CarloTODO
-		coal = 1 #initial distribution
-	}
-	state_category = large_town
+	manpower = 243928
+	state_category = rural
 	history={
 		owner = SWI
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 0
 		victory_points = { 9638 5 }
 		victory_points = { 6666 5 }
 		buildings = {
-			renewable_park = 1
-			services_building = 2
 			infrastructure = 5
 			arms_factory = 0
-			industrial_complex = 4
+			industrial_complex = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = SWI

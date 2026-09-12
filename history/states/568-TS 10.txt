@@ -2,17 +2,38 @@
 state={
 	id=568
 	name="STATE_568" # Krasnoyarsk
-	manpower = 2325213
+	manpower = 2475136
 	
-	state_category = town
+	state_category = large_town
+
+	resources={
+
+		aluminium=20
+		copper=7
+	}
+
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			4724 1 

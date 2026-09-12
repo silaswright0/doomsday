@@ -5,7 +5,7 @@ state = {
 
 	history = {
 		owner = ITA
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			10074 20 
 		}
@@ -19,29 +19,191 @@ state = {
 			13256 1 
 		}
 		buildings = {
-			renewable_park = 1
 			services_building = 1
 			arms_factory = 0
 			infrastructure = 4
-			industrial_complex = 1
+			industrial_complex = 0
 			air_base = 10
+			
+
+
+
+
+			renewable_park = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10074 = {
 				naval_base = 2
 
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7059 = {
 				naval_base = 5
 
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4159 = {
 				naval_base = 8
 
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4014 = {
 				naval_base = 3
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = ITA
 		add_core_of = TTS
@@ -51,8 +213,14 @@ state = {
 	provinces = {
 		1009 1156 3857 4014 4159 7059 7147 10074 12047 13256 
 	}
-	manpower = 5553905
+	manpower = 5435258
 	buildings_max_level_factor = 1.000
 	state_category = city
+
+	resources={
+
+		steel=1
+	}
+
 	local_supplies = 0.000
 }

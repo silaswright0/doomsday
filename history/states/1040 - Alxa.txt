@@ -4,13 +4,20 @@ state={
 	provinces={
 		4783 7727 7803 8102 10770 10899
 	}
-	manpower = 1333201
+	manpower = 2898405
 	buildings_max_level_factor=1.000
-	state_category = wasteland
+	state_category = large_town
+
+	resources={
+
+		oil=1
+		aluminium=1
+	}
+
 	history={
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = XSM
 		add_core_of = CHI
 		add_core_of = PRC
@@ -22,7 +29,25 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 5
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 

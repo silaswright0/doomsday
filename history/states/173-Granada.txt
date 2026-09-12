@@ -1,13 +1,10 @@
 state={
 	id=173
 	name="STATE_173"
-	resources={
-		steel=8.000
-	}
 
 	history={
 		owner = SPR
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			9979 5
 		}
@@ -18,21 +15,109 @@ state={
 			1176 3
 		}
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			arms_factory = 0
-			infrastructure = 4 #was: 6
-			industrial_complex = 1
+			infrastructure = 4
+			industrial_complex = 0
 			air_base = 4
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9979 = {
 				naval_base = 2
 
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			12038 = {
 				naval_base = 1
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SPR
 
@@ -41,9 +126,9 @@ state={
 	provinces={
 		747 1176 4065 7068 7153 7196 9979 10009 10063 11956 12038 
 	}
-	manpower = 3204840
+	manpower = 1103284
 	buildings_max_level_factor=1.000
-	state_category=city
+	state_category = town
 
 	local_supplies=6.0 
 }

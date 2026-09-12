@@ -1,14 +1,22 @@
 state = {
 	id = 670
 	name = "STATE_670"
-	manpower = 5321216
+	manpower = 4784410
 	
-	state_category = pastoral
+	state_category = large_town
+
+	resources={
+
+		rubber=1
+		coal=1
+		copper=1
+	}
+
 
 	history = {
 
 		owner = LAO
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = LAO
 
 		victory_points = {
@@ -23,6 +31,24 @@ state = {
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

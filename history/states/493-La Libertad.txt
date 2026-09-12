@@ -2,28 +2,123 @@
 state={
 	id=493
 	name="STATE_493"
-	manpower = 18390191
-	resources={
-		oil=15 # was: 20
-		coal =6 # initial distribution = with infra 2.8 / 2 total	#increased to reduce reliance on USA
-	}
+	manpower = 39694372
 	
-	state_category = town
+	state_category = metropolis
+
+	resources={
+
+		coal=3
+	}
+
 
 	history={
 		owner = COL
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 0
+			infrastructure = 3
+			industrial_complex = 3
 			air_base = 4
+			
+
+
+
+
+
+
+
+
+			renewable_park = 1
+			finance_center = 1
+			services_building = 1
+
+
+
+
+
+
+
+
+
 			12790 = {
 				naval_base = 5
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			8056 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = COL
 		victory_points = {

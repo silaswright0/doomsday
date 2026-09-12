@@ -4,22 +4,46 @@ state={
 	provinces={
 		 2032 2086 10794 11955  
 	}
-	manpower = 3244091
+	manpower = 21592398
 	buildings_max_level_factor=1.000
-	state_category=large_city
+	state_category = large_city
+
+	resources={
+
+		oil=1
+	}
+
 	local_supplies=1.000
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 10
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			rocket_site = 2
-			renewable_park = 2
+
 			finance_center = 2
 			services_building = 2
-			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 0
+			arms_factory = 1
+			infrastructure = 4
+			industrial_complex = 1
 			air_base = 4
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

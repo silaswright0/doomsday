@@ -2,16 +2,18 @@
 state={
 	id=213
 	name="STATE_213"
-	manpower = 371391
+	manpower = 572509
 	state_category = rural
 	resources={
-		steel=14 # was: 28
-		chromium=12 # was: 24
+
+		oil=1
+		coal=1
+		cobalt=3
 	}
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 
 		victory_points = {
 			3134 5 
@@ -24,12 +26,65 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			3134 = {
 				naval_base = 4
 				coastal_bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		add_core_of = SOV

@@ -1,13 +1,15 @@
 state = {
 	id = 596
 	name = "STATE_596"
-	manpower = 62899550
-	state_category = town
+	manpower = 64615839
+	state_category = megalopolis
+
+
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 18
+		add_extra_state_shared_building_slots = 13
 		add_core_of = CHI
 		add_core_of = PRC
 		
@@ -28,28 +30,155 @@ state = {
 		}
 		
 		buildings = {
-			dockyard = 4
-			arms_factory = 1
-			industrial_complex = 9
+			dockyard = 2
+			arms_factory = 0
+			industrial_complex = 13
 
-			infrastructure = 3
+			infrastructure = 5
 			air_base = 1 # Ningbo Lishe Airbase
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			7191 = {
 				naval_base = 1
 				coastal_bunker = 1
 				bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9974 = {
 				naval_base = 3
 				coastal_bunker = 1
 				bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			1055 = {
 				naval_base = 3
 				coastal_bunker = 1
 				bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			renewable_park = 5
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

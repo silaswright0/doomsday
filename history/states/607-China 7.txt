@@ -1,22 +1,51 @@
 state={
 	id=607
 	name="STATE_607"
-	manpower = 101589349
+	manpower = 95700085
 	
-	state_category = town
+	state_category = megalopolis
+
+	resources={
+
+		aluminium=105
+		tungsten=17
+		chromium=1
+		coal=37
+		cobalt=1
+	}
+
 	
 	buildings_max_level_factor=1.000
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 19
+		add_extra_state_shared_building_slots = 13
 		add_core_of = CHI
 		add_core_of = PRC
 
 		buildings = {
-			arms_factory = 1
-			infrastructure = 3 #was: 5/ 3
-			industrial_complex = 14 #Was 2
+			arms_factory = 0
+			infrastructure = 5
+			industrial_complex = 12
+			renewable_park = 8
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

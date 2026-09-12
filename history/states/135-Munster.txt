@@ -2,21 +2,36 @@
 state={
 	id=135
 	name="STATE_135"
-	manpower = 1682148
+	manpower = 1494629
 
-	resources = {
-		coal = 1 #initial distribution
-	}
 
 	state_category = town
 
 	history={
 		owner = IRE
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
-			infrastructure = 4 #was: 6
-			industrial_complex = 1
+			infrastructure = 4
+			industrial_complex = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			7394 5 #Cork

@@ -1,20 +1,39 @@
 state = {
 	id = 582
 	name = "STATE_582"
-	resources = {
-		steel = 40.000
-		oil = 6.000
+	resources={
+
+		steel=3
+		copper=5
 	}
 
 	history = {
 
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3 #was: 5
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		add_core_of = SOV
@@ -32,9 +51,9 @@ state = {
 		1334 1406 4215 4261 4265 4311 4383 4411 7281 7328 7373 7401 10185 10196 10224 10256 12200 
 	}
 
-	manpower = 1407431
+	manpower = 1959085
 	buildings_max_level_factor = 1.000
-	state_category = rural
+	state_category = town
 
 	local_supplies = 0.0 
 }

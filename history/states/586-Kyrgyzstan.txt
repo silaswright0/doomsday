@@ -1,24 +1,27 @@
 state={
 	id=586
 	name="STATE_586"
-	resources={
-		steel=20.000
-		chromium=12.000
-		tungsten=4.000
-		aluminium=10.000
-	}
 
 	history={
 		owner = KAZ
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		add_core_of = KAZ
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			arms_factory = 0
-			infrastructure = 3
+			infrastructure = 2
 			industrial_complex = 1
-
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			1591 3 
@@ -31,9 +34,19 @@ state={
 	provinces={
 		1591 1840 4773 4845 7706 10146 10547 10603 12640 12658 
 	}
-	manpower = 7685814
+	manpower = 6793509
 	buildings_max_level_factor=1.000
-	state_category=city
+	state_category = city
+
+	resources={
+
+		oil=22
+		aluminium=1
+		tungsten=1
+		steel=1
+		chromium=23
+	}
+
 
 	local_supplies=2.0 
 }

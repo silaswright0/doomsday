@@ -1,23 +1,83 @@
 state = {
 	id = 331
 	name = "STATE_331"
-	manpower = 997419
+	manpower = 31930
 	
-	state_category = rural
+	state_category = wasteland
+
+	resources={
+
+		oil=22
+		aluminium=3
+	}
+
 
 	history = {
 
 		owner = CAN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		add_core_of = CAN
 
 		buildings = {
 			arms_factory = 0
 			infrastructure = 4
 			industrial_complex = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			12505 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

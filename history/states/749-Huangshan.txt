@@ -4,18 +4,40 @@ state={
 	provinces={
 		 1125 1153 1171 4105 4173 7007 7104 10044 11937 12019 
 	}
-	manpower = 14813348
+	manpower = 6656147
 	buildings_max_level_factor=1.000
-	state_category=town
+	state_category = city
+
+
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CHI
 		add_core_of = PRC
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 2
-			infrastructure = 3
+			industrial_complex = 1
+			infrastructure = 5
+			renewable_park = 1
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			12019 1

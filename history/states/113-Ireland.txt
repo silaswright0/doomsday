@@ -2,18 +2,13 @@
 state={
 	id=113
 	name="STATE_113" # Leinster
-	manpower = 2425839
-	resources={
-		aluminium=0 # was: 2
-		steel=2 # was: 3
-		coal = 1 # initial distribution
-	}
+	manpower = 3155435
 	
-	state_category = city
+	state_category = large_town
 	
 	history={
 		owner = IRE
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 6
 		victory_points = {
 			285 1 #Wexford
 		}
@@ -24,16 +19,69 @@ state={
 			11293 10 #Dublin
 		}
 		buildings = {
-			renewable_park = 1
 			finance_center = 1
-			services_building = 2
-			infrastructure = 4
+			services_building = 3
+			infrastructure = 5
 			arms_factory = 0
-			industrial_complex = 1
+			industrial_complex = 5
 			air_base = 3
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11293 = {
 				naval_base = 6
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = IRE
 	}

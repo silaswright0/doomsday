@@ -300,6 +300,7 @@ set_technology = {
 	dd_manpads = 1
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 16 producer = JAP }
+add_ideas = JAP_boj_home_bias
 set_politics = {
 	ruling_party = democratic
 	last_election = "2024.1.1"
@@ -312,8 +313,6 @@ set_popularities = {
 	fascism = 4
 	neutrality = 22
 }
-set_variable = { gdp = 4200 }
-set_variable = { debt_to_gdp = 2.50 }
 set_variable = { debt = 10500.0000 }
 set_variable = { treasury = 84.0000 }
 create_country_leader = {

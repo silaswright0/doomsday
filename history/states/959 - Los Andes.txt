@@ -1,21 +1,40 @@
 state = {
 	id = 959
 	name = "STATE_959"
-	manpower = 2130382
+	manpower = 2841925
 	
-	state_category = rural
+	state_category = large_town
+
+	resources={
+
+		oil=2
+	}
+
+
+
 
 	history = {
 
 		owner = ARG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ARG
 		add_claim_by = BOL
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 0
+			infrastructure = 2
+			industrial_complex = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

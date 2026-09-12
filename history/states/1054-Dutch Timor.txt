@@ -1,23 +1,74 @@
 state={
 	id=1054
 	name="STATE_1054"
-	resources={
-		
-	}
 
 	history={
 		owner = INS
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		add_core_of = INS
 		add_core_of = TML
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
 			infrastructure = 2
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			1355 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {
@@ -28,8 +79,14 @@ state={
 	provinces={
 		1339 1355 4358
 	}
-	manpower = 976465
+	manpower = 7103239
 	state_category = small_island
+
+	resources={
+
+		oil=1
+	}
+
 
 	local_supplies=0.0 
 }

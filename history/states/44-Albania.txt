@@ -2,15 +2,10 @@
 state = {
 	id = 44
 	name = "STATE_44"
-	resources = {
-		aluminium = 1.000
-		chromium = 1.000
-		oil = 4.000
-	}
 
 	history = {
 		owner = ALB
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			9914 5 
 		}
@@ -24,17 +19,107 @@ state = {
 			6900 2
 		}
 		buildings = {
-			infrastructure = 3 
+			infrastructure = 3
 			arms_factory = 0
 			industrial_complex = 1
 			air_base = 3
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11767 = {
 				naval_base = 4
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			13255 = {
 				naval_base = 2
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = ALB
 		add_claim_by = ITA
@@ -45,8 +130,14 @@ state = {
 	provinces = {
 		3448 3884 6900 9875 9914 11767 13255 
 	}
-	manpower = 1378692
+	manpower = 2166642
 	buildings_max_level_factor = 1.000
-	state_category = town
+	state_category = large_town
+
+	resources={
+
+		chromium=5
+	}
+
 	local_supplies = 5.000
 }

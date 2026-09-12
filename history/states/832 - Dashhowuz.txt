@@ -5,7 +5,7 @@ state = {
 	history = {
 	
 		owner = TMS
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		
 		victory_points = {
 			1493 1
@@ -13,9 +13,27 @@ state = {
 		
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
+			infrastructure = 1
 			industrial_complex = 0
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		add_core_of = SOV
@@ -27,9 +45,17 @@ state = {
 	provinces = {
 		1493 1649 7618 10485
 	}
-	manpower = 812498
+	manpower = 1657850
 	buildings_max_level_factor = 1.000
-	state_category = pastoral
+	state_category = town
+
+	resources={
+
+		oil=2
+	}
+
+
+
 
 	local_supplies = 4.0 
 	

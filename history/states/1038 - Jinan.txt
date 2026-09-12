@@ -2,17 +2,21 @@ state = {
 
 	id = 1038
 	name = "STATE_1038"
-	manpower = 75791408
-	state_category = rural
+	manpower = 81934683
+	state_category = megalopolis
 	
-	resources = {
-		
+	resources={
+
+		oil=1
+		aluminium=1
+		chromium=1
+		coal=1
 	}
 	
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 15
+		add_extra_state_shared_building_slots = 8
 		add_core_of = CHI
 		add_core_of = PRC
 
@@ -26,10 +30,29 @@ state = {
 		}
 
 		buildings = {
-			arms_factory = 1
-			infrastructure = 3
-			industrial_complex = 10
+			arms_factory = 0
+			infrastructure = 5
+			industrial_complex = 8
 			air_base = 3
+			renewable_park = 7
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

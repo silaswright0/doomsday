@@ -1,17 +1,14 @@
 state = {
 	id = 621
 	name = "STATE_621"
-	manpower = 4687240
-	state_category = pastoral
+	manpower = 1445941
+	state_category = town
 
-	resources = {
-		coal = 7 #initial distribution
-	}
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SHX
 		add_core_of = CHI
 		add_core_of = PRC
@@ -27,8 +24,26 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 1
+			infrastructure = 5
+			industrial_complex = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 

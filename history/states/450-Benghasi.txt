@@ -2,26 +2,80 @@
 state={
 	id=450
 	name="STATE_450"
-	manpower = 955397
+	manpower = 902229
 	
-	state_category = wasteland
+	state_category = town
 
 	history={
 		owner = LNA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = LNA
 		
 		victory_points = {
 			11954 3 
 		}
 		buildings = {
-			arms_factory = 0
-			industrial_complex = 1
-			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 0
+			infrastructure = 3
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11954 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = LBA
 	}

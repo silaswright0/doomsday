@@ -2,17 +2,40 @@
 state={
 	id=486
 	name="STATE_486"
-	manpower = 1386755
+	manpower = 3514454
 	
-	state_category = pastoral
+	state_category = large_town
+
+	resources={
+
+		oil=30
+	}
+
 
 	history={
 		owner = COL
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 2
+			services_building = 1
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = COL
 	}

@@ -2,20 +2,13 @@
 state = {
 	id = 158
 	name = "STATE_158"
-	manpower = 6898609
+	manpower = 4734945
 	
-	state_category = metropolis
-	resources = {
-		steel = 24 # was: 40
-		aluminium = 16 # was: 28
-		chromium = 2 # was: 4
-		tungsten = 1 # was: 2
-		coal = 1 # initial distribution
-	}
+	state_category = large_town
 
 	history = {
 		owner = ITA
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 7
 		victory_points = {
 			6788 10 
 		}
@@ -23,17 +16,70 @@ state = {
 			6780 5 
 		}
 		buildings = {
-			renewable_park = 1
-			finance_center = 1
-			services_building = 1
-			infrastructure = 4 #was: 7
-			arms_factory = 0
-			industrial_complex = 3
-			dockyard = 1
+			services_building = 2
+			infrastructure = 4
+			arms_factory = 3
+			industrial_complex = 4
+
 			air_base = 8
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			dockyard = 1
+
 			6788 = {
 				naval_base = 8
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = ITA
 		add_core_of = SPM

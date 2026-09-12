@@ -2,17 +2,18 @@
 state={
 	id=234
 	name="STATE_234"
-	manpower = 3910363
+	manpower = 5095277
 	
 	state_category = city
 	resources={
-		tungsten=17 # was: 26
-		oil=12 # was: 18
+
+		oil=1
+		chromium=1
 	}
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			3720 1 
 		}
@@ -23,16 +24,69 @@ state={
 			3734 5
 		}
 		buildings = {
+			arms_factory = 0
+			infrastructure = 2
+			industrial_complex = 1
+			
+
+
+
+
 			renewable_park = 1
 			services_building = 1
-			dockyard = 1
-			arms_factory = 1
-			infrastructure = 3 #was: 5
-			industrial_complex = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
 			719 = {
 				naval_base = 3
 				coastal_bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = SOV

@@ -6,11 +6,17 @@ state={
 	}
 	history = {
 		owner = SAU
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SAU
 	}
-	manpower = 62437
-	state_category=pastoral
+	manpower = 710575
+	state_category = rural
+
+	resources={
+
+		oil=7
+	}
+
 	buildings_max_level_factor=1.000
 	local_supplies=0.000
 }

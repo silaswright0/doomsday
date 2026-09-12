@@ -1,22 +1,42 @@
 state = {
 	id = 786
 	name = "STATE_786" # Mauritanian Desert
-	manpower = 1742784
+	manpower = 474897
 	
-	state_category = wasteland
+	state_category = rural
+
+
 	impassable = yes
 	force_link_ownership_to = 557 # Mauritania
 
 	history = {
 
 		owner = MRT
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = MRT
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

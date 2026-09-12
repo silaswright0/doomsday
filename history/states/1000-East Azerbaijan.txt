@@ -2,19 +2,34 @@
 state={
 	id=1000
 	name="STATE_1000"
-	manpower = 5117325
-	resources = {
-		steel = 6
+	manpower = 4416354
+	resources={
+
+		oil=1
 	}
 	
-	state_category = town
+	state_category = large_town
 	history={
 		owner = PER
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 1
 			arms_factory = 0
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			1896 5 

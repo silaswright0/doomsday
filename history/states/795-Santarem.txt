@@ -1,12 +1,9 @@
 state={
 	id=795
 	name="STATE_795"
-	resources={
-		chromium=20.000 #added due to portugal setup
-	}
 	history={
 		owner = POR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 1
 		victory_points = {
 			9869 1 
 		}
@@ -15,9 +12,27 @@ state={
 		}
 		buildings = {
 			arms_factory = 0
-			infrastructure = 4 #was: 6
+			infrastructure = 3
 			industrial_complex = 0
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = POR
 
@@ -26,9 +41,9 @@ state={
 	provinces={
 		844 924 3846 3886 3926 6986 9869 11768 
 	}
-	manpower = 1073687
+	manpower = 127580
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = pastoral
 
 	local_supplies=0.0 
 }

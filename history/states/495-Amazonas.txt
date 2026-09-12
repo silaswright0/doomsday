@@ -5,13 +5,30 @@ state={
 
 	history={
 		owner = BRA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BRA
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
-
+			infrastructure = 3
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			10934 1 
@@ -22,8 +39,15 @@ state={
 	provinces={
 		1979 5083 10934 13083 13317 13318 13319 13320 13321 13322 13323 13324 13325 13326 13327 13328 13329 13331 13332 13333 13334 13335 13336 13337 13339 13341 13342 13343 13344 13345 13346 13347 13348 13349 13350 13351 13352 13353 13355 13356 13357 13358 13359 13360 
 	}
-	manpower = 785484
+	manpower = 4538179
 	buildings_max_level_factor=1.000
-	state_category=pastoral
+	state_category = large_town
+
+	resources={
+
+		oil=8
+		rubber=1
+	}
+
 	local_supplies=0.000
 }

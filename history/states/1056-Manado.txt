@@ -1,13 +1,10 @@
 state={
 	id=1056
 	name="STATE_1056"
-	resources={
-		rubber = 5
-	}
 
 	history={
 		owner = INS
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = INS
 		add_core_of = TNE
 		add_core_of = GOW
@@ -17,9 +14,63 @@ state={
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 2
+			
+
+
+
+
+
+
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
 			10153 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {
@@ -34,8 +85,8 @@ state={
 	provinces={
 		4537 1518 1561 12358 1484 1505 1098 1289 10169 10197 4493 4262 4307 7311 10153
 	}
-	manpower = 5602279
-	state_category = rural
+	manpower = 4935094
+	state_category = large_town
 
 	local_supplies=0.0 
 }

@@ -2,21 +2,39 @@ state = {
 	id = 751
 	name = "STATE_751"
 	
-	manpower = 888801
+	manpower = 8791742
 	buildings_max_level_factor = 1.000
-	state_category = pastoral
+	state_category = city
+
+
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CHI
 		add_core_of = PRC
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
+			industrial_complex = 1
+			infrastructure = 5
+			services_building = 1
+			renewable_park = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

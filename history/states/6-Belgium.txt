@@ -1,13 +1,10 @@
 state = {
 	id = 6
 	name = "STATE_6" # Flanders
-	manpower = 4351384 # was 4747700
+	manpower = 2507634 # was 4747700
 
-	resources = {
-		steel = 4 # was: 48, then 25 then 15
-	}
 	
-	state_category = metropolis
+	state_category = large_town
 
 	history = {
 
@@ -27,20 +24,73 @@ state = {
 		}
 
 		buildings = {
-			renewable_park = 1
 			finance_center = 1
 			services_building = 2
-			infrastructure = 5 #was: 5
-			arms_factory = 0
+			infrastructure = 5
+			arms_factory = 1
 			industrial_complex = 1
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6560 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 2
 	
 	}
 

@@ -2,21 +2,45 @@ state = {
 	id = 912
 	name = "STATE_912"
 
-	manpower = 672074
-	state_category = rural
+	manpower = 977348
+	state_category = town
+
+	resources={
+
+		oil=1
+	}
+
 
 	history = {
 		owner = DEN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = DEN
 		victory_points = {
 			13258 1 
 		}
 
 		buildings = {
-			arms_factory = 0
+			arms_factory = 1
 			infrastructure = 5
-			industrial_complex = 0
+			industrial_complex = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

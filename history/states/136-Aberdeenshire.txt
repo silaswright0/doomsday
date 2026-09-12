@@ -2,18 +2,20 @@
 state={
 	id=136
 	name="STATE_136"
-	manpower = 1125230
+	manpower = 713791
 	
-	state_category = town
+	state_category = rural
+
 	resources={
-		tungsten=4 # was: 6
-		aluminium=3 # was: 4
+
+		oil=15
 	}
+
 
 	history={
 		add_core_of = SCO
 		owner = ENG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			200 5 #Aberdeen
 		}
@@ -23,7 +25,25 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 4 #was: 6
+			infrastructure = 4
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = ENG
 	}

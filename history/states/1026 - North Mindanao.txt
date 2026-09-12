@@ -1,22 +1,45 @@
 state = {
 	id = 1026
 	name = "STATE_1026"
-	manpower = 6623352 
+	manpower = 8368039 
 	
-	state_category = rural
+	state_category = city
+
+	resources={
+
+		rubber=2
+		cobalt=1
+	}
+
 
 	history = {
 
 		owner = PHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = PHI
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
 
-			infrastructure = 2
+			infrastructure = 3
+			services_building = 1
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

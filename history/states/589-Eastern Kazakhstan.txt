@@ -4,13 +4,31 @@ state={
 
 	history={
 		owner = KAZ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = KAZ
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
+			infrastructure = 2
 			industrial_complex = 0
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 
@@ -22,9 +40,17 @@ state={
 	provinces={
 		1239 1668 4651 4764 7332 7405 7711 7784 7795 7856 10290 10550 10619 10680 12529 12662 13148 13149 13197 
 	}
-	manpower = 1604655
+	manpower = 424275
 	buildings_max_level_factor=1.000
-	state_category=pastoral
+	state_category = rural
+
+	resources={
+
+		oil=1
+		chromium=1
+		copper=6
+	}
+
 
 	local_supplies=3.0 
 }

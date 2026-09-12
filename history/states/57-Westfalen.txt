@@ -1,12 +1,21 @@
 state = {
 	id = 57
 	name = "STATE_57"
-	manpower = 7760312
-	state_category = large_city
+	manpower = 7853215
+	state_category = city
+
+	resources={
+
+		oil=1
+		aluminium=1
+		steel=4
+		coal=3
+	}
+
 
 	history = {
 		owner = GER
-		add_extra_state_shared_building_slots = 12
+		add_extra_state_shared_building_slots = 5
 		add_core_of = GER
 		add_core_of = HAN
 		add_core_of = PRE
@@ -21,17 +30,71 @@ state = {
 
 		buildings = {
 			renewable_park = 1
-			finance_center = 1
+
 			services_building = 2
 
 			infrastructure = 5
-			arms_factory = 0
+			arms_factory = 2
 			industrial_complex = 4
 			air_base = 3
 
 			# Möhne Reservoir
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11431 = { dam = 1 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

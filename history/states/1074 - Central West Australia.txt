@@ -2,8 +2,20 @@ state = {
 	id = 1074
 	name = "STATE_1074"
 
-	state_category = wasteland
-	manpower = 39943
+	state_category = large_town
+
+	resources={
+
+		oil=1
+		aluminium=2
+		coal=2
+		rare_earths=1
+		lithium=20
+		cobalt=1
+		copper=3
+	}
+
+	manpower = 2177618
 
 	impassable = yes
 	force_link_ownership_to = 870 # Northwest Australia 
@@ -11,13 +23,28 @@ state = {
 	history = {
 
 		owner = AST
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = AST
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 4
+			industrial_complex = 1
+			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

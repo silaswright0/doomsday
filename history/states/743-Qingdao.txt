@@ -2,14 +2,16 @@ state = {
 
 	id = 743
 	name = "STATE_743"
-	manpower = 1140628
-	state_category = large_town
+	manpower = 20694
+	state_category = wasteland
+
+
 	
 	
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 2
 		add_core_of = CHI
 		add_core_of = PRC
 		IF = {
@@ -24,13 +26,29 @@ state = {
 		}
 
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			arms_factory = 0
 
-			infrastructure = 3 #was: 5
+			infrastructure = 4
 			industrial_complex = 0
 			air_base = 1
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			10000 = {
 				naval_base = 5
@@ -38,6 +56,42 @@ state = {
 				bunker = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 

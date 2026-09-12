@@ -2,24 +2,43 @@
 state={
 	id=369
 	name="STATE_369"
-	manpower = 7116923
+	manpower = 4675707
 	
-	resources = {
-		coal = 56 # initial distribution = with infra 99.2 / 1280 total
+	resources={
+
+		aluminium=2
+		coal=5
 	}
 
-	state_category = city
+	state_category = large_town
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 0
 		buildings = {
-			renewable_park = 1
 			services_building = 1
-			arms_factory = 1
-			infrastructure = 4 #was: 5
-			industrial_complex = 2
+			arms_factory = 0
+			infrastructure = 4
+			industrial_complex = 1
 			air_base = 4
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = USA

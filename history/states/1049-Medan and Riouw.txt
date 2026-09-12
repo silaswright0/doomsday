@@ -1,28 +1,116 @@
 state={
 	id=1049
 	name="STATE_1049"
-	resources={
-		rubber = 102 #was 224 #26-02-03: was:171
-		oil = 24 #was:12 #26-02-03: was:20
-	}
 
 	history={
 		owner = INS
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = INS
 		add_core_of = SSI
 		set_resistance = 0
 		set_compliance = 60
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 1
+			infrastructure = 3
+			industrial_complex = 2
+			
+
+
+
+
+
+
+			finance_center = 1
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
 			12113 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4652 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {
@@ -36,8 +124,16 @@ state={
 	provinces={
 		1345 4364 1373 12212 1332 10225 12184 10209 1277 12168 7463 12302 7673 4652 7327 12113 13402
 	}
-	manpower = 14105666
-	state_category = rural
+	manpower = 30768856
+	state_category = metropolis
+
+	resources={
+
+		oil=3
+		aluminium=1
+		steel=1
+	}
+
 
 	local_supplies=0.0 
 }

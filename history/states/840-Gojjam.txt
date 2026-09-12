@@ -1,11 +1,9 @@
 state = {
 	id = 840 # Gojjam (including Gammu Gofa)
 	name = "STATE_840"
-	manpower = 11357552
-	resources = {
-	}
+	manpower = 15917897
 	
-	state_category = pastoral
+	state_category = large_city
 
 	history = {
 		set_variable = { ETH_state_development_production_speed = -0.3 }
@@ -25,6 +23,19 @@ state = {
 			arms_factory = 0
 			industrial_complex = 0
 			# infrastructure = 2
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = { 
@@ -32,7 +43,7 @@ state = {
 		}
 		
 		owner = ETH
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ETH
 		add_core_of = BEG
 

@@ -2,13 +2,15 @@ state = {
 	id = 927
 	name = "STATE_927" #HÄME
 
-	manpower = 708851
+	manpower = 883727
 	
-	state_category = rural
+	state_category = town
+
+
 	
 	history = {
 		owner = FIN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 1
 		add_core_of = FIN
 
 		victory_points = { #Tampere
@@ -24,9 +26,27 @@ state = {
 		}
 	
 		buildings = {
-			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 5 #MM: Was 2
+			arms_factory = 2
+			industrial_complex = 1
+			infrastructure = 5
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

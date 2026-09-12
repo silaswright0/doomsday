@@ -2,17 +2,18 @@
 state={
 	id=344
 	name="STATE_344"
-	manpower = 5641234
+	manpower = 1455992
 	
-	resources = {
-		coal = 2 #initial distribution
+	resources={
+
+		chromium=35
 	}
 
 	state_category = town
 
 	history={
 		owner = TUR
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			9893 15
 		}
@@ -28,10 +29,63 @@ state={
 		buildings = {
 			arms_factory = 0
 			infrastructure = 3
-			industrial_complex = 1
+			industrial_complex = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11746 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = TUR
 		add_claim_by = KUR

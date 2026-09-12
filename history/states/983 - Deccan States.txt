@@ -2,23 +2,38 @@
 state={
 	id=983
 	name="STATE_983" #
-	manpower = 8653483 
+	manpower = 7851781 
 	
-	state_category = rural
+	state_category = city
 	
-	resources={
-
-	}
 
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		add_core_of = KOL
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2 #was: 5
+			infrastructure = 3
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

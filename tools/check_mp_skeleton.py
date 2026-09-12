@@ -84,8 +84,11 @@ def check_no_random() -> None:
         ROOT / "common" / "scripted_guis" / "doomsday_economy.txt",
         ROOT / "common" / "scripted_localisation" / "doomsday_economy.txt",
         ROOT / "common" / "on_actions" / "doomsday_economy.txt",
+        ROOT / "events" / "doomsday_events.txt",
         ROOT / "common" / "ideas" / "doomsday_policies.txt",
         ROOT / "common" / "decisions" / "doomsday_economy.txt",
+        ROOT / "common" / "dynamic_modifiers" / "doomsday_economy.txt",
+        ROOT / "common" / "scripted_localisation" / "doomsday_economy.txt",
     ]
     for path in files:
         text = path.read_text(encoding="utf-8")
@@ -291,6 +294,62 @@ def check_energy_define() -> None:
     text = (ROOT / "common" / "defines" / "doomsday_defines.lua").read_text(encoding="utf-8")
     if 'ENERGY_RESOURCE = "coal"' not in text:
         fail("ENERGY_RESOURCE must stay coal")
+    res = (ROOT / "common" / "resources" / "00_resources.txt").read_text(encoding="utf-8")
+    for name in ("coal", "rare_earths", "lithium", "cobalt", "copper", "graphite"):
+        if f"{name} = {{" not in res:
+            fail(f"missing resource {name}")
+    gfx = (ROOT / "interface" / "doomsday_resources.gfx").read_text(encoding="utf-8")
+    if gfx.count("noOfFrames = 12") < 2:
+        fail("resource icon strips must have 12 frames")
+    prod = (ROOT / "interface" / "countryproductionlineview.gui").read_text(encoding="utf-8")
+    for token in ("rare_earths_checkbox", "copper_checkbox", "graphite_checkbox"):
+        if token not in prod:
+            fail(f"production filter missing {token}")
+    trade = (ROOT / "interface" / "countrytradeview.gui").read_text(encoding="utf-8")
+    if "verticalScrollbar" not in trade or "max_slots = { x = 6 y = 2 }" not in trade:
+        fail("trade resource grid must wrap with a slider")
+
+
+def check_no_gdp() -> None:
+    """GDP is spreadsheet-only. In-game ledger is cash / revenue / expense / debt."""
+    gdp_token = re.compile(r"\bgdp\b|debt_to_gdp|GetDdGdp|DD_USD_GDP")
+    skip = {"plan_a_parked"}
+    roots = [
+        ROOT / "common" / "scripted_effects",
+        ROOT / "common" / "decisions",
+        ROOT / "common" / "scripted_localisation",
+        ROOT / "common" / "scripted_guis",
+        ROOT / "localisation",
+        ROOT / "interface",
+        ROOT / "history" / "countries",
+    ]
+    leftover = []
+    for folder in roots:
+        if not folder.exists():
+            continue
+        for path in folder.rglob("*"):
+            if not path.is_file() or path.suffix.lower() not in {".txt", ".yml", ".gui"}:
+                continue
+            if any(part in skip for part in path.parts):
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            if gdp_token.search(text):
+                leftover.append(path.name)
+                if len(leftover) >= 8:
+                    break
+        if len(leftover) >= 8:
+            break
+    if leftover:
+        fail(f"GDP still in gameplay files {leftover[:8]}")
+    gen = (ROOT / "tools" / "generate_doomsday.py").read_text(encoding="utf-8")
+    if 'set_variable = {{ gdp' in gen or "set_variable = { gdp" in gen:
+        fail("generator still writes gdp into country history")
+    dyn = ROOT / "common" / "dynamic_modifiers" / "doomsday_economy.txt"
+    if not dyn.exists() or "dd_debt_burden" not in dyn.read_text(encoding="utf-8"):
+        fail("missing dd_debt_burden dynamic modifier")
+    fx = (ROOT / "common" / "scripted_effects" / "doomsday_economy.txt").read_text(encoding="utf-8")
+    if "dd_refresh_debt_burden" not in fx:
+        fail("ledger must refresh debt-to-revenue burden")
 
 
 def main() -> int:
@@ -301,13 +360,13 @@ def main() -> int:
     check_research_costs()
     check_politics_slots()
     check_energy_define()
+    check_no_gdp()
     if ERRORS:
         print("FAIL")
         for err in ERRORS:
             print(" -", err)
         return 1
     print("OK: identical TECH_BLOCK, no random in money/policy, spawn types unchanged, cost order civ>finance>renewable>services")
-    print("MP gate still needs a host+2 clients 3-month observe: treasuries, policy ideas, and market stockpiles must match.")
     return 0
 
 

@@ -954,16 +954,26 @@ scripted_gui = {
 		}
 		triggers = {
 			dd_net_up_visible = {
+				has_country_flag = dd_econ_budget_shown
 				check_variable = { dd_last_net > -0.005 }
 			}
 			dd_net_down_visible = {
+				has_country_flag = dd_econ_budget_shown
 				check_variable = { dd_last_net < 0 }
 			}
 			dd_net_pos_visible = {
+				has_country_flag = dd_econ_budget_shown
 				check_variable = { dd_last_net > -0.005 }
 			}
 			dd_net_neg_visible = {
+				has_country_flag = dd_econ_budget_shown
 				check_variable = { dd_last_net < 0 }
+			}
+			dd_net_unknown_visible = {
+				NOT = { has_country_flag = dd_econ_budget_shown }
+			}
+			dd_net_unk_visible = {
+				NOT = { has_country_flag = dd_econ_budget_shown }
 			}
 		}
 	}

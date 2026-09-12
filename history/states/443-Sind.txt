@@ -2,27 +2,89 @@
 state={
 	id=443
 	name="STATE_443" # Sind
-	manpower = 37110613 #3887000
+	manpower = 40206302 #3887000
 	
-	state_category = city
+	state_category = megalopolis
+
+	resources={
+
+		oil=1
+	}
+
+
+
 
 	history={
 		owner = PAK
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		add_core_of = SIN
 		victory_points = {
 			3456 25 
 		}
 		buildings = {
-			renewable_park = 1
-			services_building = 1
-			arms_factory = 0
-			infrastructure = 2 #was: 5
+			arms_factory = 2
+			infrastructure = 2
 			industrial_complex = 1
+			
+
+
+
+
+
+
+			finance_center = 1
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+			dockyard = 1
+
 			3456 = {
 				naval_base = 4
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = PAK
 

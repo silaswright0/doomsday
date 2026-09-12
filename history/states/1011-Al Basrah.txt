@@ -2,18 +2,18 @@ state = {
 	id = 1011
 	name = "STATE_1011"
 
-	resources = {
-		steel = 4
-		aluminium = 7
+	resources={
+
+		oil=102
 	}
 	
-	state_category = town
-	manpower = 9904537
+	state_category = large_town
+	manpower = 3829116
 
 	history = {
 
 		owner = IRQ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = IRQ
 
 		victory_points = {
@@ -27,12 +27,65 @@ state = {
 		}
 
 		buildings = {
-			infrastructure = 2 #was: 5
+			infrastructure = 1
 			arms_factory = 0
 			industrial_complex = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			2089 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 	

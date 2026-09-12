@@ -2,24 +2,39 @@
 state={
 	id=573
 	name="STATE_573" # Zlatoust
-	manpower = 749752
+	manpower = 993233
 	
-	state_category = pastoral
-	resources={
-		chromium=23 # was: 32
-	}
+	state_category = town
 
 	history={
 		victory_points = {
 			10329 1
 		}
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 	}

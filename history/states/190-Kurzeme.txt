@@ -3,7 +3,7 @@ state={
 	id=190
 	name="STATE_190"
 	
-	state_category = rural
+	state_category = wasteland
 	
 	history={
 		victory_points = {
@@ -13,14 +13,68 @@ state={
 			3296 1 #Ventspils
 		}
 		owner = LAT
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 4 #was: 5
+			infrastructure = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9262 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = LAT
 	}
@@ -30,7 +84,7 @@ state={
 	}
 
 	local_supplies=5.0 
-	manpower = 289745
+	manpower = 24809
 	buildings_max_level_factor=1.000
 	state_category=rural
 }

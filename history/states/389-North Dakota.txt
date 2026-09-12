@@ -2,21 +2,38 @@
 state={
 	id=389
 	name="STATE_389"
-	manpower = 1853261
-	state_category = rural
+	manpower = 804671
+	state_category = town
 	resources={
-		steel=17 # was: 24
-		oil=7 # was: 10
-		coal = 12 # initial distribution = with infra 25.2 / 1280 total
+
+		oil=68
 	}
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			infrastructure = 4
 			industrial_complex = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = USA
 		victory_points = {

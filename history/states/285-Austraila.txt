@@ -1,44 +1,173 @@
 state = {
 	id = 285
 	name = "STATE_285"
-	state_category = large_city
-	manpower = 10584907 #PreTaog 2563100
+	state_category = city
+	manpower = 8634854 #PreTaog 2563100
 
-	resources = {
-		coal = 12 #16 > 12
-		tungsten = 2 #starting amount divided better in TAOG
-		steel = 16 #added 16 steel in TAOG
+	resources={
+
+		oil=5
+		tungsten=1
+		steel=1
+		coal=5
+		copper=2
 	}
 
 	history = {
 
 		owner = AST
-		add_extra_state_shared_building_slots = 13
+		add_extra_state_shared_building_slots = 6
 		add_core_of = AST
 
 		buildings = {
-			renewable_park = 2
+			renewable_park = 1
 			finance_center = 1
-			services_building = 2
-			infrastructure = 4 #was: 6
+			services_building = 3
+			infrastructure = 5
 			arms_factory = 1
-			industrial_complex = 2
-			dockyard = 1
+			industrial_complex = 4
+
 			air_base = 5
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			12406 = {
 				naval_base = 6
 				coastal_bunker = 2
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7859 = {
 				bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			7520 = {
 				coastal_bunker = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 

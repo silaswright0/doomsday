@@ -4,22 +4,40 @@ state={
 	provinces={
 		2029 4976 12821 12894 13079 
 	}
-	manpower = 4476789
+	manpower = 3810631
 	buildings_max_level_factor=1.000
-	state_category=pastoral
+	state_category = large_town
 	local_supplies=0.000
 
 	history = {
 		owner = STC
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = STC
 		add_core_of = YEM
 		add_core_of = FSA
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
 			infrastructure = 1
 			air_base = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 }

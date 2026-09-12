@@ -1,19 +1,34 @@
 state={
 	id=322
 	name="STATE_322"
-	resources={
-		tungsten=2.000
-	}
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CHI
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 1
+			infrastructure = 5
+			industrial_complex = 0
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = TIB
 
@@ -22,9 +37,16 @@ state={
 	provinces={
 		2010 2093 4994 5011 7926 8068 10755 10918 
 	}
-	manpower = 5101717
+	manpower = 1724395
 	buildings_max_level_factor=1.000
-	state_category=pastoral
+	state_category = town
+
+	resources={
+
+		lithium=3
+		copper=8
+	}
+
 
 	local_supplies=2.0 
 }

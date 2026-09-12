@@ -1,19 +1,18 @@
 state = {
 	id = 42
 	name = "STATE_42"
-	manpower = 4598682
-	resources = {
-		steel = 50 #was 21 #was 35 was 59 # was: 100
-		aluminium = 14 # was: 24
-		coal = 14 # initial distirbution / 660 total
+	manpower = 6898626
+	resources={
+
+		aluminium=1
 	}
 	
-	state_category = metropolis
+	state_category = city
 
 	history = {
 
 		owner = GER
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 8
 		add_core_of = GER
 		add_core_of = RHI
 		add_core_of = PRE
@@ -36,11 +35,29 @@ state = {
 
 		buildings = {
 			renewable_park = 1
-			finance_center = 1
-			services_building = 1
-			arms_factory = 0
+
+			services_building = 2
+			arms_factory = 2
 			infrastructure = 5
-			industrial_complex = 2
+			industrial_complex = 7
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

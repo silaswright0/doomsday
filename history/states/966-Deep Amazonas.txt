@@ -2,8 +2,14 @@ state = {
 	id = 966
 	name = "STATE_966"
 
-	manpower = 44024
-	state_category = wasteland
+	manpower = 496042
+	state_category = rural
+
+	resources={
+
+		oil=7
+	}
+
 	
 
 	impassable = yes
@@ -11,7 +17,7 @@ state = {
 	
 	history = {
 		owner = BRA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BRA
 	}
 

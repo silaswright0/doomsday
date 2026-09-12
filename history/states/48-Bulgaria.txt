@@ -2,18 +2,14 @@
 state={
 	id=48
 	name="STATE_48"
-	manpower = 1671339
-	resources={
-		aluminium = 2
-		coal = 1 #initial distribution
-	}
+	manpower = 450442
 	
 	
-	state_category = city
+	state_category = rural
 
 	history={
 		owner = BUL
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 2
 		victory_points = { #Sofia
 			949 15 
 		}
@@ -22,10 +18,28 @@ state={
 		}
 		buildings = {
 			services_building = 1
-			arms_factory = 0
-			infrastructure = 3
+			arms_factory = 1
+			infrastructure = 4
 			industrial_complex = 0
 			air_base = 3
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = BUL
 	}

@@ -2,34 +2,86 @@ state = {
 
 	id = 327
 	name = "STATE_327" # Manila
-	manpower = 20060910 
+	manpower = 22626462 
 
-	resources = {
-		coal = 1 #initial distribution
+	resources={
+
+		copper=1
 	}
 	
-	state_category = large_town
+	state_category = large_city
 
 	history = {
 
 		owner = PHI
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 0
 		add_core_of = PHI
 
 		buildings = {
-			renewable_park = 1
 			finance_center = 1
 			services_building = 2
 			arms_factory = 0
 
-			infrastructure = 2 #was: 5
+			infrastructure = 4
 			industrial_complex = 1
 			air_base = 6
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			10265 = {
 				naval_base = 5
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

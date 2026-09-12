@@ -2,19 +2,17 @@ state = {
 	id = 461
 	name = "STATE_461"
 
-	resources = {
-		chromium = 12.000 #added due to portugal setup
-		coal = 3 #initial distribution
-	}
 
-	manpower = 21429522
+	manpower = 6324658
 	
-	state_category = rural
+	state_category = city
+
+
 	
 	history = {
 
 		owner = MOR
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = MOR
 
 		victory_points = {
@@ -28,12 +26,66 @@ state = {
 		buildings = {
 			services_building = 1
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 1
+			infrastructure = 2
+			industrial_complex = 0
 			air_base = 4
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7069 = {
 				naval_base = 4
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

@@ -1,26 +1,45 @@
 state = {
 	id = 479
 	name = "STATE_479"
-	manpower = 8249280
+	manpower = 7719902
 	
-	state_category = town
+	state_category = city
 
-	resources = {
-		oil = 9
-		#steel=2 moved to Guerrero
+	resources={
+
+		oil=29
 	}
 	
 	history = {
 
 		owner = MEX
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = MEX
 		add_core_of = RIG
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 1
+			infrastructure = 2
+			industrial_complex = 0
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

@@ -2,17 +2,44 @@
 state={
 	id=406
 	name="STATE_406" # Gurev
-	manpower = 439231
+	manpower = 1045909
 	
-	state_category = wasteland
+	state_category = town
+
+	resources={
+
+		oil=3
+		chromium=4
+	}
+
+
+
 
 	history={
 		owner = KAZ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = KAZ

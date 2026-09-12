@@ -1,27 +1,43 @@
 state = {
 	id = 612
 	name = "STATE_612"
-	manpower = 1676871
+	manpower = 5252878
 	buildings_max_level_factor = 1.000
-	state_category = rural
+	state_category = city
 
-	resources = {
-		coal = 3 # The coal of the Chahar–Suiyuan mines.
-	}
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = MEN
 		add_core_of = CHI
 		add_core_of = PRC
 
 
 		buildings = {
-			industrial_complex = 0
-			infrastructure = 3
+			industrial_complex = 1
+			infrastructure = 5
 			arms_factory = 0
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

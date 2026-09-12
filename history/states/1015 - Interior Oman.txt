@@ -1,25 +1,44 @@
 state = {
 	id = 1015
 	name = "STATE_1015"
-	manpower = 1087902
+	manpower = 176182
 	
 	state_category = pastoral
 	
-	resources = {
-		oil = 2
+	resources={
+
+		oil=15
 	}
 
 	history = {
 
 		owner = OMA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 1
 		add_core_of = IMO
 		#add_core_of = OMA
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

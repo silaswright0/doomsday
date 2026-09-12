@@ -2,27 +2,82 @@ state={
 	id=431
 	name="STATE_431"
 	resources={
-		steel=13.000
-		# tungsten=11.000
+
+		oil=2
+		steel=5
+		coal=20
 	}
 
 	history = {
 
 		owner = RAJ
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ 
 
 		buildings = {
 			renewable_park = 1
-			services_building = 1
-			arms_factory = 1
-			infrastructure = 2 # was: 5
-			industrial_complex = 3
+			services_building = 2
+			arms_factory = 0
+			infrastructure = 4
+			industrial_complex = 4
 			dockyard = 1
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4245 = {
 				naval_base = 6
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			finance_center = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {
@@ -38,9 +93,9 @@ state={
 	provinces={
 		1159 1609 1656 4062 4204 4245 4644 7220 7475 7537 7565 7593 10077 12050 12338 
 	}
-	manpower = 95745761
+	manpower = 98147263
 	buildings_max_level_factor=1.000
-	state_category=city
+	state_category = megalopolis
 
 	local_supplies=0.0 
 }

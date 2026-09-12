@@ -5,14 +5,31 @@ state={
 
 	history={
 		owner = SAU
-		add_extra_state_shared_building_slots = 10
+		add_extra_state_shared_building_slots = 2
 		buildings = {
-			renewable_park = 1
 			finance_center = 1
 			services_building = 2
-			infrastructure = 3
-			arms_factory = 1
-			industrial_complex = 1
+			infrastructure = 5
+			arms_factory = 0
+			industrial_complex = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		}
@@ -26,8 +43,15 @@ state={
 	provinces={
 		5024 5093 7995 8004 8060 12727 12813 12870 
 	}
-	manpower = 12487344
+	manpower = 4939758
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = large_town
+
+	resources={
+
+		oil=52
+		aluminium=2
+	}
+
 	local_supplies=0.000
 }

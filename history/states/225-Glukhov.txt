@@ -2,7 +2,7 @@
 state={
 	id=225
 	name="STATE_225" # Sumy
-	manpower = 1270533
+	manpower = 962457
 	
 	state_category = town
 
@@ -14,11 +14,25 @@ state={
 			9566 1
 		}
 		owner = UKR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2 #was: 5
+			infrastructure = 1
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = UKR

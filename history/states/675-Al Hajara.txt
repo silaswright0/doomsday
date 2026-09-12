@@ -1,14 +1,16 @@
 state = {
 	id = 675
 	name = "STATE_675"
-	manpower = 2244245
+	manpower = 2865350
 	
-	state_category = wasteland
+	state_category = large_town
+
+
 
 	history = {
 
 		owner = IRQ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = IRQ
 
 		victory_points = {
@@ -19,6 +21,18 @@ state = {
 			arms_factory = 0
 			industrial_complex = 0
 			#infrastructure = 2
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

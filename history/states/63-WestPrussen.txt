@@ -1,18 +1,14 @@
 state = {
 	id = 63
 	name = "STATE_63"
-	manpower = 1497191
-	resources = {
-		steel = 7 #was 8  #was 16 was: 23 # was: 36
-		aluminium = 6 # was: 8 was: 12
-	}
+	manpower = 2121874
 	
-	state_category = town
+	state_category = large_town
 
 	history = {
 
 		owner = POL
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = POL
 		add_core_of = GER
 		add_core_of = KSH
@@ -29,15 +25,107 @@ state = {
 		buildings = {
 			arms_factory = 0
 			infrastructure = 4
-			industrial_complex = 0
+			industrial_complex = 1
+			
+
+
+
+
+
+
+
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
 			11372 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6282 = {
 				naval_base = 4
 
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			air_base = 3
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

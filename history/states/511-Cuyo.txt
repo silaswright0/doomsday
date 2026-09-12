@@ -1,21 +1,41 @@
 state = {
 	id = 511
 	name = "STATE_511" # Mendoza
-	manpower = 2972823
+	manpower = 2639812
 	
-	state_category = rural
+	state_category = large_town
+
+	resources={
+
+		oil=2
+	}
+
 
 	history = {
 
 		owner = ARG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ARG
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
+			infrastructure = 2
 			industrial_complex = 0
 			air_base = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

@@ -2,14 +2,14 @@
 state={
 	id=24
 	name="STATE_24"
-	manpower = 2442466
+	manpower = 2648211
 	
 	
 	state_category = large_town
 
 	history={
 		owner = FRA
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			3671 10
 		}
@@ -17,12 +17,22 @@ state={
 			512 15
 		}
 		buildings = {
-			renewable_park = 1
-			services_building = 1
-			arms_factory = 0
+			arms_factory = 1
 			infrastructure = 4
-			industrial_complex = 1
-
+			industrial_complex = 0
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = FRA

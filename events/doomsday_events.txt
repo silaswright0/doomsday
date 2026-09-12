@@ -2,3 +2,15 @@
 # Doomsday country/news events go in this folder.
 
 add_namespace = doomsday
+
+# Hidden. Recalc money after history buildings exist (on_startup is too early).
+country_event = {
+	id = doomsday.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		dd_prime_economy_ledger = yes
+	}
+	option = {
+	}
+}

@@ -2,28 +2,119 @@
 state={
 	id=313
 	name="STATE_313"
-	manpower = 18000000
+	manpower = 18967978
 	resources={
-		chromium=4 # was: 6
+
+		rubber=2
 	}
 	
-	state_category = town
+	state_category = large_city
 
 	history={
 		owner = GUA
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			services_building = 1
 			infrastructure = 2
 			arms_factory = 0
-			industrial_complex = 1 
+			industrial_complex = 1
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10886 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			13085 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = GUA
 		victory_points = {

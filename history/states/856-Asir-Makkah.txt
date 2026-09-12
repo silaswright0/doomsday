@@ -5,16 +5,71 @@ state= {
 	history = {
 
 		owner = SAU
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 3
 		add_core_of	= SAU
 
 		buildings = {
-			industrial_complex = 1
-			infrastructure = 3
+			industrial_complex = 6
+			infrastructure = 4
 			arms_factory = 0
+			
+
+
+
+
+
+
+			finance_center = 1
+			services_building = 2
+
+
+
+
+
+
+
+
+
+
+
 			12883 = {
 				naval_base = 5
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {
@@ -25,8 +80,16 @@ state= {
 			5037 5
 		}
 	}
-	manpower = 6243672
-	state_category = pastoral
+	manpower = 12754486
+	state_category = large_city
+
+	resources={
+
+		oil=134
+		aluminium=4
+		steel=1
+	}
+
 
 	provinces = {
 		1923 2090 5037 8073 10786 12883 

@@ -1,18 +1,19 @@
 state = {
 	id = 291
 	name = "STATE_291"
-	manpower = 10551266
+	manpower = 15569083
 	
-	state_category = town
+	state_category = large_city
 	
-	resources = {
-		oil = 15 # was: 22
+	resources={
+
+		oil=26
 	}
 
 	history = {
 
 		owner = IRQ
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = IRQ
 		add_claim_by = KUR
 
@@ -28,10 +29,28 @@ state = {
 
 		buildings = {
 			services_building = 1
-			infrastructure = 2 #was: 5
-			arms_factory = 0
-			industrial_complex = 1 
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
 			air_base = 4
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

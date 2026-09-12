@@ -2,13 +2,15 @@
 state={
 	id=460
 	name="STATE_460" # Constantine
-	manpower = 16707966
+	manpower = 7418566
 	
-	state_category = town
+	state_category = city
+
+
 
 	history={
 		owner = ALG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ALG
 		victory_points = {
 			7081 1 
@@ -17,12 +19,66 @@ state={
 			12051 3 
 		}
 		buildings = {
-			arms_factory = 0
+			arms_factory = 1
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 1
+			
+
+
+
+
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7081 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

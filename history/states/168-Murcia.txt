@@ -4,20 +4,74 @@ state={
 
 	history={
 		owner = SPR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			10024 3
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 4 #was: 5
+			industrial_complex = 1
+			infrastructure = 4
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10024 = {
 				naval_base = 8
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SPR
 
@@ -26,9 +80,9 @@ state={
 	provinces={
 		832 1093 3835 4195 7111 9903 10024 10109 11807 11812 11884 
 	}
-	manpower = 1942627
+	manpower = 1868354
 	buildings_max_level_factor=1.000
-	state_category=town
+	state_category = town
 
 	local_supplies=0.0 
 }

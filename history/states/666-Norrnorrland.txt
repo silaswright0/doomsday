@@ -1,19 +1,16 @@
 state = {
 	id = 666
 	name = "STATE_666"
-	manpower = 171339
+	manpower = 418450
 	state_category = rural
 
-	resources = {
-		tungsten = 44
-		steel = 50
-		chromium = 25
-	}
+
+
 
 	history = { 
 
 		owner = SWE
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SWE
 		add_core_of = SMI
 		
@@ -39,13 +36,102 @@ state = {
 			infrastructure = 5
 			industrial_complex = 0
 
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9108 = {
 				naval_base = 2
 			}
 
-			# Harsprånget
-			#3054 = { dam = 1 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			# Harsprånget
+			#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			3054 = { dam = 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

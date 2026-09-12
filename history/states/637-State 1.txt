@@ -5,16 +5,71 @@ state = {
 
 	history = {
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			12207 = {
 				naval_base = 1
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = FER
@@ -23,9 +78,11 @@ state = {
 	provinces = {
 		1823 1839 1863 4728 7878 12207 12522 
 	}
-	manpower = 65767
+	manpower = 252004
 	buildings_max_level_factor = 1
-	state_category = "pastoral"
+	state_category = rural
+
+
 
 	local_supplies = 0.0 
 }

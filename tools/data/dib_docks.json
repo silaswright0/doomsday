@@ -1,0 +1,160 @@
+{
+  "note": "Hybrid dockyards. Merchant docks from Statbase 2025 DWT (UNCTAD/Clarksons ships-built series): 1 dock per 2 million dwt, and only if the tag delivered at least 0.8 million dwt. That is the commercial industrial base (CHI/KOR/JAP). Naval docks are Janes/IISS construction campuses, same 1-campus rule as mils. Mega-yards 2–4. Repair-only bases omitted. NavBase / Phoenix_jz fleet tonnage is an inventory cross-check, not a formula — it is why USA cannot be 0 while the Philippines is 1. Dual-use Chinese yards: merchant GT is the steel; naval campuses are extra PLAN slipways at those complexes. Do not use leftover CSV docks.",
+  "sources": [
+    "UNCTAD Review of Maritime Transport 2025 Table II.1: 2024 merchant GT shares China 54.57%, Korea 28.02%, Japan 12.56% (Clarksons)",
+    "Statbase Ships built by country of building, 2025 DWT (UNCTAD/Clarksons underlying): world 77.28M dwt, China 41.60, Korea 21.13, Japan 10.12",
+    "Janes Fighting Ships / IISS Military Balance: certified military construction yards and 2024–2026 procurement programs",
+    "NavBase (theworldwars.net, updated Jan 2025) and Phoenix_jz aggregate displacement 1 Jan 2025: fleet-tonnage ranking as drydock-need cross-check, not dock counts"
+  ],
+  "merchant": {
+    "dwt_per_dock": 2000000,
+    "min_dwt_for_one": 800000,
+    "year": 2025,
+    "unit": "dwt",
+    "world_dwt": 77280000,
+    "rows_dwt": {
+      "China": 41595055,
+      "Republic of Korea": 21131905,
+      "Japan": 10116457,
+      "Viet Nam": 892040,
+      "Italy": 647783,
+      "Philippines": 639475,
+      "Germany": 434320,
+      "France": 408810,
+      "Finland": 296657,
+      "Russian Federation": 212207,
+      "Indonesia": 187404,
+      "Turkey": 151891,
+      "Netherlands": 108510,
+      "Norway": 59489,
+      "India": 57637,
+      "Romania": 54355,
+      "Poland": 48627,
+      "Malaysia": 47043,
+      "United States of America": 25172,
+      "Croatia": 23786,
+      "Spain": 21361,
+      "Bangladesh": 12119,
+      "Sri Lanka": 10476,
+      "Portugal": 9923,
+      "United Arab Emirates": 8499,
+      "Singapore": 6254,
+      "Brazil": 1836,
+      "Taiwan": 326
+    }
+  },
+  "naval": {
+    "USA": {
+      "docks": 11,
+      "source": "Janes: Newport News (CVN/SSN) 3, Electric Boat Groton 2, Ingalls Pascagoula 2, Bath Iron Works 1, NASSCO 1, Austal Mobile 1, Fincantieri Marinette 1. UNCTAD 0.04% merchant. Phoenix_jz ~4.5–7.3 Mt fleet is why this cannot be 0."
+    },
+    "CHI": {
+      "docks": 12,
+      "source": "PLAN serial slipways at dual-use CSSC complexes: Jiangnan 3, Dalian 2, Hudong-Zhonghua 2, Huangpu 1, Wuchang 2, Bohai 2. Merchant DWT is extra steel, not a substitute for these halls."
+    },
+    "KOR": {
+      "docks": 5,
+      "source": "Hanwha Ocean Geoje (KSS-III, KDX) 2, HD Hyundai Ulsan 2, HJ Shipbuilding Busan 1. Merchant DWT is the rest of Geoje/Ulsan."
+    },
+    "JAP": {
+      "docks": 5,
+      "source": "MHI Nagasaki 2, JMU Kure 1, Kawasaki/MHI Kobe 1, JMU Yokohama 1. Mogami / Taigei serial."
+    },
+    "SOV": {
+      "docks": 6,
+      "source": "Sevmash 2, Admiralty 1, Yantar 1, Amur 1, Zvezda 1. Yasen/Borei/Admiral Gorshkov. Merchant DWT is LNG/icebreakers, not these halls."
+    },
+    "ENG": {
+      "docks": 4,
+      "source": "BAE Barrow 2 (Dreadnought/SSN), Govan/Scotstoun 1 (Type 26), Rosyth 1. Not Belfast."
+    },
+    "FRA": {
+      "docks": 4,
+      "source": "Naval Group Cherbourg 1, Lorient 1, Chantiers de l'Atlantique/Saint-Nazaire 1, Toulon 1."
+    },
+    "ITA": {
+      "docks": 4,
+      "source": "Fincantieri Muggiano/Riva Trigoso 2, Castellammare 1, Trieste 1. Cruise GT is not warship docks."
+    },
+    "RAJ": {
+      "docks": 4,
+      "source": "MDL Mumbai, GRSE Kolkata, CSL Kochi, Hindustan Shipyard Visakhapatnam. P-15B / Kalvari / next carrier."
+    },
+    "TUR": {
+      "docks": 3,
+      "source": "Istanbul Naval/Pendik, Gölcük, ADIK. MILGEM / Reis / amphibs serial (IISS)."
+    },
+    "SPR": {
+      "docks": 2,
+      "source": "Navantia Ferrol and San Fernando/Cádiz. Not Ceuta."
+    },
+    "GER": {
+      "docks": 2,
+      "source": "TKMS Kiel (212/212CD) and Hamburg/Blohm+Voss. Cruise GT omitted."
+    },
+    "HOL": {
+      "docks": 1,
+      "source": "Damen naval (Vlissingen/Schiedam)."
+    },
+    "AST": {
+      "docks": 2,
+      "source": "Osborne (Hunter/AUKUS) and Henderson."
+    },
+    "CAN": {
+      "docks": 2,
+      "source": "Irving Halifax (CSC) and Seaspan Vancouver."
+    },
+    "FOR": {
+      "docks": 2,
+      "source": "CSBC naval + indigenous submarine program. Statbase merchant collapsed."
+    },
+    "DPK": {
+      "docks": 2,
+      "source": "Sinpo and Nampo. UN Panel / IISS new-construction, not GT."
+    },
+    "INS": {
+      "docks": 1,
+      "source": "PT PAL Surabaya."
+    },
+    "BRA": {
+      "docks": 1,
+      "source": "Itaguaí / Rio nuclear-sub and remnant surface."
+    },
+    "SNG": {
+      "docks": 1,
+      "source": "ST Engineering Marine."
+    },
+    "PAK": {
+      "docks": 1,
+      "source": "KSEW Karachi (Hangor / MILGEM assembly)."
+    },
+    "EGY": {
+      "docks": 1,
+      "source": "Alexandria Shipyard licensed surface work."
+    },
+    "SWE": {
+      "docks": 1,
+      "source": "Saab Kockums (A26)."
+    },
+    "CHL": {
+      "docks": 1,
+      "source": "ASMAR."
+    },
+    "PRU": {
+      "docks": 1,
+      "source": "SIMA."
+    },
+    "POL": {
+      "docks": 1,
+      "source": "PGZ Naval / Gdynia frigates."
+    },
+    "UAE": {
+      "docks": 1,
+      "source": "ADSB."
+    },
+    "MAL": {
+      "docks": 1,
+      "source": "Boustead Naval / LCS program yards."
+    }
+  }
+}

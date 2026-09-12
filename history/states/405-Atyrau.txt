@@ -6,7 +6,7 @@ state = {
 	history = {
 	
 		owner = UZB
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		
 		victory_points = {
 			1459 3 
@@ -16,10 +16,28 @@ state = {
 		}
 		buildings = {
 			services_building = 1
-			arms_factory = 0
-			infrastructure = 2 #was: 5
+			arms_factory = 1
+			infrastructure = 2
 			industrial_complex = 1
 			air_base = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		add_core_of = SOV
@@ -31,9 +49,16 @@ state = {
 		1459 4629 7682 10488 11687 
 	}
 	
-	manpower = 20379498 #Was 6275820 but was divided by 2 due to Bukhara (830) and then got 1M back
+	manpower = 11969381 #Was 6275820 but was divided by 2 due to Bukhara (830) and then got 1M back
 	buildings_max_level_factor = 1.000
 	state_category = city
+
+	resources={
+
+		oil=1
+		copper=1
+	}
+
 
 	local_supplies = 2.0 
 	

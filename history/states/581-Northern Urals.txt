@@ -2,23 +2,35 @@
 state = {
 	id = 581
 	name = "STATE_581"
-	manpower = 65767
+	manpower = 3681717
 	
-	state_category = pastoral
+	state_category = large_town
 	
-	resources = {
-		chromium = 40 # was: 44
-		aluminium = 27 # was: 30
+	resources={
+
+		chromium=1
+		copper=5
 	}
 
 	history = {
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
-
+			industrial_complex = 1
+			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = KOM

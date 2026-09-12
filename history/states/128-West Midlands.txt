@@ -2,26 +2,40 @@
 state={
 	id=128
 	name="STATE_128"
-	manpower = 5562609
+	manpower = 7384043
 	
-	state_category = metropolis
-	resources={
-		steel=27 # was: 48
-		coal = 13 # initial distribution
-	}
+	state_category = city
 
 	history={
 		owner = ENG
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 6
 		buildings = {
 			rocket_site = 1
-			renewable_park = 1
-			finance_center = 1
-			services_building = 1
-			infrastructure = 4 #was: 8
-			arms_factory = 0
-			industrial_complex = 1
+
+
+			services_building = 2
+			infrastructure = 4
+			arms_factory = 2
+			industrial_complex = 6
 			air_base = 6
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		victory_points = {

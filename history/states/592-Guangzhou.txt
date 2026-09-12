@@ -1,36 +1,83 @@
 state={
 	id=592
 	name="STATE_592"
-	manpower = 52839805
-	state_category = city
-	resources={
-		tungsten=8 # was: 10
-		steel= 15 # was: 20
-		chromium = 3 # was: 4
-	}
+	manpower = 42132543
+	state_category = megalopolis
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 29
+		add_extra_state_shared_building_slots = 11
 		add_core_of = GXC
 	
 		add_core_of = CHI
 		add_core_of = PRC
 		
 		buildings = {
-			renewable_park = 1
+			renewable_park = 3
 			services_building = 2
-			dockyard = 7
-			infrastructure = 3
-			arms_factory = 1
-			industrial_complex = 14
+			dockyard = 3
+			infrastructure = 5
+			arms_factory = 0
+			industrial_complex = 12
 			air_base = 3
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			1047 = {
 				naval_base = 5
 				coastal_bunker = 1
 				bunker = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			finance_center = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

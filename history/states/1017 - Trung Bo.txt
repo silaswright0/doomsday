@@ -1,28 +1,40 @@
 state = {
 	id = 1017
 	name = "STATE_1017"
-	manpower = 18016411
+	manpower = 3565089
 	
-	state_category = town
+	state_category = large_town
 	
-	resources = {
-		chromium = 4 # was: 8
-		tungsten = 7
-	}
 
 
 	history = {
 
 		owner = VIN
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = VIN
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 1
+			industrial_complex = 0
 
 			infrastructure = 3
 
+			services_building = 1
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

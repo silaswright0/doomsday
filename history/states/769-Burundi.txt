@@ -2,13 +2,13 @@ state = {
 	id = 769
 	name = "STATE_769" # Burundi
 	
-	state_category = pastoral
-	manpower = 13000000
+	state_category = large_city
+	manpower = 14729157
 
 	history = {
 
 		owner = BRD
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 
 		IF = {
 			limit = {
@@ -28,8 +28,26 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 1
+			industrial_complex = 1
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

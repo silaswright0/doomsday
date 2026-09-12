@@ -20,11 +20,11 @@ LOC_DIR = ROOT / "localisation" / "english"
 CSV_COUNTRIES = Path(__file__).with_name("doomsday_countries.csv")
 CSV_STATES = Path(__file__).with_name("doomsday_states.csv")
 
-CIV_PER_MVA_B = 20.0
-CIV_MIN_MVA_B = 2.0
-MIL_PROCUREMENT_SHARE = 0.35
-MIL_PER_PROC_B = 10.0
-WARTIME_MIL_MULT = 2.5
+from state_stats_lib import (  # noqa: E402
+    factories_from_goods,
+    goods_va_b,
+    mils_from_dib,
+)
 FACTORY_LEVEL_CAP = 40
 SHARED_SLOTS_CAP = 50
 URBAN_CATS = frozenset({"megalopolis", "metropolis", "large_city", "city", "large_town"})
@@ -1054,6 +1054,7 @@ COUNTRY_IDEAS = {
     "TUR": ["TUR_western_libya_mission"],
     "LBA": ["LBA_turkish_support"],
     "LNA": ["LNA_foreign_backing"],
+    "JAP": ["JAP_boj_home_bias"],
 }
 
 
@@ -1484,20 +1485,15 @@ def pick_owner(state: dict) -> str:
 
 
 def factories_for(row: dict) -> tuple[int, int, int, int]:
-    mva = float(row.get("mva_b") or 0)
-    sipri = float(row.get("sipri_b") or 0)
-    wartime = str(row.get("wartime") or "0").strip() in {"1", "yes", "true"}
+    goods = goods_va_b(
+        float(row.get("ind_b") or 0),
+        float(row.get("agr_b") or 0),
+        float(row.get("mva_b") or 0),
+    )
     docks = int(float(row.get("docks") or 0))
     infra = max(1, min(5, int(float(row.get("infra") or 2))))
-    civs = 0
-    if mva >= CIV_MIN_MVA_B:
-        civs = max(1, int(round(mva / CIV_PER_MVA_B)))
-    elif mva >= 0.5:
-        civs = 1
-    mils = int(round(sipri * MIL_PROCUREMENT_SHARE / MIL_PER_PROC_B))
-    if wartime:
-        mils = max(mils, int(round(mils * WARTIME_MIL_MULT))) if mils else int(round(sipri * MIL_PROCUREMENT_SHARE * WARTIME_MIL_MULT / MIL_PER_PROC_B))
-    mils = max(0, mils)
+    civs = factories_from_goods(goods)
+    mils = mils_from_dib(str(row.get("tag") or ""))
     return civs, mils, docks, infra
 
 
@@ -1817,8 +1813,6 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
         f"	fascism = {fas}",
         f"	neutrality = {neu}",
         "}",
-        f"set_variable = {{ gdp = {gdp} }}",
-        f"set_variable = {{ debt_to_gdp = {debt} }}",
         f"set_variable = {{ debt = {abs_debt:.4f} }}",
         f"set_variable = {{ treasury = {treasury:.4f} }}",
         "create_country_leader = {",

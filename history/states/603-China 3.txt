@@ -4,14 +4,33 @@ state={
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 4
 		add_core_of = CHI
 		add_core_of = PRC
 		buildings = {
-			infrastructure = 3
-			industrial_complex = 3
-			arms_factory = 0
-
+			infrastructure = 5
+			industrial_complex = 4
+			arms_factory = 2
+			renewable_park = 3
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {
@@ -23,13 +42,14 @@ state={
 	provinces={
 		1474 1884 4504 4532 7521 7549 7577 8095 10616 10819  
 	}
-	manpower = 22348009
+	manpower = 33793789
 
-	resources = {
-		coal = 3 # initial distribution
+	resources={
+
+		coal=37
 	}
 	buildings_max_level_factor=1.000
-	state_category=town
+	state_category = metropolis
 
 	local_supplies=3.0 
 }

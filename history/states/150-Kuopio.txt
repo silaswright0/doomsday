@@ -2,16 +2,13 @@
 state = {
 	id = 150
 	name = "STATE_150" # KUOPIO
-	manpower = 687647
+	manpower = 459041
 	
 	state_category = rural
 	
-	resources={
-		steel=3 # was: 4
-	}
 	history={
 		owner = FIN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = FIN
 
 		victory_points = { #Kuopio
@@ -32,8 +29,26 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 5 #MM: Was 2
+			infrastructure = 5
 			industrial_complex = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

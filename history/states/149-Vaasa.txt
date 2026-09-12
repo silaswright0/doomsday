@@ -2,15 +2,17 @@
 state = {
 	id = 149
 	name = "STATE_149" # VAASA
-	manpower = 1042441
+	manpower = 418230
 	
-	state_category = town
+	state_category = rural
+
+
 
 	
 	
 	history = {
 		owner = FIN
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = FIN
 		
 		victory_points = { #Vaasa
@@ -32,10 +34,64 @@ state = {
 		buildings = {
 			arms_factory = 0
 			infrastructure = 5
-			industrial_complex = 1
+			industrial_complex = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			3122 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

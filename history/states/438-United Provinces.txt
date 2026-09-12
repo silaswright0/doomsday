@@ -4,13 +4,20 @@ state={
 	provinces={
 		1377 1898 1983 2005 4045 4299 4410 5002 5040 5055 5086 5096 5157 7064 7938 8082 8114 9951 9973 10021 10332 12137 12777 12786
 	}
-	manpower = 231308880
+	manpower = 247331103
 	buildings_max_level_factor=1.000
-	state_category=town
+	state_category = megalopolis
+
+	resources={
+
+		oil=5
+		copper=1
+	}
+
 	local_supplies=0.000
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 2
 		add_core_of = RAJ
 		add_claim_by = KHL
 		victory_points = {
@@ -20,8 +27,27 @@ state={
 
 		buildings = {
 			arms_factory = 1
-			infrastructure = 2
-			industrial_complex = 4
+			infrastructure = 4
+			industrial_complex = 6
+			renewable_park = 2
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

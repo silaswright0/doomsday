@@ -2,26 +2,43 @@
 state={
 	id=374
 	name="STATE_374"
-	manpower = 6522031
+	manpower = 4190017
 	
-	state_category = city
+	state_category = large_town
 	
 	resources={
-		oil=40 # was: 100 #2025-12-12: was: 60
-		aluminium=20 # was: 32
+
+		oil=43
 	}
 
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 0
 		buildings = {
-			renewable_park = 1
 			services_building = 1
 			arms_factory = 0
 			infrastructure = 4
-			industrial_complex = 2
+			industrial_complex = 1
 			air_base = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = USA

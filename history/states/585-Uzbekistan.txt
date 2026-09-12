@@ -5,12 +5,29 @@ state = {
 	history = {
 		
 		owner = UZB
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
-
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = UZB
@@ -24,9 +41,11 @@ state = {
 	provinces = {
 		1532 1554 4499 7501 7507 10420
 	}
-	manpower = 2291015 # 9/10ths of before
+	manpower = 3107343 # 9/10ths of before
 	buildings_max_level_factor = 1.000
-	state_category = rural
+	state_category = large_town
+
+
 
 	local_supplies = 0.0 
 }

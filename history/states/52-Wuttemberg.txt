@@ -1,17 +1,14 @@
 state = {
 	id = 52
 	name = "STATE_52"
-	manpower = 4069627
-	resources = {
-		aluminium = 18 # was: 30
-	}
+	manpower = 6071225
 	
 	state_category = city
 
 	history = {
 
 		owner = GER
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 5
 		add_core_of = GER
 		add_core_of = BAY
 
@@ -24,11 +21,29 @@ state = {
 
 		buildings = {
 			renewable_park = 1
-			services_building = 1
+			services_building = 2
 			infrastructure = 5
-			arms_factory = 0
-			industrial_complex = 2
+			arms_factory = 1
+			industrial_complex = 5
 			air_base = 6
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

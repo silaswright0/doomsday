@@ -2,25 +2,88 @@ state = {
 	id = 523
 	name = "STATE_523"
 
-	manpower = 2000000 # was 1077000
-	state_category = rural
+	manpower = 1691420 # was 1077000
+	state_category = town
+
+	resources={
+
+		oil=1
+		copper=1
+	}
+
+
+
 
 	history = {
 
 		add_core_of = PNG
 		owner = PNG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 1
+			infrastructure = 2
 			air_base = 3
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			4329 = {
 				naval_base = 4
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

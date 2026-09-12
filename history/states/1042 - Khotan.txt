@@ -1,13 +1,20 @@
 state = {
 	id = 1042
 	name = "STATE_1042"
-	manpower = 1125814
-	state_category = wasteland
+	manpower = 4192358
+	state_category = large_town
+
+	resources={
+
+		oil=1
+		aluminium=1
+	}
+
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SIK
 		add_core_of = CHI
 		add_core_of = PRC
@@ -16,7 +23,25 @@ state = {
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 5
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

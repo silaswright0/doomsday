@@ -1,14 +1,20 @@
 state = {
 	id = 715
 	name = "STATE_715"
-	manpower = 10794111
+	manpower = 33731338
 	
-	state_category = town
+	state_category = metropolis
+
+	resources={
+
+		steel=15
+	}
+
 
 	history = { 
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 13
 		add_core_of = CHI
 		add_core_of = MAN
 		add_core_of = PRC
@@ -18,9 +24,30 @@ state = {
 		}
 
 		buildings = {
-			infrastructure = 3
-			arms_factory = 0
-			industrial_complex = 2
+			infrastructure = 5
+			arms_factory = 5
+			industrial_complex = 7
+			dockyard = 3
+			renewable_park = 3
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

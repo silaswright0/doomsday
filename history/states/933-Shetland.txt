@@ -1,26 +1,84 @@
 state = {
 	id = 933
 	name = "STATE_933"
-	manpower = 27170
+	manpower = 28305
 	
 	state_category = tiny_island
 
-	resources = {
+	resources={
+
+		oil=8
 	}
+
+
 
 	history = {
 		owner = ENG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		add_core_of = ENG
 		add_core_of = SCO
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 4	
+			infrastructure = 4
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6196 = {
 				naval_base = 1	
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

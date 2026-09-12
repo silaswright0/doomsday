@@ -1,9 +1,13 @@
 state = {
 	id = 46
 	name = "STATE_46" # Muntenia
-	manpower = 5263251 # was 4461400
-	resources = {
-		oil = 44 # was: 70
+	manpower = 5506343 # was 4461400
+	resources={
+
+		oil=1
+		aluminium=1
+		steel=1
+		coal=1
 	}
 
 	state_category = city
@@ -11,7 +15,7 @@ state = {
 	history = {
 
 		owner = ROM
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 4
 		add_core_of = ROM
 
 		victory_points = { 
@@ -24,11 +28,28 @@ state = {
 
 		buildings = {
 			renewable_park = 1
-			services_building = 1
+			services_building = 2
 			infrastructure = 3
-			arms_factory = 0
+			arms_factory = 3
 			industrial_complex = 1
 			air_base = 3
+			finance_center = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		

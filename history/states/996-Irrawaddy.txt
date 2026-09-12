@@ -2,18 +2,38 @@ state = {
 	id = 996
 	name = "STATE_996"
 	
-	state_category = rural
-	manpower = 11525261
+	state_category = city
+
+	resources={
+
+		rubber=4
+		tungsten=1
+		rare_earths=2
+	}
+
+	manpower = 10156599
 	
 	history = {
 		owner = BRM
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BRM
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
+			infrastructure = 1
 			industrial_complex = 0
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

@@ -1,14 +1,14 @@
 state = {
 	id = 781
 	name = "STATE_781" # Niger
-	manpower = 7340895
+	manpower = 25357093
 	
-	state_category = rural
+	state_category = metropolis
 
 	history = { 
 
 		owner = NGR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = NGR
 		add_core_of = SOK
 
@@ -18,8 +18,26 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 1
+			industrial_complex = 1
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

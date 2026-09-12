@@ -2,19 +2,20 @@ state = {
 	id = 593
 	name = "STATE_593"
 
-	manpower = 37625904
-	state_category = town
+	manpower = 81827099
+	state_category = megalopolis
 
-	resources = {
-		tungsten = 15 # was: 20
-		steel = 15 # was: 20
-		chromium = 3 # was: 4
+	resources={
+
+		rubber=4
+		tungsten=11
+		rare_earths=7
 	}
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 18
 		add_core_of = GXC
 
 		
@@ -36,14 +37,69 @@ state = {
 		buildings = {
 			dockyard = 2
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 5
+			infrastructure = 5
+			industrial_complex = 16
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9938 = {
 				naval_base = 1
 				coastal_bunker = 1
 				bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			renewable_park = 7
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 

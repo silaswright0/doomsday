@@ -2,27 +2,114 @@ state=
 {
 	id=312
 	name="STATE_312"
-	manpower = 11000000
-	resources={
-		chromium=1 # was: 1
-	}
+	manpower = 11184760
 	
-	state_category = town
+	state_category = city
 	history=
 	{
 		owner = HON
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		buildings = {
-			infrastructure = 2
+			infrastructure = 3
 			arms_factory = 0
-			industrial_complex = 1 
+			industrial_complex = 1
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			12865 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			8017 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = HON
 		victory_points = {

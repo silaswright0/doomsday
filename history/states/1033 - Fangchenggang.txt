@@ -1,29 +1,86 @@
 state = {
 	id = 1033
 	name = "STATE_1033"
-	manpower = 12280266
-	state_category = town
-	resources = {
+	manpower = 3064824
+	state_category = large_town
+	resources={
 
+		oil=1
+		aluminium=1
+		coal=1
+		graphite=1
 	}
 
 	history = {
 		owner = CHI
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		add_core_of = GXC
 
 		add_core_of = CHI
 		add_core_of = PRC
 
 		buildings = {
-			dockyard = 1
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 2
+			infrastructure = 5
+			industrial_complex = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10004 = { # Fangcheng
 				naval_base = 1
 				coastal_bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 

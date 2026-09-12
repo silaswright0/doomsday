@@ -44,6 +44,12 @@ guiTypes = {
 			position = { x = 70 y = 3 }
 			pdx_tooltip = "DD_TOPBAR_ECON_TT"
 		}
+		iconType = {
+			name = "dd_net_unknown"
+			spriteType = "GFX_dd_icon_net_unknown"
+			position = { x = 70 y = 3 }
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
 		instantTextboxType = {
 			name = "dd_net_pos"
 			position = { x = 94 y = 6 }
@@ -60,6 +66,17 @@ guiTypes = {
 			position = { x = 94 y = 6 }
 			font = "hoi_16mbs"
 			text = "DD_TOPBAR_NET_NEG"
+			maxWidth = 50
+			maxHeight = 18
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = "DD_TOPBAR_ECON_TT"
+		}
+		instantTextboxType = {
+			name = "dd_net_unk"
+			position = { x = 94 y = 6 }
+			font = "hoi_16mbs"
+			text = "DD_TOPBAR_NET_UNK"
 			maxWidth = 50
 			maxHeight = 18
 			format = left

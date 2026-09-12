@@ -2,13 +2,19 @@
 state={
 	id=171
 	name="STATE_171"
-	manpower = 4424843
+	manpower = 3182644
 	
-	state_category = city
+	state_category = large_town
+
+	resources={
+
+		copper=1
+	}
+
 
 	history={
 		owner = SPR
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 2
 		add_core_of = GLC
 		victory_points = {
 			758 5
@@ -20,12 +26,67 @@ state={
 			renewable_park = 1
 			services_building = 1
 			industrial_complex = 1
-			infrastructure = 4 #was: 6
-			arms_factory = 0
+			infrastructure = 4
+			arms_factory = 1
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			dockyard = 1
+
 			758 = {
 				naval_base = 6
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SPR
 	}

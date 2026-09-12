@@ -6,22 +6,39 @@ state={
 	}
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CHI
 		add_core_of = PRC
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 1
-			infrastructure = 3
-
+			industrial_complex = 0
+			infrastructure = 5
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			1010 3
 		}
 
 	}
-	manpower = 4444004
-	state_category=pastoral
+	manpower = 3803717
+	state_category = large_town
+
+
 	buildings_max_level_factor=1.000
 
 	local_supplies=0.0 

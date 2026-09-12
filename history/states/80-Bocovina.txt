@@ -1,13 +1,10 @@
 state={
 	id=80
 	name="STATE_80"
-	manpower = 450575
+	manpower = 827428
 
-	resources = {
-		coal = 1 #initial distribution
-	}
 	
-	state_category = rural
+	state_category = town
 	
 	history=
 	{
@@ -15,11 +12,29 @@ state={
 			577 1 
 		}
 		owner = UKR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 1
 			arms_factory = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = ROM
 		add_core_of = UKR

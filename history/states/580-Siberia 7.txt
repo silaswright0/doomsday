@@ -2,21 +2,34 @@
 state = {
 	id = 580
 	name = "STATE_580" # Tobolsk
-	manpower = 118691
+	manpower = 3393341
 	
-	state_category = pastoral
+	state_category = large_town
+
+
 
 	history = {
 		victory_points = {
 			1659 1
 		}
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
-
+			industrial_complex = 1
+			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = OVO

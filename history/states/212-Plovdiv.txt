@@ -2,18 +2,19 @@
 state={
 	id=212
 	name="STATE_212"
-	manpower = 1799165
+	manpower = 1289606
 	
-	state_category = large_town
+	state_category = town
 
 	resources={
-		chromium = 1
-		coal = 2 # initial distribution / 3 total
+
+		coal=1
+		copper=1
 	}
 
 	history={
 		owner = BUL
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		victory_points = { #Plovdiv
 			6923 10
 		}
@@ -24,11 +25,28 @@ state={
 			9862 1
 		}
 		buildings = {
-			services_building = 1
 			infrastructure = 3
-			arms_factory = 0
-			industrial_complex = 1
+			arms_factory = 2
+			industrial_complex = 0
 			air_base = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = BUL
 	}

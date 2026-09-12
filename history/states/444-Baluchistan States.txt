@@ -4,19 +4,18 @@ state={
 	provinces={
 		1179 5043 7917 12761 12774 
 	}
-	resources={
-		oil=3
-	}
-	manpower = 2985756
+	manpower = 3834891
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = large_town
+
+
 	local_supplies=0.000
 	history={
 
 		add_core_of = PAK
 		add_core_of = BLC
 		owner = PAK
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 
 		victory_points = {
 			12774 1 # Gwadar
@@ -24,8 +23,20 @@ state={
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
+			infrastructure = 1
 			industrial_complex = 0
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

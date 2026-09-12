@@ -1,29 +1,57 @@
 Doomsday 2026 industry constants
 ================================
-Sources:
-- Civilian factories: World Bank NV.IND.MANF.CD (manufacturing value added), not GDP
-- Military factories: SIPRI Military Expenditure 2025, industrial slice only
-- Population: UN World Population Prospects-style 2026 estimates
-- Dockyards: commercial shipbuilding share (China/Korea/Japan) plus naval yards
-- Infrastructure: mapped from development / logistics (1-5)
+Sources (full citations: tools/data/SOURCES.md):
+- Civilian factories: World Bank NV.IND.TOTL.CD (industry: mining, manufacturing, utilities, construction) plus NV.AGR.TOTL.CD (agriculture). Not GDP. Not manufacturing-only.
+- Military factories: hand-mapped defense industrial base (`tools/data/dib_mils.json`), not SIPRI military expenditure. Only tags that own 2026 territory.
+- Population: UN World Population Prospects 2024 medium variant, 1 July 2026
+- Dockyards: Statbase 2025 merchant DWT (UNCTAD/Clarksons) plus Janes/IISS naval construction campuses. NavBase fleet tonnage is a cross-check, not the count.
+- Infrastructure: World Bank LPI 2023 "Quality of trade and transport infrastructure" (1-5)
+- Renewable parks: IRENA Renewable Capacity Statistics (wind+solar+hydro+geo+bio, not nuclear)
+- Steel/minerals: World Steel Association + USGS Mineral Commodity Summaries
+- Energy/oil/coal: Energy Institute Statistical Review of World Energy
 
-Formulas (edit these, then rerun generate_doomsday.py):
-  CIV_PER_MVA_BILLION = 20          # 1 civ per $20B manufacturing value added
-  CIV_MIN_MVA_BILLION = 2           # countries above this get at least 1 civ
-  MIL_PROCUREMENT_SHARE = 0.35      # share of milex treated as factory-relevant
-  MIL_PER_PROCUREMENT_BILLION = 10  # 1 mil per $10B of that slice
-  WARTIME_MIL_MULT = 2.5            # Russia / Ukraine / Israel / Myanmar
+Formulas (edit these, then rerun allocate_state_stats.py then apply_state_stats.py):
+  CIV_PER_GOODS_BILLION = 35        # 1 civ per $35B industry+agriculture value added
+  CIV_MIN_GOODS_BILLION = 2         # countries above this get at least 1 civ
+  CIV_SOFT_FLOOR_BILLION = 0.5      # $0.5–2B goods still 1 civ
+  MVA_TO_INDUSTRY = 1.67            # when industry is missing, scale manufacturing
+  DIB_MILS = tools/data/dib_mils.json  # campus-unbundle: 1 mil = serial plant or workshop; USA 45 CHI 36 SOV 26 world ~419; no wartime×2.5
+  INF_IC = 2.5–4.0                   # 2026 soldier kit (was 0.43–0.69)
+  GW_PER_RENEWABLE_PARK = 20        # 1 renewable_park per 20 GW nameplate
+  DIB_DOCKS = tools/data/dib_docks.json  # merchant DWT (1 dock / 2M dwt, min 0.8M) + naval campuses; no leftover CSV
+  LPI_BREAKS = 2.5, 3.0, 3.5, 4.0   # LPI infrastructure component -> HOI4 1-5
 
-Worked examples (see doomsday_countries.csv):
-  China MVA ~4660 → ~233 civs
-  USA   MVA ~2500 → ~125 civs
-  Germany MVA ~844 → ~42 civs
-  UK    MVA ~294 → ~15 civs
+Worked examples (see doomsday_countries.csv after ingest):
+  China industry+agri ~8248 → ~236 civs
+  USA   industry+agri ~4394 → ~126 civs
+  India industry+agri ~1639 → ~47 civs
+  Venezuela uses OECD 2014 SNA shares on current GDP (WB series is zeroed)
+  China 2258 GW renewables → ~113 parks (placed on generation provinces, cap 10/state)
 
 Building caps (Doomsday overrides):
   industrial_complex / arms_factory / dockyard state_max = 40
+  renewable_park state_max = 10
   NDefines.NBuildings.MAX_BUILDING_LEVELS = 40
   NDefines.NBuildings.MAX_SHARED_SLOTS = 50
 
+Do NOT rerun generate_doomsday.py to apply these numbers.
+Use tools/allocate_state_stats.py then tools/apply_state_stats.py.
+That patches existing history/states files and leaves owners, cores, VPs,
+and province buildings alone.
+
 Debt and GDP columns are stored for a later stability system.
 They do not buy factories.
+
+Treasury rates (US$ billions / month, tools/calibrate_economy.py):
+  Civ factory income          1.00 per civilian factory
+  Finance income              0.20 × level × (local civs + services + 4)
+  Services income             0.15 × level × (local civs + 2)
+  State admin                 0.02 per million people + 1.20 per civilian factory
+  Standard tax                0.02 per million people + 0.80 per civilian factory
+  High tax                    2.00 × standard
+  Default policy factor       1.78 (additive extras, not 1.1^6)
+  Interest                    3% a year (0.03 / 12 each month)
+  USA start yearly revenue    ~3694
+  Pay Interest Groups         1% of yearly revenue (50 PP, once per month)
+  Subsidize Business          0.5% of yearly revenue (−5% consumer goods, 90 days)
+

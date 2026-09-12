@@ -1,26 +1,45 @@
 state = {
 	id = 951
 	name = "STATE_951"
-	manpower = 1344498
+	manpower = 737129
 	
 	state_category = rural
 
-	resources = {
-		tungsten = 14 # In replacement of Nitrate
+	resources={
+
+		copper=9
 	}
 
 	history = {
 
 		owner = CHL
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CHL
 		add_claim_by = PRU
 
 		buildings = {
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
 			arms_factory = 0
 			air_base = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

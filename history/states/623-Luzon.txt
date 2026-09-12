@@ -2,30 +2,82 @@ state = {
 
 	id = 623
 	name = "STATE_623" # Luzon
-	manpower = 7214922 
+	manpower = 20990003 
 	
-	state_category = rural
+	state_category = large_city
+
+
 	
-	resources = {
-		rubber = 1 # was: 2
-	}
 
 	history = {
 
 		owner = PHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = PHI
 
 		buildings = {
 			arms_factory = 0
 
-			infrastructure = 2
-			industrial_complex = 0
+			infrastructure = 3
+			industrial_complex = 1
+
+			
+
+
+			finance_center = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			12213 = {
 				naval_base = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

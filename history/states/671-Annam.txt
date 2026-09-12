@@ -1,21 +1,24 @@
 state = {
 	id = 671
 	name = "STATE_671"
-	manpower = 51214651 # was 11528000
+	manpower = 48041910 # was 11528000
 	
-	state_category = town
+	state_category = megalopolis
 	
-	resources = {
-		chromium = 2 # was: 8, then 6
-		tungsten = 20 # was: 38, then 27
-		coal = 3
+	resources={
+
+		oil=4
+		rubber=6
+		tungsten=7
+		steel=2
+		coal=2
 	}
 
 
 	history = {
 
 		owner = VIN
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 0
 		add_core_of = VIN
 		
 		victory_points = {
@@ -39,20 +42,74 @@ state = {
 		}
 
 		buildings = {
-			renewable_park = 1
 			finance_center = 1
 			services_building = 2
 			dockyard = 1
-			arms_factory = 0
+			arms_factory = 2
 
-			infrastructure = 3
-			industrial_complex = 2
+			infrastructure = 4
+			industrial_complex = 3
 			air_base = 1
+
+			
+
+
+
+
+
+
+			renewable_park = 1
+
+
+
+
+
+
+
+
+
+
 
 			4119 = {
 				naval_base = 2
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

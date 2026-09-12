@@ -1,12 +1,9 @@
 state = {
 	id = 838 # Illubabor-Kaffa
 	name = "STATE_838"
-	manpower = 7571702
-	resources = {
-		rubber = 2
-	}
+	manpower = 10129571
 	
-	state_category = pastoral
+	state_category = city
 
 	history = {
 		set_variable = { ETH_state_development_production_speed = -0.3 }
@@ -26,6 +23,19 @@ state = {
 			arms_factory = 0
 			industrial_complex = 0
 			# infrastructure = 2
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		# Gambeila
 		victory_points = { 
@@ -37,7 +47,7 @@ state = {
 		}
 		
 		owner = ETH
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ETH
 		add_core_of = GBA
 

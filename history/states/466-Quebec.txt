@@ -1,25 +1,86 @@
 state = {
 	id = 466
 	name = "STATE_466"
-	manpower = 34647
-	resources = {
-		aluminium = 4.000
+	manpower = 6578218
+	resources={
+
+		aluminium=14
+		steel=1
+		coal=1
+		copper=2
+		graphite=1
 	}
 
 	history = {
 
 		owner = CAN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		add_core_of = CAN
 		add_core_of = QUE
 
 		buildings = {
-			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 4
+			arms_factory = 1
+			industrial_complex = 3
+			infrastructure = 5
+			
+
+
+			renewable_park = 1
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			3691 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}
@@ -29,6 +90,6 @@ state = {
 	}
 	
 	buildings_max_level_factor = 1.000
-	state_category = pastoral
+	state_category = city
 	local_supplies = 0.000
 }

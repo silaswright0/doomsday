@@ -6,3 +6,17 @@ NDefines.NDiplomacy.TENSION_TIME_SCALE_MONTHLY_FACTOR = 0
 NDefines.NDiplomacy.TENSION_DECAY_DAILY = 0
 NDefines.NBuildings.MAX_BUILDING_LEVELS = 40
 NDefines.NBuildings.MAX_SHARED_SLOTS = 50
+NDefines.NAI.MIN_FACTORIES_TO_WANT_TO_IMPORT = {
+	0, -- oil
+	0, -- aluminium
+	0, -- rubber
+	0, -- tungsten
+	0, -- steel
+	0, -- chromium
+	10, -- coal
+	0, -- rare_earths
+	0, -- lithium
+	0, -- cobalt
+	0, -- copper
+	0, -- graphite
+}

@@ -2,17 +2,19 @@ state = {
 	id = 929
 	name = "STATE_929" #OULU
 	
-	manpower = 557267
+	manpower = 400421
 	
 	state_category = rural
 	
-	resources = {
+	resources={
+
+		chromium=8
 	}
 
 	history = {
 
 		owner = FIN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = FIN
 
 		victory_points = { 
@@ -29,7 +31,61 @@ state = {
 			infrastructure = 5
 
 			# Merikoski Power Plant
-			#158 = { dam = 1 }
+			#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			158 = { dam = 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		

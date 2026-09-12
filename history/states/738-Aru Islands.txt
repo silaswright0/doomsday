@@ -5,7 +5,7 @@ state = {
 	history={
 
 		owner = INS
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 1
 		add_core_of = INS
 		add_core_of = TNE
 
@@ -18,14 +18,104 @@ state = {
 			industrial_complex = 0
 			infrastructure = 2
 
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4579 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			13400 = {
 				naval_base = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}
@@ -33,9 +123,9 @@ state = {
 	provinces = {
 		4579 13400
 	}
-	manpower = 163076
+	manpower = 2443434
 	buildings_max_level_factor = 1	
-	state_category = "small_island"
+	state_category = small_island
 
 	local_supplies = 0.0 
 }

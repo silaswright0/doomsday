@@ -1,17 +1,43 @@
 state={
 	id=885
 	name = "STATE_885" # Bahr al Ghazal
-	state_category = pastoral
+	state_category = city
+
+	resources={
+
+		oil=4
+	}
+
+
+
 	history = {
 		owner = SSD
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SSD
 		add_core_of = SUD
 		add_core_of = SIO
 		buildings = {
-			arms_factory = 0
-			industrial_complex = 0
+			arms_factory = 1
+			industrial_complex = 1
 			infrastructure = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}
@@ -19,7 +45,7 @@ state={
 	provinces = {
 		1953 7996 10764 10908 
 	}
-	manpower = 4150628
+	manpower = 6736727
 	buildings_max_level_factor=1.000
 	local_supplies=0.000
 }

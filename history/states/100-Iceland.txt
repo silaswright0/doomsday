@@ -1,22 +1,82 @@
 state = {
 	id = 100
 	name = "STATE_100"
-	manpower = 390000
+	manpower = 402329
 	
 	state_category = rural
+
+	resources={
+
+		aluminium=10
+	}
+
 	
 	
 	history = {
 		owner = ICE
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 1
 		victory_points = { 12674 1 }
 		buildings = {
 			arms_factory = 0
 			infrastructure = 5
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			12674 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			industrial_complex = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		# add_core_of = DEN
 		add_core_of = ICE

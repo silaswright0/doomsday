@@ -2,28 +2,31 @@
 state={
 	id=219
 	name="STATE_219"
-	manpower = 11227209
+	manpower = 11577098
 	
-	state_category = megalopolis
+	state_category = city
 	resources={
-		steel = 16 # was: 28
-		coal = 16 # initial distribution
+
+		oil=1
+		chromium=1
+		rare_earths=1
+		graphite=1
 	}
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 17
+		add_extra_state_shared_building_slots = 9
 		victory_points = {
 			6380 50 
 		}
 		buildings = {
 			rocket_site = 3
-			renewable_park = 2
+
 			finance_center = 2
-			services_building = 2
-			infrastructure = 3 #was: 8
-			arms_factory = 4
-			industrial_complex = 3
+			services_building = 3
+			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 5
 			air_base = 10
 			6380 = {
                 landmark_kremlin = {
@@ -33,6 +36,18 @@ state={
                     }
                 }
             }
+			renewable_park = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		}

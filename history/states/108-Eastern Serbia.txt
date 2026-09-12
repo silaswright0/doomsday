@@ -2,21 +2,33 @@
 state={
 	id=108
 	name="STATE_108"
-	resources={
-		steel=3.000
-	}
 
 	history={
 		victory_points = {
 			9602 3 
 		}
 		owner = SER
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 1
 		buildings = {
-			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 1
+			infrastructure = 1
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = YUG
 		add_core_of = SER
@@ -26,9 +38,15 @@ state={
 	provinces={
 		630 3922 3939 6970 6998 9602 9756 9906 11887 
 	}
-	manpower = 1196363
+	manpower = 1994519
 	buildings_max_level_factor=1.000
-	state_category=town
+	state_category = town
+
+	resources={
+
+		coal=1
+	}
+
 
 	local_supplies=5.0 
 }

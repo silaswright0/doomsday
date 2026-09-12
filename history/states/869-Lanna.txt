@@ -17,20 +17,35 @@ state={
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
+			industrial_complex = 1
+			infrastructure = 4
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		owner = SIA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SIA
 	}
-	manpower = 6839998
+	manpower = 10723668
 	
-	resources = {
-		coal = 1 #Lowgrade lignite and sub-bituminous coal
+	
+	state_category = city
+
+	resources={
+
+		oil=2
 	}
-	
-	state_category = town
+
 	buildings_max_level_factor=1.000
 	local_supplies=0.000
 }

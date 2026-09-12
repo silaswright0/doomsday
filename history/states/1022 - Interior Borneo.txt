@@ -2,21 +2,19 @@ state = {
 	id = 1022
 	name = "STATE_1022"
 
-	manpower = 38800
+	manpower = 4457735
 
 	impassable = yes 
 	force_link_ownership_to = 334 # Kalimantan
 	impassable_ignored_links = { 1024 } # Sabah
 
-	resources = {
-	}
 	
 	state_category = enclave
 
 	history = {
 
 		owner = INS
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		add_core_of = INS
 		add_core_of = GOW 
 		add_core_of = POK  
@@ -25,6 +23,24 @@ state = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 2
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

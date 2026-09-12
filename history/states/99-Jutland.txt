@@ -2,12 +2,20 @@
 state = {
 	id = 99
 	name = "STATE_99"
-	manpower = 2016227
-	state_category = rural
+	manpower = 3018702
+	state_category = large_town
+
+	resources={
+
+		oil=2
+	}
+
+
+
 
 	history={
 		owner = DEN
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 2
 		add_core_of = DEN
 		victory_points = {
 			6235 2 
@@ -25,19 +33,149 @@ state = {
 			3206 1
 		}
 		buildings = {
-			arms_factory = 0
+			arms_factory = 1
 			infrastructure = 5
-			industrial_complex = 1
+			industrial_complex = 2
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+			renewable_park = 1
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
 			394 = {
 				naval_base = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			399 = {
 				naval_base = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6364 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

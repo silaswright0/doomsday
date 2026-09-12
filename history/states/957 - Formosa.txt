@@ -1,19 +1,21 @@
 state = {
 	id = 957
 	name = "STATE_957"
-	manpower = 1363338
+	manpower = 784654
 	
-	state_category = pastoral
-	
-	resources = {
-		tungsten = 5
-		steel = 2
+	state_category = rural
+
+	resources={
+
+		oil=1
 	}
+
+	
 
 	history = {
 
 		owner = ARG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ARG
 		add_claim_by = BOL
 		add_claim_by = PAR
@@ -21,7 +23,25 @@ state = {
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

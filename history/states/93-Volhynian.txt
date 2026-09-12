@@ -13,12 +13,23 @@ state={
 			422 3
 		}
 		owner = UKR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
-
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = POL
 		add_core_of = UKR
@@ -28,9 +39,9 @@ state={
 	provinces={
 		422 474 513 572 3412 6435 6520 6557 11441 11543 
 	}
-	manpower = 1885084
+	manpower = 2010027
 	buildings_max_level_factor=1.000
-	state_category=town
+	state_category = large_town
 
 	local_supplies=0.0 
 }

@@ -2,18 +2,18 @@ state = {
 	id = 771
 	name = "STATE_771" # Zambia
 	
-	state_category = rural
-	manpower = 10500015 #was 1380089
+	state_category = large_city
+	manpower = 21224841 #was 1380089
 
-	resources = {
-		chromium = 18 # was: 64.000, then 35
-		tungsten = 4 # was: 16.000, then 8
+	resources={
+
+		copper=18
 	}
 
 	history = {
 
 		owner = ZAM
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ZAM
 
 		victory_points = {
@@ -28,6 +28,24 @@ state = {
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

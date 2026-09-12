@@ -5,17 +5,32 @@ state = {
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 3
 		add_core_of = CHI
 		add_core_of = PRC
 
 		buildings = {
-			renewable_park = 1
-			services_building = 2
-			infrastructure = 3 #was 2
-			arms_factory = 0 #was 2
-			industrial_complex = 4 #was 2
+			infrastructure = 5
+			arms_factory = 2
+			industrial_complex = 3
 			air_base = 1 # Wuhan Wangjiadun Airbase
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 
@@ -33,9 +48,18 @@ state = {
 	provinces = {
 		4619 7167 12467
 	}
-	manpower = 15134264
+	manpower = 1110571
 	buildings_max_level_factor = 1.000
-	state_category = city
+	state_category = town
+
+	resources={
+
+		oil=1
+		aluminium=1
+		coal=1
+		graphite=1
+	}
+
 
 	local_supplies = 2.0 
 }

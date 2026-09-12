@@ -2,20 +2,45 @@
 state = {
 	id = 487
 	name = "STATE_487"
-	manpower = 1687264
+	manpower = 6469628
 	
-	state_category = pastoral
+	state_category = city
+
+	resources={
+
+		oil=1
+		tungsten=2
+	}
+
 
 	history = {
 
 		owner = BOL
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BOL
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 0
+			infrastructure = 1
+			industrial_complex = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

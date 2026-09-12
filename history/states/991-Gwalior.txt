@@ -4,17 +4,38 @@ state={
 	provinces={
 		1949 2036 10807 
 	}
-	state_category = rural
-	manpower = 17963069
+	state_category = large_city
+
+
+	manpower = 14722089
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		add_core_of = CIP
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 2
+			industrial_complex = 1
+			infrastructure = 3
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 	buildings_max_level_factor=1.000

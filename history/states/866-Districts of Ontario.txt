@@ -1,7 +1,7 @@
 state = {
 	id = 866
 	name = "STATE_866"
-	manpower = 39105
+	manpower = 5291095
 	provinces = {
 		761 763 3736 4753 13315
 	}
@@ -9,18 +9,40 @@ state = {
 	history = {
 
 		owner = CAN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CAN
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 4
+			industrial_complex = 2
+			infrastructure = 5
+			renewable_park = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}
 	
-	state_category = pastoral
+	state_category = city
+
+	resources={
+
+		coal=1
+		copper=2
+	}
+
 	buildings_max_level_factor = 1.000
 	local_supplies = 0.000
 }

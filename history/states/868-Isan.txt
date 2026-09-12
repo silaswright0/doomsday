@@ -6,11 +6,24 @@ state={
 	}
 	history = {
 		owner = SIA
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
+			infrastructure = 4
 			industrial_complex = 2
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			10438 1 
@@ -26,8 +39,16 @@ state={
 		
 		add_core_of = SIA
 	}
-	manpower = 23760002 
-	state_category = town
+	manpower = 19660057 
+	state_category = large_city
+
+	resources={
+
+		oil=3
+	}
+
+
+
 	buildings_max_level_factor=1.000
 	local_supplies=0.000
 }

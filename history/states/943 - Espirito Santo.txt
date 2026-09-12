@@ -2,18 +2,22 @@
 state = {
 	id = 943
 	name = "STATE_943"
-	manpower = 22614460
+	manpower = 4336080
 	
-	state_category = town
-	
-	resources = {
-		steel = 1
+	state_category = large_town
+
+	resources={
+
+		oil=15
+		steel=1
 	}
+
+	
 
 	history = {
 
 		owner = BRA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BRA
 
 		victory_points = {
@@ -22,11 +26,66 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 1
+			infrastructure = 3
+			industrial_complex = 0
+			
+
+
+
+
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10999 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

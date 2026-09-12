@@ -2,24 +2,39 @@
 state={
 	id=434
 	name="STATE_434"
-	manpower = 1019760
+	manpower = 1570356
 	
-	state_category = wasteland
-	resources = {
-		tungsten = 49 # was: 54
-	}
+	state_category = town
 
 	history = {
 
 		owner = RAJ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		add_core_of = TIB
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 3
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

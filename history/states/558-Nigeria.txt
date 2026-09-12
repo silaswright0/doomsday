@@ -1,31 +1,85 @@
 state = {
 	id = 558
 	name = "STATE_558"
-	manpower = 209382171
-	state_category = rural
+	manpower = 96624233
+	state_category = megalopolis
 
-	resources = {
-		rubber = 2.000
+	resources={
+
+		oil=23
+		rubber=1
 	}
 
 	history = {
 
 		owner = NGA
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 0
 		add_core_of = NGA
 
 		buildings = {
-			renewable_park = 1
-			finance_center = 1
-			services_building = 2
+			services_building = 1
 			infrastructure = 2
-			arms_factory = 0
-			industrial_complex = 3
+			arms_factory = 1
+			industrial_complex = 1
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			2050 = {
 				naval_base = 3
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

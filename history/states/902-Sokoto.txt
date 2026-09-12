@@ -1,13 +1,20 @@
 state = {
 	id = 902
 	name = "STATE_902"
-	manpower = 3523570
-	state_category = pastoral
+	manpower = 43900942
+	state_category = megalopolis
+
+	resources={
+
+		oil=10
+		rubber=1
+	}
+
 
 	history = {
 
 		owner = NGA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = NGA
 		add_core_of = SOK
 
@@ -15,6 +22,24 @@ state = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

@@ -2,17 +2,23 @@ state = {
 
 	id = 597
 	name = "STATE_597"
-	manpower = 37895703
-	state_category = rural
+	manpower = 16750558
+	state_category = large_city
 	
-	resources = {
-		aluminium = 8 
+	resources={
+
+		oil=48
+		aluminium=125
+		steel=13
+		coal=49
+		rare_earths=11
+		graphite=45
 	}
 	
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 12
+		add_extra_state_shared_building_slots = 7
 		add_core_of = CHI
 		add_core_of = PRC
 
@@ -26,10 +32,28 @@ state = {
 		}
 
 		buildings = {
-			dockyard = 3
+			dockyard = 2
 			arms_factory = 0
-			industrial_complex = 5
-			infrastructure = 3
+			industrial_complex = 7
+			infrastructure = 5
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			4205 = {
 				naval_base = 2
@@ -37,12 +61,84 @@ state = {
 				bunker = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			1104 = {
 				naval_base = 1
 				coastal_bunker = 1
 				bunker = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			renewable_park = 1
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		

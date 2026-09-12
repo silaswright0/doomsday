@@ -4,14 +4,16 @@ state={
 	provinces={
 		2092 2105 4106 7080 7205 8076 10816 11993 11995 12080 
 	}
-	manpower = 49092248
+	manpower = 19629453
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = large_city
+
+
 	local_supplies=0.000
 
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		add_core_of = CIP
 		victory_points = {
@@ -20,7 +22,26 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 2
+			infrastructure = 3
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 }

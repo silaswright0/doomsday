@@ -3,12 +3,18 @@ state={
 	id=598
 	name="STATE_598"
 	
-	state_category = town
+	state_category = megalopolis
+
+	resources={
+
+		steel=15
+	}
+
 
 	history={
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 20
+		add_extra_state_shared_building_slots = 27
 		add_core_of = CHI
 		add_core_of = PRC
 
@@ -25,13 +31,68 @@ state={
 		}
 
 		buildings = {
-			arms_factory = 1
-			industrial_complex = 10
-			infrastructure = 3
-			dockyard = 5
+			arms_factory = 0
+			industrial_complex = 22
+			infrastructure = 5
+			dockyard = 6
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			1029 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			renewable_park = 6
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}
@@ -39,7 +100,7 @@ state={
 	provinces={
 		1001 1029 1076 1121 1161 4001 4005 4031 4082 4123 7025 7142 7181 9953 10095 11973 12055 12067 13144 
 	}
-	manpower = 70124316
+	manpower = 73461783
 	buildings_max_level_factor=1.000
 
 	local_supplies=0.0 

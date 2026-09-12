@@ -4,7 +4,7 @@ state={
 
 	history={
 		owner = TUN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = TUN
 		victory_points = {
 			7005 1 
@@ -12,17 +12,41 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 1
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 	
-	state_category = pastoral
+	state_category = large_town
+
+	resources={
+
+		oil=1
+	}
+
 
 	provinces={
 		1105 3987 4992 7005 9983 10026 10082 11935 11957 12000 13145 13179 
 	}
-	manpower = 2129569
+	manpower = 3248398
 	buildings_max_level_factor=1.000
 
 	local_supplies=0.0 

@@ -2,25 +2,82 @@
 state={
 	id=502
 	name="STATE_502"
-	manpower = 14538569
+	manpower = 11820373
 	
-	resources = {
-		coal = 8 # initial distribution = with infra 3.2 / 3 total	#boosted by 6 to reduce US import necessity
+	resources={
+
+		aluminium=1
+		copper=1
 	}
 
-	state_category = town
+	state_category = city
 
 	history={
 		owner = BRA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2 #was: 5
+			infrastructure = 3
 			industrial_complex = 1
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10447 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			renewable_park = 1
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = BRA
 		victory_points = {

@@ -1,16 +1,41 @@
 state={
 	id=896
 	name="STATE_896"
-	manpower = 2289652
-	state_category = pastoral
+	manpower = 5309379
+	state_category = city
+
+	resources={
+
+		aluminium=1
+		graphite=1
+	}
+
 	history={
 		owner = MZB
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 1
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = MZB
 	}

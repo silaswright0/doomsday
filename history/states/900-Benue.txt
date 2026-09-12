@@ -1,17 +1,19 @@
 state = {
 	id = 900
 	name = "STATE_900"
-	manpower = 12332469
+	manpower = 50433483
 
-	resources = {
-		coal = 2 #initial distribution
+	resources={
+
+		oil=12
+		rubber=1
 	}
-	state_category = pastoral 
+	state_category = megalopolis 
 
 	history = {
 
 		owner = NGA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 
 		add_core_of = NGA
 		add_core_of = BIA
@@ -22,8 +24,26 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
 			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

@@ -8,8 +8,7 @@ doomsday_economy_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = DD_TAKE_LOAN_SMALL_TT
-				check_variable = { gdp > 0.01 }
-				check_variable = { debt_to_gdp < 2.49 }
+				check_variable = { dd_loan_small > 0.01 }
 			}
 		}
 		visible = { always = yes }
@@ -26,8 +25,7 @@ doomsday_economy_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = DD_TAKE_LOAN_LARGE_TT
-				check_variable = { gdp > 0.01 }
-				check_variable = { debt_to_gdp < 2.45 }
+				check_variable = { dd_loan_large > 0.01 }
 			}
 		}
 		visible = { always = yes }
@@ -61,7 +59,8 @@ doomsday_economy_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = DD_PAY_PP_TT
-				check_variable = { treasury > 14.99 }
+				check_variable = { dd_cost_pp > 0.0001 }
+				NOT = { check_variable = { treasury < dd_cost_pp } }
 				NOT = { has_country_flag = dd_pp_bought }
 			}
 		}
@@ -79,7 +78,8 @@ doomsday_economy_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = DD_SUBSIDIZE_BUSINESS_TT
-				check_variable = { treasury > 19.99 }
+				check_variable = { dd_cost_subsidize > 0.0001 }
+				NOT = { check_variable = { treasury < dd_cost_subsidize } }
 			}
 		}
 		visible = { always = yes }

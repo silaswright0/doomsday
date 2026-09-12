@@ -1,28 +1,88 @@
 state = {
 	id = 276
 	name = "STATE_276" # Southern Ontario
-	manpower = 12189174
+	manpower = 255251
 	
-	state_category = large_city
+	state_category = rural
+
+	resources={
+
+		cobalt=1
+		copper=2
+	}
+
 	
 	history = {
 
 		owner = CAN
-		add_extra_state_shared_building_slots = 17
+		add_extra_state_shared_building_slots = 7
 		add_core_of = CAN
 
 		buildings = {
-			renewable_park = 2
 			finance_center = 2
-			services_building = 3
-			infrastructure = 4 #was: 7
-			arms_factory = 1
-			industrial_complex = 5
+			services_building = 2
+			infrastructure = 5
+			arms_factory = 3
+			industrial_complex = 0
 			air_base = 5
 
 			# Queenston-Chippawa Hydroelectric Plant
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			749 = { dam = 1 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		}

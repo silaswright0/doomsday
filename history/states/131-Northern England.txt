@@ -2,32 +2,80 @@
 state={
 	id=131
 	name="STATE_131"
-	manpower = 3213368
+	manpower = 3322819
 	
-	state_category = city
-	resources = {
-		steel = 18
-		coal = 23 #initial distribution
-		
-	}
+	state_category = large_town
 
 	history={
 		owner = ENG
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ENG
 		victory_points = {
 			351 8 
 		}
 		buildings = {
-			renewable_park = 1
 			services_building = 1
-			arms_factory = 0
-			infrastructure = 4 #was: 6
-			industrial_complex = 1
+			arms_factory = 2
+			infrastructure = 4
+			industrial_complex = 0
 			air_base = 6
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			351 = {
 				naval_base = 6
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

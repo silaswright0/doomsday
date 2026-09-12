@@ -1,11 +1,9 @@
 state = {
 	id = 835 # Hararghe
 	name = "STATE_835"
-	manpower = 18929254
-	resources = {
-	}
+	manpower = 20259142
 	
-	state_category = rural
+	state_category = large_city
 
 	history = {
 		set_variable = { ETH_state_development_production_speed = -0.3 }
@@ -25,9 +23,21 @@ state = {
 		
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 0
+			infrastructure = 1
+			industrial_complex = 1
 			air_base = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = { 
@@ -41,7 +51,7 @@ state = {
 		}
 		
 		owner = ETH
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ETH
 		add_core_of = SOM
 		add_core_of = HAR

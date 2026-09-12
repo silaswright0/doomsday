@@ -1,24 +1,40 @@
 state = {
 	id = 71
 	name = "STATE_71"
-	manpower = 1970426
+	manpower = 2489396
 	
-	resources = {
-		coal = 2 # initial distribution / 60 total
+
+
+	state_category = large_town
+
+	resources={
+
+		aluminium=1
+		steel=1
 	}
 
-
-	state_category = rural
 	
 	history = {
 		
 		owner = SLO
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 
 		buildings = {
-			arms_factory = 0
-			infrastructure = 4
-			industrial_complex = 0
+			arms_factory = 1
+			infrastructure = 3
+			industrial_complex = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		add_core_of = CZE

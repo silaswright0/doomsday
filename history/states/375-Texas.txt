@@ -2,37 +2,129 @@
 state={
 	id=375
 	name="STATE_375"
-	manpower = 15854897
+	manpower = 31914761
 	
 	
 	state_category = metropolis
 	
 	resources={
-		oil=210 # was: 580 #2025-12-12: was: 320
-		aluminium=50 # was: 96
-		coal = 11 # initial distribution = with infra 35.2 / 1280 total
+
+		oil=170
+		aluminium=1
+		coal=1
+		rare_earths=2
 	}
 
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 17
+		add_extra_state_shared_building_slots = 13
 		buildings = {
 			rocket_site = 1
-			renewable_park = 1
+			renewable_park = 2
 			finance_center = 1
 			services_building = 2
-			dockyard = 1
-			arms_factory = 2
-			infrastructure = 4 #was: 6
-			industrial_complex = 6
+
+			arms_factory = 4
+			infrastructure = 5
+			industrial_complex = 12
 			air_base = 3
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10337 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6785 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = USA
 		victory_points = {

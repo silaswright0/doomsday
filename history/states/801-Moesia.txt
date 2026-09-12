@@ -1,13 +1,13 @@
 state={
 	id=801
 	name="STATE_801"
-	manpower = 1208190
+	manpower = 3636734
 
-	state_category=rural
+	state_category = large_town
 
 	history={
 		owner = BUL
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = { #Ruse
 			9612 3
 		}
@@ -17,8 +17,18 @@ state={
 		buildings = {
 			arms_factory = 0
 			infrastructure = 3
-			industrial_complex = 0
-
+			industrial_complex = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = BUL
 
@@ -28,8 +38,10 @@ state={
 		3796 3819 3952 6842 9610 9612 
 	}
 #	resources={
-#		oil=1
-#	}
+
+		coal=1
+		copper=1
+	}
 
 	local_supplies=0.0 
 }

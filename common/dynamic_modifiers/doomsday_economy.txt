@@ -1,0 +1,11 @@
+# Country-scoped. Variable values come from ROOT. No random.
+
+dd_debt_burden = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_goods_red_bonus
+	remove_trigger = {
+		check_variable = { dd_debt_burden_stacks < 1 }
+	}
+	production_speed_buildings_factor = dd_debt_con_pen
+	stability_factor = dd_debt_stab_pen
+}

@@ -1,12 +1,18 @@
 state={
 	id=591
 	name="STATE_591"
-	manpower = 10310090 #was 4350000
-	state_category = town
+	manpower = 10169657 #was 4350000
+	state_category = city
+
+	resources={
+
+		rubber=8
+	}
+
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = GXC
 	
 
@@ -22,15 +28,67 @@ state={
 		}
 		
 		buildings = {
-			dockyard = 1
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 3
+			infrastructure = 5
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			1070 = {
 				naval_base = 2
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			renewable_park = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

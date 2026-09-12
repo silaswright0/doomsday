@@ -2,14 +2,14 @@
 state={
 	id=103
 	name="STATE_103" # Dalmatia
-	manpower = 1545607
+	manpower = 2345449
 
 	state_category = large_town
 
 
 	history={
 		owner = CRO
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		victory_points = { #Dubrovnik
 			6889 3 
 		}
@@ -17,16 +17,106 @@ state={
 			3924 3
 		}
 		buildings = {
+			arms_factory = 1
+			infrastructure = 3
+			industrial_complex = 1
+			
+
+
+
+
 			services_building = 1
-			arms_factory = 0
-			infrastructure = 4
-			industrial_complex = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
 			3924 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6889 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = YUG
 		#add_claim_by = ITA #added by focus

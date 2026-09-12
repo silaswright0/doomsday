@@ -1,28 +1,40 @@
 state = {
 	id = 949
 	name = "STATE_949" # Aysen
-	manpower = 135822
+	manpower = 205623
 	
-	state_category = pastoral
+	state_category = rural
 
-	resources = {
-		aluminium = 1
-	}
-	resources = {
-		oil = 1
-	}
 
 	history = {
 
 		owner = CHL
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CHL
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
 			#dockyard = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

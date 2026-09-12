@@ -6,15 +6,8 @@ dd_init_economy = {
 		set_country_flag = dd_econ_init
 		dd_apply_rates = yes
 		if = {
-			limit = { check_variable = { debt < 0.01 } }
-			set_variable = { debt = gdp }
-			multiply_variable = { debt = debt_to_gdp }
-		}
-		if = {
 			limit = { check_variable = { treasury < 0.01 } }
-			set_variable = { treasury = gdp }
-			multiply_variable = { treasury = 0.02 }
-			clamp_variable = { var = treasury min = 1 max = 100000 }
+			set_variable = { treasury = 1 }
 		}
 		if = {
 			limit = {
@@ -138,35 +131,68 @@ dd_init_economy = {
 		}
 		dd_recalc_policy_expense = yes
 		dd_recalc_accounts = yes
+		# Factory counts are 0 during on_startup. Do not prime from
+		# on_daily/on_monthly on the start tick — that still sees 0 civs.
+		country_event = { id = doomsday.1 hours = 1 }
+		country_event = { id = doomsday.1 days = 1 }
 	}
+}
+
+dd_prime_economy_ledger = {
+	dd_recalc_accounts = yes
+	set_country_flag = dd_econ_ledger_ready
 }
 
 dd_apply_rates = {
-	set_variable = { dd_rate_civ = 1 }
-	set_variable = { dd_rate_finance = 5 }
-	set_variable = { dd_rate_services = 1 }
-	set_variable = { dd_rate_admin = 0.5 }
-	set_variable = { dd_rate_interest = 0.005 }
+	# Ledger is US$ billions / month. Fit to IMF WEO central-ish budgets after
+	# the 2026 pop/building rebuild. Same tax law for every tag at start, so
+	# rates target a standard federal take, not France-at-rest. Pop × building
+	# income is not used: Indian mega-states would mint more cash than the USA.
+	set_variable = { dd_rate_civ = 1.00 }
+	# Finance: level × (local civs + services + 4). Services: level × (civs + 2).
+	set_variable = { dd_rate_finance = 0.20 }
+	set_variable = { dd_rate_fin_floor = 4 }
+	set_variable = { dd_rate_services = 0.15 }
+	set_variable = { dd_rate_srv_floor = 2 }
+	# State cost: people plus factories in owned states.
+	set_variable = { dd_rate_admin_pop = 0.02 }
+	set_variable = { dd_rate_admin_civ = 1.20 }
+	set_variable = { dd_rate_admin = 0.02 }
+	# 3% a year on the debt stock (US Treasury average coupon is ~3.3% in 2026).
+	set_variable = { dd_rate_interest = 0.03 }
+	divide_variable = { dd_rate_interest = 12 }
+	# Japan home-bias spirit: −2 percentage points a year.
+	set_variable = { dd_rate_interest_jap_cut = 0.02 }
+	# Standard tax (law 2). Law 3 doubles. Law 1 is zero.
+	set_variable = { dd_rate_tax_pop = 0.02 }
+	set_variable = { dd_rate_tax_civ = 0.80 }
+	set_variable = { dd_rate_tax_2 = 0.02 }
+	set_variable = { dd_rate_tax_3 = 2.00 }
+	# Decision prices are a share of yearly revenue.
+	set_variable = { dd_rate_sub_cost = 0.005 }
+	set_variable = { dd_rate_pp_cost = 0.01 }
 }
 
-dd_refresh_debt_ratio = {
-	if = {
-		limit = { check_variable = { gdp > 0.01 } }
-		set_variable = { debt_to_gdp = debt }
-		divide_variable = { debt_to_gdp = gdp }
-	}
-	else = {
-		set_variable = { debt_to_gdp = 0 }
-	}
+dd_refresh_interest = {
 	set_variable = { expense_interest = debt }
 	multiply_variable = { expense_interest = dd_rate_interest }
+	if = {
+		limit = { has_idea = JAP_boj_home_bias }
+		set_temp_variable = { jap_cut = debt }
+		multiply_temp_variable = { jap_cut = dd_rate_interest_jap_cut }
+		divide_temp_variable = { jap_cut = 12 }
+		subtract_from_variable = { expense_interest = jap_cut }
+	}
+	if = {
+		limit = { check_variable = { expense_interest < 0 } }
+		set_variable = { expense_interest = 0 }
+	}
 }
 
 dd_refresh_loan_preview = {
-	set_variable = { dd_loan_small = gdp }
-	multiply_variable = { dd_loan_small = 0.01 }
-	set_variable = { dd_loan_large = gdp }
-	multiply_variable = { dd_loan_large = 0.05 }
+	set_variable = { dd_loan_small = dd_last_income }
+	set_variable = { dd_loan_large = dd_last_income }
+	multiply_variable = { dd_loan_large = 5 }
 	set_variable = { dd_repay_preview = dd_loan_small }
 	if = {
 		limit = { check_variable = { treasury < dd_repay_preview } }
@@ -179,12 +205,81 @@ dd_refresh_loan_preview = {
 	dd_refresh_usd_display = yes
 }
 
+# Decision prices scale with yearly revenue. Subsidy 0.5%, PP buy 1%.
+dd_refresh_decision_costs = {
+	set_variable = { dd_year_rev = dd_last_income }
+	multiply_variable = { dd_year_rev = 12 }
+	set_variable = { dd_cost_subsidize = dd_year_rev }
+	multiply_variable = { dd_cost_subsidize = dd_rate_sub_cost }
+	set_variable = { dd_cost_pp = dd_year_rev }
+	multiply_variable = { dd_cost_pp = dd_rate_pp_cost }
+	set_variable = { dd_cost_sub_m = dd_cost_subsidize }
+	multiply_variable = { dd_cost_sub_m = 1000 }
+	set_variable = { dd_cost_pp_m = dd_cost_pp }
+	multiply_variable = { dd_cost_pp_m = 1000 }
+}
+
+# Debt / twelve months of revenue. One stack per full 100% (floor).
+# 50% → 0, 150% → 1, 280% → 2, 305% → 3. Each stack: −10% construction, −2% stability.
+dd_refresh_debt_burden = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_econ_ledger_ready } }
+		set_variable = { dd_debt_rev_ratio = 0 }
+		set_variable = { dd_debt_burden_stacks = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_last_income < 0.01 } }
+		if = {
+			limit = { check_variable = { debt > 0.01 } }
+			set_variable = { dd_debt_rev_ratio = 9999 }
+			set_variable = { dd_debt_burden_stacks = 50 }
+		}
+		else = {
+			set_variable = { dd_debt_rev_ratio = 0 }
+			set_variable = { dd_debt_burden_stacks = 0 }
+		}
+	}
+	else = {
+		set_variable = { dd_year_rev = dd_last_income }
+		multiply_variable = { dd_year_rev = 12 }
+		set_variable = { dd_debt_rev_ratio = debt }
+		divide_variable = { dd_debt_rev_ratio = dd_year_rev }
+		multiply_variable = { dd_debt_rev_ratio = 100 }
+		set_variable = { dd_debt_burden_stacks = debt }
+		divide_variable = { dd_debt_burden_stacks = dd_year_rev }
+		subtract_from_variable = { dd_debt_burden_stacks = 0.499 }
+		round_variable = dd_debt_burden_stacks
+		if = {
+			limit = { check_variable = { dd_debt_burden_stacks < 0 } }
+			set_variable = { dd_debt_burden_stacks = 0 }
+		}
+	}
+	set_variable = { dd_debt_con_pen = dd_debt_burden_stacks }
+	multiply_variable = { dd_debt_con_pen = -0.1 }
+	set_variable = { dd_debt_stab_pen = dd_debt_burden_stacks }
+	multiply_variable = { dd_debt_stab_pen = -0.02 }
+	if = {
+		limit = { check_variable = { dd_debt_burden_stacks > 0.9 } }
+		if = {
+			limit = {
+				NOT = { has_dynamic_modifier = { modifier = dd_debt_burden } }
+			}
+			add_dynamic_modifier = { modifier = dd_debt_burden }
+		}
+		force_update_dynamic_modifier = yes
+	}
+	else = {
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_debt_burden } }
+			remove_dynamic_modifier = { modifier = dd_debt_burden }
+		}
+	}
+}
+
 # Ledger values are US$ billions. Copies in millions exist so UI can show M under 1B.
 dd_refresh_usd_display = {
 	set_variable = { dd_cash_m = treasury }
 	multiply_variable = { dd_cash_m = 1000 }
-	set_variable = { dd_gdp_m = gdp }
-	multiply_variable = { dd_gdp_m = 1000 }
 	set_variable = { dd_debt_m = debt }
 	multiply_variable = { dd_debt_m = 1000 }
 	set_variable = { dd_income_m = dd_last_income }
@@ -207,6 +302,10 @@ dd_refresh_usd_display = {
 	multiply_variable = { dd_adm_m = 1000 }
 	set_variable = { dd_int_m = expense_interest }
 	multiply_variable = { dd_int_m = 1000 }
+	set_variable = { dd_cost_sub_m = dd_cost_subsidize }
+	multiply_variable = { dd_cost_sub_m = 1000 }
+	set_variable = { dd_cost_pp_m = dd_cost_pp }
+	multiply_variable = { dd_cost_pp_m = 1000 }
 }
 
 dd_refresh_market_counts = {
@@ -265,14 +364,12 @@ dd_refresh_market_counts = {
 dd_take_loan_small = {
 	if = {
 		limit = {
-			check_variable = { gdp > 0.01 }
-			check_variable = { debt_to_gdp < 2.49 }
+			check_variable = { dd_loan_small > 0.01 }
 		}
-		set_temp_variable = { dd_loan = gdp }
-		multiply_temp_variable = { dd_loan = 0.01 }
-		add_to_variable = { treasury = dd_loan }
-		add_to_variable = { debt = dd_loan }
-		dd_refresh_debt_ratio = yes
+		add_to_variable = { treasury = dd_loan_small }
+		add_to_variable = { debt = dd_loan_small }
+		dd_refresh_interest = yes
+		dd_refresh_debt_burden = yes
 		dd_refresh_loan_preview = yes
 	}
 }
@@ -280,14 +377,12 @@ dd_take_loan_small = {
 dd_take_loan_large = {
 	if = {
 		limit = {
-			check_variable = { gdp > 0.01 }
-			check_variable = { debt_to_gdp < 2.45 }
+			check_variable = { dd_loan_large > 0.01 }
 		}
-		set_temp_variable = { dd_loan = gdp }
-		multiply_temp_variable = { dd_loan = 0.05 }
-		add_to_variable = { treasury = dd_loan }
-		add_to_variable = { debt = dd_loan }
-		dd_refresh_debt_ratio = yes
+		add_to_variable = { treasury = dd_loan_large }
+		add_to_variable = { debt = dd_loan_large }
+		dd_refresh_interest = yes
+		dd_refresh_debt_burden = yes
 		dd_refresh_loan_preview = yes
 	}
 }
@@ -298,7 +393,8 @@ dd_repay_loan = {
 		limit = { check_variable = { dd_repay_preview > 0.01 } }
 		subtract_from_variable = { treasury = dd_repay_preview }
 		subtract_from_variable = { debt = dd_repay_preview }
-		dd_refresh_debt_ratio = yes
+		dd_refresh_interest = yes
+		dd_refresh_debt_burden = yes
 		dd_refresh_loan_preview = yes
 	}
 }
@@ -306,10 +402,11 @@ dd_repay_loan = {
 dd_pay_interest_groups = {
 	if = {
 		limit = {
-			check_variable = { treasury > 14.99 }
+			check_variable = { dd_cost_pp > 0.0001 }
+			NOT = { check_variable = { treasury < dd_cost_pp } }
 			NOT = { has_country_flag = dd_pp_bought }
 		}
-		subtract_from_variable = { treasury = 15 }
+		subtract_from_variable = { treasury = dd_cost_pp }
 		add_political_power = 50
 		set_country_flag = dd_pp_bought
 		dd_refresh_loan_preview = yes
@@ -318,91 +415,96 @@ dd_pay_interest_groups = {
 
 dd_subsidize_business = {
 	if = {
-		limit = { check_variable = { treasury > 19.99 } }
-		subtract_from_variable = { treasury = 20 }
+		limit = {
+			check_variable = { dd_cost_subsidize > 0.0001 }
+			NOT = { check_variable = { treasury < dd_cost_subsidize } }
+		}
+		subtract_from_variable = { treasury = dd_cost_subsidize }
 		dd_refresh_loan_preview = yes
 	}
 }
 
 dd_recalc_policy_expense = {
-	set_variable = { expense_policy = 0 }
+	# Additive OECD-style extras on core administration. Laws are exclusive
+	# per slot, so level 2 and 3 never stack. Default laws → ×1.78.
+	set_variable = { dd_admin_factor = 1.00 }
 	set_variable = { income_tax = 0 }
 	if = {
 		limit = { has_idea = dd_welfare_2 }
-		add_to_variable = { expense_policy = 5 }
+		add_to_variable = { dd_admin_factor = 0.28 }
 	}
 	if = {
 		limit = { has_idea = dd_welfare_3 }
-		add_to_variable = { expense_policy = 15 }
+		add_to_variable = { dd_admin_factor = 0.60 }
 	}
 	if = {
 		limit = { has_idea = dd_education_2 }
-		add_to_variable = { expense_policy = 5 }
+		add_to_variable = { dd_admin_factor = 0.12 }
 	}
 	if = {
 		limit = { has_idea = dd_education_3 }
-		add_to_variable = { expense_policy = 12 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_immigration_3 }
-		add_to_variable = { expense_policy = 3 }
+		add_to_variable = { dd_admin_factor = 0.05 }
 	}
 	if = {
 		limit = { has_idea = dd_taxes_2 }
-		add_to_variable = { income_tax = 5 }
+		set_variable = { income_tax = dd_tax_base }
 	}
 	if = {
 		limit = { has_idea = dd_taxes_3 }
-		add_to_variable = { income_tax = 15 }
+		set_variable = { income_tax = dd_tax_base }
+		multiply_variable = { income_tax = dd_rate_tax_3 }
 	}
 	if = {
 		limit = { has_idea = dd_women_3 }
-		add_to_variable = { expense_policy = 4 }
+		add_to_variable = { dd_admin_factor = 0.04 }
 	}
 	if = {
 		limit = { has_idea = dd_minority_3 }
-		add_to_variable = { expense_policy = 3 }
+		add_to_variable = { dd_admin_factor = 0.04 }
 	}
 	if = {
 		limit = { has_idea = dd_investment_2 }
-		add_to_variable = { expense_policy = 6 }
+		add_to_variable = { dd_admin_factor = 0.08 }
 	}
 	if = {
 		limit = { has_idea = dd_investment_3 }
-		add_to_variable = { expense_policy = 18 }
+		add_to_variable = { dd_admin_factor = 0.18 }
 	}
 	if = {
 		limit = { has_idea = dd_security_3 }
-		add_to_variable = { expense_policy = 8 }
+		add_to_variable = { dd_admin_factor = 0.12 }
 	}
 	if = {
 		limit = { has_idea = dd_healthcare_2 }
-		add_to_variable = { expense_policy = 6 }
+		add_to_variable = { dd_admin_factor = 0.20 }
 	}
 	if = {
 		limit = { has_idea = dd_healthcare_3 }
-		add_to_variable = { expense_policy = 12 }
+		add_to_variable = { dd_admin_factor = 0.42 }
 	}
 	if = {
 		limit = { has_idea = dd_fertility_1 }
-		add_to_variable = { expense_policy = 8 }
+		add_to_variable = { dd_admin_factor = 0.14 }
 	}
 	if = {
 		limit = { has_idea = dd_fertility_2 }
-		add_to_variable = { expense_policy = 3 }
-	}
-	if = {
-		limit = { has_idea = dd_fertility_3 }
-		add_to_variable = { expense_policy = 2 }
+		add_to_variable = { dd_admin_factor = 0.06 }
 	}
 	if = {
 		limit = { has_idea = dd_aid_2 }
-		add_to_variable = { expense_policy = 8 }
+		add_to_variable = { dd_admin_factor = 0.04 }
 	}
 	if = {
 		limit = { has_idea = dd_aid_3 }
-		add_to_variable = { expense_policy = 22 }
+		add_to_variable = { dd_admin_factor = 0.08 }
 	}
+	set_variable = { expense_policy = expense_admin }
+	multiply_variable = { expense_policy = dd_admin_factor }
+	subtract_from_variable = { expense_policy = expense_admin }
 }
 
 dd_recalc_accounts = {
@@ -413,21 +515,47 @@ dd_recalc_accounts = {
 	set_variable = { income_finance = 0 }
 	set_variable = { income_services = 0 }
 	every_controlled_state = {
+		set_temp_variable = { tmp_mkt = building_level@industrial_complex }
+		add_to_temp_variable = { tmp_mkt = building_level@services_building }
+		add_to_temp_variable = { tmp_mkt = ROOT.dd_rate_fin_floor }
 		set_temp_variable = { tmp_fin = building_level@finance_center }
-		set_temp_variable = { tmp_srv = building_level@services_building }
+		multiply_temp_variable = { tmp_fin = tmp_mkt }
+		multiply_temp_variable = { tmp_fin = ROOT.dd_rate_finance }
 		add_to_variable = { ROOT.income_finance = tmp_fin }
+		set_temp_variable = { tmp_mkt = building_level@industrial_complex }
+		add_to_temp_variable = { tmp_mkt = ROOT.dd_rate_srv_floor }
+		set_temp_variable = { tmp_srv = building_level@services_building }
+		multiply_temp_variable = { tmp_srv = tmp_mkt }
+		multiply_temp_variable = { tmp_srv = ROOT.dd_rate_services }
 		add_to_variable = { ROOT.income_services = tmp_srv }
 	}
-	multiply_variable = { income_finance = dd_rate_finance }
-	multiply_variable = { income_services = dd_rate_services }
 
+	set_variable = { dd_pop_m = 0 }
+	set_variable = { dd_tax_base = 0 }
 	set_variable = { expense_admin = 0 }
 	every_owned_state = {
-		add_to_variable = { ROOT.expense_admin = 1 }
+		set_temp_variable = { pop_m = state_population_k }
+		divide_temp_variable = { pop_m = 1000 }
+		multiply_temp_variable = { pop_m = 10 }
+		round_temp_variable = pop_m
+		divide_temp_variable = { pop_m = 10 }
+		add_to_variable = { ROOT.dd_pop_m = pop_m }
+		set_temp_variable = { st_civ = building_level@industrial_complex }
+		set_temp_variable = { st_admin = pop_m }
+		multiply_temp_variable = { st_admin = ROOT.dd_rate_admin_pop }
+		set_temp_variable = { st_adm_c = st_civ }
+		multiply_temp_variable = { st_adm_c = ROOT.dd_rate_admin_civ }
+		add_to_temp_variable = { st_admin = st_adm_c }
+		add_to_variable = { ROOT.expense_admin = st_admin }
+		set_temp_variable = { st_tax = pop_m }
+		multiply_temp_variable = { st_tax = ROOT.dd_rate_tax_pop }
+		set_temp_variable = { st_tax_c = st_civ }
+		multiply_temp_variable = { st_tax_c = ROOT.dd_rate_tax_civ }
+		add_to_temp_variable = { st_tax = st_tax_c }
+		add_to_variable = { ROOT.dd_tax_base = st_tax }
 	}
-	multiply_variable = { expense_admin = dd_rate_admin }
 
-	dd_refresh_debt_ratio = yes
+	dd_refresh_interest = yes
 	dd_recalc_policy_expense = yes
 
 	set_variable = { dd_last_income = income_civ }
@@ -442,6 +570,8 @@ dd_recalc_accounts = {
 	set_variable = { dd_last_net = dd_last_income }
 	subtract_from_variable = { dd_last_net = dd_last_expense }
 
+	dd_refresh_debt_burden = yes
+	dd_refresh_decision_costs = yes
 	dd_refresh_loan_preview = yes
 	dd_refresh_market_counts = yes
 }
@@ -450,10 +580,16 @@ dd_economy_monthly_tick = {
 	dd_init_economy = yes
 	clr_country_flag = dd_pp_bought
 	dd_recalc_accounts = yes
-	add_to_variable = { treasury = dd_last_income }
-	subtract_from_variable = { treasury = dd_last_expense }
-	dd_refresh_loan_preview = yes
-	dd_consume_sam_ammo = yes
+	# Do not book a month that was calculated before factories existed.
+	if = {
+		limit = { has_country_flag = dd_econ_ledger_ready }
+		add_to_variable = { treasury = dd_last_income }
+		subtract_from_variable = { treasury = dd_last_expense }
+		# First posted close reveals the budget UI (January stays ??).
+		set_country_flag = dd_econ_budget_shown
+		dd_refresh_loan_preview = yes
+		dd_consume_sam_ammo = yes
+	}
 
 	if = {
 		limit = { has_global_flag = dd_econ_log }

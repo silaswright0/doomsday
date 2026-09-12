@@ -2,11 +2,11 @@
 state = {
 	id = 849
 	name = "STATE_849"
-	manpower = 3824618 
-	state_category = city
+	manpower = 4216664 
+	state_category = large_town
 	history = {
 		owner = ITA
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		victory_points = { #Bari
 			9784 3
 		}
@@ -20,11 +20,9 @@ state = {
 			883 3
 		}
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			arms_factory = 0
 			infrastructure = 4
-			industrial_complex = 1
+			industrial_complex = 0
 			air_base = 5
 			11837 = { #Taranto
 				naval_base = 10
@@ -35,9 +33,64 @@ state = {
 					}
 				}
 			}
+			
+
+
+
+
+
+
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
 			9784 = { #Bari
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = ITA

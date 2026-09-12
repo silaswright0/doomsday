@@ -1,28 +1,79 @@
 state={
 	id=700
 	name="STATE_700"
-	manpower = 8700000
+	manpower = 8996745
 	
-	state_category = pastoral
-	resources = {
-		steel = 32
-	}
+	state_category = city
 	
 	history=
 	{
 		owner = SIE
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SIE
 		victory_points = {
 			2038 1 
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 1
+			industrial_complex = 1
+			infrastructure = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			2038 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

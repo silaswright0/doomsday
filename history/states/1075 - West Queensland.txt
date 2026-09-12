@@ -2,8 +2,17 @@ state = {
 	id = 1075
 	name = "STATE_1075"
 
-	state_category = wasteland
-	manpower = 47932
+	state_category = town
+
+	resources={
+
+		oil=1
+		aluminium=3
+		coal=7
+		copper=3
+	}
+
+	manpower = 1867599
 
 	impassable = yes
 	force_link_ownership_to = 873 # Southwest Queensland
@@ -11,13 +20,31 @@ state = {
 	history = {
 
 		owner = AST
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = AST
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 4
+			industrial_complex = 1
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

@@ -1,0 +1,21 @@
+{
+  "shipped": true,
+  "formula": {
+    "finance": "level * (civs + services + 4) * 0.20",
+    "services": "level * (civs + 2) * 0.15",
+    "tax_standard": "pop_m * 0.02 + civs * 0.80",
+    "tax_high": "2.00 x standard",
+    "admin": "pop_m * 0.02 + civs * 1.20",
+    "policy_default": {
+      "welfare": 0.28,
+      "education": 0.12,
+      "healthcare": 0.20,
+      "investment": 0.08,
+      "fertility": 0.06,
+      "aid": 0.04
+    },
+    "policy_factor_default": 1.78,
+    "usa_yearly_revenue": 3694
+  },
+  "notes": "Pop x building income was dropped because Indian mega-states out-earned the USA. Ledger is central/federal cash, not OECD general government. IMF WEO rev/exp and World Bank services shares informed the targets."
+}

@@ -1,34 +1,85 @@
 state = {
 	id = 528
 	name = "STATE_528" # North Kyushu
-	manpower = 10704240 # was 9069000
+	manpower = 12975098 # was 9069000
 
-	state_category = city # was large_city
+	state_category = large_city # was large_city
 
-	resources = {
-		chromium = 32 # was: 88, then 52
-		coal = 15 # initial distribution
+	resources={
+
+		steel=2
 	}
 
 	history = {
 
 		owner = JAP
-		add_extra_state_shared_building_slots = 10
+		add_extra_state_shared_building_slots = 5
 		add_core_of = JAP
 
 		buildings = {
 			renewable_park = 1
-			services_building = 1
-			infrastructure = 5 #was: 7
+			services_building = 2
+			infrastructure = 5
 			air_base = 3
-			dockyard = 1
-			arms_factory = 0
-			industrial_complex = 3
+			dockyard = 2
+			arms_factory = 1
+			industrial_complex = 4
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			9950 = {
 				naval_base = 6
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			finance_center = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

@@ -6,13 +6,13 @@ state={
 	}
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		add_core_of = RJP
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 1
-			infrastructure = 2
+			industrial_complex = 2
+			infrastructure = 4
 			4915 = {
                 landmark_taj_mahal = {
                     level = 1
@@ -21,14 +21,40 @@ state={
                     }
                 }
 			}
+			renewable_park = 1
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			1908 5
 		}
 
 	}
-	state_category = rural
-	manpower = 60094447
+	state_category = megalopolis
+
+	resources={
+
+		oil=2
+	}
+
+	manpower = 80480756
 	buildings_max_level_factor=1.000
 	state_category=town
 	local_supplies=9.000

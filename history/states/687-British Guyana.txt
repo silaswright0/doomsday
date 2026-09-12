@@ -1,28 +1,83 @@
 state={
 	id=687
 	name="STATE_687"
-	manpower = 800000
+	manpower = 840890
 	
-	state_category = pastoral
+	state_category = town
 	
 	resources={
-		aluminium=64 # was: 112
+
+		oil=23
 	}
 
 	history={
 		add_core_of = GYA
 		owner = GYA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			4982 1
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
 			infrastructure = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4982 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 	

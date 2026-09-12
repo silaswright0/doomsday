@@ -2,13 +2,19 @@
 state={
 	id=557
 	name="STATE_557" # Mauritania
-	manpower = 3157216
+	manpower = 4986422
 	
-	state_category = pastoral
+	state_category = large_town
+
+	resources={
+
+		copper=1
+	}
+
 
 	history={
 		owner = MRT
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = MRT
 		victory_points = {
 			5034 1
@@ -16,7 +22,25 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 1
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

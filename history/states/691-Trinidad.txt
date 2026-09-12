@@ -1,28 +1,83 @@
 state={
 	id=691
 	name="STATE_691"
-	manpower = 1400000
+	manpower = 1513268
 	resources={
-		oil=12 # was: 16
+
+		oil=3
 	}
 	
-	state_category = rural
+	state_category = town
 
 
 	history={
 		add_core_of = TRI
 		owner = TRI
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			3284 1
 		}
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 3
+			infrastructure = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			3284 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 	

@@ -1,17 +1,21 @@
 state={
 	id=673
 	name="STATE_673"
-	manpower = 14506718
+	manpower = 11884865
 	resources={
-		rubber = 16 #was: 24
+
+		oil=1
+		aluminium=1
+		cobalt=8
+		copper=7
 	}
 
-	state_category = rural
+	state_category = city
 
 
 	history= {
 		owner = INS
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = INS
 		add_core_of = GOW
 		victory_points = {
@@ -26,9 +30,63 @@ state={
 			industrial_complex = 1
 			infrastructure = 2
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10263 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 	provinces={

@@ -2,17 +2,45 @@
 state={
 	id=452
 	name="STATE_452"
-	manpower = 413070
+	manpower = 2928833
 	
-	state_category = wasteland
+	state_category = large_town
+
+	resources={
+
+		oil=1
+	}
+
+
+
+
+
 
 	history={
 		owner = EGY
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 3
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

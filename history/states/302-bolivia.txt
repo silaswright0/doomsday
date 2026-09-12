@@ -1,11 +1,12 @@
 state = {
 	id = 302
 	name = "STATE_302"
-	manpower = 10312736
+	manpower = 6279663
 
-	resources = {
-		tungsten = 60 # was: 102.000
-		steel = 2 # was: 2.000
+	resources={
+
+		oil=1
+		tungsten=1
 	}
 	
 	state_category = city
@@ -13,14 +14,32 @@ state = {
 	history = {
 
 		owner = BOL
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BOL
 
 		buildings = {
 			infrastructure = 2
 			arms_factory = 0
-			industrial_complex = 1
+			industrial_complex = 0
 			air_base = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

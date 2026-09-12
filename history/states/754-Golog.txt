@@ -4,12 +4,14 @@ state = {
 	provinces = {
 		1882 4536 4888 7270 10490 10817 11448 12732 12815 13380
 	}
-	manpower = 1185068
+	manpower = 1024889
 	buildings_max_level_factor = 1.000
-	state_category = rural
+	state_category = town
+
+
 	history = {
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = XSM
 		add_core_of = CHI
 		add_core_of = PRC
@@ -23,9 +25,27 @@ state = {
 		}
 
 		buildings = {
-			infrastructure = 3
+			infrastructure = 5
 			industrial_complex = 0
 			arms_factory = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

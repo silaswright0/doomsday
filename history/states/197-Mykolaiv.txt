@@ -1,23 +1,36 @@
 state = {
 	id = 197
 	name = "STATE_197"
-	manpower = 611632
+	manpower = 1014539
 
-	state_category = rural
+	state_category = town
 
 	history = {
 		owner = UKR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SOV
 		add_core_of = UKR
 		victory_points = {
 			11683 3 # Mykolaiv
 		}
 		buildings = {
-			arms_factory = 0
+			arms_factory = 1
 			industrial_complex = 0
-			infrastructure = 2 #was: 5
-			dockyard = 0
+			infrastructure = 1
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

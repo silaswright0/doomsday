@@ -2,13 +2,13 @@
 state={
 	id=448
 	name="STATE_448"
-	manpower = 4626274
+	manpower = 1933266
 	
 	state_category = town
 
 	history={
 		owner = LBA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		victory_points = { 9980 3 }
 		add_core_of = LNA
 		
@@ -17,16 +17,106 @@ state={
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 1
-			infrastructure = 2
+			industrial_complex = 0
+			infrastructure = 3
 			air_base = 6
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			1149 = {
 				naval_base = 5
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			1041 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = LBA
 	}

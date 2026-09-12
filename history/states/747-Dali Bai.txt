@@ -2,14 +2,16 @@ state = {
 	id = 747
 	name = "STATE_747"
 	
-	manpower = 2962670
+	manpower = 45563576
 	buildings_max_level_factor = 1.000
-	state_category = pastoral
+	state_category = megalopolis
+
+
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		add_core_of = YUN
 		add_core_of = CHI
 		add_core_of = PRC
@@ -24,8 +26,28 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
+			industrial_complex = 5
+			infrastructure = 5
+			renewable_park = 4
+			finance_center = 1
+			services_building = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 

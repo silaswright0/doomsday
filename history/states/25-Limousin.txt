@@ -2,22 +2,37 @@
 state={
 	id=25
 	name="STATE_25"
-	manpower = 2122449
+	manpower = 746772
 
-	resources = {
-		coal = 2 #initial distribution / 140 total
-	}
 
-	state_category = large_town
+	state_category = rural
+
+
 	history={
 		owner = FRA
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 4
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		victory_points = {

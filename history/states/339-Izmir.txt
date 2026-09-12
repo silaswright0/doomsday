@@ -2,16 +2,18 @@
 state={
 	id=339
 	name="STATE_339"
-	manpower = 7310522
+	manpower = 7538702
 	resources={
-		chromium=50 # was: 86
+
+		oil=1
+		chromium=1
 	}
 	
-	state_category = large_town
+	state_category = city
 
 	history={
 		owner = TUR
-		add_extra_state_shared_building_slots = 10
+		add_extra_state_shared_building_slots = 0
 		
 		victory_points = {
 			4112 15
@@ -20,16 +22,69 @@ state={
 			928 5
 		}
 		buildings = {
-			renewable_park = 1
 			services_building = 1
-			dockyard = 1
+
 			arms_factory = 1
 			infrastructure = 3
-			industrial_complex = 2
+			industrial_complex = 1
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4112 = {
 				naval_base = 5
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = TUR
 	}

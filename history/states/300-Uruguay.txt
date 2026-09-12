@@ -2,30 +2,80 @@
 state = {
 	id = 300
 	name = "STATE_300"
-	manpower = 1844403 # was 1734000
+	manpower = 2907542 # was 1734000
 	
-	state_category = large_city
+	state_category = large_town
 	
-	resources = {
-		steel = 2
-	}
 
 	history = {
 
 		owner = URG
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = URG
 
 		buildings = {
-			infrastructure = 3 #was: 5
+			infrastructure = 3
 			arms_factory = 0
 			industrial_complex = 1
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10362 = {
 				naval_base = 6
 				bunker = 1
 				coastal_bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

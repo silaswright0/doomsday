@@ -2,30 +2,79 @@
 state={
 	id=19
 	name="STATE_19"
-	resources={
-		steel=14 #was 25
-		aluminium=11
-	}
 
 	history={
 		owner = FRA
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			9737 20 
 		}
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			industrial_complex = 0
 			infrastructure = 4
-			arms_factory = 0
+			arms_factory = 2
 			air_base = 3
+			
+
+
+
+
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9737 = {
 				naval_base = 3
 				coastal_bunker = 1
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = OCC
 		add_core_of = FRA
@@ -35,9 +84,9 @@ state={
 	provinces={
 		6621 6762 6777 9737 11565 
 	}
-	manpower = 1801325
+	manpower = 3395329
 	buildings_max_level_factor=1.000
-	state_category=city
+	state_category = large_town
 
 	local_supplies=0.0 
 }

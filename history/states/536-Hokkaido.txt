@@ -2,19 +2,15 @@
 state = {
 	id = 536
 	name = "STATE_536"
-	manpower = 5332645 # was 2812000
+	manpower = 5090231 # was 2812000
 
-	resources = {
-		steel = 18 #Took half of Tohoku's steel
-		coal = 10 #initial distribution
-	}
 	
-	state_category = rural
+	state_category = city
 
 	history = {
 
 		owner = JAP
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = JAP
 		add_core_of = EZO
 		add_core_of = ANU
@@ -23,6 +19,24 @@ state = {
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 5
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

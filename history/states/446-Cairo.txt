@@ -1,29 +1,118 @@
 state = {
 	id = 446
 	name = "STATE_446" # Suez
-	manpower = 1035362
-	state_category = wasteland
+	manpower = 1794371
+	state_category = town
 
 	history = {
 
 		owner = EGY
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = EGY
 
 		buildings = {
-			renewable_park = 1
 			services_building = 1
-			arms_factory = 0
+			arms_factory = 1
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 4
 			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			12049 = {
 				naval_base = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4073 = {
 				naval_base = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

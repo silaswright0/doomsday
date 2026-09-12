@@ -2,17 +2,14 @@
 state={
 	id=23
 	name="STATE_23"
-	manpower = 2532185
+	manpower = 1832105
 	
 	state_category = town
 	
-	resources={
-		steel=12 #was:30 was: 48
-	}
 
 	history={
 		owner = FRA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			6657 5
 		}
@@ -20,9 +17,64 @@ state={
 			arms_factory = 0
 			infrastructure = 4
 			industrial_complex = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6657 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = FRA
 	}

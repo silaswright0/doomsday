@@ -1,16 +1,29 @@
 state={
 	id=892
 	name="STATE_892"
-	manpower = 11013953
-	state_category = pastoral
+	manpower = 6135606
+	state_category = city
+
+
 
 	history={
 		owner = ANG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			10966 1 

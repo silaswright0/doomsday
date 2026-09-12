@@ -2,27 +2,41 @@
 state={
 	id=202
 	name="STATE_202"
-	manpower = 2369031
-	resources={
-		oil=8 # was: 14
-		aluminium=7 # was: 12
-	}
+	manpower = 4411349
 	
-	state_category = city
+	state_category = large_town
+
+	resources={
+
+		steel=1
+		coal=1
+		graphite=1
+	}
+
 
 	history={
 		owner = UKR
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 2
 		victory_points = {
 			525 25
 		}
 		buildings = {
 			services_building = 1
-			infrastructure = 2 #was: 7
-			arms_factory = 1
-			industrial_complex = 0
+			infrastructure = 2
+			arms_factory = 2
+			industrial_complex = 1
 			fuel_silo = 1
 			air_base = 8
+			renewable_park = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		}

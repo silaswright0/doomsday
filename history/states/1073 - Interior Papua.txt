@@ -2,8 +2,18 @@ state = {
 	id = 1073
 	name = "STATE_1073"
 
-	manpower = 3513513 #PreTAOG 38000 
+	manpower = 6342826 #PreTAOG 38000 
 	state_category = enclave
+
+	resources={
+
+		oil=1
+		cobalt=1
+		copper=1
+	}
+
+
+
 
 	impassable = yes 
 	force_link_ownership_to = 523 # Papua 
@@ -12,12 +22,30 @@ state = {
 
 		add_core_of = PNG
 		owner = PNG
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 3
 
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

@@ -1,18 +1,14 @@
 state = {
 	id = 34
 	name = "STATE_34"
-	manpower = 4492316 # was 3381300, 10% was split off to the Ardennes (980)
-	resources={
-		steel=22 # was: 14
-		coal = 5 # More added through focus BEL_revive_coal_mining
-	}
+	manpower = 5797549 # was 3381300, 10% was split off to the Ardennes (980)
 
-	state_category = large_city
+	state_category = city
 
 	history = {
 
 		owner = BEL
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 2
 		add_core_of = BEL
 
 		victory_points = {
@@ -28,13 +24,22 @@ state = {
 		}
 
 		buildings = {
-			renewable_park = 1
-			finance_center = 1
-			services_building = 1
 			infrastructure = 5
-			arms_factory = 0
+			arms_factory = 2
 			industrial_complex = 2
 			air_base = 1
+			renewable_park = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		

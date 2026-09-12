@@ -2,18 +2,15 @@
 state={
 	id=290
 	name="STATE_290"
-	manpower = 3853364
+	manpower = 7861513
 	
 	
-	state_category = rural
+	state_category = city
 	
-	resources={
-		steel=40 #was:23 was: 20 . Changed to 23 (from 15) due to Portugal Setup
-	}
 
 	history={
 		owner = MOR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = MOR
 		add_core_of = RIF
 		
@@ -23,9 +20,20 @@ state={
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
+			industrial_complex = 1
+			infrastructure = 1
 			air_base = 3
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

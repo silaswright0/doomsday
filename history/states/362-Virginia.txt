@@ -5,15 +5,15 @@ state={
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 12
+		add_extra_state_shared_building_slots = 5
 		buildings = {
 			renewable_park = 1
-			finance_center = 1
+
 			services_building = 1
-			arms_factory = 1
-			infrastructure = 4 #was: 6
-			industrial_complex = 3
-			dockyard = 1
+			arms_factory = 2
+			infrastructure = 4
+			industrial_complex = 2
+			dockyard = 3
 			air_base = 6
 			fuel_silo = 1
 			788 = {
@@ -27,6 +27,24 @@ state={
 				}
 			}
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = USA
 		victory_points = {
@@ -44,11 +62,8 @@ state={
 	}
 
 	local_supplies=11.0
-	manpower = 6122008
+	manpower = 8986888
 
-	resources = {
-		coal = 11 #initial distribution = with infra 28.8 / 1280 total
-	}
 	buildings_max_level_factor=1.000
-	state_category=large_city
+	state_category = city
 }

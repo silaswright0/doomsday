@@ -2,18 +2,39 @@
 state={
 	id=441
 	name="STATE_441"
-	manpower = 13226818
+	manpower = 13348028
 	
-	state_category = rural
+	state_category = large_city
+
+
 
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 3
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_claim_by = RAJ
 		add_claim_by = PAK

@@ -2,25 +2,39 @@
 state={
 	id=619
 	name="STATE_619" # Yarkand
-	manpower = 4238691
+	manpower = 1147200
 	
-	state_category = pastoral
+	state_category = town
 	
-	resources={
-		aluminium=2 # was: 2
-		chromium=2 # was: 3
-	}
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SIK
 		add_core_of = CHI
 		add_core_of = PRC
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
-			industrial_complex = 1
+			infrastructure = 5
+			industrial_complex = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			2015 2 # Kashgar

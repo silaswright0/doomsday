@@ -1,24 +1,30 @@
 state = {
 	id = 529
 	name = "STATE_529" # San'yo, formerly Chugoku
-	manpower = 7844937 # was 5341000
-	state_category = large_city
+	manpower = 6986591 # was 5341000
+	state_category = city
+
+	resources={
+
+		steel=3
+	}
+
 
 	history = { 
 
 		owner = JAP
-		add_extra_state_shared_building_slots = 11
+		add_extra_state_shared_building_slots = 4
 		add_core_of = JAP
 
 		buildings = {
 			renewable_park = 1
-			finance_center = 1
+
 			services_building = 1
 
-			infrastructure = 5 #was: 7
+			infrastructure = 5
 			air_base = 3
-			dockyard = 1
-			arms_factory = 0
+			dockyard = 2
+			arms_factory = 1
 			industrial_complex = 3
 
 			1092 = {
@@ -34,8 +40,62 @@ state = {
 			}
 
 			# Taishakugawa Dam
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9968 = { dam = 1 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

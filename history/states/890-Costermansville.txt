@@ -1,17 +1,14 @@
 state = {
 	id = 890
 	name = "STATE_890"
-	manpower = 6382677
-	state_category = pastoral
+	manpower = 7522899
+	state_category = city
 	
-	resources = {
-		rubber = 3.000
-	}
 	
 	history = {
 
 		owner = COG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = COG
 
 		IF = {
@@ -32,6 +29,24 @@ state = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

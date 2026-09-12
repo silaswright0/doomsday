@@ -1,18 +1,15 @@
 state = {
 	id = 977
 	name = "STATE_977" # Antwerpen
-	manpower = 2657154
+	manpower = 3006267
 	
-	resources={
-		coal = 2 
-	}
 	
-	state_category = metropolis
+	state_category = large_town
 
 	history = {
 
 		owner = BEL
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BEL
 
 		victory_points = { 
@@ -24,16 +21,69 @@ state = {
 		}
 
 		buildings = {
-			renewable_park = 1
-			finance_center = 1
 			services_building = 1
 			infrastructure = 5
 			arms_factory = 0
 			industrial_complex = 1
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6598 = {
 				naval_base = 8
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	
 	}

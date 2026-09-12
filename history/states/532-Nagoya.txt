@@ -1,26 +1,83 @@
 state = {
 	id = 532
 	name = "STATE_532" # Tokai
-	manpower = 12701326 # was 6174000
-	state_category = large_city
+	manpower = 9980844 # was 6174000
+	state_category = city
+
+	resources={
+
+		steel=3
+	}
+
 
 	history = {
 
 		owner = JAP
-		add_extra_state_shared_building_slots = 13
+		add_extra_state_shared_building_slots = 9
 		add_core_of = JAP
 
 		buildings = {
 			renewable_park = 1
-			finance_center = 1
+
 			services_building = 2
-			infrastructure = 5 #was: 7
-			arms_factory = 0
-			industrial_complex = 5
+			infrastructure = 5
+			arms_factory = 3
+			industrial_complex = 6
 
 			# Ōi Dam
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			4069 = { dam = 1 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			dockyard = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		

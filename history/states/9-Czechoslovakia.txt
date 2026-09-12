@@ -1,27 +1,27 @@
 state={
 	id=9
 	name="STATE_9"
-	manpower = 4536730
+	manpower = 2722881
 	resources={
-		steel = 5 # was: 8
-		coal = 6 # initial distribution / 60 total
+
+		steel=1
+		coal=1
 	}
 	
-	state_category = large_city
+	state_category = large_town
 	
 	history={
 		owner = CZE
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 2
 		victory_points = { 11542 30 }
 		victory_points = { 6418 5 }
 		victory_points = { 9569 5 }
 		#victory_points = { 9541 3 }
 		buildings = {
-			renewable_park = 1
 			services_building = 1
 			infrastructure = 4
-			arms_factory = 0
-			industrial_complex = 2
+			arms_factory = 3
+			industrial_complex = 1
 			anti_air_building = 5
 			air_base = 5
 			 11542 = {
@@ -32,6 +32,24 @@ state={
 			 		}
 			 	}
 			 }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = CZE
 

@@ -2,17 +2,42 @@
 state={
 	id=205
 	name="STATE_205" # Kaluga
-	manpower = 1509808
+	manpower = 872999
 	
 	state_category = town
 
+	resources={
+
+		oil=1
+		coal=1
+	}
+
+
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3 #was: 5
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		victory_points = {

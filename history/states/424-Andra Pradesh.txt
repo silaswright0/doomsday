@@ -2,22 +2,31 @@
 state={
 	id=424
 	name="STATE_424" # Madras
-	manpower = 80518707
+	manpower = 52018049
 
-	resources = {
-		coal = 3 #initial distribution
+	resources={
+
+		oil=1
+		aluminium=12
+		steel=3
+		rare_earths=1
+		graphite=2
 	}
-	state_category = rural
+	state_category = megalopolis
 	
 
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		buildings = {
-			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 1
+			arms_factory = 2
+			infrastructure = 4
+			industrial_complex = 3
+			finance_center = 1
+			services_building = 1
+			dockyard = 1
+		
 		}
 
 	}

@@ -3,14 +3,20 @@ state={
 	name="STATE_855"
 	history = {
 		owner = SAU
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SAU
 	}
 	provinces={
 		1033 2027 2095 5027 7970 8092 12101 12455 
 	}
-	manpower = 6243672
-	state_category = pastoral
+	manpower = 1106141
+	state_category = town
+
+	resources={
+
+		oil=12
+	}
+
 	buildings_max_level_factor=1.000
 	local_supplies=0.000
 }

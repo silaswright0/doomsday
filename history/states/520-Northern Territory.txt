@@ -2,24 +2,74 @@
 state={
 	id=520
 	name="STATE_520"
-	resources={
-		steel = 0 #removed 22 in TAOG, historically not a producer of any scale.
-		tungsten = 8 #starting amount divided better in TAOG
-	}
 
 	history={
 		owner = AST
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 4
+			infrastructure = 5
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7669 = {
 				naval_base = 1
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			7669 5 
@@ -31,9 +81,15 @@ state={
 	provinces={
 		1217 1410 1422 1431 1454 1478 2139 4415 4441 4462 4487 7457 7481 7669 10276 10288 10316 10518 12104 12246 12290 12311 12326 12339 12499 
 	}
-	manpower = 19972 #PreTAOG 13000
+	manpower = 264966 #PreTAOG 13000
 	buildings_max_level_factor=1.000
-	state_category=pastoral
+	state_category = rural
+
+	resources={
+
+		rare_earths=1
+	}
+
 
 	local_supplies=0.0 
 }

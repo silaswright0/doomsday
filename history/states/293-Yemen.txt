@@ -2,24 +2,75 @@
 state={
 	id=293
 	name="STATE_293"
-	manpower = 17500000
+	manpower = 34788608
 	
-	state_category = rural
+	state_category = metropolis
 	
-	resources={
-		oil=1 # was: 1
-	}
 	history={
 		owner = HOU
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = HOU
 		buildings = {
-			infrastructure = 1
-			arms_factory = 0
-			industrial_complex = 0
+			infrastructure = 2
+			arms_factory = 2
+			industrial_complex = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10840 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			10840 3 

@@ -5,18 +5,71 @@ state={
 
 	history={
 		owner = AST
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 1
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 4
+			infrastructure = 5
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			dockyard = 1
+
 			12910 = {
 				naval_base = 2
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			12910 15 
@@ -28,9 +81,16 @@ state={
 	provinces={
 		1773 2219 5183 5197 5211 5225 7567 8165 8186 8220 10925 10927 12910 12918 12924 13169 13170 
 	}
-	manpower = 2196867 #PreTAOG 200800
+	manpower = 291980 #PreTAOG 200800
 	buildings_max_level_factor=1.000
-	state_category=city
+	state_category = rural
+
+	resources={
+
+		lithium=3
+		copper=3
+	}
+
 
 	local_supplies=0.0 
 }

@@ -2,20 +2,40 @@
 state={
 	id=403
 	name="STATE_403" # Tyumen
-	manpower = 1264769
+	manpower = 3393341
 	
-	state_category = rural
+	state_category = large_town
+
+	resources={
+
+		oil=187
+	}
+
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			4824 1
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
+			industrial_complex = 1
+			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 	}

@@ -2,19 +2,24 @@
 state = {
 	id = 496
 	name = "STATE_496" # Minas Gerais
-	manpower = 22614460
+	manpower = 22163200
 	
-	state_category = rural # was town
+	state_category = large_city # was town
 	
-	resources = {
-		steel = 3 # was: 4
-		aluminium = 4  
+	resources={
+
+		aluminium=1
+		steel=2
+		chromium=1
+		lithium=2
+		copper=1
+		graphite=3
 	}
 
 	history = {
 
 		owner = BRA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BRA
 
 		victory_points = {
@@ -22,9 +27,29 @@ state = {
 		}
 
 		buildings = {
-			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 1
+			arms_factory = 1
+			infrastructure = 3
+			industrial_complex = 2
+			renewable_park = 1
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

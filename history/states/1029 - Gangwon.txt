@@ -2,24 +2,39 @@ state = {
 
 	id = 1029
 	name = "STATE_1029"
-	manpower = 4108685
+	manpower = 1537876
 	
-	state_category = rural
+	state_category = town
 
-	resources = {
-		tungsten = 10 #This number is made up and needs further research into. These resources should also be moved to correspond to the current Sangdong province in S Korea when split up
-	}
 
 	history = {
 
 		owner = KOR
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = KOR
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 2
+			industrial_complex = 0
 			infrastructure = 5
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

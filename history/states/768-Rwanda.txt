@@ -2,17 +2,18 @@ state = {
 	id = 768
 	name = "STATE_768" # Rwanda
 	
-	state_category = pastoral
-	manpower = 14000000
+	state_category = large_city
+	manpower = 14889693
 
-	resources = {
-		tungsten = 3
+	resources={
+
+		tungsten=2
 	}
 
 	history = {
 
 		owner = RWA
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 
 		IF = {
 			limit = {
@@ -34,6 +35,24 @@ state = {
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 3
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

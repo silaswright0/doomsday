@@ -5,7 +5,7 @@ state={
 
 	history={
 		owner = TUR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		
 		victory_points = {
 			9860 1
@@ -21,6 +21,23 @@ state={
 			industrial_complex = 0
 			infrastructure = 3
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		if = {
 			limit = {
@@ -40,9 +57,15 @@ state={
 	provinces={
 		876 9858 9860 9868 9954 10399 11797  
 	}
-	manpower = 2730122
+	manpower = 1249179
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = town
+
+	resources={
+
+		chromium=24
+	}
+
 
 	local_supplies=9.0 
 }

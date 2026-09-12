@@ -2,21 +2,36 @@
 state={
 	id=84
 	name="STATE_84"
-	manpower = 2150016
-	resources={
-		steel=3 # was: 4
-		coal = 3 # initial distribution
-	}
+	manpower = 2948964
 	
-	state_category = town
+	state_category = large_town
+
+	resources={
+
+		oil=1
+		aluminium=1
+	}
+
 
 	history={
 		owner = ROM
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			690 1 

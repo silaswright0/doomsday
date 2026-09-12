@@ -4,7 +4,7 @@ state={
 
 	history={
 		owner = SPR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = NAV
 		victory_points = {
 			3933 1
@@ -12,7 +12,25 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 4 #was: 6
+			infrastructure = 4
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SPR
 
@@ -21,9 +39,9 @@ state={
 	provinces={
 		932 3737 3931 3933 9857 
 	}
-	manpower = 693836
+	manpower = 798604
 	buildings_max_level_factor=1.000
-	state_category=pastoral
+	state_category = rural
 
 	local_supplies=4.0 
 }

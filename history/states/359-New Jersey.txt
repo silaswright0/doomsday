@@ -2,25 +2,45 @@
 state={
 	id=359
 	name="STATE_359"
-	manpower = 11000527
+	manpower = 9690295
 	
-	state_category = large_city
+	state_category = city
+
+
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 14
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			6882 5 
 		}
 		buildings = {
 			renewable_park = 1
-			finance_center = 1
-			services_building = 2
-			arms_factory = 1
-			infrastructure = 4 #was: 7
-			industrial_complex = 5
+
+			services_building = 1
+			arms_factory = 0
+			infrastructure = 4
+			industrial_complex = 2
 			air_base = 4
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = USA

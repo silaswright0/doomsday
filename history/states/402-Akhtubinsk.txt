@@ -2,12 +2,14 @@ state={
 	id=402
 	name="STATE_402"
 	resources={
-		chromium=15.000
+
+		oil=5
+		chromium=5
 	}
 
 	history={
 		owner = KAZ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			7341 1
 		}
@@ -15,8 +17,25 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 
@@ -25,9 +44,9 @@ state={
 	provinces={
 		1220 1247 1314 1371 1429 4227 4254 4294 4300 4303 4374 4376 4394 4581 4638 7243 7313 7337 7341 7354 7370 7410 7486 10131 10164 10253 10264 12108 12179 12227 12235 12254 12294 
 	}
-	manpower = 846251
+	manpower = 1407099
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = town
 
 	local_supplies=0.0 
 }

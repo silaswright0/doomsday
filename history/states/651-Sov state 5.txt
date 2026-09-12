@@ -2,20 +2,30 @@
 state = {
 	id=651
 	name = "STATE_651" # Ufa
-	manpower = 3437225
+	manpower = 3525538
 
-	state_category = city
+	state_category = large_town
+
+
 
 	history = {
 		owner = SOV
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 0
 		buildings = {
-			renewable_park = 1
-			services_building = 1
 			arms_factory = 1
-			infrastructure = 3 #was: 5
+			infrastructure = 2
 			industrial_complex = 1
-
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		victory_points = {

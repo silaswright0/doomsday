@@ -1,31 +1,124 @@
 state = {
 	id = 386
 	name = "STATE_386" # Washington State
-	manpower = 4255570
+	manpower = 8111367
 	
-	state_category = large_town
+	state_category = city
+
+	resources={
+
+		aluminium=2
+	}
+
 
 	history = {
 
 		owner = USA
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		add_core_of = USA
 
 		buildings = {
 			renewable_park = 1
 			services_building = 1
-			infrastructure = 4 #was: 6
-			arms_factory = 0
+			infrastructure = 4
+			arms_factory = 1
 			industrial_complex = 1
 			air_base = 5
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			7315 = {
 				naval_base = 3
 			}
 
-			# Grand Coulee Dam
-			#10327 = { dam = 1 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			# Grand Coulee Dam
+			#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			10327 = { dam = 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		

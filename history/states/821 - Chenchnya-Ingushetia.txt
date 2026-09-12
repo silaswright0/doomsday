@@ -2,21 +2,36 @@
 state = {
 	id = 821
 	name = "STATE_821"
-	manpower = 985863
+	manpower = 459795
 	
 	state_category = rural
 	
-	resources={
-		oil = 9 # was split from Dagestan which had 19 oil, and retained 10
-	}
 
 	history = {
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			3672 5 

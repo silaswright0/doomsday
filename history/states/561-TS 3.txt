@@ -2,21 +2,25 @@
 state={
 	id = 561
 	name = "STATE_561" # Amur
-	manpower = 611842
+	manpower = 654181
 	
 	state_category = rural
+
+
 
 	history = {
 
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 1
 		add_core_of = SOV
 		add_core_of = FER
 
 		buildings = {
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
 			arms_factory = 0
+			dockyard = 1
+		
 		}
 
 		victory_points = {

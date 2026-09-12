@@ -1,20 +1,20 @@
 state = {
 	id = 1062
 	name = "STATE_1062"
-	manpower = 3945610
+	manpower = 2532116
 	
-	state_category = town
+	state_category = large_town
 	
-	resources = {
-		tungsten = 30 
-		aluminium = 4 
-		rubber = 77 
+	resources={
+
+		oil=1
+		aluminium=1
 	}
 
 	history = {
 
 		owner = MAL
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = MAL
 
 		victory_points = {
@@ -26,15 +26,67 @@ state = {
 		}
 
 		buildings = {
-			industrial_complex = 1
+			industrial_complex = 0
 
-			infrastructure = 3
+			infrastructure = 4
 			arms_factory = 0
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			7329 = {
 				naval_base = 1
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}

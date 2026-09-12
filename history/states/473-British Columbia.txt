@@ -2,25 +2,84 @@
 state={
 	id=473
 	name="STATE_473"
-	manpower = 2495560
+	manpower = 4020118
 	resources={
-		oil=1 # was: 2
-		coal=4 # initial distribtuion = with infra 6.4 / 36 total
+
+		oil=8
+		aluminium=7
+		coal=1
+		copper=3
 	}
 	
-	state_category = town
+	state_category = large_town
 
 	history={
 		owner = CAN
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		buildings = {
-			infrastructure = 4 #was: 5
+			infrastructure = 5
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 2
 			air_base = 3
+			
+
+
+
+
+			renewable_park = 1
+
+
+
+
+
+
+
+
+
+
+
+
+			dockyard = 1
+
 			1408 = {
 				naval_base = 5
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = CAN
 		victory_points = {

@@ -4,14 +4,16 @@ state={
 	provinces={
 		1776 4745 4852 7697 7743 10541 10567 10612 10638 12537 12690 13150 
 	}
-	manpower = 5925339
+	manpower = 8493492
 	buildings_max_level_factor=1.000
-	state_category = pastoral
+	state_category = city
+
+
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CHI
 		add_core_of = MAN
 		add_core_of = PRC
@@ -35,7 +37,24 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 3
+			infrastructure = 5
+			services_building = 1
+			renewable_park = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

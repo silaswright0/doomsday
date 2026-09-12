@@ -2,24 +2,46 @@
 state={
 	id=436
 	name="STATE_436" # Central provinces, was Jabalpur
-	manpower = 91732174
+	manpower = 114832298
 	
-	state_category = rural
+	state_category = megalopolis
 	
 	resources={
-		chromium=4 # was: 6
-		coal = 7 #initial distribution
+
+		oil=2
+		steel=6
+		coal=17
 	}
 
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 1
-			infrastructure = 2
+			industrial_complex = 3
+			infrastructure = 4
+			renewable_park = 1
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			4950 5

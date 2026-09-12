@@ -2,23 +2,38 @@
 state={
 	id=660
 	name="STATE_660"
-	manpower = 6000000
+	manpower = 5698984
 	
-	state_category = pastoral
-	resources={
-		rubber=3 # was: 4
-	}
+	state_category = city
 	history={
 		owner = CAR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CAR
 		victory_points = {
 			12830 1
 		}
 		buildings = {
-			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1
+			infrastructure = 3
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

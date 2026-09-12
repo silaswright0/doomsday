@@ -2,16 +2,13 @@ state=
 {
 	id=550
 	name="STATE_550"
-	manpower = 3800000
-	resources = {
-		steel = 2
-	}
+	manpower = 3682669
 	
-	state_category = rural
+	state_category = large_town
 	
 	history={
 		owner = ERI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ERI
 		victory_points = { #Massaua
 			12766 1
@@ -24,12 +21,66 @@ state=
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 1
+			industrial_complex = 1
+			infrastructure = 2
 			air_base = 3
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			12766 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 	provinces={

@@ -1,28 +1,82 @@
 state = {
 	id = 492
 	name = "STATE_492"
-	manpower = 8673484
+	manpower = 3949214
 
-	resources = {
-		tungsten = 6
+	resources={
+
+		copper=30
 	}
 	
-	state_category = rural
+	state_category = large_town
 
 	history = {
 
 		owner = PRU
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = PRU
 
 		buildings = {
 			arms_factory = 0
 			infrastructure = 2
-			industrial_complex = 0
+			industrial_complex = 1
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			13288 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

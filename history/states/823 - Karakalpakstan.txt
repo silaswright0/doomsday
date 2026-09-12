@@ -10,13 +10,30 @@ state = {
 		}
 		
 		owner = UZB
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 2
-
+			industrial_complex = 1
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		add_core_of = SOV
@@ -29,9 +46,16 @@ state = {
 		1479 1576 1614 1721 4488 4618 7541 10348 12233 12471 12474 13207 
 	}
 	
-	manpower = 1272786 #Was 516860 but was divided by 2 due to Khiva (831) becoming a new state 
+	manpower = 8704334 #Was 516860 but was divided by 2 due to Khiva (831) becoming a new state 
 	buildings_max_level_factor = 1.000
-	state_category = rural
+	state_category = city
+
+	resources={
+
+		oil=1
+		copper=1
+	}
+
 
 	local_supplies = 0.0 
 }

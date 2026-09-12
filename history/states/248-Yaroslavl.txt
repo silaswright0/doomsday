@@ -2,23 +2,41 @@
 state={
 	id=248
 	name="STATE_248"
-	manpower = 2241863
+	manpower = 992115
 	
-	state_category = large_town
+	state_category = town
+
+
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 8
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			121 5 
 		}
 		buildings = {
-			renewable_park = 1
-			services_building = 1
-			arms_factory = 1
-			infrastructure = 3 #was: 5
-			industrial_complex = 1
+			arms_factory = 0
+			infrastructure = 2
+			industrial_complex = 0
 			air_base = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = SOV

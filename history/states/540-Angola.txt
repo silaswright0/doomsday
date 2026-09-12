@@ -1,13 +1,19 @@
 state = {
 	id = 540
 	name = "STATE_540"
-	manpower = 18356589
-	state_category = rural
+	manpower = 24587875
+	state_category = large_city
+
+	resources={
+
+		oil=14
+	}
+
 
 	history = {
 
 		owner = ANG
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ANG
 
 		buildings = {
@@ -15,9 +21,63 @@ state = {
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			8248 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

@@ -2,25 +2,41 @@
 state = {
 	id = 497
 	name = "STATE_497"
-	manpower = 2824843 # was 2950100, then 1150100
+	manpower = 7387733 # was 2950100, then 1150100
 	
-	state_category = pastoral # Was rural
+	state_category = city # Was rural
 	
-	resources = {
-		rubber = 13 # was: 30, then 23
-	}
 
 	history = {
 
 		owner = BRA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BRA
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 2
+			infrastructure = 3
 			#industrial_complex = 0 Should probably not have this factory
 			air_base = 1
+			industrial_complex = 0
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

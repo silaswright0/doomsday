@@ -2,13 +2,15 @@ state = {
 
 	id = 760
 	name = "STATE_760"
-	manpower = 2073869
-	state_category = rural
+	manpower = 2974223
+	state_category = large_town
+
+
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SIK
 		add_core_of = CHI
 		add_core_of = PRC
@@ -16,8 +18,27 @@ state = {
 
 		buildings = {
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 5
 			arms_factory = 0
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

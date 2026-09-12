@@ -1,31 +1,91 @@
 state = {
 	id = 613
 	name = "STATE_613" # Shanghai
-	manpower = 18310460
+	manpower = 24249222
 	
 	state_category = large_city
+
+	resources={
+
+		steel=8
+	}
+
 	
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 20
+		add_extra_state_shared_building_slots = 12
 		add_core_of = CHI
 		add_core_of = PRC
 
 		buildings = {
-			renewable_park = 1
+			renewable_park = 2
 			finance_center = 1
 			services_building = 2
-			industrial_complex = 7
-			infrastructure = 3 #was: 5
+			industrial_complex = 8
+			infrastructure = 5
 			air_base = 6
-			dockyard = 4
-			arms_factory = 1
+			dockyard = 5
+			arms_factory = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7014 = {
 				naval_base = 6
 				coastal_bunker = 1
 				bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

@@ -2,26 +2,77 @@ state=
 {
 	id=319
 	name="STATE_319"
-	manpower = 11000000
+	manpower = 11609500
 	
-	state_category = town
+	state_category = city
 	
-	resources={
-		chromium=1 # was: 1
-	}
 	history=
 	{
 		owner = DOM
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			services_building = 1
-			infrastructure = 2
+			infrastructure = 3
 			arms_factory = 0
 			industrial_complex = 1
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7660 = {
 				naval_base = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = DOM
 		victory_points = {

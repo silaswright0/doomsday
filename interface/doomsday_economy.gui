@@ -3,7 +3,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "doomsday_economy_window"
 		position = { x = 0 y = 0 }
-		size = { width = 100% height = 200 }
+		size = { width = 100% height = 230 }
 		clipping = no
 
 		instantTextboxType = {
@@ -21,14 +21,25 @@ guiTypes = {
 			position = { x = 12 y = 28 }
 			font = "hoi_16mbs"
 			text = "DD_ECON_STATS"
-			maxWidth = 520
+			maxWidth = 700
 			maxHeight = 20
 			format = left
 		}
 
 		instantTextboxType = {
-			name = "dd_income_total"
+			name = "dd_burden"
 			position = { x = 12 y = 50 }
+			font = "hoi_18mbs"
+			text = "DD_ECON_BURDEN"
+			maxWidth = 720
+			maxHeight = 22
+			format = left
+			pdx_tooltip = "DD_ECON_STATS_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_income_total"
+			position = { x = 12 y = 74 }
 			font = "hoi_18mbs"
 			text = "DD_ECON_INCOME_TOTAL"
 			maxWidth = 500
@@ -39,7 +50,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "dd_expense_total"
-			position = { x = 12 y = 72 }
+			position = { x = 12 y = 96 }
 			font = "hoi_18mbs"
 			text = "DD_ECON_EXPENSE_TOTAL"
 			maxWidth = 500
@@ -54,7 +65,7 @@ guiTypes = {
 			buttonText = "DD_OPEN_ARMS_MARKET"
 			font = "hoi_18mbs"
 			buttonFont = "hoi_18mbs"
-			position = { x = 12 y = 98 }
+			position = { x = 12 y = 122 }
 			clicksound = click_default
 			pdx_tooltip = "DD_OPEN_ARMS_MARKET_TT"
 		}

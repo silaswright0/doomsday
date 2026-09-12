@@ -2,13 +2,13 @@
 state={
 	id=228
 	name="STATE_228" # Voroshilovgrad
-	manpower = 2057691
+	manpower = 2014360
 	
-	state_category = town
+	state_category = large_town
 
 	history={
 		owner = UKR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		controller = SOV
 		victory_points = {
 			9461 1
@@ -16,7 +16,19 @@ state={
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2 #was: 5
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = UKR

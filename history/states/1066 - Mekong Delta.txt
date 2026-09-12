@@ -1,18 +1,22 @@
 state = {
 	id = 1066
 	name = "STATE_1066"
-	resources = {
-		rubber = 33 # was: 94.000
+	resources={
+
+		oil=2
+		rubber=19
+		steel=1
+		coal=1
 	}
 
-	manpower = 19487751
+	manpower = 27813738
 	buildings_max_level_factor=1.000
-	state_category = town
+	state_category = metropolis
 
 	history = {
 		
 		owner = VIN
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = VIN
 
 		victory_points = {
@@ -20,16 +24,73 @@ state = {
 		}
 
 		buildings = {
-			arms_factory = 0
+			arms_factory = 1
 
-			infrastructure = 3
-			industrial_complex = 1
+			infrastructure = 4
+			industrial_complex = 2
 			air_base = 2
+
+			
+
+
+
+
+
+
+			renewable_park = 1
+			finance_center = 1
+			services_building = 1
+
+
+
+
+
+
+
+
+
+
 
 			4401 = {
 				naval_base = 4
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

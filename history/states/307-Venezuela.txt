@@ -3,28 +3,121 @@ state={
 	id=307
 	name="STATE_307" # Miranda
 	
-	state_category = city
-	
-	manpower = 11840350
+	state_category = large_city
+
 	resources={
-		oil=41 # was: 58
+
+		aluminium=2
 	}
+
+	
+	manpower = 22945966
 
 	history={
 		owner = VEN
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			services_building = 1
 			infrastructure = 2
-			arms_factory = 0
+			arms_factory = 1
 			industrial_complex = 1
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+			renewable_park = 1
+
+
+
+
+
+
+
+
+
 			8113 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10912 = {
 				naval_base = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = VEN
 		victory_points = {

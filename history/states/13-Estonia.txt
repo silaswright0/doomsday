@@ -2,22 +2,37 @@
 state={
 	id=13
 	name="STATE_13"
-	resources={
-		steel=2.000
-	}
 
 	history={
 		owner = EST
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 1
 		victory_points = {
 			3174 1 #Voru
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
 			arms_factory = 0
 			industrial_complex = 0
 			air_base = 2
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = EST
 
@@ -28,7 +43,7 @@ state={
 	}
 
 	local_supplies=6.0 
-	manpower = 496803
+	manpower = 109965
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = pastoral
 }

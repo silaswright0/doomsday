@@ -4,12 +4,30 @@ state={
 
 	history={
 		owner = CAN
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
-			infrastructure = 4
-			industrial_complex = 1
+			infrastructure = 5
+			industrial_complex = 2
 
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			3010 3 
@@ -21,12 +39,13 @@ state={
 	provinces={
 		515 1262 1347 1763 1804 3010 3706 4765 6726 6754 7348 7718 7766 7787 10684 12166 12534 
 	}
-	manpower = 2701391
+	manpower = 3426657
 
-	resources = {
-		coal = 5 # initial distribution = with infra 9.6 / 36 total
+	resources={
+
+		oil=87
 	}
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = large_town
 	local_supplies=0.000
 }

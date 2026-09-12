@@ -1,17 +1,14 @@
 state= {
 	id=183
 	name="STATE_183"
-	manpower = 900000
+	manpower = 972870
 	
-	state_category = rural
-	resources={
-		chromium=3 # was: 4
-	}
+	state_category = town
 
 	history=
 	{
 		owner = CYP
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CYP
 		
 		victory_points = {
@@ -20,11 +17,65 @@ state= {
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 4
+			infrastructure = 3
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			7193 = {
 				naval_base = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

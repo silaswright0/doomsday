@@ -1,18 +1,33 @@
 state = {
 	id = 827
 	name = "STATE_827"
-	resources = {
-		chromium = 17 # was: 35 in the caucasus, but was split
-	}
 
 	history = {
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = KBK
@@ -24,9 +39,15 @@ state = {
 	provinces = {
 		685 6674 9632 11614
 	}
-	manpower = 522559
+	manpower = 789696
 	buildings_max_level_factor = 1.000
-	state_category = pastoral
+	state_category = rural
+
+	resources={
+
+		tungsten=4
+	}
+
 
 	local_supplies = 0.0 
 }

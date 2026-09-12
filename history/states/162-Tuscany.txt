@@ -2,13 +2,15 @@
 state = {
 	id = 162
 	name = "STATE_162"
-	manpower = 4465817
+	manpower = 4067754
 	
-	state_category = large_city
+	state_category = large_town
+
+
 
 	history = {
 		owner = ITA
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			9907 3 
 		}
@@ -22,19 +24,107 @@ state = {
 			6946 1 
 		}
 		buildings = {
-			renewable_park = 1
-			finance_center = 1
 			services_building = 1
-			infrastructure = 4 #was: 8
-			arms_factory = 0
-			industrial_complex = 2
+			infrastructure = 4
+			arms_factory = 1
+			industrial_complex = 0
 			air_base = 2
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			6973 = {
 				naval_base = 10
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11833 = {
 				naval_base = 4
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = ITA

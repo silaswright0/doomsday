@@ -1,16 +1,12 @@
 state = {
 	id=931
 	name="STATE_931"
-	manpower = 1124679
-	state_category = town
-	resources = {
-		steel = 20 
-		aluminium = 5
-	}
+	manpower = 615337
+	state_category = rural
 
 	history = {
 		owner = ENG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		add_core_of = ENG
 		victory_points = {
 			11332 3 #Carlisle
@@ -18,7 +14,9 @@ state = {
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 4 #was: 6
+			infrastructure = 4
+			dockyard = 2
+		
 		}
 	}
 

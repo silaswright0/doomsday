@@ -9,12 +9,21 @@ state = {
 			12465 1
 		}
 		owner = UZB
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
-
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		add_core_of = SOV
@@ -28,9 +37,15 @@ state = {
 		 10395 10435 12324 12454 12465
 	}
 	
-	manpower = 1272786
+	manpower = 7692446
 	buildings_max_level_factor = 1.000
-	state_category = rural
+	state_category = city
+
+	resources={
+
+		copper=1
+	}
+
 
 	local_supplies = 0.0 
 }

@@ -1,25 +1,40 @@
 state = {
 	id = 74
 	name = "STATE_74"
-	manpower = 828055
+	manpower = 1863844
 	
-	resources = {
-		coal = 12 # initial distribution / 60 total
-	}
 
-	state_category = rural
+	state_category = town
 	
 	history = {
 		
 		owner = CZE
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CZE
 		add_claim_by = SIL
 
 		buildings = {
 			industrial_complex = 0
-			infrastructure = 4
+			infrastructure = 3
 			arms_factory = 0
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

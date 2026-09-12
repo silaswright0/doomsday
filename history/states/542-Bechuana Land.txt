@@ -2,21 +2,36 @@
 state={
 	id=542
 	name="STATE_542"
-	manpower = 2700000
+	manpower = 2603388
 	
-	state_category = wasteland
+	state_category = large_town
 	
-	resources={
-		chromium=90 # was: 168
-	}
 
 	history={
 		owner = BOT
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 2
+			infrastructure = 4
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = BOT
 		victory_points = {

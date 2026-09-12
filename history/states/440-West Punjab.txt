@@ -6,16 +6,32 @@ state={
 	}
 	history={
 		owner = PAK
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		add_core_of = PAK
 		add_core_of = KHL
 		buildings = {
 			rocket_site = 2
-			renewable_park = 1
-			services_building = 1
-			arms_factory = 0
+
+			services_building = 2
+			arms_factory = 4
 			infrastructure = 2
-			industrial_complex = 1
+			industrial_complex = 2
+			finance_center = 1
+			renewable_park = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		victory_points = { 	10772 15 }
@@ -23,8 +39,17 @@ state={
 		victory_points = { 10173 3 }
 
 	}
-	state_category = town
-	manpower = 131438868
+	state_category = megalopolis
+
+	resources={
+
+		oil=1
+		steel=1
+		chromium=1
+		coal=1
+	}
+
+	manpower = 92928828
 	buildings_max_level_factor=1.000
 	state_category=town
 	local_supplies=0.500

@@ -1,20 +1,40 @@
 state = {
 	id = 508
+
+	resources={
+
+		oil=1
+		lithium=9
+	}
 	name = "STATE_508" # Tucuman
-	manpower = 3111985
+	manpower = 2237138
 	
-	state_category = town
+	state_category = large_town
 
 	history = {
 
 		owner = ARG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ARG
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
+			infrastructure = 2
 			industrial_complex = 0
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

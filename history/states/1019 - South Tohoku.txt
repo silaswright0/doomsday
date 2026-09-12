@@ -1,17 +1,13 @@
 state = {
 	id = 1019
 	name = "STATE_1019" # South Tohoku
-	manpower = 4951146 # Unified tohoku is about 6575000 
-	state_category = town # was large_city
-	resources = {
-		steel = 5
-		coal = 1 #initial distribution
-	}
+	manpower = 4990422 # Unified tohoku is about 6575000 
+	state_category = large_town # was large_city
 
 	history = {
 
 		owner = JAP
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = JAP
 
 		buildings = {
@@ -19,7 +15,24 @@ state = {
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 5
-
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 		victory_points = {

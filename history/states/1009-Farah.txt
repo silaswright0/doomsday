@@ -1,29 +1,44 @@
 state={
 	id=1009
 	name="STATE_1009"
-	state_category = rural
+	state_category = town
 
-	resources = {
-		chromium = 7
-	}
 
 	provinces={
 		2017 2062 2078 1948 2101
 	}
 	history={
 		owner = AFG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = AFG
 		victory_points = {
 			2017 1
 		}
 	}
-	manpower = 1868563
+	manpower = 1248897
 	buildings_max_level_factor=1.000
 	local_supplies=0.000
 }

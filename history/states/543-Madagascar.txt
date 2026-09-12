@@ -2,25 +2,86 @@
 state={
 	id=543
 	name="STATE_543"
-	manpower = 31000000
+
+	resources={
+
+		chromium=2
+		cobalt=1
+		graphite=5
+	}
+	manpower = 33522052
 	
-	state_category = rural
+	state_category = metropolis
 	
 	history={
 		add_core_of = MAD
 		owner = MAD
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			5128 1
 		}
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 1
-			infrastructure = 1
+			infrastructure = 2
 			air_base = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			5222 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}

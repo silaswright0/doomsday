@@ -1,13 +1,20 @@
 state = {
 	id = 765
 	name = "STATE_765"
-	manpower = 2800000
-	state_category = pastoral
+	manpower = 3173559
+	state_category = large_town
+
+	resources={
+
+		oil=68
+		aluminium=3
+	}
+
 
 	history = {
 		
 		owner = QAT
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 3
 		add_core_of = QAT
 
 		victory_points = {
@@ -15,13 +22,67 @@ state = {
 		}
 
 		buildings = {
-			services_building = 1
-			arms_factory = 1
-			industrial_complex = 1
-			infrastructure = 4
+			services_building = 2
+			arms_factory = 0
+			industrial_complex = 4
+			infrastructure = 5
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			8051 = {
 				naval_base = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

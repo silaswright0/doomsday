@@ -4,21 +4,73 @@ state={
 
 	history={
 		owner = SPR
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			11707 3
 		}
 		buildings = {
-			renewable_park = 1
-			services_building = 1
-			infrastructure = 4 #was: 6
-			industrial_complex = 1
+			infrastructure = 4
+			industrial_complex = 0
 			arms_factory = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			11707 = {
 				naval_base = 2
 
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SPR
 
@@ -27,14 +79,11 @@ state={
 	provinces={
 		738 3729 3744 6749 9703 9719 11688 11707 13218 
 	}
-	manpower = 2308260
+	manpower = 1186746
 
-	resources = {
-		coal = 6 # initial distribution
-	}
 
 	buildings_max_level_factor=1.000
-	state_category=large_town
+	state_category = town
 
 	local_supplies=0.0 
 }

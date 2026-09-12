@@ -5,12 +5,25 @@ state={
 
 	history={
 		owner = EGY
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
-
+			infrastructure = 3
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			4161 3 
@@ -25,8 +38,16 @@ state={
 	provinces={
 		1112 4161 10002 10099 11922 11979 12073 
 	}
-	manpower = 120716
+	manpower = 3098828
 	buildings_max_level_factor=1.000
-	state_category=wasteland
+	state_category = large_town
+
+	resources={
+
+		oil=1
+	}
+
+
+
 	local_supplies=7.000
 }

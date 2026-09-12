@@ -2,18 +2,36 @@
 state={
 	id=243
 	name="STATE_243"
-	manpower = 776060
+	manpower = 43607
 	
-	state_category = rural
+	state_category = wasteland
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 2
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3 #was: 5
+			infrastructure = 1
 			air_base = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		victory_points = {

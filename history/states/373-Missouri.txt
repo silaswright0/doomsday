@@ -2,26 +2,40 @@
 state={
 	id=373
 	name="STATE_373"
-	manpower = 9879151
+	manpower = 6339072
 	
-	state_category = large_city
+	state_category = city
 	
-	resources={
-		aluminium=12 # was: 18
-		coal = 5 # initial distribution = with infra 8 / 1280 total
-	}
 
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 13
+		add_extra_state_shared_building_slots = 2
 		buildings = {
 			renewable_park = 1
-			finance_center = 1
-			services_building = 2
-			arms_factory = 1
-			infrastructure = 4 #was: 5
-			industrial_complex = 4
+
+			services_building = 1
+			arms_factory = 3
+			infrastructure = 4
+			industrial_complex = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = USA

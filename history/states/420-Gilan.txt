@@ -2,13 +2,21 @@
 state={
 	id=420
 	name="STATE_420"
-	manpower = 9399945
+	manpower = 5347725
 	
-	state_category = rural
+	state_category = city
+
+	resources={
+
+		copper=1
+	}
+
+
+
 
 	history={
 		owner = PER
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			7969 5
 		}
@@ -17,8 +25,26 @@ state={
 		}
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 1
-			infrastructure = 3
+			industrial_complex = 0
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = PER
 		add_core_of = AZR

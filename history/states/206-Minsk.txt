@@ -2,13 +2,13 @@
 state={
 	id=206
 	name="STATE_206"
-	manpower = 1181909
+	manpower = 1718943
 	
-	state_category = city
+	state_category = town
 
 	history={
 		owner = BLR
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 3
 		victory_points = {
 			11370 20
 		}
@@ -16,10 +16,28 @@ state={
 			9289 5
 		}
 		buildings = {
-			arms_factory = 0
-			infrastructure = 3 #was: 5
+			arms_factory = 3
+			infrastructure = 3
 			industrial_complex = 1
 			air_base = 8
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = BLR

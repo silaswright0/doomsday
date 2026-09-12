@@ -16,14 +16,32 @@ state = {
 		}
 		buildings = {
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 1
 			arms_factory = 0
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			13240 2 
 		}
 		owner = ETH
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ETH
 		add_core_of = AFA
 
@@ -33,8 +51,8 @@ state = {
 	provinces = {
 		5041 13236 13240 
 	}
-	manpower = 7066922
+	manpower = 4294649
 	buildings_max_level_factor = 1.000
-	state_category = rural
+	state_category = large_town
 	local_supplies = 0.000
 }

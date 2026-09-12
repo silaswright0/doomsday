@@ -1,23 +1,45 @@
 state = {
 	id = 1037
 	name = "STATE_1037"
-	resources = {
+	resources={
+
+		oil=1
+		aluminium=1
+		coal=1
+		graphite=1
 	}
 
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 33
+		add_extra_state_shared_building_slots = 3
 		add_core_of = CHI
 		add_core_of = PRC
 
 		buildings = {
-			renewable_park = 1
+			renewable_park = 2
 			services_building = 2
-			infrastructure = 3 #was 3
-			arms_factory = 1
-			industrial_complex = 25 #was 2
+			infrastructure = 5
+			arms_factory = 0
+			industrial_complex = 6
 			air_base = 2
+			finance_center = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 
@@ -35,9 +57,9 @@ state = {
 	provinces = {
 		4431 6999 7240 11972 12705 
 	}
-	manpower = 94147656
+	manpower = 31113497
 	buildings_max_level_factor = 1.000
-	state_category = city
+	state_category = metropolis
 
 	local_supplies = 0.0 
 }

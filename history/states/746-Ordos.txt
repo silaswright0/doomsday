@@ -4,13 +4,13 @@ state={
 	provinces={
 		1959 3427 4960 4986 10451 10854 12706 
 	}
-	state_category = pastoral
+	state_category = town
 	
 	
 	history = {
 
 		owner = CHI
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SHX
 		add_core_of = CHI
 		add_core_of = PRC
@@ -25,17 +25,32 @@ state={
 		}
 		
 		buildings = {
-			arms_factory = 0
+			arms_factory = 2
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 5
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}
-	manpower = 1481335
+	manpower = 1071313
 
-	resources = {
-		coal = 8 #initial distribution
-	}
 	buildings_max_level_factor=1.000
 
 	local_supplies=0.0 

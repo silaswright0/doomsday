@@ -2,24 +2,42 @@
 state={
 	id=328
 	name="STATE_328" # Kirin
-	manpower = 22327466
+	manpower = 22804214
 	
-	state_category = rural
+	state_category = large_city
 
-	resources={
-		aluminium=7 # was: 10
-	}
 
 	history={
 		owner = CHI
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		add_core_of = CHI
 		add_core_of = MAN
 		add_core_of = PRC
 		buildings = {
 			arms_factory = 0
-			infrastructure = 3
+			infrastructure = 5
 			#industrial_complex = 3
+			industrial_complex = 2
+			renewable_park = 2
+			finance_center = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			4572 1

@@ -1,12 +1,12 @@
 state = {
 	id = 679
 	name = "STATE_679"
-	manpower = 6381033
+	manpower = 2980342
 
 	history = {
 
 		owner = SAU
-		add_extra_state_shared_building_slots = 6
+		add_extra_state_shared_building_slots = 0
 		add_core_of = SAU
 
 		victory_points = {
@@ -14,9 +14,20 @@ state = {
 		}
 		
 		buildings = {
-			arms_factory = 1
-			industrial_complex = 1
-			infrastructure = 3
+			arms_factory = 0
+			industrial_complex = 2
+			infrastructure = 4
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 
@@ -27,6 +38,13 @@ state = {
 	}
 	
 	buildings_max_level_factor = 1.000
-	state_category = pastoral
+	state_category = large_town
+
+	resources={
+
+		oil=31
+		aluminium=1
+	}
+
 	local_supplies = 0.000
 }

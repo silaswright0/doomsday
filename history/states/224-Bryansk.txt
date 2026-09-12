@@ -2,21 +2,45 @@
 state={
 	id=224
 	name="STATE_224"
-	manpower = 2299812
+	manpower = 490954
 	
-	state_category = town
+	state_category = rural
+
+	resources={
+
+		oil=1
+	}
+
 
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			3335 10
 		}
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3 #was: 5
+			infrastructure = 2
 			air_base = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 	}

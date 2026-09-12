@@ -2,17 +2,41 @@
 state={
 	id=351
 	name="STATE_351" # Vologda
-	manpower = 3167891
+	manpower = 1012076
 	
 	state_category = town
 
+	resources={
+
+		steel=2
+	}
+
+
 	history={
 		owner = SOV
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 3
+			infrastructure = 2
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		victory_points = {

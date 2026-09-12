@@ -2,18 +2,14 @@ state = {
 	id = 981
 	name = "STATE_981" # Barotseland
 	
-	state_category = rural
-	manpower = 10499985
+	state_category = town
+	manpower = 1297074
 
-	resources = {
-		chromium = 16
-		tungsten = 4
-	}
 
 	history = {
 
 		owner = ZAM
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = ZAM
 		add_core_of = BAR
 
@@ -24,7 +20,25 @@ state = {
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 2
+			infrastructure = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 	}
 

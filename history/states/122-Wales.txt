@@ -1,20 +1,15 @@
 state= {
 	id=122
 	name="STATE_122"
-	manpower = 3485624
+	manpower = 3815089
 	
-	state_category = city
+	state_category = large_town
 	
-	resources={
-		steel=11 # was: 16
-		aluminium=3 # was: 4
-		coal = 55 #initial distribution
-	}
 
 	history=
 	{
 		owner = ENG
-		add_extra_state_shared_building_slots = 7
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			407 3 #Swansea
 		}
@@ -23,14 +18,67 @@ state= {
 		}
 		victory_points = { 377 5 }
 		buildings = {
-			renewable_park = 1
 			services_building = 1
 			arms_factory = 0
 			infrastructure = 4
-			industrial_complex = 1
+			industrial_complex = 0
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			377 = {
 				naval_base = 3
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 		add_core_of = ENG

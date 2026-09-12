@@ -4,7 +4,7 @@ state={
 
 	history={
 		owner = ARM
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		victory_points = {
 			12320 3
 		}
@@ -12,11 +12,29 @@ state={
 			12441 1
 		}
 		buildings = {
-			arms_factory = 0
+			arms_factory = 1
 			infrastructure = 3
 			industrial_complex = 1
 			air_base = 2
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = SOV
 		add_core_of = ARM
@@ -27,9 +45,15 @@ state={
 	provinces={
 		3564 4660 6642 11708 12320 12380 12441 12450 13123
 	}
-	manpower = 3000000
+	manpower = 2930915
 	buildings_max_level_factor=1.000
-	state_category=town
+	state_category = large_town
+
+	resources={
+
+		copper=1
+	}
+
 
 	local_supplies=0.0 
 }

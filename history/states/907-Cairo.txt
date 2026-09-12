@@ -1,19 +1,40 @@
 state={
 	id=907
 	name="STATE_907"
-	manpower = 50732728
-	state_category=town
+	manpower = 63850673
+	state_category = megalopolis
+
+	resources={
+
+		oil=12
+		aluminium=2
+		steel=1
+	}
+
 
 	history={
 		owner = EGY
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		buildings = {
-			arms_factory = 0
-			infrastructure = 2
-			industrial_complex = 1
+			arms_factory = 2
+			infrastructure = 4
+			industrial_complex = 3
 			air_base = 5
-			
-
+			services_building = 1
+			renewable_park = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		victory_points = {
 			7011 20 

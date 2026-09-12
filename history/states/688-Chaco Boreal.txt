@@ -1,26 +1,40 @@
 state = {
 	id = 688
 	name = "STATE_688"
-	manpower = 343269
+	manpower = 5815326
 	
-	state_category = pastoral
+	state_category = city
 	
-	resources = {
-		tungsten = 3 # was: 4
-		steel = 2 # was: 2
-	}
 
 	history = {
 
 		owner = PAR
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = PAR
 		add_core_of = BOL
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
 			infrastructure = 2
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

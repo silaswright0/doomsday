@@ -1,18 +1,15 @@
 state = {
 	id = 978
 	name = "STATE_978" # Baden
-	manpower = 3124053
+	manpower = 3588765
 
-	resources = {
-		aluminium = 6 # was: 10.000
-	}
 
-	state_category = large_city
+	state_category = large_town
 
 	history = {
 
 		owner = GER
-		add_extra_state_shared_building_slots = 9
+		add_extra_state_shared_building_slots = 1
 		add_core_of = GER
 		add_core_of = WUR
 
@@ -29,13 +26,29 @@ state = {
 		}
 
 		buildings = {
-			renewable_park = 1
-			finance_center = 1
 			services_building = 1
-			industrial_complex = 2
+			industrial_complex = 3
 			infrastructure = 5
 			arms_factory = 0
 			air_base = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
 

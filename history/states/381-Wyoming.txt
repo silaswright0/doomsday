@@ -2,21 +2,42 @@
 state={
 	id=381
 	name="STATE_381"
-	manpower = 613986
+	manpower = 599335
 
-	resources = {
-		coal = 7 #initial distributionn = with infra 12.6 / 1280 total
+	resources={
+
+		oil=26
+		coal=12
+		rare_earths=1
 	}
 
 	state_category = rural
 	
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 4
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = USA
 	}

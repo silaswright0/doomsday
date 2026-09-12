@@ -2,23 +2,44 @@ state = {
 	id = 640
 	name = "STATE_640"
 
-	resources = {
-		tungsten = 50 # was 120, 70 was moved to Shan
+	resources={
+
+		tungsten=1
+		rare_earths=2
+		copper=1
 	}
 	
-	manpower = 1096892
-	state_category = town
+	manpower = 10293652
+	state_category = city
 	
 	history = {
 
 		owner = BRM
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = BRM
 
 		buildings = {
-			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 1
+			infrastructure = 1
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

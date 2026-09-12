@@ -1,23 +1,38 @@
 state={
 	id=1007
 	name="STATE_1007"
-	manpower = 6079401
+	manpower = 5323649
 
-	resources = {
-		steel = 2
-	}
 
-	state_category = rural
+	state_category = city
 	provinces={
 		7448 7584 10896 12248 12877 
 	}
 	history={
 		owner = AFG
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		buildings = {
 			arms_factory = 0
 			industrial_complex = 0
-			infrastructure = 1 
+			infrastructure = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		add_core_of = AFG
 		add_core_of = TMS

@@ -2,24 +2,30 @@ state={
 	id=982
 	name="STATE_982"
 	resources={
-		rubber=2
+
+		oil=1
+		rubber=14
 	}
 	provinces={
 		1321 1409 7288 7402 12247 
 	}
-	manpower = 38750874
+	manpower = 34351542
 	buildings_max_level_factor=1.000
-	state_category=rural
+	state_category = metropolis
 	local_supplies=0.000
 	history={
 		owner = RAJ
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = RAJ
 		add_core_of = RAS
 		buildings = {
-			arms_factory = 0
-			industrial_complex = 1
-			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			infrastructure = 4
+			finance_center = 1
+			services_building = 1
+			dockyard = 1
+		
 		}
 		victory_points = {
 			1321 3 

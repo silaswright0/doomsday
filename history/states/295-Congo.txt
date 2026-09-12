@@ -1,13 +1,15 @@
 state = {
 	id = 295
 	name = "STATE_295"
-	manpower = 27020561
-	state_category = rural
+	manpower = 36920172
+	state_category = metropolis
+
+
 
 	history = {
 
 		owner = COG
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 
 		IF = {
 			limit = {
@@ -21,14 +23,67 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			infrastructure = 1
+			infrastructure = 2
 			industrial_complex = 1
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			10968 = {
 				naval_base = 1
 				# Fort de Shinakasa
 				coastal_bunker = 2
 				bunker = 2
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

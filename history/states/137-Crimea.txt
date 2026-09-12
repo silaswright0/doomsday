@@ -1,14 +1,16 @@
 state = {
 	id = 137
 	name = "STATE_137"
-	manpower = 1007866
+	manpower = 1819223
 	
-	state_category = city
+	state_category = town
+
+
 
 	history = {
 
 		owner = UKR
-		add_extra_state_shared_building_slots = 5
+		add_extra_state_shared_building_slots = 0
 		add_core_of = UKR
 		controller = SOV
 
@@ -29,11 +31,10 @@ state = {
 		}
 
 		buildings = {
-			services_building = 1
 			arms_factory = 0
 			industrial_complex = 0
 
-			infrastructure = 2
+			infrastructure = 1
 			air_base = 3
 
 			3686 = {
@@ -47,11 +48,65 @@ state = {
 				} 
 			}
 
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			9680 = {
 				naval_base = 1
 				coastal_bunker = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		add_core_of = SOV

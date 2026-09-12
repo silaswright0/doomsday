@@ -2,15 +2,18 @@ state = {
 	id = 588
 	name = "STATE_588" # Semipalatinsk
 	
-	state_category = rural
+	state_category = large_town
 	
-	resources = {
-		chromium = 10 
+	resources={
+
+		oil=10
+		aluminium=1
+		chromium=10
 	}
 
 	history = {
 		owner = KAZ
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = KAZ
 		add_core_of = SOV
 
@@ -23,8 +26,20 @@ state = {
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
-			infrastructure = 3
+			industrial_complex = 1
+			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
 	}
@@ -32,7 +47,7 @@ state = {
 	provinces = {
 		1287 1749 1818 1864 4661 4674 4867 7350 7890 10161 10218 10292 10584 10610 10653 12427 12564 12594 12635 13151 
 	}
-	manpower = 1286903
+	manpower = 3029952
 	buildings_max_level_factor = 1.000
 
 	local_supplies = 0.0 

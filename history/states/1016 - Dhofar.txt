@@ -1,24 +1,86 @@
 state = {
 	id = 1016
 	name = "STATE_1016"
-	manpower = 716834
+	manpower = 1418130
 	
-	state_category = pastoral
+	state_category = town
+
+	resources={
+
+		oil=23
+		aluminium=1
+		chromium=1
+	}
+
 
 	history = {
 
 		owner = OMA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = OMA
 		add_core_of = FSA
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
 			infrastructure = 3
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			2103 = {
 				naval_base = 1
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 		victory_points = {

@@ -1,20 +1,45 @@
 state = {
 	id = 901
 	name = "STATE_901"
-	manpower = 1761790
-	state_category = pastoral
+	manpower = 51473174
+	state_category = megalopolis
+
+	resources={
+
+		oil=12
+		rubber=1
+	}
+
 
 	history = {
 
 		owner = NGA
-		add_extra_state_shared_building_slots = 4
+		add_extra_state_shared_building_slots = 0
 		add_core_of = NGA
 		add_core_of = SOK
 
 		buildings = {
 			arms_factory = 0
-			industrial_complex = 0
+			industrial_complex = 1
 			infrastructure = 2
+			services_building = 1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 
 	}  
