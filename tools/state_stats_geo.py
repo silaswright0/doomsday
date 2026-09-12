@@ -1069,13 +1069,18 @@ MIL_KEYWORDS = {
 }
 
 DOCK_KEYWORDS = {
-    "CHI": {"shanghai": 12, "liaoning": 8, "dalian": 8, "jiangsu": 7, "jiansu": 7, "guangdong": 6, "guangzhou": 6, "shandong": 5, "zhejiang": 5, "fujian": 4},
+    "CHI": {
+        "shanghai": 12, "liaoning": 8, "dalian": 8, "jiangsu": 7, "jiansu": 7,
+        "guangdong": 6, "guangzhou": 6, "shandong": 5, "zhejiang": 5, "fujian": 4,
+        "liaobei": -20,
+    },
     "KOR": {"gyeongsang": 20, "southkorea": 4},
     "JAP": {"nagasaki": 8, "osaka": 6, "kanto": 5, "hiroshima": 5, "southkyushu": 3, "nagoya": 3},
     "USA": {
         "virginia": 10, "mississippi": 8, "newengland": 12, "alabama": 3,
-        "california": 5, "wisconsin": 4, "connecticut": 3, "maine": 3,
+        "california": 5, "connecticut": 3, "maine": 3,
         "washington": 1, "hawaii": 0, "westvirginia": -20,
+        # Marinette is real, but Wisconsin has no ocean province.
     },
     "VIN": {"saigon": 2, "haiphong": 4, "tonkin": 2, "cochinchina": 1},
     "ENG": {
@@ -1088,7 +1093,8 @@ DOCK_KEYWORDS = {
     "HOL": {"holland": 6, "rotterdam": 4},
     "SOV": {
         "arkhangelsk": 12, "leningrad": 6, "konigsberg": 6, "kaliningrad": 6,
-        "amur": 6, "vladivostok": 5, "murmansk": -2,
+        "vladivostok": 5, "murmansk": -2,
+        # Amur Shipyard is Komsomolsk-on-Amur: river, no sea province.
     },
     "BRA": {"riodejaneiro": 6},
     "INS": {"eastjava": 8, "surabaya": 8, "java": 2},

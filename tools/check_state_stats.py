@@ -8,7 +8,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from state_stats_lib import COUNTRIES_CSV, STATES_CSV, load_dib_mils  # noqa: E402
+from state_stats_lib import COUNTRIES_CSV, STATES_CSV, load_all_states, load_dib_mils  # noqa: E402
 
 
 def main() -> int:
@@ -48,8 +48,12 @@ def main() -> int:
             errors.append(f"{tag} manpower {pop} != target {target}")
         civs = sum(int(r["civs"]) for r in rows)
         mils = sum(int(r["mils"]) for r in rows)
+        docks = sum(int(r["docks"]) for r in rows)
         parks = sum(int(r["renewable"]) for r in rows)
-        print(f"  {tag}: pop={pop} civs={civs} mils={mils} parks={parks} states={len(rows)}")
+        want_docks = int(float((countries.get(tag) or {}).get("docks") or 0))
+        if docks != want_docks:
+            errors.append(f"{tag} docks {docks} != target {want_docks}")
+        print(f"  {tag}: pop={pop} civs={civs} mils={mils} docks={docks} parks={parks} states={len(rows)}")
 
     # Spot checks from the plan
     want = {
@@ -102,6 +106,13 @@ def main() -> int:
     hk = by_id.get("326")
     if hk and int(hk["infra"]) < 5:
         errors.append(f"Hong Kong infra {hk['infra']} expected HKG district lights 5")
+
+    for s in load_all_states():
+        hist_docks = int(s["buildings"].get("dockyard") or 0)
+        if hist_docks and not s["coastal"]:
+            errors.append(
+                f"state {s['id']} {s['pretty']} docks={hist_docks} not sea-coastal"
+            )
 
     if errors:
         print("FAIL", len(errors))

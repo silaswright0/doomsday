@@ -418,6 +418,30 @@ def cap_distribute(total: int, weights: list[float], cap: int) -> list[int]:
     return out
 
 
+_COASTAL_LAND: set[int] | None = None
+
+
+def coastal_land_ids() -> set[int]:
+    """Land provinces that border sea (definition.csv), not lakes or inland."""
+    global _COASTAL_LAND
+    if _COASTAL_LAND is None:
+        out: set[int] = set()
+        for line in (ROOT / "map" / "definition.csv").read_text(
+            encoding="utf-8", errors="ignore"
+        ).splitlines():
+            parts = line.split(";")
+            if len(parts) < 6:
+                continue
+            try:
+                pid = int(parts[0])
+            except ValueError:
+                continue
+            if parts[4] == "land" and parts[5].lower() == "true":
+                out.add(pid)
+        _COASTAL_LAND = out
+    return _COASTAL_LAND
+
+
 def parse_state_file(path: Path) -> dict:
     text = path.read_text(encoding="utf-8", errors="ignore")
     sid = STATE_RE["id"].search(text)
@@ -463,7 +487,7 @@ def parse_state_file(path: Path) -> dict:
         "impassable": bool(re.search(r"\bimpassable\s*=\s*yes", text)),
         "provinces": provinces,
         "province_count": len(provinces),
-        "coastal": bool(re.search(r"\bnaval_base\s*=", text)),
+        "coastal": any(pid in coastal_land_ids() for pid in provinces),
         "resources": resources,
         "buildings": buildings_state,
         "nested_buildings": nested,

@@ -212,7 +212,7 @@ state_id,file,owner_2026,loc_name,manpower,civs,mils,docks,infra,finance,service
 211,211-Burgas.txt,BUL,Burgas,785775,0,0,0,3,0,0,0,0,0,0,0,rural,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
 212,212-Plovdiv.txt,BUL,Plovdiv,1289606,0,2,0,3,0,0,0,0,0,0,0,town,wikidata/admin1,0,1,0,0,0,0,1,0,0,0,0,0
 213,213-Murmansk.txt,SOV,Murmansk,572509,0,0,0,2,0,0,0,0,0,0,0,rural,wikidata/admin1,1,1,0,0,0,0,0,0,0,3,0,0
-214,214-Arkhangelsk.txt,SOV,Arkhangelsk,862930,0,0,2,1,0,0,0,0,0,0,0,town,wikidata/admin1,1,1,0,0,0,0,0,0,0,0,0,0
+214,214-Arkhangelsk.txt,SOV,Arkhangelsk,862930,0,0,3,1,0,0,0,0,0,0,1,town,wikidata/admin1,1,1,0,0,0,0,0,0,0,0,0,0
 215,215-Eastern Karelia.txt,SOV,Onega,426132,0,0,0,2,0,0,0,0,0,0,0,rural,wikidata/admin1,1,1,0,0,0,0,0,0,0,0,0,0
 216,216-Below Zero.txt,SOV,Olonets,65814,0,0,0,1,0,0,0,0,0,0,1,pastoral,wikidata/admin1,1,1,0,0,0,0,0,0,0,0,0,0
 217,217-Stalingrad Area.txt,SOV,Stalingrad,2122840,0,1,0,3,0,0,0,0,0,0,0,large_town,wikidata/admin1,1,1,0,0,0,0,0,0,0,0,0,0
@@ -376,7 +376,7 @@ state_id,file,owner_2026,loc_name,manpower,civs,mils,docks,infra,finance,service
 375,375-Texas.txt,USA,Texas,31914761,12,4,0,4,0,8,3,2,1,2,24,metropolis,census/admin,170,1,0,1,0,0,0,0,0,0,2,0
 376,376-New Mexico.txt,USA,New Mexico,2172733,0,0,0,2,0,0,0,0,0,0,0,large_town,census/admin,51,0,0,0,0,0,4,0,0,0,0,0
 377,377-Arizona.txt,USA,Arizona,7733575,1,4,0,3,0,2,0,0,0,1,4,city,census/admin,0,0,0,0,0,0,12,0,0,0,0,0
-378,378-California.txt,USA,California,40213878,18,3,1,4,3,10,2,0,1,3,31,megalopolis,census/admin,26,0,0,0,1,0,0,0,0,0,6,0
+378,378-California.txt,USA,California,40213878,18,3,2,4,3,10,2,0,1,3,32,megalopolis,census/admin,26,0,0,0,1,0,0,0,0,0,6,0
 379,379-Nevada.txt,USA,Nevada,3332619,1,0,0,2,0,0,0,0,0,0,0,large_town,census/admin,0,0,0,0,0,0,3,0,1,0,0,0
 380,380-Utah.txt,USA,Utah,3523108,1,0,0,2,0,0,0,0,0,0,0,large_town,census/admin,0,0,0,0,0,0,6,0,0,0,0,0
 381,381-Wyoming.txt,USA,Wyoming,599335,0,0,0,2,0,0,0,0,0,0,0,rural,census/admin,26,12,0,0,0,0,0,0,0,0,1,0
@@ -392,7 +392,7 @@ state_id,file,owner_2026,loc_name,manpower,civs,mils,docks,infra,finance,service
 391,391-Minnesota.txt,USA,Minnesota,5893567,1,0,0,3,0,1,0,0,0,0,0,city,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
 392,392-Iowa.txt,USA,Iowa,3283360,1,3,0,3,0,0,0,0,0,0,1,large_town,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
 393,393-Michigan.txt,USA,Michigan,10284851,9,0,0,3,0,3,0,0,0,1,9,city,census/admin,0,0,2,0,0,0,0,0,0,0,0,0
-394,394-Wisconsin.txt,USA,Wisconsin,6049637,1,2,1,3,0,1,0,0,0,0,1,city,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
+394,394-Wisconsin.txt,USA,Wisconsin,6049637,1,2,0,3,0,1,0,0,0,0,0,city,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
 395,395-Illinois.txt,USA,Illinois,12946681,11,0,0,4,2,3,0,0,1,1,12,large_city,census/admin,0,5,0,0,0,0,0,0,0,0,0,0
 396,396-Indiana.txt,USA,Indiana,7062343,8,2,0,4,0,2,1,0,0,1,10,city,census/admin,0,2,4,1,0,0,0,0,0,0,0,0
 397,397-Syktyvkar.txt,SOV,Syktyvkar,308687,0,0,0,2,0,0,0,0,0,0,0,rural,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
@@ -559,7 +559,7 @@ state_id,file,owner_2026,loc_name,manpower,civs,mils,docks,infra,finance,service
 558,558-Nigeria.txt,NGA,Lagos,96624233,1,1,0,5,0,1,2,0,0,0,0,megalopolis,wikidata/admin1,23,0,0,0,0,0,0,0,0,0,0,1
 559,559-Somaliland.txt,SOM,Somalia,4966159,1,1,0,4,0,0,0,0,0,0,0,large_town,country-wpp2026,0,0,0,0,0,0,0,0,0,0,0,0
 560,560-TS 2.txt,SOV,Nikolayevsk,41072,0,0,0,2,0,0,0,0,0,0,2,wasteland,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
-561,561-TS 3.txt,SOV,Amur,654181,0,0,1,1,0,0,0,0,0,0,1,rural,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
+561,561-TS 3.txt,SOV,Amur,654181,0,0,0,1,0,0,0,0,0,0,0,rural,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
 562,562-TS 4.txt,SOV,Okhotsk,1069594,0,0,0,2,0,0,0,0,0,0,0,town,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
 563,563-TS 5.txt,SOV,Chita,858535,0,0,0,2,0,0,0,0,0,0,0,town,wikidata/admin1,0,0,0,0,0,0,3,0,0,0,0,0
 564,564-TS 6.txt,SOV,Buryatia,846974,0,0,0,2,0,0,0,0,0,0,0,town,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
@@ -591,7 +591,7 @@ state_id,file,owner_2026,loc_name,manpower,civs,mils,docks,infra,finance,service
 590,590-Northern Kazakhstan.txt,KAZ,Akmolinsk,1199580,0,2,0,2,1,0,0,0,0,0,1,town,wikidata/admin1,4,0,0,0,0,4,0,0,0,0,0,0
 591,591-Hainan.txt,CHI,Hainan,10169657,1,0,0,4,0,0,0,0,0,1,0,city,census/admin,0,0,0,0,0,0,0,0,0,0,0,8
 592,592-Guangzhou.txt,CHI,Guangzhou,42132543,12,0,3,4,1,1,0,0,0,3,10,megalopolis,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
-593,593-Guangdong.txt,CHI,Guangdong,81827099,16,0,2,4,1,3,1,1,1,7,22,megalopolis,census/admin,0,0,0,0,11,0,0,0,0,0,7,4
+593,593-Guangdong.txt,CHI,Guangdong,81827099,16,0,3,4,1,3,1,1,1,7,23,megalopolis,census/admin,0,0,0,0,11,0,0,0,0,0,7,4
 594,594-Nanning.txt,CHI,Nanning,24191984,3,0,0,3,0,1,0,0,0,2,0,large_city,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
 595,595-Fujian.txt,CHI,Fujian,40824886,7,0,2,4,0,1,1,0,0,3,4,megalopolis,census/admin,0,0,0,0,17,0,0,0,0,0,0,0
 596,596-Zhejiang.txt,CHI,Zhejiang,64615839,13,0,2,4,0,2,1,2,0,5,15,megalopolis,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
@@ -713,8 +713,8 @@ state_id,file,owner_2026,loc_name,manpower,civs,mils,docks,infra,finance,service
 712,712-Cocos Islands.txt,AST,Cocos Islands,1000,0,0,0,1,0,0,0,0,0,0,2,tiny_island,manual/2026,0,0,0,0,0,0,0,0,0,0,0,0
 713,713-Kerguelen.txt,FRA,Kerguelen,1000,0,0,0,1,0,0,0,0,0,0,2,tiny_island,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
 714,714-Heilungkiang.txt,CHI,Heilungkiang,24466334,3,2,0,2,0,1,0,0,0,2,2,large_city,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
-715,715-Liaoning.txt,CHI,Liaobei,33731338,7,5,3,3,0,1,1,0,0,3,12,metropolis,census/admin,0,0,15,0,0,0,0,0,0,0,0,0
-716,716-Liaotung.txt,CHI,Liaoning,7030321,4,6,3,3,0,0,0,0,0,1,10,city,census/admin,0,0,15,0,0,0,0,0,0,0,0,0
+715,715-Liaoning.txt,CHI,Liaobei,33731338,7,5,0,3,0,1,1,0,0,3,9,metropolis,census/admin,0,0,15,0,0,0,0,0,0,0,0,0
+716,716-Liaotung.txt,CHI,Liaoning,7030321,4,6,4,3,0,0,0,0,0,1,11,city,census/admin,0,0,15,0,0,0,0,0,0,0,0,0
 717,717-Chuho.txt,CHI,Sungkiang,5271383,1,0,0,2,0,0,0,0,0,0,0,city,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
 718,718-Stanleyville.txt,COG,Stanleyville,14326677,0,0,0,4,0,0,0,0,0,0,0,large_city,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
 719,719-Natal.txt,SAF,Natal,16126934,1,0,0,4,0,0,0,0,0,0,0,large_city,wikidata/admin1,0,4,0,2,0,53,0,0,0,0,0,0
@@ -726,7 +726,7 @@ state_id,file,owner_2026,loc_name,manpower,civs,mils,docks,infra,finance,service
 725,725-Nauru.txt,NAU,Nauru,12101,0,0,0,2,0,0,0,0,0,0,2,tiny_island,country-wpp2026,0,0,0,0,0,0,0,0,0,0,0,0
 726,726-Samoa.txt,SAM,Samoa,113214,0,0,0,2,0,0,0,0,0,0,1,small_island,country-wpp2026,0,0,0,0,0,0,0,0,0,0,0,0
 727,727-Line Islands.txt,KIR,Line Islands,13043,0,0,0,2,0,0,0,0,0,0,1,small_island,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
-728,728-Guangzhouwan.txt,CHI,Guangzhouwan,487520,8,0,2,3,1,0,0,0,0,0,13,enclave,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
+728,728-Guangzhouwan.txt,CHI,Guangzhouwan,487520,8,0,3,3,1,0,0,0,0,0,14,enclave,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
 729,729-Macau.txt,CHI,Macau,705137,0,0,0,5,0,0,0,0,0,0,2,enclave,census/admin,0,0,0,0,0,0,0,0,0,0,0,0
 730,730-St Pierre and Miquelon .txt,FRA,St Pierre and Miquelon,6115,0,0,0,1,0,0,0,0,0,0,2,tiny_island,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0
 731,731-Central Macedonia.txt,GRE,Central Macedonia,2171630,1,0,0,3,0,0,0,0,0,0,0,large_town,wikidata/admin1,0,0,0,0,0,0,0,0,0,0,0,0

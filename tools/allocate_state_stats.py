@@ -361,8 +361,9 @@ def main() -> None:
             civ_w.append(weight + 8_000_000 * civ_bonus)
             # Same 8e6 scale as civs: plant keywords must beat population smear.
             mil_w.append(0.05 * weight + 8_000_000 * mil_bonus)
-            if s["coastal"] or dock_bonus > 0:
-                dock_w.append(max(0.0, 1.0 + 200.0 * dock_bonus + (5.0 if s["coastal"] else 0.0)))
+            # HOI4 ignores dockyards in landlocked states (Great Lakes, rivers).
+            if s["coastal"]:
+                dock_w.append(max(0.0, 1.0 + 200.0 * dock_bonus + 5.0))
             else:
                 dock_w.append(0.0)
             park_w.append(0.05 * weight + 80.0 * park_bonus)
@@ -397,6 +398,8 @@ def main() -> None:
                 extra -= take
                 if extra <= 0:
                     break
+        if docks_total > 0 and sum(dock_w) <= 0:
+            raise SystemExit(f"{tag}: {docks_total} docks but no sea-coastal state")
         civ_d = cap_distribute(civs_total, civ_w, 40)
         mil_d = cap_distribute(mils_total, mil_w, 40)
         dock_d = cap_distribute(docks_total, dock_w, 40)
