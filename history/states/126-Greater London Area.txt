@@ -27,19 +27,16 @@ state={
 			industrial_complex = 3
 
 			anti_air_building = 2
-			radar_station = 1
-			air_base = 10
-			11374 = {
-				naval_base = 10
-				naval_headquarters = {
-					level = 1
-					allowed = {
-						has_dlc = "No Compromise, No Surrender"
-					}
-				}
+
+			energy_infrastructure = 1
+
+11374 = {
+				naval_base = 1
+
 			}
 
-			6103 = {
+6103 = {
+				supply_node = 1
 			    landmark_big_ben = {
 			        allowed = {
 			            has_dlc = "Gotterdammerung"
@@ -47,9 +44,6 @@ state={
 			        level = 1
 			    }
 			}
-			energy_infrastructure = 1
-		
-		
 		}
 		add_core_of = ENG
 

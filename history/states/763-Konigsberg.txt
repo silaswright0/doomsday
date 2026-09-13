@@ -22,79 +22,18 @@ state = {
 			arms_factory = 0
 			infrastructure = 2
 			industrial_complex = 0
-			anti_air_building = 2
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			anti_air_building = 5
 
 			dockyard = 1
 
-
-
-
-
-			6332 = {
-				bunker = 1
-				naval_base = 5
-			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			air_base = 6
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+6332 = {
+				supply_node = 1
+				naval_supply_hub = 1
+				bunker = 1
+				naval_base = 8
+			}
 		}
 
 	}

@@ -18,8 +18,11 @@ state = {
 			infrastructure = 3
 			industrial_complex = 0
 			arms_factory = 1
-			air_base = 3
-			3484 = {
+			air_base = 1
+
+			services_building = 1
+
+3484 = {
 				landmark_bojnice_castle = {
 					level = 1
 					allowed = {
@@ -27,8 +30,9 @@ state = {
 					}
 				}
 			}
-			services_building = 1
-		
+			9692 = {
+				supply_node = 1
+			}
 		}
 
 		victory_points = {

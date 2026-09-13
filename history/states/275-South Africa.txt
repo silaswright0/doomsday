@@ -23,13 +23,14 @@ state={
 			infrastructure = 5
 			arms_factory = 3
 			industrial_complex = 1
-			air_base = 3
+			air_base = 2
 
 			renewable_park = 1
 			synthetic_refinery = 1
 			energy_infrastructure = 1
-		
-		
+			10400 = {
+				supply_node = 1
+			}
 		}
 		victory_points = {
 			10400 10

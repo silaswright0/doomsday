@@ -14,9 +14,11 @@ state={
 			infrastructure = 4
 			industrial_complex = 2
 			dockyard = 3
-			air_base = 6
+			air_base = 3
 
-			788 = {
+			anti_air_building = 2
+			radar_station = 1
+788 = {
 				naval_base = 10
 				naval_supply_hub = 1
 				naval_headquarters = {
@@ -26,29 +28,9 @@ state={
 					}
 				}
 			}
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			10412 = {
+				supply_node = 1
+			}
 		}
 		add_core_of = USA
 		victory_points = {

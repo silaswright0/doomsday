@@ -20,14 +20,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from state_stats_lib import COUNTRIES_CSV, DATA, STATES_CSV  # noqa: E402
 
-# Additive policy extras at default laws (level 2 on the six costing slots).
+# Additive extras at default laws (tier 3 on five-tier slots, standard tax).
+# small 0.08 / medium 0.16 / large 0.32 / extreme 0.64
 POLICY_DEFAULT = {
-    "welfare": 0.28,
-    "education": 0.12,
-    "healthcare": 0.20,
-    "investment": 0.08,
-    "fertility": 0.06,
-    "aid": 0.04,
+    "welfare": 0.08,
+    "education": 0.08,
+    "healthcare": 0.08,
+    "investment": 0.16,
+    "aid": 0.08,
 }
 POLICY_FACTOR_DEFAULT = 1.0 + sum(POLICY_DEFAULT.values())
 

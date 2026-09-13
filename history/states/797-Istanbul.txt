@@ -25,9 +25,17 @@ state={
 			infrastructure = 5
 			industrial_complex = 4
 			arms_factory = 2
-			air_base = 4
-			9833 = {
-				naval_base = 8
+			air_base = 2
+
+			renewable_park = 1
+			finance_center = 1
+			services_building = 2
+			dockyard = 1
+			energy_infrastructure = 1
+
+9833 = {
+				supply_node = 1
+				naval_base = 3
                 landmark_hagia_sophia = {
                     level = 1
                     allowed = {
@@ -35,13 +43,6 @@ state={
                     }
                 }
 			}
-			renewable_park = 1
-			finance_center = 1
-			services_building = 2
-			dockyard = 1
-			energy_infrastructure = 1
-		
-		
 		}
 		add_core_of = TUR
 		if = {

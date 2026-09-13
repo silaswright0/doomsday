@@ -13,7 +13,12 @@ state={
 			arms_factory = 0
 			industrial_complex = 2
 			infrastructure = 3
-			4915 = {
+
+			renewable_park = 1
+
+			services_building = 1
+
+4915 = {
                 landmark_taj_mahal = {
                     level = 1
                     allowed = {
@@ -21,30 +26,9 @@ state={
                     }
                 }
 			}
-			renewable_park = 1
-
-			services_building = 1
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			1908 = {
+				supply_node = 1
+			}
 		}
 		victory_points = {
 			1908 5

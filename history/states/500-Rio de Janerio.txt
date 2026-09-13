@@ -28,9 +28,13 @@ state={
 			arms_factory = 1
 			industrial_complex = 2
 			dockyard = 1
-			air_base = 7
-			10980 = {
-				naval_base = 7
+			air_base = 1
+
+			synthetic_refinery = 1
+
+10980 = {
+				supply_node = 1
+				naval_base = 5
                 landmark_cristo_redentor = {
                     level = 1
                     allowed = {
@@ -38,9 +42,6 @@ state={
                     }
                 }
 			}
-			synthetic_refinery = 1
-		
-		
 		}
 		victory_points = {
 			10980 10

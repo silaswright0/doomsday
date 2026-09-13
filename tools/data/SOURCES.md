@@ -43,6 +43,10 @@ Country totals are control totals; subnational rows only allocate.
 | OGJ Worldwide Refining Survey / EIA-820 | Oil & Gas Journal; EIA | latest CDU | `synthetic_refinery` as crude/CTL campuses (`dib_refineries.json`) | https://www.eia.gov/petroleum/refinerycapacity/ |
 | US SPR sites; IEA 90-day stocks; CNPR / JOGMEC / KNOC / ISPRL | DOE; IEA; national SPR agencies | 2024–2026 | `fuel_silo` cavern/tank-farm campuses (`dib_fuel_silos.json`) | https://www.energy.gov/ceser/strategic-petroleum-reserve |
 | ISO/RTO / ENTSO-E / State Grid regional cores | FERC; ENTSO-E; national TSOs | 2026 footprints | `energy_infrastructure` keystone hubs (`dib_grid.json`), 1/state | https://www.entsoe.eu/ |
+| OurAirports airports.csv | OurAirports / davidmegginson dump | latest | `air_base` country totals (`dib_air.json`): military medium/large / 2 + large scheduled / 8 | https://davidmegginson.github.io/ourairports-data/airports.csv |
+| IISS Military Balance SAM deployments | IISS | 2025 | `anti_air_building` campuses (`dib_aa.json`), 1 level ≈ Patriot/S-400/HQ-9 cluster | https://www.iiss.org/publications/the-military-balance/ |
+| NORAD / NATINAMDS / Voronezh / PLA radar brigades | USNORTHCOM; NATO; open OSD/IISS | 2024–2026 | `radar_station` early-warning only (`dib_radar.json`). No provincial low-flyer radar (HOI4 `radar=yes` is one pool) | https://www.norad.mil/ |
+| IISS / Janes fleet homeports | IISS; Janes | 2025–2026 | Extra `naval_base` levels (`dib_naval.json`) on existing ports. Never delete a port | https://www.iiss.org/publications/the-military-balance/ |
 | Renewable Capacity Statistics 2026 | IRENA | end-2025 | `renewable_park` (1 park / 20 GW). Hydro included; nuclear excluded | https://www.irena.org/Publications |
 | Energy Institute Statistical Review of World Energy | Energy Institute | 2025 | `oil` and `coal` resource nodes only. Not energy buildings | https://www.energyinst.org/statistical-review |
 
@@ -67,6 +71,11 @@ Country totals are control totals; subnational rows only allocate.
 - 1 `synthetic_refinery` ≈ 400 kb/d CDU (min ~350; mega 2–3; `state_max` 3)
 - 1 `fuel_silo` = one SPR cavern or export tank-farm campus
 - 1 `energy_infrastructure` = one ISO/TSO / national-grid core (`state_max` 1; exclusive with `industrial_infrastructure`)
+- 1 `air_base` ≈ two military medium/large fields, or eight large scheduled civilian fields
+- 1 `anti_air_building` ≈ one long-range SAM battalion cluster (`state_max` 5)
+- 1 `radar_station` ≈ one strategic early-warning site (`state_max` 6). Do not add a second radar building: HOI4 detection is one pool with no altitude band. Low flyers are AA.
+- Extra `naval_base` levels (`dib_naval.json`) stack on a state's primary existing port (cap 10). Every leftover nested port stays ≥1.
+- Land `supply_node` on capitals, city+ categories, VP≥15, and fleet ports ≥8. Railway levels may rise on existing edges; topology is not redrawn.
 - Resource units are HOI4 nodes, not tonnes: see constants in `allocate_state_stats.py`
 
 `renewable_park` already grants `local_resources_coal = 1` per level. Fossil `coal` resources are mines/thermal supply only.

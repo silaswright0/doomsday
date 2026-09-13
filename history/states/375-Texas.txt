@@ -28,126 +28,23 @@ state={
 			arms_factory = 4
 			infrastructure = 4
 			industrial_complex = 12
-			air_base = 3
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			air_base = 5
 
 			synthetic_refinery = 3
 			fuel_silo = 2
 			energy_infrastructure = 1
 
-
-			10337 = {
-				naval_base = 3
-			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			6785 = {
+			anti_air_building = 1
+10337 = {
 				naval_base = 1
 			}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+6785 = {
+				naval_base = 1
+			}
+			3960 = {
+				supply_node = 1
+			}
 		}
 		add_core_of = USA
 		victory_points = {

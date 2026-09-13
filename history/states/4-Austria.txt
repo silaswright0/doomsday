@@ -31,8 +31,13 @@ state = {
 			infrastructure = 5
 			arms_factory = 1
 			industrial_complex = 1
-			air_base = 6
-            11666 = {
+			air_base = 2
+
+			energy_infrastructure = 1
+			services_building = 1
+
+11666 = {
+				supply_node = 1
                 landmark_hofburg_palace = {
                     level = 1
                     allowed = {
@@ -40,9 +45,6 @@ state = {
                     }
                 }
             }
-			energy_infrastructure = 1
-			services_building = 1
-		
 		}
 
 

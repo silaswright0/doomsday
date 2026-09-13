@@ -59,13 +59,24 @@ guiTypes = {
 			pdx_tooltip = "DD_ECON_EXPENSE_TT"
 		}
 
+		instantTextboxType = {
+			name = "dd_net_total"
+			position = { x = 12 y = 118 }
+			font = "hoi_18mbs"
+			text = "DD_ECON_NET_TOTAL"
+			maxWidth = 500
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_ECON_NET_TT"
+		}
+
 		buttonType = {
 			name = "dd_open_market"
 			quadTextureSprite = "GFX_Access_&_buy_equipment"
 			buttonText = "DD_OPEN_ARMS_MARKET"
 			font = "hoi_18mbs"
 			buttonFont = "hoi_18mbs"
-			position = { x = 12 y = 122 }
+			position = { x = 12 y = 144 }
 			clicksound = click_default
 			pdx_tooltip = "DD_OPEN_ARMS_MARKET_TT"
 		}

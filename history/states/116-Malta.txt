@@ -15,78 +15,15 @@ state=
 			arms_factory = 0
 			industrial_complex = 1
 			infrastructure = 5
-			air_base = 3
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			air_base = 1
 
 			services_building = 1
 
-
-			12003 = {
-				naval_base = 3
+12003 = {
+				supply_node = 1
+				naval_base = 1
 				coastal_bunker = 1
 			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		}
 		strategic_province_location = {
 			defensible_coastline = 12003

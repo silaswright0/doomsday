@@ -39,9 +39,12 @@ state = {
 			infrastructure = 3
 			arms_factory = 1
 			industrial_complex = 1
-			anti_air_building = 2
-			air_base = 6
-            6521 = {
+			anti_air_building = 3
+			air_base = 4
+
+			radar_station = 3
+6521 = {
+				supply_node = 1
                 landmark_berlin_reichstag = {
                     level = 1
                     allowed = {
@@ -49,77 +52,10 @@ state = {
                     }
                 }
             }
-            
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			3499 = {
+3499 = {
                 land_facility = 1 #Representing Kommersdorf's Research Facilities
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		}
 
 

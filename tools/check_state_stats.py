@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 import csv
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from state_stats_lib import COUNTRIES_CSV, STATES_CSV, load_all_states, load_dib_mils  # noqa: E402
+from state_stats_lib import COUNTRIES_CSV, STATES_CSV, load_all_states, load_dib_mils, load_campus_counts, DIB_NAVAL_PATH  # noqa: E402
 
 
 def main() -> int:
@@ -27,7 +28,9 @@ def main() -> int:
                 errors.append(f"state {sid} infra {infra} not in 1-5")
             for key, cap in (("civs", 40), ("mils", 40), ("docks", 40), ("renewable", 10),
                              ("finance", 20), ("services", 20), ("refinery", 3),
-                             ("fuel_silo", 3), ("energy_grid", 1)):
+                             ("fuel_silo", 3), ("energy_grid", 1),
+                             ("air_base", 10), ("anti_air", 5), ("radar", 6),
+                             ("naval_primary", 10)):
                 val = int(row.get(key) or 0)
                 if val < 0 or val > cap:
                     errors.append(f"state {sid} {key}={val} exceeds cap {cap}")
@@ -107,12 +110,59 @@ def main() -> int:
     if hk and int(hk["infra"]) < 5:
         errors.append(f"Hong Kong infra {hk['infra']} expected HKG district lights 5")
 
+    london_radar = int((london or {}).get("radar") or 0)
+    if london_radar:
+        errors.append(f"London radar {london_radar} expected 0 (not leftover Chain Home)")
+    cal = by_id.get("378")
+    if cal and int(cal.get("air_base") or 0) > 8:
+        errors.append(f"California air {cal.get('air_base')} expected campus not vanilla 10")
+    va = by_id.get("362")
+    if va and int(va.get("naval_primary") or 0) < 8:
+        errors.append(f"Virginia naval {va.get('naval_primary')} expected Norfolk homeport")
+    tuscany = by_id.get("162")
+    if tuscany and int(tuscany.get("naval_primary") or 0) > 3:
+        errors.append(f"Tuscany naval {tuscany.get('naval_primary')} expected leftover 10 stripped")
+
+    naval_want = load_campus_counts(DIB_NAVAL_PATH)
+    naval_got = defaultdict(int)
+    for tag, rows in by_tag.items():
+        extra = sum(max(0, int(r.get("naval_primary") or 0) - 1) for r in rows)
+        naval_got[tag] = extra
+        want = naval_want.get(tag, 0)
+        if extra != want:
+            errors.append(f"{tag} naval extras {extra} != DIB {want}")
+    usa_aa = sum(int(r.get("anti_air") or 0) for r in by_tag.get("USA", []))
+    usa_radar = sum(int(r.get("radar") or 0) for r in by_tag.get("USA", []))
+    if usa_aa < 8:
+        errors.append(f"USA AA {usa_aa} expected IADS batteries")
+    if usa_radar < 8:
+        errors.append(f"USA radar {usa_radar} expected NORAD nodes")
+
+    hist_ports = 0
+    hist_supply = 0
     for s in load_all_states():
         hist_docks = int(s["buildings"].get("dockyard") or 0)
         if hist_docks and not s["coastal"]:
             errors.append(
                 f"state {s['id']} {s['pretty']} docks={hist_docks} not sea-coastal"
             )
+        for pid, lv in (s.get("ports") or {}).items():
+            hist_ports += 1
+            if lv < 1 or lv > 10:
+                errors.append(f"state {s['id']} port {pid} naval_base={lv}")
+        if re.search(r"\bsupply_node\s*=\s*1", s.get("nested_buildings") or ""):
+            hist_supply += 1
+        if s["id"] == 126 and int(s["buildings"].get("radar_station") or 0):
+            errors.append("London history still has leftover radar_station")
+        if s["id"] == 362:
+            lv = max((s.get("ports") or {}).values(), default=0)
+            if lv < 8:
+                errors.append(f"Virginia history naval max {lv} expected Norfolk >=8")
+    print(f"history ports={hist_ports} supply_hubs={hist_supply}")
+    if hist_ports < 500:
+        errors.append(f"history ports {hist_ports} — existing naval_base rows were dropped")
+    if hist_supply < 80:
+        errors.append(f"history supply hubs {hist_supply} expected urban/capital coverage")
 
     if errors:
         print("FAIL", len(errors))

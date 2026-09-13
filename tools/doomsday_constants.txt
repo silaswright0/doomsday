@@ -25,6 +25,10 @@ Formulas (edit these, then rerun allocate_state_stats.py then apply_state_stats.
   DIB_REFINERIES = tools/data/dib_refineries.json  # ~400 kb/d CDU
   DIB_SILOS = tools/data/dib_fuel_silos.json  # SPR / tank-farm campuses
   DIB_GRID = tools/data/dib_grid.json  # ISO/TSO hubs, 1 per state
+  DIB_AIR = tools/data/dib_air.json  # OurAirports military fields / 2 + large civ / 8
+  DIB_AA = tools/data/dib_aa.json  # IISS SAM battalion clusters, cap 5/state
+  DIB_RADAR = tools/data/dib_radar.json  # strategic early-warning only; no 2nd radar type
+  DIB_NAVAL = tools/data/dib_naval.json  # extras above the 1-floor on existing ports; never delete a port
 
 Worked examples (see doomsday_countries.csv after ingest):
   China industry+agri ~8248 → ~236 civs
@@ -42,7 +46,9 @@ Building caps (Doomsday overrides):
 Do NOT rerun generate_doomsday.py to apply these numbers.
 Use tools/allocate_state_stats.py then tools/apply_state_stats.py.
 That patches existing history/states files and leaves owners, cores, VPs,
-and province buildings alone.
+and province IDs alone. Nested naval_base rows are kept (levels only);
+supply_node hubs are added on capitals/large cities; railways.txt levels
+may rise but edges are not redrawn.
 
 Debt and GDP columns are stored for a later stability system.
 They do not buy factories.
@@ -54,7 +60,7 @@ Treasury rates (US$ billions / month, tools/calibrate_economy.py):
   State admin                 0.02 per million people + 1.20 per civilian factory
   Standard tax                0.02 per million people + 0.80 per civilian factory
   High tax                    2.00 × standard
-  Default policy factor       1.78 (additive extras, not 1.1^6)
+  Default policy factor       1.48 (tier-3 laws: small×4 + investment medium; religion/media/AI/women never cost)
   Interest                    3% a year (0.03 / 12 each month)
   USA start yearly revenue    ~3694
   Pay Interest Groups         1% of yearly revenue (50 PP, once per month)

@@ -20,79 +20,20 @@ state={
 			arms_factory = 1
 			infrastructure = 5
 			industrial_complex = 5
-			air_base = 2
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			air_base = 4
 
 			synthetic_refinery = 1
 			energy_infrastructure = 1
 
-
-			1349 = {
-				naval_base = 6
-			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			renewable_park = 1
 			finance_center = 1
 			services_building = 1
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+1349 = {
+				supply_node = 1
+				naval_supply_hub = 1
+				naval_base = 10
+			}
 		}
 		add_claim_by = KHL
 		victory_points = {

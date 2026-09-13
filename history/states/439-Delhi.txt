@@ -20,15 +20,16 @@ state={
 		buildings = {
 			rocket_site = 2
 
-
-
 			arms_factory = 1
 			infrastructure = 5
 			industrial_complex = 1
-			air_base = 4
+			air_base = 7
 			energy_infrastructure = 1
-		
-		
+			anti_air_building = 3
+			radar_station = 2
+			2086 = {
+				supply_node = 1
+			}
 		}
 		add_core_of = RAJ
 		victory_points = {

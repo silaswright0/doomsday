@@ -2,7 +2,8 @@
 """Allocate 2026 manpower, buildings, and resources onto every HOI4 state.
 
 Country totals come from cited snapshots in tools/data/. Subnational rows only
-allocate. Deterministic. Does not rewrite owners or province buildings.
+allocate. Deterministic. Does not rewrite owners. Province naval/supply are
+applied from this plan by apply_state_stats.py (existing ports are never deleted).
 """
 from __future__ import annotations
 
@@ -21,6 +22,10 @@ from state_stats_geo import (  # noqa: E402
     COBALT_KEYWORDS,
     COPPER_KEYWORDS,
     DOCK_KEYWORDS,
+    AIR_KEYWORDS,
+    AA_KEYWORDS,
+    RADAR_KEYWORDS,
+    NAVAL_KEYWORDS,
     FINANCE_KEYWORDS,
     GRAPHITE_KEYWORDS,
     GRID_KEYWORDS,
@@ -47,6 +52,7 @@ from state_stats_lib import (  # noqa: E402
     DATA,
     DIB_FINANCE_PATH,
     DIB_GRID_PATH,
+    DIB_NAVAL_PATH,
     DIB_REFINERIES_PATH,
     DIB_SILOS_PATH,
     GAZETTEER_CSV,
@@ -284,6 +290,10 @@ def main() -> None:
     refinery_campus = load_campus_counts(DIB_REFINERIES_PATH)
     silo_campus = load_campus_counts(DIB_SILOS_PATH)
     grid_campus = load_campus_counts(DIB_GRID_PATH)
+    air_campus = load_campus_counts(DATA / "dib_air.json")
+    aa_campus = load_campus_counts(DATA / "dib_aa.json")
+    radar_campus = load_campus_counts(DATA / "dib_radar.json")
+    naval_campus = load_campus_counts(DIB_NAVAL_PATH)
     ntl_by_iso3 = load_admin1_ntl().get("by_iso3") or {}
 
     mineral_country = {
@@ -313,6 +323,10 @@ def main() -> None:
         refinery_total = refinery_campus.get(tag, 0)
         silo_total = silo_campus.get(tag, 0)
         grid_total = grid_campus.get(tag, 0)
+        air_total = air_campus.get(tag, 0)
+        aa_total = aa_campus.get(tag, 0)
+        radar_total = radar_campus.get(tag, 0)
+        naval_total = naval_campus.get(tag, 0)
         srv_total = services_from_va(services_va_b(gdp, ind, agr, float(row.get("srv_b") or 0)))
         capital_id = capitals.get(tag)
 
@@ -321,6 +335,7 @@ def main() -> None:
         mil_w = []
         dock_w = []
         park_w = []
+        air_w = []
         sources = []
         region_members: dict[str, list[int]] = defaultdict(list)
         region_pop: dict[str, float] = {}
@@ -358,6 +373,7 @@ def main() -> None:
             mil_bonus = keyword_bonus(tag, loc, s["pretty"], MIL_KEYWORDS)
             dock_bonus = keyword_bonus(tag, loc, s["pretty"], DOCK_KEYWORDS)
             park_bonus = keyword_bonus(tag, loc, s["pretty"], RENEW_KEYWORDS)
+            air_bonus = keyword_bonus(tag, loc, s["pretty"], AIR_KEYWORDS)
             civ_w.append(weight + 8_000_000 * civ_bonus)
             # Same 8e6 scale as civs: plant keywords must beat population smear.
             mil_w.append(0.05 * weight + 8_000_000 * mil_bonus)
@@ -367,6 +383,11 @@ def main() -> None:
             else:
                 dock_w.append(0.0)
             park_w.append(0.05 * weight + 80.0 * park_bonus)
+            air_w.append(
+                0.02 * weight
+                + 8_000_000 * max(air_bonus, 0.0)
+                + (500_000.0 if s["id"] == capital_id else 0.0)
+            )
 
         def campus_weights(table: dict) -> list[float]:
             weights = [
@@ -381,6 +402,30 @@ def main() -> None:
         refinery_w = campus_weights(REFINERY_KEYWORDS)
         silo_w = campus_weights(SILO_KEYWORDS)
         grid_w = campus_weights(GRID_KEYWORDS)
+        aa_w = campus_weights(AA_KEYWORDS)
+        radar_w = campus_weights(RADAR_KEYWORDS)
+        naval_w = []
+        for s in owned:
+            if not s.get("ports"):
+                naval_w.append(0.0)
+                continue
+            naval_w.append(
+                max(0.0, keyword_bonus(tag, s["loc_pretty"], s["pretty"], NAVAL_KEYWORDS))
+            )
+        if naval_total and sum(naval_w) <= 0:
+            best_i = max(
+                range(len(owned)),
+                key=lambda i: (
+                    max((owned[i].get("ports") or {}).values(), default=-1),
+                    -owned[i]["id"],
+                ),
+            )
+            naval_w = [
+                1.0 if i == best_i and owned[i].get("ports") else 0.0
+                for i in range(len(owned))
+            ]
+        if sum(air_w) <= 0:
+            air_w = campus_weights(AIR_KEYWORDS)
 
         if len(owned) == 1 and sources[0] == "map-area*density":
             pop_w[0] = float(target_pop)
@@ -408,6 +453,13 @@ def main() -> None:
         refinery_d = cap_distribute(refinery_total, refinery_w, 3)
         silo_d = cap_distribute(silo_total, silo_w, 3)
         grid_d = cap_distribute(grid_total, grid_w, 1)
+        air_d = cap_distribute(air_total, air_w, 10)
+        aa_d = cap_distribute(aa_total, aa_w, 5)
+        radar_d = cap_distribute(radar_total, radar_w, 6)
+        if sum(naval_w) <= 0:
+            naval_d = [0] * len(owned)
+        else:
+            naval_d = cap_distribute(naval_total, naval_w, 9)
 
         # Country resource totals
         meta = TAG_META.get(tag, {})
@@ -485,6 +537,10 @@ def main() -> None:
                 "fuel_silo": extras["fuel_silo"],
                 "energy_grid": extras["energy_infrastructure"],
                 "renewable": parks,
+                "air_base": air_d[i],
+                "anti_air": aa_d[i],
+                "radar": radar_d[i],
+                "naval_primary": (1 + naval_d[i]) if s.get("ports") else 0,
                 "extra_slots": slots,
                 "category": cat,
                 "pop_source": sources[i],
@@ -524,6 +580,7 @@ def main() -> None:
         [
             "state_id", "file", "owner_2026", "loc_name", "manpower", "civs", "mils", "docks",
             "infra", "finance", "services", "refinery", "fuel_silo", "energy_grid", "renewable",
+            "air_base", "anti_air", "radar", "naval_primary",
             "extra_slots", "category", "pop_source",
             "oil", "coal", "steel", "aluminium", "tungsten", "chromium", "copper", "graphite",
             "lithium", "cobalt", "rare_earths", "rubber",
@@ -544,10 +601,15 @@ def main() -> None:
     world_ref = sum(r["refinery"] for r in plan_rows)
     world_silo = sum(r["fuel_silo"] for r in plan_rows)
     world_grid = sum(r["energy_grid"] for r in plan_rows)
+    world_air = sum(r["air_base"] for r in plan_rows)
+    world_aa = sum(r["anti_air"] for r in plan_rows)
+    world_radar = sum(r["radar"] for r in plan_rows)
+    world_naval_extra = sum(max(0, r["naval_primary"] - 1) for r in plan_rows)
     print("states", len(plan_rows), "country_rows_refreshed", refreshed)
     print("world manpower", world_pop, "civs", world_civs, "mils", world_mils, "docks", world_docks, "parks", world_parks)
     print("world finance", world_fin, "services", world_srv, "refinery", world_ref, "silos", world_silo, "grid", world_grid)
-    for sid in (1, 16, 378, 375, 126, 613, 1030, 358, 261):
+    print("world air", world_air, "aa", world_aa, "radar", world_radar, "naval_extra", world_naval_extra)
+    for sid in (1, 16, 378, 375, 126, 613, 1030, 358, 261, 362, 629):
         rec = next((r for r in plan_rows if r["state_id"] == sid), None)
         if rec:
             print(
@@ -555,7 +617,8 @@ def main() -> None:
                 f"mils={rec['mils']} docks={rec['docks']} parks={rec['renewable']} "
                 f"infra={rec['infra']} fin={rec['finance']} srv={rec['services']} "
                 f"ref={rec['refinery']} silo={rec['fuel_silo']} grid={rec['energy_grid']} "
-                f"src={rec['pop_source']}"
+                f"air={rec['air_base']} aa={rec['anti_air']} radar={rec['radar']} "
+                f"nav={rec['naval_primary']} src={rec['pop_source']}"
             )
 
 

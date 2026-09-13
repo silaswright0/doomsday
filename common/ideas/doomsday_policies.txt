@@ -1,5 +1,8 @@
-# Budget policies. Law slots on the politics tab (beside conscription/trade/economy).
 # Law slots on the Politics tab. Country-scoped. No random.
+# Five exclusive laws per slot (taxes stay three). Switching is adjacent
+# tiers only at 150 PP each. Treasury cost is the monthly admin surcharge
+# in dd_recalc_policy_expense. Religion, media, AI, women, labor: never.
+# Bands: small +0.08, medium +0.16, large +0.32, extreme +0.64.
 
 ideas = {
 	dd_welfare_laws = {
@@ -8,38 +11,97 @@ ideas = {
 
 		dd_welfare_1 = {
 			picture = generic_goods_red_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				stability_factor = -0.02
-				consumer_goods_factor = -0.02
+			available = {
+				OR = {
+					has_idea = dd_welfare_1
+					has_idea = dd_welfare_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				stability_factor = -0.10
+				consumer_goods_factor = -0.20
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_welfare_2 = {
 			picture = generic_goods_red_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_welfare_1
+					has_idea = dd_welfare_2
+					has_idea = dd_welfare_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				stability_factor = -0.05
+				consumer_goods_factor = -0.10
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_welfare_3 = {
 			picture = generic_goods_red_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_welfare_2
+					has_idea = dd_welfare_3
+					has_idea = dd_welfare_4
+				}
+			}
 			modifier = {
-				stability_factor = 0.05
-				consumer_goods_factor = 0.05
+				stability_factor = 0.02
+				consumer_goods_factor = 0.01
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_welfare_4 = {
+			picture = generic_goods_red_bonus
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_welfare_3
+					has_idea = dd_welfare_4
+					has_idea = dd_welfare_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.10
+				consumer_goods_factor = 0.10
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_welfare_5 = {
+			picture = generic_goods_red_bonus
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_welfare_4
+					has_idea = dd_welfare_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.20
+				consumer_goods_factor = -0.20
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -49,37 +111,101 @@ ideas = {
 
 		dd_education_1 = {
 			picture = generic_research_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				research_speed_factor = -0.05
+			available = {
+				OR = {
+					has_idea = dd_education_1
+					has_idea = dd_education_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				research_speed_factor = -0.25
+				drift_defence_factor = 0.50
+				war_support_factor = 0.25
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_education_2 = {
 			picture = generic_research_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_education_1
+					has_idea = dd_education_2
+					has_idea = dd_education_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				research_speed_factor = -0.15
+				drift_defence_factor = 0.30
+				war_support_factor = 0.10
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_education_3 = {
 			picture = generic_research_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_education_2
+					has_idea = dd_education_3
+					has_idea = dd_education_4
+				}
+			}
 			modifier = {
-				research_speed_factor = 0.05
-				consumer_goods_factor = 0.02
+				research_speed_factor = -0.05
+				drift_defence_factor = 0.10
+				war_support_factor = 0.05
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_education_4 = {
+			picture = generic_research_bonus
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_education_3
+					has_idea = dd_education_4
+					has_idea = dd_education_5
+				}
+			}
+			modifier = {
+				research_speed_factor = 0.15
+				drift_defence_factor = 0.05
+				war_support_factor = -0.02
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_education_5 = {
+			picture = generic_research_bonus
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_education_4
+					has_idea = dd_education_5
+				}
+			}
+			modifier = {
+				research_speed_factor = 0.30
+				war_support_factor = -0.10
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -89,38 +215,103 @@ ideas = {
 
 		dd_immigration_1 = {
 			picture = generic_pp_unity_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				monthly_population = -0.1
-				stability_factor = 0.02
+			available = {
+				OR = {
+					has_idea = dd_immigration_1
+					has_idea = dd_immigration_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				stability_factor = 0.20
+				war_support_factor = 0.10
+				research_speed_factor = -0.10
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_immigration_2 = {
 			picture = generic_pp_unity_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_immigration_1
+					has_idea = dd_immigration_2
+					has_idea = dd_immigration_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				stability_factor = 0.10
+				war_support_factor = 0.05
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_immigration_3 = {
 			picture = generic_pp_unity_bonus
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_immigration_2
+					has_idea = dd_immigration_3
+					has_idea = dd_immigration_4
+				}
+			}
 			modifier = {
-				monthly_population = 0.15
-				stability_factor = -0.03
+				stability_factor = 0.02
+				monthly_population = 0.03
+				drift_defence_factor = -0.05
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_immigration_4 = {
+			picture = generic_pp_unity_bonus
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_immigration_3
+					has_idea = dd_immigration_4
+					has_idea = dd_immigration_5
+				}
+			}
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.05
+				drift_defence_factor = -0.10
+				monthly_population = 0.10
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_immigration_5 = {
+			picture = generic_pp_unity_bonus
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_immigration_4
+					has_idea = dd_immigration_5
+				}
+			}
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = -0.20
+				drift_defence_factor = -0.30
+				monthly_population = 0.30
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -130,10 +321,16 @@ ideas = {
 
 		dd_taxes_1 = {
 			picture = generic_constitutional_guarantees
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_taxes_1
+					has_idea = dd_taxes_2
+				}
+			}
 			modifier = {
 				production_speed_buildings_factor = 0.05
 			}
@@ -141,21 +338,34 @@ ideas = {
 		}
 		dd_taxes_2 = {
 			picture = generic_constitutional_guarantees
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
 			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_taxes_1
+					has_idea = dd_taxes_2
+					has_idea = dd_taxes_3
+				}
+			}
 			modifier = {
 			}
 			ai_will_do = { factor = 1 }
 		}
 		dd_taxes_3 = {
 			picture = generic_constitutional_guarantees
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_taxes_2
+					has_idea = dd_taxes_3
+				}
+			}
 			modifier = {
 				stability_factor = -0.05
 				production_factory_max_efficiency_factor = -0.05
@@ -170,40 +380,109 @@ ideas = {
 
 		dd_women_1 = {
 			picture = HUN_treaty_of_triannon
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				research_speed_factor = -0.04
-				industrial_capacity_factory = -0.03
-				stability_factor = 0.02
+			available = {
+				OR = {
+					has_idea = dd_women_1
+					has_idea = dd_women_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				stability_factor = 0.10
+				research_speed_factor = -0.05
+				industrial_capacity_factory = -0.10
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_women_2 = {
 			picture = HUN_treaty_of_triannon
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_women_1
+					has_idea = dd_women_2
+					has_idea = dd_women_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				stability_factor = 0.05
+				research_speed_factor = -0.02
+				industrial_capacity_factory = -0.05
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_women_3 = {
 			picture = HUN_treaty_of_triannon
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_women_2
+					has_idea = dd_women_3
+					has_idea = dd_women_4
+				}
+			}
 			modifier = {
-				research_speed_factor = 0.04
-				industrial_capacity_factory = 0.03
-				consumer_goods_factor = 0.02
+				stability_factor = 0.01
+				research_speed_factor = 0.02
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_women_4 = {
+			picture = HUN_treaty_of_triannon
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_women_3
+					has_idea = dd_women_4
+					has_idea = dd_women_5
+				}
+			}
+			on_add = {
+				dd_sync_fertility_to_women = yes
+			}
+			modifier = {
+				stability_factor = -0.05
+				research_speed_factor = 0.10
+				monthly_population = -0.05
+				industrial_capacity_factory = 0.10
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_women_5 = {
+			picture = HUN_treaty_of_triannon
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_women_4
+					has_idea = dd_women_5
+				}
+			}
+			on_add = {
+				dd_sync_fertility_to_women = yes
+			}
+			modifier = {
+				stability_factor = -0.10
+				research_speed_factor = 0.10
+				monthly_population = -0.10
+				industrial_capacity_factory = 0.25
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -213,41 +492,106 @@ ideas = {
 
 		dd_minority_1 = {
 			picture = HUN_treaty_of_triannon
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_minority_1
+					has_idea = dd_minority_2
+				}
+			}
 			modifier = {
-				non_core_manpower = -0.05
-				stability_factor = 0.03
+				stability_factor = 0.05
+				war_support_factor = 0.10
+				non_core_manpower = -0.75
+				resistance_target = 0.15
+			}
+			ai_will_do = { factor = 0.3 }
+		}
+		dd_minority_2 = {
+			picture = HUN_treaty_of_triannon
+			cost = 150
+			removal_cost = -1
+			level = 2
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_minority_1
+					has_idea = dd_minority_2
+					has_idea = dd_minority_3
+				}
+			}
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.05
+				non_core_manpower = -0.30
 				resistance_target = 0.05
 			}
 			ai_will_do = { factor = 0.5 }
 		}
-		dd_minority_2 = {
+		dd_minority_3 = {
 			picture = HUN_treaty_of_triannon
-			cost = 0
+			cost = 150
 			removal_cost = -1
-			level = 2
+			level = 3
 			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_minority_2
+					has_idea = dd_minority_3
+					has_idea = dd_minority_4
+				}
+			}
 			modifier = {
+				stability_factor = 0.01
+				non_core_manpower = 0.10
+				resistance_target = -0.05
 			}
 			ai_will_do = { factor = 1 }
 		}
-		dd_minority_3 = {
+		dd_minority_4 = {
 			picture = HUN_treaty_of_triannon
-			cost = 0
+			cost = 150
 			removal_cost = -1
-			level = 3
+			level = 4
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_minority_3
+					has_idea = dd_minority_4
+					has_idea = dd_minority_5
+				}
+			}
 			modifier = {
-				non_core_manpower = 0.08
-				compliance_gain = 0.10
-				monthly_population = 0.03
-				stability_factor = -0.02
+				stability_factor = -0.05
+				non_core_manpower = 0.25
+				resistance_target = -0.15
+				compliance_gain = 0.001
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_minority_5 = {
+			picture = HUN_treaty_of_triannon
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_minority_4
+					has_idea = dd_minority_5
+				}
+			}
+			modifier = {
+				stability_factor = -0.15
+				non_core_manpower = 0.75
+				resistance_target = -0.25
+				compliance_gain = 0.005
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -257,36 +601,101 @@ ideas = {
 
 		dd_investment_1 = {
 			picture = generic_build_infrastructure
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_investment_1
+					has_idea = dd_investment_2
+				}
+			}
 			modifier = {
 				production_speed_buildings_factor = -0.10
+				production_speed_infrastructure_factor = -0.20
 			}
-			ai_will_do = { factor = 0.5 }
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_investment_2 = {
 			picture = generic_build_infrastructure
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_investment_1
+					has_idea = dd_investment_2
+					has_idea = dd_investment_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				production_speed_buildings_factor = -0.05
+				production_speed_infrastructure_factor = -0.10
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_investment_3 = {
 			picture = generic_build_infrastructure
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_investment_2
+					has_idea = dd_investment_3
+					has_idea = dd_investment_4
+				}
+			}
 			modifier = {
-				production_speed_buildings_factor = 0.15
+				production_speed_buildings_factor = 0.01
+				production_speed_infrastructure_factor = 0.10
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_investment_4 = {
+			picture = generic_build_infrastructure
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_investment_3
+					has_idea = dd_investment_4
+					has_idea = dd_investment_5
+				}
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				production_speed_infrastructure_factor = 0.20
+				production_speed_industrial_complex_factor = 0.05
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_investment_5 = {
+			picture = generic_build_infrastructure
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_investment_4
+					has_idea = dd_investment_5
+				}
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				production_speed_infrastructure_factor = 0.40
+				production_speed_industrial_complex_factor = 0.10
+				production_speed_arms_factory_factor = 0.05
+				production_speed_dockyard_factor = 0.05
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -296,41 +705,104 @@ ideas = {
 
 		dd_security_1 = {
 			picture = generic_secret_police
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				stability_factor = -0.04
-				encryption_factor = -0.10
-				production_speed_buildings_factor = 0.03
+			available = {
+				OR = {
+					has_idea = dd_security_1
+					has_idea = dd_security_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				stability_factor = -0.25
+				encryption_factor = -0.20
+				war_support_factor = 0.10
+				consumer_goods_factor = -0.20
+			}
+			ai_will_do = { factor = 0.2 }
 		}
 		dd_security_2 = {
 			picture = generic_secret_police
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_security_1
+					has_idea = dd_security_2
+					has_idea = dd_security_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				stability_factor = -0.05
+				encryption_factor = -0.10
+				war_support_factor = 0.05
+				consumer_goods_factor = -0.10
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_security_3 = {
 			picture = generic_secret_police
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_security_2
+					has_idea = dd_security_3
+					has_idea = dd_security_4
+				}
+			}
 			modifier = {
-				stability_factor = 0.04
-				encryption_factor = 0.15
-				drift_defence_factor = 0.10
+				stability_factor = 0.05
+				encryption_factor = 0.10
 				consumer_goods_factor = 0.02
 			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_security_4 = {
+			picture = generic_secret_police
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_security_3
+					has_idea = dd_security_4
+					has_idea = dd_security_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.10
+				encryption_factor = 0.10
+				consumer_goods_factor = 0.05
+			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_security_5 = {
+			picture = generic_secret_police
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_security_4
+					has_idea = dd_security_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.15
+				encryption_factor = 0.10
+				consumer_goods_factor = 0.10
+			}
+			ai_will_do = { factor = 0.4 }
 		}
 	}
 
@@ -340,40 +812,105 @@ ideas = {
 
 		dd_healthcare_1 = {
 			picture = ARG_social_welfare_fund_ns
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				monthly_population = -0.05
-				stability_factor = -0.02
+			available = {
+				OR = {
+					has_idea = dd_healthcare_1
+					has_idea = dd_healthcare_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				stability_factor = -0.10
+				monthly_population = -0.05
+				casualty_trickleback = -0.10
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_healthcare_2 = {
 			picture = ARG_social_welfare_fund_ns
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
-				monthly_population = 0.03
+			available = {
+				OR = {
+					has_idea = dd_healthcare_1
+					has_idea = dd_healthcare_2
+					has_idea = dd_healthcare_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				stability_factor = -0.04
+				monthly_population = -0.02
+				casualty_trickleback = -0.04
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_healthcare_3 = {
 			picture = ARG_social_welfare_fund_ns
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_healthcare_2
+					has_idea = dd_healthcare_3
+					has_idea = dd_healthcare_4
+				}
+			}
 			modifier = {
-				monthly_population = 0.08
-				stability_factor = 0.01
-				war_support_factor = 0.01
+				stability_factor = 0.02
+				monthly_population = 0.02
+				casualty_trickleback = 0.03
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_healthcare_4 = {
+			picture = ARG_social_welfare_fund_ns
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_healthcare_3
+					has_idea = dd_healthcare_4
+					has_idea = dd_healthcare_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.08
+				monthly_population = 0.05
+				casualty_trickleback = 0.10
+				war_support_factor = 0.02
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_healthcare_5 = {
+			picture = ARG_social_welfare_fund_ns
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_healthcare_4
+					has_idea = dd_healthcare_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.15
+				monthly_population = 0.08
+				casualty_trickleback = 0.18
+				experience_loss_factor = -0.05
+				conscription_factor = 0.03
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -383,40 +920,103 @@ ideas = {
 
 		dd_labor_1 = {
 			picture = generic_oppression
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				stability_factor = -0.05
-				industrial_capacity_factory = 0.04
-				production_factory_max_efficiency_factor = 0.03
+			available = {
+				OR = {
+					has_idea = dd_labor_1
+					has_idea = dd_labor_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				stability_factor = -0.12
+				industrial_capacity_factory = 0.08
+				production_factory_max_efficiency_factor = 0.04
+				war_support_factor = -0.05
+				resistance_target = 0.08
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_labor_2 = {
 			picture = generic_oppression
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_labor_1
+					has_idea = dd_labor_2
+					has_idea = dd_labor_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				stability_factor = -0.05
+				industrial_capacity_factory = 0.03
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_labor_3 = {
 			picture = generic_oppression
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_labor_2
+					has_idea = dd_labor_3
+					has_idea = dd_labor_4
+				}
+			}
 			modifier = {
-				stability_factor = 0.04
-				consumer_goods_factor = 0.03
+				stability_factor = 0.01
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_labor_4 = {
+			picture = generic_oppression
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_labor_3
+					has_idea = dd_labor_4
+					has_idea = dd_labor_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.06
 				industrial_capacity_factory = -0.03
+				consumer_goods_factor = 0.03
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_labor_5 = {
+			picture = generic_oppression
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_labor_4
+					has_idea = dd_labor_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.04
+				industrial_capacity_factory = -0.05
+				production_speed_buildings_factor = 0.05
+				conscription_factor = 0.05
+				consumer_goods_factor = 0.05
+			}
+			ai_will_do = { factor = 0.4 }
 		}
 	}
 
@@ -426,40 +1026,102 @@ ideas = {
 
 		dd_fertility_1 = {
 			picture = ITA_battaglie_per_la_nascite
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				monthly_population = 0.12
-				research_speed_factor = -0.03
-				conscription_factor = 0.02
+			available = {
+				NOT = { has_idea = dd_women_4 }
+				NOT = { has_idea = dd_women_5 }
+				OR = {
+					has_idea = dd_fertility_1
+					has_idea = dd_fertility_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				monthly_population = 0.20
+				industrial_capacity_factory = -0.10
+			}
+			ai_will_do = { factor = 0.4 }
 		}
 		dd_fertility_2 = {
 			picture = ITA_battaglie_per_la_nascite
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
-				monthly_population = 0.02
+			available = {
+				NOT = { has_idea = dd_women_4 }
+				NOT = { has_idea = dd_women_5 }
+				OR = {
+					has_idea = dd_fertility_1
+					has_idea = dd_fertility_2
+					has_idea = dd_fertility_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				monthly_population = 0.10
+				industrial_capacity_factory = -0.05
+			}
+			ai_will_do = { factor = 0.6 }
 		}
 		dd_fertility_3 = {
 			picture = ITA_battaglie_per_la_nascite
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				NOT = { has_idea = dd_women_5 }
+				OR = {
+					has_idea = dd_fertility_2
+					has_idea = dd_fertility_3
+					has_idea = dd_fertility_4
+				}
+			}
 			modifier = {
-				monthly_population = -0.06
-				research_speed_factor = 0.03
+				monthly_population = -0.02
+				industrial_capacity_factory = 0.05
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_fertility_4 = {
+			picture = ITA_battaglie_per_la_nascite
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_fertility_3
+					has_idea = dd_fertility_4
+					has_idea = dd_fertility_5
+				}
+			}
+			modifier = {
+				monthly_population = -0.05
+				industrial_capacity_factory = 0.10
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_fertility_5 = {
+			picture = ITA_battaglie_per_la_nascite
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_fertility_4
+					has_idea = dd_fertility_5
+				}
+			}
+			modifier = {
+				monthly_population = -0.10
+				industrial_capacity_factory = 0.20
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -469,51 +1131,120 @@ ideas = {
 
 		dd_aid_1 = {
 			picture = generic_flexible_foreign_policy
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				opinion_gain_monthly = -0.5
-				guarantee_tension = 0.50
-				lend_lease_tension = 0.25
-				send_volunteer_factor = -0.50
-				consumer_goods_factor = -0.02
+			available = {
+				OR = {
+					has_idea = dd_aid_1
+					has_idea = dd_aid_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				consumer_goods_factor = -0.05
+				opinion_gain_monthly = -0.5
+				lend_lease_tension = 0.50
+				guarantee_tension = 0.80
+				send_volunteer_factor = -0.90
+			}
+			ai_will_do = { factor = 0.4 }
 		}
 		dd_aid_2 = {
 			picture = generic_flexible_foreign_policy
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
-				opinion_gain_monthly = 0.5
-				improve_relations_maintain_cost_factor = -0.15
+			available = {
+				OR = {
+					has_idea = dd_aid_1
+					has_idea = dd_aid_2
+					has_idea = dd_aid_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				consumer_goods_factor = -0.02
+				opinion_gain_monthly = -0.2
+				lend_lease_tension = 0.20
+				guarantee_tension = 0.40
+				send_volunteer_factor = -0.60
+			}
+			ai_will_do = { factor = 0.6 }
 		}
 		dd_aid_3 = {
 			picture = generic_flexible_foreign_policy
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_aid_2
+					has_idea = dd_aid_3
+					has_idea = dd_aid_4
+				}
+			}
 			modifier = {
-				opinion_gain_monthly = 2
-				improve_relations_maintain_cost_factor = -0.50
-				trade_opinion_factor = 0.15
+				consumer_goods_factor = 0.02
+				opinion_gain_monthly = 0.5
+				improve_relations_maintain_cost_factor = -0.20
+				lend_lease_tension = -0.10
+				guarantee_tension = -0.10
 				send_volunteer_size = 1
-				send_volunteer_divisions_required = -0.50
-				lend_lease_tension = -0.25
-				guarantee_tension = -0.20
-				join_faction_tension = -0.10
-				justify_war_goal_time = 0.25
-				political_power_factor = 0.05
+				trade_opinion_factor = 0.10
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_aid_4 = {
+			picture = generic_flexible_foreign_policy
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_aid_3
+					has_idea = dd_aid_4
+					has_idea = dd_aid_5
+				}
+			}
+			modifier = {
+				consumer_goods_factor = 0.04
+				opinion_gain_monthly = 0.1
+				improve_relations_maintain_cost_factor = -0.50
+				lend_lease_tension = -0.30
+				guarantee_tension = -0.30
+				join_faction_tension = -0.30
+				send_volunteer_size = 2
+				trade_opinion_factor = 0.20
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_aid_5 = {
+			picture = generic_flexible_foreign_policy
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_aid_4
+					has_idea = dd_aid_5
+				}
+			}
+			modifier = {
+				consumer_goods_factor = 0.08
+				opinion_gain_monthly = 0.5
+				improve_relations_maintain_cost_factor = -0.80
+				lend_lease_tension = -0.50
+				guarantee_tension = -0.50
+				join_faction_tension = -0.50
+				send_volunteer_size = 4
+				trade_opinion_factor = 0.40
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -523,43 +1254,102 @@ ideas = {
 
 		dd_religion_1 = {
 			picture = YUG_orthodox_church_support
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				stability_factor = 0.04
-				war_support_factor = 0.05
-				political_power_factor = 0.05
-				research_speed_factor = -0.04
-				drift_defence_factor = 0.15
+			available = {
+				OR = {
+					has_idea = dd_religion_1
+					has_idea = dd_religion_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				war_support_factor = 0.20
+				drift_defence_factor = 0.30
+				research_speed_factor = -0.05
+				stability_factor = -0.05
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_religion_2 = {
 			picture = YUG_orthodox_church_support
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_religion_1
+					has_idea = dd_religion_2
+					has_idea = dd_religion_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				war_support_factor = 0.10
+				drift_defence_factor = 0.15
+				research_speed_factor = -0.02
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_religion_3 = {
 			picture = YUG_orthodox_church_support
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_religion_2
+					has_idea = dd_religion_3
+					has_idea = dd_religion_4
+				}
+			}
 			modifier = {
-				research_speed_factor = 0.05
-				compliance_gain = 0.05
-				stability_factor = -0.03
-				war_support_factor = -0.02
+				war_support_factor = 0.05
+				drift_defence_factor = 0.05
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_religion_4 = {
+			picture = YUG_orthodox_church_support
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_religion_3
+					has_idea = dd_religion_4
+					has_idea = dd_religion_5
+				}
+			}
+			modifier = {
+				war_support_factor = -0.05
+				drift_defence_factor = -0.10
+				research_speed_factor = 0.02
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_religion_5 = {
+			picture = YUG_orthodox_church_support
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_religion_4
+					has_idea = dd_religion_5
+				}
+			}
+			modifier = {
+				war_support_factor = -0.15
+				drift_defence_factor = -0.25
+				stability_factor = 0.10
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -569,42 +1359,109 @@ ideas = {
 
 		dd_media_1 = {
 			picture = generic_radio_concern
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_media_1
+					has_idea = dd_media_2
+				}
+			}
 			modifier = {
+				drift_defence_factor = 0.30
 				political_power_factor = 0.10
 				encryption_factor = 0.10
-				drift_defence_factor = 0.20
-				research_speed_factor = -0.05
+				research_speed_factor = -0.25
 			}
-			ai_will_do = { factor = 0.5 }
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_media_2 = {
 			picture = generic_radio_concern
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_media_1
+					has_idea = dd_media_2
+					has_idea = dd_media_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				drift_defence_factor = 0.15
+				political_power_factor = 0.05
+				encryption_factor = 0.05
+				research_speed_factor = -0.15
+			}
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_media_3 = {
 			picture = generic_radio_concern
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_media_2
+					has_idea = dd_media_3
+					has_idea = dd_media_4
+				}
+			}
 			modifier = {
-				research_speed_factor = 0.04
+				drift_defence_factor = 0.10
+				political_power_factor = 0.02
+				encryption_factor = 0.05
+				research_speed_factor = -0.05
 				stability_factor = 0.02
-				drift_defence_factor = -0.15
-				encryption_factor = -0.10
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_media_4 = {
+			picture = generic_radio_concern
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_media_3
+					has_idea = dd_media_4
+					has_idea = dd_media_5
+				}
+			}
+			modifier = {
+				drift_defence_factor = 0.05
+				stability_factor = 0.01
+				encryption_factor = -0.05
+				political_power_factor = -0.01
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_media_5 = {
+			picture = generic_radio_concern
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_media_4
+					has_idea = dd_media_5
+				}
+			}
+			modifier = {
+				drift_defence_factor = -0.10
+				stability_factor = -0.02
+				encryption_factor = -0.10
+				political_power_factor = -0.04
+				research_speed_factor = 0.15
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -614,43 +1471,101 @@ ideas = {
 
 		dd_civil_military_1 = {
 			picture = generic_electronics_concern_1
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 1
 			cancel_if_invalid = no
-			modifier = {
-				research_speed_factor = 0.06
-				industrial_capacity_factory = 0.05
-				encryption_factor = -0.10
-				stability_factor = -0.04
+			available = {
+				OR = {
+					has_idea = dd_civil_military_1
+					has_idea = dd_civil_military_2
+				}
 			}
-			ai_will_do = { factor = 0.5 }
+			modifier = {
+				stability_factor = -0.10
+				research_speed_factor = 0.10
+				industrial_capacity_factory = 0.02
+			}
+			ai_will_do = { factor = 0.4 }
 		}
 		dd_civil_military_2 = {
 			picture = generic_electronics_concern_1
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
-			modifier = {
+			available = {
+				OR = {
+					has_idea = dd_civil_military_1
+					has_idea = dd_civil_military_2
+					has_idea = dd_civil_military_3
+				}
 			}
-			ai_will_do = { factor = 1 }
+			modifier = {
+				stability_factor = -0.05
+				research_speed_factor = 0.05
+				industrial_capacity_factory = 0.01
+			}
+			ai_will_do = { factor = 0.6 }
 		}
 		dd_civil_military_3 = {
 			picture = generic_electronics_concern_1
-			cost = 0
+			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_civil_military_2
+					has_idea = dd_civil_military_3
+					has_idea = dd_civil_military_4
+				}
+			}
 			modifier = {
-				research_speed_factor = -0.04
-				encryption_factor = 0.10
-				stability_factor = 0.04
-				political_power_factor = 0.05
-				industrial_capacity_factory = -0.03
+				stability_factor = -0.01
+				research_speed_factor = 0.02
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_civil_military_4 = {
+			picture = generic_electronics_concern_1
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_civil_military_3
+					has_idea = dd_civil_military_4
+					has_idea = dd_civil_military_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.05
+				research_speed_factor = -0.02
+				industrial_capacity_factory = -0.01
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_civil_military_5 = {
+			picture = generic_electronics_concern_1
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_civil_military_4
+					has_idea = dd_civil_military_5
+				}
+			}
+			modifier = {
+				stability_factor = 0.15
+				research_speed_factor = -0.10
+				industrial_capacity_factory = -0.03
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 }

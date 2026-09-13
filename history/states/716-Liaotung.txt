@@ -20,55 +20,14 @@ state={
 			arms_factory = 6
 			industrial_complex = 4
 			air_base = 5
-			
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			11764 = {
-				naval_base = 3
+			anti_air_building = 2
+11764 = {
+				naval_base = 1
 
 			}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			11808 = {
+11808 = {
 				landmark_great_wall_section = {
 				    level = 1
 				    allowed = {
@@ -76,28 +35,9 @@ state={
 				    }
 				}
 			}
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			11771 = {
+				supply_node = 1
+			}
 		}
 		victory_points = {
 			11771 3

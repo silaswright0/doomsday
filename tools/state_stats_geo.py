@@ -1068,6 +1068,72 @@ MIL_KEYWORDS = {
     "SOE": {"southossetia": 8},
 }
 
+AIR_KEYWORDS = {
+    "USA": {
+        "california": 10, "florida": 10, "texas": 8, "arizona": 6, "nevada": 5,
+        "virginia": 5, "georgia": 4, "northcarolina": 4, "washington": 4,
+        "alaska": 4, "hawaii": 4, "oklahoma": 4, "newmexico": 4, "maryland": 3,
+        "southcarolina": 3, "colorado": 3, "nebraska": 2, "missouri": 2,
+        "illinois": 2, "ohio": 2, "newyork": 2, "newengland": 2,
+        "westvirginia": -8,
+    },
+    "CHI": {
+        "beijing": 8, "shanghai": 6, "liaoning": 6, "dalian": 5, "guangdong": 6,
+        "xinjiang": 5, "sinkiang": 5, "chengdu": 5, "hubei": 4, "wuhan": 4,
+        "fujian": 4, "zhejiang": 3, "shandong": 3, "yunnan": 3, "hainan": 3,
+        "tibet": 2, "innermongolia": 2,
+    },
+    "SOV": {
+        "moscow": 8, "leningrad": 6, "kaliningrad": 5, "konigsberg": 5,
+        "vladivostok": 5, "crimea": 4, "rostov": 3, "murmansk": 3,
+        "novosibirsk": 2, "irkutsk": 2,
+    },
+    "ENG": {
+        "eastanglia": 6, "lincolnshire": 5, "eastmidlands": 5, "yorkshire": 4,
+        "scotland": 3, "scottishlowlands": 3, "oxford": 2, "london": -4,
+        "cornwall": 2,
+    },
+    "JAP": {"kanto": 6, "okinawa": 8, "kyushu": 5, "southkyushu": 5, "hokkaido": 4, "osaka": 3, "hiroshima": 3},
+    "KOR": {"gyeonggi": 6, "gyeongsang": 5, "chungcheong": 3},
+    "FOR": {"taiwan": 8},
+    "ISR": {"negev": 6, "haifa": 4, "telaviv": 3, "jerusalem": -2},
+    "RAJ": {"delhi": 6, "punjab": 4, "bombay": 3, "calcutta": 2, "bangalore": 3, "mysore": 3},
+    "CAN": {"quebec": 3, "ontario": 4, "alberta": 3, "novascotia": 3, "britishcolumbia": 3, "nunavut": 2},
+    "AST": {"northernterritory": 8, "queensland": 4, "newsouthwales": 3, "westernaustralia": 3},
+}
+
+AA_KEYWORDS = {
+    "USA": {"maryland": 8, "virginia": 6, "alaska": 8, "guam": 6, "hawaii": 4, "california": 3, "texas": 2, "florida": 2},
+    "CHI": {"beijing": 8, "shanghai": 6, "guangdong": 5, "fujian": 4, "liaoning": 4},
+    "SOV": {"moscow": 10, "leningrad": 6, "kaliningrad": 6, "konigsberg": 6, "crimea": 5},
+    "ISR": {"telaviv": 8, "haifa": 6, "negev": 5, "jerusalem": 4},
+    "KOR": {"gyeonggi": 10, "seoul": 8},
+    "JAP": {"kanto": 6, "okinawa": 5, "osaka": 3},
+    "FOR": {"taiwan": 8},
+    "ENG": {"london": 4, "eastanglia": 3, "yorkshire": 2},
+    "GER": {"brandenburg": 4, "berlin": 3, "bayern": 2},
+    "POL": {"warsaw": 6, "rzeszow": 4, "podkarpackie": 3},
+    "UKR": {"kiev": 6, "lviv": 4, "dnipro": 3},
+    "PER": {"tehran": 8, "isfahan": 5, "bushehr": 4},
+    "RAJ": {"delhi": 6, "punjab": 4},
+    "SAU": {"riyadh": 6, "eastern": 4, "neom": 1},
+}
+
+RADAR_KEYWORDS = {
+    "USA": {"alaska": 12, "northdakota": 6, "california": 4, "massachusetts": 4, "newengland": 4, "virginia": 3, "hawaii": 3, "guam": 4, "greenland": -8},
+    "CAN": {"nunavut": 8, "labrador": 6, "newfoundland": 4, "ontario": 3, "britishcolumbia": 3},
+    "SOV": {"leningrad": 6, "kaliningrad": 5, "irkutsk": 4, "murmansk": 4, "vladivostok": 4, "moscow": 3},
+    "CHI": {"fujian": 6, "hainan": 5, "xinjiang": 4, "beijing": 4, "heilongjiang": 3},
+    "ENG": {"yorkshire": 8, "scottishhighlands": 6, "northumberland": 5, "cornwall": 4, "london": -6},
+    "JAP": {"okinawa": 8, "hokkaido": 5, "kanto": 3},
+    "KOR": {"gyeonggi": 6, "gangwon": 4},
+    "FOR": {"taiwan": 8},
+    "AST": {"northernterritory": 8, "westernaustralia": 5, "southaustralia": 3},
+    "GRN": {"greenland": 8, "pituffik": 8, "thule": 8, "qaanaaq": 6},
+    "ISR": {"negev": 8, "haifa": 4},
+    "RAJ": {"delhi": 4, "ladakh": 5, "andaman": 3},
+}
+
 DOCK_KEYWORDS = {
     "CHI": {
         "shanghai": 12, "liaoning": 8, "dalian": 8, "jiangsu": 7, "jiansu": 7,
@@ -1114,6 +1180,75 @@ DOCK_KEYWORDS = {
     "POL": {"gdynia": 8, "danzig": 6, "pomorskie": 4},
     "UAE": {"abudhabi": 8},
     "MAL": {"lumut": 6, "perak": 4, "johor": 2},
+}
+
+# Fleet homeports, not shipyards. Extras go on an existing nested naval_base.
+NAVAL_KEYWORDS = {
+    "USA": {
+        "virginia": 12, "california": 10, "hawaii": 8, "washington": 8,
+        "florida": 8, "guam": 6, "newengland": 4,
+        "pennsylvania": -8, "louisiana": -4, "mississippi": -6,
+    },
+    "CHI": {
+        "qingdao": 12, "hainan": 10, "dalian": 8, "zhejiang": 6,
+        "guangdong": 6, "shanghai": 2, "hongkong": -8,
+    },
+    "SOV": {
+        "murmansk": 12, "vladivostok": 10, "konigsberg": 8, "kaliningrad": 8,
+        "leningrad": 4, "rostov": -6, "krasodar": -4,
+    },
+    "ENG": {
+        "southeast": 12, "cornwall": 10, "highland": 10,
+        "yorkshire": -8, "london": -8,
+    },
+    "FRA": {"var": 12, "toulon": 10, "brittany": 10, "bretagne": 8, "calais": -8, "corsica": -8},
+    "JAP": {"kanto": 12, "nagasaki": 8, "hiroshima": 8, "okinawa": 3, "osaka": -8, "akita": -6},
+    "KOR": {"gyeongsang": 12, "chungcheong": 4, "jeolla": 4},
+    "RAJ": {"bombay": 10, "madras": 8, "calcutta": 3, "mysore": 4, "frenchindia": -10, "andaman": -4},
+    "ITA": {
+        "piedmont": 8, "liguria": 8, "napoli": 6, "campania": 6, "calabria": 8,
+        "apulia": 8, "tuscany": -12, "sicily": -6, "sardinia": -4,
+    },
+    "TUR": {"izmit": 12, "golcuk": 10, "istanbul": 4, "izmir": -4, "antalya": -4},
+    "FOR": {"taiwan": 8},
+    "AST": {"newsouthwales": 6, "victoria": 4, "westernaustralia": 3, "queensland": 2},
+    "CAN": {"novascotia": 10, "halifax": 8, "britishcolumbia": 4, "nunavut": -10},
+    "BRA": {"riodejaneiro": 8, "pernambuco": 3},
+    "INS": {"eastjava": 10, "surabaya": 8, "jakarta": 4, "batavia": 4},
+    "PAK": {"karachi": 10, "sind": 8},
+    "EGY": {"alexandria": 10, "cairo": -6},
+    "GRE": {"attica": 8, "athens": 6, "piraeus": 6},
+    "SPR": {"cadiz": 8, "sevilla": 6, "galicia": 4, "ferrol": 6, "murcia": -4},
+    "HOL": {"holland": 8, "friesland": -4},
+    "GER": {"holstein": 10, "hannover": 6, "weserems": 4, "mecklenburg": -6},
+    "DPK": {"hamgyong": 6, "pyongan": 4},
+    "VIN": {"saigon": 6, "mekong": 6, "haiphong": 5, "tonkin": 4},
+    "PHI": {"bataan": 6, "manila": 6, "philippines": 2},
+    "SNG": {"singapore": 10},
+    "SAU": {"eastern": 6, "jeddah": 4, "mecca": 3},
+    "UAE": {"abudhabi": 8},
+    "ISR": {"haifa": 10, "telaviv": 2},
+    "NOR": {"vestlandet": 8, "oslo": 4, "nordnoreg": -4},
+    "SWE": {"blekinge": 10, "skane": -4, "gotland": -6},
+    "POL": {"gdynia": 10, "danzig": 6},
+    "POR": {"lisbon": 8},
+    "BEL": {"flanders": 6},
+    "DEN": {"sjaelland": 6, "jutland": 4},
+    "FIN": {"uusima": 6, "helsinki": 6},
+    "ARG": {"buenosaires": 8},
+    "CHL": {"valparaiso": 6, "santiago": 2, "easterisland": -8},
+    "MEX": {"veracruz": 6, "tamaulipas": 3},
+    "MAL": {"lumut": 8, "perak": 6, "johor": 2},
+    "SIA": {"bangkok": 6},
+    "SAF": {"natal": 6, "cape": 4},
+    "ROM": {"constanta": 8, "dobrogea": 6},
+    "UKR": {"crimea": 10, "odessa": 6, "sevastopol": 8},
+    "ALG": {"algiers": 6, "oran": 4},
+    "MOR": {"casablanca": 6},
+    "NGA": {"lagos": 6},
+    "CUB": {"havana": 6},
+    "VEN": {"caracas": 4, "puertocabello": 4},
+    "PER": {"callao": 8, "lima": 4},
 }
 
 RENEW_KEYWORDS = {

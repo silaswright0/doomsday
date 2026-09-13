@@ -19,14 +19,19 @@ state={
 		buildings = {
 			rocket_site = 2
 
-
 			services_building = 1
 			infrastructure = 5
 			arms_factory = 3
 			industrial_complex = 2
-			air_base = 3
-			
-			10837 = {
+			air_base = 2
+
+			renewable_park = 1
+			energy_infrastructure = 1
+
+			anti_air_building = 4
+			radar_station = 3
+10837 = {
+				supply_node = 1
                 landmark_sadabad_complex = {
                     level = 1
                     allowed = {
@@ -34,10 +39,6 @@ state={
                     }
                 }
 			}
-			renewable_park = 1
-			energy_infrastructure = 1
-		
-		
 		}
 		victory_points = {
 			10837 10 # Tehran 

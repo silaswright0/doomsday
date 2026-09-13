@@ -288,6 +288,29 @@ def check_politics_slots() -> None:
         fail("policy ideas must be laws, not national spirits")
     if "country = {" in policies:
         fail("policies should not live in the country/spirit bucket")
+    for slot in (
+        "welfare", "education", "immigration", "women", "minority",
+        "investment", "security", "healthcare", "labor", "fertility",
+        "aid", "religion", "media", "civil_military",
+    ):
+        for n in range(1, 6):
+            token = f"dd_{slot}_{n} ="
+            if token not in policies:
+                fail(f"missing five-tier policy {token.strip()}")
+    if "dd_taxes_4 =" in policies:
+        fail("taxes stay three tiers")
+    fx = (ROOT / "common" / "scripted_effects" / "doomsday_economy.txt").read_text(encoding="utf-8")
+    if "dd_sync_fertility_to_women" not in fx:
+        fail("women's rights must floor fertility laws")
+    if "add_to_variable = { dd_admin_factor = 0.64 }" not in fx:
+        fail("extreme policy cost band 0.64 missing")
+    recalc = fx.split("dd_recalc_policy_expense = {", 1)[1].split("\n}\n", 1)[0]
+    if "dd_labor_4" in recalc or "dd_labor_5" in recalc:
+        fail("labour laws must not add a treasury surcharge")
+    if policies.count("cost = 150") < 73:
+        fail("policy laws should cost 150 PP per adjacent tier")
+    if "has_idea = dd_welfare_2" not in policies or "has_idea = dd_welfare_3" in policies.split("dd_welfare_1 = {", 1)[1].split("dd_welfare_2 = {", 1)[0]:
+        fail("policy switches must be adjacent tiers only")
 
 
 def check_energy_define() -> None:

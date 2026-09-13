@@ -38,6 +38,7 @@ DIB_FINANCE_PATH = DATA / "dib_finance.json"
 DIB_REFINERIES_PATH = DATA / "dib_refineries.json"
 DIB_SILOS_PATH = DATA / "dib_fuel_silos.json"
 DIB_GRID_PATH = DATA / "dib_grid.json"
+DIB_NAVAL_PATH = DATA / "dib_naval.json"
 ADMIN1_NTL_PATH = DATA / "admin1_ntl.json"
 FACTORY_LEVEL_CAP = 40
 SHARED_SLOTS_CAP = 50
@@ -114,6 +115,29 @@ def extract_block(text: str, start: int) -> tuple[str, int]:
             if depth == 0:
                 return text[i : j + 1], j + 1
     return text[i:], len(text)
+
+
+PROV_BLOCK_RE = re.compile(r"(\d+)\s*=\s*\{")
+VP_RE = re.compile(r"victory_points\s*=\s*\{\s*(\d+)\s+(\d+)")
+
+
+def iter_province_blocks(inner: str) -> list[tuple[int, int, int, str]]:
+    """Top-level `pid = { ... }` chunks inside a buildings inner block."""
+    out: list[tuple[int, int, int, str]] = []
+    for m in PROV_BLOCK_RE.finditer(inner):
+        block, end = extract_block(inner, m.start())
+        if not block:
+            continue
+        out.append((int(m.group(1)), m.start(), end, inner[m.start() : end]))
+    return out
+
+
+def parse_victory_points(text: str) -> dict[int, int]:
+    vps: dict[int, int] = {}
+    for m in VP_RE.finditer(text):
+        pid, val = int(m.group(1)), int(m.group(2))
+        vps[pid] = max(vps.get(pid, 0), val)
+    return vps
 
 
 def pretty_name_from_file(filename: str) -> str:
@@ -462,17 +486,23 @@ def parse_state_file(path: Path) -> dict:
     buildings_state: dict[str, int] = {}
     bm = re.search(r"\bbuildings\s*=", text)
     nested = ""
+    ports: dict[int, int] = {}
     if bm:
         block, _ = extract_block(text, bm.start())
         inner = block[1:-1]
         nested_parts = []
-
-        def keep_nested(m: re.Match) -> str:
-            nested_parts.append(m.group(0))
-            return " "
-
-        stripped = re.sub(r"\d+\s*=\s*\{(?:[^{}]|\{[^{}]*\})*\}", keep_nested, inner, flags=re.S)
+        stripped_parts = []
+        last = 0
+        for pid, start, end, chunk in iter_province_blocks(inner):
+            stripped_parts.append(inner[last:start])
+            nested_parts.append(chunk)
+            nb = re.search(r"\bnaval_base\s*=\s*(\d+)", chunk)
+            if nb:
+                ports[pid] = int(nb.group(1))
+            last = end
+        stripped_parts.append(inner[last:])
         nested = "\n".join(nested_parts)
+        stripped = "".join(stripped_parts)
         for key, val in re.findall(r"(\w+)\s*=\s*(\d+)", stripped):
             buildings_state[key] = int(val)
     return {
@@ -491,6 +521,8 @@ def parse_state_file(path: Path) -> dict:
         "resources": resources,
         "buildings": buildings_state,
         "nested_buildings": nested,
+        "ports": ports,
+        "vps": parse_victory_points(text),
         "raw": text,
     }
 

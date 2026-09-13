@@ -1,0 +1,37 @@
+{
+  "note": "Strategic early-warning radars, not every airport ASR. 1 level ≈ one long-range ground radar or AEW node (NORAD site, Voronezh, JY-26, Fylingdales). Cap 6/state. Do not add a second provincial radar: HOI4 radar=yes is one detection pool with no altitude band. Low flyers are AA.",
+  "sources": [
+    "NORAD / USNORTHCOM site lists",
+    "NATO NATINAMDS / CRC locations",
+    "Russian Voronezh/Rezonans open reporting",
+    "PLA Air Force radar brigades (open IISS/OSD China Military Power)"
+  ],
+  "tags": {
+    "USA": {"count": 16, "source": "NORAD: Alaska, CONUS coasts, CONUS interior, Guam, Greenland via overlays"},
+    "CAN": {"count": 6, "source": "North Warning System + coastal CRC"},
+    "SOV": {"count": 12, "source": "Voronezh/Rezonans on the western, southern, and Pacific marches"},
+    "CHI": {"count": 14, "source": "East China Sea, South China Sea, western interior, Beijing"},
+    "ENG": {"count": 4, "source": "Fylingdales, Buchan, Boulmer, Portreath — not four Home Counties leftover"},
+    "FRA": {"count": 3, "source": "GRAVES / air-defence radars"},
+    "GER": {"count": 3, "source": "NATO CRC"},
+    "JAP": {"count": 6, "source": "JASDF radar sites on the island chain"},
+    "KOR": {"count": 4, "source": "MCRC / USFK"},
+    "FOR": {"count": 3, "source": "island early-warning"},
+    "AST": {"count": 3, "source": "Jindalee OTHR + northern air radars"},
+    "RAJ": {"count": 4, "source": "mountain and western AEW nodes"},
+    "ISR": {"count": 3, "source": "Green Pine / Super Green Pine"},
+    "TUR": {"count": 3, "source": "NATO Kurecik + national"},
+    "POL": {"count": 2, "source": "eastern flank CRC"},
+    "NOR": {"count": 2, "source": "High North radar"},
+    "GRN": {"count": 2, "source": "Pituffik / Thule BMEWS"},
+    "ICE": {"count": 1, "source": "NATO radar"},
+    "UKR": {"count": 2, "source": "surviving early-warning"},
+    "PER": {"count": 3, "source": "western and Gulf radars"},
+    "PAK": {"count": 2, "source": "western AEW"},
+    "EGY": {"count": 2, "source": "Nile/Suez coverage"},
+    "SAU": {"count": 3, "source": "Peace Shield"},
+    "DPK": {"count": 2, "source": "west/east coast"},
+    "SNG": {"count": 1, "source": "island CRC"},
+    "VIN": {"count": 2, "source": "Red River / coast"}
+  }
+}

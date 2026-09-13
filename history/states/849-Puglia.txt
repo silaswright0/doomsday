@@ -23,87 +23,16 @@ state = {
 			arms_factory = 0
 			infrastructure = 4
 			industrial_complex = 0
-			air_base = 5
-			11837 = { #Taranto
-				naval_base = 10
-				naval_headquarters = {
-					level = 1
-					allowed = {
-						has_dlc = "No Compromise, No Surrender"
-					}
-				}
-			}
-			
+			air_base = 1
 
+11837 = { #Taranto
+				naval_base = 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			9784 = { #Bari
-				naval_base = 3
 			}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+9784 = { #Bari
+				naval_base = 1
+			}
 		}
 		add_core_of = ITA
 		add_core_of = TTS

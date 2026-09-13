@@ -1,6 +1,6 @@
 # Ledger store is US$ billions. Show millions when abs(value) < 1.
 # Never add a T (trillions) key. Stay in M/B even past $1000B.
-# Compact debt lines show yearly interest (3% a year, Japan 1%), not the stock.
+# Panel Debt is the principal stock. GetDdDebt is yearly interest (3%/yr, Japan 1%).
 # Budget flow (revenue / expenses / net) stays ?? until the first monthly close.
 
 defined_text = {
@@ -144,6 +144,17 @@ defined_text = {
 	}
 	text = {
 		localization_key = DD_ECON_EXPENSE_TT_READY
+	}
+}
+
+defined_text = {
+	name = GetDdNetTt
+	text = {
+		trigger = { NOT = { has_country_flag = dd_econ_budget_shown } }
+		localization_key = DD_ECON_BUDGET_PENDING_TT
+	}
+	text = {
+		localization_key = DD_ECON_NET_TT_READY
 	}
 }
 

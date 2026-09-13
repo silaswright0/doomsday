@@ -35,90 +35,24 @@ state = {
 			industrial_complex = 0
 
 			infrastructure = 3
-			air_base = 3
 
-			3686 = {
-				naval_base = 10
+3686 = {
+				supply_node = 1
+				naval_supply_hub = 1
+				naval_base = 9
 				coastal_bunker = 3
 				naval_headquarters = {
 					level = 1
 					allowed = {
 						has_dlc = "No Compromise, No Surrender"
 					}
-				} 
+				}
 			}
 
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			9680 = {
+9680 = {
 				naval_base = 1
 				coastal_bunker = 1
 			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		}
 
 		add_core_of = SOV

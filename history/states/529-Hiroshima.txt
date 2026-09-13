@@ -22,93 +22,24 @@ state = {
 			services_building = 1
 
 			infrastructure = 3
-			air_base = 3
+			air_base = 1
 			dockyard = 2
 			arms_factory = 1
 			industrial_complex = 3
 
-			1092 = {
-				naval_base = 10
-				naval_headquarters = {
-					level = 1
-					allowed = {
-						has_dlc = "No Compromise, No Surrender"
-					}
-				}
+			# Taishakugawa Dam
+
+			synthetic_refinery = 1
+
+1092 = {
+				supply_node = 1
+				naval_base = 7
+
 				# Kure Naval Arsenal
 				naval_facility = 1
 			}
 
-			# Taishakugawa Dam
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			synthetic_refinery = 1
-
-
-			9968 = { dam = 1 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+9968 = { dam = 1 }
 		}
 		
 		victory_points = {

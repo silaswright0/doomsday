@@ -1,0 +1,852 @@
+{
+  "note": "Combat airfields, not municipal strips. Military medium/large from OurAirports name/keywords; large scheduled airports are dual-use at 1/8. Heliports and closed fields omitted. Same formula every tag.",
+  "sources": [
+    "OurAirports airports.csv (davidmegginson/ourairports-data)"
+  ],
+  "formula": {
+    "military_fields_per_level": 2.0,
+    "large_civilian_per_level": 8.0
+  },
+  "tags": {
+    "UAE": {
+      "count": 2,
+      "military_fields": 3,
+      "large_civilian": 7
+    },
+    "AFG": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 4
+    },
+    "ALB": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "ARM": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "ANG": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "ARG": {
+      "count": 2,
+      "military_fields": 0,
+      "large_civilian": 13
+    },
+    "AUS": {
+      "count": 2,
+      "military_fields": 3,
+      "large_civilian": 4
+    },
+    "AST": {
+      "count": 8,
+      "military_fields": 1,
+      "large_civilian": 15
+    },
+    "AZR": {
+      "count": 3,
+      "military_fields": 6,
+      "large_civilian": 3
+    },
+    "BOS": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 4
+    },
+    "BRB": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "BAN": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 3
+    },
+    "BEL": {
+      "count": 3,
+      "military_fields": 5,
+      "large_civilian": 3
+    },
+    "VOL": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "BUL": {
+      "count": 2,
+      "military_fields": 4,
+      "large_civilian": 3
+    },
+    "BHR": {
+      "count": 1,
+      "military_fields": 2,
+      "large_civilian": 0
+    },
+    "BRD": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "BOL": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 6
+    },
+    "BRA": {
+      "count": 7,
+      "military_fields": 7,
+      "large_civilian": 28
+    },
+    "BAH": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 3
+    },
+    "BHU": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "BOT": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 4
+    },
+    "BLR": {
+      "count": 2,
+      "military_fields": 4,
+      "large_civilian": 2
+    },
+    "CAN": {
+      "count": 8,
+      "military_fields": 1,
+      "large_civilian": 17
+    },
+    "COG": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 4
+    },
+    "CAR": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "RCG": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "SWI": {
+      "count": 2,
+      "military_fields": 4,
+      "large_civilian": 2
+    },
+    "IVO": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "CHL": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 8
+    },
+    "CMR": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 3
+    },
+    "CHI": {
+      "count": 64,
+      "military_fields": 112,
+      "large_civilian": 62
+    },
+    "COL": {
+      "count": 3,
+      "military_fields": 4,
+      "large_civilian": 6
+    },
+    "COS": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "CUB": {
+      "count": 2,
+      "military_fields": 2,
+      "large_civilian": 6
+    },
+    "CYP": {
+      "count": 1,
+      "military_fields": 2,
+      "large_civilian": 3
+    },
+    "CZE": {
+      "count": 3,
+      "military_fields": 4,
+      "large_civilian": 5
+    },
+    "GER": {
+      "count": 12,
+      "military_fields": 20,
+      "large_civilian": 20
+    },
+    "DJI": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "DEN": {
+      "count": 2,
+      "military_fields": 2,
+      "large_civilian": 5
+    },
+    "DOM": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 4
+    },
+    "ALG": {
+      "count": 2,
+      "military_fields": 2,
+      "large_civilian": 11
+    },
+    "ECU": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 4
+    },
+    "EST": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "EGY": {
+      "count": 7,
+      "military_fields": 11,
+      "large_civilian": 14
+    },
+    "SPR": {
+      "count": 6,
+      "military_fields": 7,
+      "large_civilian": 20
+    },
+    "ETH": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 4
+    },
+    "FIN": {
+      "count": 3,
+      "military_fields": 3,
+      "large_civilian": 10
+    },
+    "FIJ": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "FRA": {
+      "count": 13,
+      "military_fields": 21,
+      "large_civilian": 17
+    },
+    "GAB": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "ENG": {
+      "count": 23,
+      "military_fields": 42,
+      "large_civilian": 13
+    },
+    "GEO": {
+      "count": 4,
+      "military_fields": 7,
+      "large_civilian": 3
+    },
+    "GHA": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 3
+    },
+    "GNA": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "GRN": {
+      "count": 1,
+      "military_fields": 2,
+      "large_civilian": 1
+    },
+    "GAM": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "GNB": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "GRE": {
+      "count": 3,
+      "military_fields": 4,
+      "large_civilian": 9
+    },
+    "GUA": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "GYA": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 0
+    },
+    "HON": {
+      "count": 1,
+      "military_fields": 2,
+      "large_civilian": 2
+    },
+    "CRO": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 6
+    },
+    "HAI": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "HUN": {
+      "count": 2,
+      "military_fields": 4,
+      "large_civilian": 3
+    },
+    "INS": {
+      "count": 4,
+      "military_fields": 3,
+      "large_civilian": 19
+    },
+    "IRE": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 4
+    },
+    "ISR": {
+      "count": 6,
+      "military_fields": 5,
+      "large_civilian": 2
+    },
+    "RAJ": {
+      "count": 26,
+      "military_fields": 44,
+      "large_civilian": 28
+    },
+    "IRQ": {
+      "count": 10,
+      "military_fields": 20,
+      "large_civilian": 3
+    },
+    "PER": {
+      "count": 4,
+      "military_fields": 5,
+      "large_civilian": 14
+    },
+    "ICE": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "ITA": {
+      "count": 12,
+      "military_fields": 17,
+      "large_civilian": 25
+    },
+    "JAM": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "JOR": {
+      "count": 2,
+      "military_fields": 3,
+      "large_civilian": 2
+    },
+    "JAP": {
+      "count": 18,
+      "military_fields": 27,
+      "large_civilian": 24
+    },
+    "KEN": {
+      "count": 2,
+      "military_fields": 2,
+      "large_civilian": 4
+    },
+    "KYR": {
+      "count": 1,
+      "military_fields": 2,
+      "large_civilian": 2
+    },
+    "CAM": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 4
+    },
+    "KIR": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "DPK": {
+      "count": 8,
+      "military_fields": 10,
+      "large_civilian": 1
+    },
+    "KOR": {
+      "count": 12,
+      "military_fields": 8,
+      "large_civilian": 7
+    },
+    "KUW": {
+      "count": 2,
+      "military_fields": 3,
+      "large_civilian": 0
+    },
+    "KAZ": {
+      "count": 3,
+      "military_fields": 2,
+      "large_civilian": 19
+    },
+    "LAO": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 3
+    },
+    "LEB": {
+      "count": 2,
+      "military_fields": 4,
+      "large_civilian": 0
+    },
+    "STL": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "SRL": {
+      "count": 2,
+      "military_fields": 3,
+      "large_civilian": 2
+    },
+    "LES": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "LIT": {
+      "count": 1,
+      "military_fields": 2,
+      "large_civilian": 3
+    },
+    "LUX": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "LAT": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "MOR": {
+      "count": 2,
+      "military_fields": 1,
+      "large_civilian": 12
+    },
+    "MOL": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "MNT": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 0
+    },
+    "MAD": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 4
+    },
+    "MHL": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "MAC": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "MLI": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "BRM": {
+      "count": 2,
+      "military_fields": 3,
+      "large_civilian": 3
+    },
+    "MON": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "MRT": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "MLT": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 0
+    },
+    "MAU": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "MLW": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "MEX": {
+      "count": 6,
+      "military_fields": 4,
+      "large_civilian": 28
+    },
+    "MAL": {
+      "count": 2,
+      "military_fields": 1,
+      "large_civilian": 8
+    },
+    "MZB": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 4
+    },
+    "NMB": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "NGR": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "NGA": {
+      "count": 2,
+      "military_fields": 1,
+      "large_civilian": 12
+    },
+    "NIC": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "HOL": {
+      "count": 4,
+      "military_fields": 6,
+      "large_civilian": 5
+    },
+    "NOR": {
+      "count": 2,
+      "military_fields": 1,
+      "large_civilian": 9
+    },
+    "NEP": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 3
+    },
+    "NZL": {
+      "count": 2,
+      "military_fields": 2,
+      "large_civilian": 4
+    },
+    "OMA": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 4
+    },
+    "PAN": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "PRU": {
+      "count": 2,
+      "military_fields": 1,
+      "large_civilian": 8
+    },
+    "PNG": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "PHI": {
+      "count": 5,
+      "military_fields": 7,
+      "large_civilian": 10
+    },
+    "PAK": {
+      "count": 7,
+      "military_fields": 11,
+      "large_civilian": 10
+    },
+    "POL": {
+      "count": 8,
+      "military_fields": 13,
+      "large_civilian": 11
+    },
+    "POR": {
+      "count": 4,
+      "military_fields": 7,
+      "large_civilian": 5
+    },
+    "PAR": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 3
+    },
+    "QAT": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 2
+    },
+    "ROM": {
+      "count": 4,
+      "military_fields": 6,
+      "large_civilian": 9
+    },
+    "SER": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 2
+    },
+    "SOV": {
+      "count": 40,
+      "military_fields": 69,
+      "large_civilian": 42
+    },
+    "RWA": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "SAU": {
+      "count": 4,
+      "military_fields": 4,
+      "large_civilian": 16
+    },
+    "SUD": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 2
+    },
+    "SWE": {
+      "count": 4,
+      "military_fields": 6,
+      "large_civilian": 10
+    },
+    "SNG": {
+      "count": 2,
+      "military_fields": 5,
+      "large_civilian": 0
+    },
+    "SLV": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "SLO": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "SIE": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "SEN": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "SOM": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 3
+    },
+    "SUR": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "SSD": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "STP": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "ELS": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "SYR": {
+      "count": 3,
+      "military_fields": 5,
+      "large_civilian": 2
+    },
+    "SWZ": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "CHA": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "TOG": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "SIA": {
+      "count": 3,
+      "military_fields": 3,
+      "large_civilian": 9
+    },
+    "TAJ": {
+      "count": 2,
+      "military_fields": 2,
+      "large_civilian": 4
+    },
+    "TML": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "TMS": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 3
+    },
+    "TUN": {
+      "count": 1,
+      "military_fields": 2,
+      "large_civilian": 2
+    },
+    "TUR": {
+      "count": 7,
+      "military_fields": 11,
+      "large_civilian": 15
+    },
+    "TRI": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 2
+    },
+    "FOR": {
+      "count": 8,
+      "military_fields": 8,
+      "large_civilian": 5
+    },
+    "TZN": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 4
+    },
+    "UKR": {
+      "count": 6,
+      "military_fields": 13,
+      "large_civilian": 0
+    },
+    "UGA": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "USA": {
+      "count": 62,
+      "military_fields": 101,
+      "large_civilian": 89
+    },
+    "URG": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 1
+    },
+    "UZB": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 6
+    },
+    "SVG": {
+      "count": 1,
+      "military_fields": 0,
+      "large_civilian": 1
+    },
+    "VEN": {
+      "count": 2,
+      "military_fields": 2,
+      "large_civilian": 7
+    },
+    "VIN": {
+      "count": 3,
+      "military_fields": 4,
+      "large_civilian": 5
+    },
+    "KOS": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 0
+    },
+    "SAF": {
+      "count": 4,
+      "military_fields": 6,
+      "large_civilian": 9
+    },
+    "ZAM": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 4
+    },
+    "ZIM": {
+      "count": 1,
+      "military_fields": 1,
+      "large_civilian": 3
+    }
+  }
+}

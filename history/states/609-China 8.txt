@@ -23,10 +23,12 @@ state = {
 			arms_factory = 0
 			industrial_complex = 1
 
+			renewable_park = 1
+			fuel_silo = 1
 
-			3900 = {
-				naval_base = 2
-				
+3900 = {
+				naval_base = 1
+
 				landmark_great_wall_section = {
 				    level = 1
 				    allowed = {
@@ -34,10 +36,9 @@ state = {
 				    }
 				}
 			}
-			renewable_park = 1
-			fuel_silo = 1
-		
-		
+			11822 = {
+				supply_node = 1
+			}
 		}
 
 		victory_points = {

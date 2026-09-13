@@ -16,77 +16,17 @@ state = {
 			arms_factory = 0
 			industrial_complex = 0
 			infrastructure = 2
-			air_base = 5
-			
+			air_base = 6
 
+			dockyard = 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			957 = {
-				naval_base = 8
+			radar_station = 2
+957 = {
+				supply_node = 1
+				naval_base = 10
 				coastal_bunker = 3
 				naval_supply_hub = 1
 			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			dockyard = 1
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		}
 		add_core_of = SOV
 		add_core_of = FER

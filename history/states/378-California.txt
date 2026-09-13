@@ -25,219 +25,30 @@ state={
 			arms_factory = 3
 			industrial_complex = 18
 			dockyard = 2
-			air_base = 10
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			air_base = 7
 
 			synthetic_refinery = 2
 			energy_infrastructure = 1
 
-
-			1562 = {
-				naval_base = 10
-			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			9671 = {
-				naval_base = 4
-			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			9814 = {
-				naval_base = 5
-			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			610 = {
+			anti_air_building = 1
+			radar_station = 2
+1562 = {
 				naval_base = 1
 			}
 
+9671 = {
+				naval_base = 1
+			}
 
+9814 = {
+				supply_node = 1
+				naval_supply_hub = 1
+				naval_base = 10
+			}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+610 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = USA
 		victory_points = {

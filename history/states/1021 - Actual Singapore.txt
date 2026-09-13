@@ -24,9 +24,17 @@ state = {
 
 			infrastructure = 5
 			industrial_complex = 4
-			air_base = 6
+			air_base = 2
 
-			12299 = {
+			finance_center = 3
+			synthetic_refinery = 3
+			fuel_silo = 1
+			energy_infrastructure = 1
+
+			anti_air_building = 2
+			radar_station = 1
+12299 = {
+				supply_node = 1
 				naval_base = 8
 				coastal_bunker = 3
 				naval_supply_hub = 1
@@ -37,12 +45,6 @@ state = {
 					}
 				}
 			}
-			finance_center = 3
-			synthetic_refinery = 3
-			fuel_silo = 1
-			energy_infrastructure = 1
-		
-		
 		}
 		
 	}
