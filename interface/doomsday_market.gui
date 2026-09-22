@@ -66,110 +66,129 @@ guiTypes = {
 			}
 		}
 
+		containerWindowType = {
+			name = "dd_market_tabs"
+			position = { x = 0 y = 80 }
+			size = { width = 100% height = 40 }
+			margin = { left = 12 right = 12 }
+			clipping = no
+
+			buttonType = {
+				name = "dd_tab_buy_on"
+				quadTextureSprite = "GFX_button_261x34"
+				position = { x = 0 y = 2 }
+				size = { width = 48% height = 34 }
+				buttonText = "DD_MARKET_TAB_BUY"
+				buttonFont = "hoi_18mbs"
+				frame = 2
+				clicksound = click_default
+			}
+			buttonType = {
+				name = "dd_tab_buy_off"
+				quadTextureSprite = "GFX_button_261x34"
+				position = { x = 0 y = 2 }
+				size = { width = 48% height = 34 }
+				buttonText = "DD_MARKET_TAB_BUY"
+				buttonFont = "hoi_18mbs"
+				frame = 1
+				clicksound = click_default
+			}
+			buttonType = {
+				name = "dd_tab_sell_on"
+				quadTextureSprite = "GFX_button_261x34"
+				position = { x = 52% y = 2 }
+				size = { width = 48% height = 34 }
+				buttonText = "DD_MARKET_TAB_SELL"
+				buttonFont = "hoi_18mbs"
+				frame = 2
+				clicksound = click_default
+			}
+			buttonType = {
+				name = "dd_tab_sell_off"
+				quadTextureSprite = "GFX_button_261x34"
+				position = { x = 52% y = 2 }
+				size = { width = 48% height = 34 }
+				buttonText = "DD_MARKET_TAB_SELL"
+				buttonFont = "hoi_18mbs"
+				frame = 1
+				clicksound = click_default
+			}
+		}
+
 		iconType = {
 			name = "dd_tabs_background"
 			quadTextureSprite = "GFX_tab_diplomacy_bg"
-			position = { x = 15 y = 184 }
+			position = { x = 12 y = 184 }
 			alwaystransparent = yes
 		}
 
-		buttonType = {
-			name = "dd_tab_buy_on"
-			quadTextureSprite = "GFX_Access_&_buy_equipment"
-			position = { x = 15 y = 80 }
-			buttonText = "DD_MARKET_TAB_BUY"
-			font = "hoi_18mbs"
-			frame = 2
-			clicksound = click_default
-		}
-		buttonType = {
-			name = "dd_tab_buy_off"
-			quadTextureSprite = "GFX_Access_&_buy_equipment"
-			position = { x = 15 y = 80 }
-			buttonText = "DD_MARKET_TAB_BUY"
-			font = "hoi_18mbs"
-			frame = 1
-			clicksound = click_default
-		}
+		containerWindowType = {
+			name = "dd_market_cats"
+			position = { x = 0 y = 184 }
+			size = { width = 100% height = 40 }
+			margin = { left = 12 right = 12 }
+			clipping = no
 
-		buttonType = {
-			name = "dd_tab_sell_on"
-			quadTextureSprite = "GFX_Add_equipment_to_markete"
-			position = { x = 275 y = 80 }
-			buttonText = "DD_MARKET_TAB_SELL"
-			font = "hoi_18mbs"
-			frame = 2
-			clicksound = click_default
-		}
-		buttonType = {
-			name = "dd_tab_sell_off"
-			quadTextureSprite = "GFX_Add_equipment_to_markete"
-			position = { x = 275 y = 80 }
-			buttonText = "DD_MARKET_TAB_SELL"
-			font = "hoi_18mbs"
-			frame = 1
-			clicksound = click_default
-		}
-
-		buttonType = {
-			name = "dd_cat_land_on"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = { x = 15 y = 186 }
-			buttonText = "DD_MARKET_CAT_LAND"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 1
-		}
-		buttonType = {
-			name = "dd_cat_land_off"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = { x = 15 y = 186 }
-			buttonText = "DD_MARKET_CAT_LAND"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 2
-		}
-		buttonType = {
-			name = "dd_cat_air_on"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = { x = 148 y = 186 }
-			buttonText = "DD_MARKET_CAT_AIR"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 1
-		}
-		buttonType = {
-			name = "dd_cat_air_off"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = { x = 148 y = 186 }
-			buttonText = "DD_MARKET_CAT_AIR"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 2
-		}
-		buttonType = {
-			name = "dd_cat_navy_on"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = { x = 281 y = 186 }
-			buttonText = "DD_MARKET_CAT_NAVY"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 1
-		}
-		buttonType = {
-			name = "dd_cat_navy_off"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = { x = 281 y = 186 }
-			buttonText = "DD_MARKET_CAT_NAVY"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 2
+			buttonType = {
+				name = "dd_cat_land_on"
+				quadTextureSprite = "GFX_button_123x34"
+				position = { x = 0 y = 2 }
+				size = { width = 31% height = 32 }
+				buttonText = "DD_MARKET_CAT_LAND"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 2
+			}
+			buttonType = {
+				name = "dd_cat_land_off"
+				quadTextureSprite = "GFX_button_123x34"
+				position = { x = 0 y = 2 }
+				size = { width = 31% height = 32 }
+				buttonText = "DD_MARKET_CAT_LAND"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 1
+			}
+			buttonType = {
+				name = "dd_cat_air_on"
+				quadTextureSprite = "GFX_button_123x34"
+				position = { x = 34% y = 2 }
+				size = { width = 31% height = 32 }
+				buttonText = "DD_MARKET_CAT_AIR"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 2
+			}
+			buttonType = {
+				name = "dd_cat_air_off"
+				quadTextureSprite = "GFX_button_123x34"
+				position = { x = 34% y = 2 }
+				size = { width = 31% height = 32 }
+				buttonText = "DD_MARKET_CAT_AIR"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 1
+			}
+			buttonType = {
+				name = "dd_cat_navy_on"
+				quadTextureSprite = "GFX_button_123x34"
+				position = { x = 69% y = 2 }
+				size = { width = 31% height = 32 }
+				buttonText = "DD_MARKET_CAT_NAVY"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 2
+			}
+			buttonType = {
+				name = "dd_cat_navy_off"
+				quadTextureSprite = "GFX_button_123x34"
+				position = { x = 69% y = 2 }
+				size = { width = 31% height = 32 }
+				buttonText = "DD_MARKET_CAT_NAVY"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 1
+			}
 		}
 	}
 
@@ -259,7 +278,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_AMPHIBIOUS_MECHANIZED_EQ_TT"
 				}
@@ -268,9 +287,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_AMPHIBIOUS_MECHANIZED_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_amphibious_mechanized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_amphibious_mechanized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -345,7 +382,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_AMPHIBIOUS_TANK_CHASSIS_TT"
 				}
@@ -354,9 +391,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_AMPHIBIOUS_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_amphibious_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_amphibious_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -431,7 +486,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_ANTI_AIR_EQ_TT"
 				}
@@ -440,9 +495,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_ANTI_AIR_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_anti_air_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_anti_air_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -517,7 +590,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_ANTI_TANK_EQ_TT"
 				}
@@ -526,9 +599,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_ANTI_TANK_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_anti_tank_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_anti_tank_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -603,7 +694,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_ARMORED_CAR_EQ_TT"
 				}
@@ -612,9 +703,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_ARMORED_CAR_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_armored_car_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_armored_car_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -689,7 +798,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_ARMORED_SUPPORT_VEHICLE_TT"
 				}
@@ -698,9 +807,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_ARMORED_SUPPORT_VEHICLE_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_armored_support_vehicle"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_armored_support_vehicle"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -775,7 +902,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_ARTILLERY_EQ_TT"
 				}
@@ -784,15 +911,137 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_ARTILLERY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_dew_eq"
+				position = { x = 10 y = 736 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_dew_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_dew_eq_icon"
+					spriteType = "GFX_archetype_anti_air_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_dew_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_DEW_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_dew_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_DEW_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_dew_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_dew_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_DEW_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_dew_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_DEW_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_dew_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_DEW_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_dew_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_DEW_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_dew_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_dew_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_heavy_tank_chassis"
-				position = { x = 10 y = 736 }
+				position = { x = 10 y = 840 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -861,7 +1110,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_HEAVY_TANK_CHASSIS_TT"
 				}
@@ -870,15 +1119,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_HEAVY_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_heavy_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_heavy_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_helicopter_eq"
-				position = { x = 10 y = 840 }
+				position = { x = 10 y = 944 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -947,7 +1214,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_HELICOPTER_EQ_TT"
 				}
@@ -956,15 +1223,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_HELICOPTER_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_helicopter_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_helicopter_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_infantry_eq"
-				position = { x = 10 y = 944 }
+				position = { x = 10 y = 1048 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1033,7 +1318,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_INFANTRY_EQ_TT"
 				}
@@ -1042,15 +1327,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_INFANTRY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_infantry_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_infantry_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_land_cruiser_chassis"
-				position = { x = 10 y = 1048 }
+				position = { x = 10 y = 1152 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1119,7 +1422,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_LAND_CRUISER_CHASSIS_TT"
 				}
@@ -1128,15 +1431,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_LAND_CRUISER_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_land_cruiser_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_land_cruiser_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_light_tank_chassis"
-				position = { x = 10 y = 1152 }
+				position = { x = 10 y = 1256 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1205,7 +1526,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_LIGHT_TANK_CHASSIS_TT"
 				}
@@ -1214,15 +1535,137 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_LIGHT_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_light_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_light_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_manpads_eq"
+				position = { x = 10 y = 1360 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_manpads_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_manpads_eq_icon"
+					spriteType = "GFX_archetype_anti_air_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_manpads_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_MANPADS_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_manpads_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_MANPADS_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_manpads_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_manpads_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MANPADS_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_manpads_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_MANPADS_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_manpads_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_MANPADS_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_manpads_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_MANPADS_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_manpads_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_manpads_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_mechanized_eq"
-				position = { x = 10 y = 1256 }
+				position = { x = 10 y = 1464 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1291,7 +1734,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_MECHANIZED_EQ_TT"
 				}
@@ -1300,15 +1743,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_MECHANIZED_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_mechanized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_mechanized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_medium_tank_chassis"
-				position = { x = 10 y = 1360 }
+				position = { x = 10 y = 1568 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1377,7 +1838,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_MEDIUM_TANK_CHASSIS_TT"
 				}
@@ -1386,15 +1847,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_MEDIUM_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_medium_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_medium_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_modern_tank_chassis"
-				position = { x = 10 y = 1464 }
+				position = { x = 10 y = 1672 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1463,7 +1942,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_MODERN_TANK_CHASSIS_TT"
 				}
@@ -1472,15 +1951,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_MODERN_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_modern_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_modern_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_motorbike_eq"
-				position = { x = 10 y = 1568 }
+				position = { x = 10 y = 1776 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1549,7 +2046,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_MOTORBIKE_EQ_TT"
 				}
@@ -1558,15 +2055,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_MOTORBIKE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_motorbike_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_motorbike_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_motorized_eq"
-				position = { x = 10 y = 1672 }
+				position = { x = 10 y = 1880 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1635,7 +2150,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_MOTORIZED_EQ_TT"
 				}
@@ -1644,15 +2159,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_MOTORIZED_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_motorized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_motorized_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_motorized_rocket_eq"
-				position = { x = 10 y = 1776 }
+				position = { x = 10 y = 1984 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1721,7 +2254,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_MOTORIZED_ROCKET_EQ_TT"
 				}
@@ -1730,15 +2263,137 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_MOTORIZED_ROCKET_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_motorized_rocket_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_motorized_rocket_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_prsm_eq"
+				position = { x = 10 y = 2088 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_prsm_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_prsm_eq_icon"
+					spriteType = "GFX_archetype_rocket_artillery_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_prsm_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_PRSM_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_prsm_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_PRSM_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_prsm_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_prsm_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_PRSM_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_prsm_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_PRSM_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_prsm_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_PRSM_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_prsm_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_PRSM_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_prsm_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_prsm_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_railway_gun_eq"
-				position = { x = 10 y = 1880 }
+				position = { x = 10 y = 2192 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1807,7 +2462,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_RAILWAY_GUN_EQ_TT"
 				}
@@ -1816,15 +2471,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_RAILWAY_GUN_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_railway_gun_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_railway_gun_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_rocket_artillery_eq"
-				position = { x = 10 y = 1984 }
+				position = { x = 10 y = 2296 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1893,7 +2566,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_ROCKET_ARTILLERY_EQ_TT"
 				}
@@ -1902,15 +2575,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_ROCKET_ARTILLERY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_rocket_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_rocket_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_self_propelled_super_heavy_artillery_eq"
-				position = { x = 10 y = 2088 }
+				position = { x = 10 y = 2400 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -1979,7 +2670,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SELF_PROPELLED_SUPER_HEAVY_ARTILLERY_EQ_TT"
 				}
@@ -1988,15 +2679,137 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SELF_PROPELLED_SUPER_HEAVY_ARTILLERY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_self_propelled_super_heavy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_self_propelled_super_heavy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_spg_eq"
+				position = { x = 10 y = 2504 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_spg_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_spg_eq_icon"
+					spriteType = "GFX_archetype_artillery_equipment_medium"
+					position = { x = 168 y = 18 }
+					scale = 0.42
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_spg_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_SPG_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_spg_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_SPG_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_spg_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_spg_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SPG_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_spg_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_SPG_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_spg_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_SPG_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_spg_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_SPG_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_spg_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_spg_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_super_heavy_artillery_eq"
-				position = { x = 10 y = 2192 }
+				position = { x = 10 y = 2608 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -2065,7 +2878,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SUPER_HEAVY_ARTILLERY_EQ_TT"
 				}
@@ -2074,15 +2887,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SUPER_HEAVY_ARTILLERY_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_super_heavy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_super_heavy_artillery_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_super_heavy_railway_gun_eq"
-				position = { x = 10 y = 2296 }
+				position = { x = 10 y = 2712 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -2151,7 +2982,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SUPER_HEAVY_RAILWAY_GUN_EQ_TT"
 				}
@@ -2160,15 +2991,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SUPER_HEAVY_RAILWAY_GUN_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_super_heavy_railway_gun_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_super_heavy_railway_gun_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_super_heavy_tank_chassis"
-				position = { x = 10 y = 2400 }
+				position = { x = 10 y = 2816 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -2237,7 +3086,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SUPER_HEAVY_TANK_CHASSIS_TT"
 				}
@@ -2246,15 +3095,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SUPER_HEAVY_TANK_CHASSIS_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_super_heavy_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_super_heavy_tank_chassis"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_support_eq"
-				position = { x = 10 y = 2504 }
+				position = { x = 10 y = 2920 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -2323,7 +3190,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SUPPORT_EQ_TT"
 				}
@@ -2332,15 +3199,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SUPPORT_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_support_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_support_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_train_eq"
-				position = { x = 10 y = 2608 }
+				position = { x = 10 y = 3024 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -2409,7 +3294,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_TRAIN_EQ_TT"
 				}
@@ -2418,9 +3303,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_TRAIN_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_train_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_train_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 	}
@@ -2510,7 +3413,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_BALLISTIC_MISSILE_EQ_TT"
 				}
@@ -2519,9 +3422,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_BALLISTIC_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_ballistic_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_ballistic_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -2596,7 +3517,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_CV_SMALL_PLANE_AIRFRAME_TT"
 				}
@@ -2605,9 +3526,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_CV_SMALL_PLANE_AIRFRAME_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_cv_small_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_cv_small_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -2682,7 +3621,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_EXPLOSIVE_AMMO_EQ_TT"
 				}
@@ -2691,9 +3630,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_EXPLOSIVE_AMMO_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_explosive_ammo_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_explosive_ammo_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -2768,7 +3725,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_GUIDED_MISSILE_EQ_TT"
 				}
@@ -2777,15 +3734,136 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_GUIDED_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_guided_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_guided_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
+				}
+			}
+
+			containerWindowType = {
+				name = "dd_row_hypersonic_missile_eq"
+				position = { x = 10 y = 424 }
+				size = { width = 500 height = 100 }
+				clipping = no
+
+				iconType = {
+					name = "dd_hypersonic_missile_eq_card"
+					spriteType = "GFX_land_equipment_market_entry"
+					position = { x = 0 y = 0 }
+					frame = 1
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_hypersonic_missile_eq_icon"
+					spriteType = "GFX_infantry_equipment_text_icon"
+					position = { x = 168 y = 18 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_hypersonic_missile_eq_name"
+					position = { x = 12 y = 6 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_NAME_HYPERSONIC_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_hypersonic_missile_eq_stock"
+					position = { x = 12 y = 28 }
+					font = "hoi_16mbs"
+					text = "DD_MARKET_STOCK_HYPERSONIC_MISSILE_EQ"
+					maxWidth = 300
+					maxHeight = 18
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name = "dd_hypersonic_missile_eq_cash_icon"
+					spriteType = "GFX_dd_icon_cash"
+					position = { x = 12 y = 68 }
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_hypersonic_missile_eq_buy_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_HYPERSONIC_MISSILE_EQ_BUY"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				instantTextboxType = {
+					name = "dd_hypersonic_missile_eq_sell_price"
+					position = { x = 40 y = 70 }
+					font = "hoi_18mbs"
+					text = "DD_MARKET_PRICE_HYPERSONIC_MISSILE_EQ_SELL"
+					maxWidth = 220
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				buttonType = {
+					name = "dd_buy_hypersonic_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_BUY"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_BUY_HYPERSONIC_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_sell_hypersonic_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_SELL"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 18 }
+					clicksound = click_default
+					pdx_tooltip = "DD_SELL_HYPERSONIC_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_hypersonic_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_hypersonic_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_large_plane_airframe"
-				position = { x = 10 y = 424 }
+				position = { x = 10 y = 528 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -2854,7 +3932,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_LARGE_PLANE_AIRFRAME_TT"
 				}
@@ -2863,15 +3941,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_LARGE_PLANE_AIRFRAME_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_large_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_large_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_loitering_munition_eq"
-				position = { x = 10 y = 528 }
+				position = { x = 10 y = 632 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -2940,7 +4036,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_LOITERING_MUNITION_EQ_TT"
 				}
@@ -2949,15 +4045,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_LOITERING_MUNITION_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_loitering_munition_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_loitering_munition_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_medium_plane_airframe"
-				position = { x = 10 y = 632 }
+				position = { x = 10 y = 736 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3026,7 +4140,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_MEDIUM_PLANE_AIRFRAME_TT"
 				}
@@ -3035,15 +4149,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_MEDIUM_PLANE_AIRFRAME_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_medium_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_medium_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_nuclear_missile_eq"
-				position = { x = 10 y = 736 }
+				position = { x = 10 y = 840 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3112,7 +4244,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_NUCLEAR_MISSILE_EQ_TT"
 				}
@@ -3121,15 +4253,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_NUCLEAR_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_nuclear_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_nuclear_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_recon_uav_eq"
-				position = { x = 10 y = 840 }
+				position = { x = 10 y = 944 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3198,7 +4348,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_RECON_UAV_EQ_TT"
 				}
@@ -3207,15 +4357,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_RECON_UAV_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_recon_uav_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_recon_uav_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_sam_missile_eq"
-				position = { x = 10 y = 944 }
+				position = { x = 10 y = 1048 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3284,7 +4452,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SAM_MISSILE_EQ_TT"
 				}
@@ -3293,15 +4461,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SAM_MISSILE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_sam_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_sam_missile_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_small_plane_airframe"
-				position = { x = 10 y = 1048 }
+				position = { x = 10 y = 1152 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3370,7 +4556,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SMALL_PLANE_AIRFRAME_TT"
 				}
@@ -3379,15 +4565,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SMALL_PLANE_AIRFRAME_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_small_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_small_plane_airframe"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_strat_bomber_intercontinental_eq"
-				position = { x = 10 y = 1152 }
+				position = { x = 10 y = 1256 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3456,7 +4660,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_STRAT_BOMBER_INTERCONTINENTAL_EQ_TT"
 				}
@@ -3465,15 +4669,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_STRAT_BOMBER_INTERCONTINENTAL_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_strat_bomber_intercontinental_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_strat_bomber_intercontinental_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_strike_uav_eq"
-				position = { x = 10 y = 1256 }
+				position = { x = 10 y = 1360 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3542,7 +4764,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_STRIKE_UAV_EQ_TT"
 				}
@@ -3551,15 +4773,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_STRIKE_UAV_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_strike_uav_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_strike_uav_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_transport_heli_eq"
-				position = { x = 10 y = 1360 }
+				position = { x = 10 y = 1464 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3628,7 +4868,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_TRANSPORT_HELI_EQ_TT"
 				}
@@ -3637,15 +4877,33 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_TRANSPORT_HELI_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_transport_heli_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_transport_heli_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
 			containerWindowType = {
 				name = "dd_row_transport_plane_eq"
-				position = { x = 10 y = 1464 }
+				position = { x = 10 y = 1568 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -3714,7 +4972,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_TRANSPORT_PLANE_EQ_TT"
 				}
@@ -3723,9 +4981,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_TRANSPORT_PLANE_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_transport_plane_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_transport_plane_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 	}
@@ -3815,7 +5091,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_CONVOY_TT"
 				}
@@ -3824,9 +5100,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_CONVOY_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_convoy"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_convoy"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -3901,7 +5195,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_FLOATING_HARBOR_EQ_TT"
 				}
@@ -3910,9 +5204,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_FLOATING_HARBOR_EQ_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_floating_harbor_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_floating_harbor_eq"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -3986,7 +5298,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_REPAIR_SHIP_HULL_TT"
 				}
@@ -3995,9 +5307,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_REPAIR_SHIP_HULL_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_repair_ship_hull"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_repair_ship_hull"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -4071,7 +5401,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SHIP_HULL_CARRIER_TT"
 				}
@@ -4080,9 +5410,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SHIP_HULL_CARRIER_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_ship_hull_carrier"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_ship_hull_carrier"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -4156,7 +5504,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SHIP_HULL_CRUISER_TT"
 				}
@@ -4165,9 +5513,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SHIP_HULL_CRUISER_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_ship_hull_cruiser"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_ship_hull_cruiser"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -4241,7 +5607,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SHIP_HULL_HEAVY_TT"
 				}
@@ -4250,9 +5616,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SHIP_HULL_HEAVY_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_ship_hull_heavy"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_ship_hull_heavy"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -4326,7 +5710,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SHIP_HULL_LIGHT_TT"
 				}
@@ -4335,9 +5719,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SHIP_HULL_LIGHT_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_ship_hull_light"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_ship_hull_light"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -4411,7 +5813,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SHIP_HULL_SUBMARINE_TT"
 				}
@@ -4420,9 +5822,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SHIP_HULL_SUBMARINE_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_ship_hull_submarine"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_ship_hull_submarine"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 
@@ -4496,7 +5916,7 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_SUPPORT_SHIP_HULL_TT"
 				}
@@ -4505,9 +5925,27 @@ guiTypes = {
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = { x = 360 y = 32 }
+					position = { x = 360 y = 18 }
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_SUPPORT_SHIP_HULL_TT"
+				}
+				buttonType = {
+					name = "dd_ask_down_support_ship_hull"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = { x = 268 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}
+				buttonType = {
+					name = "dd_ask_up_support_ship_hull"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = { x = 360 y = 58 }
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}
 			}
 	}

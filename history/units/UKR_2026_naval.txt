@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "UKR Home Fleet"
+		naval_base = 3686
+		task_force = {
+			name = "UKR Home Fleet TF"
+			location = 3686
+			ship = {
+				name = "UKR SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = UKR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "UKR SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = UKR version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,296 @@
+equipment_modules = {
+
+	ship_light_battery_cw4 = {
+		abbreviation = "d290"
+		category = ship_light_battery
+		parent = ship_light_battery_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			lg_attack = 7
+			build_cost_ic = 450.0
+		}
+	}
+
+	ship_medium_battery_cw1 = {
+		abbreviation = "d392"
+		category = ship_medium_battery
+		parent = ship_medium_battery_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			hg_attack = 7
+			build_cost_ic = 400.0
+		}
+	}
+
+	ship_sam_battery_1 = {
+		abbreviation = "d854"
+		category = ship_anti_air
+		parent = ship_anti_air_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			anti_air_attack = 9
+			build_cost_ic = 200.0
+		}
+	}
+
+	ship_sam_battery_2 = {
+		abbreviation = "d855"
+		category = ship_anti_air
+		parent = ship_sam_battery_1
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			anti_air_attack = 10
+			build_cost_ic = 280.0
+		}
+	}
+
+	ship_vls_1 = {
+		abbreviation = "d016"
+		category = ship_anti_air
+		parent = ship_anti_air_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			anti_air_attack = 13
+			lg_attack = 6
+			sub_attack = 3
+			build_cost_ic = 450.0
+		}
+	}
+
+	ship_vls_2 = {
+		abbreviation = "d017"
+		category = ship_anti_air
+		parent = ship_vls_1
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			anti_air_attack = 14
+			lg_attack = 8
+			sub_attack = 4
+			build_cost_ic = 550.0
+		}
+	}
+
+	ship_vls_3 = {
+		abbreviation = "d018"
+		category = ship_anti_air
+		parent = ship_vls_2
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			anti_air_attack = 15
+			lg_attack = 10
+			sub_attack = 5
+			build_cost_ic = 650.0
+		}
+	}
+
+	ship_vls_4 = {
+		abbreviation = "d019"
+		category = ship_anti_air
+		parent = ship_vls_3
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			anti_air_attack = 16
+			lg_attack = 12
+			sub_attack = 6
+			build_cost_ic = 900.0
+		}
+	}
+
+	ship_dew_1 = {
+		abbreviation = "d995"
+		category = ship_anti_air
+		parent = ship_anti_air_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			anti_air_attack = 15
+			build_cost_ic = 360.0
+		}
+	}
+
+	ship_dew_2 = {
+		abbreviation = "d996"
+		category = ship_anti_air
+		parent = ship_dew_1
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			anti_air_attack = 16
+			build_cost_ic = 480.0
+		}
+	}
+
+	ship_torpedo_cw1 = {
+		abbreviation = "d658"
+		category = ship_torpedo
+		parent = ship_torpedo_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			torpedo_attack = 5
+			build_cost_ic = 80.0
+		}
+	}
+
+	ship_torpedo_cw2 = {
+		abbreviation = "d659"
+		category = ship_torpedo
+		parent = ship_torpedo_cw1
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			torpedo_attack = 6
+			build_cost_ic = 280.0
+		}
+	}
+
+	ship_torpedo_cw3 = {
+		abbreviation = "d660"
+		category = ship_torpedo
+		parent = ship_torpedo_cw2
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			torpedo_attack = 7
+			build_cost_ic = 320.0
+		}
+	}
+
+	ship_torpedo_cw4 = {
+		abbreviation = "d661"
+		category = ship_torpedo
+		parent = ship_torpedo_cw3
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			torpedo_attack = 8
+			build_cost_ic = 360.0
+		}
+	}
+
+	ship_torpedo_cw5 = {
+		abbreviation = "d662"
+		category = ship_torpedo
+		parent = ship_torpedo_cw4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			torpedo_attack = 9
+			build_cost_ic = 160.0
+		}
+	}
+
+	ship_asroc_cw1 = {
+		abbreviation = "d429"
+		category = ship_mine_layer
+		parent = ship_depth_charge_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			sub_attack = 9
+			build_cost_ic = 220.0
+		}
+	}
+
+	ship_sonar_5 = {
+		abbreviation = "d226"
+		category = ship_sonar
+		parent = ship_sonar_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			sub_detection = 11
+			build_cost_ic = 260.0
+		}
+	}
+
+	light_ship_engine_cw1 = {
+		abbreviation = "d154"
+		category = light_ship_engine
+		parent = light_ship_engine_4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			naval_speed = 2
+			build_cost_ic = 200.0
+		}
+	}
+
+	light_ship_engine_cw2 = {
+		abbreviation = "d155"
+		category = light_ship_engine
+		parent = light_ship_engine_cw1
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			naval_speed = 3
+			build_cost_ic = 280.0
+		}
+	}
+
+	light_ship_engine_cw3 = {
+		abbreviation = "d156"
+		category = light_ship_engine
+		parent = light_ship_engine_cw2
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			naval_speed = 4
+			build_cost_ic = 320.0
+		}
+	}
+
+	light_ship_engine_cw4 = {
+		abbreviation = "d157"
+		category = light_ship_engine
+		parent = light_ship_engine_cw3
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 420.0
+		}
+	}
+
+	light_ship_engine_cw5 = {
+		abbreviation = "d158"
+		category = light_ship_engine
+		parent = light_ship_engine_cw4
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			naval_speed = 6
+			build_cost_ic = 520.0
+		}
+	}
+
+	ship_helipad_1 = {
+		abbreviation = "d402"
+		category = ship_airplane_launcher
+		parent = ship_airplane_launcher_1
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			carrier_size = 1
+			build_cost_ic = 80.0
+		}
+	}
+
+	ship_hangar_1 = {
+		abbreviation = "d300"
+		category = ship_airplane_launcher
+		parent = ship_airplane_launcher_1
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			carrier_size = 1
+			build_cost_ic = 140.0
+		}
+	}
+
+	ship_hangar_2 = {
+		abbreviation = "d301"
+		category = ship_airplane_launcher
+		parent = ship_hangar_1
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			carrier_size = 1
+			build_cost_ic = 160.0
+		}
+	}
+
+	ship_emals_1 = {
+		abbreviation = "d205"
+		category = ship_airplane_launcher
+		parent = ship_airplane_launcher_2
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			carrier_size = 1
+			build_cost_ic = 600.0
+		}
+	}
+}

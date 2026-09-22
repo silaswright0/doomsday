@@ -55,7 +55,7 @@ Country totals are control totals; subnational rows only allocate.
 | Dataset | Publisher | Year | What it feeds | URL |
 |---|---|---|---|---|
 | World Steel in Figures / crude steel production | World Steel Association | 2024 | `steel` nodes | https://worldsteel.org/ |
-| Mineral Commodity Summaries | USGS | 2025 | Al, W, Cr, Cu, graphite, Li, Co, REE, iron ore | https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries |
+| Mineral Commodity Summaries | USGS | 2025 | Bauxite (as aluminium), W, Cr, Ni+Mn folded into Cr, Cu, graphite, Li, Co, REE | https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries |
 | Energy Institute Statistical Review | Energy Institute | 2025 | `oil`, `coal` | https://www.energyinst.org/statistical-review |
 | FAO / IRSG rubber | FAOSTAT | latest | `rubber` | https://www.fao.org/faostat/ |
 
@@ -76,8 +76,33 @@ Country totals are control totals; subnational rows only allocate.
 - 1 `radar_station` ≈ one strategic early-warning site (`state_max` 6). Do not add a second radar building: HOI4 detection is one pool with no altitude band. Low flyers are AA.
 - Extra `naval_base` levels (`dib_naval.json`) stack on a state's primary existing port (cap 10). Every leftover nested port stays ≥1.
 - Land `supply_node` on capitals, city+ categories, VP≥15, and fleet ports ≥8. Railway levels may rise on existing edges; topology is not redrawn.
-- Resource units are HOI4 nodes, not tonnes: see constants in `allocate_state_stats.py`
+- Resource units are HOI4 nodes, not tonnes: see constants in `allocate_state_stats.py`. Aluminium is bauxite mine output (5 t bauxite = 1 t Al), not smelter metal. Chromium nodes include chromite plus nickel and manganese. Tiny producers that would round to 0 still get 1 node.
+- Start-date foreign concessions use `give_resource_rights` in `common/on_actions/doomsday_resource_rights.txt` (all resources in that state; pick mine-specialized states). CHI: Guinea 780 (SMB/Chalco bauxite + WCS/Baowu Simandou iron as steel), DRC 889 (CMOC/Sicomines/Zijin), Zimbabwe 545 (Huayou/Sinomine/Chengxin + Zimasco), Mali 556 (Ganfeng Goulamina), Angola 796 Cabinda (Sonangol/Exim oil-backed cargoes), South Sudan 884–885 (CNPC Palogue/Dar), Myanmar 640 (informal Kachin/Mandalay REE), Indonesia 673 Sulawesi (Tsingshan Morowali nickel as chromium), Peru 492 Arequipa (MMG Las Bambas), Mongolia 817 Gobi (Chalco Tavan Tolgoi; also Oyu Tolgoi copper in that state), Argentina 508 (Ganfeng Cauchari-Olaroz). USA: Guyana 687 (Exxon Stabroek), Mozambique 897 (Syrah Balama graphite), Liberia 298 (Firestone rubber). FRA: Gabon 539 (Eramet/Comilog Mn as chromium + TotalEnergies oil). Not granted: Zambia copperbelt, Chile/Australia sovereign mines, Cobre Panama (shut), Toromocho as a separate state.
 
 `renewable_park` already grants `local_resources_coal = 1` per level. Fossil `coal` resources are mines/thermal supply only.
 
 Energy buildings on the map: `renewable_park` (IRENA), `energy_infrastructure` (TSO hubs in `dib_grid.json`). Not placed: `industrial_infrastructure` (exclusive keystone; mining-state rule not used), `nuclear_reactor` (IAEA PRIS would be the campus table), dams (leftover vanilla, not ICOLD). Do not treat Energy Institute TWh as if it placed those.
+
+## Starting setup (2026 audit)
+
+- Research slots: 5 USA/CHI; 4 other high-tech majors; 3 high-income industrial; 2 typical on-map; 1 micros/releasables.
+- Extra starting tech is a documented overlay on the universal Cold War floor. `MUST_NOT_START` IDs are never granted.
+- Land OOB: 1 locked HOI4 division ≈ one real division or a packed brigade set. Surplus stockpile is reserve-only (~15%, 22% USA/CHI), never equal to equipment already on divisions.
+- Foreign bases: the host grants military access and docking rights in the guest's country history before the OOB loads, and again on startup. Access exists only where a division, wing, or ship actually spawns. Own-soil holdings (Guam, Guantanamo, Falklands, French overseas territories) need no access.
+- Commanders: public 2026 command lists where named; generic Army/Fleet Command otherwise. Skills 1–4 (5 only wartime standouts). No random.
+- Debt zeros: DPK 18% of GDP (opaque, not debt-free); Singapore 40% gross debt and high treasury (SWF). Norway/Gulf keep debt, higher treasury.
+
+## Starting laws / policies (2026)
+
+Per-tag table: `tools/start_policies.py`. Applied by `tools/apply_start_policies.py` and `start_setup.policies_for`.
+
+| Slot | What it maps | Sources |
+|---|---|---|
+| Welfare | Public social spending vs GDP; UBI does not exist | [OECD SOCX / social spending 2024](https://www.oecd.org/en/topics/social-spending.html) |
+| Taxes | Tax-to-GDP (OECD avg 34.1% in 2024; US 25.6%; Ireland 21.7%; Gulf no PIT) | [OECD Revenue Statistics 2025](https://www.oecd.org/en/publications/revenue-statistics-2025_3a264267-en/full-report/tax-revenue-trends-1965-2024_98c75833.html) |
+| Healthcare | Beveridge NHS vs Bismarck vs US private mix vs none | [OECD Health at a Glance](https://www.oecd.org/en/publications/health-at-a-glance-2025_15a55280-en/united-kingdom_82034050-en.html); [Fraser Institute UHC 2025](https://www.fraserinstitute.org/studies/comparing-performance-universal-health-care-countries-2025) |
+| Fertility | Abortion statute (ban / exceptions / ~12 weeks / late / none) | [WHO GAPD](https://abortion-policies.srhr.org/); [WPR illegal list 2026](https://worldpopulationreview.com/country-rankings/countries-where-abortion-is-illegal); [CRR Europe 2025](https://reproductiverights.org/wp-content/uploads/2025/10/Europe-Abortion-Laws-2025.pdf) |
+| Conscription | Active 2026 draft vs volunteer | [WPR mandatory service 2026](https://worldpopulationreview.com/country-rankings/countries-with-mandatory-military-service); [Euronews EU draft Apr 2026](https://www.euronews.com/my-europe/2026/04/27/defence-which-european-countries-have-mandatory-and-voluntary-military-service) |
+| Media | Internet isolation / firewall / open | [Freedom on the Net 2025](https://freedomhouse.org/country/china/freedom-net/2025) (CN 9, IR 13, RU 17, SA 25, FR 76) |
+| AI | Race vs EU AI Act vs none | [EU AI Act 2024/1689 + Omnibus 2026/1744](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ%3AL_202601744); [US EO 14365 Dec 2025](https://axis-intelligence.com/us-eu-china-ai-regulation/) |
+| Religion / women / Gulf kafala | State religion vs laïcité vs Taliban; guest-worker civic status | Freedom House country reports 2025; Vision 2030 labour rules (imm 2 + minority 2, pairing-legal stand-in for kafala) |

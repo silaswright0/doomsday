@@ -1,0 +1,43 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "PRU Home Fleet"
+		naval_base = 12997
+		task_force = {
+			name = "PRU Home Fleet TF"
+			location = 12997
+			ship = {
+				name = "PRU DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw1 = { amount = 1 owner = PRU version_name = "Cold War Escort" }
+				}
+			}
+			ship = {
+				name = "PRU DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw1 = { amount = 1 owner = PRU version_name = "Cold War Escort" }
+				}
+			}
+			ship = {
+				name = "PRU DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw1 = { amount = 1 owner = PRU version_name = "Cold War Escort" }
+				}
+			}
+			ship = {
+				name = "PRU SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PRU version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

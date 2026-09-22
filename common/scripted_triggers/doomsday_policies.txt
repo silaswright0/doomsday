@@ -1,0 +1,79 @@
+# Immigration vs minority-rights coupling. Country-scoped. No random.
+# Current law stays available even if the pairing is illegal (cancel_if_invalid = no).
+# Switching to a new law requires a compatible pairing.
+
+dd_imm_allows_closed = {
+	OR = {
+		has_idea = dd_minority_1
+		has_idea = dd_minority_2
+	}
+}
+
+dd_imm_allows_tight = {
+	OR = {
+		has_idea = dd_minority_1
+		has_idea = dd_minority_2
+		has_idea = dd_minority_3
+	}
+}
+
+dd_imm_allows_mid = {
+	OR = {
+		has_idea = dd_minority_2
+		has_idea = dd_minority_3
+		has_idea = dd_minority_4
+	}
+}
+
+dd_imm_allows_open = {
+	OR = {
+		has_idea = dd_minority_3
+		has_idea = dd_minority_4
+		has_idea = dd_minority_5
+	}
+}
+
+dd_imm_allows_mass = {
+	OR = {
+		has_idea = dd_minority_4
+		has_idea = dd_minority_5
+	}
+}
+
+dd_min_allows_persecution = {
+	OR = {
+		has_idea = dd_immigration_1
+		has_idea = dd_immigration_2
+	}
+}
+
+dd_min_allows_disenfranchised = {
+	OR = {
+		has_idea = dd_immigration_1
+		has_idea = dd_immigration_2
+		has_idea = dd_immigration_3
+	}
+}
+
+dd_min_allows_enshrined = {
+	OR = {
+		has_idea = dd_immigration_2
+		has_idea = dd_immigration_3
+		has_idea = dd_immigration_4
+	}
+}
+
+dd_min_allows_uplift = {
+	OR = {
+		has_idea = dd_immigration_3
+		has_idea = dd_immigration_4
+		has_idea = dd_immigration_5
+	}
+}
+
+dd_min_allows_equalization = {
+	OR = {
+		has_idea = dd_immigration_4
+		has_idea = dd_immigration_5
+	}
+}

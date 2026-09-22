@@ -1,0 +1,1247 @@
+characters = {
+	KHA_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = KHA_john_army
+			cost = 0
+			allowed = { original_tag = KHA }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KHA_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = KHA_john_airforce
+			cost = 0
+			allowed = { original_tag = KHA }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KHA_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = KHA_john_navy
+			cost = 0
+			allowed = { original_tag = KHA }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	AOI_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = AOI_john_army
+			cost = 0
+			allowed = { original_tag = AOI }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	AOI_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = AOI_john_airforce
+			cost = 0
+			allowed = { original_tag = AOI }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	AOI_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = AOI_john_navy
+			cost = 0
+			allowed = { original_tag = AOI }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	LBV_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = LBV_john_army
+			cost = 0
+			allowed = { original_tag = LBV }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	LBV_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = LBV_john_airforce
+			cost = 0
+			allowed = { original_tag = LBV }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	LBV_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = LBV_john_navy
+			cost = 0
+			allowed = { original_tag = LBV }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	PAP_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = PAP_john_army
+			cost = 0
+			allowed = { original_tag = PAP }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	PAP_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = PAP_john_airforce
+			cost = 0
+			allowed = { original_tag = PAP }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	PAP_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = PAP_john_navy
+			cost = 0
+			allowed = { original_tag = PAP }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	TOS_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = TOS_john_army
+			cost = 0
+			allowed = { original_tag = TOS }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	TOS_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = TOS_john_airforce
+			cost = 0
+			allowed = { original_tag = TOS }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	TOS_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = TOS_john_navy
+			cost = 0
+			allowed = { original_tag = TOS }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SPM_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SPM_john_army
+			cost = 0
+			allowed = { original_tag = SPM }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SPM_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = SPM_john_airforce
+			cost = 0
+			allowed = { original_tag = SPM }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SPM_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = SPM_john_navy
+			cost = 0
+			allowed = { original_tag = SPM }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	TTS_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = TTS_john_army
+			cost = 0
+			allowed = { original_tag = TTS }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	TTS_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = TTS_john_airforce
+			cost = 0
+			allowed = { original_tag = TTS }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	TTS_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = TTS_john_navy
+			cost = 0
+			allowed = { original_tag = TTS }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SMI_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SMI_john_army
+			cost = 0
+			allowed = { original_tag = SMI }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SMI_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = SMI_john_airforce
+			cost = 0
+			allowed = { original_tag = SMI }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SMI_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = SMI_john_navy
+			cost = 0
+			allowed = { original_tag = SMI }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	GRN_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = GRN_john_army
+			cost = 0
+			allowed = { original_tag = GRN }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	GRN_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = GRN_john_airforce
+			cost = 0
+			allowed = { original_tag = GRN }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	GRN_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = GRN_john_navy
+			cost = 0
+			allowed = { original_tag = GRN }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	GRN_gen_field_command = {
+		name = "Field Command"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = 0
+		}
+	}
+	RAP_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RAP_john_army
+			cost = 0
+			allowed = { original_tag = RAP }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RAP_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = RAP_john_airforce
+			cost = 0
+			allowed = { original_tag = RAP }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RAP_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = RAP_john_navy
+			cost = 0
+			allowed = { original_tag = RAP }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	YUC_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = YUC_john_army
+			cost = 0
+			allowed = { original_tag = YUC }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	YUC_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = YUC_john_airforce
+			cost = 0
+			allowed = { original_tag = YUC }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	YUC_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = YUC_john_navy
+			cost = 0
+			allowed = { original_tag = YUC }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RIG_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RIG_john_army
+			cost = 0
+			allowed = { original_tag = RIG }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RIG_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = RIG_john_airforce
+			cost = 0
+			allowed = { original_tag = RIG }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RIG_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = RIG_john_navy
+			cost = 0
+			allowed = { original_tag = RIG }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	QUE_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = QUE_john_army
+			cost = 0
+			allowed = { original_tag = QUE }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	QUE_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = QUE_john_airforce
+			cost = 0
+			allowed = { original_tag = QUE }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	QUE_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = QUE_john_navy
+			cost = 0
+			allowed = { original_tag = QUE }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KAT_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = KAT_john_army
+			cost = 0
+			allowed = { original_tag = KAT }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KAT_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = KAT_john_airforce
+			cost = 0
+			allowed = { original_tag = KAT }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KAT_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = KAT_john_navy
+			cost = 0
+			allowed = { original_tag = KAT }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BIA_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = BIA_john_army
+			cost = 0
+			allowed = { original_tag = BIA }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BIA_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = BIA_john_airforce
+			cost = 0
+			allowed = { original_tag = BIA }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BIA_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = BIA_john_navy
+			cost = 0
+			allowed = { original_tag = BIA }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	WLA_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = WLA_john_army
+			cost = 0
+			allowed = { original_tag = WLA }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	WLA_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = WLA_john_airforce
+			cost = 0
+			allowed = { original_tag = WLA }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	WLA_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = WLA_john_navy
+			cost = 0
+			allowed = { original_tag = WLA }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	CBV_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = CBV_john_army
+			cost = 0
+			allowed = { original_tag = CBV }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	CBV_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = CBV_john_airforce
+			cost = 0
+			allowed = { original_tag = CBV }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	CBV_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = CBV_john_navy
+			cost = 0
+			allowed = { original_tag = CBV }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	CBV_gen_field_command = {
+		name = "Field Command"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = 0
+		}
+	}
+	BAR_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = BAR_john_army
+			cost = 0
+			allowed = { original_tag = BAR }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BAR_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = BAR_john_airforce
+			cost = 0
+			allowed = { original_tag = BAR }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	BAR_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = BAR_john_navy
+			cost = 0
+			allowed = { original_tag = BAR }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	EVE_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = EVE_john_army
+			cost = 0
+			allowed = { original_tag = EVE }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	EVE_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = EVE_john_airforce
+			cost = 0
+			allowed = { original_tag = EVE }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	EVE_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = EVE_john_navy
+			cost = 0
+			allowed = { original_tag = EVE }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SOK_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SOK_john_army
+			cost = 0
+			allowed = { original_tag = SOK }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SOK_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = SOK_john_airforce
+			cost = 0
+			allowed = { original_tag = SOK }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	SOK_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = SOK_john_navy
+			cost = 0
+			allowed = { original_tag = SOK }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	THU_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = THU_john_army
+			cost = 0
+			allowed = { original_tag = THU }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	THU_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = THU_john_airforce
+			cost = 0
+			allowed = { original_tag = THU }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	THU_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = THU_john_navy
+			cost = 0
+			allowed = { original_tag = THU }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	HES_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = HES_john_army
+			cost = 0
+			allowed = { original_tag = HES }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	HES_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = HES_john_airforce
+			cost = 0
+			allowed = { original_tag = HES }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	HES_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = HES_john_navy
+			cost = 0
+			allowed = { original_tag = HES }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RHI_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RHI_john_army
+			cost = 0
+			allowed = { original_tag = RHI }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RHI_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = RHI_john_airforce
+			cost = 0
+			allowed = { original_tag = RHI }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RHI_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = RHI_john_navy
+			cost = 0
+			allowed = { original_tag = RHI }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	UBD_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = UBD_john_army
+			cost = 0
+			allowed = { original_tag = UBD }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	UBD_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = UBD_john_airforce
+			cost = 0
+			allowed = { original_tag = UBD }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	UBD_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = UBD_john_navy
+			cost = 0
+			allowed = { original_tag = UBD }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KOS_john_army = {
+		name = "John Army"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = KOS_john_army
+			cost = 0
+			allowed = { original_tag = KOS }
+			traits = { dd_john_army }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KOS_john_airforce = {
+		name = "John Airforce"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = KOS_john_airforce
+			cost = 0
+			allowed = { original_tag = KOS }
+			traits = { dd_john_airforce }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KOS_john_navy = {
+		name = "John Navy"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = KOS_john_navy
+			cost = 0
+			allowed = { original_tag = KOS }
+			traits = { dd_john_navy }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	KOS_gen_field_command = {
+		name = "Field Command"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = 0
+		}
+	}
+}

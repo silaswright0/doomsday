@@ -49,10 +49,6 @@ technologies = {
 		research_cost = 2
 		start_year = 1940
 		
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = @transport_plane_x y = 0 } 
-		}
 		
 		categories = {
 			air_equipment
@@ -78,10 +74,6 @@ technologies = {
 		research_cost = 2
 		start_year = 1945
 		
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = @transport_plane_x y = 4 } 
-		}
 		
 		categories = {
 			air_equipment
@@ -326,10 +318,6 @@ technologies = {
 		research_cost = 2
 		start_year = 1944
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 8 }
-		}
 		
 		categories = {
 			light_air
@@ -393,10 +381,6 @@ technologies = {
 		research_cost = 2
 		start_year = 1945
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 12 }
-		}
 		
 		categories = {
 			light_air
@@ -617,10 +601,6 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 1944
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 2 y = 8 }
-		}
 		
 		categories = {
 			medium_air
@@ -667,10 +647,6 @@ technologies = {
 		research_cost = 2
 		start_year = 1945
 		
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 2 y = 12 }
-		}
 		
 		categories = {
 			medium_air
@@ -845,10 +821,6 @@ technologies = {
 
 		research_cost = 2
 		start_year = 1944
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 8 }
-		}
 		
 		categories = {
 			heavy_air
@@ -886,10 +858,6 @@ technologies = {
 		research_cost = 2
 		start_year = 1945
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 12 }
-		}
 		
 		categories = {
 			heavy_air
@@ -1154,10 +1122,6 @@ technologies = {
 		research_cost = 1
 		start_year = 1944
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 10 }
-		}
 
 		categories = {
 			air_equipment
@@ -1390,10 +1354,6 @@ technologies = {
 		research_cost = 1.5
 		start_year = 1943
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 7 }
-		}
 
 		categories = {
 			air_equipment
@@ -1439,10 +1399,6 @@ technologies = {
 		research_cost = 2
 		start_year = 1945
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 2 y = 12 }
-		}
 
 		categories = {
 			air_equipment
@@ -1695,10 +1651,6 @@ technologies = {
 		research_cost = 1.5
 		start_year = 1944
 
-		folder = {
-			name = bba_air_techs_folder
-			position = { x = 0 y = 8 }
-		}
 
 		path = {
 			leads_to_tech = sp_centrifugal_jet_tech

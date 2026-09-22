@@ -1,0 +1,59 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "UAE Home Fleet"
+		naval_base = 7960
+		task_force = {
+			name = "UAE Home Fleet TF"
+			location = 7960
+			ship = {
+				name = "UAE DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = UAE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "UAE DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = UAE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "UAE DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = UAE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "UAE DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = UAE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "UAE DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = UAE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "UAE DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = UAE version_name = "Cold War Destroyer" }
+				}
+			}
+		}
+	}
+}

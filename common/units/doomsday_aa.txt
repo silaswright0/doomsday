@@ -78,7 +78,7 @@ sub_units = {
 		training_time = 90
 
 		need = {
-			anti_air_equipment = 8
+			manpads_equipment = 8
 		}
 
 		can_be_parachuted = yes
@@ -94,7 +94,7 @@ sub_units = {
 		breakthrough = -0.5
 		soft_attack = -0.5
 		hard_attack = -0.5
-		air_attack = -0.35
+		air_attack = 0.10
 	}
 
 	# Marches with the army. Needs SAM missiles in stockpile to train/reinforce.

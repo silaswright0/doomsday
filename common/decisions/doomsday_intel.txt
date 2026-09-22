@@ -1,0 +1,495 @@
+# Intelligence missions. One button per mission type, then pick a target.
+# Country-scoped. No random_list (deterministic flips).
+#
+# dd_intel_mission: 0 idle, 1 destab, 2 assassinate, 3 arm, 4 coup, 5 sabotage, 6 steal, 7 cyber
+
+doomsday_intel_category = {
+
+	dd_intel_cancel_select = {
+		icon = generic_decision
+		allowed = { always = yes }
+		priority = 200
+		visible = {
+			dd_intel_selecting = yes
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_intel_cancel_select_effect = yes
+		}
+	}
+
+	dd_intel_destabilize = {
+		icon = generic_civil_support
+		allowed = { always = yes }
+		visible = {
+			dd_intel_is_t1 = yes
+			dd_intel_idle = yes
+		}
+		available = {
+			dd_intel_mission_ready = yes
+			custom_trigger_tooltip = {
+				tooltip = DD_INTEL_COST_DESTAB
+				NOT = { check_variable = { treasury < 2.0 } }
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			set_variable = { dd_intel_mission = 1 }
+		}
+	}
+
+	dd_intel_destabilize_target = {
+		icon = generic_civil_support
+		allowed = { always = yes }
+		priority = 50
+		visible = {
+			check_variable = { dd_intel_mission = 1 }
+		}
+		target_root_trigger = {
+			check_variable = { dd_intel_mission = 1 }
+		}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = { dd_intel_can_target = yes }
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			subtract_from_variable = { treasury = 2.0 }
+			dd_intel_finish_select = yes
+			FROM = {
+				add_timed_idea = { idea = dd_intel_destabilized days = 180 }
+			}
+		}
+	}
+
+	dd_intel_assassinate = {
+		icon = generic_assassination
+		allowed = { always = yes }
+		visible = {
+			dd_intel_is_t1 = yes
+			dd_intel_idle = yes
+		}
+		available = {
+			dd_intel_mission_ready = yes
+			custom_trigger_tooltip = {
+				tooltip = DD_INTEL_COST_ASSASSINATE
+				NOT = { check_variable = { treasury < 3.0 } }
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			set_variable = { dd_intel_mission = 2 }
+		}
+	}
+
+	dd_intel_assassinate_target = {
+		icon = generic_assassination
+		allowed = { always = yes }
+		priority = 50
+		visible = {
+			check_variable = { dd_intel_mission = 2 }
+		}
+		target_root_trigger = {
+			check_variable = { dd_intel_mission = 2 }
+		}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = {
+				dd_intel_can_target = yes
+				dd_intel_no_agency = yes
+				NOT = { tag = ROOT }
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			subtract_from_variable = { treasury = 3.0 }
+			dd_intel_finish_select = yes
+			dd_intel_det_flip = yes
+			if = {
+				limit = { check_variable = { dd_intel_flip = 0 } }
+				dd_intel_assassinate_one = yes
+			}
+		}
+	}
+
+	dd_intel_arm_insurgents = {
+		icon = generic_civil_support
+		allowed = { always = yes }
+		visible = {
+			dd_intel_is_t1 = yes
+			dd_intel_idle = yes
+			NOT = { has_country_flag = dd_intel_arm_running }
+		}
+		available = {
+			dd_intel_mission_ready = yes
+			dd_intel_has_free_ig = yes
+			custom_trigger_tooltip = {
+				tooltip = DD_INTEL_COST_ARM
+				NOT = { check_variable = { treasury < 2.5 } }
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			set_variable = { dd_intel_mission = 3 }
+		}
+	}
+
+	dd_intel_arm_insurgents_target = {
+		icon = generic_civil_support
+		allowed = { always = yes }
+		priority = 50
+		visible = {
+			OR = {
+				check_variable = { dd_intel_mission = 3 }
+				has_country_flag = dd_intel_arm_running
+			}
+		}
+		target_root_trigger = {
+			OR = {
+				check_variable = { dd_intel_mission = 3 }
+				has_country_flag = dd_intel_arm_running
+			}
+		}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = {
+				NOT = { tag = ROOT }
+				OR = {
+					AND = {
+						ROOT = { check_variable = { dd_intel_mission = 3 } }
+						dd_intel_can_target = yes
+					}
+					tag = var:ROOT.dd_intel_insurgent_target
+				}
+			}
+		}
+		cost = 0
+		days_remove = 180
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			subtract_from_variable = { treasury = 2.5 }
+			dd_intel_start_cooldown = yes
+			set_variable = { dd_intel_insurgent_target = FROM }
+			set_country_flag = dd_intel_arm_running
+			dd_intel_cancel_select_effect = yes
+		}
+		remove_effect = {
+			dd_intel_spawn_insurgents = yes
+			clr_country_flag = dd_intel_arm_running
+		}
+	}
+
+	dd_intel_coup = {
+		icon = generic_civil_support
+		allowed = { always = yes }
+		visible = {
+			dd_intel_is_t1 = yes
+			dd_intel_idle = yes
+		}
+		available = {
+			dd_intel_mission_ready = yes
+			custom_trigger_tooltip = {
+				tooltip = DD_INTEL_COST_COUP
+				NOT = { check_variable = { treasury < 4.0 } }
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			set_variable = { dd_intel_mission = 4 }
+		}
+	}
+
+	dd_intel_coup_target = {
+		icon = generic_civil_support
+		allowed = { always = yes }
+		priority = 50
+		visible = {
+			check_variable = { dd_intel_mission = 4 }
+		}
+		target_root_trigger = {
+			check_variable = { dd_intel_mission = 4 }
+		}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = {
+				dd_intel_can_target = yes
+				dd_intel_no_agency = yes
+				NOT = { tag = ROOT }
+				num_owned_states > 1
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			subtract_from_variable = { treasury = 4.0 }
+			dd_intel_finish_select = yes
+			dd_intel_coup_resolve = yes
+		}
+	}
+
+	dd_intel_sabotage = {
+		icon = generic_construction
+		allowed = { always = yes }
+		visible = {
+			dd_intel_has_agency = yes
+			dd_intel_idle = yes
+		}
+		available = {
+			dd_intel_mission_ready = yes
+			OR = {
+				AND = {
+					dd_intel_is_t1 = yes
+					custom_trigger_tooltip = {
+						tooltip = DD_INTEL_COST_SABOTAGE_T1
+						NOT = { check_variable = { treasury < 1.5 } }
+					}
+				}
+				AND = {
+					dd_intel_is_t2 = yes
+					custom_trigger_tooltip = {
+						tooltip = DD_INTEL_COST_SABOTAGE_T2
+						NOT = { check_variable = { treasury < 1.0 } }
+					}
+				}
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			set_variable = { dd_intel_mission = 5 }
+		}
+	}
+
+	dd_intel_sabotage_country = {
+		icon = generic_construction
+		allowed = { always = yes }
+		priority = 50
+		visible = {
+			check_variable = { dd_intel_mission = 5 }
+			NOT = { has_variable = dd_intel_sabo_country }
+		}
+		target_root_trigger = {
+			check_variable = { dd_intel_mission = 5 }
+			NOT = { has_variable = dd_intel_sabo_country }
+		}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = ROOT
+					dd_intel_can_target = yes
+				}
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			set_variable = { dd_intel_sabo_country = FROM }
+		}
+	}
+
+	dd_intel_sabotage_state = {
+		icon = generic_construction
+		allowed = { always = yes }
+		priority = 50
+		visible = {
+			check_variable = { dd_intel_mission = 5 }
+			has_variable = dd_intel_sabo_country
+		}
+		target_root_trigger = {
+			check_variable = { dd_intel_mission = 5 }
+			has_variable = dd_intel_sabo_country
+		}
+		targets_dynamic = yes
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+		target_trigger = {
+			FROM = {
+				is_owned_by = var:ROOT.dd_intel_sabo_country
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			if = {
+				limit = { dd_intel_is_t1 = yes }
+				subtract_from_variable = { treasury = 1.5 }
+			}
+			else = {
+				subtract_from_variable = { treasury = 1.0 }
+			}
+			dd_intel_finish_select = yes
+			if = {
+				limit = { dd_intel_is_t1 = yes }
+				FROM = {
+					damage_building = {
+						type = industrial_complex
+						damage = 0.6
+					}
+					damage_building = {
+						type = arms_factory
+						damage = 0.4
+					}
+				}
+			}
+			else = {
+				dd_intel_det_flip = yes
+				if = {
+					limit = { check_variable = { dd_intel_flip = 0 } }
+					FROM = {
+						damage_building = {
+							type = industrial_complex
+							damage = 0.5
+						}
+					}
+				}
+			}
+		}
+	}
+
+	dd_intel_steal_tech = {
+		icon = generic_research
+		allowed = { always = yes }
+		visible = {
+			dd_intel_has_agency = yes
+			dd_intel_idle = yes
+		}
+		available = {
+			dd_intel_mission_ready = yes
+			OR = {
+				AND = {
+					dd_intel_is_t1 = yes
+					custom_trigger_tooltip = {
+						tooltip = DD_INTEL_COST_STEAL_T1
+						NOT = { check_variable = { treasury < 2.0 } }
+					}
+				}
+				AND = {
+					dd_intel_is_t2 = yes
+					custom_trigger_tooltip = {
+						tooltip = DD_INTEL_COST_STEAL_T2
+						NOT = { check_variable = { treasury < 1.2 } }
+					}
+				}
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			set_variable = { dd_intel_mission = 6 }
+		}
+	}
+
+	dd_intel_steal_tech_target = {
+		icon = generic_research
+		allowed = { always = yes }
+		priority = 50
+		visible = {
+			check_variable = { dd_intel_mission = 6 }
+		}
+		target_root_trigger = {
+			check_variable = { dd_intel_mission = 6 }
+		}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = {
+				dd_intel_can_target = yes
+				NOT = { tag = ROOT }
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			if = {
+				limit = { dd_intel_is_t1 = yes }
+				subtract_from_variable = { treasury = 2.0 }
+				dd_intel_finish_select = yes
+				dd_intel_steal_pick = yes
+			}
+			else = {
+				subtract_from_variable = { treasury = 1.2 }
+				dd_intel_finish_select = yes
+				dd_intel_det_flip = yes
+				if = {
+					limit = { check_variable = { dd_intel_flip = 0 } }
+					dd_intel_steal_pick = yes
+				}
+			}
+		}
+	}
+
+	dd_intel_mission_cyber = {
+		icon = generic_intel_bonus
+		allowed = { always = yes }
+		visible = {
+			dd_intel_has_agency = yes
+			dd_intel_idle = yes
+		}
+		available = {
+			dd_intel_mission_ready = yes
+			OR = {
+				AND = {
+					dd_intel_is_t1 = yes
+					custom_trigger_tooltip = {
+						tooltip = DD_INTEL_COST_CYBER_T1
+						NOT = { check_variable = { treasury < 1.0 } }
+					}
+				}
+				AND = {
+					dd_intel_is_t2 = yes
+					custom_trigger_tooltip = {
+						tooltip = DD_INTEL_COST_CYBER_T2
+						NOT = { check_variable = { treasury < 0.6 } }
+					}
+				}
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			set_variable = { dd_intel_mission = 7 }
+		}
+	}
+
+	dd_intel_cyber_target = {
+		icon = generic_intel_bonus
+		allowed = { always = yes }
+		priority = 50
+		visible = {
+			check_variable = { dd_intel_mission = 7 }
+		}
+		target_root_trigger = {
+			check_variable = { dd_intel_mission = 7 }
+		}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = { dd_intel_can_target = yes }
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			if = {
+				limit = { dd_intel_is_t1 = yes }
+				subtract_from_variable = { treasury = 1.0 }
+				dd_intel_finish_select = yes
+				FROM = {
+					add_timed_idea = { idea = dd_intel_cyber_t1 days = 30 }
+				}
+			}
+			else = {
+				subtract_from_variable = { treasury = 0.6 }
+				dd_intel_finish_select = yes
+				FROM = {
+					add_timed_idea = { idea = dd_intel_cyber_t2 days = 30 }
+				}
+			}
+		}
+	}
+}

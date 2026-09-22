@@ -1,0 +1,149 @@
+ideas = {
+
+	country = {
+
+		# Tier 1 agencies. Same modifiers; name is the real service.
+		dd_intel_cia = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
+			}
+		}
+
+		dd_intel_svr = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
+			}
+		}
+
+		dd_intel_mossad = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
+			}
+		}
+
+		dd_intel_mss = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
+			}
+		}
+
+		# Tier 2 agencies.
+		dd_intel_rgb = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 0.5
+				encryption = 0.5
+				civilian_intel_to_others = -0.08
+			}
+		}
+
+		dd_intel_vaja = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 0.5
+				encryption = 0.5
+				civilian_intel_to_others = -0.08
+			}
+		}
+
+		dd_intel_dgse = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 0.5
+				encryption = 0.5
+				civilian_intel_to_others = -0.08
+			}
+		}
+
+		dd_intel_mi6 = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 0.5
+				encryption = 0.5
+				civilian_intel_to_others = -0.08
+			}
+		}
+
+		dd_intel_destabilized = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.05
+			}
+		}
+
+		dd_intel_cyber_t1 = {
+			picture = generic_exploit_mines
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.10
+			}
+		}
+
+		dd_intel_cyber_t2 = {
+			picture = generic_exploit_mines
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.05
+			}
+		}
+
+		dd_intel_insurgency = {
+			picture = generic_violence
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.08
+				war_support_factor = -0.05
+				resistance_growth = 0.15
+			}
+		}
+
+		dd_intel_coup_failed = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				political_power_factor = -0.10
+				army_org_factor = -0.05
+			}
+		}
+	}
+}

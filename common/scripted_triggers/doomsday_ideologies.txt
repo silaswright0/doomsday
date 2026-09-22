@@ -1,0 +1,39 @@
+# Ideology families. Country-scoped. No random.
+dd_is_elected_gov = {
+	OR = {
+		has_government = social_democracy
+		has_government = social_liberalism
+		has_government = liberal_conservatism
+		has_government = progressive_populism
+		has_government = national_populism
+		has_government = islamic_democracy
+		has_government = democratic_confederalism
+	}
+}
+
+dd_is_authoritarian_gov = {
+	OR = {
+		has_government = sovereign_democracy
+		has_government = military_junta
+		has_government = absolute_monarchy
+		has_government = theocratic_absolutism
+		has_government = technocracy
+	}
+}
+
+dd_is_far_left_gov = {
+	OR = {
+		has_government = state_socialism
+		has_government = left_wing_nationalism
+		has_government = communism
+		has_government = anarcho_communism
+	}
+}
+
+dd_is_far_right_gov = {
+	OR = {
+		has_government = jihadist_fundamentalism
+		has_government = fascism
+	}
+}
+

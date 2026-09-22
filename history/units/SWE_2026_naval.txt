@@ -1,0 +1,75 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "SWE Home Fleet"
+		naval_base = 408
+		task_force = {
+			name = "SWE Home Fleet TF"
+			location = 408
+			ship = {
+				name = "SWE DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SWE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SWE DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SWE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SWE DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SWE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SWE DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SWE version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SWE SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SWE version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "SWE SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SWE version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "SWE SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SWE version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "SWE SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SWE version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

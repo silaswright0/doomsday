@@ -1,0 +1,963 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "CHI DJI Station"
+		naval_base = 8124
+		task_force = {
+			name = "CHI DJI Station TF"
+			location = 8124
+			ship = {
+				name = "CHI DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "CHI CAM Station"
+		naval_base = 7432
+		task_force = {
+			name = "CHI CAM Station TF"
+			location = 7432
+			ship = {
+				name = "CHI DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "CHI Home Fleet"
+		naval_base = 10004
+		task_force = {
+			name = "CHI Home Fleet TF"
+			location = 10004
+			ship = {
+				name = "CHI CV-1"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = CHI version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "CHI CV-2"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = CHI version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "CHI CV-3"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = CHI version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "CHI DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-9"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-10"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-11"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-12"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-13"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-14"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-15"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-16"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-17"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-18"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-19"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-20"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-21"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-22"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-23"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-24"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-25"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-26"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-27"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-28"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-29"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-30"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-31"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-32"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-33"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-34"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-35"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-36"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-37"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-38"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-39"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-40"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-41"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI DD-42"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = CHI version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "CHI CL-1"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-2"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-3"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-4"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-5"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-6"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-7"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-8"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-9"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-10"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-11"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-12"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-13"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-14"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-15"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-16"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-17"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-18"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-19"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-20"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-21"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI CL-22"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = CHI version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "CHI SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-7"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-8"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-9"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-10"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-11"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-12"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-13"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-14"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-15"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-16"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-17"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-18"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-19"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-20"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-21"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-22"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-23"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-24"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-25"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-26"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-27"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-28"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-29"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-30"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-31"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-32"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-33"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-34"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-35"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-36"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-37"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-38"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-39"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-40"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-41"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-42"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-43"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-44"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-45"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-46"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-47"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-48"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-49"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "CHI SS-50"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = CHI version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+}

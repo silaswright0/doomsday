@@ -1,0 +1,1171 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "Atlantic Fleet"
+		naval_base = 788
+		task_force = {
+			name = "Atlantic Fleet TF"
+			location = 788
+			ship = {
+				name = "USA CV-1"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA CV-2"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA CV-3"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA CV-4"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA CV-5"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-9"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-10"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA CL-1"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-2"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-3"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-4"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-5"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-6"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-7"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-7"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-8"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-9"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-10"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-11"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-12"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-13"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-14"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-15"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-16"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-17"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-18"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-19"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-20"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "Pacific Fleet"
+		naval_base = 1562
+		task_force = {
+			name = "Pacific Fleet TF"
+			location = 1562
+			ship = {
+				name = "USA CV-6"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA CV-7"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA CV-8"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA CV-9"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA DD-11"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-12"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-13"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-14"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-15"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-16"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA CL-8"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-9"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-10"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-11"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA SS-21"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-22"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-23"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-24"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-25"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-26"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-27"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-28"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-29"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-30"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "Kitsap Submarine Group"
+		naval_base = 7315
+		task_force = {
+			name = "Kitsap Submarine Group TF"
+			location = 7315
+			ship = {
+				name = "USA DD-17"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-18"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA CL-12"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-13"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA SS-31"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-32"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-33"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-34"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-35"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-36"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-37"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-38"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-39"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-40"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-41"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-42"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-43"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-44"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-45"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "Pearl Harbor"
+		naval_base = 4180
+		task_force = {
+			name = "Pearl Harbor TF"
+			location = 4180
+			ship = {
+				name = "USA CV-10"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA DD-19"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-20"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-21"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA JAP Station"
+		naval_base = 9998
+		task_force = {
+			name = "USA JAP Station TF"
+			location = 9998
+			ship = {
+				name = "USA CV-11"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = USA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "USA DD-22"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-23"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-24"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-25"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-26"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-27"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-28"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-29"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA CL-14"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA CL-15"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA JAP Station"
+		naval_base = 9950
+		task_force = {
+			name = "USA JAP Station TF"
+			location = 9950
+			ship = {
+				name = "USA DD-30"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-31"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA USA Station"
+		naval_base = 12140
+		task_force = {
+			name = "USA USA Station TF"
+			location = 12140
+			ship = {
+				name = "USA DD-32"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-33"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA CL-16"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA SS-46"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-47"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-48"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-49"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-50"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-51"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA BHR Station"
+		naval_base = 13313
+		task_force = {
+			name = "USA BHR Station TF"
+			location = 13313
+			ship = {
+				name = "USA DD-34"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-35"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-36"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-37"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA CL-17"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA SS-52"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "USA SS-53"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA SPR Station"
+		naval_base = 1048
+		task_force = {
+			name = "USA SPR Station TF"
+			location = 1048
+			ship = {
+				name = "USA DD-38"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-39"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-40"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-41"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA ITA Station"
+		naval_base = 819
+		task_force = {
+			name = "USA ITA Station TF"
+			location = 819
+			ship = {
+				name = "USA DD-42"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-43"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA CL-18"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = USA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "USA SS-54"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA GRE Station"
+		naval_base = 12058
+		task_force = {
+			name = "USA GRE Station TF"
+			location = 12058
+			ship = {
+				name = "USA DD-44"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA SNG Station"
+		naval_base = 12299
+		task_force = {
+			name = "USA SNG Station TF"
+			location = 12299
+			ship = {
+				name = "USA DD-45"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA DD-46"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "USA SS-55"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = USA version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA ENG Station"
+		naval_base = 13019
+		task_force = {
+			name = "USA ENG Station TF"
+			location = 13019
+			ship = {
+				name = "USA DD-47"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "USA DJI Station"
+		naval_base = 8124
+		task_force = {
+			name = "USA DJI Station TF"
+			location = 8124
+			ship = {
+				name = "USA DD-48"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = USA version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+}

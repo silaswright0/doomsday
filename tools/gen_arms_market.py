@@ -11,6 +11,29 @@ SKIP_DIRS = {"modules", "upgrades"}
 SKIP_FILES = {"plane_filters.txt", "tank_filters.txt", "x_plane_airframes.txt", "x_tank_chassis.txt"}
 SKIP_ARCH = {"mothership_equipment"}
 
+# World pool seed, in lots (lot size × this). Floor kit only; nukes/ships stay at 0.
+SEED_LOTS = {
+    "infantry_equipment": 40,
+    "support_equipment": 12,
+    "artillery_equipment": 15,
+    "anti_air_equipment": 12,
+    "anti_tank_equipment": 12,
+    "motorized_equipment": 20,
+    "mechanized_equipment": 12,
+    "armored_car_equipment": 10,
+    "light_tank_chassis": 10,
+    "medium_tank_chassis": 12,
+    "modern_tank_chassis": 12,
+    "rocket_artillery_equipment": 8,
+    "train_equipment": 8,
+    "motorbike_equipment": 10,
+    "helicopter_equipment": 8,
+    "recon_uav_equipment": 10,
+    "small_plane_airframe": 12,
+    "transport_plane_equipment": 8,
+    "convoy": 25,
+}
+
 LAND_IFACE = {
     "interface_category_land",
     "interface_category_armor",
@@ -193,6 +216,7 @@ def catalog() -> list[dict]:
                 "sell": sell,
                 "sprite": sprite,
                 "scale": scale,
+                "seed": SEED_LOTS.get(arch, 0) * amount,
             }
         )
     order = {"land": 0, "air": 1, "navy": 2}
@@ -274,7 +298,7 @@ def entry_gui(row: dict, y: int) -> str:
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_BUY"
 					buttonFont = "hoi_16mbs"
-					position = {{ x = 360 y = 32 }}
+					position = {{ x = 360 y = 18 }}
 					clicksound = click_default
 					pdx_tooltip = "DD_BUY_{slug.upper()}_TT"
 				}}
@@ -283,9 +307,27 @@ def entry_gui(row: dict, y: int) -> str:
 					quadTextureSprite = "GFX_diplo_filter_entry"
 					buttonText = "DD_MARKET_SELL"
 					buttonFont = "hoi_16mbs"
-					position = {{ x = 360 y = 32 }}
+					position = {{ x = 360 y = 18 }}
 					clicksound = click_default
 					pdx_tooltip = "DD_SELL_{slug.upper()}_TT"
+				}}
+				buttonType = {{
+					name = "dd_ask_down_{slug}"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_DOWN"
+					buttonFont = "hoi_16mbs"
+					position = {{ x = 268 y = 58 }}
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_DOWN_TT"
+				}}
+				buttonType = {{
+					name = "dd_ask_up_{slug}"
+					quadTextureSprite = "GFX_diplo_filter_entry"
+					buttonText = "DD_MARKET_ASK_UP"
+					buttonFont = "hoi_16mbs"
+					position = {{ x = 360 y = 58 }}
+					clicksound = click_default
+					pdx_tooltip = "DD_ASK_UP_TT"
 				}}
 			}}"""
 
@@ -386,110 +428,129 @@ def write_gui(rows: list[dict]) -> None:
 			}}
 		}}
 
+		containerWindowType = {{
+			name = "dd_market_tabs"
+			position = {{ x = 0 y = 80 }}
+			size = {{ width = 100% height = 40 }}
+			margin = {{ left = 12 right = 12 }}
+			clipping = no
+
+			buttonType = {{
+				name = "dd_tab_buy_on"
+				quadTextureSprite = "GFX_button_261x34"
+				position = {{ x = 0 y = 2 }}
+				size = {{ width = 48% height = 34 }}
+				buttonText = "DD_MARKET_TAB_BUY"
+				buttonFont = "hoi_18mbs"
+				frame = 2
+				clicksound = click_default
+			}}
+			buttonType = {{
+				name = "dd_tab_buy_off"
+				quadTextureSprite = "GFX_button_261x34"
+				position = {{ x = 0 y = 2 }}
+				size = {{ width = 48% height = 34 }}
+				buttonText = "DD_MARKET_TAB_BUY"
+				buttonFont = "hoi_18mbs"
+				frame = 1
+				clicksound = click_default
+			}}
+			buttonType = {{
+				name = "dd_tab_sell_on"
+				quadTextureSprite = "GFX_button_261x34"
+				position = {{ x = 52% y = 2 }}
+				size = {{ width = 48% height = 34 }}
+				buttonText = "DD_MARKET_TAB_SELL"
+				buttonFont = "hoi_18mbs"
+				frame = 2
+				clicksound = click_default
+			}}
+			buttonType = {{
+				name = "dd_tab_sell_off"
+				quadTextureSprite = "GFX_button_261x34"
+				position = {{ x = 52% y = 2 }}
+				size = {{ width = 48% height = 34 }}
+				buttonText = "DD_MARKET_TAB_SELL"
+				buttonFont = "hoi_18mbs"
+				frame = 1
+				clicksound = click_default
+			}}
+		}}
+
 		iconType = {{
 			name = "dd_tabs_background"
 			quadTextureSprite = "GFX_tab_diplomacy_bg"
-			position = {{ x = 15 y = 184 }}
+			position = {{ x = 12 y = 184 }}
 			alwaystransparent = yes
 		}}
 
-		buttonType = {{
-			name = "dd_tab_buy_on"
-			quadTextureSprite = "GFX_Access_&_buy_equipment"
-			position = {{ x = 15 y = 80 }}
-			buttonText = "DD_MARKET_TAB_BUY"
-			font = "hoi_18mbs"
-			frame = 2
-			clicksound = click_default
-		}}
-		buttonType = {{
-			name = "dd_tab_buy_off"
-			quadTextureSprite = "GFX_Access_&_buy_equipment"
-			position = {{ x = 15 y = 80 }}
-			buttonText = "DD_MARKET_TAB_BUY"
-			font = "hoi_18mbs"
-			frame = 1
-			clicksound = click_default
-		}}
+		containerWindowType = {{
+			name = "dd_market_cats"
+			position = {{ x = 0 y = 184 }}
+			size = {{ width = 100% height = 40 }}
+			margin = {{ left = 12 right = 12 }}
+			clipping = no
 
-		buttonType = {{
-			name = "dd_tab_sell_on"
-			quadTextureSprite = "GFX_Add_equipment_to_markete"
-			position = {{ x = 275 y = 80 }}
-			buttonText = "DD_MARKET_TAB_SELL"
-			font = "hoi_18mbs"
-			frame = 2
-			clicksound = click_default
-		}}
-		buttonType = {{
-			name = "dd_tab_sell_off"
-			quadTextureSprite = "GFX_Add_equipment_to_markete"
-			position = {{ x = 275 y = 80 }}
-			buttonText = "DD_MARKET_TAB_SELL"
-			font = "hoi_18mbs"
-			frame = 1
-			clicksound = click_default
-		}}
-
-		buttonType = {{
-			name = "dd_cat_land_on"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = {{ x = 15 y = 186 }}
-			buttonText = "DD_MARKET_CAT_LAND"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 2
-		}}
-		buttonType = {{
-			name = "dd_cat_land_off"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = {{ x = 15 y = 186 }}
-			buttonText = "DD_MARKET_CAT_LAND"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 1
-		}}
-		buttonType = {{
-			name = "dd_cat_air_on"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = {{ x = 148 y = 186 }}
-			buttonText = "DD_MARKET_CAT_AIR"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 2
-		}}
-		buttonType = {{
-			name = "dd_cat_air_off"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = {{ x = 148 y = 186 }}
-			buttonText = "DD_MARKET_CAT_AIR"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 1
-		}}
-		buttonType = {{
-			name = "dd_cat_navy_on"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = {{ x = 281 y = 186 }}
-			buttonText = "DD_MARKET_CAT_NAVY"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 2
-		}}
-		buttonType = {{
-			name = "dd_cat_navy_off"
-			quadTextureSprite = "GFX_diplo_filter_entry"
-			position = {{ x = 281 y = 186 }}
-			buttonText = "DD_MARKET_CAT_NAVY"
-			font = "hoi_16mbs"
-			buttonFont = "hoi_16mbs"
-			clicksound = click_scroll
-			frame = 1
+			buttonType = {{
+				name = "dd_cat_land_on"
+				quadTextureSprite = "GFX_button_123x34"
+				position = {{ x = 0 y = 2 }}
+				size = {{ width = 31% height = 32 }}
+				buttonText = "DD_MARKET_CAT_LAND"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 2
+			}}
+			buttonType = {{
+				name = "dd_cat_land_off"
+				quadTextureSprite = "GFX_button_123x34"
+				position = {{ x = 0 y = 2 }}
+				size = {{ width = 31% height = 32 }}
+				buttonText = "DD_MARKET_CAT_LAND"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 1
+			}}
+			buttonType = {{
+				name = "dd_cat_air_on"
+				quadTextureSprite = "GFX_button_123x34"
+				position = {{ x = 34% y = 2 }}
+				size = {{ width = 31% height = 32 }}
+				buttonText = "DD_MARKET_CAT_AIR"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 2
+			}}
+			buttonType = {{
+				name = "dd_cat_air_off"
+				quadTextureSprite = "GFX_button_123x34"
+				position = {{ x = 34% y = 2 }}
+				size = {{ width = 31% height = 32 }}
+				buttonText = "DD_MARKET_CAT_AIR"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 1
+			}}
+			buttonType = {{
+				name = "dd_cat_navy_on"
+				quadTextureSprite = "GFX_button_123x34"
+				position = {{ x = 69% y = 2 }}
+				size = {{ width = 31% height = 32 }}
+				buttonText = "DD_MARKET_CAT_NAVY"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 2
+			}}
+			buttonType = {{
+				name = "dd_cat_navy_off"
+				quadTextureSprite = "GFX_button_123x34"
+				position = {{ x = 69% y = 2 }}
+				size = {{ width = 31% height = 32 }}
+				buttonText = "DD_MARKET_CAT_NAVY"
+				buttonFont = "hoi_16mbs"
+				clicksound = click_scroll
+				frame = 1
+			}}
 		}}
 	}}
 {lists}
@@ -500,13 +561,19 @@ def write_gui(rows: list[dict]) -> None:
 
 def effect_block(row: dict) -> str:
     slug = row["slug"]
-    buy_need = row["buy"] - 0.01
     sell_have = row["amount"] - 1
+    pool_have = row["amount"] - 1
+    ask = f"global.dd_ask_{slug}"
+    pool = f"global.dd_pool_{slug}"
     return f"""
 dd_buy_{slug} = {{
 	if = {{
-		limit = {{ check_variable = {{ treasury > {buy_need} }} }}
-		subtract_from_variable = {{ treasury = {row['buy']} }}
+		limit = {{
+			NOT = {{ check_variable = {{ treasury < {ask} }} }}
+			check_variable = {{ {pool} > {pool_have} }}
+		}}
+		subtract_from_variable = {{ treasury = {ask} }}
+		subtract_from_variable = {{ {pool} = {row['amount']} }}
 		add_equipment_to_stockpile = {{
 			type = {row['buy_type']}
 			amount = {row['amount']}
@@ -524,9 +591,30 @@ dd_sell_{slug} = {{
 			type = {row['arch']}
 			amount = -{row['amount']}
 		}}
-		add_to_variable = {{ treasury = {row['sell']} }}
+		add_to_variable = {{ {pool} = {row['amount']} }}
+		add_to_variable = {{ treasury = {ask} }}
 		dd_refresh_market_counts = yes
 		dd_refresh_loan_preview = yes
+	}}
+}}
+
+dd_ask_up_{slug} = {{
+	if = {{
+		limit = {{
+			has_equipment = {{ {row['arch']} > 0 }}
+			check_variable = {{ {ask} < 999 }}
+		}}
+		add_to_variable = {{ {ask} = 1 }}
+	}}
+}}
+
+dd_ask_down_{slug} = {{
+	if = {{
+		limit = {{
+			has_equipment = {{ {row['arch']} > 0 }}
+			check_variable = {{ {ask} > 1 }}
+		}}
+		subtract_from_variable = {{ {ask} = 1 }}
 	}}
 }}
 """
@@ -537,7 +625,24 @@ def write_effects(rows: list[dict]) -> None:
         f"\tset_variable = {{ dd_stock_{r['slug']} = num_equipment@{r['arch']} }}"
         for r in rows
     )
-    body = "# Generated. Fixed prices. Host and clients must never disagree.\n"
+    init_lines = ["dd_init_market_pool = {"]
+    init_lines.append("	if = {")
+    init_lines.append("		limit = { NOT = { has_global_flag = dd_market_pool_init } }")
+    init_lines.append("		set_global_flag = dd_market_pool_init")
+    for r in rows:
+        init_lines.append(
+            f"		set_variable = {{ global.dd_ask_{r['slug']} = {r['buy']} }}"
+        )
+        init_lines.append(
+            f"		set_variable = {{ global.dd_pool_{r['slug']} = {r['seed']} }}"
+        )
+    init_lines.append("	}")
+    init_lines.append("}")
+    body = (
+        "# Generated. Shared world pool. Listed cash ask. Host and clients "
+        "must never disagree.\n\n"
+    )
+    body += "\n".join(init_lines) + "\n"
     body += "\n".join(effect_block(r).rstrip() for r in rows)
     (ROOT / "common" / "scripted_effects" / "doomsday_market.txt").write_text(
         body + "\n", encoding="utf-8"
@@ -560,10 +665,14 @@ def row_clicks(rows: list[dict]) -> tuple[str, str]:
     triggers = []
     for r in rows:
         slug = r["slug"]
-        buy_need = r["buy"] - 0.01
         sell_have = r["amount"] - 1
+        pool_have = r["amount"] - 1
+        ask = f"global.dd_ask_{slug}"
+        pool = f"global.dd_pool_{slug}"
         effects.append(f"			dd_buy_{slug}_click = {{ dd_buy_{slug} = yes }}")
         effects.append(f"			dd_sell_{slug}_click = {{ dd_sell_{slug} = yes }}")
+        effects.append(f"			dd_ask_up_{slug}_click = {{ dd_ask_up_{slug} = yes }}")
+        effects.append(f"			dd_ask_down_{slug}_click = {{ dd_ask_down_{slug} = yes }}")
         triggers.append(
             f"""			dd_{slug}_buy_price_visible = {{
 				NOT = {{ has_country_flag = dd_market_sell_tab }}
@@ -577,8 +686,25 @@ def row_clicks(rows: list[dict]) -> tuple[str, str]:
 			dd_sell_{slug}_visible = {{
 				has_country_flag = dd_market_sell_tab
 			}}
-			dd_buy_{slug}_click_enabled = {{ check_variable = {{ treasury > {buy_need} }} }}
-			dd_sell_{slug}_click_enabled = {{ has_equipment = {{ {r['arch']} > {sell_have} }} }}"""
+			dd_ask_up_{slug}_visible = {{
+				has_country_flag = dd_market_sell_tab
+			}}
+			dd_ask_down_{slug}_visible = {{
+				has_country_flag = dd_market_sell_tab
+			}}
+			dd_buy_{slug}_click_enabled = {{
+				NOT = {{ check_variable = {{ treasury < {ask} }} }}
+				check_variable = {{ {pool} > {pool_have} }}
+			}}
+			dd_sell_{slug}_click_enabled = {{ has_equipment = {{ {r['arch']} > {sell_have} }} }}
+			dd_ask_up_{slug}_click_enabled = {{
+				has_equipment = {{ {r['arch']} > 0 }}
+				check_variable = {{ {ask} < 999 }}
+			}}
+			dd_ask_down_{slug}_click_enabled = {{
+				has_equipment = {{ {r['arch']} > 0 }}
+				check_variable = {{ {ask} > 1 }}
+			}}"""
         )
     return "\n".join(effects), "\n".join(triggers)
 
@@ -752,17 +878,32 @@ def write_loc(rows: list[dict]) -> None:
     lines.append(' DD_MARKET_CAT_LAND:0 "Land"')
     lines.append(' DD_MARKET_CAT_AIR:0 "Air"')
     lines.append(' DD_MARKET_CAT_NAVY:0 "Navy"')
+    lines.append(' DD_MARKET_ASK_UP:0 "+1B"')
+    lines.append(' DD_MARKET_ASK_DOWN:0 "-1B"')
+    lines.append(
+        ' DD_ASK_UP_TT:0 "Raise the listed cash price by 1B. Only countries that hold this equipment can set the ask."'
+    )
+    lines.append(
+        ' DD_ASK_DOWN_TT:0 "Lower the listed cash price by 1B. Only countries that hold this equipment can set the ask."'
+    )
     for r in rows:
         u = r["slug"].upper()
+        slug = r["slug"]
         lines.append(f' DD_MARKET_NAME_{u}:0 "${r["arch"]}$"')
-        lines.append(f' DD_MARKET_STOCK_{u}:0 "Stockpile: [?dd_stock_{r["slug"]}|0]"')
-        lines.append(f' DD_MARKET_PRICE_{u}_BUY:0 "{r["buy"]}B  ({r["amount"]} units)"')
-        lines.append(f' DD_MARKET_PRICE_{u}_SELL:0 "{r["sell"]}B  ({r["amount"]} units)"')
         lines.append(
-            f' DD_BUY_{u}_TT:0 "Buy {r["amount"]} ${r["arch"]}$ for {r["buy"]}B US dollars."'
+            f' DD_MARKET_STOCK_{u}:0 "Yours: [?dd_stock_{slug}|0]  ·  Pool: [?global.dd_pool_{slug}|0]"'
         )
         lines.append(
-            f' DD_SELL_{u}_TT:0 "Sell {r["amount"]} ${r["arch"]}$ for {r["sell"]}B US dollars."'
+            f' DD_MARKET_PRICE_{u}_BUY:0 "[?global.dd_ask_{slug}|0]B  ({r["amount"]} units)"'
+        )
+        lines.append(
+            f' DD_MARKET_PRICE_{u}_SELL:0 "[?global.dd_ask_{slug}|0]B  ({r["amount"]} units)"'
+        )
+        lines.append(
+            f' DD_BUY_{u}_TT:0 "Buy {r["amount"]} ${r["arch"]}$ from the world pool for [?global.dd_ask_{slug}|0]B cash. Requires pool stock."'
+        )
+        lines.append(
+            f' DD_SELL_{u}_TT:0 "Sell {r["amount"]} ${r["arch"]}$ into the world pool for the listed [?global.dd_ask_{slug}|0]B cash."'
         )
     path = ROOT / "localisation" / "english" / "doomsday_market_l_english.yml"
     path.write_bytes("\ufeff".encode("utf-8") + ("\n".join(lines) + "\n").encode("utf-8"))
@@ -771,8 +912,11 @@ def write_loc(rows: list[dict]) -> None:
 def main() -> None:
     rows = catalog()
     print("rows", len(rows), {c: sum(1 for r in rows if r["cat"] == c) for c in ("land", "air", "navy")})
+    seeded = [r for r in rows if r["seed"]]
+    print("seed", sum(r["seed"] for r in seeded), "units across", len(seeded), "types")
     for r in rows:
-        print(f"  {r['cat']:4} {r['slug']:42} buy {r['buy']:4} x{r['amount']:<3} {r['buy_type']}")
+        seed_mark = f" seed {r['seed']}" if r["seed"] else ""
+        print(f"  {r['cat']:4} {r['slug']:42} ask {r['buy']:4} x{r['amount']:<3} {r['buy_type']}{seed_mark}")
     write_gui(rows)
     write_effects(rows)
     write_scripted_gui(rows)

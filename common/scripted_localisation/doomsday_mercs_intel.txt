@@ -1,0 +1,293 @@
+# Merc / intel scripted localisation. Deterministic.
+
+defined_text = {
+	name = GetDdIntelAgencyName
+	text = {
+		trigger = { tag = USA }
+		localization_key = DD_INTEL_NAME_CIA
+	}
+	text = {
+		trigger = { tag = SOV }
+		localization_key = DD_INTEL_NAME_SVR
+	}
+	text = {
+		trigger = { tag = ISR }
+		localization_key = DD_INTEL_NAME_MOSSAD
+	}
+	text = {
+		trigger = { tag = CHI }
+		localization_key = DD_INTEL_NAME_MSS
+	}
+	text = {
+		trigger = { tag = DPK }
+		localization_key = DD_INTEL_NAME_RGB
+	}
+	text = {
+		trigger = { tag = PER }
+		localization_key = DD_INTEL_NAME_VAJA
+	}
+	text = {
+		trigger = { tag = FRA }
+		localization_key = DD_INTEL_NAME_DGSE
+	}
+	text = {
+		trigger = { tag = ENG }
+		localization_key = DD_INTEL_NAME_MI6
+	}
+	text = {
+		localization_key = DD_INTEL_NAME_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdIntelTier
+	text = {
+		trigger = { check_variable = { dd_intel_tier = 1 } }
+		localization_key = DD_INTEL_TIER_1
+	}
+	text = {
+		trigger = { check_variable = { dd_intel_tier = 2 } }
+		localization_key = DD_INTEL_TIER_2
+	}
+	text = {
+		localization_key = DD_INTEL_TIER_0
+	}
+}
+
+defined_text = {
+	name = GetDdIntelSelect
+	text = {
+		trigger = { check_variable = { dd_intel_mission = 1 } }
+		localization_key = DD_INTEL_SELECT_DESTAB
+	}
+	text = {
+		trigger = { check_variable = { dd_intel_mission = 2 } }
+		localization_key = DD_INTEL_SELECT_ASSASSINATE
+	}
+	text = {
+		trigger = { check_variable = { dd_intel_mission = 3 } }
+		localization_key = DD_INTEL_SELECT_ARM
+	}
+	text = {
+		trigger = { check_variable = { dd_intel_mission = 4 } }
+		localization_key = DD_INTEL_SELECT_COUP
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_intel_mission = 5 }
+			has_variable = dd_intel_sabo_country
+		}
+		localization_key = DD_INTEL_SELECT_SABOTAGE_STATE
+	}
+	text = {
+		trigger = { check_variable = { dd_intel_mission = 5 } }
+		localization_key = DD_INTEL_SELECT_SABOTAGE_COUNTRY
+	}
+	text = {
+		trigger = { check_variable = { dd_intel_mission = 6 } }
+		localization_key = DD_INTEL_SELECT_STEAL
+	}
+	text = {
+		trigger = { check_variable = { dd_intel_mission = 7 } }
+		localization_key = DD_INTEL_SELECT_CYBER
+	}
+	text = {
+		localization_key = DD_INTEL_SELECT_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdIntelBonus
+	text = {
+		trigger = { check_variable = { dd_intel_tier = 1 } }
+		localization_key = DD_INTEL_BONUS_T1
+	}
+	text = {
+		trigger = { check_variable = { dd_intel_tier = 2 } }
+		localization_key = DD_INTEL_BONUS_T2
+	}
+	text = {
+		localization_key = DD_INTEL_BONUS_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdMercArmy
+	text = {
+		trigger = { has_variable = dd_merc_leader }
+		localization_key = DD_MERC_ARMY_ON
+	}
+	text = {
+		localization_key = DD_MERC_ARMY_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdMercBid0
+	text = {
+		trigger = { has_variable = dd_merc_bid_0 }
+		localization_key = DD_MERC_BID_0_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercBid1
+	text = {
+		trigger = { has_variable = dd_merc_bid_1 }
+		localization_key = DD_MERC_BID_1_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercBid2
+	text = {
+		trigger = { has_variable = dd_merc_bid_2 }
+		localization_key = DD_MERC_BID_2_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercBid3
+	text = {
+		trigger = { has_variable = dd_merc_bid_3 }
+		localization_key = DD_MERC_BID_3_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+
+defined_text = {
+	name = GetDdMercDeployed
+	text = {
+		trigger = {
+			has_country_flag = dd_merc_deployed
+			has_variable = dd_merc_client_tag
+		}
+		localization_key = DD_MERC_DEPLOYED_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercRow0
+	text = {
+		trigger = {
+			has_variable = global.dd_merc_0_tag
+			check_variable = { global.dd_merc_0_size > 0.5 }
+		}
+		localization_key = DD_MERC_ROW_0_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercRow1
+	text = {
+		trigger = {
+			has_variable = global.dd_merc_1_tag
+			check_variable = { global.dd_merc_1_size > 0.5 }
+		}
+		localization_key = DD_MERC_ROW_1_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercRow2
+	text = {
+		trigger = {
+			has_variable = global.dd_merc_2_tag
+			check_variable = { global.dd_merc_2_size > 0.5 }
+		}
+		localization_key = DD_MERC_ROW_2_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercRow3
+	text = {
+		trigger = {
+			has_variable = global.dd_merc_3_tag
+			check_variable = { global.dd_merc_3_size > 0.5 }
+		}
+		localization_key = DD_MERC_ROW_3_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercRow4
+	text = {
+		trigger = {
+			has_variable = global.dd_merc_4_tag
+			check_variable = { global.dd_merc_4_size > 0.5 }
+		}
+		localization_key = DD_MERC_ROW_4_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercRow5
+	text = {
+		trigger = {
+			has_variable = global.dd_merc_5_tag
+			check_variable = { global.dd_merc_5_size > 0.5 }
+		}
+		localization_key = DD_MERC_ROW_5_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercRow6
+	text = {
+		trigger = {
+			has_variable = global.dd_merc_6_tag
+			check_variable = { global.dd_merc_6_size > 0.5 }
+		}
+		localization_key = DD_MERC_ROW_6_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+defined_text = {
+	name = GetDdMercRow7
+	text = {
+		trigger = {
+			has_variable = global.dd_merc_7_tag
+			check_variable = { global.dd_merc_7_size > 0.5 }
+		}
+		localization_key = DD_MERC_ROW_7_ON
+	}
+	text = {
+		localization_key = DD_MERC_ROW_EMPTY
+	}
+}
+
+defined_text = {
+	name = GetDdIntelCd
+	text = {
+		trigger = { check_variable = { dd_intel_cd > 0 } }
+		localization_key = DD_INTEL_CD_BUSY
+	}
+	text = {
+		localization_key = DD_INTEL_CD_READY
+	}
+}

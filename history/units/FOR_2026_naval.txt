@@ -1,0 +1,91 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "FOR Home Fleet"
+		naval_base = 12068
+		task_force = {
+			name = "FOR Home Fleet TF"
+			location = 12068
+			ship = {
+				name = "FOR DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = FOR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "FOR DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = FOR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "FOR DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = FOR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "FOR DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = FOR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "FOR CL-1"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = FOR version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "FOR CL-2"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = FOR version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "FOR SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = FOR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "FOR SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = FOR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "FOR SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = FOR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "FOR SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = FOR version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

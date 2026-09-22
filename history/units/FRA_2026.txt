@@ -1,0 +1,299 @@
+# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Garrison Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Armored Division"
+	regiments = {
+		modern_armor = { x = 0 y = 0 }
+		modern_armor = { x = 0 y = 1 }
+		modern_armor = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+		mechanized = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mechanized Brigade"
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mountain Division"
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Marine Division"
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Militia Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	is_locked = yes
+}
+units = {
+	division = {
+		name = "Forces armees en Guyane"
+		location = 12885
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "FAZSOI Reunion"
+		location = 13017
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "FANC New Caledonia"
+		location = 4268
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Forces armees aux Antilles"
+		location = 9377
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Forces francaises a Djibouti"
+		location = 8124
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Forces francaises aux EAU"
+		location = 7960
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Forward Land Forces Romania"
+		location = 690
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Lebanon Detachment"
+		location = 792
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Brigade franco-allemande"
+		location = 9517
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Infantry Division"
+		location = 11506
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Infantry Division"
+		location = 3552
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Infantry Division"
+		location = 9737
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Infantry Division"
+		location = 512
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "5th Infantry Division"
+		location = 11548
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "6th Infantry Division"
+		location = 9434
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Armored Division"
+		location = 6613
+		division_template = "Armored Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Armored Division"
+		location = 11834
+		division_template = "Armored Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Mechanized Brigade"
+		location = 3671
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Mechanized Brigade"
+		location = 9559
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Mechanized Brigade"
+		location = 11483
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Mechanized Brigade"
+		location = 6536
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Marine Division"
+		location = 11563
+		division_template = "Marine Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Mountain Division"
+		location = 9642
+		division_template = "Mountain Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+}
+air_wings = {
+	14 = {
+		fighter_equipment_cw5a = { owner = "FRA" amount = 312 }
+		recon_uav_equipment_2 = { owner = "FRA" amount = 32 }
+		recon_uav_equipment_1 = { owner = "FRA" amount = 32 }
+		aew_equipment_2 = { owner = "FRA" amount = 8 }
+		mpa_equipment_cw2 = { owner = "FRA" amount = 8 }
+		sam_missile_equipment_2 = { owner = "FRA" amount = 32 }
+		strike_uav_equipment_1 = { owner = "FRA" amount = 48 }
+		hale_uav_equipment_1 = { owner = "FRA" amount = 4 }
+		tac_bomber_equipment_cw3 = { owner = "FRA" amount = 16 }
+	}
+	15 = {
+		cas_equipment_cw4 = { owner = "FRA" amount = 92 }
+	}
+	16 = {
+		transport_heli_equipment_2 = { owner = "FRA" amount = 92 }
+	}
+	268 = {
+		fighter_equipment_cw5a = { owner = "FRA" amount = 8 }
+		cas_equipment_cw4 = { owner = "FRA" amount = 4 }
+		transport_heli_equipment_2 = { owner = "FRA" amount = 4 }
+	}
+}

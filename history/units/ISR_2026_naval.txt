@@ -1,0 +1,51 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "ISR Home Fleet"
+		naval_base = 4206
+		task_force = {
+			name = "ISR Home Fleet TF"
+			location = 4206
+			ship = {
+				name = "ISR SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = ISR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "ISR SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = ISR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "ISR SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = ISR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "ISR SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = ISR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "ISR SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = ISR version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

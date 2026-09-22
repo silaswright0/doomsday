@@ -1,0 +1,43 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "POL Home Fleet"
+		naval_base = 11372
+		task_force = {
+			name = "POL Home Fleet TF"
+			location = 11372
+			ship = {
+				name = "POL DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = POL version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "POL DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = POL version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "POL SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = POL version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "POL SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = POL version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

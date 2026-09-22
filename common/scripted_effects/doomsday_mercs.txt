@@ -1,0 +1,637 @@
+# Mercenary market. Country-scoped. Deterministic. No random.
+# Seller picks an army group (unit leader), buyers request, seller accepts or rejects.
+# Accepted force stays seller-owned (volunteer-style) on the buyer's capital.
+
+dd_ensure_merc_template = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_merc_template_ready } }
+		set_country_flag = dd_merc_template_ready
+		division_template = {
+			name = "Mercenary Brigade"
+			is_locked = yes
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+			}
+		}
+	}
+}
+
+dd_merc_sync_leader = {
+	if = {
+		limit = { check_variable = { dd_merc_leaders^num > 0 } }
+		if = {
+			limit = { NOT = { check_variable = { dd_merc_leader_idx < dd_merc_leaders^num } } }
+			set_variable = { dd_merc_leader_idx = 0 }
+		}
+		set_variable = { dd_merc_leader = dd_merc_leaders^dd_merc_leader_idx }
+		var:dd_merc_leader = {
+			export_to_variable = {
+				variable = ROOT.dd_merc_size
+				value = num_units
+			}
+		}
+		if = {
+			limit = { NOT = { check_variable = { dd_merc_size > 0 } } }
+			set_variable = { dd_merc_size = 1 }
+		}
+		clamp_variable = { var = dd_merc_size min = 1 max = 12 }
+	}
+	else = {
+		clear_variable = dd_merc_leader
+		set_variable = { dd_merc_size = 0 }
+		set_variable = { dd_merc_leader_idx = 0 }
+	}
+}
+
+dd_merc_refresh_leaders = {
+	clear_array = dd_merc_leaders
+	every_unit_leader = {
+		limit = {
+			is_field_marshal = yes
+			num_units > 0
+		}
+		add_to_array = { ROOT.dd_merc_leaders = THIS }
+	}
+	every_unit_leader = {
+		limit = {
+			NOT = { is_field_marshal = yes }
+			num_units > 0
+		}
+		add_to_array = { ROOT.dd_merc_leaders = THIS }
+	}
+	dd_merc_sync_leader = yes
+}
+
+dd_merc_init_defaults = {
+	if = {
+		limit = { NOT = { has_variable = dd_merc_ask } }
+		set_variable = { dd_merc_ask = 2.0 }
+	}
+	dd_merc_refresh_leaders = yes
+}
+
+dd_merc_army_next = {
+	dd_merc_refresh_leaders = yes
+	if = {
+		limit = { check_variable = { dd_merc_leaders^num > 1 } }
+		add_to_variable = { dd_merc_leader_idx = 1 }
+		if = {
+			limit = { NOT = { check_variable = { dd_merc_leader_idx < dd_merc_leaders^num } } }
+			set_variable = { dd_merc_leader_idx = 0 }
+		}
+		dd_merc_sync_leader = yes
+	}
+}
+
+dd_merc_army_prev = {
+	dd_merc_refresh_leaders = yes
+	if = {
+		limit = { check_variable = { dd_merc_leaders^num > 1 } }
+		if = {
+			limit = { check_variable = { dd_merc_leader_idx > 0 } }
+			subtract_from_variable = { dd_merc_leader_idx = 1 }
+		}
+		else = {
+			set_variable = { dd_merc_leader_idx = dd_merc_leaders^num }
+			subtract_from_variable = { dd_merc_leader_idx = 1 }
+		}
+		dd_merc_sync_leader = yes
+	}
+}
+
+dd_merc_ask_up = {
+	add_to_variable = { dd_merc_ask = 0.5 }
+	clamp_variable = { var = dd_merc_ask min = 0.5 max = 50 }
+}
+dd_merc_ask_down = {
+	subtract_from_variable = { dd_merc_ask = 0.5 }
+	clamp_variable = { var = dd_merc_ask min = 0.5 max = 50 }
+}
+
+dd_merc_clear_buyer_pending = {
+	clr_country_flag = dd_merc_pending
+	clear_variable = dd_merc_pending_seller
+}
+
+dd_merc_reject_all_bids = {
+	if = {
+		limit = { has_variable = dd_merc_bid_0 }
+		var:dd_merc_bid_0 = { dd_merc_clear_buyer_pending = yes }
+		clear_variable = dd_merc_bid_0
+	}
+	if = {
+		limit = { has_variable = dd_merc_bid_1 }
+		var:dd_merc_bid_1 = { dd_merc_clear_buyer_pending = yes }
+		clear_variable = dd_merc_bid_1
+	}
+	if = {
+		limit = { has_variable = dd_merc_bid_2 }
+		var:dd_merc_bid_2 = { dd_merc_clear_buyer_pending = yes }
+		clear_variable = dd_merc_bid_2
+	}
+	if = {
+		limit = { has_variable = dd_merc_bid_3 }
+		var:dd_merc_bid_3 = { dd_merc_clear_buyer_pending = yes }
+		clear_variable = dd_merc_bid_3
+	}
+}
+
+dd_merc_compact_bids = {
+	clear_array = dd_merc_bid_tmp
+	if = {
+		limit = { has_variable = dd_merc_bid_0 }
+		add_to_array = { dd_merc_bid_tmp = dd_merc_bid_0 }
+	}
+	if = {
+		limit = { has_variable = dd_merc_bid_1 }
+		add_to_array = { dd_merc_bid_tmp = dd_merc_bid_1 }
+	}
+	if = {
+		limit = { has_variable = dd_merc_bid_2 }
+		add_to_array = { dd_merc_bid_tmp = dd_merc_bid_2 }
+	}
+	if = {
+		limit = { has_variable = dd_merc_bid_3 }
+		add_to_array = { dd_merc_bid_tmp = dd_merc_bid_3 }
+	}
+	clear_variable = dd_merc_bid_0
+	clear_variable = dd_merc_bid_1
+	clear_variable = dd_merc_bid_2
+	clear_variable = dd_merc_bid_3
+	if = {
+		limit = { check_variable = { dd_merc_bid_tmp^num > 0 } }
+		set_variable = { dd_merc_bid_0 = dd_merc_bid_tmp^0 }
+	}
+	if = {
+		limit = { check_variable = { dd_merc_bid_tmp^num > 1 } }
+		set_variable = { dd_merc_bid_1 = dd_merc_bid_tmp^1 }
+	}
+	if = {
+		limit = { check_variable = { dd_merc_bid_tmp^num > 2 } }
+		set_variable = { dd_merc_bid_2 = dd_merc_bid_tmp^2 }
+	}
+	if = {
+		limit = { check_variable = { dd_merc_bid_tmp^num > 3 } }
+		set_variable = { dd_merc_bid_3 = dd_merc_bid_tmp^3 }
+	}
+	clear_array = dd_merc_bid_tmp
+}
+
+dd_merc_clear_own_slot = {
+	if = {
+		limit = { check_variable = { global.dd_merc_0_tag = THIS } }
+		clear_variable = global.dd_merc_0_tag
+		set_variable = { global.dd_merc_0_price = 0 }
+		set_variable = { global.dd_merc_0_size = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { global.dd_merc_1_tag = THIS } }
+		clear_variable = global.dd_merc_1_tag
+		set_variable = { global.dd_merc_1_price = 0 }
+		set_variable = { global.dd_merc_1_size = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { global.dd_merc_2_tag = THIS } }
+		clear_variable = global.dd_merc_2_tag
+		set_variable = { global.dd_merc_2_price = 0 }
+		set_variable = { global.dd_merc_2_size = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { global.dd_merc_3_tag = THIS } }
+		clear_variable = global.dd_merc_3_tag
+		set_variable = { global.dd_merc_3_price = 0 }
+		set_variable = { global.dd_merc_3_size = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { global.dd_merc_4_tag = THIS } }
+		clear_variable = global.dd_merc_4_tag
+		set_variable = { global.dd_merc_4_price = 0 }
+		set_variable = { global.dd_merc_4_size = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { global.dd_merc_5_tag = THIS } }
+		clear_variable = global.dd_merc_5_tag
+		set_variable = { global.dd_merc_5_price = 0 }
+		set_variable = { global.dd_merc_5_size = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { global.dd_merc_6_tag = THIS } }
+		clear_variable = global.dd_merc_6_tag
+		set_variable = { global.dd_merc_6_price = 0 }
+		set_variable = { global.dd_merc_6_size = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { global.dd_merc_7_tag = THIS } }
+		clear_variable = global.dd_merc_7_tag
+		set_variable = { global.dd_merc_7_price = 0 }
+		set_variable = { global.dd_merc_7_size = 0 }
+	}
+	clr_country_flag = dd_merc_offering
+}
+
+dd_merc_post_offer = {
+	dd_merc_init_defaults = yes
+	dd_ensure_merc_template = yes
+	if = {
+		limit = { dd_merc_can_post = yes }
+		dd_merc_clear_own_slot = yes
+		if = {
+			limit = { check_variable = { global.dd_merc_0_size < 0.5 } }
+			set_variable = { global.dd_merc_0_tag = THIS }
+			set_variable = { global.dd_merc_0_price = dd_merc_ask }
+			set_variable = { global.dd_merc_0_size = dd_merc_size }
+			set_country_flag = dd_merc_offering
+		}
+		else_if = {
+			limit = { check_variable = { global.dd_merc_1_size < 0.5 } }
+			set_variable = { global.dd_merc_1_tag = THIS }
+			set_variable = { global.dd_merc_1_price = dd_merc_ask }
+			set_variable = { global.dd_merc_1_size = dd_merc_size }
+			set_country_flag = dd_merc_offering
+		}
+		else_if = {
+			limit = { check_variable = { global.dd_merc_2_size < 0.5 } }
+			set_variable = { global.dd_merc_2_tag = THIS }
+			set_variable = { global.dd_merc_2_price = dd_merc_ask }
+			set_variable = { global.dd_merc_2_size = dd_merc_size }
+			set_country_flag = dd_merc_offering
+		}
+		else_if = {
+			limit = { check_variable = { global.dd_merc_3_size < 0.5 } }
+			set_variable = { global.dd_merc_3_tag = THIS }
+			set_variable = { global.dd_merc_3_price = dd_merc_ask }
+			set_variable = { global.dd_merc_3_size = dd_merc_size }
+			set_country_flag = dd_merc_offering
+		}
+		else_if = {
+			limit = { check_variable = { global.dd_merc_4_size < 0.5 } }
+			set_variable = { global.dd_merc_4_tag = THIS }
+			set_variable = { global.dd_merc_4_price = dd_merc_ask }
+			set_variable = { global.dd_merc_4_size = dd_merc_size }
+			set_country_flag = dd_merc_offering
+		}
+		else_if = {
+			limit = { check_variable = { global.dd_merc_5_size < 0.5 } }
+			set_variable = { global.dd_merc_5_tag = THIS }
+			set_variable = { global.dd_merc_5_price = dd_merc_ask }
+			set_variable = { global.dd_merc_5_size = dd_merc_size }
+			set_country_flag = dd_merc_offering
+		}
+		else_if = {
+			limit = { check_variable = { global.dd_merc_6_size < 0.5 } }
+			set_variable = { global.dd_merc_6_tag = THIS }
+			set_variable = { global.dd_merc_6_price = dd_merc_ask }
+			set_variable = { global.dd_merc_6_size = dd_merc_size }
+			set_country_flag = dd_merc_offering
+		}
+		else_if = {
+			limit = { check_variable = { global.dd_merc_7_size < 0.5 } }
+			set_variable = { global.dd_merc_7_tag = THIS }
+			set_variable = { global.dd_merc_7_price = dd_merc_ask }
+			set_variable = { global.dd_merc_7_size = dd_merc_size }
+			set_country_flag = dd_merc_offering
+		}
+	}
+}
+
+dd_merc_cancel_offer = {
+	dd_merc_reject_all_bids = yes
+	dd_merc_clear_own_slot = yes
+}
+
+dd_merc_request_clean = {
+	# ROOT = buyer. dd_hire_tag = seller, dd_hire_price set by slot helper.
+	if = {
+		limit = {
+			dd_merc_can_request = yes
+			has_variable = dd_hire_tag
+			NOT = { check_variable = { dd_hire_tag = THIS } }
+			check_variable = { dd_hire_price > 0.49 }
+			NOT = { check_variable = { treasury < dd_hire_price } }
+		}
+		var:dd_hire_tag = {
+			if = {
+				limit = { NOT = { has_variable = dd_merc_bid_0 } }
+				set_variable = { dd_merc_bid_0 = ROOT }
+				ROOT = {
+					set_country_flag = dd_merc_pending
+					set_variable = { dd_merc_pending_seller = PREV }
+				}
+			}
+			else_if = {
+				limit = { NOT = { has_variable = dd_merc_bid_1 } }
+				set_variable = { dd_merc_bid_1 = ROOT }
+				ROOT = {
+					set_country_flag = dd_merc_pending
+					set_variable = { dd_merc_pending_seller = PREV }
+				}
+			}
+			else_if = {
+				limit = { NOT = { has_variable = dd_merc_bid_2 } }
+				set_variable = { dd_merc_bid_2 = ROOT }
+				ROOT = {
+					set_country_flag = dd_merc_pending
+					set_variable = { dd_merc_pending_seller = PREV }
+				}
+			}
+			else_if = {
+				limit = { NOT = { has_variable = dd_merc_bid_3 } }
+				set_variable = { dd_merc_bid_3 = ROOT }
+				ROOT = {
+					set_country_flag = dd_merc_pending
+					set_variable = { dd_merc_pending_seller = PREV }
+				}
+			}
+		}
+	}
+}
+
+dd_merc_hire_0 = {
+	set_variable = { dd_hire_tag = global.dd_merc_0_tag }
+	set_variable = { dd_hire_price = global.dd_merc_0_price }
+	dd_merc_request_clean = yes
+}
+dd_merc_hire_1 = {
+	set_variable = { dd_hire_tag = global.dd_merc_1_tag }
+	set_variable = { dd_hire_price = global.dd_merc_1_price }
+	dd_merc_request_clean = yes
+}
+dd_merc_hire_2 = {
+	set_variable = { dd_hire_tag = global.dd_merc_2_tag }
+	set_variable = { dd_hire_price = global.dd_merc_2_price }
+	dd_merc_request_clean = yes
+}
+dd_merc_hire_3 = {
+	set_variable = { dd_hire_tag = global.dd_merc_3_tag }
+	set_variable = { dd_hire_price = global.dd_merc_3_price }
+	dd_merc_request_clean = yes
+}
+dd_merc_hire_4 = {
+	set_variable = { dd_hire_tag = global.dd_merc_4_tag }
+	set_variable = { dd_hire_price = global.dd_merc_4_price }
+	dd_merc_request_clean = yes
+}
+dd_merc_hire_5 = {
+	set_variable = { dd_hire_tag = global.dd_merc_5_tag }
+	set_variable = { dd_hire_price = global.dd_merc_5_price }
+	dd_merc_request_clean = yes
+}
+dd_merc_hire_6 = {
+	set_variable = { dd_hire_tag = global.dd_merc_6_tag }
+	set_variable = { dd_hire_price = global.dd_merc_6_price }
+	dd_merc_request_clean = yes
+}
+dd_merc_hire_7 = {
+	set_variable = { dd_hire_tag = global.dd_merc_7_tag }
+	set_variable = { dd_hire_price = global.dd_merc_7_price }
+	dd_merc_request_clean = yes
+}
+
+dd_merc_spawn_brigades = {
+	# ROOT = seller. Buyer capital is in var:dd_merc_client_tag.
+	# Size is dd_merc_hire_size, capped 12. Deterministic unrolled spawns.
+	dd_ensure_merc_template = yes
+	var:dd_merc_client_tag = {
+		capital_scope = {
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 0 } }
+				create_unit = {
+					division = "name = \"1st Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 1 } }
+				create_unit = {
+					division = "name = \"2nd Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 2 } }
+				create_unit = {
+					division = "name = \"3rd Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 3 } }
+				create_unit = {
+					division = "name = \"4th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 4 } }
+				create_unit = {
+					division = "name = \"5th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 5 } }
+				create_unit = {
+					division = "name = \"6th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 6 } }
+				create_unit = {
+					division = "name = \"7th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 7 } }
+				create_unit = {
+					division = "name = \"8th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 8 } }
+				create_unit = {
+					division = "name = \"9th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 9 } }
+				create_unit = {
+					division = "name = \"10th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 10 } }
+				create_unit = {
+					division = "name = \"11th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+			if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_size > 11 } }
+				create_unit = {
+					division = "name = \"12th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+					allow_spawning_on_enemy_provs = no
+				}
+			}
+		}
+	}
+}
+
+dd_merc_deploy_to_buyer = {
+	# ROOT = seller. dd_accept_buyer = buyer.
+	if = {
+		limit = {
+			has_variable = dd_accept_buyer
+			NOT = { has_country_flag = dd_merc_deployed }
+			has_country_flag = dd_merc_offering
+			check_variable = { dd_merc_ask > 0.49 }
+			check_variable = { dd_merc_size > 0 }
+			NOT = { check_variable = { dd_merc_size > 12 } }
+		}
+		var:dd_accept_buyer = {
+			if = {
+				limit = {
+					has_country_flag = dd_merc_pending
+					NOT = { check_variable = { treasury < ROOT.dd_merc_ask } }
+				}
+				subtract_from_variable = { treasury = ROOT.dd_merc_ask }
+				ROOT = { add_to_variable = { treasury = ROOT.dd_merc_ask } }
+				set_country_flag = dd_merc_client
+				set_variable = { dd_merc_seller_tag = ROOT }
+				dd_merc_clear_buyer_pending = yes
+				give_military_access = ROOT
+				ROOT = {
+					give_military_access = PREV
+					set_variable = { dd_merc_client_tag = PREV }
+					set_variable = { dd_merc_hire_size = dd_merc_size }
+					set_country_flag = dd_merc_deployed
+					dd_merc_spawn_brigades = yes
+				}
+				every_enemy_country = {
+					ROOT = {
+						add_to_war = {
+							targeted_alliance = PREV.PREV
+							enemy = PREV
+							hostility_reason = asked_to_join
+						}
+					}
+				}
+			}
+		}
+		dd_merc_reject_all_bids = yes
+		dd_merc_clear_own_slot = yes
+		clear_variable = dd_accept_buyer
+	}
+}
+
+dd_merc_accept_0 = {
+	if = {
+		limit = { has_variable = dd_merc_bid_0 }
+		set_variable = { dd_accept_buyer = dd_merc_bid_0 }
+		dd_merc_deploy_to_buyer = yes
+	}
+}
+dd_merc_accept_1 = {
+	if = {
+		limit = { has_variable = dd_merc_bid_1 }
+		set_variable = { dd_accept_buyer = dd_merc_bid_1 }
+		dd_merc_deploy_to_buyer = yes
+	}
+}
+dd_merc_accept_2 = {
+	if = {
+		limit = { has_variable = dd_merc_bid_2 }
+		set_variable = { dd_accept_buyer = dd_merc_bid_2 }
+		dd_merc_deploy_to_buyer = yes
+	}
+}
+dd_merc_accept_3 = {
+	if = {
+		limit = { has_variable = dd_merc_bid_3 }
+		set_variable = { dd_accept_buyer = dd_merc_bid_3 }
+		dd_merc_deploy_to_buyer = yes
+	}
+}
+
+dd_merc_reject_0 = {
+	if = {
+		limit = { has_variable = dd_merc_bid_0 }
+		var:dd_merc_bid_0 = { dd_merc_clear_buyer_pending = yes }
+		clear_variable = dd_merc_bid_0
+		dd_merc_compact_bids = yes
+	}
+}
+dd_merc_reject_1 = {
+	if = {
+		limit = { has_variable = dd_merc_bid_1 }
+		var:dd_merc_bid_1 = { dd_merc_clear_buyer_pending = yes }
+		clear_variable = dd_merc_bid_1
+		dd_merc_compact_bids = yes
+	}
+}
+dd_merc_reject_2 = {
+	if = {
+		limit = { has_variable = dd_merc_bid_2 }
+		var:dd_merc_bid_2 = { dd_merc_clear_buyer_pending = yes }
+		clear_variable = dd_merc_bid_2
+		dd_merc_compact_bids = yes
+	}
+}
+dd_merc_reject_3 = {
+	if = {
+		limit = { has_variable = dd_merc_bid_3 }
+		var:dd_merc_bid_3 = { dd_merc_clear_buyer_pending = yes }
+		clear_variable = dd_merc_bid_3
+		dd_merc_compact_bids = yes
+	}
+}
+
+dd_merc_recall = {
+	if = {
+		limit = { has_country_flag = dd_merc_deployed }
+		delete_unit = {
+			division_template = "Mercenary Brigade"
+			disband = yes
+		}
+		var:dd_merc_client_tag = {
+			clr_country_flag = dd_merc_client
+			clear_variable = dd_merc_seller_tag
+		}
+		clr_country_flag = dd_merc_deployed
+		clear_variable = dd_merc_client_tag
+		clear_variable = dd_merc_hire_size
+	}
+}

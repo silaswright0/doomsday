@@ -1,0 +1,123 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "PAK Home Fleet"
+		naval_base = 3456
+		task_force = {
+			name = "PAK Home Fleet TF"
+			location = 3456
+			ship = {
+				name = "PAK DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PAK version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PAK DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PAK version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PAK DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PAK version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PAK DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PAK version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PAK DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PAK version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PAK DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PAK version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PAK SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PAK version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PAK SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PAK version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PAK SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PAK version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PAK SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PAK version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PAK SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PAK version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PAK SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PAK version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PAK SS-7"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PAK version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PAK SS-8"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PAK version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,67 @@
+dd_intel_can_target = {
+	exists = yes
+	# Equal or weaker agency only (tier <= ROOT tier). Own country allowed except steal.
+	OR = {
+		NOT = { has_variable = dd_intel_tier }
+		check_variable = { dd_intel_tier = 0 }
+		NOT = { check_variable = { dd_intel_tier > ROOT.dd_intel_tier } }
+	}
+}
+
+dd_intel_has_agency = {
+	OR = {
+		check_variable = { dd_intel_tier = 1 }
+		check_variable = { dd_intel_tier = 2 }
+	}
+}
+
+dd_intel_is_t1 = {
+	check_variable = { dd_intel_tier = 1 }
+}
+
+dd_intel_is_t2 = {
+	check_variable = { dd_intel_tier = 2 }
+}
+
+dd_intel_mission_ready = {
+	dd_intel_has_agency = yes
+	NOT = { check_variable = { dd_intel_cd > 0 } }
+}
+
+dd_intel_idle = {
+	OR = {
+		NOT = { has_variable = dd_intel_mission }
+		check_variable = { dd_intel_mission = 0 }
+	}
+}
+
+dd_intel_selecting = {
+	check_variable = { dd_intel_mission > 0 }
+}
+
+dd_intel_no_agency = {
+	OR = {
+		NOT = { has_variable = dd_intel_tier }
+		check_variable = { dd_intel_tier = 0 }
+	}
+}
+
+dd_ig_is_free = {
+	OR = {
+		has_country_flag = dd_ig_dormant
+		AND = {
+			NOT = { has_country_flag = dd_ig_active }
+			num_owned_states < 1
+			NOT = { has_war = yes }
+		}
+	}
+}
+
+dd_intel_has_free_ig = {
+	OR = {
+		IG1 = { dd_ig_is_free = yes }
+		IG2 = { dd_ig_is_free = yes }
+		IG3 = { dd_ig_is_free = yes }
+		IG4 = { dd_ig_is_free = yes }
+	}
+}

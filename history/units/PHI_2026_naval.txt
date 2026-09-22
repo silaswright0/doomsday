@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "PHI Home Fleet"
+		naval_base = 1421
+		task_force = {
+			name = "PHI Home Fleet TF"
+			location = 1421
+			ship = {
+				name = "PHI DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PHI version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PHI DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PHI version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

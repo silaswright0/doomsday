@@ -5,6 +5,14 @@ state={
 	manpower = 1580061
 	state_category = town
 
+	resources={
+
+		lithium=1
+		copper=1
+		graphite=1
+	}
+
+
 	history={
 		owner = NMB
 		add_extra_state_shared_building_slots = 0
@@ -13,7 +21,8 @@ state={
 			industrial_complex = 1
 			infrastructure = 2
 			air_base = 1
-			4879 = {
+
+4879 = {
 				supply_node = 1
 			}
 		}

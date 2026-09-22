@@ -3,6 +3,12 @@ state = {
 	name = "STATE_8"
 	
 	state_category = rural
+
+	resources={
+
+		steel=1
+	}
+
 	
 	manpower = 687448
 
@@ -19,7 +25,8 @@ state = {
 			industrial_complex = 1
 			finance_center = 1
 			air_base = 1
-			6583 = {
+
+6583 = {
 				supply_node = 1
 			}
 		}

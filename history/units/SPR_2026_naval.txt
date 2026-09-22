@@ -1,0 +1,115 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "SPR Home Fleet"
+		naval_base = 9945
+		task_force = {
+			name = "SPR Home Fleet TF"
+			location = 9945
+			ship = {
+				name = "SPR CV-1"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw1 = { amount = 1 owner = SPR version_name = "Cold War Carrier" }
+				}
+			}
+			ship = {
+				name = "SPR DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SPR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SPR DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SPR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SPR DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SPR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SPR DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SPR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SPR DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SPR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SPR DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SPR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SPR DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SPR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SPR DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SPR version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SPR CL-1"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = SPR version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "SPR CL-2"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = SPR version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "SPR SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SPR version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "SPR SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SPR version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

@@ -8,9 +8,8 @@ state={
 	
 	resources={
 
-		aluminium=3
 		steel=1
-		chromium=94
+		chromium=120
 		coal=8
 		copper=1
 	}
@@ -28,7 +27,8 @@ state={
 			renewable_park = 1
 			synthetic_refinery = 1
 			energy_infrastructure = 1
-			10400 = {
+
+10400 = {
 				supply_node = 1
 			}
 		}

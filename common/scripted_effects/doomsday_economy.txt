@@ -44,6 +44,8 @@ dd_init_economy = {
 				NOT = { has_idea = dd_taxes_1 }
 				NOT = { has_idea = dd_taxes_2 }
 				NOT = { has_idea = dd_taxes_3 }
+				NOT = { has_idea = dd_taxes_4 }
+				NOT = { has_idea = dd_taxes_5 }
 			}
 			add_ideas = dd_taxes_2
 		}
@@ -191,11 +193,12 @@ dd_apply_rates = {
 	divide_variable = { dd_rate_interest = 12 }
 	# Japan home-bias spirit: −2 percentage points a year.
 	set_variable = { dd_rate_interest_jap_cut = 0.02 }
-	# Standard tax (law 2). Law 3 doubles. Law 1 is zero.
+	# Standard tax (law 3). Law 2 is half. Law 4 is +50%. Law 5 doubles. Law 1 is zero.
 	set_variable = { dd_rate_tax_pop = 0.02 }
 	set_variable = { dd_rate_tax_civ = 0.80 }
-	set_variable = { dd_rate_tax_2 = 0.02 }
-	set_variable = { dd_rate_tax_3 = 2.00 }
+	set_variable = { dd_rate_tax_2 = 0.50 }
+	set_variable = { dd_rate_tax_4 = 1.50 }
+	set_variable = { dd_rate_tax_5 = 2.00 }
 	# Decision prices are a share of yearly revenue.
 	set_variable = { dd_rate_sub_cost = 0.005 }
 	set_variable = { dd_rate_pp_cost = 0.01 }
@@ -352,20 +355,24 @@ dd_refresh_market_counts = {
 	set_variable = { dd_stock_armored_car_eq = num_equipment@armored_car_equipment }
 	set_variable = { dd_stock_armored_support_vehicle = num_equipment@armored_support_vehicle }
 	set_variable = { dd_stock_artillery_eq = num_equipment@artillery_equipment }
+	set_variable = { dd_stock_dew_eq = num_equipment@dew_equipment }
 	set_variable = { dd_stock_heavy_tank_chassis = num_equipment@heavy_tank_chassis }
 	set_variable = { dd_stock_helicopter_eq = num_equipment@helicopter_equipment }
 	set_variable = { dd_stock_infantry_eq = num_equipment@infantry_equipment }
 	set_variable = { dd_stock_land_cruiser_chassis = num_equipment@land_cruiser_chassis }
 	set_variable = { dd_stock_light_tank_chassis = num_equipment@light_tank_chassis }
+	set_variable = { dd_stock_manpads_eq = num_equipment@manpads_equipment }
 	set_variable = { dd_stock_mechanized_eq = num_equipment@mechanized_equipment }
 	set_variable = { dd_stock_medium_tank_chassis = num_equipment@medium_tank_chassis }
 	set_variable = { dd_stock_modern_tank_chassis = num_equipment@modern_tank_chassis }
 	set_variable = { dd_stock_motorbike_eq = num_equipment@motorbike_equipment }
 	set_variable = { dd_stock_motorized_eq = num_equipment@motorized_equipment }
 	set_variable = { dd_stock_motorized_rocket_eq = num_equipment@motorized_rocket_equipment }
+	set_variable = { dd_stock_prsm_eq = num_equipment@prsm_equipment }
 	set_variable = { dd_stock_railway_gun_eq = num_equipment@railway_gun_equipment }
 	set_variable = { dd_stock_rocket_artillery_eq = num_equipment@rocket_artillery_equipment }
 	set_variable = { dd_stock_self_propelled_super_heavy_artillery_eq = num_equipment@self_propelled_super_heavy_artillery_equipment }
+	set_variable = { dd_stock_spg_eq = num_equipment@spg_equipment }
 	set_variable = { dd_stock_super_heavy_artillery_eq = num_equipment@super_heavy_artillery_equipment }
 	set_variable = { dd_stock_super_heavy_railway_gun_eq = num_equipment@super_heavy_railway_gun_equipment }
 	set_variable = { dd_stock_super_heavy_tank_chassis = num_equipment@super_heavy_tank_chassis }
@@ -375,6 +382,7 @@ dd_refresh_market_counts = {
 	set_variable = { dd_stock_cv_small_plane_airframe = num_equipment@cv_small_plane_airframe }
 	set_variable = { dd_stock_explosive_ammo_eq = num_equipment@explosive_ammo_equipment }
 	set_variable = { dd_stock_guided_missile_eq = num_equipment@guided_missile_equipment }
+	set_variable = { dd_stock_hypersonic_missile_eq = num_equipment@hypersonic_missile_equipment }
 	set_variable = { dd_stock_large_plane_airframe = num_equipment@large_plane_airframe }
 	set_variable = { dd_stock_loitering_munition_eq = num_equipment@loitering_munition_equipment }
 	set_variable = { dd_stock_medium_plane_airframe = num_equipment@medium_plane_airframe }
@@ -502,11 +510,21 @@ dd_recalc_policy_expense = {
 	if = {
 		limit = { has_idea = dd_taxes_2 }
 		set_variable = { income_tax = dd_tax_base }
+		multiply_variable = { income_tax = dd_rate_tax_2 }
 	}
 	if = {
 		limit = { has_idea = dd_taxes_3 }
 		set_variable = { income_tax = dd_tax_base }
-		multiply_variable = { income_tax = dd_rate_tax_3 }
+	}
+	if = {
+		limit = { has_idea = dd_taxes_4 }
+		set_variable = { income_tax = dd_tax_base }
+		multiply_variable = { income_tax = dd_rate_tax_4 }
+	}
+	if = {
+		limit = { has_idea = dd_taxes_5 }
+		set_variable = { income_tax = dd_tax_base }
+		multiply_variable = { income_tax = dd_rate_tax_5 }
 	}
 	if = {
 		limit = { has_idea = dd_minority_4 }
@@ -715,6 +733,8 @@ dd_clear_taxes = {
 	if = { limit = { has_idea = dd_taxes_1 } remove_ideas = dd_taxes_1 }
 	if = { limit = { has_idea = dd_taxes_2 } remove_ideas = dd_taxes_2 }
 	if = { limit = { has_idea = dd_taxes_3 } remove_ideas = dd_taxes_3 }
+	if = { limit = { has_idea = dd_taxes_4 } remove_ideas = dd_taxes_4 }
+	if = { limit = { has_idea = dd_taxes_5 } remove_ideas = dd_taxes_5 }
 }
 
 dd_clear_fertility = {
@@ -816,5 +836,15 @@ dd_set_taxes_2 = {
 dd_set_taxes_3 = {
 	dd_clear_taxes = yes
 	add_ideas = dd_taxes_3
+	dd_recalc_policy_expense = yes
+}
+dd_set_taxes_4 = {
+	dd_clear_taxes = yes
+	add_ideas = dd_taxes_4
+	dd_recalc_policy_expense = yes
+}
+dd_set_taxes_5 = {
+	dd_clear_taxes = yes
+	add_ideas = dd_taxes_5
 	dd_recalc_policy_expense = yes
 }

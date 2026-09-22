@@ -1,0 +1,91 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "SNG Home Fleet"
+		naval_base = 12299
+		task_force = {
+			name = "SNG Home Fleet TF"
+			location = 12299
+			ship = {
+				name = "SNG DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SNG version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SNG DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SNG version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SNG DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SNG version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SNG DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SNG version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SNG DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SNG version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SNG DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SNG version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SNG SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SNG version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "SNG SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SNG version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "SNG SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SNG version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "SNG SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SNG version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

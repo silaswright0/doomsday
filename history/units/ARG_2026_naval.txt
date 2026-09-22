@@ -1,0 +1,59 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "ARG Home Fleet"
+		naval_base = 12364
+		task_force = {
+			name = "ARG Home Fleet TF"
+			location = 12364
+			ship = {
+				name = "ARG DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = ARG version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "ARG DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = ARG version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "ARG DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = ARG version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "ARG DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = ARG version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "ARG SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = ARG version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "ARG SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = ARG version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

@@ -5,6 +5,12 @@ state = {
 
 	state_category = city
 
+	resources={
+
+		steel=1
+	}
+
+
 	history = {
 
 		owner = BEL
@@ -30,7 +36,8 @@ state = {
 
 			renewable_park = 1
 			services_building = 1
-			11519 = {
+
+11519 = {
 				supply_node = 1
 			}
 		}

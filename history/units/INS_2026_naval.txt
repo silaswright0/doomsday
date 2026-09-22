@@ -1,0 +1,107 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "INS Home Fleet"
+		naval_base = 7384
+		task_force = {
+			name = "INS Home Fleet TF"
+			location = 7384
+			ship = {
+				name = "INS DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = INS version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "INS DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = INS version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "INS DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = INS version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "INS DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = INS version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "INS DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = INS version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "INS DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = INS version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "INS DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = INS version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "INS DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = INS version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "INS SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = INS version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "INS SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = INS version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "INS SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = INS version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "INS SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = INS version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

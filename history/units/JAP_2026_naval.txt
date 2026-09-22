@@ -1,0 +1,491 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "JAP Home Fleet"
+		naval_base = 9998
+		task_force = {
+			name = "JAP Home Fleet TF"
+			location = 9998
+			ship = {
+				name = "JAP CV-1"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = JAP version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "JAP CV-2"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = JAP version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "JAP DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-9"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-10"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-11"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-12"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-13"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-14"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-15"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-16"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-17"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-18"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-19"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-20"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-21"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-22"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-23"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-24"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-25"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-26"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-27"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP DD-28"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = JAP version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "JAP CL-1"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = JAP version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "JAP CL-2"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = JAP version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "JAP CL-3"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = JAP version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "JAP CL-4"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = JAP version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "JAP CL-5"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = JAP version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "JAP CL-6"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = JAP version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "JAP CL-7"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = JAP version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "JAP CL-8"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = JAP version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "JAP SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-7"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-8"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-9"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-10"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-11"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-12"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-13"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-14"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-15"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-16"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-17"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-18"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-19"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-20"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-21"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "JAP SS-22"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = JAP version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+}

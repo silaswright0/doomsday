@@ -1,0 +1,377 @@
+# Intelligence agencies. Country-scoped. Deterministic (no random_list).
+#
+# Insurgent tag policy:
+# - Arm Insurgents → reserved off-map pool IG1–IG4 (cosmetic DD_INSURGENT).
+#   Slots recycle when the IG has no states and is not at war.
+# - Coup civil war → vanilla start_civil_war (dynamic sibling of the target,
+#   ~25% army/states). Cosmetic DD_COUP_REB. Not taken from the IG pool.
+
+dd_intel_init = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_intel_init } }
+		set_country_flag = dd_intel_init
+		set_variable = { dd_intel_mission = 0 }
+		if = {
+			limit = { tag = USA }
+			set_variable = { dd_intel_tier = 1 }
+			add_ideas = dd_intel_cia
+		}
+		else_if = {
+			limit = { tag = SOV }
+			set_variable = { dd_intel_tier = 1 }
+			add_ideas = dd_intel_svr
+		}
+		else_if = {
+			limit = { tag = ISR }
+			set_variable = { dd_intel_tier = 1 }
+			add_ideas = dd_intel_mossad
+		}
+		else_if = {
+			limit = { tag = CHI }
+			set_variable = { dd_intel_tier = 1 }
+			add_ideas = dd_intel_mss
+		}
+		else_if = {
+			limit = { tag = DPK }
+			set_variable = { dd_intel_tier = 2 }
+			add_ideas = dd_intel_rgb
+		}
+		else_if = {
+			limit = { tag = PER }
+			set_variable = { dd_intel_tier = 2 }
+			add_ideas = dd_intel_vaja
+		}
+		else_if = {
+			limit = { tag = FRA }
+			set_variable = { dd_intel_tier = 2 }
+			add_ideas = dd_intel_dgse
+		}
+		else_if = {
+			limit = { tag = ENG }
+			set_variable = { dd_intel_tier = 2 }
+			add_ideas = dd_intel_mi6
+		}
+		else = {
+			set_variable = { dd_intel_tier = 0 }
+		}
+	}
+}
+
+dd_intel_yearly_cost = {
+	if = {
+		limit = { check_variable = { dd_intel_tier = 1 } }
+		if = {
+			limit = { NOT = { check_variable = { treasury < 1.5 } } }
+			subtract_from_variable = { treasury = 1.5 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { dd_intel_tier = 2 } }
+		if = {
+			limit = { NOT = { check_variable = { treasury < 0.5 } } }
+			subtract_from_variable = { treasury = 0.5 }
+		}
+	}
+}
+
+dd_intel_start_cooldown = {
+	set_variable = { dd_intel_cd = 12 }
+	set_country_flag = dd_intel_mission_cd
+}
+
+dd_intel_cd_tick = {
+	if = {
+		limit = { check_variable = { dd_intel_cd > 0 } }
+		subtract_from_variable = { dd_intel_cd = 1 }
+		if = {
+			limit = { NOT = { check_variable = { dd_intel_cd > 0 } } }
+			set_variable = { dd_intel_cd = 0 }
+			clr_country_flag = dd_intel_mission_cd
+		}
+	}
+	else = {
+		# Drop leftover valued flags from the old days=365 value=1 cooldown.
+		clr_country_flag = dd_intel_mission_cd
+		set_variable = { dd_intel_cd = 0 }
+	}
+}
+
+dd_intel_cancel_select_effect = {
+	set_variable = { dd_intel_mission = 0 }
+	clear_variable = dd_intel_sabo_country
+}
+
+dd_intel_finish_select = {
+	dd_intel_start_cooldown = yes
+	dd_intel_cancel_select_effect = yes
+}
+
+dd_intel_det_flip = {
+	# Deterministic 50%: even sum of synced country stats succeeds. Synced in MP.
+	set_temp_variable = { dd_intel_flip = num_owned_states }
+	add_to_temp_variable = { dd_intel_flip = num_divisions }
+	add_to_temp_variable = { dd_intel_flip = political_power }
+	add_to_temp_variable = { dd_intel_flip = treasury }
+	modulo_temp_variable = { dd_intel_flip = 2 }
+}
+
+dd_intel_det_d10 = {
+	# Deterministic d10 from synced stats. 0-9. Synced in MP.
+	set_temp_variable = { dd_intel_roll = num_owned_states }
+	add_to_temp_variable = { dd_intel_roll = num_divisions }
+	add_to_temp_variable = { dd_intel_roll = political_power }
+	add_to_temp_variable = { dd_intel_roll = treasury }
+	FROM = {
+		add_to_temp_variable = { PREV.dd_intel_roll = num_owned_states }
+		add_to_temp_variable = { PREV.dd_intel_roll = num_divisions }
+	}
+	modulo_temp_variable = { dd_intel_roll = 10 }
+}
+
+dd_intel_steal_pick = {
+	# Grant first tech FROM has that ROOT lacks (curated modern list).
+	if = {
+		limit = {
+			FROM = { has_tech = dd_inf_6 }
+			NOT = { has_tech = dd_inf_6 }
+		}
+		set_technology = { dd_inf_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_inf_5 }
+			NOT = { has_tech = dd_inf_5 }
+		}
+		set_technology = { dd_inf_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_mbt_4 }
+			NOT = { has_tech = dd_mbt_4 }
+		}
+		set_technology = { dd_mbt_4 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_mbt_3 }
+			NOT = { has_tech = dd_mbt_3 }
+		}
+		set_technology = { dd_mbt_3 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ftr_2 }
+			NOT = { has_tech = dd_ftr_2 }
+		}
+		set_technology = { dd_ftr_2 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cpu_4 }
+			NOT = { has_tech = dd_cpu_4 }
+		}
+		set_technology = { dd_cpu_4 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cpu_3 }
+			NOT = { has_tech = dd_cpu_3 }
+		}
+		set_technology = { dd_cpu_3 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_esc_4 }
+			NOT = { has_tech = dd_esc_4 }
+		}
+		set_technology = { dd_esc_4 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = jet_engines }
+			NOT = { has_tech = jet_engines }
+		}
+		set_technology = { jet_engines = 1 }
+	}
+}
+
+dd_intel_ensure_militia = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_intel_militia_ready } }
+		set_country_flag = dd_intel_militia_ready
+		division_template = {
+			name = "Insurgent Militia"
+			is_locked = yes
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+				militia = { x = 2 y = 0 }
+				militia = { x = 2 y = 1 }
+			}
+		}
+	}
+}
+
+dd_intel_pick_ig = {
+	# Claim first free reserved insurgent slot into dd_intel_ig_picked.
+	clear_variable = dd_intel_ig_picked
+	if = {
+		limit = { IG1 = { dd_ig_is_free = yes } }
+		set_variable = { dd_intel_ig_picked = IG1 }
+	}
+	else_if = {
+		limit = { IG2 = { dd_ig_is_free = yes } }
+		set_variable = { dd_intel_ig_picked = IG2 }
+	}
+	else_if = {
+		limit = { IG3 = { dd_ig_is_free = yes } }
+		set_variable = { dd_intel_ig_picked = IG3 }
+	}
+	else_if = {
+		limit = { IG4 = { dd_ig_is_free = yes } }
+		set_variable = { dd_intel_ig_picked = IG4 }
+	}
+}
+
+dd_intel_spawn_insurgents = {
+	# Activate a reserved IG tag with 2×6w militia in the target capital.
+	dd_intel_pick_ig = yes
+	if = {
+		limit = { has_variable = dd_intel_ig_picked }
+		var:dd_intel_ig_picked = {
+			clr_country_flag = dd_ig_dormant
+			set_country_flag = dd_ig_active
+			set_cosmetic_tag = DD_INSURGENT
+			set_politics = {
+				ruling_party = left_wing_nationalism
+				elections_allowed = no
+			}
+			set_popularities = {
+				left_wing_nationalism = 100
+			}
+			dd_intel_ensure_militia = yes
+			declare_war_on = {
+				target = var:ROOT.dd_intel_insurgent_target
+				type = annex_everything
+			}
+			var:ROOT.dd_intel_insurgent_target = {
+				add_timed_idea = { idea = dd_intel_insurgency days = 180 }
+				capital_scope = {
+					create_unit = {
+						division = "name = \"1st Insurgent Militia\" division_template = \"Insurgent Militia\" start_experience_factor = 0.15 start_equipment_factor = 0.8"
+						owner = PREV.PREV
+						count = 1
+						allow_spawning_on_enemy_provs = yes
+					}
+					create_unit = {
+						division = "name = \"2nd Insurgent Militia\" division_template = \"Insurgent Militia\" start_experience_factor = 0.15 start_equipment_factor = 0.8"
+						owner = PREV.PREV
+						count = 1
+						allow_spawning_on_enemy_provs = yes
+					}
+				}
+			}
+		}
+	}
+	clear_variable = dd_intel_insurgent_target
+	clear_variable = dd_intel_ig_picked
+}
+
+dd_ig_monthly_cleanup = {
+	# Recycle reserved IG slots after the uprising is over.
+	if = {
+		limit = {
+			OR = { tag = IG1 tag = IG2 tag = IG3 tag = IG4 }
+			has_country_flag = dd_ig_active
+			num_owned_states < 1
+			NOT = { has_war = yes }
+		}
+		delete_unit = {
+			disband = yes
+		}
+		drop_cosmetic_tag = yes
+		clr_country_flag = dd_ig_active
+		set_country_flag = dd_ig_dormant
+	}
+}
+
+dd_intel_assassinate_one = {
+	# Deterministic: retire the first corps commander, else first field marshal.
+	clr_country_flag = dd_intel_kill_done
+	FROM = {
+		every_corps_commander = {
+			limit = { NOT = { ROOT = { has_country_flag = dd_intel_kill_done } } }
+			retire = yes
+			ROOT = { set_country_flag = dd_intel_kill_done }
+		}
+		every_field_marshal = {
+			limit = { NOT = { ROOT = { has_country_flag = dd_intel_kill_done } } }
+			retire = yes
+			ROOT = { set_country_flag = dd_intel_kill_done }
+		}
+	}
+	clr_country_flag = dd_intel_kill_done
+}
+
+dd_intel_coup_success = {
+	FROM = {
+		set_politics = {
+			ruling_party = military_junta
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = military_junta
+			popularity = 0.40
+		}
+		add_stability = -0.10
+		add_war_support = 0.05
+	}
+}
+
+dd_intel_coup_fail = {
+	FROM = {
+		add_timed_idea = { idea = dd_intel_coup_failed days = 180 }
+		add_stability = -0.05
+	}
+}
+
+dd_intel_coup_civil_war = {
+	# 25% of the country (army + states) rises as a junta civil-war sibling.
+	FROM = {
+		add_popularity = {
+			ideology = military_junta
+			popularity = 0.25
+		}
+		start_civil_war = {
+			ideology = military_junta
+			size = 0.25
+		}
+		every_enemy_country = {
+			limit = {
+				original_tag = PREV
+				has_government = military_junta
+			}
+			set_cosmetic_tag = DD_COUP_REB
+			set_country_flag = dd_intel_coup_rebels
+			set_variable = { dd_intel_tier = 0 }
+		}
+	}
+}
+
+dd_intel_coup_resolve = {
+	# d10: 0-2 success (30%), 3-7 fail (50%), 8-9 civil war (20%).
+	dd_intel_det_d10 = yes
+	if = {
+		limit = { check_variable = { dd_intel_roll < 3 } }
+		dd_intel_coup_success = yes
+	}
+	else_if = {
+		limit = { check_variable = { dd_intel_roll < 8 } }
+		dd_intel_coup_fail = yes
+	}
+	else = {
+		dd_intel_coup_civil_war = yes
+	}
+}

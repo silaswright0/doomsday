@@ -1,0 +1,75 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "GRE Home Fleet"
+		naval_base = 10007
+		task_force = {
+			name = "GRE Home Fleet TF"
+			location = 10007
+			ship = {
+				name = "GRE DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = GRE version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "GRE DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = GRE version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "GRE DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = GRE version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "GRE DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = GRE version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "GRE DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = GRE version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "GRE DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = GRE version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "GRE DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = GRE version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "GRE DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = GRE version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

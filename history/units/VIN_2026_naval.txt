@@ -1,0 +1,91 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "VIN Home Fleet"
+		naval_base = 4401
+		task_force = {
+			name = "VIN Home Fleet TF"
+			location = 4401
+			ship = {
+				name = "VIN DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = VIN version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "VIN DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = VIN version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "VIN DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = VIN version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "VIN DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = VIN version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "VIN SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = VIN version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "VIN SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = VIN version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "VIN SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = VIN version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "VIN SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = VIN version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "VIN SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = VIN version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "VIN SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = VIN version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

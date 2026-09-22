@@ -240,39 +240,8 @@ HIDE_TECHS = frozenset(
     }
 )
 
-# Cold War / 2026 nodes that must remain on the tree after slimming.
-KEEP_VISIBLE = frozenset(
-    {
-        "improved_infantry_weapons",
-        "improved_infantry_weapons_2",
-        "advanced_infantry_weapons",
-        "advanced_infantry_weapons2",
-        "infantry_at",
-        "infantry_at2",
-        "mechanised_infantry",
-        "mechanised_infantry2",
-        "mechanised_infantry3",
-        "main_battle_tank",
-        "main_battle_tank_chassis",
-        "jet_fighter1",
-        "jet_fighter2",
-        "CAS3",
-        "modern_small_airframe",
-        "advanced_small_airframe",
-        "artillery2",
-        "rocket_artillery",
-        "basic_destroyer",
-        "basic_submarine",
-        "dd_recon_uav",
-        "dd_strike_uav",
-        "dd_transport_heli",
-        "dd_manpads",
-        "dd_shorad",
-        "dd_cruise_missile",
-        "dd_srbm",
-        "dd_sam",
-    }
-)
+# Modern trees live in dd_*.txt. Vanilla folders are stripped.
+KEEP_VISIBLE = frozenset()
 
 # WWII special-project gates on leftover Cold War / 4th-gen nodes. History unlock
 # bypasses allow; research does not. Strip so jet_fighter2 / 4th-gen airframes
@@ -375,10 +344,6 @@ VISIBLE_START = (
     "excavation1",
     "fuel_silos",
     "fuel_refining",
-    "dd_recon_uav",
-    "dd_transport_heli",
-    "dd_shorad",
-    "dd_manpads",
 )
 
 MUST_NOT_START = frozenset(
@@ -546,16 +511,21 @@ def apply_slim(root: Path | None = None) -> dict[str, int]:
 
 def start_techs(ids: set[str] | None = None) -> list[str]:
     present = ids if ids is not None else existing_tech_ids()
+    try:
+        from gen_modern_tech import FLOOR_IDS, MUST_NOT_START as DD_NO
+    except Exception:
+        FLOOR_IDS, DD_NO = set(), set()
+    blocked = set(MUST_NOT_START) | set(DD_NO)
     ordered: list[str] = []
     seen: set[str] = set()
-    for name in list(sorted(HIDE_TECHS)) + list(VISIBLE_START):
+    for name in list(sorted(HIDE_TECHS)) + list(VISIBLE_START) + sorted(FLOOR_IDS):
         if name in seen or name not in present:
             continue
-        if name in MUST_NOT_START:
+        if name in blocked:
             continue
         seen.add(name)
         ordered.append(name)
-    leaked = [t for t in ordered if t in MUST_NOT_START]
+    leaked = [t for t in ordered if t in blocked]
     if leaked:
         raise RuntimeError(f"start list includes modern techs: {leaked}")
     return ordered

@@ -86,9 +86,16 @@ from state_stats_lib import (  # noqa: E402
 OIL_PER_MBPD = 38.0
 COAL_PER_MT = 0.08
 STEEL_PER_MT = 0.18
+# Iron-ore mines with no WSA crude-steel row. Simandou 2026 ramp (WCS/Baowu).
+IRON_ORE_AS_STEEL_MT = {
+    "Guinea": 60,
+}
 ALUM_PER_KT = 0.012
 TUNGSTEN_PER_KT = 2.0
 CHROME_PER_KT = 0.012
+# Nickel laterite/sulfide and manganese ore fold into chromium (12-icon cap).
+NICKEL_AS_CHROME = 0.04
+MN_AS_CHROME = 0.008
 COPPER_PER_KT = 0.025
 GRAPHITE_PER_KT = 0.06
 LITHIUM_PER_KT = 0.5
@@ -141,6 +148,13 @@ def lookup_named(table: dict, names: list[str]):
     return None
 
 
+def nodes_from_raw(raw, scale: float) -> int:
+    if not raw:
+        return 0
+    n = int(round(float(raw) * scale))
+    return n if n > 0 else 1
+
+
 def wb_value(wb: dict, iso3: str, key: str) -> float | None:
     rec = (wb.get("countries") or {}).get(iso3) or {}
     item = rec.get(key)
@@ -175,6 +189,8 @@ def main() -> None:
         "rare_earths": usgs.get("rare_earths_kt") or {},
         "rubber": usgs.get("rubber_kt") or {},
     }
+    nickel_map = usgs.get("nickel_kt") or {}
+    manganese_map = usgs.get("manganese_kt") or {}
 
     # Attach loc names + area
     for s in states:
@@ -466,10 +482,26 @@ def main() -> None:
         names = list(meta.get("wpp") or []) + list(meta.get("irena") or [])
         ei_name = meta.get("ei") or (names[0] if names else "")
         steel_name = meta.get("steel") or ei_name
+        lookup_names = [ei_name, steel_name] + names
         res_totals: dict[str, int] = {}
         for key, cmap in mineral_country.items():
-            raw = lookup_named(cmap, [ei_name, steel_name] + names) or 0
-            res_totals[key] = int(round(float(raw) * RESOURCE_SCALE[key])) if raw else 0
+            raw = lookup_named(cmap, lookup_names) or 0
+            res_totals[key] = nodes_from_raw(raw, RESOURCE_SCALE[key])
+        chrome_nodes = float(res_totals.get("chromium") or 0)
+        nickel = lookup_named(nickel_map, lookup_names) or 0
+        manganese = lookup_named(manganese_map, lookup_names) or 0
+        if nickel:
+            chrome_nodes += float(nickel) * NICKEL_AS_CHROME
+        if manganese:
+            chrome_nodes += float(manganese) * MN_AS_CHROME
+        if chrome_nodes > 0:
+            n = int(round(chrome_nodes))
+            res_totals["chromium"] = n if n > 0 else 1
+        iron_mt = lookup_named(IRON_ORE_AS_STEEL_MT, lookup_names) or 0
+        if iron_mt:
+            steel_nodes = float(res_totals.get("steel") or 0) + float(iron_mt) * STEEL_PER_MT
+            n = int(round(steel_nodes))
+            res_totals["steel"] = n if n > 0 else 1
 
         res_alloc: dict[str, list[int]] = {}
         for key, total in res_totals.items():

@@ -5,6 +5,12 @@ state=
 	manpower = 3682669
 	
 	state_category = large_town
+
+	resources={
+
+		copper=1
+	}
+
 	
 	history={
 		owner = ERI
@@ -27,7 +33,8 @@ state=
 12766 = {
 				naval_base = 1
 			}
-			5017 = {
+
+5017 = {
 				supply_node = 1
 			}
 		}

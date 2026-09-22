@@ -1,0 +1,90 @@
+# Start-date mining and offtake concessions. HOI4 rights give every resource
+# in the state to the receiver, so only mine-specialized states are listed.
+# Deterministic. Country-scoped. No random. Flag-guarded so on_startup is once.
+
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = { NOT = { has_global_flag = dd_resource_rights_init } }
+				set_global_flag = dd_resource_rights_init
+
+				# Guinea: SMB Winning / Chalco bauxite and WCS / Baowu Simandou iron.
+				GNA = {
+					give_resource_rights = { receiver = CHI state = 780 }
+				}
+
+				# DRC Copperbelt: CMOC Tenke Fungurume, Sicomines, Zijin Manono lithium.
+				COG = {
+					give_resource_rights = { receiver = CHI state = 889 }
+				}
+
+				# Zimbabwe: Huayou / Sinomine / Chengxin lithium and Zimasco ferrochrome.
+				ZIM = {
+					give_resource_rights = { receiver = CHI state = 545 }
+				}
+
+				# Mali Goulamina spodumene: Ganfeng offtake.
+				MLI = {
+					give_resource_rights = { receiver = CHI state = 556 }
+				}
+
+				# Angola Cabinda crude: Sonangol / China Exim oil-backed debt cargoes.
+				ANG = {
+					give_resource_rights = { receiver = CHI state = 796 }
+				}
+
+				# South Sudan Dar/Palogue blend: CNPC operator with Petronas/ONGC.
+				SSD = {
+					give_resource_rights = { receiver = CHI state = 884 }
+					give_resource_rights = { receiver = CHI state = 885 }
+				}
+
+				# Myanmar ionic-clay REE: informal Kachin/Mandalay shipments into China.
+				BRM = {
+					give_resource_rights = { receiver = CHI state = 640 }
+				}
+
+				# Indonesia Morowali: Tsingshan NPI/stainless. Nickel is chromium in this mod.
+				INS = {
+					give_resource_rights = { receiver = CHI state = 673 }
+				}
+
+				# Peru Las Bambas: MMG / China Minmetals. File 492 is gazetteered Arequipa.
+				PRU = {
+					give_resource_rights = { receiver = CHI state = 492 }
+				}
+
+				# Mongolia Tavan Tolgoi coking coal: Chalco prepayments. Gobi also has Oyu Tolgoi copper.
+				MON = {
+					give_resource_rights = { receiver = CHI state = 817 }
+				}
+
+				# Argentina Cauchari-Olaroz brine: Ganfeng lithium.
+				ARG = {
+					give_resource_rights = { receiver = CHI state = 508 }
+				}
+
+				# Guyana Stabroek: ExxonMobil operator (Hess/Chevron + CNOOC minority).
+				GYA = {
+					give_resource_rights = { receiver = USA state = 687 }
+				}
+
+				# Mozambique Balama graphite: Syrah / US DFC and DOE offtake finance.
+				MZB = {
+					give_resource_rights = { receiver = USA state = 897 }
+				}
+
+				# Liberia Firestone/Bridgestone Americas 99-year rubber concession.
+				LIB = {
+					give_resource_rights = { receiver = USA state = 298 }
+				}
+
+				# Gabon: Eramet/Comilog manganese (chromium) and TotalEnergies oil.
+				GAB = {
+					give_resource_rights = { receiver = FRA state = 539 }
+				}
+			}
+		}
+	}
+}

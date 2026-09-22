@@ -39,9 +39,8 @@ equipments = {
 				
 		reliability = 0.8
 
-		# Air vs Navy - high damage / low hit chance / hard to hurt
-		naval_strike_attack = 1.5
-		naval_strike_targetting = 0.6
+		naval_strike_attack = 0
+		naval_strike_targetting = 0
 
 		#Space taken in convoy
 		lend_lease_cost = 1.5
@@ -52,6 +51,7 @@ equipments = {
 			tungsten = 3
 			chromium = 1
 			rare_earths = 1
+			copper = 1
 		}
 
 		fuel_consumption = 0
@@ -67,7 +67,8 @@ equipments = {
 		
 		air_range = 4000
 		maximum_speed = 6500
-		air_agility = 10
+		air_agility = 6
+		air_defence = 40
 		air_bombing = 500
 	}
 
@@ -84,10 +85,12 @@ equipments = {
 			tungsten = 3
 			chromium = 2
 			rare_earths = 2
+			copper = 1
 		}
-		air_range = 14000
+		air_range = 13000
 		maximum_speed = 8000
-		air_agility = 10
+		air_agility = 6
+		air_defence = 55
 		air_bombing = 600
 	}
 }

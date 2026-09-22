@@ -1,0 +1,59 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "MAL Home Fleet"
+		naval_base = 12228
+		task_force = {
+			name = "MAL Home Fleet TF"
+			location = 12228
+			ship = {
+				name = "MAL DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MAL version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "MAL DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MAL version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "MAL DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MAL version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "MAL DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MAL version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "MAL SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = MAL version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "MAL SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = MAL version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

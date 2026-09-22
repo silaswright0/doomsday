@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "MOR Home Fleet"
+		naval_base = 7069
+		task_force = {
+			name = "MOR Home Fleet TF"
+			location = 7069
+			ship = {
+				name = "MOR DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MOR version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "MOR DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MOR version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

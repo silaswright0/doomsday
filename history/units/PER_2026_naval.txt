@@ -1,0 +1,91 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "PER Home Fleet"
+		naval_base = 7982
+		task_force = {
+			name = "PER Home Fleet TF"
+			location = 7982
+			ship = {
+				name = "PER DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PER version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PER DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PER version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PER DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PER version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PER DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = PER version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "PER SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PER SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PER SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PER SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PER SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "PER SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = PER version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

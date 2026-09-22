@@ -42,9 +42,9 @@ equipments = {
 				
 		reliability = 0.8
 
-		# Air vs Navy - high damage / low hit chance / hard to hurt
-		naval_strike_attack = 1.5
-		naval_strike_targetting = 0.6
+		# Airbase interceptors are not anti-ship missiles.
+		naval_strike_attack = 0
+		naval_strike_targetting = 0
 
 		#Space taken in convoy
 		lend_lease_cost = 1.5
@@ -54,6 +54,7 @@ equipments = {
 			aluminium = 1
 			tungsten = 1
 			rare_earths = 1
+			copper = 1
 		}
 
 		fuel_consumption = 0
@@ -89,6 +90,7 @@ equipments = {
 			aluminium = 1
 			tungsten = 2
 			rare_earths = 1
+			copper = 1
 		}
 		air_range = 800
 		maximum_speed = 2800

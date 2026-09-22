@@ -1,0 +1,5906 @@
+{
+  "GER": {
+    "force": [
+      5,
+      2,
+      4,
+      0,
+      1,
+      0,
+      4,
+      0,
+      8,
+      0,
+      6,
+      12,
+      4,
+      6
+    ],
+    "ndiv": 16,
+    "oob": "GER_2026",
+    "naval_oob": "GER_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1545 producer = GER }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 63 producer = GER }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 22 producer = GER }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 540 producer = GER }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 45 producer = GER }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 36 producer = GER }"
+    ]
+  },
+  "ENG": {
+    "force": [
+      5,
+      1,
+      3,
+      1,
+      0,
+      0,
+      5,
+      2,
+      16,
+      6,
+      10,
+      14,
+      4,
+      8
+    ],
+    "ndiv": 15,
+    "oob": "ENG_2026",
+    "naval_oob": "ENG_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 1425 producer = ENG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 54 producer = ENG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 18 producer = ENG }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 360 producer = ENG }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 22 producer = ENG }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 42 producer = ENG }"
+    ]
+  },
+  "SOV": {
+    "force": [
+      18,
+      8,
+      12,
+      1,
+      3,
+      0,
+      10,
+      1,
+      22,
+      14,
+      42,
+      32,
+      16,
+      14
+    ],
+    "ndiv": 52,
+    "oob": "SOV_2026",
+    "naval_oob": "SOV_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 5190 producer = SOV }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 216 producer = SOV }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 76 producer = SOV }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 1800 producer = SOV }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 180 producer = SOV }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 96 producer = SOV }"
+    ]
+  },
+  "SWE": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      4,
+      0,
+      4,
+      6,
+      2,
+      4
+    ],
+    "ndiv": 5,
+    "oob": "SWE_2026",
+    "naval_oob": "SWE_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 480 producer = SWE }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 16 producer = SWE }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = SWE }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = SWE }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 18 producer = SWE }"
+    ]
+  },
+  "FRA": {
+    "force": [
+      6,
+      2,
+      4,
+      1,
+      1,
+      0,
+      9,
+      1,
+      14,
+      6,
+      8,
+      16,
+      6,
+      8
+    ],
+    "ndiv": 23,
+    "oob": "FRA_2026",
+    "naval_oob": "FRA_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 2070 producer = FRA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 80 producer = FRA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 25 producer = FRA }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 540 producer = FRA }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 45 producer = FRA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 48 producer = FRA }"
+    ]
+  },
+  "LUX": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "LUX_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = LUX }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = LUX }"
+    ]
+  },
+  "BEL": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      2,
+      1,
+      2
+    ],
+    "ndiv": 3,
+    "oob": "BEL_2026",
+    "naval_oob": "BEL_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 285 producer = BEL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = BEL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = BEL }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = BEL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 6 producer = BEL }"
+    ]
+  },
+  "HOL": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      6,
+      0,
+      4,
+      4,
+      1,
+      2
+    ],
+    "ndiv": 3,
+    "oob": "HOL_2026",
+    "naval_oob": "HOL_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 285 producer = HOL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = HOL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = HOL }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = HOL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 12 producer = HOL }"
+    ]
+  },
+  "CZE": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      2
+    ],
+    "ndiv": 4,
+    "oob": "CZE_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 420 producer = CZE }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = CZE }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = CZE }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = CZE }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = CZE }"
+    ]
+  },
+  "POL": {
+    "force": [
+      6,
+      2,
+      4,
+      0,
+      0,
+      0,
+      4,
+      0,
+      2,
+      0,
+      2,
+      8,
+      3,
+      4
+    ],
+    "ndiv": 16,
+    "oob": "POL_2026",
+    "naval_oob": "POL_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1590 producer = POL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 63 producer = POL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 22 producer = POL }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 540 producer = POL }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 45 producer = POL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 24 producer = POL }"
+    ]
+  },
+  "AUS": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      2
+    ],
+    "ndiv": 4,
+    "oob": "AUS_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 375 producer = AUS }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = AUS }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = AUS }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = AUS }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 6 producer = AUS }"
+    ]
+  },
+  "LIT": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      4,
+      1,
+      2
+    ],
+    "ndiv": 2,
+    "oob": "LIT_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = LIT }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = LIT }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = LIT }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = LIT }"
+    ]
+  },
+  "EST": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "EST_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = EST }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = EST }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = EST }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = EST }"
+    ]
+  },
+  "LAT": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "LAT_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = LAT }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = LAT }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = LAT }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = LAT }"
+    ]
+  },
+  "SPR": {
+    "force": [
+      3,
+      1,
+      2,
+      1,
+      0,
+      0,
+      3,
+      1,
+      8,
+      2,
+      2,
+      8,
+      3,
+      4
+    ],
+    "ndiv": 10,
+    "oob": "SPR_2026",
+    "naval_oob": "SPR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 945 producer = SPR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 38 producer = SPR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 13 producer = SPR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = SPR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 22 producer = SPR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 24 producer = SPR }"
+    ]
+  },
+  "ITA": {
+    "force": [
+      4,
+      1,
+      3,
+      1,
+      1,
+      0,
+      3,
+      2,
+      10,
+      4,
+      8,
+      10,
+      4,
+      6
+    ],
+    "ndiv": 13,
+    "oob": "ITA_2026",
+    "naval_oob": "ITA_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1260 producer = ITA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 51 producer = ITA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 18 producer = ITA }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 360 producer = ITA }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 22 producer = ITA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 30 producer = ITA }"
+    ]
+  },
+  "ROM": {
+    "force": [
+      3,
+      1,
+      2,
+      0,
+      1,
+      0,
+      2,
+      0,
+      3,
+      0,
+      0,
+      4,
+      2,
+      2
+    ],
+    "ndiv": 9,
+    "oob": "ROM_2026",
+    "naval_oob": "ROM_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 885 producer = ROM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 36 producer = ROM }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 13 producer = ROM }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = ROM }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = ROM }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = ROM }"
+    ]
+  },
+  "SER": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "SER_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = SER }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = SER }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SER }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = SER }"
+    ]
+  },
+  "SWI": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      2,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      2
+    ],
+    "ndiv": 7,
+    "oob": "SWI_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 660 producer = SWI }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 26 producer = SWI }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = SWI }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = SWI }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 6 producer = SWI }"
+    ]
+  },
+  "TUR": {
+    "force": [
+      8,
+      3,
+      6,
+      1,
+      2,
+      0,
+      6,
+      0,
+      12,
+      4,
+      12,
+      16,
+      6,
+      8
+    ],
+    "ndiv": 26,
+    "oob": "TUR_2026",
+    "naval_oob": "TUR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 2520 producer = TUR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 104 producer = TUR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 36 producer = TUR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 810 producer = TUR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 68 producer = TUR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 48 producer = TUR }"
+    ]
+  },
+  "GRE": {
+    "force": [
+      3,
+      1,
+      1,
+      0,
+      1,
+      0,
+      2,
+      0,
+      8,
+      0,
+      0,
+      6,
+      2,
+      4
+    ],
+    "ndiv": 8,
+    "oob": "GRE_2026",
+    "naval_oob": "GRE_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 795 producer = GRE }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 32 producer = GRE }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = GRE }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 180 producer = GRE }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = GRE }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 18 producer = GRE }"
+    ]
+  },
+  "ALB": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "ALB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = ALB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = ALB }"
+    ]
+  },
+  "NOR": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      4,
+      0,
+      6,
+      4,
+      1,
+      4
+    ],
+    "ndiv": 3,
+    "oob": "NOR_2026",
+    "naval_oob": "NOR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 285 producer = NOR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = NOR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = NOR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = NOR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 12 producer = NOR }"
+    ]
+  },
+  "DEN": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      3,
+      1,
+      2
+    ],
+    "ndiv": 3,
+    "oob": "DEN_2026",
+    "naval_oob": "DEN_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 285 producer = DEN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = DEN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = DEN }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = DEN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 9 producer = DEN }"
+    ]
+  },
+  "BUL": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "BUL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = BUL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = BUL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = BUL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = BUL }"
+    ]
+  },
+  "POR": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      5,
+      1,
+      2
+    ],
+    "ndiv": 3,
+    "oob": "POR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 330 producer = POR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = POR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = POR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 15 producer = POR }"
+    ]
+  },
+  "FIN": {
+    "force": [
+      3,
+      0,
+      1,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      4,
+      1,
+      2
+    ],
+    "ndiv": 8,
+    "oob": "FIN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 765 producer = FIN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 27 producer = FIN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = FIN }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = FIN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 12 producer = FIN }"
+    ]
+  },
+  "IRE": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    "ndiv": 2,
+    "oob": "IRE_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 195 producer = IRE }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = IRE }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = IRE }"
+    ]
+  },
+  "HUN": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      2
+    ],
+    "ndiv": 4,
+    "oob": "HUN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 420 producer = HUN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = HUN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = HUN }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = HUN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = HUN }"
+    ]
+  },
+  "AFG": {
+    "force": [
+      4,
+      0,
+      0,
+      0,
+      1,
+      8,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    "ndiv": 15,
+    "oob": "AFG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1470 producer = AFG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 26 producer = AFG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = AFG }"
+    ]
+  },
+  "ARG": {
+    "force": [
+      4,
+      1,
+      1,
+      0,
+      1,
+      0,
+      3,
+      0,
+      4,
+      2,
+      2,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 10,
+    "oob": "ARG_2026",
+    "naval_oob": "ARG_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 990 producer = ARG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 38 producer = ARG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 13 producer = ARG }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 180 producer = ARG }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = ARG }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = ARG }"
+    ]
+  },
+  "AST": {
+    "force": [
+      2,
+      1,
+      2,
+      0,
+      0,
+      0,
+      3,
+      0,
+      8,
+      3,
+      6,
+      8,
+      3,
+      6
+    ],
+    "ndiv": 8,
+    "oob": "AST_2026",
+    "naval_oob": "AST_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 720 producer = AST }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 28 producer = AST }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = AST }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = AST }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 22 producer = AST }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 24 producer = AST }"
+    ]
+  },
+  "BHU": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "BHU_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = BHU }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = BHU }"
+    ]
+  },
+  "BOL": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "BOL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = BOL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = BOL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = BOL }"
+    ]
+  },
+  "BRA": {
+    "force": [
+      6,
+      1,
+      3,
+      1,
+      0,
+      0,
+      6,
+      0,
+      6,
+      2,
+      4,
+      8,
+      4,
+      6
+    ],
+    "ndiv": 17,
+    "oob": "BRA_2026",
+    "naval_oob": "BRA_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1620 producer = BRA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 60 producer = BRA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 20 producer = BRA }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 360 producer = BRA }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = BRA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 24 producer = BRA }"
+    ]
+  },
+  "CAN": {
+    "force": [
+      2,
+      0,
+      2,
+      0,
+      0,
+      0,
+      2,
+      0,
+      12,
+      0,
+      4,
+      6,
+      2,
+      4
+    ],
+    "ndiv": 6,
+    "oob": "CAN_2026",
+    "naval_oob": "CAN_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 570 producer = CAN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 21 producer = CAN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 7 producer = CAN }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 180 producer = CAN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 18 producer = CAN }"
+    ]
+  },
+  "CHI": {
+    "force": [
+      20,
+      8,
+      14,
+      2,
+      4,
+      0,
+      16,
+      3,
+      42,
+      22,
+      50,
+      55,
+      18,
+      16
+    ],
+    "ndiv": 64,
+    "oob": "CHI_2026",
+    "naval_oob": "CHI_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 9064 producer = CHI }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 370 producer = CHI }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 127 producer = CHI }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 2904 producer = CHI }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 264 producer = CHI }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 242 producer = CHI }"
+    ]
+  },
+  "CHL": {
+    "force": [
+      2,
+      0,
+      1,
+      1,
+      1,
+      0,
+      2,
+      0,
+      6,
+      2,
+      4,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 7,
+    "oob": "CHL_2026",
+    "naval_oob": "CHL_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 660 producer = CHL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 26 producer = CHL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = CHL }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = CHL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = CHL }"
+    ]
+  },
+  "COL": {
+    "force": [
+      4,
+      0,
+      1,
+      0,
+      1,
+      2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      6
+    ],
+    "ndiv": 12,
+    "oob": "COL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1140 producer = COL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 33 producer = COL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = COL }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = COL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = COL }"
+    ]
+  },
+  "COS": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "COS_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = COS }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = COS }"
+    ]
+  },
+  "ECU": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      4,
+      1,
+      2
+    ],
+    "ndiv": 3,
+    "oob": "ECU_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 330 producer = ECU }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = ECU }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = ECU }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = ECU }"
+    ]
+  },
+  "ELS": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "ELS_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = ELS }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = ELS }"
+    ]
+  },
+  "ETH": {
+    "force": [
+      8,
+      0,
+      1,
+      0,
+      2,
+      3,
+      4,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      4
+    ],
+    "ndiv": 18,
+    "oob": "ETH_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1860 producer = ETH }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 56 producer = ETH }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 20 producer = ETH }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = ETH }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = ETH }"
+    ]
+  },
+  "GUA": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "GUA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = GUA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = GUA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = GUA }"
+    ]
+  },
+  "HON": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "HON_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = HON }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = HON }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = HON }"
+    ]
+  },
+  "IRQ": {
+    "force": [
+      6,
+      1,
+      2,
+      0,
+      0,
+      2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 15,
+    "oob": "IRQ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1500 producer = IRQ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 48 producer = IRQ }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 16 producer = IRQ }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = IRQ }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = IRQ }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = IRQ }"
+    ]
+  },
+  "JAP": {
+    "force": [
+      6,
+      1,
+      5,
+      1,
+      0,
+      0,
+      6,
+      2,
+      28,
+      8,
+      22,
+      22,
+      6,
+      10
+    ],
+    "ndiv": 19,
+    "oob": "JAP_2026",
+    "naval_oob": "JAP_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 1800 producer = JAP }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 69 producer = JAP }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 23 producer = JAP }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 540 producer = JAP }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 22 producer = JAP }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 66 producer = JAP }"
+    ]
+  },
+  "KOR": {
+    "force": [
+      10,
+      4,
+      8,
+      1,
+      1,
+      0,
+      8,
+      0,
+      12,
+      6,
+      12,
+      24,
+      8,
+      10
+    ],
+    "ndiv": 32,
+    "oob": "KOR_2026",
+    "naval_oob": "KOR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 3090 producer = KOR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 126 producer = KOR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 43 producer = KOR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 1080 producer = KOR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 90 producer = KOR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 72 producer = KOR }"
+    ]
+  },
+  "LIB": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "LIB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = LIB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = LIB }"
+    ]
+  },
+  "MEX": {
+    "force": [
+      4,
+      0,
+      1,
+      0,
+      0,
+      0,
+      6,
+      0,
+      4,
+      0,
+      0,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 11,
+    "oob": "MEX_2026",
+    "naval_oob": "MEX_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 990 producer = MEX }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 32 producer = MEX }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = MEX }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = MEX }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = MEX }"
+    ]
+  },
+  "NEP": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "NEP_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = NEP }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = NEP }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = NEP }"
+    ]
+  },
+  "NIC": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "NIC_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = NIC }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = NIC }"
+    ]
+  },
+  "NZL": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      2,
+      0,
+      2
+    ],
+    "ndiv": 2,
+    "oob": "NZL_2026",
+    "naval_oob": "NZL_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 195 producer = NZL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = NZL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = NZL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = NZL }"
+    ]
+  },
+  "PAN": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "PAN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = PAN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = PAN }"
+    ]
+  },
+  "PER": {
+    "force": [
+      6,
+      2,
+      3,
+      0,
+      1,
+      2,
+      4,
+      0,
+      4,
+      0,
+      6,
+      10,
+      6,
+      6
+    ],
+    "ndiv": 18,
+    "oob": "PER_2026",
+    "naval_oob": "PER_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1770 producer = PER }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 63 producer = PER }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 22 producer = PER }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 450 producer = PER }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 45 producer = PER }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 30 producer = PER }"
+    ]
+  },
+  "PHI": {
+    "force": [
+      5,
+      0,
+      1,
+      1,
+      0,
+      2,
+      5,
+      0,
+      2,
+      0,
+      0,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 14,
+    "oob": "PHI_2026",
+    "naval_oob": "PHI_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1335 producer = PHI }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 39 producer = PHI }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 13 producer = PHI }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = PHI }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = PHI }"
+    ]
+  },
+  "PRU": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      1,
+      4,
+      1,
+      2
+    ],
+    "ndiv": 3,
+    "oob": "PRU_2026",
+    "naval_oob": "PRU_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 330 producer = PRU }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = PRU }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = PRU }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = PRU }"
+    ]
+  },
+  "SAF": {
+    "force": [
+      3,
+      1,
+      2,
+      0,
+      0,
+      0,
+      3,
+      0,
+      4,
+      0,
+      2,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 9,
+    "oob": "SAF_2026",
+    "naval_oob": "SAF_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 855 producer = SAF }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 33 producer = SAF }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = SAF }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = SAF }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = SAF }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = SAF }"
+    ]
+  },
+  "SAU": {
+    "force": [
+      4,
+      2,
+      4,
+      0,
+      0,
+      0,
+      4,
+      0,
+      8,
+      4,
+      0,
+      14,
+      6,
+      6
+    ],
+    "ndiv": 14,
+    "oob": "SAU_2026",
+    "naval_oob": "SAU_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1320 producer = SAU }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 54 producer = SAU }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 18 producer = SAU }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 540 producer = SAU }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 45 producer = SAU }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 42 producer = SAU }"
+    ]
+  },
+  "SIA": {
+    "force": [
+      4,
+      1,
+      2,
+      1,
+      0,
+      0,
+      4,
+      0,
+      4,
+      0,
+      0,
+      6,
+      2,
+      4
+    ],
+    "ndiv": 12,
+    "oob": "SIA_2026",
+    "naval_oob": "SIA_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1140 producer = SIA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 44 producer = SIA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 14 producer = SIA }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = SIA }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = SIA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 18 producer = SIA }"
+    ]
+  },
+  "URG": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "URG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = URG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = URG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = URG }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = URG }"
+    ]
+  },
+  "VEN": {
+    "force": [
+      4,
+      1,
+      1,
+      0,
+      0,
+      1,
+      3,
+      0,
+      2,
+      0,
+      2,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 10,
+    "oob": "VEN_2026",
+    "naval_oob": "VEN_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 990 producer = VEN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 33 producer = VEN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = VEN }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 180 producer = VEN }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = VEN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = VEN }"
+    ]
+  },
+  "USA": {
+    "force": [
+      8,
+      2,
+      2,
+      3,
+      1,
+      0,
+      14,
+      11,
+      48,
+      18,
+      55,
+      48,
+      12,
+      20
+    ],
+    "ndiv": 30,
+    "oob": "USA_2026",
+    "naval_oob": "USA_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 3872 producer = USA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 141 producer = USA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 42 producer = USA }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 528 producer = USA }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 66 producer = USA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 211 producer = USA }"
+    ]
+  },
+  "MON": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "MON_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MON }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MON }"
+    ]
+  },
+  "PAR": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "PAR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = PAR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = PAR }"
+    ]
+  },
+  "CUB": {
+    "force": [
+      3,
+      0,
+      1,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      2
+    ],
+    "ndiv": 7,
+    "oob": "CUB_2026",
+    "naval_oob": "CUB_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 675 producer = CUB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 22 producer = CUB }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 7 producer = CUB }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = CUB }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = CUB }"
+    ]
+  },
+  "DOM": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "DOM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = DOM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = DOM }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = DOM }"
+    ]
+  },
+  "HAI": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "HAI_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 240 producer = HAI }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = HAI }"
+    ]
+  },
+  "YEM": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 5,
+    "oob": "YEM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 510 producer = YEM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = YEM }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = YEM }"
+    ]
+  },
+  "OMA": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      4,
+      1,
+      2
+    ],
+    "ndiv": 4,
+    "oob": "OMA_2026",
+    "naval_oob": "OMA_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 420 producer = OMA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = OMA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = OMA }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = OMA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = OMA }"
+    ]
+  },
+  "SLO": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      4,
+      1,
+      2
+    ],
+    "ndiv": 2,
+    "oob": "SLO_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = SLO }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = SLO }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SLO }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = SLO }"
+    ]
+  },
+  "RAJ": {
+    "force": [
+      18,
+      4,
+      8,
+      1,
+      2,
+      0,
+      12,
+      2,
+      18,
+      8,
+      16,
+      22,
+      8,
+      10
+    ],
+    "ndiv": 45,
+    "oob": "RAJ_2026",
+    "naval_oob": "RAJ_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 4500 producer = RAJ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 172 producer = RAJ }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 59 producer = RAJ }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 1080 producer = RAJ }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 90 producer = RAJ }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 66 producer = RAJ }"
+    ]
+  },
+  "CRO": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "CRO_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = CRO }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = CRO }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = CRO }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = CRO }"
+    ]
+  },
+  "ICE": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "ICE_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = ICE }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = ICE }"
+    ]
+  },
+  "LEB": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "ndiv": 4,
+    "oob": "LEB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 345 producer = LEB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 8 producer = LEB }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = LEB }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = LEB }"
+    ]
+  },
+  "JOR": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 5,
+    "oob": "JOR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 480 producer = JOR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 16 producer = JOR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = JOR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = JOR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = JOR }"
+    ]
+  },
+  "SYR": {
+    "force": [
+      3,
+      0,
+      1,
+      0,
+      0,
+      4,
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      2
+    ],
+    "ndiv": 10,
+    "oob": "SYR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 975 producer = SYR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 21 producer = SYR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 7 producer = SYR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = SYR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = SYR }"
+    ]
+  },
+  "EGY": {
+    "force": [
+      8,
+      3,
+      4,
+      1,
+      0,
+      0,
+      6,
+      0,
+      8,
+      2,
+      8,
+      12,
+      6,
+      6
+    ],
+    "ndiv": 22,
+    "oob": "EGY_2026",
+    "naval_oob": "EGY_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 2160 producer = EGY }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 86 producer = EGY }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 29 producer = EGY }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 630 producer = EGY }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 68 producer = EGY }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 36 producer = EGY }"
+    ]
+  },
+  "LBA": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "ndiv": 5,
+    "oob": "LBA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 510 producer = LBA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = LBA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = LBA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = LBA }"
+    ]
+  },
+  "PAL": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "PAL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 240 producer = PAL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = PAL }"
+    ]
+  },
+  "ISR": {
+    "force": [
+      6,
+      3,
+      5,
+      0,
+      0,
+      2,
+      4,
+      0,
+      0,
+      0,
+      5,
+      18,
+      8,
+      8
+    ],
+    "ndiv": 20,
+    "oob": "ISR_2026",
+    "naval_oob": "ISR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1950 producer = ISR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 74 producer = ISR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 25 producer = ISR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 720 producer = ISR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 68 producer = ISR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 54 producer = ISR }"
+    ]
+  },
+  "VIN": {
+    "force": [
+      6,
+      1,
+      2,
+      1,
+      1,
+      0,
+      6,
+      0,
+      4,
+      0,
+      6,
+      6,
+      3,
+      4
+    ],
+    "ndiv": 17,
+    "oob": "VIN_2026",
+    "naval_oob": "VIN_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1620 producer = VIN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 60 producer = VIN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 20 producer = VIN }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = VIN }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = VIN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 18 producer = VIN }"
+    ]
+  },
+  "CAM": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "CAM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = CAM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = CAM }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = CAM }"
+    ]
+  },
+  "MAL": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      4,
+      0,
+      2,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 5,
+    "oob": "MAL_2026",
+    "naval_oob": "MAL_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 480 producer = MAL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 16 producer = MAL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = MAL }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = MAL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = MAL }"
+    ]
+  },
+  "INS": {
+    "force": [
+      8,
+      1,
+      2,
+      1,
+      0,
+      0,
+      8,
+      0,
+      8,
+      2,
+      4,
+      8,
+      4,
+      6
+    ],
+    "ndiv": 20,
+    "oob": "INS_2026",
+    "naval_oob": "INS_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1920 producer = INS }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 68 producer = INS }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 22 producer = INS }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = INS }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = INS }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 24 producer = INS }"
+    ]
+  },
+  "LAO": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "LAO_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = LAO }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = LAO }"
+    ]
+  },
+  "MNT": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "MNT_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MNT }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MNT }"
+    ]
+  },
+  "UKR": {
+    "force": [
+      14,
+      4,
+      8,
+      0,
+      0,
+      4,
+      8,
+      0,
+      0,
+      0,
+      2,
+      8,
+      6,
+      8
+    ],
+    "ndiv": 38,
+    "oob": "UKR_2026",
+    "naval_oob": "UKR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 3810 producer = UKR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 135 producer = UKR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 47 producer = UKR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 1080 producer = UKR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 90 producer = UKR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 24 producer = UKR }"
+    ]
+  },
+  "GEO": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "ndiv": 4,
+    "oob": "GEO_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 375 producer = GEO }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = GEO }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = GEO }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = GEO }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = GEO }"
+    ]
+  },
+  "KAZ": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      2
+    ],
+    "ndiv": 5,
+    "oob": "KAZ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 480 producer = KAZ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 16 producer = KAZ }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = KAZ }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = KAZ }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = KAZ }"
+    ]
+  },
+  "AZR": {
+    "force": [
+      3,
+      1,
+      2,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      4,
+      2,
+      2
+    ],
+    "ndiv": 8,
+    "oob": "AZR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 795 producer = AZR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 32 producer = AZR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = AZR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = AZR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = AZR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = AZR }"
+    ]
+  },
+  "ARM": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2
+    ],
+    "ndiv": 5,
+    "oob": "ARM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 510 producer = ARM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 20 producer = ARM }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 7 producer = ARM }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = ARM }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = ARM }"
+    ]
+  },
+  "BLR": {
+    "force": [
+      3,
+      1,
+      2,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      4,
+      2,
+      2
+    ],
+    "ndiv": 8,
+    "oob": "BLR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 795 producer = BLR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 32 producer = BLR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = BLR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = BLR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = BLR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = BLR }"
+    ]
+  },
+  "ANG": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "ANG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = ANG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = ANG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = ANG }"
+    ]
+  },
+  "MZB": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "MZB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = MZB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = MZB }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = MZB }"
+    ]
+  },
+  "ZIM": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "ZIM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = ZIM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = ZIM }"
+    ]
+  },
+  "COG": {
+    "force": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      2,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    "ndiv": 8,
+    "oob": "COG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 765 producer = COG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 18 producer = COG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = COG }"
+    ]
+  },
+  "KEN": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1
+    ],
+    "ndiv": 3,
+    "oob": "KEN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 330 producer = KEN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = KEN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = KEN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = KEN }"
+    ]
+  },
+  "PAK": {
+    "force": [
+      12,
+      3,
+      5,
+      0,
+      2,
+      0,
+      8,
+      0,
+      6,
+      2,
+      8,
+      14,
+      6,
+      6
+    ],
+    "ndiv": 30,
+    "oob": "PAK_2026",
+    "naval_oob": "PAK_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 3000 producer = PAK }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 116 producer = PAK }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 40 producer = PAK }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 720 producer = PAK }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 68 producer = PAK }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 42 producer = PAK }"
+    ]
+  },
+  "BOT": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "BOT_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = BOT }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = BOT }"
+    ]
+  },
+  "BAH": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "BAH_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = BAH }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = BAH }"
+    ]
+  },
+  "BAN": {
+    "force": [
+      6,
+      0,
+      1,
+      0,
+      0,
+      0,
+      5,
+      0,
+      2,
+      0,
+      0,
+      2,
+      1,
+      4
+    ],
+    "ndiv": 12,
+    "oob": "BAN_2026",
+    "naval_oob": "BAN_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1200 producer = BAN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 39 producer = BAN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 13 producer = BAN }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = BAN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = BAN }"
+    ]
+  },
+  "BLZ": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "BLZ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = BLZ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = BLZ }"
+    ]
+  },
+  "BRM": {
+    "force": [
+      6,
+      1,
+      1,
+      0,
+      1,
+      4,
+      4,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      3
+    ],
+    "ndiv": 17,
+    "oob": "BRM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1680 producer = BRM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 48 producer = BRM }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 16 producer = BRM }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 180 producer = BRM }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = BRM }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = BRM }"
+    ]
+  },
+  "GYA": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "GYA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = GYA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = GYA }"
+    ]
+  },
+  "JAM": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "JAM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = JAM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = JAM }"
+    ]
+  },
+  "KYR": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "KYR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = KYR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = KYR }"
+    ]
+  },
+  "MAD": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 2,
+    "oob": "MAD_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = MAD }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = MAD }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = MAD }"
+    ]
+  },
+  "MOL": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "MOL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MOL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MOL }"
+    ]
+  },
+  "PNG": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "PNG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = PNG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = PNG }"
+    ]
+  },
+  "QAT": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      4,
+      0,
+      0,
+      6,
+      2,
+      4
+    ],
+    "ndiv": 3,
+    "oob": "QAT_2026",
+    "naval_oob": "QAT_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 285 producer = QAT }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = QAT }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = QAT }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = QAT }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 18 producer = QAT }"
+    ]
+  },
+  "SRL": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "SRL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = SRL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = SRL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SRL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = SRL }"
+    ]
+  },
+  "SUR": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "SUR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = SUR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SUR }"
+    ]
+  },
+  "TAJ": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "TAJ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = TAJ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = TAJ }"
+    ]
+  },
+  "TRI": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "TRI_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = TRI }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = TRI }"
+    ]
+  },
+  "TMS": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "TMS_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = TMS }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = TMS }"
+    ]
+  },
+  "UAE": {
+    "force": [
+      2,
+      0,
+      2,
+      0,
+      0,
+      0,
+      2,
+      0,
+      6,
+      0,
+      0,
+      8,
+      3,
+      6
+    ],
+    "ndiv": 6,
+    "oob": "UAE_2026",
+    "naval_oob": "UAE_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 570 producer = UAE }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 21 producer = UAE }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 7 producer = UAE }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 180 producer = UAE }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 24 producer = UAE }"
+    ]
+  },
+  "UZB": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 3,
+    "oob": "UZB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 330 producer = UZB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = UZB }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = UZB }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = UZB }"
+    ]
+  },
+  "KUW": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      4,
+      1,
+      2
+    ],
+    "ndiv": 3,
+    "oob": "KUW_2026",
+    "naval_oob": "KUW_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 285 producer = KUW }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = KUW }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = KUW }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = KUW }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = KUW }"
+    ]
+  },
+  "CYP": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "CYP_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = CYP }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = CYP }"
+    ]
+  },
+  "MLT": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "MLT_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MLT }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MLT }"
+    ]
+  },
+  "ALG": {
+    "force": [
+      5,
+      1,
+      2,
+      0,
+      1,
+      0,
+      4,
+      0,
+      4,
+      0,
+      6,
+      6,
+      3,
+      4
+    ],
+    "ndiv": 13,
+    "oob": "ALG_2026",
+    "naval_oob": "ALG_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1275 producer = ALG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 48 producer = ALG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 16 producer = ALG }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = ALG }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = ALG }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 18 producer = ALG }"
+    ]
+  },
+  "MOR": {
+    "force": [
+      4,
+      1,
+      2,
+      0,
+      0,
+      0,
+      3,
+      0,
+      2,
+      0,
+      0,
+      4,
+      2,
+      4
+    ],
+    "ndiv": 10,
+    "oob": "MOR_2026",
+    "naval_oob": "MOR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 990 producer = MOR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 38 producer = MOR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 13 producer = MOR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = MOR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = MOR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = MOR }"
+    ]
+  },
+  "TUN": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "TUN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = TUN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = TUN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = TUN }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = TUN }"
+    ]
+  },
+  "SUD": {
+    "force": [
+      4,
+      0,
+      1,
+      0,
+      0,
+      3,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      2
+    ],
+    "ndiv": 10,
+    "oob": "SUD_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1020 producer = SUD }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 26 producer = SUD }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = SUD }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = SUD }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = SUD }"
+    ]
+  },
+  "ERI": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "ERI_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = ERI }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = ERI }"
+    ]
+  },
+  "DJI": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 2,
+    "oob": "DJI_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = DJI }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = DJI }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = DJI }"
+    ]
+  },
+  "SOM": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 4,
+    "oob": "SOM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 375 producer = SOM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = SOM }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SOM }"
+    ]
+  },
+  "UGA": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1
+    ],
+    "ndiv": 3,
+    "oob": "UGA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 330 producer = UGA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = UGA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = UGA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = UGA }"
+    ]
+  },
+  "RWA": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "RWA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = RWA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = RWA }"
+    ]
+  },
+  "BRD": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "BRD_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = BRD }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = BRD }"
+    ]
+  },
+  "TZN": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 3,
+    "oob": "TZN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 330 producer = TZN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = TZN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = TZN }"
+    ]
+  },
+  "ZAM": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "ZAM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = ZAM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = ZAM }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = ZAM }"
+    ]
+  },
+  "MLW": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 2,
+    "oob": "MLW_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = MLW }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = MLW }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = MLW }"
+    ]
+  },
+  "GAB": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "GAB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = GAB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = GAB }"
+    ]
+  },
+  "RCG": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "RCG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = RCG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = RCG }"
+    ]
+  },
+  "EQG": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "EQG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = EQG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = EQG }"
+    ]
+  },
+  "CMR": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "CMR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = CMR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = CMR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = CMR }"
+    ]
+  },
+  "CAR": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "CAR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 240 producer = CAR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = CAR }"
+    ]
+  },
+  "CHA": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "CHA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = CHA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = CHA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = CHA }"
+    ]
+  },
+  "NGA": {
+    "force": [
+      5,
+      0,
+      1,
+      0,
+      0,
+      2,
+      5,
+      0,
+      2,
+      0,
+      0,
+      2,
+      1,
+      4
+    ],
+    "ndiv": 13,
+    "oob": "NGA_2026",
+    "naval_oob": "NGA_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1245 producer = NGA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 34 producer = NGA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = NGA }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = NGA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = NGA }"
+    ]
+  },
+  "DAH": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "DAH_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = DAH }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = DAH }"
+    ]
+  },
+  "TOG": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "TOG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = TOG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = TOG }"
+    ]
+  },
+  "GHA": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "GHA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = GHA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = GHA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = GHA }"
+    ]
+  },
+  "IVO": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "IVO_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = IVO }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = IVO }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = IVO }"
+    ]
+  },
+  "VOL": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "VOL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = VOL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = VOL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = VOL }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = VOL }"
+    ]
+  },
+  "MLI": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 4,
+    "oob": "MLI_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 375 producer = MLI }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = MLI }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = MLI }"
+    ]
+  },
+  "SIE": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "SIE_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = SIE }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SIE }"
+    ]
+  },
+  "GNA": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "GNA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = GNA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = GNA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = GNA }"
+    ]
+  },
+  "GNB": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "GNB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = GNB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = GNB }"
+    ]
+  },
+  "SEN": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "SEN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = SEN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = SEN }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SEN }"
+    ]
+  },
+  "GAM": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "GAM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = GAM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = GAM }"
+    ]
+  },
+  "NGR": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 2,
+    "oob": "NGR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = NGR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = NGR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = NGR }"
+    ]
+  },
+  "MRT": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "MRT_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MRT }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MRT }"
+    ]
+  },
+  "NMB": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "NMB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = NMB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = NMB }"
+    ]
+  },
+  "MLD": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "MLD_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MLD }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MLD }"
+    ]
+  },
+  "FIJ": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "FIJ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = FIJ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = FIJ }"
+    ]
+  },
+  "FSM": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "FSM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = FSM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = FSM }"
+    ]
+  },
+  "SOL": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "SOL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = SOL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SOL }"
+    ]
+  },
+  "SAM": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "SAM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = SAM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SAM }"
+    ]
+  },
+  "SLV": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "SLV_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = SLV }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SLV }"
+    ]
+  },
+  "BOS": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "BOS_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = BOS }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = BOS }"
+    ]
+  },
+  "MAC": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "MAC_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MAC }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MAC }"
+    ]
+  },
+  "ABK": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "ABK_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 285 producer = ABK }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = ABK }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = ABK }"
+    ]
+  },
+  "GRN": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "GRN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = GRN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = GRN }"
+    ]
+  },
+  "CBV": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "CBV_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = CBV }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = CBV }"
+    ]
+  },
+  "KOS": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "KOS_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = KOS }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = KOS }"
+    ]
+  },
+  "BHR": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      2,
+      0,
+      2
+    ],
+    "ndiv": 2,
+    "oob": "BHR_2026",
+    "naval_oob": "BHR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 195 producer = BHR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = BHR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = BHR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = BHR }"
+    ]
+  },
+  "PLU": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "PLU_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = PLU }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = PLU }"
+    ]
+  },
+  "FOR": {
+    "force": [
+      4,
+      1,
+      3,
+      1,
+      1,
+      0,
+      4,
+      0,
+      4,
+      2,
+      4,
+      16,
+      4,
+      6
+    ],
+    "ndiv": 14,
+    "oob": "FOR_2026",
+    "naval_oob": "FOR_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1320 producer = FOR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 52 producer = FOR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 18 producer = FOR }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 360 producer = FOR }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 22 producer = FOR }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 48 producer = FOR }"
+    ]
+  },
+  "TML": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "TML_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = TML }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = TML }"
+    ]
+  },
+  "SNG": {
+    "force": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      6,
+      0,
+      4,
+      6,
+      2,
+      4
+    ],
+    "ndiv": 3,
+    "oob": "SNG_2026",
+    "naval_oob": "SNG_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 285 producer = SNG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = SNG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = SNG }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = SNG }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 18 producer = SNG }"
+    ]
+  },
+  "BRN": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 1,
+    "oob": "BRN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = BRN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = BRN }"
+    ]
+  },
+  "VAN": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "VAN_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = VAN }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = VAN }"
+    ]
+  },
+  "DPK": {
+    "force": [
+      16,
+      6,
+      4,
+      1,
+      2,
+      4,
+      10,
+      0,
+      8,
+      0,
+      20,
+      10,
+      6,
+      4
+    ],
+    "ndiv": 43,
+    "oob": "DPK_2026",
+    "naval_oob": "DPK_2026_naval",
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 4290 producer = DPK }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 154 producer = DPK }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 52 producer = DPK }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 900 producer = DPK }",
+      "add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 135 producer = DPK }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 30 producer = DPK }"
+    ]
+  },
+  "SSD": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 6,
+    "oob": "SSD_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 600 producer = SSD }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = SSD }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = SSD }"
+    ]
+  },
+  "KIR": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "KIR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = KIR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = KIR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = KIR }"
+    ]
+  },
+  "TUV": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "TUV_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = TUV }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = TUV }"
+    ]
+  },
+  "NAU": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "NAU_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = NAU }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = NAU }"
+    ]
+  },
+  "MHL": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "MHL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MHL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MHL }"
+    ]
+  },
+  "MAU": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "MAU_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = MAU }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = MAU }"
+    ]
+  },
+  "COM": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "COM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = COM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = COM }"
+    ]
+  },
+  "STP": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "STP_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = STP }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = STP }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = STP }"
+    ]
+  },
+  "SEY": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "SEY_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = SEY }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = SEY }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SEY }"
+    ]
+  },
+  "SML": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "SML_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 285 producer = SML }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = SML }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SML }"
+    ]
+  },
+  "NCY": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 2,
+    "oob": "NCY_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = NCY }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = NCY }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = NCY }"
+    ]
+  },
+  "HAM": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "ndiv": 7,
+    "oob": "HAM_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 600 producer = HAM }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = HAM }"
+    ]
+  },
+  "HEZ": {
+    "force": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      4,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "ndiv": 6,
+    "oob": "HEZ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 510 producer = HEZ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = HEZ }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = HEZ }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = HEZ }"
+    ]
+  },
+  "HOU": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      1,
+      5,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "ndiv": 9,
+    "oob": "HOU_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 870 producer = HOU }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = HOU }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = HOU }"
+    ]
+  },
+  "YNR": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "YNR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 315 producer = YNR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = YNR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = YNR }"
+    ]
+  },
+  "NUG": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      1,
+      5,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 9,
+    "oob": "NUG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 870 producer = NUG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = NUG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = NUG }"
+    ]
+  },
+  "ATG": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "ATG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = ATG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = ATG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = ATG }"
+    ]
+  },
+  "DMA": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "DMA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = DMA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = DMA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = DMA }"
+    ]
+  },
+  "STL": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "STL_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = STL }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = STL }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = STL }"
+    ]
+  },
+  "SVG": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "SVG_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = SVG }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = SVG }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SVG }"
+    ]
+  },
+  "GND": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "GND_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = GND }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = GND }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = GND }"
+    ]
+  },
+  "BRB": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "BRB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 135 producer = BRB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = BRB }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = BRB }"
+    ]
+  },
+  "PMR": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "PMR_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 285 producer = PMR }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = PMR }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = PMR }"
+    ]
+  },
+  "ROJ": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 6,
+    "oob": "ROJ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 600 producer = ROJ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = ROJ }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = ROJ }"
+    ]
+  },
+  "STC": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 4,
+    "oob": "STC_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 375 producer = STC }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = STC }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = STC }"
+    ]
+  },
+  "DRZ": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "DRZ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 240 producer = DRZ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = DRZ }"
+    ]
+  },
+  "SNA": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 4,
+    "oob": "SNA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 405 producer = SNA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = SNA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SNA }"
+    ]
+  },
+  "PNT": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 2,
+    "oob": "PNT_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 225 producer = PNT }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = PNT }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = PNT }"
+    ]
+  },
+  "JUB": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 2,
+    "oob": "JUB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 225 producer = JUB }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = JUB }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = JUB }"
+    ]
+  },
+  "SHB": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 4,
+    "oob": "SHB_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 360 producer = SHB }"
+    ]
+  },
+  "M23": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 4,
+    "oob": "M23_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 405 producer = M23 }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = M23 }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = M23 }"
+    ]
+  },
+  "SOE": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 2,
+    "oob": "SOE_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 150 producer = SOE }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SOE }"
+    ]
+  },
+  "NRF": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "NRF_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 270 producer = NRF }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = NRF }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = NRF }"
+    ]
+  },
+  "LES": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "LES_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = LES }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = LES }"
+    ]
+  },
+  "SWZ": {
+    "force": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 1,
+    "oob": "SWZ_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = SWZ }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SWZ }"
+    ]
+  },
+  "LNA": {
+    "force": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "ndiv": 6,
+    "oob": "LNA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 600 producer = LNA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = LNA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = LNA }",
+      "add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = LNA }",
+      "add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = LNA }"
+    ]
+  },
+  "RSF": {
+    "force": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      5,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ndiv": 8,
+    "oob": "RSF_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 780 producer = RSF }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = RSF }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = RSF }"
+    ]
+  },
+  "SIO": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 5,
+    "oob": "SIO_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 465 producer = SIO }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = SIO }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = SIO }"
+    ]
+  },
+  "AZA": {
+    "force": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ndiv": 3,
+    "oob": "AZA_2026",
+    "naval_oob": null,
+    "source": "public OOB / IISS-summary / SIPRI-scaled discretion",
+    "surplus": [
+      "add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 315 producer = AZA }",
+      "add_equipment_to_stockpile = { type = support_equipment amount = 4 producer = AZA }",
+      "add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = AZA }"
+    ]
+  }
+}

@@ -1,0 +1,251 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "FRA DJI Station"
+		naval_base = 8124
+		task_force = {
+			name = "FRA DJI Station TF"
+			location = 8124
+			ship = {
+				name = "FRA DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "FRA Home Fleet"
+		naval_base = 3838
+		task_force = {
+			name = "FRA Home Fleet TF"
+			location = 3838
+			ship = {
+				name = "FRA CV-1"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw2 = { amount = 1 owner = FRA version_name = "Fleet Carrier" }
+				}
+			}
+			ship = {
+				name = "FRA DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-9"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-10"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-11"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-12"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-13"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA DD-14"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = FRA version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "FRA CL-1"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = FRA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "FRA CL-2"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = FRA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "FRA CL-3"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = FRA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "FRA CL-4"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = FRA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "FRA CL-5"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = FRA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "FRA CL-6"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = FRA version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "FRA SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = FRA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "FRA SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = FRA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "FRA SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = FRA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "FRA SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = FRA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "FRA SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = FRA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "FRA SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = FRA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "FRA SS-7"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = FRA version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "FRA SS-8"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = FRA version_name = "Attack Submarine" }
+				}
+			}
+		}
+	}
+}

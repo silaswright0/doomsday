@@ -1,0 +1,43 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "QAT Home Fleet"
+		naval_base = 8051
+		task_force = {
+			name = "QAT Home Fleet TF"
+			location = 8051
+			ship = {
+				name = "QAT DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = QAT version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "QAT DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = QAT version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "QAT DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = QAT version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "QAT DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = QAT version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

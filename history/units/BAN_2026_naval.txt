@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "BAN Home Fleet"
+		naval_base = 11968
+		task_force = {
+			name = "BAN Home Fleet TF"
+			location = 11968
+			ship = {
+				name = "BAN DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = BAN version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "BAN DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = BAN version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

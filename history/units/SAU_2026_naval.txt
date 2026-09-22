@@ -1,0 +1,107 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "SAU Home Fleet"
+		naval_base = 12883
+		task_force = {
+			name = "SAU Home Fleet TF"
+			location = 12883
+			ship = {
+				name = "SAU DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SAU version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SAU DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SAU version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SAU DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SAU version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SAU DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SAU version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SAU DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SAU version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SAU DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SAU version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SAU DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SAU version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SAU DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = SAU version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "SAU CL-1"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = SAU version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "SAU CL-2"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = SAU version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "SAU CL-3"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = SAU version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "SAU CL-4"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = SAU version_name = "Missile Cruiser" }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "MEX Home Fleet"
+		naval_base = 4904
+		task_force = {
+			name = "MEX Home Fleet TF"
+			location = 4904
+			ship = {
+				name = "MEX DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MEX version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "MEX DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MEX version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "MEX DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MEX version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "MEX DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = MEX version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

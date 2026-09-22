@@ -10,6 +10,7 @@ state={
 			industrial_complex = 0
 			infrastructure = 1
 			air_base = 1
+		
 		}
 		owner = AST
 		add_extra_state_shared_building_slots = 0
@@ -20,7 +21,8 @@ state={
 
 	resources={
 
-		aluminium=3
+		aluminium=42
+		chromium=3
 		coal=7
 		copper=2
 	}

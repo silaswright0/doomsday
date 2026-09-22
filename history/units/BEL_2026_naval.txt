@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "BEL Home Fleet"
+		naval_base = 6560
+		task_force = {
+			name = "BEL Home Fleet TF"
+			location = 6560
+			ship = {
+				name = "BEL DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = BEL version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "BEL DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = BEL version_name = "Cold War Destroyer" }
+				}
+			}
+		}
+	}
+}

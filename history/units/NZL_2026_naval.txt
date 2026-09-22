@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "NZL Home Fleet"
+		naval_base = 4543
+		task_force = {
+			name = "NZL Home Fleet TF"
+			location = 4543
+			ship = {
+				name = "NZL DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = NZL version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "NZL DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = NZL version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

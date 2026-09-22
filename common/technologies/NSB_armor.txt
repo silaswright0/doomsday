@@ -952,10 +952,6 @@ technologies = {
 		research_cost = 2.5
 		start_year = 1945
 
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 2 y = @1918 }
-		}
 
 		ai_will_do = {
 			factor = 1
@@ -1340,7 +1336,7 @@ technologies = {
 			modifier = {
 				add = 1
 				date > 1943.9.1
-				NOT = { has_government = democratic }
+				NOT = { dd_is_elected_gov = yes }
 				num_of_military_factories > 150
 			}
 			modifier = {
@@ -1348,7 +1344,7 @@ technologies = {
 				original_tag = GER
 				date > 1944.5.1
 				surrender_progress < 0.1
-				has_government = fascism
+				dd_is_far_right_gov = yes
 				has_war_with = SOV
 			}
 			modifier = {
@@ -1384,10 +1380,6 @@ technologies = {
 
 		research_cost = 1
 		start_year = 1936
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 3 y = @1935 }
-		}
 
 		ai_will_do = {
 			factor = 1
@@ -1444,10 +1436,6 @@ technologies = {
 
 		research_cost = 1
 		start_year = 1938
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 3 y = @1938 }
-		}
 
 		ai_will_do = {
 			factor = 1
@@ -1505,10 +1493,6 @@ technologies = {
 
 		research_cost = 1
 		start_year = 1941
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 3 y = @1941 }
-		}
 
 		ai_will_do = {
 			factor = 1
@@ -1552,10 +1536,6 @@ technologies = {
 
 		research_cost = 1
 		start_year = 1944
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 3 y = @1944 }
-		}
 
 		on_research_complete = {
 			custom_effect_tooltip = armor_tech_4_tt
@@ -1613,10 +1593,6 @@ technologies = {
 		show_effect_as_desc = yes
 		research_cost = 1
 		start_year = 1934
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 2 y = @1935 }
-		}
 
 		ai_will_do = {
 			factor = 1
@@ -1671,10 +1647,6 @@ technologies = {
 
 		research_cost = 1
 		start_year = 1938
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 2 y = @1938 }
-		}
 
 		ai_will_do = {
 			factor = 1
@@ -1727,10 +1699,6 @@ technologies = {
 		show_effect_as_desc = yes
 		research_cost = 1
 		start_year = 1941
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 2 y = @1941 }
-		}
 
 		ai_will_do = {
 			factor = 1
@@ -1774,10 +1742,6 @@ technologies = {
 
 		research_cost = 1
 		start_year = 1944
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 2 y = @1944 }
-		}
 		on_research_complete = {
 			custom_effect_tooltip = engine_tech_4_tt
 		}

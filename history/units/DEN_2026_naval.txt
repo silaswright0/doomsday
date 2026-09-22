@@ -1,0 +1,35 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "DEN Home Fleet"
+		naval_base = 13003
+		task_force = {
+			name = "DEN Home Fleet TF"
+			location = 13003
+			ship = {
+				name = "DEN DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = DEN version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "DEN DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = DEN version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "DEN DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = DEN version_name = "Cold War Destroyer" }
+				}
+			}
+		}
+	}
+}

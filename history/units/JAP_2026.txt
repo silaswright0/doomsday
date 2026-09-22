@@ -1,0 +1,266 @@
+# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Garrison Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Armored Division"
+	regiments = {
+		modern_armor = { x = 0 y = 0 }
+		modern_armor = { x = 0 y = 1 }
+		modern_armor = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+		mechanized = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mechanized Brigade"
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mountain Division"
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Marine Division"
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Militia Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	is_locked = yes
+}
+units = {
+	division = {
+		name = "Deployment Support Djibouti"
+		location = 8124
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Infantry Division"
+		location = 1182
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Infantry Division"
+		location = 7072
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Infantry Division"
+		location = 9998
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Infantry Division"
+		location = 10125
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "5th Infantry Division"
+		location = 1092
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "6th Infantry Division"
+		location = 11960
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Armored Division"
+		location = 4102
+		division_template = "Armored Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Mechanized Brigade"
+		location = 7169
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Mechanized Brigade"
+		location = 9950
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Mechanized Brigade"
+		location = 10032
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Mechanized Brigade"
+		location = 10444
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "5th Mechanized Brigade"
+		location = 11932
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Marine Division"
+		location = 1025
+		division_template = "Marine Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Garrison Brigade"
+		location = 7212
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.21
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Garrison Brigade"
+		location = 4179
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.21
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Garrison Brigade"
+		location = 1117
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.21
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Garrison Brigade"
+		location = 10015
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.21
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "5th Garrison Brigade"
+		location = 7197
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.21
+		start_equipment_factor = 1.0
+	}
+}
+air_wings = {
+	282 = {
+		cas_equipment_cw4 = { owner = "JAP" amount = 96 }
+	}
+	526 = {
+		transport_heli_equipment_2 = { owner = "JAP" amount = 120 }
+	}
+	1018 = {
+		fighter_equipment_cw5a = { owner = "JAP" amount = 440 }
+		recon_uav_equipment_2 = { owner = "JAP" amount = 44 }
+		recon_uav_equipment_1 = { owner = "JAP" amount = 44 }
+		aew_equipment_2 = { owner = "JAP" amount = 8 }
+		mpa_equipment_cw2 = { owner = "JAP" amount = 8 }
+		sam_missile_equipment_2 = { owner = "JAP" amount = 32 }
+		strike_uav_equipment_1 = { owner = "JAP" amount = 48 }
+		hale_uav_equipment_1 = { owner = "JAP" amount = 4 }
+		tac_bomber_equipment_cw3 = { owner = "JAP" amount = 16 }
+	}
+}

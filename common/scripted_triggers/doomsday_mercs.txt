@@ -1,0 +1,21 @@
+dd_merc_can_post = {
+	NOT = { has_country_flag = dd_merc_deployed }
+	has_variable = dd_merc_leader
+	check_variable = { dd_merc_ask > 0.49 }
+	check_variable = { dd_merc_size > 0 }
+	NOT = { check_variable = { dd_merc_size > 12 } }
+}
+
+dd_merc_can_request = {
+	NOT = { has_country_flag = dd_merc_pending }
+	NOT = { has_country_flag = dd_merc_client }
+	NOT = { has_country_flag = dd_merc_deployed }
+}
+
+dd_merc_on_offer_tab = {
+	has_country_flag = dd_merc_offer_tab
+}
+
+dd_merc_on_hire_tab = {
+	NOT = { has_country_flag = dd_merc_offer_tab }
+}

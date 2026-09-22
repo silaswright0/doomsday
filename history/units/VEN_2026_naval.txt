@@ -1,0 +1,43 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "VEN Home Fleet"
+		naval_base = 8113
+		task_force = {
+			name = "VEN Home Fleet TF"
+			location = 8113
+			ship = {
+				name = "VEN DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw1 = { amount = 1 owner = VEN version_name = "Cold War Escort" }
+				}
+			}
+			ship = {
+				name = "VEN DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw1 = { amount = 1 owner = VEN version_name = "Cold War Escort" }
+				}
+			}
+			ship = {
+				name = "VEN SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = VEN version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "VEN SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = VEN version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

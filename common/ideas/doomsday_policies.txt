@@ -1,5 +1,5 @@
 # Law slots on the Politics tab. Country-scoped. No random.
-# Five exclusive laws per slot (taxes stay three). Switching is adjacent
+# Five exclusive laws per slot. Switching is adjacent
 # tiers only at 150 PP each. Treasury cost is the monthly admin surcharge
 # in dd_recalc_policy_expense. Religion, media, AI, women, labor: never.
 # Bands: small +0.08, medium +0.16, large +0.32, extreme +0.64.
@@ -222,7 +222,13 @@ ideas = {
 			available = {
 				OR = {
 					has_idea = dd_immigration_1
-					has_idea = dd_immigration_2
+					AND = {
+						has_idea = dd_immigration_2
+						custom_trigger_tooltip = {
+							tooltip = DD_IMM_NEED_CLOSED_MINORITY
+							dd_imm_allows_closed = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -240,9 +246,17 @@ ideas = {
 			cancel_if_invalid = no
 			available = {
 				OR = {
-					has_idea = dd_immigration_1
 					has_idea = dd_immigration_2
-					has_idea = dd_immigration_3
+					AND = {
+						OR = {
+							has_idea = dd_immigration_1
+							has_idea = dd_immigration_3
+						}
+						custom_trigger_tooltip = {
+							tooltip = DD_IMM_NEED_TIGHT_MINORITY
+							dd_imm_allows_tight = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -260,9 +274,17 @@ ideas = {
 			cancel_if_invalid = no
 			available = {
 				OR = {
-					has_idea = dd_immigration_2
 					has_idea = dd_immigration_3
-					has_idea = dd_immigration_4
+					AND = {
+						OR = {
+							has_idea = dd_immigration_2
+							has_idea = dd_immigration_4
+						}
+						custom_trigger_tooltip = {
+							tooltip = DD_IMM_NEED_MID_MINORITY
+							dd_imm_allows_mid = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -280,9 +302,17 @@ ideas = {
 			cancel_if_invalid = no
 			available = {
 				OR = {
-					has_idea = dd_immigration_3
 					has_idea = dd_immigration_4
-					has_idea = dd_immigration_5
+					AND = {
+						OR = {
+							has_idea = dd_immigration_3
+							has_idea = dd_immigration_5
+						}
+						custom_trigger_tooltip = {
+							tooltip = DD_IMM_NEED_OPEN_MINORITY
+							dd_imm_allows_open = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -301,8 +331,14 @@ ideas = {
 			cancel_if_invalid = no
 			available = {
 				OR = {
-					has_idea = dd_immigration_4
 					has_idea = dd_immigration_5
+					AND = {
+						has_idea = dd_immigration_4
+						custom_trigger_tooltip = {
+							tooltip = DD_IMM_NEED_MASS_MINORITY
+							dd_imm_allows_mass = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -332,16 +368,20 @@ ideas = {
 				}
 			}
 			modifier = {
-				production_speed_buildings_factor = 0.05
+				production_speed_buildings_factor = 1.00
+				consumer_goods_factor = -0.30
+				war_support_factor = 0.05
+				stability_factor = 0.05
+				drift_defence_factor = 0.25
+				monthly_population = 0.05
 			}
-			ai_will_do = { factor = 0.5 }
+			ai_will_do = { factor = 0.3 }
 		}
 		dd_taxes_2 = {
 			picture = generic_constitutional_guarantees
 			cost = 150
 			removal_cost = -1
 			level = 2
-			default = yes
 			cancel_if_invalid = no
 			available = {
 				OR = {
@@ -351,26 +391,71 @@ ideas = {
 				}
 			}
 			modifier = {
+				production_speed_buildings_factor = 0.50
+				consumer_goods_factor = -0.15
+				drift_defence_factor = 0.10
+				monthly_population = 0.02
 			}
-			ai_will_do = { factor = 1 }
+			ai_will_do = { factor = 0.5 }
 		}
 		dd_taxes_3 = {
 			picture = generic_constitutional_guarantees
 			cost = 150
 			removal_cost = -1
 			level = 3
+			default = yes
 			cancel_if_invalid = no
 			available = {
 				OR = {
 					has_idea = dd_taxes_2
 					has_idea = dd_taxes_3
+					has_idea = dd_taxes_4
+				}
+			}
+			ai_will_do = { factor = 1 }
+		}
+		dd_taxes_4 = {
+			picture = generic_constitutional_guarantees
+			cost = 150
+			removal_cost = -1
+			level = 4
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_taxes_3
+					has_idea = dd_taxes_4
+					has_idea = dd_taxes_5
 				}
 			}
 			modifier = {
-				stability_factor = -0.05
-				production_factory_max_efficiency_factor = -0.05
+				production_speed_buildings_factor = -0.50
+				war_support_factor = -0.10
+				consumer_goods_factor = 0.15
+				monthly_population = -0.10
 			}
 			ai_will_do = { factor = 0.5 }
+		}
+		dd_taxes_5 = {
+			picture = generic_constitutional_guarantees
+			cost = 150
+			removal_cost = -1
+			level = 5
+			cancel_if_invalid = no
+			available = {
+				OR = {
+					has_idea = dd_taxes_4
+					has_idea = dd_taxes_5
+				}
+			}
+			modifier = {
+				production_speed_buildings_factor = -1.00
+				war_support_factor = -0.20
+				consumer_goods_factor = 0.30
+				monthly_population = -0.20
+				drift_defence_factor = -0.10
+				stability_factor = -0.05
+			}
+			ai_will_do = { factor = 0.3 }
 		}
 	}
 
@@ -499,7 +584,13 @@ ideas = {
 			available = {
 				OR = {
 					has_idea = dd_minority_1
-					has_idea = dd_minority_2
+					AND = {
+						has_idea = dd_minority_2
+						custom_trigger_tooltip = {
+							tooltip = DD_MIN_NEED_CLOSED_IMM
+							dd_min_allows_persecution = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -518,9 +609,17 @@ ideas = {
 			cancel_if_invalid = no
 			available = {
 				OR = {
-					has_idea = dd_minority_1
 					has_idea = dd_minority_2
-					has_idea = dd_minority_3
+					AND = {
+						OR = {
+							has_idea = dd_minority_1
+							has_idea = dd_minority_3
+						}
+						custom_trigger_tooltip = {
+							tooltip = DD_MIN_NEED_TIGHT_IMM
+							dd_min_allows_disenfranchised = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -540,9 +639,17 @@ ideas = {
 			cancel_if_invalid = no
 			available = {
 				OR = {
-					has_idea = dd_minority_2
 					has_idea = dd_minority_3
-					has_idea = dd_minority_4
+					AND = {
+						OR = {
+							has_idea = dd_minority_2
+							has_idea = dd_minority_4
+						}
+						custom_trigger_tooltip = {
+							tooltip = DD_MIN_NEED_MID_IMM
+							dd_min_allows_enshrined = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -560,9 +667,17 @@ ideas = {
 			cancel_if_invalid = no
 			available = {
 				OR = {
-					has_idea = dd_minority_3
 					has_idea = dd_minority_4
-					has_idea = dd_minority_5
+					AND = {
+						OR = {
+							has_idea = dd_minority_3
+							has_idea = dd_minority_5
+						}
+						custom_trigger_tooltip = {
+							tooltip = DD_MIN_NEED_OPEN_IMM
+							dd_min_allows_uplift = yes
+						}
+					}
 				}
 			}
 			modifier = {
@@ -581,8 +696,14 @@ ideas = {
 			cancel_if_invalid = no
 			available = {
 				OR = {
-					has_idea = dd_minority_4
 					has_idea = dd_minority_5
+					AND = {
+						has_idea = dd_minority_4
+						custom_trigger_tooltip = {
+							tooltip = DD_MIN_NEED_MASS_IMM
+							dd_min_allows_equalization = yes
+						}
+					}
 				}
 			}
 			modifier = {

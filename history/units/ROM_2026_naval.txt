@@ -1,0 +1,35 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "ROM Home Fleet"
+		naval_base = 657
+		task_force = {
+			name = "ROM Home Fleet TF"
+			location = 657
+			ship = {
+				name = "ROM DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = ROM version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "ROM DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = ROM version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "ROM DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = ROM version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

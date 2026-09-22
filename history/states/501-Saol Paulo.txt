@@ -7,10 +7,10 @@ state={
 
 	resources={
 
-		aluminium=3
 		tungsten=1
 		steel=1
-		chromium=1
+		coal=1
+		rare_earths=1
 		copper=2
 	}
 
@@ -32,10 +32,12 @@ state={
 			finance_center = 1
 
 			air_base = 2
+
 5112 = {
 				naval_base = 1
 			}
-			10513 = {
+
+10513 = {
 				supply_node = 1
 			}
 		}		

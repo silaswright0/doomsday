@@ -1,0 +1,1094 @@
+equipments = {
+
+	infantry_equipment_cw1 = {
+		year = 1955
+		archetype = infantry_equipment
+		parent = infantry_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 2.8
+		soft_attack = 14
+		defense = 38
+		breakthrough = 6
+		hard_attack = 2.5
+		ap_attack = 12
+		reliability = 0.85
+		resources = {
+			steel = 4
+		}
+	}
+
+	infantry_equipment_cw2 = {
+		year = 1965
+		archetype = infantry_equipment
+		parent = infantry_equipment_cw1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 3.2
+		soft_attack = 16
+		defense = 42
+		breakthrough = 7
+		hard_attack = 3
+		ap_attack = 14
+		reliability = 0.85
+		resources = {
+			steel = 4
+		}
+	}
+
+	infantry_equipment_cw3 = {
+		year = 1974
+		archetype = infantry_equipment
+		parent = infantry_equipment_cw2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 3.6
+		soft_attack = 18
+		defense = 46
+		breakthrough = 8
+		hard_attack = 3.5
+		ap_attack = 16
+		reliability = 0.85
+		resources = {
+			steel = 4
+		}
+	}
+
+	infantry_equipment_cw4 = {
+		year = 1994
+		archetype = infantry_equipment
+		parent = infantry_equipment_cw3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 4.8
+		soft_attack = 21
+		defense = 52
+		breakthrough = 9
+		hard_attack = 4
+		ap_attack = 18
+		reliability = 0.85
+		resources = {
+			steel = 4
+			copper = 1
+		}
+	}
+
+	infantry_equipment_cw5 = {
+		year = 2005
+		archetype = infantry_equipment
+		parent = infantry_equipment_cw4
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 5.8
+		soft_attack = 24
+		defense = 58
+		breakthrough = 10
+		hard_attack = 4.5
+		ap_attack = 20
+		reliability = 0.85
+		resources = {
+			steel = 4
+			copper = 1
+		}
+	}
+
+	infantry_equipment_cw6 = {
+		year = 2015
+		archetype = infantry_equipment
+		parent = infantry_equipment_cw5
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 6.8
+		soft_attack = 27
+		defense = 64
+		breakthrough = 11
+		hard_attack = 5
+		ap_attack = 22
+		reliability = 0.85
+		resources = {
+			steel = 4
+			copper = 1
+		}
+	}
+
+	infantry_equipment_cw7 = {
+		year = 2024
+		archetype = infantry_equipment
+		parent = infantry_equipment_cw6
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 8.5
+		soft_attack = 32
+		defense = 72
+		breakthrough = 13
+		hard_attack = 6
+		ap_attack = 26
+		reliability = 0.85
+		resources = {
+			steel = 4
+			copper = 1
+		}
+	}
+
+	infantry_equipment_cw8 = {
+		year = 2034
+		archetype = infantry_equipment
+		parent = infantry_equipment_cw7
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 10.5
+		soft_attack = 36
+		defense = 80
+		breakthrough = 15
+		hard_attack = 7
+		ap_attack = 30
+		reliability = 0.85
+		resources = {
+			steel = 4
+			copper = 1
+		}
+	}
+
+	motorized_equipment_2 = {
+		year = 1985
+		archetype = motorized_equipment
+		parent = motorized_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 4.5
+		maximum_speed = 14
+		hardness = 0.15
+		breakthrough = 6
+	}
+
+	motorized_equipment_3 = {
+		year = 2005
+		archetype = motorized_equipment
+		parent = motorized_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 8.0
+		maximum_speed = 16
+		hardness = 0.25
+		breakthrough = 8
+	}
+
+	motorized_equipment_4 = {
+		year = 2025
+		archetype = motorized_equipment
+		parent = motorized_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 10.0
+		maximum_speed = 18
+		hardness = 0.35
+		breakthrough = 10
+	}
+
+	mechanized_equipment_4 = {
+		year = 1994
+		archetype = mechanized_equipment
+		parent = mechanized_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 22.0
+		maximum_speed = 14
+		defense = 40
+		breakthrough = 12
+		hardness = 0.8
+		armor_value = 28
+		ap_attack = 28
+		hard_attack = 8
+		air_attack = 2
+	}
+
+	mechanized_equipment_5 = {
+		year = 2010
+		archetype = mechanized_equipment
+		parent = mechanized_equipment_4
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 28.0
+		maximum_speed = 14
+		defense = 48
+		breakthrough = 16
+		hardness = 0.85
+		armor_value = 40
+		ap_attack = 36
+		hard_attack = 12
+		air_attack = 4
+	}
+
+	mechanized_equipment_6 = {
+		year = 2029
+		archetype = mechanized_equipment
+		parent = mechanized_equipment_5
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 34.0
+		maximum_speed = 16
+		defense = 56
+		breakthrough = 20
+		hardness = 0.88
+		armor_value = 50
+		ap_attack = 44
+		hard_attack = 16
+		air_attack = 6
+	}
+
+	support_equipment_cw1 = {
+		year = 1955
+		archetype = support_equipment
+		parent = support_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 8.0
+		reliability = 0.8200000000000001
+	}
+
+	support_equipment_cw2 = {
+		year = 1975
+		archetype = support_equipment
+		parent = support_equipment_cw1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 10.0
+		reliability = 0.8400000000000001
+	}
+
+	support_equipment_cw3 = {
+		year = 1995
+		archetype = support_equipment
+		parent = support_equipment_cw2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 12.0
+		reliability = 0.8600000000000001
+	}
+
+	support_equipment_cw4 = {
+		year = 2015
+		archetype = support_equipment
+		parent = support_equipment_cw3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 14.0
+		reliability = 0.88
+	}
+
+	support_equipment_cw5 = {
+		year = 2030
+		archetype = support_equipment
+		parent = support_equipment_cw4
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 16.0
+		reliability = 0.9
+	}
+
+	artillery_equipment_cw1 = {
+		year = 1955
+		archetype = artillery_equipment
+		parent = artillery_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 8.0
+		soft_attack = 38
+		breakthrough = 10
+		defense = 13
+	}
+
+	artillery_equipment_cw2 = {
+		year = 1978
+		archetype = artillery_equipment
+		parent = artillery_equipment_cw1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 10.0
+		soft_attack = 46
+		breakthrough = 12
+		defense = 14
+	}
+
+	artillery_equipment_cw3 = {
+		year = 2005
+		archetype = artillery_equipment
+		parent = artillery_equipment_cw2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 14.0
+		soft_attack = 54
+		breakthrough = 14
+		defense = 15
+	}
+
+	artillery_equipment_cw4 = {
+		year = 2018
+		archetype = artillery_equipment
+		parent = artillery_equipment_cw3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 12.0
+		soft_attack = 62
+		breakthrough = 16
+		defense = 16
+	}
+
+	rocket_artillery_equipment_cw1 = {
+		year = 1963
+		archetype = rocket_artillery_equipment
+		parent = rocket_artillery_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 12.0
+		soft_attack = 52
+		breakthrough = 13
+	}
+
+	rocket_artillery_equipment_cw2 = {
+		year = 1983
+		archetype = rocket_artillery_equipment
+		parent = rocket_artillery_equipment_cw1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 22.0
+		soft_attack = 64
+		breakthrough = 16
+	}
+
+	rocket_artillery_equipment_cw3 = {
+		year = 2005
+		archetype = rocket_artillery_equipment
+		parent = rocket_artillery_equipment_cw2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 24.0
+		soft_attack = 76
+		breakthrough = 19
+	}
+
+	anti_tank_equipment_cw1 = {
+		year = 1955
+		archetype = anti_tank_equipment
+		parent = anti_tank_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 8.0
+		hard_attack = 38
+		ap_attack = 130
+	}
+
+	anti_tank_equipment_cw2 = {
+		year = 1972
+		archetype = anti_tank_equipment
+		parent = anti_tank_equipment_cw1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 12.0
+		hard_attack = 48
+		ap_attack = 170
+	}
+
+	anti_tank_equipment_cw3 = {
+		year = 1996
+		archetype = anti_tank_equipment
+		parent = anti_tank_equipment_cw2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 16.0
+		hard_attack = 58
+		ap_attack = 210
+	}
+
+	anti_tank_equipment_cw4 = {
+		year = 2018
+		archetype = anti_tank_equipment
+		parent = anti_tank_equipment_cw3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 20.0
+		hard_attack = 68
+		ap_attack = 250
+	}
+
+	anti_air_equipment_cw1 = {
+		year = 1955
+		archetype = anti_air_equipment
+		parent = anti_air_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 8.0
+		air_attack = 38
+	}
+
+	manpads_equipment = {
+		year = 1968
+		is_archetype = yes
+		picture = archetype_anti_air_equipment
+		is_buildable = no
+		type = { anti_air infantry }
+		group_by = archetype
+		interface_category = interface_category_land
+		reliability = 0.8
+		defense = 2
+		breakthrough = 1
+		soft_attack = 1
+		hard_attack = 1
+		air_attack = 22
+		build_cost_ic = 6
+		resources = { steel = 1 rare_earths = 1 copper = 1 }
+	}
+
+	manpads_equipment_1 = {
+		year = 1968
+		archetype = manpads_equipment
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 6.0
+		air_attack = 30
+		hard_attack = 2
+	}
+
+	manpads_equipment_2 = {
+		year = 1981
+		archetype = manpads_equipment
+		parent = manpads_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 8.0
+		air_attack = 38
+		hard_attack = 3
+	}
+
+	manpads_equipment_3 = {
+		year = 2003
+		archetype = manpads_equipment
+		parent = manpads_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 10.0
+		air_attack = 46
+		hard_attack = 4
+	}
+
+	manpads_equipment_4 = {
+		year = 2026
+		archetype = manpads_equipment
+		parent = manpads_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 12.0
+		air_attack = 54
+		hard_attack = 5
+	}
+
+	spg_equipment = {
+		year = 1955
+		is_archetype = yes
+		picture = archetype_artillery_equipment
+		is_buildable = no
+		type = { artillery motorized }
+		group_by = archetype
+		interface_category = interface_category_land
+		reliability = 0.8
+		soft_attack = 40
+		breakthrough = 12
+		defense = 16
+		hardness = 0.4
+		maximum_speed = 8
+		build_cost_ic = 18
+		fuel_consumption = 1.8
+		resources = { steel = 2 tungsten = 1 rare_earths = 1 copper = 1 }
+	}
+
+	dew_equipment = {
+		year = 1955
+		is_archetype = yes
+		picture = archetype_anti_air_equipment
+		is_buildable = no
+		type = { anti_air }
+		group_by = archetype
+		interface_category = interface_category_land
+		reliability = 0.8
+		air_attack = 40
+		defense = 6
+		build_cost_ic = 28
+		resources = { steel = 2 tungsten = 1 rare_earths = 1 copper = 1 }
+	}
+
+	prsm_equipment = {
+		year = 1955
+		is_archetype = yes
+		picture = archetype_rocket_artillery_equipment
+		is_buildable = no
+		type = { rocket motorized }
+		group_by = archetype
+		interface_category = interface_category_land
+		reliability = 0.8
+		soft_attack = 70
+		hard_attack = 20
+		breakthrough = 20
+		build_cost_ic = 36
+		maximum_speed = 10
+		fuel_consumption = 2
+		resources = { steel = 2 tungsten = 1 rare_earths = 1 copper = 1 }
+	}
+
+	spg_equipment_1 = {
+		year = 1962
+		archetype = spg_equipment
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 18.0
+		soft_attack = 44
+	}
+
+	spg_equipment_2 = {
+		year = 1974
+		archetype = spg_equipment
+		parent = spg_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 22.0
+		soft_attack = 48
+	}
+
+	spg_equipment_3 = {
+		year = 1992
+		archetype = spg_equipment
+		parent = spg_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 28.0
+		soft_attack = 52
+	}
+
+	spg_equipment_4 = {
+		year = 2003
+		archetype = spg_equipment
+		parent = spg_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 24.0
+		soft_attack = 56
+	}
+
+	spg_equipment_5 = {
+		year = 2010
+		archetype = spg_equipment
+		parent = spg_equipment_4
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 32.0
+		soft_attack = 60
+	}
+
+	spg_equipment_6 = {
+		year = 2023
+		archetype = spg_equipment
+		parent = spg_equipment_5
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 38.0
+		soft_attack = 64
+	}
+
+	spg_equipment_7 = {
+		year = 2034
+		archetype = spg_equipment
+		parent = spg_equipment_6
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 42.0
+		soft_attack = 68
+	}
+
+	shorad_equipment_1 = {
+		year = 1969
+		archetype = anti_air_equipment
+		parent = anti_air_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 14.0
+		air_attack = 44
+	}
+
+	shorad_equipment_2 = {
+		year = 1986
+		archetype = anti_air_equipment
+		parent = shorad_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 20.0
+		air_attack = 52
+	}
+
+	shorad_equipment_3 = {
+		year = 2003
+		archetype = anti_air_equipment
+		parent = shorad_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 26.0
+		air_attack = 60
+	}
+
+	shorad_equipment_4 = {
+		year = 2021
+		archetype = anti_air_equipment
+		parent = shorad_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 24.0
+		air_attack = 68
+	}
+
+	dew_equipment_1 = {
+		year = 2014
+		archetype = dew_equipment
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 16.0
+		air_attack = 44
+	}
+
+	dew_equipment_2 = {
+		year = 2024
+		archetype = dew_equipment
+		parent = dew_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 28.0
+		air_attack = 48
+	}
+
+	dew_equipment_3 = {
+		year = 2026
+		archetype = dew_equipment
+		parent = dew_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 36.0
+		air_attack = 52
+	}
+
+	dew_equipment_4 = {
+		year = 2030
+		archetype = dew_equipment
+		parent = dew_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 45.0
+		air_attack = 56
+	}
+
+	dew_equipment_5 = {
+		year = 2036
+		archetype = dew_equipment
+		parent = dew_equipment_4
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 55.0
+		air_attack = 60
+	}
+
+	hpm_equipment_1 = {
+		year = 2028
+		archetype = dew_equipment
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 24.0
+		air_attack = 40
+	}
+
+	prsm_equipment_1 = {
+		year = 2023
+		archetype = prsm_equipment
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 36.0
+		soft_attack = 74
+		hard_attack = 28
+	}
+
+	mrc_equipment_1 = {
+		year = 2028
+		archetype = prsm_equipment
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 48.0
+		soft_attack = 84
+		hard_attack = 32
+	}
+
+	hypersonic_glcm_equipment_1 = {
+		year = 2035
+		archetype = prsm_equipment
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 70.0
+		soft_attack = 94
+		hard_attack = 40
+	}
+
+	mortar_equipment_1 = {
+		year = 1955
+		archetype = artillery_equipment
+		parent = artillery_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 4.0
+		soft_attack = 22
+	}
+
+	mortar_equipment_2 = {
+		year = 1975
+		archetype = artillery_equipment
+		parent = mortar_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 6.0
+		soft_attack = 26
+	}
+
+	mortar_equipment_3 = {
+		year = 2001
+		archetype = artillery_equipment
+		parent = mortar_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 8.0
+		soft_attack = 30
+	}
+
+	mortar_equipment_4 = {
+		year = 2028
+		archetype = artillery_equipment
+		parent = mortar_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 10.0
+		soft_attack = 34
+	}
+
+	td_equipment_1 = {
+		year = 1955
+		archetype = anti_tank_equipment
+		parent = anti_tank_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 16.0
+		hard_attack = 32
+		ap_attack = 140
+	}
+
+	td_equipment_2 = {
+		year = 1972
+		archetype = anti_tank_equipment
+		parent = td_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 14.0
+		hard_attack = 40
+		ap_attack = 170
+	}
+
+	td_equipment_3 = {
+		year = 1985
+		archetype = anti_tank_equipment
+		parent = td_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 18.0
+		hard_attack = 48
+		ap_attack = 190
+	}
+
+	td_equipment_4 = {
+		year = 2003
+		archetype = anti_tank_equipment
+		parent = td_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 16.0
+		hard_attack = 56
+		ap_attack = 220
+	}
+
+	td_equipment_5 = {
+		year = 2026
+		archetype = anti_tank_equipment
+		parent = td_equipment_4
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 20.0
+		hard_attack = 64
+		ap_attack = 250
+	}
+
+	spaa_equipment_1 = {
+		year = 1965
+		archetype = anti_air_equipment
+		parent = anti_air_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 14.0
+		air_attack = 36
+	}
+
+	spaa_equipment_2 = {
+		year = 1976
+		archetype = anti_air_equipment
+		parent = spaa_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 18.0
+		air_attack = 42
+	}
+
+	spaa_equipment_3 = {
+		year = 1986
+		archetype = anti_air_equipment
+		parent = spaa_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 24.0
+		air_attack = 48
+	}
+
+	spaa_equipment_4 = {
+		year = 2011
+		archetype = anti_air_equipment
+		parent = spaa_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 22.0
+		air_attack = 54
+	}
+
+	spaa_equipment_5 = {
+		year = 2030
+		archetype = anti_air_equipment
+		parent = spaa_equipment_4
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 28.0
+		air_attack = 60
+	}
+
+	ifpc_equipment_1 = {
+		year = 2027
+		archetype = anti_air_equipment
+		parent = anti_air_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 32.0
+		air_attack = 70
+	}
+
+	bmd_equipment_1 = {
+		year = 2016
+		archetype = anti_air_equipment
+		parent = anti_air_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 70.0
+		air_attack = 90
+	}
+
+	sam_equipment_1 = {
+		year = 1960
+		archetype = anti_air_equipment
+		parent = anti_air_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 22.0
+		air_attack = 52
+	}
+
+	sam_equipment_2 = {
+		year = 1982
+		archetype = anti_air_equipment
+		parent = sam_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 36.0
+		air_attack = 62
+	}
+
+	sam_equipment_3 = {
+		year = 2007
+		archetype = anti_air_equipment
+		parent = sam_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 48.0
+		air_attack = 72
+	}
+
+	sam_equipment_4 = {
+		year = 2021
+		archetype = anti_air_equipment
+		parent = sam_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 40.0
+		air_attack = 82
+	}
+
+	infantry_at_equipment_1 = {
+		year = 1955
+		archetype = anti_tank_equipment
+		parent = anti_tank_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 4.0
+		hard_attack = 22
+		ap_attack = 90
+	}
+
+	infantry_at_equipment_2 = {
+		year = 1963
+		archetype = anti_tank_equipment
+		parent = infantry_at_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 5.0
+		hard_attack = 26
+		ap_attack = 120
+	}
+
+	infantry_at_equipment_3 = {
+		year = 1972
+		archetype = anti_tank_equipment
+		parent = infantry_at_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 9.0
+		hard_attack = 32
+		ap_attack = 160
+	}
+
+	infantry_at_equipment_4 = {
+		year = 1989
+		archetype = anti_tank_equipment
+		parent = infantry_at_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 11.0
+		hard_attack = 36
+		ap_attack = 180
+	}
+
+	infantry_at_equipment_5 = {
+		year = 1996
+		archetype = anti_tank_equipment
+		parent = infantry_at_equipment_4
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 14.0
+		hard_attack = 40
+		ap_attack = 200
+	}
+
+	infantry_at_equipment_6 = {
+		year = 2012
+		archetype = anti_tank_equipment
+		parent = infantry_at_equipment_5
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 16.0
+		hard_attack = 44
+		ap_attack = 220
+	}
+
+	infantry_at_equipment_7 = {
+		year = 2023
+		archetype = anti_tank_equipment
+		parent = infantry_at_equipment_6
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 7.0
+		hard_attack = 48
+		ap_attack = 240
+	}
+
+	infantry_at_equipment_8 = {
+		year = 2034
+		archetype = anti_tank_equipment
+		parent = infantry_at_equipment_7
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 22.0
+		hard_attack = 52
+		ap_attack = 260
+	}
+
+	attack_heli_equipment_1 = {
+		year = 1975
+		archetype = helicopter_equipment
+		parent = helicopter_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 24.0
+		maximum_speed = 14.0
+		defense = 48
+		breakthrough = 18
+		hardness = 0.45
+		soft_attack = 20
+		hard_attack = 10
+		ap_attack = 45
+		air_attack = 4
+	}
+
+	attack_heli_equipment_2 = {
+		year = 1984
+		archetype = helicopter_equipment
+		parent = attack_heli_equipment_1
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 36.0
+		maximum_speed = 15.0
+		defense = 55
+		breakthrough = 24
+		hardness = 0.45
+		soft_attack = 28
+		hard_attack = 22
+		ap_attack = 90
+		air_attack = 8
+	}
+
+	attack_heli_equipment_3 = {
+		year = 2003
+		archetype = helicopter_equipment
+		parent = attack_heli_equipment_2
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 40.0
+		maximum_speed = 16.0
+		defense = 60
+		breakthrough = 28
+		hardness = 0.45
+		soft_attack = 34
+		hard_attack = 32
+		ap_attack = 140
+		air_attack = 12
+	}
+
+	attack_heli_equipment_4 = {
+		year = 2035
+		archetype = helicopter_equipment
+		parent = attack_heli_equipment_3
+		priority = 50
+		visual_level = 1
+		build_cost_ic = 28.0
+		maximum_speed = 17.0
+		defense = 70
+		breakthrough = 22
+		hardness = 0.45
+		soft_attack = 40
+		hard_attack = 40
+		ap_attack = 180
+		air_attack = 16
+	}
+}

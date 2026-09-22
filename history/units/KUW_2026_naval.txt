@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "KUW Home Fleet"
+		naval_base = 8085
+		task_force = {
+			name = "KUW Home Fleet TF"
+			location = 8085
+			ship = {
+				name = "KUW DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = KUW version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "KUW DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = KUW version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

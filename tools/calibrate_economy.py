@@ -266,7 +266,7 @@ def main() -> int:
 
     usa_b = bases["USA"]
     print("\nUSA tax laws:")
-    for mult, name in ((0.0, "low"), (1.0, "standard"), (2.0, "high")):
+    for mult, name in ((0.0, "none"), (0.5, "low"), (1.0, "standard"), (1.5, "high"), (2.0, "choke")):
         s = sim(usa_b, best, tax_mult=mult)
         gdp = float(countries["USA"]["gdp_b"])
         print(f"  {name:8} tax {s['tax']:6.1f} inc {s['income']:6.1f} net {s['net']:6.1f} ({pct(s['net'], gdp):+.1%} GDP)")

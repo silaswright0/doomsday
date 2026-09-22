@@ -37,7 +37,7 @@ SPR_INF_01 =
 	for_countries = { SPR }
 
 	can_use = { 
-		NOT = { has_government = fascism } 
+		NOT = { dd_is_far_right_gov = yes } 
 	}
 
 	division_types = { "infantry" }
@@ -346,7 +346,7 @@ SPA_INF_01 =
 
 	can_use = { 
 		OR = {
-			has_government = fascism 
+			dd_is_far_right_gov = yes 
 			has_completed_focus = SPA_unify_the_nationalist_front
 		}
 	}

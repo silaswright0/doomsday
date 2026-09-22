@@ -8,7 +8,11 @@ on_actions = {
 			set_global_flag = brussels_to_fired
 			set_global_flag = nato_suggested
 			every_country = {
+				# Flag-guarded. First country seeds the shared pool; the rest skip.
+				dd_init_market_pool = yes
 				dd_init_economy = yes
+				dd_intel_init = yes
+				dd_merc_init_defaults = yes
 			}
 		}
 	}
@@ -16,6 +20,14 @@ on_actions = {
 	on_monthly = {
 		effect = {
 			dd_economy_monthly_tick = yes
+			dd_intel_cd_tick = yes
+			dd_ig_monthly_cleanup = yes
+		}
+	}
+
+	on_yearly = {
+		effect = {
+			dd_intel_yearly_cost = yes
 		}
 	}
 }

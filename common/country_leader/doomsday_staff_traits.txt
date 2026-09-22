@@ -1,0 +1,19 @@
+# Staff advisor traits. random = no. Small XP only.
+
+leader_traits = {
+	dd_john_army = {
+		random = no
+		sprite = 1
+		experience_gain_army = 0.04
+	}
+	dd_john_airforce = {
+		random = no
+		sprite = 1
+		experience_gain_air = 0.04
+	}
+	dd_john_navy = {
+		random = no
+		sprite = 1
+		experience_gain_navy = 0.04
+	}
+}

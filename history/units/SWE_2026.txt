@@ -1,0 +1,163 @@
+# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Garrison Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Armored Division"
+	regiments = {
+		modern_armor = { x = 0 y = 0 }
+		modern_armor = { x = 0 y = 1 }
+		modern_armor = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+		mechanized = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mechanized Brigade"
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mountain Division"
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Marine Division"
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Militia Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	is_locked = yes
+}
+units = {
+	division = {
+		name = "1st Infantry Division"
+		location = 6050
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Infantry Division"
+		location = 383
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Mechanized Brigade"
+		location = 9279
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Garrison Brigade"
+		location = 9149
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.21
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Garrison Brigade"
+		location = 299
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.21
+		start_equipment_factor = 1.0
+	}
+}
+air_wings = {
+	141 = {
+		fighter_equipment_cw45 = { owner = "SWE" amount = 120 }
+		recon_uav_equipment_2 = { owner = "SWE" amount = 12 }
+		recon_uav_equipment_1 = { owner = "SWE" amount = 12 }
+		aew_equipment_1 = { owner = "SWE" amount = 4 }
+		mpa_equipment_cw1 = { owner = "SWE" amount = 4 }
+		sam_missile_equipment_1 = { owner = "SWE" amount = 16 }
+	}
+	915 = {
+		cas_equipment_cw3 = { owner = "SWE" amount = 32 }
+		transport_heli_equipment_2 = { owner = "SWE" amount = 48 }
+	}
+}

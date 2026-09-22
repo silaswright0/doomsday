@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "BHR Home Fleet"
+		naval_base = 13313
+		task_force = {
+			name = "BHR Home Fleet TF"
+			location = 13313
+			ship = {
+				name = "BHR DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = BHR version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "BHR DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = BHR version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

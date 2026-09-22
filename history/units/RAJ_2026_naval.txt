@@ -1,0 +1,363 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "RAJ Home Fleet"
+		naval_base = 10149
+		task_force = {
+			name = "RAJ Home Fleet TF"
+			location = 10149
+			ship = {
+				name = "RAJ CV-1"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Carrier" }
+				}
+			}
+			ship = {
+				name = "RAJ CV-2"
+				definition = carrier
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_carrier_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Carrier" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-9"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-10"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-11"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-12"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-13"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-14"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-15"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-16"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-17"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ DD-18"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = RAJ version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "RAJ CL-1"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = RAJ version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "RAJ CL-2"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = RAJ version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "RAJ CL-3"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = RAJ version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "RAJ CL-4"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = RAJ version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "RAJ CL-5"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = RAJ version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "RAJ CL-6"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = RAJ version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "RAJ CL-7"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = RAJ version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "RAJ CL-8"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = RAJ version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-7"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-8"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-9"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-10"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-11"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-12"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-13"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-14"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-15"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "RAJ SS-16"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = RAJ version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

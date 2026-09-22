@@ -1,0 +1,60 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "doomsday_intel_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 140 }
+		clipping = no
+
+		instantTextboxType = {
+			name = "dd_intel_header"
+			position = { x = 12 y = 4 }
+			font = "hoi_20b"
+			text = "DD_INTEL_HEADER"
+			maxWidth = 500
+			maxHeight = 22
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_tier"
+			position = { x = 12 y = 32 }
+			font = "hoi_18mbs"
+			text = "DD_INTEL_TIER_LINE"
+			maxWidth = 700
+			maxHeight = 22
+			format = left
+			pdx_tooltip = "DD_INTEL_TIER_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_bonus"
+			position = { x = 12 y = 58 }
+			font = "hoi_16mbs"
+			text = "DD_INTEL_BONUS_LINE"
+			maxWidth = 720
+			maxHeight = 40
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_cd"
+			position = { x = 12 y = 92 }
+			font = "hoi_16mbs"
+			text = "DD_INTEL_CD_LINE"
+			maxWidth = 700
+			maxHeight = 20
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_select"
+			position = { x = 12 y = 114 }
+			font = "hoi_16mbs"
+			text = "DD_INTEL_SELECT_LINE"
+			maxWidth = 700
+			maxHeight = 22
+			format = left
+		}
+	}
+}

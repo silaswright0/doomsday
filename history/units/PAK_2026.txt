@@ -1,0 +1,336 @@
+# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Garrison Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Armored Division"
+	regiments = {
+		modern_armor = { x = 0 y = 0 }
+		modern_armor = { x = 0 y = 1 }
+		modern_armor = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+		mechanized = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mechanized Brigade"
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mountain Division"
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Marine Division"
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Militia Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	is_locked = yes
+}
+units = {
+	division = {
+		name = "1st Infantry Division"
+		location = 3456
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Infantry Division"
+		location = 10772
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Infantry Division"
+		location = 10173
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Infantry Division"
+		location = 12763
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "5th Infantry Division"
+		location = 5105
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "6th Infantry Division"
+		location = 8098
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "7th Infantry Division"
+		location = 10898
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "8th Infantry Division"
+		location = 12774
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "9th Infantry Division"
+		location = 1910
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "10th Infantry Division"
+		location = 3456
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "11th Infantry Division"
+		location = 10772
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "12th Infantry Division"
+		location = 10173
+		division_template = "Infantry Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Armored Division"
+		location = 12763
+		division_template = "Armored Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Armored Division"
+		location = 5105
+		division_template = "Armored Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Armored Division"
+		location = 8098
+		division_template = "Armored Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Mechanized Brigade"
+		location = 10898
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Mechanized Brigade"
+		location = 12774
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Mechanized Brigade"
+		location = 1910
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Mechanized Brigade"
+		location = 3456
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "5th Mechanized Brigade"
+		location = 10772
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Mountain Division"
+		location = 10173
+		division_template = "Mountain Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Mountain Division"
+		location = 12763
+		division_template = "Mountain Division"
+		start_experience_factor = 0.20
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Garrison Brigade"
+		location = 5105
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Garrison Brigade"
+		location = 8098
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Garrison Brigade"
+		location = 10898
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Garrison Brigade"
+		location = 12774
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "5th Garrison Brigade"
+		location = 1910
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "6th Garrison Brigade"
+		location = 3456
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "7th Garrison Brigade"
+		location = 10772
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "8th Garrison Brigade"
+		location = 10173
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.14
+		start_equipment_factor = 1.0
+	}
+}
+air_wings = {
+	440 = {
+		fighter_equipment_cw4 = { owner = "PAK" amount = 280 }
+		recon_uav_equipment_2 = { owner = "PAK" amount = 28 }
+	}
+	442 = {
+		cas_equipment_cw2 = { owner = "PAK" amount = 96 }
+	}
+	443 = {
+		transport_heli_equipment_1 = { owner = "PAK" amount = 72 }
+	}
+}

@@ -2030,7 +2030,7 @@ GER_PEOPLE_COMMUNIST = {
 
 	can_use = { 
 		OR = {
-			has_government = communism 
+			dd_is_far_left_gov = yes 
 			has_completed_focus = GER_start_the_proletarian_revolution
 		}
 	}
@@ -2108,7 +2108,7 @@ GER_THEME_COMMUNIST_SLOGANS = {
 
 	can_use = { 
 		OR = {
-			has_government = communism 
+			dd_is_far_left_gov = yes 
 			has_completed_focus = GER_start_the_proletarian_revolution
 		}
 	}
@@ -2161,7 +2161,7 @@ GER_THEME_COMMUNIST_DDR = {
 
 	can_use = { 
 		OR = {
-			has_government = communism 
+			dd_is_far_left_gov = yes 
 			has_completed_focus = GER_start_the_proletarian_revolution
 		}
 	}

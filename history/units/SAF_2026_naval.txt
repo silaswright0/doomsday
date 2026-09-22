@@ -1,0 +1,59 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "SAF Home Fleet"
+		naval_base = 12589
+		task_force = {
+			name = "SAF Home Fleet TF"
+			location = 12589
+			ship = {
+				name = "SAF DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = SAF version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "SAF DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = SAF version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "SAF DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = SAF version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "SAF DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = SAF version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "SAF SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SAF version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "SAF SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = SAF version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

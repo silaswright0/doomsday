@@ -1,9 +1,9 @@
-# ALT - Doomsday 2026 skeleton
+# ALT - Doomsday 2026
 capital = 654
 oob = "DOOMSDAY_EMPTY"
-set_research_slots = 3
-set_stability = 0.45
-set_war_support = 0.1
+set_research_slots = 1
+set_stability = 0.90
+set_war_support = 0.70
 set_convoys = 10
 # Cold War floor: Cuba/Eritrea/NK/Taliban-style inventories.
 # WWI/WWII weapon IDs stay researched (hidden from the tree) so vanilla focuses resolve.
@@ -294,22 +294,74 @@ set_technology = {
 	excavation1 = 1
 	fuel_silos = 1
 	fuel_refining = 1
-	dd_recon_uav = 1
-	dd_transport_heli = 1
-	dd_shorad = 1
-	dd_manpads = 1
+	dd_amph_1 = 1
+	dd_at_1 = 1
+	dd_atg_1 = 1
+	dd_bld_1 = 1
+	dd_cas_1 = 1
+	dd_cpu_1 = 1
+	dd_cry_1 = 1
+	dd_dc_1 = 1
+	dd_eng_1 = 1
+	dd_esc_1 = 1
+	dd_ew_1 = 1
+	dd_ext_1 = 1
+	dd_fcs_1 = 1
+	dd_ftr_1 = 1
+	dd_ftr_2 = 1
+	dd_ftr_3 = 1
+	dd_fuel_1 = 1
+	dd_hel_1 = 1
+	dd_hos_1 = 1
+	dd_inf_1 = 1
+	dd_log_1 = 1
+	dd_lt_1 = 1
+	dd_manpad_1 = 1
+	dd_mat_1 = 1
+	dd_mbt_1 = 1
+	dd_mbt_2 = 1
+	dd_mech_1 = 1
+	dd_mnt_1 = 1
+	dd_mor_1 = 1
+	dd_mp_1 = 1
+	dd_nav_1 = 1
+	dd_neng_1 = 1
+	dd_nuke_1 = 1
+	dd_nv_1 = 1
+	dd_rad_1 = 1
+	dd_rdr_1 = 1
+	dd_rec_1 = 1
+	dd_sf_1 = 1
+	dd_shorad_1 = 1
+	dd_sig_1 = 1
+	dd_slot_1 = 1
+	dd_slot_2 = 1
+	dd_son_1 = 1
+	dd_ssn_1 = 1
+	dd_str_1 = 1
+	dd_sup_1 = 1
+	dd_supkit_1 = 1
+	dd_td_1 = 1
+	dd_tol_1 = 1
+	dd_tol_2 = 1
+	dd_torp_1 = 1
+	dd_tow_1 = 1
+	dd_truck_1 = 1
+	dd_uav_3 = 1
+	dd_vls_1 = 1
+	dd_wpn_1 = 1
 }
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = sovereign_democracy
 	last_election = "2024.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	democratic = 25
-	communism = 15
-	fascism = 10
-	neutrality = 50
+	sovereign_democracy = 88
+	liberal_conservatism = 6
+	social_democracy = 4
+	communism = 2
 }
 set_variable = { debt = 0.0000 }
 set_variable = { treasury = 1.0000 }
@@ -317,6 +369,12 @@ create_country_leader = {
 	name = "ALT Government"
 	desc = ALT_LEADER_DESC
 	picture = GFX_portrait_unknown
-	ideology = oligarchism
+	ideology = oligarch
 	traits = { }
 }
+recruit_character = ALT_john_army
+recruit_character = ALT_john_airforce
+recruit_character = ALT_john_navy
+activate_advisor = ALT_john_army
+activate_advisor = ALT_john_airforce
+activate_advisor = ALT_john_navy

@@ -1,0 +1,443 @@
+# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Garrison Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Armored Division"
+	regiments = {
+		modern_armor = { x = 0 y = 0 }
+		modern_armor = { x = 0 y = 1 }
+		modern_armor = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+		mechanized = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mechanized Brigade"
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Mountain Division"
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Marine Division"
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Militia Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	is_locked = yes
+}
+units = {
+	division = {
+		name = "1st Infantry Division"
+		location = 4740
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Infantry Division"
+		location = 12384
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Infantry Division"
+		location = 1827
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "11th Airborne Division"
+		location = 13091
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "25th Infantry Division"
+		location = 4180
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "82nd Airborne Division"
+		location = 7138
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "101st Airborne Division"
+		location = 6696
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Armored Division"
+		location = 10337
+		division_template = "Armored Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Cavalry Division"
+		location = 10337
+		division_template = "Armored Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "10th Mountain Division"
+		location = 3878
+		division_template = "Mountain Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Marine Division"
+		location = 9814
+		division_template = "Marine Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Marine Division"
+		location = 7138
+		division_template = "Marine Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Guam Garrison"
+		location = 12140
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Joint Base Guantanamo"
+		location = 7590
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Infantry Division"
+		location = 7125
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "3rd Marine Division"
+		location = 11932
+		division_template = "Marine Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "2nd Cavalry Regiment"
+		location = 11544
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "173rd Airborne Brigade"
+		location = 11584
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Forward Land Forces Poland"
+		location = 6558
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Al Udeid Support Group"
+		location = 8051
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Camp Lemonnier"
+		location = 8124
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Incirlik Support Group"
+		location = 9893
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "PSAB Support Group"
+		location = 12727
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Kuwait Support Group"
+		location = 8085
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Marine Rotational Force Darwin"
+		location = 7669
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "EDCA Luzon Detachment"
+		location = 12213
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Mihail Kogalniceanu Detachment"
+		location = 657
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Jordan Operational Support"
+		location = 7151
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Iraq Operational Support"
+		location = 2097
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Diego Garcia Garrison"
+		location = 13019
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 1.0
+	}
+}
+air_wings = {
+	51 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 48 }
+		cas_equipment_cw4 = { owner = "USA" amount = 16 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 16 }
+	}
+	100 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 8 }
+	}
+	115 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 12 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 12 }
+	}
+	125 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 36 }
+		cas_equipment_cw4 = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 8 }
+	}
+	160 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 24 }
+		cas_equipment_cw4 = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 8 }
+	}
+	182 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 4 }
+	}
+	261 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 468 }
+		recon_uav_equipment_2 = { owner = "USA" amount = 96 }
+		recon_uav_equipment_1 = { owner = "USA" amount = 96 }
+		aew_equipment_2 = { owner = "USA" amount = 8 }
+		mpa_equipment_cw2 = { owner = "USA" amount = 8 }
+		sam_missile_equipment_2 = { owner = "USA" amount = 32 }
+		strike_uav_equipment_1 = { owner = "USA" amount = 96 }
+		hale_uav_equipment_1 = { owner = "USA" amount = 4 }
+		tac_bomber_equipment_cw3 = { owner = "USA" amount = 16 }
+		strat_bomber_equipment_cw4 = { owner = "USA" amount = 16 }
+	}
+	268 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 8 }
+		cas_equipment_cw4 = { owner = "USA" amount = 4 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 8 }
+	}
+	282 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 48 }
+		cas_equipment_cw4 = { owner = "USA" amount = 12 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 12 }
+	}
+	291 = {
+		transport_heli_equipment_2 = { owner = "USA" amount = 8 }
+	}
+	292 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 16 }
+		cas_equipment_cw4 = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 4 }
+	}
+	344 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 16 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 4 }
+	}
+	357 = {
+		cas_equipment_cw4 = { owner = "USA" amount = 68 }
+	}
+	358 = {
+		transport_heli_equipment_2 = { owner = "USA" amount = 72 }
+	}
+	455 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 8 }
+		cas_equipment_cw4 = { owner = "USA" amount = 4 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 4 }
+	}
+	520 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 8 }
+	}
+	525 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 60 }
+		cas_equipment_cw4 = { owner = "USA" amount = 16 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 16 }
+	}
+	526 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 72 }
+		cas_equipment_cw4 = { owner = "USA" amount = 16 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 16 }
+	}
+	623 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 4 }
+	}
+	638 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 24 }
+		cas_equipment_cw4 = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 8 }
+	}
+	656 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 12 }
+		cas_equipment_cw4 = { owner = "USA" amount = 4 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 4 }
+	}
+	658 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 24 }
+		cas_equipment_cw4 = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 8 }
+	}
+	710 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 4 }
+	}
+	765 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 36 }
+		cas_equipment_cw4 = { owner = "USA" amount = 12 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 8 }
+	}
+	971 = {
+		fighter_equipment_cw5a = { owner = "USA" amount = 8 }
+		transport_heli_equipment_2 = { owner = "USA" amount = 4 }
+	}
+}

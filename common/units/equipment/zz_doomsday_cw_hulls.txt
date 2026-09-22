@@ -1,0 +1,580 @@
+equipments = {
+
+	ship_hull_light_cw1 = {
+		year = 1955
+		archetype = ship_hull_light
+		parent = ship_hull_light_4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 550.0
+		naval_range = 4400
+		max_strength = 85
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_light_cw2 = {
+		year = 1965
+		archetype = ship_hull_light
+		parent = ship_hull_light_cw1
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 700.0
+		naval_range = 4800
+		max_strength = 100
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_light_cw3 = {
+		year = 1975
+		archetype = ship_hull_light
+		parent = ship_hull_light_cw2
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 950.0
+		naval_range = 5200
+		max_strength = 115
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_light_cw4 = {
+		year = 1991
+		archetype = ship_hull_light
+		parent = ship_hull_light_cw3
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1400.0
+		naval_range = 5600
+		max_strength = 130
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_light_cw5 = {
+		year = 2005
+		archetype = ship_hull_light
+		parent = ship_hull_light_cw4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1200.0
+		naval_range = 6000
+		max_strength = 145
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_light_cw6 = {
+		year = 2018
+		archetype = ship_hull_light
+		parent = ship_hull_light_cw5
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1800.0
+		naval_range = 6400
+		max_strength = 160
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_light_cw7 = {
+		year = 2032
+		archetype = ship_hull_light
+		parent = ship_hull_light_cw6
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2200.0
+		naval_range = 6800
+		max_strength = 175
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_cruiser_cw1 = {
+		year = 1961
+		archetype = ship_hull_cruiser
+		parent = ship_hull_cruiser_4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1100.0
+		naval_range = 5400
+		max_strength = 135
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_cruiser_cw2 = {
+		year = 1983
+		archetype = ship_hull_cruiser
+		parent = ship_hull_cruiser_cw1
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1600.0
+		naval_range = 5800
+		max_strength = 150
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_cruiser_cw3 = {
+		year = 2017
+		archetype = ship_hull_cruiser
+		parent = ship_hull_cruiser_cw2
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1900.0
+		naval_range = 6200
+		max_strength = 165
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_carrier_cw1 = {
+		year = 1955
+		archetype = ship_hull_carrier
+		parent = ship_hull_carrier_3
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2800.0
+		naval_range = 8400
+		max_strength = 415
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_carrier_cw2 = {
+		year = 1961
+		archetype = ship_hull_carrier
+		parent = ship_hull_carrier_cw1
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 3400.0
+		naval_range = 8800
+		max_strength = 430
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_carrier_cw3 = {
+		year = 1975
+		archetype = ship_hull_carrier
+		parent = ship_hull_carrier_cw2
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 3800.0
+		naval_range = 9200
+		max_strength = 445
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_carrier_cw4 = {
+		year = 2001
+		archetype = ship_hull_carrier
+		parent = ship_hull_carrier_cw3
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2600.0
+		naval_range = 9600
+		max_strength = 460
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_carrier_cw5 = {
+		year = 2017
+		archetype = ship_hull_carrier
+		parent = ship_hull_carrier_cw4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 4500.0
+		naval_range = 10000
+		max_strength = 475
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_carrier_cw6 = {
+		year = 2034
+		archetype = ship_hull_carrier
+		parent = ship_hull_carrier_cw5
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 4800.0
+		naval_range = 10400
+		max_strength = 490
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_submarine_cw1 = {
+		year = 1959
+		archetype = ship_hull_submarine
+		parent = ship_hull_submarine_4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 900.0
+		naval_range = 7400
+		max_strength = 65
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_submarine_cw2 = {
+		year = 1976
+		archetype = ship_hull_submarine
+		parent = ship_hull_submarine_cw1
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1400.0
+		naval_range = 7800
+		max_strength = 80
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_submarine_cw3 = {
+		year = 1990
+		archetype = ship_hull_submarine
+		parent = ship_hull_submarine_cw2
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2000.0
+		naval_range = 8200
+		max_strength = 95
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_submarine_cw4 = {
+		year = 2004
+		archetype = ship_hull_submarine
+		parent = ship_hull_submarine_cw3
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2400.0
+		naval_range = 8600
+		max_strength = 110
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_submarine_cw5 = {
+		year = 2019
+		archetype = ship_hull_submarine
+		parent = ship_hull_submarine_cw4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2800.0
+		naval_range = 9000
+		max_strength = 125
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_submarine_cw6 = {
+		year = 2034
+		archetype = ship_hull_submarine
+		parent = ship_hull_submarine_cw5
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 3200.0
+		naval_range = 9400
+		max_strength = 140
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_ssbn_1 = {
+		year = 1960
+		archetype = ship_hull_nuclear_submarine
+		parent = nuclear_submarine
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1600.0
+		naval_range = 9400
+		max_strength = 95
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_ssbn_2 = {
+		year = 1981
+		archetype = ship_hull_nuclear_submarine
+		parent = ship_hull_ssbn_1
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2800.0
+		naval_range = 9800
+		max_strength = 110
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_ssbn_3 = {
+		year = 1997
+		archetype = ship_hull_nuclear_submarine
+		parent = ship_hull_ssbn_2
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 3000.0
+		naval_range = 10200
+		max_strength = 125
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_ssbn_4 = {
+		year = 2031
+		archetype = ship_hull_nuclear_submarine
+		parent = ship_hull_ssbn_3
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 4000.0
+		naval_range = 10600
+		max_strength = 140
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_amphib_1 = {
+		year = 1960
+		archetype = ship_hull_cruiser
+		parent = ship_hull_cruiser_4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 700.0
+		naval_range = 6400
+		max_strength = 175
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_amphib_2 = {
+		year = 1976
+		archetype = ship_hull_cruiser
+		parent = ship_hull_amphib_1
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 1600.0
+		naval_range = 6800
+		max_strength = 190
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_amphib_3 = {
+		year = 1989
+		archetype = ship_hull_cruiser
+		parent = ship_hull_amphib_2
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2000.0
+		naval_range = 7200
+		max_strength = 205
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+
+	ship_hull_amphib_4 = {
+		year = 2014
+		archetype = ship_hull_cruiser
+		parent = ship_hull_amphib_3
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 2400.0
+		naval_range = 7600
+		max_strength = 220
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_amphib_5 = {
+		year = 2032
+		archetype = ship_hull_cruiser
+		parent = ship_hull_amphib_4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 900.0
+		naval_range = 8000
+		max_strength = 235
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_usv_1 = {
+		year = 2020
+		archetype = ship_hull_light
+		parent = ship_hull_light_4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 180.0
+		naval_range = 2900
+		max_strength = 35
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_usv_2 = {
+		year = 2032
+		archetype = ship_hull_light
+		parent = ship_hull_usv_1
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 600.0
+		naval_range = 3300
+		max_strength = 50
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_uuv_1 = {
+		year = 2025
+		archetype = ship_hull_submarine
+		parent = ship_hull_submarine_4
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 350.0
+		naval_range = 4400
+		max_strength = 30
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_submarine_diesel_1 = {
+		year = 1970
+		archetype = ship_hull_submarine
+		parent = ship_hull_submarine_3
+		priority = 2000
+		module_slots = inherit
+		build_cost_ic = 450.0
+		naval_range = 5400
+		max_strength = 50
+		reliability = 0.9
+		resources = {
+			steel = 3
+			chromium = 1
+		}
+	}
+}

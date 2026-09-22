@@ -7,13 +7,259 @@ scripted_gui = {
 		effects = {
 			dd_open_market_click = {
 				set_country_flag = dd_show_arms_market
+				clr_country_flag = dd_show_merc_market
 				clr_country_flag = dd_market_sell_tab
 				clr_country_flag = dd_market_air_tab
 				clr_country_flag = dd_market_navy_tab
 				dd_refresh_market_counts = yes
 				dd_refresh_loan_preview = yes
 			}
+			dd_open_mercs_click = {
+				set_country_flag = dd_show_merc_market
+				clr_country_flag = dd_show_arms_market
+				clr_country_flag = dd_merc_offer_tab
+				dd_merc_init_defaults = yes
+			}
 		}
+	}
+
+	dd_merc_market_ui = {
+		context_type = player_context
+		window_name = "dd_merc_market_window"
+		visible = {
+			has_country_flag = dd_show_merc_market
+		}
+
+		effects = {
+			dd_close_mercs_click = {
+				clr_country_flag = dd_show_merc_market
+				clr_country_flag = dd_merc_offer_tab
+			}
+			dd_merc_tab_hire_on_click = { clr_country_flag = dd_merc_offer_tab }
+			dd_merc_tab_hire_off_click = { clr_country_flag = dd_merc_offer_tab }
+			dd_merc_tab_offer_on_click = {
+				set_country_flag = dd_merc_offer_tab
+				dd_merc_refresh_leaders = yes
+			}
+			dd_merc_tab_offer_off_click = {
+				set_country_flag = dd_merc_offer_tab
+				dd_merc_refresh_leaders = yes
+			}
+			dd_merc_army_prev_click = { dd_merc_army_prev = yes }
+			dd_merc_army_next_click = { dd_merc_army_next = yes }
+			dd_merc_ask_up_click = { dd_merc_ask_up = yes }
+			dd_merc_ask_down_click = { dd_merc_ask_down = yes }
+			dd_merc_post_offer_click = { dd_merc_post_offer = yes }
+			dd_merc_cancel_offer_click = { dd_merc_cancel_offer = yes }
+			dd_merc_recall_click = { dd_merc_recall = yes }
+			dd_merc_hire_0_click = { dd_merc_hire_0 = yes }
+			dd_merc_hire_1_click = { dd_merc_hire_1 = yes }
+			dd_merc_hire_2_click = { dd_merc_hire_2 = yes }
+			dd_merc_hire_3_click = { dd_merc_hire_3 = yes }
+			dd_merc_hire_4_click = { dd_merc_hire_4 = yes }
+			dd_merc_hire_5_click = { dd_merc_hire_5 = yes }
+			dd_merc_hire_6_click = { dd_merc_hire_6 = yes }
+			dd_merc_hire_7_click = { dd_merc_hire_7 = yes }
+			dd_merc_accept_0_click = { dd_merc_accept_0 = yes }
+			dd_merc_accept_1_click = { dd_merc_accept_1 = yes }
+			dd_merc_accept_2_click = { dd_merc_accept_2 = yes }
+			dd_merc_accept_3_click = { dd_merc_accept_3 = yes }
+			dd_merc_reject_0_click = { dd_merc_reject_0 = yes }
+			dd_merc_reject_1_click = { dd_merc_reject_1 = yes }
+			dd_merc_reject_2_click = { dd_merc_reject_2 = yes }
+			dd_merc_reject_3_click = { dd_merc_reject_3 = yes }
+		}
+
+		triggers = {
+			dd_merc_tab_hire_on_visible = { dd_merc_on_hire_tab = yes }
+			dd_merc_tab_hire_off_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_tab_offer_on_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_tab_offer_off_visible = { dd_merc_on_hire_tab = yes }
+			dd_merc_army_label_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_army_prev_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_army_next_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_army_prev_click_enabled = { check_variable = { dd_merc_leaders^num > 1 } }
+			dd_merc_army_next_click_enabled = { check_variable = { dd_merc_leaders^num > 1 } }
+			dd_merc_offer_label_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_ask_up_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_ask_down_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_post_offer_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_cancel_offer_visible = { dd_merc_on_offer_tab = yes }
+			dd_merc_post_offer_click_enabled = { dd_merc_can_post = yes }
+			dd_merc_bid_header_visible = {
+				dd_merc_on_offer_tab = yes
+				has_country_flag = dd_merc_offering
+			}
+			dd_merc_bid_0_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_0
+			}
+			dd_merc_accept_0_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_0
+			}
+			dd_merc_reject_0_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_0
+			}
+			dd_merc_bid_1_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_1
+			}
+			dd_merc_accept_1_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_1
+			}
+			dd_merc_reject_1_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_1
+			}
+			dd_merc_bid_2_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_2
+			}
+			dd_merc_accept_2_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_2
+			}
+			dd_merc_reject_2_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_2
+			}
+			dd_merc_bid_3_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_3
+			}
+			dd_merc_accept_3_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_3
+			}
+			dd_merc_reject_3_visible = {
+				dd_merc_on_offer_tab = yes
+				has_variable = dd_merc_bid_3
+			}
+			dd_merc_deployed_line_visible = {
+				dd_merc_on_offer_tab = yes
+				has_country_flag = dd_merc_deployed
+			}
+			dd_merc_recall_visible = {
+				dd_merc_on_offer_tab = yes
+				has_country_flag = dd_merc_deployed
+			}
+			dd_merc_recall_click_enabled = {
+				has_country_flag = dd_merc_deployed
+			}
+			dd_merc_hire_header_visible = { dd_merc_on_hire_tab = yes }
+			dd_merc_row_0_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_0_size > 0.5 }
+			}
+			dd_merc_hire_0_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_0_size > 0.5 }
+				NOT = { check_variable = { global.dd_merc_0_tag = THIS } }
+			}
+			dd_merc_hire_0_click_enabled = {
+				dd_merc_can_request = yes
+				NOT = { check_variable = { treasury < global.dd_merc_0_price } }
+			}
+			dd_merc_row_1_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_1_size > 0.5 }
+			}
+			dd_merc_hire_1_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_1_size > 0.5 }
+				NOT = { check_variable = { global.dd_merc_1_tag = THIS } }
+			}
+			dd_merc_hire_1_click_enabled = {
+				dd_merc_can_request = yes
+				NOT = { check_variable = { treasury < global.dd_merc_1_price } }
+			}
+			dd_merc_row_2_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_2_size > 0.5 }
+			}
+			dd_merc_hire_2_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_2_size > 0.5 }
+				NOT = { check_variable = { global.dd_merc_2_tag = THIS } }
+			}
+			dd_merc_hire_2_click_enabled = {
+				dd_merc_can_request = yes
+				NOT = { check_variable = { treasury < global.dd_merc_2_price } }
+			}
+			dd_merc_row_3_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_3_size > 0.5 }
+			}
+			dd_merc_hire_3_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_3_size > 0.5 }
+				NOT = { check_variable = { global.dd_merc_3_tag = THIS } }
+			}
+			dd_merc_hire_3_click_enabled = {
+				dd_merc_can_request = yes
+				NOT = { check_variable = { treasury < global.dd_merc_3_price } }
+			}
+			dd_merc_row_4_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_4_size > 0.5 }
+			}
+			dd_merc_hire_4_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_4_size > 0.5 }
+				NOT = { check_variable = { global.dd_merc_4_tag = THIS } }
+			}
+			dd_merc_hire_4_click_enabled = {
+				dd_merc_can_request = yes
+				NOT = { check_variable = { treasury < global.dd_merc_4_price } }
+			}
+			dd_merc_row_5_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_5_size > 0.5 }
+			}
+			dd_merc_hire_5_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_5_size > 0.5 }
+				NOT = { check_variable = { global.dd_merc_5_tag = THIS } }
+			}
+			dd_merc_hire_5_click_enabled = {
+				dd_merc_can_request = yes
+				NOT = { check_variable = { treasury < global.dd_merc_5_price } }
+			}
+			dd_merc_row_6_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_6_size > 0.5 }
+			}
+			dd_merc_hire_6_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_6_size > 0.5 }
+				NOT = { check_variable = { global.dd_merc_6_tag = THIS } }
+			}
+			dd_merc_hire_6_click_enabled = {
+				dd_merc_can_request = yes
+				NOT = { check_variable = { treasury < global.dd_merc_6_price } }
+			}
+			dd_merc_row_7_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_7_size > 0.5 }
+			}
+			dd_merc_hire_7_visible = {
+				dd_merc_on_hire_tab = yes
+				check_variable = { global.dd_merc_7_size > 0.5 }
+				NOT = { check_variable = { global.dd_merc_7_tag = THIS } }
+			}
+			dd_merc_hire_7_click_enabled = {
+				dd_merc_can_request = yes
+				NOT = { check_variable = { treasury < global.dd_merc_7_price } }
+			}
+		}
+	}
+
+	doomsday_intel_ui = {
+		context_type = decision_category
+		window_name = "doomsday_intel_window"
 	}
 
 	dd_arms_market_ui = {
@@ -111,56 +357,124 @@ scripted_gui = {
 		effects = {
 			dd_buy_amphibious_mechanized_eq_click = { dd_buy_amphibious_mechanized_eq = yes }
 			dd_sell_amphibious_mechanized_eq_click = { dd_sell_amphibious_mechanized_eq = yes }
+			dd_ask_up_amphibious_mechanized_eq_click = { dd_ask_up_amphibious_mechanized_eq = yes }
+			dd_ask_down_amphibious_mechanized_eq_click = { dd_ask_down_amphibious_mechanized_eq = yes }
 			dd_buy_amphibious_tank_chassis_click = { dd_buy_amphibious_tank_chassis = yes }
 			dd_sell_amphibious_tank_chassis_click = { dd_sell_amphibious_tank_chassis = yes }
+			dd_ask_up_amphibious_tank_chassis_click = { dd_ask_up_amphibious_tank_chassis = yes }
+			dd_ask_down_amphibious_tank_chassis_click = { dd_ask_down_amphibious_tank_chassis = yes }
 			dd_buy_anti_air_eq_click = { dd_buy_anti_air_eq = yes }
 			dd_sell_anti_air_eq_click = { dd_sell_anti_air_eq = yes }
+			dd_ask_up_anti_air_eq_click = { dd_ask_up_anti_air_eq = yes }
+			dd_ask_down_anti_air_eq_click = { dd_ask_down_anti_air_eq = yes }
 			dd_buy_anti_tank_eq_click = { dd_buy_anti_tank_eq = yes }
 			dd_sell_anti_tank_eq_click = { dd_sell_anti_tank_eq = yes }
+			dd_ask_up_anti_tank_eq_click = { dd_ask_up_anti_tank_eq = yes }
+			dd_ask_down_anti_tank_eq_click = { dd_ask_down_anti_tank_eq = yes }
 			dd_buy_armored_car_eq_click = { dd_buy_armored_car_eq = yes }
 			dd_sell_armored_car_eq_click = { dd_sell_armored_car_eq = yes }
+			dd_ask_up_armored_car_eq_click = { dd_ask_up_armored_car_eq = yes }
+			dd_ask_down_armored_car_eq_click = { dd_ask_down_armored_car_eq = yes }
 			dd_buy_armored_support_vehicle_click = { dd_buy_armored_support_vehicle = yes }
 			dd_sell_armored_support_vehicle_click = { dd_sell_armored_support_vehicle = yes }
+			dd_ask_up_armored_support_vehicle_click = { dd_ask_up_armored_support_vehicle = yes }
+			dd_ask_down_armored_support_vehicle_click = { dd_ask_down_armored_support_vehicle = yes }
 			dd_buy_artillery_eq_click = { dd_buy_artillery_eq = yes }
 			dd_sell_artillery_eq_click = { dd_sell_artillery_eq = yes }
+			dd_ask_up_artillery_eq_click = { dd_ask_up_artillery_eq = yes }
+			dd_ask_down_artillery_eq_click = { dd_ask_down_artillery_eq = yes }
+			dd_buy_dew_eq_click = { dd_buy_dew_eq = yes }
+			dd_sell_dew_eq_click = { dd_sell_dew_eq = yes }
+			dd_ask_up_dew_eq_click = { dd_ask_up_dew_eq = yes }
+			dd_ask_down_dew_eq_click = { dd_ask_down_dew_eq = yes }
 			dd_buy_heavy_tank_chassis_click = { dd_buy_heavy_tank_chassis = yes }
 			dd_sell_heavy_tank_chassis_click = { dd_sell_heavy_tank_chassis = yes }
+			dd_ask_up_heavy_tank_chassis_click = { dd_ask_up_heavy_tank_chassis = yes }
+			dd_ask_down_heavy_tank_chassis_click = { dd_ask_down_heavy_tank_chassis = yes }
 			dd_buy_helicopter_eq_click = { dd_buy_helicopter_eq = yes }
 			dd_sell_helicopter_eq_click = { dd_sell_helicopter_eq = yes }
+			dd_ask_up_helicopter_eq_click = { dd_ask_up_helicopter_eq = yes }
+			dd_ask_down_helicopter_eq_click = { dd_ask_down_helicopter_eq = yes }
 			dd_buy_infantry_eq_click = { dd_buy_infantry_eq = yes }
 			dd_sell_infantry_eq_click = { dd_sell_infantry_eq = yes }
+			dd_ask_up_infantry_eq_click = { dd_ask_up_infantry_eq = yes }
+			dd_ask_down_infantry_eq_click = { dd_ask_down_infantry_eq = yes }
 			dd_buy_land_cruiser_chassis_click = { dd_buy_land_cruiser_chassis = yes }
 			dd_sell_land_cruiser_chassis_click = { dd_sell_land_cruiser_chassis = yes }
+			dd_ask_up_land_cruiser_chassis_click = { dd_ask_up_land_cruiser_chassis = yes }
+			dd_ask_down_land_cruiser_chassis_click = { dd_ask_down_land_cruiser_chassis = yes }
 			dd_buy_light_tank_chassis_click = { dd_buy_light_tank_chassis = yes }
 			dd_sell_light_tank_chassis_click = { dd_sell_light_tank_chassis = yes }
+			dd_ask_up_light_tank_chassis_click = { dd_ask_up_light_tank_chassis = yes }
+			dd_ask_down_light_tank_chassis_click = { dd_ask_down_light_tank_chassis = yes }
+			dd_buy_manpads_eq_click = { dd_buy_manpads_eq = yes }
+			dd_sell_manpads_eq_click = { dd_sell_manpads_eq = yes }
+			dd_ask_up_manpads_eq_click = { dd_ask_up_manpads_eq = yes }
+			dd_ask_down_manpads_eq_click = { dd_ask_down_manpads_eq = yes }
 			dd_buy_mechanized_eq_click = { dd_buy_mechanized_eq = yes }
 			dd_sell_mechanized_eq_click = { dd_sell_mechanized_eq = yes }
+			dd_ask_up_mechanized_eq_click = { dd_ask_up_mechanized_eq = yes }
+			dd_ask_down_mechanized_eq_click = { dd_ask_down_mechanized_eq = yes }
 			dd_buy_medium_tank_chassis_click = { dd_buy_medium_tank_chassis = yes }
 			dd_sell_medium_tank_chassis_click = { dd_sell_medium_tank_chassis = yes }
+			dd_ask_up_medium_tank_chassis_click = { dd_ask_up_medium_tank_chassis = yes }
+			dd_ask_down_medium_tank_chassis_click = { dd_ask_down_medium_tank_chassis = yes }
 			dd_buy_modern_tank_chassis_click = { dd_buy_modern_tank_chassis = yes }
 			dd_sell_modern_tank_chassis_click = { dd_sell_modern_tank_chassis = yes }
+			dd_ask_up_modern_tank_chassis_click = { dd_ask_up_modern_tank_chassis = yes }
+			dd_ask_down_modern_tank_chassis_click = { dd_ask_down_modern_tank_chassis = yes }
 			dd_buy_motorbike_eq_click = { dd_buy_motorbike_eq = yes }
 			dd_sell_motorbike_eq_click = { dd_sell_motorbike_eq = yes }
+			dd_ask_up_motorbike_eq_click = { dd_ask_up_motorbike_eq = yes }
+			dd_ask_down_motorbike_eq_click = { dd_ask_down_motorbike_eq = yes }
 			dd_buy_motorized_eq_click = { dd_buy_motorized_eq = yes }
 			dd_sell_motorized_eq_click = { dd_sell_motorized_eq = yes }
+			dd_ask_up_motorized_eq_click = { dd_ask_up_motorized_eq = yes }
+			dd_ask_down_motorized_eq_click = { dd_ask_down_motorized_eq = yes }
 			dd_buy_motorized_rocket_eq_click = { dd_buy_motorized_rocket_eq = yes }
 			dd_sell_motorized_rocket_eq_click = { dd_sell_motorized_rocket_eq = yes }
+			dd_ask_up_motorized_rocket_eq_click = { dd_ask_up_motorized_rocket_eq = yes }
+			dd_ask_down_motorized_rocket_eq_click = { dd_ask_down_motorized_rocket_eq = yes }
+			dd_buy_prsm_eq_click = { dd_buy_prsm_eq = yes }
+			dd_sell_prsm_eq_click = { dd_sell_prsm_eq = yes }
+			dd_ask_up_prsm_eq_click = { dd_ask_up_prsm_eq = yes }
+			dd_ask_down_prsm_eq_click = { dd_ask_down_prsm_eq = yes }
 			dd_buy_railway_gun_eq_click = { dd_buy_railway_gun_eq = yes }
 			dd_sell_railway_gun_eq_click = { dd_sell_railway_gun_eq = yes }
+			dd_ask_up_railway_gun_eq_click = { dd_ask_up_railway_gun_eq = yes }
+			dd_ask_down_railway_gun_eq_click = { dd_ask_down_railway_gun_eq = yes }
 			dd_buy_rocket_artillery_eq_click = { dd_buy_rocket_artillery_eq = yes }
 			dd_sell_rocket_artillery_eq_click = { dd_sell_rocket_artillery_eq = yes }
+			dd_ask_up_rocket_artillery_eq_click = { dd_ask_up_rocket_artillery_eq = yes }
+			dd_ask_down_rocket_artillery_eq_click = { dd_ask_down_rocket_artillery_eq = yes }
 			dd_buy_self_propelled_super_heavy_artillery_eq_click = { dd_buy_self_propelled_super_heavy_artillery_eq = yes }
 			dd_sell_self_propelled_super_heavy_artillery_eq_click = { dd_sell_self_propelled_super_heavy_artillery_eq = yes }
+			dd_ask_up_self_propelled_super_heavy_artillery_eq_click = { dd_ask_up_self_propelled_super_heavy_artillery_eq = yes }
+			dd_ask_down_self_propelled_super_heavy_artillery_eq_click = { dd_ask_down_self_propelled_super_heavy_artillery_eq = yes }
+			dd_buy_spg_eq_click = { dd_buy_spg_eq = yes }
+			dd_sell_spg_eq_click = { dd_sell_spg_eq = yes }
+			dd_ask_up_spg_eq_click = { dd_ask_up_spg_eq = yes }
+			dd_ask_down_spg_eq_click = { dd_ask_down_spg_eq = yes }
 			dd_buy_super_heavy_artillery_eq_click = { dd_buy_super_heavy_artillery_eq = yes }
 			dd_sell_super_heavy_artillery_eq_click = { dd_sell_super_heavy_artillery_eq = yes }
+			dd_ask_up_super_heavy_artillery_eq_click = { dd_ask_up_super_heavy_artillery_eq = yes }
+			dd_ask_down_super_heavy_artillery_eq_click = { dd_ask_down_super_heavy_artillery_eq = yes }
 			dd_buy_super_heavy_railway_gun_eq_click = { dd_buy_super_heavy_railway_gun_eq = yes }
 			dd_sell_super_heavy_railway_gun_eq_click = { dd_sell_super_heavy_railway_gun_eq = yes }
+			dd_ask_up_super_heavy_railway_gun_eq_click = { dd_ask_up_super_heavy_railway_gun_eq = yes }
+			dd_ask_down_super_heavy_railway_gun_eq_click = { dd_ask_down_super_heavy_railway_gun_eq = yes }
 			dd_buy_super_heavy_tank_chassis_click = { dd_buy_super_heavy_tank_chassis = yes }
 			dd_sell_super_heavy_tank_chassis_click = { dd_sell_super_heavy_tank_chassis = yes }
+			dd_ask_up_super_heavy_tank_chassis_click = { dd_ask_up_super_heavy_tank_chassis = yes }
+			dd_ask_down_super_heavy_tank_chassis_click = { dd_ask_down_super_heavy_tank_chassis = yes }
 			dd_buy_support_eq_click = { dd_buy_support_eq = yes }
 			dd_sell_support_eq_click = { dd_sell_support_eq = yes }
+			dd_ask_up_support_eq_click = { dd_ask_up_support_eq = yes }
+			dd_ask_down_support_eq_click = { dd_ask_down_support_eq = yes }
 			dd_buy_train_eq_click = { dd_buy_train_eq = yes }
 			dd_sell_train_eq_click = { dd_sell_train_eq = yes }
+			dd_ask_up_train_eq_click = { dd_ask_up_train_eq = yes }
+			dd_ask_down_train_eq_click = { dd_ask_down_train_eq = yes }
 		}
 
 		triggers = {
@@ -176,8 +490,25 @@ scripted_gui = {
 			dd_sell_amphibious_mechanized_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_amphibious_mechanized_eq_click_enabled = { check_variable = { treasury > 13.99 } }
+			dd_ask_up_amphibious_mechanized_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_amphibious_mechanized_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_amphibious_mechanized_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_amphibious_mechanized_eq } }
+				check_variable = { global.dd_pool_amphibious_mechanized_eq > 9 }
+			}
 			dd_sell_amphibious_mechanized_eq_click_enabled = { has_equipment = { amphibious_mechanized_equipment > 9 } }
+			dd_ask_up_amphibious_mechanized_eq_click_enabled = {
+				has_equipment = { amphibious_mechanized_equipment > 0 }
+				check_variable = { global.dd_ask_amphibious_mechanized_eq < 999 }
+			}
+			dd_ask_down_amphibious_mechanized_eq_click_enabled = {
+				has_equipment = { amphibious_mechanized_equipment > 0 }
+				check_variable = { global.dd_ask_amphibious_mechanized_eq > 1 }
+			}
 			dd_amphibious_tank_chassis_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -190,8 +521,25 @@ scripted_gui = {
 			dd_sell_amphibious_tank_chassis_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_amphibious_tank_chassis_click_enabled = { check_variable = { treasury > 5.99 } }
+			dd_ask_up_amphibious_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_amphibious_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_amphibious_tank_chassis_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_amphibious_tank_chassis } }
+				check_variable = { global.dd_pool_amphibious_tank_chassis > 9 }
+			}
 			dd_sell_amphibious_tank_chassis_click_enabled = { has_equipment = { amphibious_tank_chassis > 9 } }
+			dd_ask_up_amphibious_tank_chassis_click_enabled = {
+				has_equipment = { amphibious_tank_chassis > 0 }
+				check_variable = { global.dd_ask_amphibious_tank_chassis < 999 }
+			}
+			dd_ask_down_amphibious_tank_chassis_click_enabled = {
+				has_equipment = { amphibious_tank_chassis > 0 }
+				check_variable = { global.dd_ask_amphibious_tank_chassis > 1 }
+			}
 			dd_anti_air_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -204,8 +552,25 @@ scripted_gui = {
 			dd_sell_anti_air_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_anti_air_eq_click_enabled = { check_variable = { treasury > 16.99 } }
+			dd_ask_up_anti_air_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_anti_air_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_anti_air_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_anti_air_eq } }
+				check_variable = { global.dd_pool_anti_air_eq > 19 }
+			}
 			dd_sell_anti_air_eq_click_enabled = { has_equipment = { anti_air_equipment > 19 } }
+			dd_ask_up_anti_air_eq_click_enabled = {
+				has_equipment = { anti_air_equipment > 0 }
+				check_variable = { global.dd_ask_anti_air_eq < 999 }
+			}
+			dd_ask_down_anti_air_eq_click_enabled = {
+				has_equipment = { anti_air_equipment > 0 }
+				check_variable = { global.dd_ask_anti_air_eq > 1 }
+			}
 			dd_anti_tank_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -218,8 +583,25 @@ scripted_gui = {
 			dd_sell_anti_tank_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_anti_tank_eq_click_enabled = { check_variable = { treasury > 8.99 } }
+			dd_ask_up_anti_tank_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_anti_tank_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_anti_tank_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_anti_tank_eq } }
+				check_variable = { global.dd_pool_anti_tank_eq > 9 }
+			}
 			dd_sell_anti_tank_eq_click_enabled = { has_equipment = { anti_tank_equipment > 9 } }
+			dd_ask_up_anti_tank_eq_click_enabled = {
+				has_equipment = { anti_tank_equipment > 0 }
+				check_variable = { global.dd_ask_anti_tank_eq < 999 }
+			}
+			dd_ask_down_anti_tank_eq_click_enabled = {
+				has_equipment = { anti_tank_equipment > 0 }
+				check_variable = { global.dd_ask_anti_tank_eq > 1 }
+			}
 			dd_armored_car_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -232,8 +614,25 @@ scripted_gui = {
 			dd_sell_armored_car_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_armored_car_eq_click_enabled = { check_variable = { treasury > 10.99 } }
+			dd_ask_up_armored_car_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_armored_car_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_armored_car_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_armored_car_eq } }
+				check_variable = { global.dd_pool_armored_car_eq > 9 }
+			}
 			dd_sell_armored_car_eq_click_enabled = { has_equipment = { armored_car_equipment > 9 } }
+			dd_ask_up_armored_car_eq_click_enabled = {
+				has_equipment = { armored_car_equipment > 0 }
+				check_variable = { global.dd_ask_armored_car_eq < 999 }
+			}
+			dd_ask_down_armored_car_eq_click_enabled = {
+				has_equipment = { armored_car_equipment > 0 }
+				check_variable = { global.dd_ask_armored_car_eq > 1 }
+			}
 			dd_armored_support_vehicle_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -246,8 +645,25 @@ scripted_gui = {
 			dd_sell_armored_support_vehicle_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_armored_support_vehicle_click_enabled = { check_variable = { treasury > 16.99 } }
+			dd_ask_up_armored_support_vehicle_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_armored_support_vehicle_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_armored_support_vehicle_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_armored_support_vehicle } }
+				check_variable = { global.dd_pool_armored_support_vehicle > 9 }
+			}
 			dd_sell_armored_support_vehicle_click_enabled = { has_equipment = { armored_support_vehicle > 9 } }
+			dd_ask_up_armored_support_vehicle_click_enabled = {
+				has_equipment = { armored_support_vehicle > 0 }
+				check_variable = { global.dd_ask_armored_support_vehicle < 999 }
+			}
+			dd_ask_down_armored_support_vehicle_click_enabled = {
+				has_equipment = { armored_support_vehicle > 0 }
+				check_variable = { global.dd_ask_armored_support_vehicle > 1 }
+			}
 			dd_artillery_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -260,8 +676,56 @@ scripted_gui = {
 			dd_sell_artillery_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_artillery_eq_click_enabled = { check_variable = { treasury > 12.99 } }
+			dd_ask_up_artillery_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_artillery_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_artillery_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_artillery_eq } }
+				check_variable = { global.dd_pool_artillery_eq > 19 }
+			}
 			dd_sell_artillery_eq_click_enabled = { has_equipment = { artillery_equipment > 19 } }
+			dd_ask_up_artillery_eq_click_enabled = {
+				has_equipment = { artillery_equipment > 0 }
+				check_variable = { global.dd_ask_artillery_eq < 999 }
+			}
+			dd_ask_down_artillery_eq_click_enabled = {
+				has_equipment = { artillery_equipment > 0 }
+				check_variable = { global.dd_ask_artillery_eq > 1 }
+			}
+			dd_dew_eq_buy_price_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_dew_eq_sell_price_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_dew_eq_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_sell_dew_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_up_dew_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_dew_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_dew_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_dew_eq } }
+				check_variable = { global.dd_pool_dew_eq > 19 }
+			}
+			dd_sell_dew_eq_click_enabled = { has_equipment = { dew_equipment > 19 } }
+			dd_ask_up_dew_eq_click_enabled = {
+				has_equipment = { dew_equipment > 0 }
+				check_variable = { global.dd_ask_dew_eq < 999 }
+			}
+			dd_ask_down_dew_eq_click_enabled = {
+				has_equipment = { dew_equipment > 0 }
+				check_variable = { global.dd_ask_dew_eq > 1 }
+			}
 			dd_heavy_tank_chassis_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -274,8 +738,25 @@ scripted_gui = {
 			dd_sell_heavy_tank_chassis_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_heavy_tank_chassis_click_enabled = { check_variable = { treasury > 16.99 } }
+			dd_ask_up_heavy_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_heavy_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_heavy_tank_chassis_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_heavy_tank_chassis } }
+				check_variable = { global.dd_pool_heavy_tank_chassis > 9 }
+			}
 			dd_sell_heavy_tank_chassis_click_enabled = { has_equipment = { heavy_tank_chassis > 9 } }
+			dd_ask_up_heavy_tank_chassis_click_enabled = {
+				has_equipment = { heavy_tank_chassis > 0 }
+				check_variable = { global.dd_ask_heavy_tank_chassis < 999 }
+			}
+			dd_ask_down_heavy_tank_chassis_click_enabled = {
+				has_equipment = { heavy_tank_chassis > 0 }
+				check_variable = { global.dd_ask_heavy_tank_chassis > 1 }
+			}
 			dd_helicopter_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -288,8 +769,25 @@ scripted_gui = {
 			dd_sell_helicopter_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_helicopter_eq_click_enabled = { check_variable = { treasury > 25.99 } }
+			dd_ask_up_helicopter_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_helicopter_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_helicopter_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_helicopter_eq } }
+				check_variable = { global.dd_pool_helicopter_eq > 19 }
+			}
 			dd_sell_helicopter_eq_click_enabled = { has_equipment = { helicopter_equipment > 19 } }
+			dd_ask_up_helicopter_eq_click_enabled = {
+				has_equipment = { helicopter_equipment > 0 }
+				check_variable = { global.dd_ask_helicopter_eq < 999 }
+			}
+			dd_ask_down_helicopter_eq_click_enabled = {
+				has_equipment = { helicopter_equipment > 0 }
+				check_variable = { global.dd_ask_helicopter_eq > 1 }
+			}
 			dd_infantry_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -302,8 +800,25 @@ scripted_gui = {
 			dd_sell_infantry_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_infantry_eq_click_enabled = { check_variable = { treasury > 9.99 } }
+			dd_ask_up_infantry_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_infantry_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_infantry_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_infantry_eq } }
+				check_variable = { global.dd_pool_infantry_eq > 99 }
+			}
 			dd_sell_infantry_eq_click_enabled = { has_equipment = { infantry_equipment > 99 } }
+			dd_ask_up_infantry_eq_click_enabled = {
+				has_equipment = { infantry_equipment > 0 }
+				check_variable = { global.dd_ask_infantry_eq < 999 }
+			}
+			dd_ask_down_infantry_eq_click_enabled = {
+				has_equipment = { infantry_equipment > 0 }
+				check_variable = { global.dd_ask_infantry_eq > 1 }
+			}
 			dd_land_cruiser_chassis_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -316,8 +831,25 @@ scripted_gui = {
 			dd_sell_land_cruiser_chassis_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_land_cruiser_chassis_click_enabled = { check_variable = { treasury > 46.99 } }
+			dd_ask_up_land_cruiser_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_land_cruiser_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_land_cruiser_chassis_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_land_cruiser_chassis } }
+				check_variable = { global.dd_pool_land_cruiser_chassis > 0 }
+			}
 			dd_sell_land_cruiser_chassis_click_enabled = { has_equipment = { land_cruiser_chassis > 0 } }
+			dd_ask_up_land_cruiser_chassis_click_enabled = {
+				has_equipment = { land_cruiser_chassis > 0 }
+				check_variable = { global.dd_ask_land_cruiser_chassis < 999 }
+			}
+			dd_ask_down_land_cruiser_chassis_click_enabled = {
+				has_equipment = { land_cruiser_chassis > 0 }
+				check_variable = { global.dd_ask_land_cruiser_chassis > 1 }
+			}
 			dd_light_tank_chassis_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -330,8 +862,56 @@ scripted_gui = {
 			dd_sell_light_tank_chassis_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_light_tank_chassis_click_enabled = { check_variable = { treasury > 3.99 } }
+			dd_ask_up_light_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_light_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_light_tank_chassis_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_light_tank_chassis } }
+				check_variable = { global.dd_pool_light_tank_chassis > 9 }
+			}
 			dd_sell_light_tank_chassis_click_enabled = { has_equipment = { light_tank_chassis > 9 } }
+			dd_ask_up_light_tank_chassis_click_enabled = {
+				has_equipment = { light_tank_chassis > 0 }
+				check_variable = { global.dd_ask_light_tank_chassis < 999 }
+			}
+			dd_ask_down_light_tank_chassis_click_enabled = {
+				has_equipment = { light_tank_chassis > 0 }
+				check_variable = { global.dd_ask_light_tank_chassis > 1 }
+			}
+			dd_manpads_eq_buy_price_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_manpads_eq_sell_price_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_manpads_eq_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_sell_manpads_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_up_manpads_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_manpads_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_manpads_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_manpads_eq } }
+				check_variable = { global.dd_pool_manpads_eq > 19 }
+			}
+			dd_sell_manpads_eq_click_enabled = { has_equipment = { manpads_equipment > 19 } }
+			dd_ask_up_manpads_eq_click_enabled = {
+				has_equipment = { manpads_equipment > 0 }
+				check_variable = { global.dd_ask_manpads_eq < 999 }
+			}
+			dd_ask_down_manpads_eq_click_enabled = {
+				has_equipment = { manpads_equipment > 0 }
+				check_variable = { global.dd_ask_manpads_eq > 1 }
+			}
 			dd_mechanized_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -344,8 +924,25 @@ scripted_gui = {
 			dd_sell_mechanized_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_mechanized_eq_click_enabled = { check_variable = { treasury > 16.99 } }
+			dd_ask_up_mechanized_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_mechanized_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_mechanized_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_mechanized_eq } }
+				check_variable = { global.dd_pool_mechanized_eq > 9 }
+			}
 			dd_sell_mechanized_eq_click_enabled = { has_equipment = { mechanized_equipment > 9 } }
+			dd_ask_up_mechanized_eq_click_enabled = {
+				has_equipment = { mechanized_equipment > 0 }
+				check_variable = { global.dd_ask_mechanized_eq < 999 }
+			}
+			dd_ask_down_mechanized_eq_click_enabled = {
+				has_equipment = { mechanized_equipment > 0 }
+				check_variable = { global.dd_ask_mechanized_eq > 1 }
+			}
 			dd_medium_tank_chassis_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -358,8 +955,25 @@ scripted_gui = {
 			dd_sell_medium_tank_chassis_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_medium_tank_chassis_click_enabled = { check_variable = { treasury > 5.99 } }
+			dd_ask_up_medium_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_medium_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_medium_tank_chassis_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_medium_tank_chassis } }
+				check_variable = { global.dd_pool_medium_tank_chassis > 9 }
+			}
 			dd_sell_medium_tank_chassis_click_enabled = { has_equipment = { medium_tank_chassis > 9 } }
+			dd_ask_up_medium_tank_chassis_click_enabled = {
+				has_equipment = { medium_tank_chassis > 0 }
+				check_variable = { global.dd_ask_medium_tank_chassis < 999 }
+			}
+			dd_ask_down_medium_tank_chassis_click_enabled = {
+				has_equipment = { medium_tank_chassis > 0 }
+				check_variable = { global.dd_ask_medium_tank_chassis > 1 }
+			}
 			dd_modern_tank_chassis_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -372,8 +986,25 @@ scripted_gui = {
 			dd_sell_modern_tank_chassis_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_modern_tank_chassis_click_enabled = { check_variable = { treasury > 8.99 } }
+			dd_ask_up_modern_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_modern_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_modern_tank_chassis_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_modern_tank_chassis } }
+				check_variable = { global.dd_pool_modern_tank_chassis > 9 }
+			}
 			dd_sell_modern_tank_chassis_click_enabled = { has_equipment = { modern_tank_chassis > 9 } }
+			dd_ask_up_modern_tank_chassis_click_enabled = {
+				has_equipment = { modern_tank_chassis > 0 }
+				check_variable = { global.dd_ask_modern_tank_chassis < 999 }
+			}
+			dd_ask_down_modern_tank_chassis_click_enabled = {
+				has_equipment = { modern_tank_chassis > 0 }
+				check_variable = { global.dd_ask_modern_tank_chassis > 1 }
+			}
 			dd_motorbike_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -386,8 +1017,25 @@ scripted_gui = {
 			dd_sell_motorbike_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_motorbike_eq_click_enabled = { check_variable = { treasury > 3.99 } }
+			dd_ask_up_motorbike_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_motorbike_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_motorbike_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_motorbike_eq } }
+				check_variable = { global.dd_pool_motorbike_eq > 19 }
+			}
 			dd_sell_motorbike_eq_click_enabled = { has_equipment = { motorbike_equipment > 19 } }
+			dd_ask_up_motorbike_eq_click_enabled = {
+				has_equipment = { motorbike_equipment > 0 }
+				check_variable = { global.dd_ask_motorbike_eq < 999 }
+			}
+			dd_ask_down_motorbike_eq_click_enabled = {
+				has_equipment = { motorbike_equipment > 0 }
+				check_variable = { global.dd_ask_motorbike_eq > 1 }
+			}
 			dd_motorized_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -400,8 +1048,25 @@ scripted_gui = {
 			dd_sell_motorized_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_motorized_eq_click_enabled = { check_variable = { treasury > 6.99 } }
+			dd_ask_up_motorized_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_motorized_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_motorized_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_motorized_eq } }
+				check_variable = { global.dd_pool_motorized_eq > 19 }
+			}
 			dd_sell_motorized_eq_click_enabled = { has_equipment = { motorized_equipment > 19 } }
+			dd_ask_up_motorized_eq_click_enabled = {
+				has_equipment = { motorized_equipment > 0 }
+				check_variable = { global.dd_ask_motorized_eq < 999 }
+			}
+			dd_ask_down_motorized_eq_click_enabled = {
+				has_equipment = { motorized_equipment > 0 }
+				check_variable = { global.dd_ask_motorized_eq > 1 }
+			}
 			dd_motorized_rocket_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -414,8 +1079,56 @@ scripted_gui = {
 			dd_sell_motorized_rocket_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_motorized_rocket_eq_click_enabled = { check_variable = { treasury > 33.99 } }
+			dd_ask_up_motorized_rocket_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_motorized_rocket_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_motorized_rocket_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_motorized_rocket_eq } }
+				check_variable = { global.dd_pool_motorized_rocket_eq > 19 }
+			}
 			dd_sell_motorized_rocket_eq_click_enabled = { has_equipment = { motorized_rocket_equipment > 19 } }
+			dd_ask_up_motorized_rocket_eq_click_enabled = {
+				has_equipment = { motorized_rocket_equipment > 0 }
+				check_variable = { global.dd_ask_motorized_rocket_eq < 999 }
+			}
+			dd_ask_down_motorized_rocket_eq_click_enabled = {
+				has_equipment = { motorized_rocket_equipment > 0 }
+				check_variable = { global.dd_ask_motorized_rocket_eq > 1 }
+			}
+			dd_prsm_eq_buy_price_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_prsm_eq_sell_price_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_prsm_eq_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_sell_prsm_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_up_prsm_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_prsm_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_prsm_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_prsm_eq } }
+				check_variable = { global.dd_pool_prsm_eq > 19 }
+			}
+			dd_sell_prsm_eq_click_enabled = { has_equipment = { prsm_equipment > 19 } }
+			dd_ask_up_prsm_eq_click_enabled = {
+				has_equipment = { prsm_equipment > 0 }
+				check_variable = { global.dd_ask_prsm_eq < 999 }
+			}
+			dd_ask_down_prsm_eq_click_enabled = {
+				has_equipment = { prsm_equipment > 0 }
+				check_variable = { global.dd_ask_prsm_eq > 1 }
+			}
 			dd_railway_gun_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -428,8 +1141,25 @@ scripted_gui = {
 			dd_sell_railway_gun_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_railway_gun_eq_click_enabled = { check_variable = { treasury > 113.99 } }
+			dd_ask_up_railway_gun_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_railway_gun_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_railway_gun_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_railway_gun_eq } }
+				check_variable = { global.dd_pool_railway_gun_eq > 0 }
+			}
 			dd_sell_railway_gun_eq_click_enabled = { has_equipment = { railway_gun_equipment > 0 } }
+			dd_ask_up_railway_gun_eq_click_enabled = {
+				has_equipment = { railway_gun_equipment > 0 }
+				check_variable = { global.dd_ask_railway_gun_eq < 999 }
+			}
+			dd_ask_down_railway_gun_eq_click_enabled = {
+				has_equipment = { railway_gun_equipment > 0 }
+				check_variable = { global.dd_ask_railway_gun_eq > 1 }
+			}
 			dd_rocket_artillery_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -442,8 +1172,25 @@ scripted_gui = {
 			dd_sell_rocket_artillery_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_rocket_artillery_eq_click_enabled = { check_variable = { treasury > 13.99 } }
+			dd_ask_up_rocket_artillery_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_rocket_artillery_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_rocket_artillery_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_rocket_artillery_eq } }
+				check_variable = { global.dd_pool_rocket_artillery_eq > 19 }
+			}
 			dd_sell_rocket_artillery_eq_click_enabled = { has_equipment = { rocket_artillery_equipment > 19 } }
+			dd_ask_up_rocket_artillery_eq_click_enabled = {
+				has_equipment = { rocket_artillery_equipment > 0 }
+				check_variable = { global.dd_ask_rocket_artillery_eq < 999 }
+			}
+			dd_ask_down_rocket_artillery_eq_click_enabled = {
+				has_equipment = { rocket_artillery_equipment > 0 }
+				check_variable = { global.dd_ask_rocket_artillery_eq > 1 }
+			}
 			dd_self_propelled_super_heavy_artillery_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -456,8 +1203,56 @@ scripted_gui = {
 			dd_sell_self_propelled_super_heavy_artillery_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_self_propelled_super_heavy_artillery_eq_click_enabled = { check_variable = { treasury > 185.99 } }
+			dd_ask_up_self_propelled_super_heavy_artillery_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_self_propelled_super_heavy_artillery_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_self_propelled_super_heavy_artillery_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_self_propelled_super_heavy_artillery_eq } }
+				check_variable = { global.dd_pool_self_propelled_super_heavy_artillery_eq > 19 }
+			}
 			dd_sell_self_propelled_super_heavy_artillery_eq_click_enabled = { has_equipment = { self_propelled_super_heavy_artillery_equipment > 19 } }
+			dd_ask_up_self_propelled_super_heavy_artillery_eq_click_enabled = {
+				has_equipment = { self_propelled_super_heavy_artillery_equipment > 0 }
+				check_variable = { global.dd_ask_self_propelled_super_heavy_artillery_eq < 999 }
+			}
+			dd_ask_down_self_propelled_super_heavy_artillery_eq_click_enabled = {
+				has_equipment = { self_propelled_super_heavy_artillery_equipment > 0 }
+				check_variable = { global.dd_ask_self_propelled_super_heavy_artillery_eq > 1 }
+			}
+			dd_spg_eq_buy_price_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_spg_eq_sell_price_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_spg_eq_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_sell_spg_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_up_spg_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_spg_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_spg_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_spg_eq } }
+				check_variable = { global.dd_pool_spg_eq > 19 }
+			}
+			dd_sell_spg_eq_click_enabled = { has_equipment = { spg_equipment > 19 } }
+			dd_ask_up_spg_eq_click_enabled = {
+				has_equipment = { spg_equipment > 0 }
+				check_variable = { global.dd_ask_spg_eq < 999 }
+			}
+			dd_ask_down_spg_eq_click_enabled = {
+				has_equipment = { spg_equipment > 0 }
+				check_variable = { global.dd_ask_spg_eq > 1 }
+			}
 			dd_super_heavy_artillery_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -470,8 +1265,25 @@ scripted_gui = {
 			dd_sell_super_heavy_artillery_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_super_heavy_artillery_eq_click_enabled = { check_variable = { treasury > 128.99 } }
+			dd_ask_up_super_heavy_artillery_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_super_heavy_artillery_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_super_heavy_artillery_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_super_heavy_artillery_eq } }
+				check_variable = { global.dd_pool_super_heavy_artillery_eq > 19 }
+			}
 			dd_sell_super_heavy_artillery_eq_click_enabled = { has_equipment = { super_heavy_artillery_equipment > 19 } }
+			dd_ask_up_super_heavy_artillery_eq_click_enabled = {
+				has_equipment = { super_heavy_artillery_equipment > 0 }
+				check_variable = { global.dd_ask_super_heavy_artillery_eq < 999 }
+			}
+			dd_ask_down_super_heavy_artillery_eq_click_enabled = {
+				has_equipment = { super_heavy_artillery_equipment > 0 }
+				check_variable = { global.dd_ask_super_heavy_artillery_eq > 1 }
+			}
 			dd_super_heavy_railway_gun_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -484,8 +1296,25 @@ scripted_gui = {
 			dd_sell_super_heavy_railway_gun_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_super_heavy_railway_gun_eq_click_enabled = { check_variable = { treasury > 228.99 } }
+			dd_ask_up_super_heavy_railway_gun_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_super_heavy_railway_gun_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_super_heavy_railway_gun_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_super_heavy_railway_gun_eq } }
+				check_variable = { global.dd_pool_super_heavy_railway_gun_eq > 0 }
+			}
 			dd_sell_super_heavy_railway_gun_eq_click_enabled = { has_equipment = { super_heavy_railway_gun_equipment > 0 } }
+			dd_ask_up_super_heavy_railway_gun_eq_click_enabled = {
+				has_equipment = { super_heavy_railway_gun_equipment > 0 }
+				check_variable = { global.dd_ask_super_heavy_railway_gun_eq < 999 }
+			}
+			dd_ask_down_super_heavy_railway_gun_eq_click_enabled = {
+				has_equipment = { super_heavy_railway_gun_equipment > 0 }
+				check_variable = { global.dd_ask_super_heavy_railway_gun_eq > 1 }
+			}
 			dd_super_heavy_tank_chassis_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -498,8 +1327,25 @@ scripted_gui = {
 			dd_sell_super_heavy_tank_chassis_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_super_heavy_tank_chassis_click_enabled = { check_variable = { treasury > 39.99 } }
+			dd_ask_up_super_heavy_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_super_heavy_tank_chassis_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_super_heavy_tank_chassis_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_super_heavy_tank_chassis } }
+				check_variable = { global.dd_pool_super_heavy_tank_chassis > 9 }
+			}
 			dd_sell_super_heavy_tank_chassis_click_enabled = { has_equipment = { super_heavy_tank_chassis > 9 } }
+			dd_ask_up_super_heavy_tank_chassis_click_enabled = {
+				has_equipment = { super_heavy_tank_chassis > 0 }
+				check_variable = { global.dd_ask_super_heavy_tank_chassis < 999 }
+			}
+			dd_ask_down_super_heavy_tank_chassis_click_enabled = {
+				has_equipment = { super_heavy_tank_chassis > 0 }
+				check_variable = { global.dd_ask_super_heavy_tank_chassis > 1 }
+			}
 			dd_support_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -512,8 +1358,25 @@ scripted_gui = {
 			dd_sell_support_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_support_eq_click_enabled = { check_variable = { treasury > 56.99 } }
+			dd_ask_up_support_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_support_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_support_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_support_eq } }
+				check_variable = { global.dd_pool_support_eq > 99 }
+			}
 			dd_sell_support_eq_click_enabled = { has_equipment = { support_equipment > 99 } }
+			dd_ask_up_support_eq_click_enabled = {
+				has_equipment = { support_equipment > 0 }
+				check_variable = { global.dd_ask_support_eq < 999 }
+			}
+			dd_ask_down_support_eq_click_enabled = {
+				has_equipment = { support_equipment > 0 }
+				check_variable = { global.dd_ask_support_eq > 1 }
+			}
 			dd_train_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -526,8 +1389,25 @@ scripted_gui = {
 			dd_sell_train_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_train_eq_click_enabled = { check_variable = { treasury > 35.99 } }
+			dd_ask_up_train_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_train_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_train_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_train_eq } }
+				check_variable = { global.dd_pool_train_eq > 4 }
+			}
 			dd_sell_train_eq_click_enabled = { has_equipment = { train_equipment > 4 } }
+			dd_ask_up_train_eq_click_enabled = {
+				has_equipment = { train_equipment > 0 }
+				check_variable = { global.dd_ask_train_eq < 999 }
+			}
+			dd_ask_down_train_eq_click_enabled = {
+				has_equipment = { train_equipment > 0 }
+				check_variable = { global.dd_ask_train_eq > 1 }
+			}
 		}
 	}
 	dd_market_list_air_ui = {
@@ -542,34 +1422,68 @@ scripted_gui = {
 		effects = {
 			dd_buy_ballistic_missile_eq_click = { dd_buy_ballistic_missile_eq = yes }
 			dd_sell_ballistic_missile_eq_click = { dd_sell_ballistic_missile_eq = yes }
+			dd_ask_up_ballistic_missile_eq_click = { dd_ask_up_ballistic_missile_eq = yes }
+			dd_ask_down_ballistic_missile_eq_click = { dd_ask_down_ballistic_missile_eq = yes }
 			dd_buy_cv_small_plane_airframe_click = { dd_buy_cv_small_plane_airframe = yes }
 			dd_sell_cv_small_plane_airframe_click = { dd_sell_cv_small_plane_airframe = yes }
+			dd_ask_up_cv_small_plane_airframe_click = { dd_ask_up_cv_small_plane_airframe = yes }
+			dd_ask_down_cv_small_plane_airframe_click = { dd_ask_down_cv_small_plane_airframe = yes }
 			dd_buy_explosive_ammo_eq_click = { dd_buy_explosive_ammo_eq = yes }
 			dd_sell_explosive_ammo_eq_click = { dd_sell_explosive_ammo_eq = yes }
+			dd_ask_up_explosive_ammo_eq_click = { dd_ask_up_explosive_ammo_eq = yes }
+			dd_ask_down_explosive_ammo_eq_click = { dd_ask_down_explosive_ammo_eq = yes }
 			dd_buy_guided_missile_eq_click = { dd_buy_guided_missile_eq = yes }
 			dd_sell_guided_missile_eq_click = { dd_sell_guided_missile_eq = yes }
+			dd_ask_up_guided_missile_eq_click = { dd_ask_up_guided_missile_eq = yes }
+			dd_ask_down_guided_missile_eq_click = { dd_ask_down_guided_missile_eq = yes }
+			dd_buy_hypersonic_missile_eq_click = { dd_buy_hypersonic_missile_eq = yes }
+			dd_sell_hypersonic_missile_eq_click = { dd_sell_hypersonic_missile_eq = yes }
+			dd_ask_up_hypersonic_missile_eq_click = { dd_ask_up_hypersonic_missile_eq = yes }
+			dd_ask_down_hypersonic_missile_eq_click = { dd_ask_down_hypersonic_missile_eq = yes }
 			dd_buy_large_plane_airframe_click = { dd_buy_large_plane_airframe = yes }
 			dd_sell_large_plane_airframe_click = { dd_sell_large_plane_airframe = yes }
+			dd_ask_up_large_plane_airframe_click = { dd_ask_up_large_plane_airframe = yes }
+			dd_ask_down_large_plane_airframe_click = { dd_ask_down_large_plane_airframe = yes }
 			dd_buy_loitering_munition_eq_click = { dd_buy_loitering_munition_eq = yes }
 			dd_sell_loitering_munition_eq_click = { dd_sell_loitering_munition_eq = yes }
+			dd_ask_up_loitering_munition_eq_click = { dd_ask_up_loitering_munition_eq = yes }
+			dd_ask_down_loitering_munition_eq_click = { dd_ask_down_loitering_munition_eq = yes }
 			dd_buy_medium_plane_airframe_click = { dd_buy_medium_plane_airframe = yes }
 			dd_sell_medium_plane_airframe_click = { dd_sell_medium_plane_airframe = yes }
+			dd_ask_up_medium_plane_airframe_click = { dd_ask_up_medium_plane_airframe = yes }
+			dd_ask_down_medium_plane_airframe_click = { dd_ask_down_medium_plane_airframe = yes }
 			dd_buy_nuclear_missile_eq_click = { dd_buy_nuclear_missile_eq = yes }
 			dd_sell_nuclear_missile_eq_click = { dd_sell_nuclear_missile_eq = yes }
+			dd_ask_up_nuclear_missile_eq_click = { dd_ask_up_nuclear_missile_eq = yes }
+			dd_ask_down_nuclear_missile_eq_click = { dd_ask_down_nuclear_missile_eq = yes }
 			dd_buy_recon_uav_eq_click = { dd_buy_recon_uav_eq = yes }
 			dd_sell_recon_uav_eq_click = { dd_sell_recon_uav_eq = yes }
+			dd_ask_up_recon_uav_eq_click = { dd_ask_up_recon_uav_eq = yes }
+			dd_ask_down_recon_uav_eq_click = { dd_ask_down_recon_uav_eq = yes }
 			dd_buy_sam_missile_eq_click = { dd_buy_sam_missile_eq = yes }
 			dd_sell_sam_missile_eq_click = { dd_sell_sam_missile_eq = yes }
+			dd_ask_up_sam_missile_eq_click = { dd_ask_up_sam_missile_eq = yes }
+			dd_ask_down_sam_missile_eq_click = { dd_ask_down_sam_missile_eq = yes }
 			dd_buy_small_plane_airframe_click = { dd_buy_small_plane_airframe = yes }
 			dd_sell_small_plane_airframe_click = { dd_sell_small_plane_airframe = yes }
+			dd_ask_up_small_plane_airframe_click = { dd_ask_up_small_plane_airframe = yes }
+			dd_ask_down_small_plane_airframe_click = { dd_ask_down_small_plane_airframe = yes }
 			dd_buy_strat_bomber_intercontinental_eq_click = { dd_buy_strat_bomber_intercontinental_eq = yes }
 			dd_sell_strat_bomber_intercontinental_eq_click = { dd_sell_strat_bomber_intercontinental_eq = yes }
+			dd_ask_up_strat_bomber_intercontinental_eq_click = { dd_ask_up_strat_bomber_intercontinental_eq = yes }
+			dd_ask_down_strat_bomber_intercontinental_eq_click = { dd_ask_down_strat_bomber_intercontinental_eq = yes }
 			dd_buy_strike_uav_eq_click = { dd_buy_strike_uav_eq = yes }
 			dd_sell_strike_uav_eq_click = { dd_sell_strike_uav_eq = yes }
+			dd_ask_up_strike_uav_eq_click = { dd_ask_up_strike_uav_eq = yes }
+			dd_ask_down_strike_uav_eq_click = { dd_ask_down_strike_uav_eq = yes }
 			dd_buy_transport_heli_eq_click = { dd_buy_transport_heli_eq = yes }
 			dd_sell_transport_heli_eq_click = { dd_sell_transport_heli_eq = yes }
+			dd_ask_up_transport_heli_eq_click = { dd_ask_up_transport_heli_eq = yes }
+			dd_ask_down_transport_heli_eq_click = { dd_ask_down_transport_heli_eq = yes }
 			dd_buy_transport_plane_eq_click = { dd_buy_transport_plane_eq = yes }
 			dd_sell_transport_plane_eq_click = { dd_sell_transport_plane_eq = yes }
+			dd_ask_up_transport_plane_eq_click = { dd_ask_up_transport_plane_eq = yes }
+			dd_ask_down_transport_plane_eq_click = { dd_ask_down_transport_plane_eq = yes }
 		}
 
 		triggers = {
@@ -585,8 +1499,25 @@ scripted_gui = {
 			dd_sell_ballistic_missile_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_ballistic_missile_eq_click_enabled = { check_variable = { treasury > 99.99 } }
+			dd_ask_up_ballistic_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_ballistic_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_ballistic_missile_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_ballistic_missile_eq } }
+				check_variable = { global.dd_pool_ballistic_missile_eq > 9 }
+			}
 			dd_sell_ballistic_missile_eq_click_enabled = { has_equipment = { ballistic_missile_equipment > 9 } }
+			dd_ask_up_ballistic_missile_eq_click_enabled = {
+				has_equipment = { ballistic_missile_equipment > 0 }
+				check_variable = { global.dd_ask_ballistic_missile_eq < 999 }
+			}
+			dd_ask_down_ballistic_missile_eq_click_enabled = {
+				has_equipment = { ballistic_missile_equipment > 0 }
+				check_variable = { global.dd_ask_ballistic_missile_eq > 1 }
+			}
 			dd_cv_small_plane_airframe_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -599,8 +1530,25 @@ scripted_gui = {
 			dd_sell_cv_small_plane_airframe_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_cv_small_plane_airframe_click_enabled = { check_variable = { treasury > 20.99 } }
+			dd_ask_up_cv_small_plane_airframe_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_cv_small_plane_airframe_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_cv_small_plane_airframe_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_cv_small_plane_airframe } }
+				check_variable = { global.dd_pool_cv_small_plane_airframe > 9 }
+			}
 			dd_sell_cv_small_plane_airframe_click_enabled = { has_equipment = { cv_small_plane_airframe > 9 } }
+			dd_ask_up_cv_small_plane_airframe_click_enabled = {
+				has_equipment = { cv_small_plane_airframe > 0 }
+				check_variable = { global.dd_ask_cv_small_plane_airframe < 999 }
+			}
+			dd_ask_down_cv_small_plane_airframe_click_enabled = {
+				has_equipment = { cv_small_plane_airframe > 0 }
+				check_variable = { global.dd_ask_cv_small_plane_airframe > 1 }
+			}
 			dd_explosive_ammo_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -613,8 +1561,25 @@ scripted_gui = {
 			dd_sell_explosive_ammo_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_explosive_ammo_eq_click_enabled = { check_variable = { treasury > 35.99 } }
+			dd_ask_up_explosive_ammo_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_explosive_ammo_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_explosive_ammo_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_explosive_ammo_eq } }
+				check_variable = { global.dd_pool_explosive_ammo_eq > 9 }
+			}
 			dd_sell_explosive_ammo_eq_click_enabled = { has_equipment = { explosive_ammo_equipment > 9 } }
+			dd_ask_up_explosive_ammo_eq_click_enabled = {
+				has_equipment = { explosive_ammo_equipment > 0 }
+				check_variable = { global.dd_ask_explosive_ammo_eq < 999 }
+			}
+			dd_ask_down_explosive_ammo_eq_click_enabled = {
+				has_equipment = { explosive_ammo_equipment > 0 }
+				check_variable = { global.dd_ask_explosive_ammo_eq > 1 }
+			}
 			dd_guided_missile_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -627,8 +1592,56 @@ scripted_gui = {
 			dd_sell_guided_missile_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_guided_missile_eq_click_enabled = { check_variable = { treasury > 68.99 } }
+			dd_ask_up_guided_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_guided_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_guided_missile_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_guided_missile_eq } }
+				check_variable = { global.dd_pool_guided_missile_eq > 9 }
+			}
 			dd_sell_guided_missile_eq_click_enabled = { has_equipment = { guided_missile_equipment > 9 } }
+			dd_ask_up_guided_missile_eq_click_enabled = {
+				has_equipment = { guided_missile_equipment > 0 }
+				check_variable = { global.dd_ask_guided_missile_eq < 999 }
+			}
+			dd_ask_down_guided_missile_eq_click_enabled = {
+				has_equipment = { guided_missile_equipment > 0 }
+				check_variable = { global.dd_ask_guided_missile_eq > 1 }
+			}
+			dd_hypersonic_missile_eq_buy_price_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_hypersonic_missile_eq_sell_price_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_hypersonic_missile_eq_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_sell_hypersonic_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_up_hypersonic_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_hypersonic_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_hypersonic_missile_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_hypersonic_missile_eq } }
+				check_variable = { global.dd_pool_hypersonic_missile_eq > 9 }
+			}
+			dd_sell_hypersonic_missile_eq_click_enabled = { has_equipment = { hypersonic_missile_equipment > 9 } }
+			dd_ask_up_hypersonic_missile_eq_click_enabled = {
+				has_equipment = { hypersonic_missile_equipment > 0 }
+				check_variable = { global.dd_ask_hypersonic_missile_eq < 999 }
+			}
+			dd_ask_down_hypersonic_missile_eq_click_enabled = {
+				has_equipment = { hypersonic_missile_equipment > 0 }
+				check_variable = { global.dd_ask_hypersonic_missile_eq > 1 }
+			}
 			dd_large_plane_airframe_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -641,8 +1654,25 @@ scripted_gui = {
 			dd_sell_large_plane_airframe_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_large_plane_airframe_click_enabled = { check_variable = { treasury > 32.99 } }
+			dd_ask_up_large_plane_airframe_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_large_plane_airframe_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_large_plane_airframe_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_large_plane_airframe } }
+				check_variable = { global.dd_pool_large_plane_airframe > 9 }
+			}
 			dd_sell_large_plane_airframe_click_enabled = { has_equipment = { large_plane_airframe > 9 } }
+			dd_ask_up_large_plane_airframe_click_enabled = {
+				has_equipment = { large_plane_airframe > 0 }
+				check_variable = { global.dd_ask_large_plane_airframe < 999 }
+			}
+			dd_ask_down_large_plane_airframe_click_enabled = {
+				has_equipment = { large_plane_airframe > 0 }
+				check_variable = { global.dd_ask_large_plane_airframe > 1 }
+			}
 			dd_loitering_munition_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -655,8 +1685,25 @@ scripted_gui = {
 			dd_sell_loitering_munition_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_loitering_munition_eq_click_enabled = { check_variable = { treasury > 10.99 } }
+			dd_ask_up_loitering_munition_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_loitering_munition_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_loitering_munition_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_loitering_munition_eq } }
+				check_variable = { global.dd_pool_loitering_munition_eq > 9 }
+			}
 			dd_sell_loitering_munition_eq_click_enabled = { has_equipment = { loitering_munition_equipment > 9 } }
+			dd_ask_up_loitering_munition_eq_click_enabled = {
+				has_equipment = { loitering_munition_equipment > 0 }
+				check_variable = { global.dd_ask_loitering_munition_eq < 999 }
+			}
+			dd_ask_down_loitering_munition_eq_click_enabled = {
+				has_equipment = { loitering_munition_equipment > 0 }
+				check_variable = { global.dd_ask_loitering_munition_eq > 1 }
+			}
 			dd_medium_plane_airframe_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -669,8 +1716,25 @@ scripted_gui = {
 			dd_sell_medium_plane_airframe_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_medium_plane_airframe_click_enabled = { check_variable = { treasury > 19.99 } }
+			dd_ask_up_medium_plane_airframe_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_medium_plane_airframe_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_medium_plane_airframe_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_medium_plane_airframe } }
+				check_variable = { global.dd_pool_medium_plane_airframe > 9 }
+			}
 			dd_sell_medium_plane_airframe_click_enabled = { has_equipment = { medium_plane_airframe > 9 } }
+			dd_ask_up_medium_plane_airframe_click_enabled = {
+				has_equipment = { medium_plane_airframe > 0 }
+				check_variable = { global.dd_ask_medium_plane_airframe < 999 }
+			}
+			dd_ask_down_medium_plane_airframe_click_enabled = {
+				has_equipment = { medium_plane_airframe > 0 }
+				check_variable = { global.dd_ask_medium_plane_airframe > 1 }
+			}
 			dd_nuclear_missile_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -683,8 +1747,25 @@ scripted_gui = {
 			dd_sell_nuclear_missile_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_nuclear_missile_eq_click_enabled = { check_variable = { treasury > 1713.99 } }
+			dd_ask_up_nuclear_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_nuclear_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_nuclear_missile_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_nuclear_missile_eq } }
+				check_variable = { global.dd_pool_nuclear_missile_eq > 9 }
+			}
 			dd_sell_nuclear_missile_eq_click_enabled = { has_equipment = { nuclear_missile_equipment > 9 } }
+			dd_ask_up_nuclear_missile_eq_click_enabled = {
+				has_equipment = { nuclear_missile_equipment > 0 }
+				check_variable = { global.dd_ask_nuclear_missile_eq < 999 }
+			}
+			dd_ask_down_nuclear_missile_eq_click_enabled = {
+				has_equipment = { nuclear_missile_equipment > 0 }
+				check_variable = { global.dd_ask_nuclear_missile_eq > 1 }
+			}
 			dd_recon_uav_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -697,8 +1778,25 @@ scripted_gui = {
 			dd_sell_recon_uav_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_recon_uav_eq_click_enabled = { check_variable = { treasury > 25.99 } }
+			dd_ask_up_recon_uav_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_recon_uav_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_recon_uav_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_recon_uav_eq } }
+				check_variable = { global.dd_pool_recon_uav_eq > 9 }
+			}
 			dd_sell_recon_uav_eq_click_enabled = { has_equipment = { recon_uav_equipment > 9 } }
+			dd_ask_up_recon_uav_eq_click_enabled = {
+				has_equipment = { recon_uav_equipment > 0 }
+				check_variable = { global.dd_ask_recon_uav_eq < 999 }
+			}
+			dd_ask_down_recon_uav_eq_click_enabled = {
+				has_equipment = { recon_uav_equipment > 0 }
+				check_variable = { global.dd_ask_recon_uav_eq > 1 }
+			}
 			dd_sam_missile_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -711,8 +1809,25 @@ scripted_gui = {
 			dd_sell_sam_missile_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_sam_missile_eq_click_enabled = { check_variable = { treasury > 50.99 } }
+			dd_ask_up_sam_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_sam_missile_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_sam_missile_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_sam_missile_eq } }
+				check_variable = { global.dd_pool_sam_missile_eq > 9 }
+			}
 			dd_sell_sam_missile_eq_click_enabled = { has_equipment = { sam_missile_equipment > 9 } }
+			dd_ask_up_sam_missile_eq_click_enabled = {
+				has_equipment = { sam_missile_equipment > 0 }
+				check_variable = { global.dd_ask_sam_missile_eq < 999 }
+			}
+			dd_ask_down_sam_missile_eq_click_enabled = {
+				has_equipment = { sam_missile_equipment > 0 }
+				check_variable = { global.dd_ask_sam_missile_eq > 1 }
+			}
 			dd_small_plane_airframe_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -725,8 +1840,25 @@ scripted_gui = {
 			dd_sell_small_plane_airframe_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_small_plane_airframe_click_enabled = { check_variable = { treasury > 19.99 } }
+			dd_ask_up_small_plane_airframe_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_small_plane_airframe_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_small_plane_airframe_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_small_plane_airframe } }
+				check_variable = { global.dd_pool_small_plane_airframe > 9 }
+			}
 			dd_sell_small_plane_airframe_click_enabled = { has_equipment = { small_plane_airframe > 9 } }
+			dd_ask_up_small_plane_airframe_click_enabled = {
+				has_equipment = { small_plane_airframe > 0 }
+				check_variable = { global.dd_ask_small_plane_airframe < 999 }
+			}
+			dd_ask_down_small_plane_airframe_click_enabled = {
+				has_equipment = { small_plane_airframe > 0 }
+				check_variable = { global.dd_ask_small_plane_airframe > 1 }
+			}
 			dd_strat_bomber_intercontinental_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -739,8 +1871,25 @@ scripted_gui = {
 			dd_sell_strat_bomber_intercontinental_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_strat_bomber_intercontinental_eq_click_enabled = { check_variable = { treasury > 199.99 } }
+			dd_ask_up_strat_bomber_intercontinental_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_strat_bomber_intercontinental_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_strat_bomber_intercontinental_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_strat_bomber_intercontinental_eq } }
+				check_variable = { global.dd_pool_strat_bomber_intercontinental_eq > 9 }
+			}
 			dd_sell_strat_bomber_intercontinental_eq_click_enabled = { has_equipment = { strat_bomber_intercontinental_equipment > 9 } }
+			dd_ask_up_strat_bomber_intercontinental_eq_click_enabled = {
+				has_equipment = { strat_bomber_intercontinental_equipment > 0 }
+				check_variable = { global.dd_ask_strat_bomber_intercontinental_eq < 999 }
+			}
+			dd_ask_down_strat_bomber_intercontinental_eq_click_enabled = {
+				has_equipment = { strat_bomber_intercontinental_equipment > 0 }
+				check_variable = { global.dd_ask_strat_bomber_intercontinental_eq > 1 }
+			}
 			dd_strike_uav_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -753,8 +1902,25 @@ scripted_gui = {
 			dd_sell_strike_uav_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_strike_uav_eq_click_enabled = { check_variable = { treasury > 30.99 } }
+			dd_ask_up_strike_uav_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_strike_uav_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_strike_uav_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_strike_uav_eq } }
+				check_variable = { global.dd_pool_strike_uav_eq > 9 }
+			}
 			dd_sell_strike_uav_eq_click_enabled = { has_equipment = { strike_uav_equipment > 9 } }
+			dd_ask_up_strike_uav_eq_click_enabled = {
+				has_equipment = { strike_uav_equipment > 0 }
+				check_variable = { global.dd_ask_strike_uav_eq < 999 }
+			}
+			dd_ask_down_strike_uav_eq_click_enabled = {
+				has_equipment = { strike_uav_equipment > 0 }
+				check_variable = { global.dd_ask_strike_uav_eq > 1 }
+			}
 			dd_transport_heli_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -767,8 +1933,25 @@ scripted_gui = {
 			dd_sell_transport_heli_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_transport_heli_eq_click_enabled = { check_variable = { treasury > 39.99 } }
+			dd_ask_up_transport_heli_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_transport_heli_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_transport_heli_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_transport_heli_eq } }
+				check_variable = { global.dd_pool_transport_heli_eq > 9 }
+			}
 			dd_sell_transport_heli_eq_click_enabled = { has_equipment = { transport_heli_equipment > 9 } }
+			dd_ask_up_transport_heli_eq_click_enabled = {
+				has_equipment = { transport_heli_equipment > 0 }
+				check_variable = { global.dd_ask_transport_heli_eq < 999 }
+			}
+			dd_ask_down_transport_heli_eq_click_enabled = {
+				has_equipment = { transport_heli_equipment > 0 }
+				check_variable = { global.dd_ask_transport_heli_eq > 1 }
+			}
 			dd_transport_plane_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -781,8 +1964,25 @@ scripted_gui = {
 			dd_sell_transport_plane_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_transport_plane_eq_click_enabled = { check_variable = { treasury > 53.99 } }
+			dd_ask_up_transport_plane_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_transport_plane_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_transport_plane_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_transport_plane_eq } }
+				check_variable = { global.dd_pool_transport_plane_eq > 9 }
+			}
 			dd_sell_transport_plane_eq_click_enabled = { has_equipment = { transport_plane_equipment > 9 } }
+			dd_ask_up_transport_plane_eq_click_enabled = {
+				has_equipment = { transport_plane_equipment > 0 }
+				check_variable = { global.dd_ask_transport_plane_eq < 999 }
+			}
+			dd_ask_down_transport_plane_eq_click_enabled = {
+				has_equipment = { transport_plane_equipment > 0 }
+				check_variable = { global.dd_ask_transport_plane_eq > 1 }
+			}
 		}
 	}
 	dd_market_list_navy_ui = {
@@ -797,22 +1997,40 @@ scripted_gui = {
 		effects = {
 			dd_buy_convoy_click = { dd_buy_convoy = yes }
 			dd_sell_convoy_click = { dd_sell_convoy = yes }
+			dd_ask_up_convoy_click = { dd_ask_up_convoy = yes }
+			dd_ask_down_convoy_click = { dd_ask_down_convoy = yes }
 			dd_buy_floating_harbor_eq_click = { dd_buy_floating_harbor_eq = yes }
 			dd_sell_floating_harbor_eq_click = { dd_sell_floating_harbor_eq = yes }
+			dd_ask_up_floating_harbor_eq_click = { dd_ask_up_floating_harbor_eq = yes }
+			dd_ask_down_floating_harbor_eq_click = { dd_ask_down_floating_harbor_eq = yes }
 			dd_buy_repair_ship_hull_click = { dd_buy_repair_ship_hull = yes }
 			dd_sell_repair_ship_hull_click = { dd_sell_repair_ship_hull = yes }
+			dd_ask_up_repair_ship_hull_click = { dd_ask_up_repair_ship_hull = yes }
+			dd_ask_down_repair_ship_hull_click = { dd_ask_down_repair_ship_hull = yes }
 			dd_buy_ship_hull_carrier_click = { dd_buy_ship_hull_carrier = yes }
 			dd_sell_ship_hull_carrier_click = { dd_sell_ship_hull_carrier = yes }
+			dd_ask_up_ship_hull_carrier_click = { dd_ask_up_ship_hull_carrier = yes }
+			dd_ask_down_ship_hull_carrier_click = { dd_ask_down_ship_hull_carrier = yes }
 			dd_buy_ship_hull_cruiser_click = { dd_buy_ship_hull_cruiser = yes }
 			dd_sell_ship_hull_cruiser_click = { dd_sell_ship_hull_cruiser = yes }
+			dd_ask_up_ship_hull_cruiser_click = { dd_ask_up_ship_hull_cruiser = yes }
+			dd_ask_down_ship_hull_cruiser_click = { dd_ask_down_ship_hull_cruiser = yes }
 			dd_buy_ship_hull_heavy_click = { dd_buy_ship_hull_heavy = yes }
 			dd_sell_ship_hull_heavy_click = { dd_sell_ship_hull_heavy = yes }
+			dd_ask_up_ship_hull_heavy_click = { dd_ask_up_ship_hull_heavy = yes }
+			dd_ask_down_ship_hull_heavy_click = { dd_ask_down_ship_hull_heavy = yes }
 			dd_buy_ship_hull_light_click = { dd_buy_ship_hull_light = yes }
 			dd_sell_ship_hull_light_click = { dd_sell_ship_hull_light = yes }
+			dd_ask_up_ship_hull_light_click = { dd_ask_up_ship_hull_light = yes }
+			dd_ask_down_ship_hull_light_click = { dd_ask_down_ship_hull_light = yes }
 			dd_buy_ship_hull_submarine_click = { dd_buy_ship_hull_submarine = yes }
 			dd_sell_ship_hull_submarine_click = { dd_sell_ship_hull_submarine = yes }
+			dd_ask_up_ship_hull_submarine_click = { dd_ask_up_ship_hull_submarine = yes }
+			dd_ask_down_ship_hull_submarine_click = { dd_ask_down_ship_hull_submarine = yes }
 			dd_buy_support_ship_hull_click = { dd_buy_support_ship_hull = yes }
 			dd_sell_support_ship_hull_click = { dd_sell_support_ship_hull = yes }
+			dd_ask_up_support_ship_hull_click = { dd_ask_up_support_ship_hull = yes }
+			dd_ask_down_support_ship_hull_click = { dd_ask_down_support_ship_hull = yes }
 		}
 
 		triggers = {
@@ -828,8 +2046,25 @@ scripted_gui = {
 			dd_sell_convoy_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_convoy_click_enabled = { check_variable = { treasury > 99.99 } }
+			dd_ask_up_convoy_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_convoy_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_convoy_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_convoy } }
+				check_variable = { global.dd_pool_convoy > 9 }
+			}
 			dd_sell_convoy_click_enabled = { has_equipment = { convoy > 9 } }
+			dd_ask_up_convoy_click_enabled = {
+				has_equipment = { convoy > 0 }
+				check_variable = { global.dd_ask_convoy < 999 }
+			}
+			dd_ask_down_convoy_click_enabled = {
+				has_equipment = { convoy > 0 }
+				check_variable = { global.dd_ask_convoy > 1 }
+			}
 			dd_floating_harbor_eq_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -842,8 +2077,25 @@ scripted_gui = {
 			dd_sell_floating_harbor_eq_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_floating_harbor_eq_click_enabled = { check_variable = { treasury > 56.99 } }
+			dd_ask_up_floating_harbor_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_floating_harbor_eq_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_floating_harbor_eq_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_floating_harbor_eq } }
+				check_variable = { global.dd_pool_floating_harbor_eq > 0 }
+			}
 			dd_sell_floating_harbor_eq_click_enabled = { has_equipment = { floating_harbor_equipment > 0 } }
+			dd_ask_up_floating_harbor_eq_click_enabled = {
+				has_equipment = { floating_harbor_equipment > 0 }
+				check_variable = { global.dd_ask_floating_harbor_eq < 999 }
+			}
+			dd_ask_down_floating_harbor_eq_click_enabled = {
+				has_equipment = { floating_harbor_equipment > 0 }
+				check_variable = { global.dd_ask_floating_harbor_eq > 1 }
+			}
 			dd_repair_ship_hull_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -856,8 +2108,25 @@ scripted_gui = {
 			dd_sell_repair_ship_hull_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_repair_ship_hull_click_enabled = { check_variable = { treasury > 92.99 } }
+			dd_ask_up_repair_ship_hull_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_repair_ship_hull_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_repair_ship_hull_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_repair_ship_hull } }
+				check_variable = { global.dd_pool_repair_ship_hull > 0 }
+			}
 			dd_sell_repair_ship_hull_click_enabled = { has_equipment = { repair_ship_hull > 0 } }
+			dd_ask_up_repair_ship_hull_click_enabled = {
+				has_equipment = { repair_ship_hull > 0 }
+				check_variable = { global.dd_ask_repair_ship_hull < 999 }
+			}
+			dd_ask_down_repair_ship_hull_click_enabled = {
+				has_equipment = { repair_ship_hull > 0 }
+				check_variable = { global.dd_ask_repair_ship_hull > 1 }
+			}
 			dd_ship_hull_carrier_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -870,8 +2139,25 @@ scripted_gui = {
 			dd_sell_ship_hull_carrier_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_ship_hull_carrier_click_enabled = { check_variable = { treasury > 928.99 } }
+			dd_ask_up_ship_hull_carrier_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_ship_hull_carrier_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_ship_hull_carrier_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_ship_hull_carrier } }
+				check_variable = { global.dd_pool_ship_hull_carrier > 0 }
+			}
 			dd_sell_ship_hull_carrier_click_enabled = { has_equipment = { ship_hull_carrier > 0 } }
+			dd_ask_up_ship_hull_carrier_click_enabled = {
+				has_equipment = { ship_hull_carrier > 0 }
+				check_variable = { global.dd_ask_ship_hull_carrier < 999 }
+			}
+			dd_ask_down_ship_hull_carrier_click_enabled = {
+				has_equipment = { ship_hull_carrier > 0 }
+				check_variable = { global.dd_ask_ship_hull_carrier > 1 }
+			}
 			dd_ship_hull_cruiser_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -884,8 +2170,25 @@ scripted_gui = {
 			dd_sell_ship_hull_cruiser_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_ship_hull_cruiser_click_enabled = { check_variable = { treasury > 299.99 } }
+			dd_ask_up_ship_hull_cruiser_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_ship_hull_cruiser_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_ship_hull_cruiser_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_ship_hull_cruiser } }
+				check_variable = { global.dd_pool_ship_hull_cruiser > 0 }
+			}
 			dd_sell_ship_hull_cruiser_click_enabled = { has_equipment = { ship_hull_cruiser > 0 } }
+			dd_ask_up_ship_hull_cruiser_click_enabled = {
+				has_equipment = { ship_hull_cruiser > 0 }
+				check_variable = { global.dd_ask_ship_hull_cruiser < 999 }
+			}
+			dd_ask_down_ship_hull_cruiser_click_enabled = {
+				has_equipment = { ship_hull_cruiser > 0 }
+				check_variable = { global.dd_ask_ship_hull_cruiser > 1 }
+			}
 			dd_ship_hull_heavy_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -898,8 +2201,25 @@ scripted_gui = {
 			dd_sell_ship_hull_heavy_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_ship_hull_heavy_click_enabled = { check_variable = { treasury > 513.99 } }
+			dd_ask_up_ship_hull_heavy_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_ship_hull_heavy_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_ship_hull_heavy_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_ship_hull_heavy } }
+				check_variable = { global.dd_pool_ship_hull_heavy > 0 }
+			}
 			dd_sell_ship_hull_heavy_click_enabled = { has_equipment = { ship_hull_heavy > 0 } }
+			dd_ask_up_ship_hull_heavy_click_enabled = {
+				has_equipment = { ship_hull_heavy > 0 }
+				check_variable = { global.dd_ask_ship_hull_heavy < 999 }
+			}
+			dd_ask_down_ship_hull_heavy_click_enabled = {
+				has_equipment = { ship_hull_heavy > 0 }
+				check_variable = { global.dd_ask_ship_hull_heavy > 1 }
+			}
 			dd_ship_hull_light_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -912,8 +2232,25 @@ scripted_gui = {
 			dd_sell_ship_hull_light_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_ship_hull_light_click_enabled = { check_variable = { treasury > 85.99 } }
+			dd_ask_up_ship_hull_light_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_ship_hull_light_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_ship_hull_light_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_ship_hull_light } }
+				check_variable = { global.dd_pool_ship_hull_light > 0 }
+			}
 			dd_sell_ship_hull_light_click_enabled = { has_equipment = { ship_hull_light > 0 } }
+			dd_ask_up_ship_hull_light_click_enabled = {
+				has_equipment = { ship_hull_light > 0 }
+				check_variable = { global.dd_ask_ship_hull_light < 999 }
+			}
+			dd_ask_down_ship_hull_light_click_enabled = {
+				has_equipment = { ship_hull_light > 0 }
+				check_variable = { global.dd_ask_ship_hull_light > 1 }
+			}
 			dd_ship_hull_submarine_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -926,8 +2263,25 @@ scripted_gui = {
 			dd_sell_ship_hull_submarine_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_ship_hull_submarine_click_enabled = { check_variable = { treasury > 163.99 } }
+			dd_ask_up_ship_hull_submarine_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_ship_hull_submarine_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_ship_hull_submarine_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_ship_hull_submarine } }
+				check_variable = { global.dd_pool_ship_hull_submarine > 0 }
+			}
 			dd_sell_ship_hull_submarine_click_enabled = { has_equipment = { ship_hull_submarine > 0 } }
+			dd_ask_up_ship_hull_submarine_click_enabled = {
+				has_equipment = { ship_hull_submarine > 0 }
+				check_variable = { global.dd_ask_ship_hull_submarine < 999 }
+			}
+			dd_ask_down_ship_hull_submarine_click_enabled = {
+				has_equipment = { ship_hull_submarine > 0 }
+				check_variable = { global.dd_ask_ship_hull_submarine > 1 }
+			}
 			dd_support_ship_hull_buy_price_visible = {
 				NOT = { has_country_flag = dd_market_sell_tab }
 			}
@@ -940,8 +2294,25 @@ scripted_gui = {
 			dd_sell_support_ship_hull_visible = {
 				has_country_flag = dd_market_sell_tab
 			}
-			dd_buy_support_ship_hull_click_enabled = { check_variable = { treasury > 92.99 } }
+			dd_ask_up_support_ship_hull_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_ask_down_support_ship_hull_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_buy_support_ship_hull_click_enabled = {
+				NOT = { check_variable = { treasury < global.dd_ask_support_ship_hull } }
+				check_variable = { global.dd_pool_support_ship_hull > 0 }
+			}
 			dd_sell_support_ship_hull_click_enabled = { has_equipment = { support_ship_hull > 0 } }
+			dd_ask_up_support_ship_hull_click_enabled = {
+				has_equipment = { support_ship_hull > 0 }
+				check_variable = { global.dd_ask_support_ship_hull < 999 }
+			}
+			dd_ask_down_support_ship_hull_click_enabled = {
+				has_equipment = { support_ship_hull > 0 }
+				check_variable = { global.dd_ask_support_ship_hull > 1 }
+			}
 		}
 	}
 
@@ -953,13 +2324,21 @@ scripted_gui = {
 			always = yes
 		}
 		triggers = {
+			# ?? and the posted net share one slot. Show the placeholder until
+			# the first monthly close, then only the signed figure.
+			dd_net_unknown_visible = {
+				NOT = { has_country_flag = dd_econ_budget_shown }
+			}
+			dd_net_unk_visible = {
+				NOT = { has_country_flag = dd_econ_budget_shown }
+			}
 			dd_net_up_visible = {
 				has_country_flag = dd_econ_budget_shown
 				check_variable = { dd_last_net > -0.005 }
 			}
 			dd_net_down_visible = {
 				has_country_flag = dd_econ_budget_shown
-				check_variable = { dd_last_net < 0 }
+				check_variable = { dd_last_net < -0.005 }
 			}
 			dd_net_pos_visible = {
 				has_country_flag = dd_econ_budget_shown
@@ -967,13 +2346,7 @@ scripted_gui = {
 			}
 			dd_net_neg_visible = {
 				has_country_flag = dd_econ_budget_shown
-				check_variable = { dd_last_net < 0 }
-			}
-			dd_net_unknown_visible = {
-				NOT = { has_country_flag = dd_econ_budget_shown }
-			}
-			dd_net_unk_visible = {
-				NOT = { has_country_flag = dd_econ_budget_shown }
+				check_variable = { dd_last_net < -0.005 }
 			}
 		}
 	}

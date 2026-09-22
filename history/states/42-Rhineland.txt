@@ -2,10 +2,6 @@ state = {
 	id = 42
 	name = "STATE_42"
 	manpower = 6898626
-	resources={
-
-		aluminium=1
-	}
 	
 	state_category = city
 
@@ -42,7 +38,8 @@ state = {
 			industrial_complex = 7
 			energy_infrastructure = 1
 			air_base = 1
-			11531 = {
+
+11531 = {
 				supply_node = 1
 			}
 		}

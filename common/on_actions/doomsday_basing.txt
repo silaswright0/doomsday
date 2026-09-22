@@ -1,0 +1,239 @@
+# Foreign basing access. Deterministic. Flag-guarded. Country-scoped.
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = { NOT = { has_global_flag = dd_basing_init } }
+				set_global_flag = dd_basing_init
+				ABK = {
+					give_military_access = SOV
+					give_docking_rights = SOV
+				}
+				ARM = {
+					give_military_access = SOV
+					give_docking_rights = SOV
+				}
+				AST = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				BHR = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				BLR = {
+					give_military_access = SOV
+					give_docking_rights = SOV
+				}
+				BRN = {
+					give_military_access = ENG
+					give_docking_rights = ENG
+				}
+				BUL = {
+					give_military_access = ITA
+					give_docking_rights = ITA
+				}
+				CAM = {
+					give_military_access = CHI
+					give_docking_rights = CHI
+				}
+				CYP = {
+					give_military_access = ENG
+					give_docking_rights = ENG
+				}
+				DJI = {
+					give_military_access = CHI
+					give_docking_rights = CHI
+				}
+				DJI = {
+					give_military_access = FRA
+					give_docking_rights = FRA
+				}
+				DJI = {
+					give_military_access = ITA
+					give_docking_rights = ITA
+				}
+				DJI = {
+					give_military_access = JAP
+					give_docking_rights = JAP
+				}
+				DJI = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				ENG = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				EST = {
+					give_military_access = ENG
+					give_docking_rights = ENG
+				}
+				GER = {
+					give_military_access = FRA
+					give_docking_rights = FRA
+				}
+				GER = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				GRE = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				ICE = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				IRQ = {
+					give_military_access = TUR
+					give_docking_rights = TUR
+				}
+				IRQ = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				ITA = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				JAP = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				JOR = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				KEN = {
+					give_military_access = ENG
+					give_docking_rights = ENG
+				}
+				KOR = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				KUW = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				KYR = {
+					give_military_access = SOV
+					give_docking_rights = SOV
+				}
+				LAT = {
+					give_military_access = CAN
+					give_docking_rights = CAN
+				}
+				LBA = {
+					give_military_access = TUR
+					give_docking_rights = TUR
+				}
+				LEB = {
+					give_military_access = FRA
+					give_docking_rights = FRA
+				}
+				LEB = {
+					give_military_access = ITA
+					give_docking_rights = ITA
+				}
+				LIT = {
+					give_military_access = GER
+					give_docking_rights = GER
+				}
+				NCY = {
+					give_military_access = TUR
+					give_docking_rights = TUR
+				}
+				OMA = {
+					give_military_access = ENG
+					give_docking_rights = ENG
+				}
+				PHI = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				PMR = {
+					give_military_access = SOV
+					give_docking_rights = SOV
+				}
+				POL = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				QAT = {
+					give_military_access = ENG
+					give_docking_rights = ENG
+				}
+				QAT = {
+					give_military_access = TUR
+					give_docking_rights = TUR
+				}
+				QAT = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				ROJ = {
+					give_military_access = TUR
+					give_docking_rights = TUR
+				}
+				ROM = {
+					give_military_access = FRA
+					give_docking_rights = FRA
+				}
+				ROM = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				SAU = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				SLO = {
+					give_military_access = SPR
+					give_docking_rights = SPR
+				}
+				SNG = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				SOE = {
+					give_military_access = SOV
+					give_docking_rights = SOV
+				}
+				SOM = {
+					give_military_access = TUR
+					give_docking_rights = TUR
+				}
+				SPR = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				SYR = {
+					give_military_access = SOV
+					give_docking_rights = SOV
+				}
+				SYR = {
+					give_military_access = TUR
+					give_docking_rights = TUR
+				}
+				TAJ = {
+					give_military_access = SOV
+					give_docking_rights = SOV
+				}
+				TUR = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+				UAE = {
+					give_military_access = FRA
+					give_docking_rights = FRA
+				}
+				UAE = {
+					give_military_access = USA
+					give_docking_rights = USA
+				}
+			}
+		}
+	}
+}

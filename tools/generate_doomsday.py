@@ -1751,67 +1751,79 @@ TECH_BLOCK = build_tech_block()
 
 
 def write_country(tag: str, filename: str, row: dict | None, capital: int, faction_members: dict[str, list[str]]):
+    from ideology_map import TYPE_OF, resolve
+    from start_setup import current_bits, current_oob
+
     name = (row or {}).get("name") or tag
-    ideology = (row or {}).get("ideology") or "neutrality"
-    sub = (row or {}).get("subideology") or ("oligarchism" if ideology == "neutrality" else "conservatism" if ideology == "democratic" else "marxism" if ideology == "communism" else "fascism_ideology")
-    dem = int(float((row or {}).get("dem") or 25))
-    com = int(float((row or {}).get("com") or 15))
-    fas = int(float((row or {}).get("fas") or 10))
-    neu = int(float((row or {}).get("neu") or 50))
-    total = dem + com + fas + neu
-    if total != 100 and total > 0:
-        neu = max(0, 100 - dem - com - fas)
+    ideology = resolve(
+        tag,
+        (row or {}).get("ideology") or "",
+        (row or {}).get("subideology") or "",
+    )
+    sub = TYPE_OF[ideology]
+    bits = current_bits(tag, row)
+    pops = bits["pops"]
     leader = (row or {}).get("leader") or f"{name} Government"
-    elections = str((row or {}).get("elections") or "no").lower() in {"yes", "1", "true"}
     pop = float((row or {}).get("pop") or 0)
-    gdp = (row or {}).get("gdp_b") or "0"
-    debt = (row or {}).get("debt_gdp") or "0"
-    try:
-        gdp_f = float(gdp)
-        debt_ratio = float(debt)
-    except (TypeError, ValueError):
-        gdp_f = 0.0
-        debt_ratio = 0.0
-    abs_debt = gdp_f * debt_ratio
-    treasury = max(1.0, gdp_f * 0.02)
+    abs_debt = bits["debt"]
+    treasury = bits["treasury"]
     faction = (row or {}).get("faction") or ""
     convoys = 50 if pop > 5_000_000 else 10
-    slots = 4 if tag in {"USA", "CHI", "SOV", "RAJ", "ENG", "FRA", "GER", "JAP"} else 3
-    stab = 0.55 if ideology == "democratic" else 0.45
-    ws = 0.25 if str((row or {}).get("wartime") or "0") in {"1", "yes"} else 0.10
+    slots = bits["slots"]
+    oob_name, naval_oob, surplus = current_oob(tag)
+    extra_tech = bits.get("extra_techs") or []
+    tech = TECH_BLOCK
+    if extra_tech:
+        body, _, _ = tech.rstrip().rpartition("}")
+        extra = "".join(f"\t{t} = 1\n" for t in extra_tech)
+        tech = body + extra + "}\n"
 
+    from start_setup import hosts_for
     lines = [
-        f"# {name} - Doomsday 2026 skeleton",
+        f"# {name} - Doomsday 2026",
         f"capital = {capital}",
-        "oob = \"DOOMSDAY_EMPTY\"",
-        f"set_research_slots = {slots}",
-        f"set_stability = {stab}",
-        f"set_war_support = {ws}",
-        f"set_convoys = {convoys}",
-        TECH_BLOCK,
     ]
+    for host in hosts_for(tag):
+        lines.append(f"{host} = {{")
+        lines.append(f"	give_military_access = {tag}")
+        lines.append(f"	give_docking_rights = {tag}")
+        lines.append("}")
+    lines += [
+        f"oob = \"{oob_name}\"",
+        f"set_research_slots = {slots}",
+        "set_stability = 0.90",
+        "set_war_support = 0.70",
+        f"set_convoys = {convoys}",
+        tech,
+    ]
+    if naval_oob:
+        lines.append(f'set_naval_oob = "{naval_oob}"')
+        from start_setup import naval_variants
+        lines.extend(naval_variants(tag))
     sipri_f = float((row or {}).get("sipri_b") or 0)
     if sipri_f >= 5:
+        from start_setup import sam_eq
         ammo = min(200, max(8, int(round(sipri_f * 0.3))))
         lines.append(
-            f"add_equipment_to_stockpile = {{ type = sam_missile_equipment_1 amount = {ammo} producer = {tag} }}"
+            f"add_equipment_to_stockpile = {{ type = {sam_eq(tag)} amount = {ammo} producer = {tag} }}"
         )
+    for item in surplus:
+        lines.append(item)
+    for idea in bits.get("ideas") or []:
+        lines.append(f"add_ideas = {idea}")
     for idea in COUNTRY_IDEAS.get(tag, []):
         lines.append(f"add_ideas = {idea}")
     for extra in COUNTRY_HISTORY_EXTRAS.get(tag, []):
         lines.append(extra)
     lines += [
         "set_politics = {",
-        f"	ruling_party = {intology(ideology)}",
-        '	last_election = "2024.1.1"',
-        "	election_frequency = 48",
-        f"	elections_allowed = {'yes' if elections else 'no'}",
+        f"	ruling_party = {ideology}",
+        f'	last_election = "{bits["last_election"]}"',
+        f"	election_frequency = {bits['freq']}",
+        f"	elections_allowed = {'yes' if bits['elections'] else 'no'}",
         "}",
         "set_popularities = {",
-        f"	democratic = {dem}",
-        f"	communism = {com}",
-        f"	fascism = {fas}",
-        f"	neutrality = {neu}",
+        *[f"	{token} = {share}" for token, share in pops.items()],
         "}",
         f"set_variable = {{ debt = {abs_debt:.4f} }}",
         f"set_variable = {{ treasury = {treasury:.4f} }}",
@@ -1823,6 +1835,10 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
         "	traits = { }",
         "}",
     ]
+    for cid in bits.get("characters") or [f"{tag}_john_army", f"{tag}_john_airforce", f"{tag}_john_navy"]:
+        lines.append(f"recruit_character = {cid}")
+    for cid in (bits.get("characters") or [])[:3]:
+        lines.append(f"activate_advisor = {cid}")
     if tag == "USA" and "NATO" in faction_members:
         lines.append("create_faction = NATO")
         for member in faction_members["NATO"]:
@@ -1854,7 +1870,8 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
 
 
 def intology(ideology: str) -> str:
-    return ideology if ideology in {"democratic", "communism", "fascism", "neutrality"} else "neutrality"
+    from ideology_map import TYPE_OF, resolve
+    return ideology if ideology in TYPE_OF else resolve("", ideology, "")
 
 
 def write_loc(countries: dict[str, dict], tags: list[tuple[str, str]]):
@@ -2347,15 +2364,8 @@ def main():
                 extras.get("rocket_site", 0), state["category"],
             ])
 
-    faction_members = defaultdict(list)
-    for tag, row in countries.items():
-        fac = (row.get("faction") or "").strip()
-        if fac:
-            faction_members[fac].append(tag)
-
-    for tag, country_file in tags:
-        fname = hist_names.get(tag, f"{tag} - {country_file}")
-        write_country(tag, fname, countries.get(tag), capitals.get(tag, 1), faction_members)
+    from start_setup import apply as apply_start
+    apply_start()
     for leftover in COUNTRIES_DIR.glob("D[0-9][0-9]*.txt"):
         leftover.unlink()
 

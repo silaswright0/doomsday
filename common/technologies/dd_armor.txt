@@ -1,0 +1,921 @@
+# Generated Cold War / 2026 Tanks tree. Identical costs for every tag.
+technologies = {
+
+	@1955 = 0
+	@1960 = 2
+	@1965 = 4
+	@1970 = 6
+	@1975 = 8
+	@1980 = 10
+	@1985 = 12
+	@1990 = 14
+	@1995 = 16
+	@2000 = 18
+	@2005 = 20
+	@2010 = 22
+	@2015 = 24
+	@2020 = 26
+	@2025 = 28
+	@2030 = 30
+	@2035 = 32
+
+	dd_lt_1 = {
+		enable_equipments = {
+			light_tank_equipment_cw1
+		}
+		path = {
+			leads_to_tech = dd_lt_2
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1955
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_lt_2 = {
+		enable_equipments = {
+			light_tank_equipment_cw2
+		}
+		path = {
+			leads_to_tech = dd_lt_3
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1968
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 4 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 0 y = 4 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_lt_3 = {
+		enable_equipments = {
+			light_tank_equipment_cw3
+		}
+		path = {
+			leads_to_tech = dd_lt_4
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1981
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 10 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 0 y = 10 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_lt_4 = {
+		enable_equipments = {
+			light_tank_equipment_cw4
+		}
+		path = {
+			leads_to_tech = dd_lt_5
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 2002
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 18 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 0 y = 18 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_lt_5 = {
+		enable_equipments = {
+			light_tank_equipment_cw5
+		}
+		path = {
+			leads_to_tech = dd_lt_6
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 2016
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 24 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 0 y = 24 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_lt_6 = {
+		enable_equipments = {
+			light_tank_equipment_cw6
+		}
+		path = {
+			leads_to_tech = dd_lt_7
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 2024
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 26 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 0 y = 26 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_lt_7 = {
+		enable_equipments = {
+			light_tank_equipment_cw7
+		}
+		research_cost = 3.0
+		start_year = 2034
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 30 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 0 y = 30 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_1 = {
+		enable_equipments = {
+			mbt_equipment_1
+		}
+		path = {
+			leads_to_tech = dd_mbt_2
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1955
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_2 = {
+		enable_equipments = {
+			mbt_equipment_2
+		}
+		path = {
+			leads_to_tech = dd_mbt_3
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1965
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_3 = {
+		enable_equipments = {
+			mbt_equipment_3
+		}
+		path = {
+			leads_to_tech = dd_mbt_4
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1973
+		folder = {
+			name = armour_folder
+			position = { x = 2 y = 6 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 2 y = 6 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_4 = {
+		enable_equipments = {
+			mbt_equipment_4
+		}
+		path = {
+			leads_to_tech = dd_mbt_5
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 1980
+		folder = {
+			name = armour_folder
+			position = { x = 2 y = 10 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 2 y = 10 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_5 = {
+		enable_equipments = {
+			mbt_equipment_5
+		}
+		path = {
+			leads_to_tech = dd_mbt_6
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 1992
+		folder = {
+			name = armour_folder
+			position = { x = 2 y = 14 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 2 y = 14 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_6 = {
+		enable_equipments = {
+			mbt_equipment_6
+		}
+		path = {
+			leads_to_tech = dd_mbt_7
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 2005
+		folder = {
+			name = armour_folder
+			position = { x = 2 y = 20 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 2 y = 20 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_7 = {
+		enable_equipments = {
+			mbt_equipment_7
+		}
+		path = {
+			leads_to_tech = dd_mbt_8
+			research_cost_coeff = 1
+		}
+		research_cost = 3.0
+		start_year = 2015
+		folder = {
+			name = armour_folder
+			position = { x = 2 y = 24 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 2 y = 24 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_8 = {
+		enable_equipments = {
+			mbt_equipment_8
+		}
+		path = {
+			leads_to_tech = dd_mbt_9
+			research_cost_coeff = 1
+		}
+		research_cost = 3.5
+		start_year = 2026
+		folder = {
+			name = armour_folder
+			position = { x = 2 y = 28 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 2 y = 28 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_mbt_9 = {
+		enable_equipments = {
+			mbt_equipment_9
+		}
+		research_cost = 3.5
+		start_year = 2035
+		folder = {
+			name = armour_folder
+			position = { x = 2 y = 32 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 2 y = 32 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_prot_1 = {
+		armor = { armor_value = 0.10 hardness = 0.04 }
+		path = {
+			leads_to_tech = dd_prot_2
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1966
+		folder = {
+			name = armour_folder
+			position = { x = 4 y = 4 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 4 y = 4 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_prot_2 = {
+		armor = { armor_value = 0.10 hardness = 0.04 }
+		path = {
+			leads_to_tech = dd_prot_3
+			research_cost_coeff = 1
+		}
+		research_cost = 1.5
+		start_year = 1982
+		folder = {
+			name = armour_folder
+			position = { x = 4 y = 10 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 4 y = 10 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_prot_3 = {
+		armor = { armor_value = 0.10 hardness = 0.04 }
+		path = {
+			leads_to_tech = dd_prot_4
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1995
+		folder = {
+			name = armour_folder
+			position = { x = 4 y = 16 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 4 y = 16 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_prot_4 = {
+		armor = { armor_value = 0.10 hardness = 0.04 }
+		path = {
+			leads_to_tech = dd_prot_5
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 2005
+		folder = {
+			name = armour_folder
+			position = { x = 4 y = 20 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 4 y = 20 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_prot_5 = {
+		armor = { armor_value = 0.10 hardness = 0.04 }
+		path = {
+			leads_to_tech = dd_prot_6
+			research_cost_coeff = 1
+		}
+		research_cost = 3.0
+		start_year = 2022
+		folder = {
+			name = armour_folder
+			position = { x = 4 y = 26 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 4 y = 26 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_prot_6 = {
+		armor = { armor_value = 0.10 hardness = 0.04 }
+		research_cost = 3.5
+		start_year = 2034
+		folder = {
+			name = armour_folder
+			position = { x = 4 y = 30 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 4 y = 30 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_fcs_1 = {
+		armor = { hard_attack = 0.08 reliability = 0.05 }
+		path = {
+			leads_to_tech = dd_fcs_2
+			research_cost_coeff = 1
+		}
+		research_cost = 1.5
+		start_year = 1965
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_fcs_2 = {
+		armor = { hard_attack = 0.08 reliability = 0.05 }
+		path = {
+			leads_to_tech = dd_fcs_3
+			research_cost_coeff = 1
+		}
+		research_cost = 1.5
+		start_year = 1974
+		folder = {
+			name = armour_folder
+			position = { x = 6 y = 6 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 6 y = 6 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_fcs_3 = {
+		armor = { hard_attack = 0.08 reliability = 0.05 }
+		path = {
+			leads_to_tech = dd_fcs_4
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1984
+		folder = {
+			name = armour_folder
+			position = { x = 6 y = 10 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 6 y = 10 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_fcs_4 = {
+		armor = { hard_attack = 0.08 reliability = 0.05 }
+		path = {
+			leads_to_tech = dd_fcs_5
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 2000
+		folder = {
+			name = armour_folder
+			position = { x = 6 y = 18 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 6 y = 18 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_fcs_5 = {
+		armor = { hard_attack = 0.08 reliability = 0.05 }
+		path = {
+			leads_to_tech = dd_fcs_6
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 2015
+		folder = {
+			name = armour_folder
+			position = { x = 6 y = 24 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 6 y = 24 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_fcs_6 = {
+		armor = { hard_attack = 0.08 reliability = 0.05 }
+		research_cost = 3.0
+		start_year = 2028
+		folder = {
+			name = armour_folder
+			position = { x = 6 y = 28 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 6 y = 28 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_td_1 = {
+		enable_equipments = {
+			td_equipment_1
+		}
+		path = {
+			leads_to_tech = dd_td_2
+			research_cost_coeff = 1
+		}
+		research_cost = 1.5
+		start_year = 1955
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_td_2 = {
+		enable_equipments = {
+			td_equipment_2
+		}
+		path = {
+			leads_to_tech = dd_td_3
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1972
+		folder = {
+			name = armour_folder
+			position = { x = 8 y = 6 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 8 y = 6 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_td_3 = {
+		enable_equipments = {
+			td_equipment_3
+		}
+		path = {
+			leads_to_tech = dd_td_4
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1985
+		folder = {
+			name = armour_folder
+			position = { x = 8 y = 12 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 8 y = 12 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_td_4 = {
+		enable_equipments = {
+			td_equipment_4
+		}
+		path = {
+			leads_to_tech = dd_td_5
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 2003
+		folder = {
+			name = armour_folder
+			position = { x = 8 y = 18 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 8 y = 18 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_td_5 = {
+		enable_equipments = {
+			td_equipment_5
+		}
+		research_cost = 2.5
+		start_year = 2026
+		folder = {
+			name = armour_folder
+			position = { x = 8 y = 28 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 8 y = 28 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_spaa_1 = {
+		enable_equipments = {
+			spaa_equipment_1
+		}
+		path = {
+			leads_to_tech = dd_spaa_2
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1965
+		folder = {
+			name = armour_folder
+			position = { x = 10 y = 4 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 10 y = 4 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_spaa_2 = {
+		enable_equipments = {
+			spaa_equipment_2
+		}
+		path = {
+			leads_to_tech = dd_spaa_3
+			research_cost_coeff = 1
+		}
+		research_cost = 2.0
+		start_year = 1976
+		folder = {
+			name = armour_folder
+			position = { x = 10 y = 8 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 10 y = 8 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_spaa_3 = {
+		enable_equipments = {
+			spaa_equipment_3
+		}
+		path = {
+			leads_to_tech = dd_spaa_4
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 1986
+		folder = {
+			name = armour_folder
+			position = { x = 10 y = 12 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 10 y = 12 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_spaa_4 = {
+		enable_equipments = {
+			spaa_equipment_4
+		}
+		path = {
+			leads_to_tech = dd_spaa_5
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 2011
+		folder = {
+			name = armour_folder
+			position = { x = 10 y = 22 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 10 y = 22 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	dd_spaa_5 = {
+		enable_equipments = {
+			spaa_equipment_5
+		}
+		research_cost = 3.5
+		start_year = 2030
+		folder = {
+			name = armour_folder
+			position = { x = 10 y = 30 }
+		}
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 10 y = 30 }
+		}
+		categories = {
+			armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

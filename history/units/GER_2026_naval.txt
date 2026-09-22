@@ -1,0 +1,123 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "GER Home Fleet"
+		naval_base = 241
+		task_force = {
+			name = "GER Home Fleet TF"
+			location = 241
+			ship = {
+				name = "GER DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = GER version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "GER DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = GER version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "GER DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = GER version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "GER DD-4"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = GER version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "GER DD-5"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = GER version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "GER DD-6"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = GER version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "GER DD-7"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = GER version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "GER DD-8"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw3 = { amount = 1 owner = GER version_name = "Cold War Destroyer" }
+				}
+			}
+			ship = {
+				name = "GER SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = GER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "GER SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = GER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "GER SS-3"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = GER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "GER SS-4"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = GER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "GER SS-5"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = GER version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "GER SS-6"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = GER version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

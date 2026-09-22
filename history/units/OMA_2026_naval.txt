@@ -1,0 +1,35 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "OMA Home Fleet"
+		naval_base = 13369
+		task_force = {
+			name = "OMA Home Fleet TF"
+			location = 13369
+			ship = {
+				name = "OMA DD-1"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = OMA version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "OMA DD-2"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = OMA version_name = "Cold War Frigate" }
+				}
+			}
+			ship = {
+				name = "OMA DD-3"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw2 = { amount = 1 owner = OMA version_name = "Cold War Frigate" }
+				}
+			}
+		}
+	}
+}

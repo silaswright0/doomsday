@@ -1,0 +1,27 @@
+# Doomsday 2026 naval OOB. Generated.
+units = {
+	fleet = {
+		name = "CUB Home Fleet"
+		naval_base = 7622
+		task_force = {
+			name = "CUB Home Fleet TF"
+			location = 7622
+			ship = {
+				name = "CUB SS-1"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = CUB version_name = "Cold War Submarine" }
+				}
+			}
+			ship = {
+				name = "CUB SS-2"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw1 = { amount = 1 owner = CUB version_name = "Cold War Submarine" }
+				}
+			}
+		}
+	}
+}

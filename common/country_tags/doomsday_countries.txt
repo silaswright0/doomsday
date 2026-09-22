@@ -44,3 +44,9 @@ LNA = "countries/Libyan National Army.txt"
 RSF = "countries/Rapid Support Forces.txt"
 SIO = "countries/SPLM-IO.txt"
 AZA = "countries/Azawad.txt"
+# Reserved off-map pool for intel-backed insurgencies (Arm Insurgents).
+# Coup civil wars use start_civil_war (dynamic sibling of the target) instead.
+IG1 = "countries/Doomsday Insurgent 1.txt"
+IG2 = "countries/Doomsday Insurgent 2.txt"
+IG3 = "countries/Doomsday Insurgent 3.txt"
+IG4 = "countries/Doomsday Insurgent 4.txt"

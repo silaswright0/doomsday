@@ -5,6 +5,13 @@ state={
 	manpower = 2603388
 	
 	state_category = large_town
+
+	resources={
+
+		coal=1
+		copper=1
+	}
+
 	
 
 	history={
@@ -15,7 +22,8 @@ state={
 			industrial_complex = 1
 			infrastructure = 4
 			air_base = 1
-			8214 = {
+
+8214 = {
 				supply_node = 1
 			}
 		}

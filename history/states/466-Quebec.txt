@@ -4,9 +4,11 @@ state = {
 	manpower = 6578218
 	resources={
 
-		aluminium=14
+		tungsten=1
 		steel=1
+		chromium=1
 		coal=1
+		lithium=1
 		copper=2
 		graphite=1
 	}
@@ -27,10 +29,12 @@ state = {
 			services_building = 2
 
 			air_base = 1
+
 3691 = {
 				naval_base = 1
 			}
-			490 = {
+
+490 = {
 				supply_node = 1
 			}
 		}

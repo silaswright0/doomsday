@@ -65,8 +65,8 @@ armor_generic = {
 				artillery = 1
 			}
 			regiments = {
-				medium_armor = 3
-				motorized = 6
+				modern_armor = 3
+				mechanized = 6
 			}
 		}
 		target_min_match = 0.5
@@ -258,7 +258,7 @@ mechanized_assault_generic = {
 			}
 			regiments = {
 				mechanized = 4
-				medium_armor = 2
+				modern_armor = 2
 			}
 		}
 		target_min_match = 0.5

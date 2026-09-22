@@ -6,6 +6,12 @@ state={
 	
 	state_category = town
 
+	resources={
+
+		steel=1
+	}
+
+
 	history={
 		owner = BLR
 		add_extra_state_shared_building_slots = 3
@@ -21,7 +27,8 @@ state={
 			industrial_complex = 1
 			air_base = 2
 			services_building = 1
-			11370 = {
+
+11370 = {
 				supply_node = 1
 			}
 		}

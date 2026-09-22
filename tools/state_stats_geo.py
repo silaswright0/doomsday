@@ -1298,6 +1298,7 @@ OIL_KEYWORDS = {
     "GYA": {"guyana": 8},
     "VEN": {"zulia": 6, "orinoc": 5, "anzoategui": 4},
     "COL": {"meta": 3, "casanare": 3, "arauca": 2},
+    "SSD": {"uppernile": 10, "unity": 6, "palogue": 8, "bahr": 2},
     "GBR": {},
     "ENG": {"scotland": 3, "aberdeenshire": 4, "shetland": 2, "eastanglia": 1},
 }
@@ -1316,6 +1317,7 @@ COAL_KEYWORDS = {
     "COL": {"cesar": 4, "guajira": 5, "magdalena": 2},
     "TUR": {"zonguldak": 4, "afyon": 2},
     "AUS": {},
+    "MON": {"gobi": 12, "south": 8, "mongolia": 1},
 }
 
 STEEL_KEYWORDS = {
@@ -1329,21 +1331,27 @@ STEEL_KEYWORDS = {
     "TUR": {"iskenderun": 4, "marmara": 3, "istanbul": 3},
     "BRA": {"minas": 6, "riodejaneiro": 4, "saopaulo": 3, "espirito": 3},
     "PER": {"isfahan": 5, "khuzestan": 3, "yazd": 2},
+    "GNA": {"guinea": 12},
 }
 
 ALUM_KEYWORDS = {
-    "CHI": {"shandong": 6, "henan": 5, "xinjiang": 4, "guangxi": 4, "inner": 3, "yunnan": 3, "gansu": 2},
+    "CHI": {"guangxi": 8, "shanxi": 5, "henan": 4, "guizhou": 4, "shandong": 3, "yunnan": 2},
+    "GNA": {"guinea": 12},
+    "AST": {"queensland": 8, "westernaustralia": 5, "northernterritory": 3},
+    "BRA": {"para": 8, "minas": 5, "amazonas": 2},
+    "INS": {"kalimantan": 8, "bintan": 4, "riau": 3},
     "RAJ": {"orissa": 6, "andrapradesh": 3, "gujarat": 2, "westernindian": 2},
-    "SOV": {"krasnoyarsk": 6, "irkutsk": 4, "sverdlovsk": 3, "komi": 2},
-    "CAN": {"quebec": 8, "britishcolumbia": 4, "newfoundland": 2},
-    "UAE": {"abudhabi": 6, "dubai": 2},
-    "AUS": {},
-    "AST": {"queensland": 5, "tasmania": 3, "westernaustralia": 3, "victoria": 2},
-    "NOR": {"vestland": 4, "nordland": 3, "telemark": 2},
-    "USA": {"kentucky": 3, "indiana": 2, "washington": 2, "southcarolina": 2, "texas": 1},
-    "BHR": {"bahrain": 8},
-    "ISL": {},
-    "ICE": {"iceland": 8},
+    "SOV": {"komi": 4, "sverdlovsk": 3, "ural": 2},
+    "JAM": {"jamaica": 10},
+    "SAU": {"eastern": 4, "riyadh": 2},
+    "KAZ": {"pavlodar": 6, "kostanay": 3},
+    "VIN": {"annam": 4, "tonkin": 3, "central": 2},
+    "TUR": {"turkey": 2, "aegean": 2},
+    "SIE": {"sierraleone": 8, "freetown": 2},
+    "GRE": {"greece": 4},
+    "GYA": {"guyana": 6},
+    "GHA": {"ghana": 4, "ashanti": 2},
+    "MAL": {"peninsular": 2},
 }
 
 TUNGSTEN_KEYWORDS = {
@@ -1358,11 +1366,26 @@ TUNGSTEN_KEYWORDS = {
 }
 
 CHROME_KEYWORDS = {
-    "SAF": {"limpopo": 8, "mpumalanga": 4, "northwest": 3},
+    "SAF": {"limpopo": 8, "mpumalanga": 4, "northwest": 3, "kalahari": 6, "northerncape": 6},
     "TUR": {"elazig": 4, "adana": 3, "mersin": 2, "erzurum": 2},
     "KAZ": {"aktobe": 8, "khromtau": 6},
     "RAJ": {"orissa": 5, "karnataka": 3, "mysore": 3, "jharkhand": 2},
     "FIN": {"lappi": 6, "oulu": 3},
+    "INS": {"sulawesi": 10, "halmahera": 8, "maluku": 4, "papua": 2},
+    "PHI": {"mindanao": 6, "palawan": 3},
+    "FRA": {"caledonia": 12, "noumea": 8},
+    "GAB": {"gabon": 10},
+    "CAN": {"ontario": 4, "quebec": 3, "newfoundland": 5, "labrador": 5},
+    "SOV": {"norilsk": 6, "murmansk": 3, "krasnoyarsk": 3},
+    "AST": {"northernterritory": 4, "westernaustralia": 3, "queensland": 2},
+    "CUB": {"oriente": 4, "holguin": 4},
+    "BRA": {"para": 3, "minas": 2, "goias": 2},
+    "GHA": {"ghana": 6, "western": 3},
+    "IVO": {"ivory": 4, "abidjan": 2},
+    "MAL": {"peninsular": 2, "sabah": 2},
+    "ZIM": {"zimbabwe": 4},
+    "USA": {"michigan": 2},
+    "CHI": {"inner": 2, "guangxi": 2},
 }
 
 COPPER_KEYWORDS = {
@@ -1379,6 +1402,10 @@ COPPER_KEYWORDS = {
     "CAN": {"britishcolumbia": 4, "ontario": 3, "quebec": 2},
     "KAZ": {"karagandy": 4, "balkhash": 4, "eastern": 3},
     "POL": {"silesia": 4, "legnica": 3},
+    "SER": {"serbia": 2, "eastern": 8, "bor": 10, "morava": 3},
+    "MON": {"mongolia": 4, "south": 6, "gobi": 4},
+    "LAO": {"laos": 4},
+    "PAN": {"panama": 6},
 }
 
 GRAPHITE_KEYWORDS = {
@@ -1387,6 +1414,12 @@ GRAPHITE_KEYWORDS = {
     "MAD": {"madagascar": 6},
     "BRA": {"minas": 5, "bahia": 2},
     "RAJ": {"andrapradesh": 3, "orissa": 2, "tamil": 2, "madras": 2},
+    "TAN": {"tanzania": 4},
+    "TZN": {"tanzania": 4},
+    "UKR": {"ukraine": 3},
+    "NOR": {"norway": 2},
+    "DPK": {"hamgyong": 6},
+    "NMB": {"namibia": 3},
 }
 
 LITHIUM_KEYWORDS = {
@@ -1397,22 +1430,28 @@ LITHIUM_KEYWORDS = {
     "BRA": {"minas": 4},
     "ZIM": {"zimbabwe": 4},
     "USA": {"nevada": 6, "northcarolina": 2, "california": 1},
+    "COG": {"katanga": 10, "elisabethville": 8, "hautkatanga": 6, "lualaba": 6, "tanganyika": 8},
+    "MLI": {"mali": 6, "sikasso": 4},
+    "NMB": {"namibia": 4, "erongo": 3},
 }
 
 COBALT_KEYWORDS = {
     "COG": {"katanga": 16, "elisabethville": 12, "hautkatanga": 10, "lualaba": 8},
-    "INS": {"sulawesi": 8, "maluku": 3},
+    "INS": {"sulawesi": 8, "maluku": 3, "halmahera": 6},
     "SOV": {"norilsk": 6, "murmansk": 3},
     "AST": {"westernaustralia": 4, "queensland": 2},
     "CAN": {"ontario": 4, "quebec": 2},
     "CUB": {"oriente": 4, "holguin": 3},
     "PHI": {"mindanao": 3, "palawan": 2},
+    "FRA": {"caledonia": 10, "noumea": 6},
+    "PNG": {"papua": 4, "madang": 6},
+    "MOR": {"morocco": 3},
 }
 
 REE_KEYWORDS = {
     "CHI": {"innermongolia": 12, "jiangxi": 6, "sichuan": 4, "shandong": 3, "guangdong": 2},
     "USA": {"california": 6, "texas": 2, "wyoming": 1},
-    "BRM": {"kachin": 6, "shan": 4, "nug": 2},
+    "BRM": {"kachin": 6, "shan": 4, "nug": 2, "mandalay": 5, "magwe": 2},
     "NUG": {"shan": 4, "kachin": 3},
     "AST": {"westernaustralia": 6, "northernterritory": 3},
     "SIA": {"thailand": 3},
