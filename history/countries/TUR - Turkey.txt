@@ -478,6 +478,7 @@ add_equipment_to_stockpile = { type = artillery_equipment amount = 36 producer =
 add_equipment_to_stockpile = { type = mechanized_equipment amount = 810 producer = TUR }
 add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 68 producer = TUR }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 48 producer = TUR }
+add_ideas = TUR_western_libya_mission
 add_ideas = dd_welfare_3
 add_ideas = dd_education_5
 add_ideas = dd_immigration_3
@@ -496,7 +497,6 @@ add_ideas = dd_civil_military_2
 add_ideas = limited_conscription
 add_ideas = export_focus
 add_ideas = civilian_economy
-add_ideas = TUR_western_libya_mission
 set_politics = {
 	ruling_party = national_populism
 	last_election = "2023.5.28"
@@ -527,6 +527,3 @@ recruit_character = TUR_john_navy
 recruit_character = TUR_fm_metin_gurak
 recruit_character = TUR_gen_selcuk_bayraktaroglu
 recruit_character = TUR_nav_ercument_tatlioglu
-activate_advisor = TUR_john_army
-activate_advisor = TUR_john_airforce
-activate_advisor = TUR_john_navy

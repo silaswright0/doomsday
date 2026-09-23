@@ -2,16 +2,16 @@ ideas = {
 
 	country = {
 
-		# Tier 1 agencies. Same modifiers; name is the real service.
+		# Tier 1 agencies: 3× base specialties. Same modifiers; name is the real service.
 		dd_intel_cia = {
 			picture = generic_spy_intel
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				decryption = 1
-				encryption = 1
-				civilian_intel_to_others = -0.15
-				army_intel_to_others = -0.1
+				decryption = 3
+				encryption = 3
+				civilian_intel_to_others = -0.45
+				army_intel_to_others = -0.3
 			}
 		}
 
@@ -20,10 +20,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				decryption = 1
-				encryption = 1
-				civilian_intel_to_others = -0.15
-				army_intel_to_others = -0.1
+				decryption = 3
+				encryption = 3
+				civilian_intel_to_others = -0.45
+				army_intel_to_others = -0.3
 			}
 		}
 
@@ -32,10 +32,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				decryption = 1
-				encryption = 1
-				civilian_intel_to_others = -0.15
-				army_intel_to_others = -0.1
+				decryption = 3
+				encryption = 3
+				civilian_intel_to_others = -0.45
+				army_intel_to_others = -0.3
 			}
 		}
 
@@ -44,22 +44,23 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				decryption = 1
-				encryption = 1
-				civilian_intel_to_others = -0.15
-				army_intel_to_others = -0.1
+				decryption = 3
+				encryption = 3
+				civilian_intel_to_others = -0.45
+				army_intel_to_others = -0.3
 			}
 		}
 
-		# Tier 2 agencies.
+		# Tier 2 agencies: same specialties as the old Tier 1 baseline.
 		dd_intel_rgb = {
 			picture = generic_spy_intel
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				decryption = 0.5
-				encryption = 0.5
-				civilian_intel_to_others = -0.08
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
 			}
 		}
 
@@ -68,9 +69,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				decryption = 0.5
-				encryption = 0.5
-				civilian_intel_to_others = -0.08
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
 			}
 		}
 
@@ -79,9 +81,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				decryption = 0.5
-				encryption = 0.5
-				civilian_intel_to_others = -0.08
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
 			}
 		}
 
@@ -90,9 +93,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				decryption = 0.5
-				encryption = 0.5
-				civilian_intel_to_others = -0.08
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
 			}
 		}
 
@@ -120,7 +124,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_org_factor = -0.05
+				army_org_factor = -0.025
 			}
 		}
 

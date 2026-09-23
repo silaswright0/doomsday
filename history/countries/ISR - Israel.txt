@@ -451,7 +451,7 @@ add_equipment_to_stockpile = { type = mechanized_equipment amount = 720 producer
 add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 68 producer = ISR }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 54 producer = ISR }
 add_ideas = dd_welfare_4
-add_ideas = dd_education_5
+add_ideas = dd_education_4
 add_ideas = dd_immigration_4
 add_ideas = dd_taxes_3
 add_ideas = dd_women_3
@@ -499,9 +499,6 @@ recruit_character = ISR_fm_eyal_zamir
 recruit_character = ISR_fm_herzi_halevi
 recruit_character = ISR_gen_david_barnea
 recruit_character = ISR_nav_david_saar_salama
-activate_advisor = ISR_john_army
-activate_advisor = ISR_john_airforce
-activate_advisor = ISR_john_navy
 declare_war_on = {
 	target = HAM
 	type = annex_everything

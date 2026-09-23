@@ -20,6 +20,21 @@ scripted_gui = {
 				clr_country_flag = dd_merc_offer_tab
 				dd_merc_init_defaults = yes
 			}
+			dd_auto_repay_off_click = {
+				set_country_flag = dd_auto_repay
+			}
+			dd_auto_repay_on_click = {
+				clr_country_flag = dd_auto_repay
+			}
+		}
+
+		triggers = {
+			dd_auto_repay_off_visible = {
+				NOT = { has_country_flag = dd_auto_repay }
+			}
+			dd_auto_repay_on_visible = {
+				has_country_flag = dd_auto_repay
+			}
 		}
 	}
 

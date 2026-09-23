@@ -61,6 +61,13 @@ defined_text = {
 		localization_key = DD_INTEL_SELECT_DESTAB
 	}
 	text = {
+		trigger = {
+			check_variable = { dd_intel_mission = 2 }
+			has_country_flag = dd_intel_locked
+		}
+		localization_key = DD_INTEL_SELECT_ASSASSINATE_PICK
+	}
+	text = {
 		trigger = { check_variable = { dd_intel_mission = 2 } }
 		localization_key = DD_INTEL_SELECT_ASSASSINATE
 	}
@@ -73,15 +80,15 @@ defined_text = {
 		localization_key = DD_INTEL_SELECT_COUP
 	}
 	text = {
-		trigger = {
-			check_variable = { dd_intel_mission = 5 }
-			has_variable = dd_intel_sabo_country
-		}
+		trigger = { check_variable = { dd_intel_mission = 5 } }
 		localization_key = DD_INTEL_SELECT_SABOTAGE_STATE
 	}
 	text = {
-		trigger = { check_variable = { dd_intel_mission = 5 } }
-		localization_key = DD_INTEL_SELECT_SABOTAGE_COUNTRY
+		trigger = {
+			check_variable = { dd_intel_mission = 6 }
+			has_country_flag = dd_intel_locked
+		}
+		localization_key = DD_INTEL_SELECT_STEAL_PICK
 	}
 	text = {
 		trigger = { check_variable = { dd_intel_mission = 6 } }

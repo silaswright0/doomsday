@@ -355,7 +355,7 @@ add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 600 produc
 add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = SSD }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = SSD }
 add_ideas = dd_welfare_1
-add_ideas = dd_education_2
+add_ideas = dd_education_4
 add_ideas = dd_immigration_2
 add_ideas = dd_taxes_2
 add_ideas = dd_women_2
@@ -398,9 +398,6 @@ recruit_character = SSD_john_airforce
 recruit_character = SSD_john_navy
 recruit_character = SSD_fm_army_command
 recruit_character = SSD_gen_field_command
-activate_advisor = SSD_john_army
-activate_advisor = SSD_john_airforce
-activate_advisor = SSD_john_navy
 declare_war_on = {
 	target = SIO
 	type = annex_everything

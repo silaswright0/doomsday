@@ -494,8 +494,10 @@ add_equipment_to_stockpile = { type = artillery_equipment amount = 127 producer 
 add_equipment_to_stockpile = { type = mechanized_equipment amount = 2904 producer = CHI }
 add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 264 producer = CHI }
 add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 242 producer = CHI }
+save_global_event_target_as = WTT_communist_china
+save_global_event_target_as = WTT_current_china_leader
 add_ideas = dd_welfare_3
-add_ideas = dd_education_5
+add_ideas = dd_education_4
 add_ideas = dd_immigration_2
 add_ideas = dd_taxes_3
 add_ideas = dd_women_3
@@ -512,8 +514,6 @@ add_ideas = dd_civil_military_1
 add_ideas = limited_conscription
 add_ideas = limited_exports
 add_ideas = civilian_economy
-save_global_event_target_as = WTT_communist_china
-save_global_event_target_as = WTT_current_china_leader
 set_politics = {
 	ruling_party = state_socialism
 	last_election = "2023.3.10"
@@ -544,6 +544,3 @@ recruit_character = CHI_fm_lin_xiangyang
 recruit_character = CHI_fm_wang_qiang
 recruit_character = CHI_gen_wu_yanan
 recruit_character = CHI_nav_hu_zhongming
-activate_advisor = CHI_john_army
-activate_advisor = CHI_john_airforce
-activate_advisor = CHI_john_navy

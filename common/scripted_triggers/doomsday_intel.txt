@@ -8,6 +8,21 @@ dd_intel_can_target = {
 	}
 }
 
+dd_intel_has_commander = {
+	any_army_leader = {
+		always = yes
+	}
+}
+
+dd_intel_locked = {
+	has_country_flag = dd_intel_locked
+}
+
+dd_intel_can_cancel_select = {
+	dd_intel_selecting = yes
+	NOT = { has_country_flag = dd_intel_locked }
+}
+
 dd_intel_has_agency = {
 	OR = {
 		check_variable = { dd_intel_tier = 1 }

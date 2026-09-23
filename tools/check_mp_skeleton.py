@@ -512,8 +512,8 @@ def check_politics_slots() -> None:
     fx = (ROOT / "common" / "scripted_effects" / "doomsday_economy.txt").read_text(encoding="utf-8")
     if "dd_sync_fertility_to_women" not in fx:
         fail("women's rights must floor fertility laws")
-    if "add_to_variable = { dd_admin_factor = 0.64 }" not in fx:
-        fail("extreme policy cost band 0.64 missing")
+    if "add_to_variable = { dd_admin_factor = 0.50 }" not in fx:
+        fail("extreme policy cost band 0.50 missing")
     ideologies = (ROOT / "common" / "ideologies" / "00_ideologies.txt").read_text(encoding="utf-8")
     for token in (
         "social_democracy", "social_liberalism", "liberal_conservatism",

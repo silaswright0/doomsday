@@ -21,13 +21,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from state_stats_lib import COUNTRIES_CSV, DATA, STATES_CSV  # noqa: E402
 
 # Additive extras at default laws (tier 3 on five-tier slots, standard tax).
-# small 0.08 / medium 0.16 / large 0.32 / extreme 0.64
+# small 0.05 / medium 0.10 / large 0.25 / extreme 0.50
 POLICY_DEFAULT = {
-    "welfare": 0.08,
-    "education": 0.08,
-    "healthcare": 0.08,
-    "investment": 0.16,
-    "aid": 0.08,
+    "welfare": 0.05,
+    "education": 0.05,
+    "healthcare": 0.05,
+    "investment": 0.10,
+    "aid": 0.05,
 }
 POLICY_FACTOR_DEFAULT = 1.0 + sum(POLICY_DEFAULT.values())
 

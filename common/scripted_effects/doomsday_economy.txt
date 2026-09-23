@@ -174,28 +174,27 @@ dd_prime_economy_ledger = {
 }
 
 dd_apply_rates = {
-	# Ledger is US$ billions / month. Fit to IMF WEO central-ish budgets after
-	# the 2026 pop/building rebuild. Same tax law for every tag at start, so
-	# rates target a standard federal take, not France-at-rest. Pop × building
-	# income is not used: Indian mega-states would mint more cash than the USA.
+	# Ledger is US$ billions / month. Central/federal scale (not OECD GG).
+	# Fit 2026-09 vs IMF-ish central targets across majors + developing sample.
+	# Pop rates kept tiny so India/Nigeria/Ethiopia do not print cash.
 	set_variable = { dd_rate_civ = 1.00 }
 	# Finance: level × (local civs + services + 4). Services: level × (civs + 2).
-	set_variable = { dd_rate_finance = 0.20 }
+	set_variable = { dd_rate_finance = 0.30 }
 	set_variable = { dd_rate_fin_floor = 4 }
-	set_variable = { dd_rate_services = 0.15 }
+	set_variable = { dd_rate_services = 0.20 }
 	set_variable = { dd_rate_srv_floor = 2 }
 	# State cost: people plus factories in owned states.
-	set_variable = { dd_rate_admin_pop = 0.02 }
-	set_variable = { dd_rate_admin_civ = 1.20 }
-	set_variable = { dd_rate_admin = 0.02 }
+	set_variable = { dd_rate_admin_pop = 0.01 }
+	set_variable = { dd_rate_admin_civ = 1.00 }
+	set_variable = { dd_rate_admin = 0.01 }
 	# 3% a year on the debt stock (US Treasury average coupon is ~3.3% in 2026).
 	set_variable = { dd_rate_interest = 0.03 }
 	divide_variable = { dd_rate_interest = 12 }
 	# Japan home-bias spirit: −2 percentage points a year.
 	set_variable = { dd_rate_interest_jap_cut = 0.02 }
 	# Standard tax (law 3). Law 2 is half. Law 4 is +50%. Law 5 doubles. Law 1 is zero.
-	set_variable = { dd_rate_tax_pop = 0.02 }
-	set_variable = { dd_rate_tax_civ = 0.80 }
+	set_variable = { dd_rate_tax_pop = 0.01 }
+	set_variable = { dd_rate_tax_civ = 1.00 }
 	set_variable = { dd_rate_tax_2 = 0.50 }
 	set_variable = { dd_rate_tax_4 = 1.50 }
 	set_variable = { dd_rate_tax_5 = 2.00 }
@@ -443,6 +442,46 @@ dd_repay_loan = {
 	}
 }
 
+# Cover an overdraft with small loans (1× monthly revenue each). Cap 12.
+dd_auto_loan_if_negative = {
+	dd_refresh_loan_preview = yes
+	for_loop_effect = {
+		start = 0
+		end = 12
+		compare = less_than
+		add = 1
+		value = v
+		if = {
+			limit = {
+				check_variable = { treasury < 0 }
+				check_variable = { dd_loan_small > 0.01 }
+			}
+			dd_take_loan_small = yes
+		}
+	}
+}
+
+# Pay as much debt as cash allows (leaves leftover cash if debt is smaller).
+dd_auto_repay_debt = {
+	if = {
+		limit = {
+			has_country_flag = dd_auto_repay
+			check_variable = { debt > 0.01 }
+			check_variable = { treasury > 0.01 }
+		}
+		set_temp_variable = { dd_auto_pay = treasury }
+		if = {
+			limit = { check_variable = { debt < dd_auto_pay } }
+			set_temp_variable = { dd_auto_pay = debt }
+		}
+		subtract_from_variable = { treasury = dd_auto_pay }
+		subtract_from_variable = { debt = dd_auto_pay }
+		dd_refresh_interest = yes
+		dd_refresh_debt_burden = yes
+		dd_refresh_loan_preview = yes
+	}
+}
+
 dd_pay_interest_groups = {
 	if = {
 		limit = {
@@ -470,42 +509,42 @@ dd_subsidize_business = {
 
 dd_recalc_policy_expense = {
 	# Additive extras on core administration. Laws are exclusive per slot.
-	# small 0.08 / medium 0.16 / large 0.32 / extreme 0.64
-	# Default (tier 3 + standard tax): welfare, education, healthcare, aid,
-	# investment medium → ×1.48. Religion, media, AI, women, labor: never.
+	# Paid tiers only: small 0.05 / medium 0.10 / large 0.25 / extreme 0.50.
+	# Free tiers stay 0. Default (tier 3 + standard tax): welfare, education,
+	# healthcare, aid, investment medium → ×1.30.
 	set_variable = { dd_admin_factor = 1.00 }
 	set_variable = { income_tax = 0 }
 	if = {
 		limit = { has_idea = dd_welfare_3 }
-		add_to_variable = { dd_admin_factor = 0.08 }
+		add_to_variable = { dd_admin_factor = 0.05 }
 	}
 	if = {
 		limit = { has_idea = dd_welfare_4 }
-		add_to_variable = { dd_admin_factor = 0.32 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_welfare_5 }
-		add_to_variable = { dd_admin_factor = 0.64 }
+		add_to_variable = { dd_admin_factor = 0.50 }
 	}
 	if = {
 		limit = { has_idea = dd_education_3 }
-		add_to_variable = { dd_admin_factor = 0.08 }
+		add_to_variable = { dd_admin_factor = 0.05 }
 	}
 	if = {
 		limit = { has_idea = dd_education_4 }
-		add_to_variable = { dd_admin_factor = 0.32 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_education_5 }
-		add_to_variable = { dd_admin_factor = 0.64 }
+		add_to_variable = { dd_admin_factor = 0.50 }
 	}
 	if = {
 		limit = { has_idea = dd_immigration_4 }
-		add_to_variable = { dd_admin_factor = 0.08 }
+		add_to_variable = { dd_admin_factor = 0.05 }
 	}
 	if = {
 		limit = { has_idea = dd_immigration_5 }
-		add_to_variable = { dd_admin_factor = 0.32 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_taxes_2 }
@@ -528,63 +567,63 @@ dd_recalc_policy_expense = {
 	}
 	if = {
 		limit = { has_idea = dd_minority_4 }
-		add_to_variable = { dd_admin_factor = 0.32 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_minority_5 }
-		add_to_variable = { dd_admin_factor = 0.64 }
+		add_to_variable = { dd_admin_factor = 0.50 }
 	}
 	if = {
 		limit = { has_idea = dd_investment_2 }
-		add_to_variable = { dd_admin_factor = 0.08 }
+		add_to_variable = { dd_admin_factor = 0.05 }
 	}
 	if = {
 		limit = { has_idea = dd_investment_3 }
-		add_to_variable = { dd_admin_factor = 0.16 }
+		add_to_variable = { dd_admin_factor = 0.10 }
 	}
 	if = {
 		limit = { has_idea = dd_investment_4 }
-		add_to_variable = { dd_admin_factor = 0.32 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_investment_5 }
-		add_to_variable = { dd_admin_factor = 0.64 }
+		add_to_variable = { dd_admin_factor = 0.50 }
 	}
 	if = {
 		limit = { has_idea = dd_security_5 }
-		add_to_variable = { dd_admin_factor = 0.32 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_healthcare_3 }
-		add_to_variable = { dd_admin_factor = 0.08 }
+		add_to_variable = { dd_admin_factor = 0.05 }
 	}
 	if = {
 		limit = { has_idea = dd_healthcare_4 }
-		add_to_variable = { dd_admin_factor = 0.32 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_healthcare_5 }
-		add_to_variable = { dd_admin_factor = 0.64 }
+		add_to_variable = { dd_admin_factor = 0.50 }
 	}
 	if = {
 		limit = { has_idea = dd_fertility_1 }
-		add_to_variable = { dd_admin_factor = 0.16 }
+		add_to_variable = { dd_admin_factor = 0.10 }
 	}
 	if = {
 		limit = { has_idea = dd_fertility_2 }
-		add_to_variable = { dd_admin_factor = 0.08 }
+		add_to_variable = { dd_admin_factor = 0.05 }
 	}
 	if = {
 		limit = { has_idea = dd_aid_3 }
-		add_to_variable = { dd_admin_factor = 0.08 }
+		add_to_variable = { dd_admin_factor = 0.05 }
 	}
 	if = {
 		limit = { has_idea = dd_aid_4 }
-		add_to_variable = { dd_admin_factor = 0.32 }
+		add_to_variable = { dd_admin_factor = 0.25 }
 	}
 	if = {
 		limit = { has_idea = dd_aid_5 }
-		add_to_variable = { dd_admin_factor = 0.64 }
+		add_to_variable = { dd_admin_factor = 0.50 }
 	}
 	set_variable = { expense_policy = expense_admin }
 	multiply_variable = { expense_policy = dd_admin_factor }
@@ -672,6 +711,9 @@ dd_economy_monthly_tick = {
 		# First posted close reveals the budget UI (January stays ??).
 		set_country_flag = dd_econ_budget_shown
 		dd_refresh_loan_preview = yes
+		# Overdraft → small loans first, then optional auto debt paydown.
+		dd_auto_loan_if_negative = yes
+		dd_auto_repay_debt = yes
 		dd_consume_sam_ammo = yes
 	}
 

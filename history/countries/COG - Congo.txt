@@ -355,7 +355,7 @@ add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 765 produc
 add_equipment_to_stockpile = { type = support_equipment amount = 18 producer = COG }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = COG }
 add_ideas = dd_welfare_2
-add_ideas = dd_education_3
+add_ideas = dd_education_4
 add_ideas = dd_immigration_2
 add_ideas = dd_taxes_2
 add_ideas = dd_women_3
@@ -401,9 +401,6 @@ recruit_character = COG_john_navy
 recruit_character = COG_fm_army_command
 recruit_character = COG_gen_field_command
 recruit_character = COG_gen_corps_command
-activate_advisor = COG_john_army
-activate_advisor = COG_john_airforce
-activate_advisor = COG_john_navy
 declare_war_on = {
 	target = M23
 	type = annex_everything

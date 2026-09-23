@@ -1837,8 +1837,6 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
     ]
     for cid in bits.get("characters") or [f"{tag}_john_army", f"{tag}_john_airforce", f"{tag}_john_navy"]:
         lines.append(f"recruit_character = {cid}")
-    for cid in (bits.get("characters") or [])[:3]:
-        lines.append(f"activate_advisor = {cid}")
     if tag == "USA" and "NATO" in faction_members:
         lines.append("create_faction = NATO")
         for member in faction_members["NATO"]:

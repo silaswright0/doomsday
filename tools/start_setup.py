@@ -1149,7 +1149,7 @@ def character_block(tag: str, ndiv: int, force: tuple[int, ...]) -> str:
             "		advisor = {\n"
             f"			slot = {slot}\n"
             f"			idea_token = {cid}\n"
-            "			cost = 0\n"
+            "			cost = 100\n"
             f"			allowed = {{ original_tag = {tag} }}\n"
             "			traits = { " + trait + " }\n"
             "			ai_will_do = { factor = 1 }\n"

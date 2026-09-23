@@ -357,7 +357,7 @@ add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = 
 add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = SUD }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = SUD }
 add_ideas = dd_welfare_2
-add_ideas = dd_education_3
+add_ideas = dd_education_4
 add_ideas = dd_immigration_2
 add_ideas = dd_taxes_2
 add_ideas = dd_women_2
@@ -401,9 +401,6 @@ recruit_character = SUD_john_navy
 recruit_character = SUD_fm_army_command
 recruit_character = SUD_gen_field_command
 recruit_character = SUD_gen_corps_command
-activate_advisor = SUD_john_army
-activate_advisor = SUD_john_airforce
-activate_advisor = SUD_john_navy
 declare_war_on = {
 	target = RSF
 	type = annex_everything

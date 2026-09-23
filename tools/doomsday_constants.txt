@@ -57,15 +57,17 @@ Treasury rates (US$ billions / month, tools/calibrate_economy.py):
   Civ factory income          1.00 per civilian factory
   Finance income              0.20 × level × (local civs + services + 4)
   Services income             0.15 × level × (local civs + 2)
-  State admin                 0.02 per million people + 1.20 per civilian factory
-  Standard tax                0.02 per million people + 0.80 per civilian factory
+  State admin                 0.01 per million people + 1.00 per civilian factory
+  Standard tax                0.01 per million people + 1.00 per civilian factory
   Low tax                     0.50 × standard
   High tax                    1.50 × standard
   Choke Out Capital           2.00 × standard
   No Taxes                    0
-  Default policy factor       1.48 (tier-3 laws: small×4 + investment medium; religion/media/AI/women never cost)
+  Default policy factor       1.30 (tier-3 laws: small×4 + investment medium; religion/media/AI/women never cost)
   Interest                    3% a year (0.03 / 12 each month)
-  USA start yearly revenue    ~3694
+  USA start yearly revenue    ~4790
   Pay Interest Groups         1% of yearly revenue (50 PP, once per month)
   Subsidize Business          0.5% of yearly revenue (−5% consumer goods, 90 days)
+  Finance                     0.30 × level × (civs + services + 4)
+  Services                    0.20 × level × (civs + 2)
 

@@ -99,11 +99,89 @@ dd_intel_cd_tick = {
 dd_intel_cancel_select_effect = {
 	set_variable = { dd_intel_mission = 0 }
 	clear_variable = dd_intel_sabo_country
+	clear_variable = dd_intel_mission_target
+	clr_country_flag = dd_intel_locked
+	clear_array = dd_intel_cmd_pool
 }
 
 dd_intel_finish_select = {
 	dd_intel_start_cooldown = yes
 	dd_intel_cancel_select_effect = yes
+}
+
+# After country lock: cooldown already running; clear mission + pick state.
+dd_intel_finish_locked = {
+	clr_country_flag = dd_intel_locked
+	clear_variable = dd_intel_mission_target
+	clear_array = dd_intel_cmd_pool
+	set_variable = { dd_intel_mission = 0 }
+	clear_variable = dd_intel_sabo_country
+}
+
+dd_intel_lock_assassinate_country = {
+	# Commit: charge, cooldown, no cancel. Then pick a commander.
+	subtract_from_variable = { treasury = 3.0 }
+	dd_intel_start_cooldown = yes
+	set_variable = { dd_intel_mission_target = FROM }
+	set_country_flag = dd_intel_locked
+	clear_array = dd_intel_cmd_pool
+	FROM = {
+		every_army_leader = {
+			add_to_array = { ROOT.dd_intel_cmd_pool = THIS }
+		}
+	}
+}
+
+dd_intel_lock_steal_country = {
+	subtract_from_variable = { treasury = 2.0 }
+	dd_intel_start_cooldown = yes
+	set_variable = { dd_intel_mission_target = FROM }
+	set_country_flag = dd_intel_locked
+}
+
+dd_intel_assassinate_leader = {
+	# FROM = unit leader from target_array. 80% success (d10 0-7).
+	# Roll from ROOT + locked country (FROM is a leader, not a country).
+	set_temp_variable = { dd_intel_roll = num_owned_states }
+	add_to_temp_variable = { dd_intel_roll = num_divisions }
+	add_to_temp_variable = { dd_intel_roll = political_power }
+	add_to_temp_variable = { dd_intel_roll = treasury }
+	var:dd_intel_mission_target = {
+		add_to_temp_variable = { PREV.dd_intel_roll = num_owned_states }
+		add_to_temp_variable = { PREV.dd_intel_roll = num_divisions }
+	}
+	modulo_temp_variable = { dd_intel_roll = 10 }
+	if = {
+		limit = { check_variable = { dd_intel_roll < 8 } }
+		FROM = { remove_unit_leader = yes }
+	}
+	dd_intel_finish_locked = yes
+}
+
+# Damage every damageable building type in FROM (state scope). Skip dams/canals.
+dd_intel_sabotage_all_buildings = {
+	damage_building = { type = infrastructure damage = 0.75 }
+	damage_building = { type = industrial_complex damage = 0.75 }
+	damage_building = { type = arms_factory damage = 0.75 }
+	damage_building = { type = dockyard damage = 0.75 }
+	damage_building = { type = air_base damage = 0.75 }
+	damage_building = { type = anti_air_building damage = 0.75 }
+	damage_building = { type = radar_station damage = 0.75 }
+	damage_building = { type = synthetic_refinery damage = 0.75 }
+	damage_building = { type = fuel_silo damage = 0.75 }
+	damage_building = { type = rocket_site damage = 0.75 }
+	damage_building = { type = nuclear_reactor damage = 0.75 }
+	damage_building = { type = nuclear_reactor_heavy_water damage = 0.75 }
+	damage_building = { type = supply_node damage = 0.75 }
+	damage_building = { type = naval_base damage = 0.75 }
+	damage_building = { type = bunker damage = 0.75 }
+	damage_building = { type = coastal_bunker damage = 0.75 }
+	damage_building = { type = finance_center damage = 0.75 }
+	damage_building = { type = services_building damage = 0.75 }
+	damage_building = { type = renewable_park damage = 0.75 }
+	damage_building = { type = mega_gun_emplacement damage = 0.75 }
+	damage_building = { type = commercial_nuclear_reactor damage = 0.75 }
+	damage_building = { type = rail_way damage = 0.75 }
 }
 
 dd_intel_det_flip = {
@@ -129,8 +207,149 @@ dd_intel_det_d10 = {
 }
 
 dd_intel_steal_pick = {
-	# Grant first tech FROM has that ROOT lacks (curated modern list).
+	# Grant first tech FROM has that ROOT lacks (highest modern techs first).
+	# Covers main Doomsday trees so the mission rarely no-ops against peers.
 	if = {
+		limit = {
+			FROM = { has_tech = dd_mbt_9 }
+			NOT = { has_tech = dd_mbt_9 }
+		}
+		set_technology = { dd_mbt_9 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_mbt_8 }
+			NOT = { has_tech = dd_mbt_8 }
+		}
+		set_technology = { dd_mbt_8 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_mbt_7 }
+			NOT = { has_tech = dd_mbt_7 }
+		}
+		set_technology = { dd_mbt_7 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_mbt_6 }
+			NOT = { has_tech = dd_mbt_6 }
+		}
+		set_technology = { dd_mbt_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_mbt_5 }
+			NOT = { has_tech = dd_mbt_5 }
+		}
+		set_technology = { dd_mbt_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_mbt_4 }
+			NOT = { has_tech = dd_mbt_4 }
+		}
+		set_technology = { dd_mbt_4 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ftr_6 }
+			NOT = { has_tech = dd_ftr_6 }
+		}
+		set_technology = { dd_ftr_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ftr_5b }
+			NOT = { has_tech = dd_ftr_5b }
+		}
+		set_technology = { dd_ftr_5b = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ftr_5a }
+			NOT = { has_tech = dd_ftr_5a }
+		}
+		set_technology = { dd_ftr_5a = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ftr_45 }
+			NOT = { has_tech = dd_ftr_45 }
+		}
+		set_technology = { dd_ftr_45 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ftr_4 }
+			NOT = { has_tech = dd_ftr_4 }
+		}
+		set_technology = { dd_ftr_4 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ftr_3 }
+			NOT = { has_tech = dd_ftr_3 }
+		}
+		set_technology = { dd_ftr_3 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cpu_9 }
+			NOT = { has_tech = dd_cpu_9 }
+		}
+		set_technology = { dd_cpu_9 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cpu_8 }
+			NOT = { has_tech = dd_cpu_8 }
+		}
+		set_technology = { dd_cpu_8 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cpu_7 }
+			NOT = { has_tech = dd_cpu_7 }
+		}
+		set_technology = { dd_cpu_7 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cpu_6 }
+			NOT = { has_tech = dd_cpu_6 }
+		}
+		set_technology = { dd_cpu_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cpu_5 }
+			NOT = { has_tech = dd_cpu_5 }
+		}
+		set_technology = { dd_cpu_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cpu_4 }
+			NOT = { has_tech = dd_cpu_4 }
+		}
+		set_technology = { dd_cpu_4 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_inf_8 }
+			NOT = { has_tech = dd_inf_8 }
+		}
+		set_technology = { dd_inf_8 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_inf_7 }
+			NOT = { has_tech = dd_inf_7 }
+		}
+		set_technology = { dd_inf_7 = 1 }
+	}
+	else_if = {
 		limit = {
 			FROM = { has_tech = dd_inf_6 }
 			NOT = { has_tech = dd_inf_6 }
@@ -146,38 +365,115 @@ dd_intel_steal_pick = {
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mbt_4 }
-			NOT = { has_tech = dd_mbt_4 }
+			FROM = { has_tech = dd_at_8 }
+			NOT = { has_tech = dd_at_8 }
 		}
-		set_technology = { dd_mbt_4 = 1 }
+		set_technology = { dd_at_8 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mbt_3 }
-			NOT = { has_tech = dd_mbt_3 }
+			FROM = { has_tech = dd_at_7 }
+			NOT = { has_tech = dd_at_7 }
 		}
-		set_technology = { dd_mbt_3 = 1 }
+		set_technology = { dd_at_7 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ftr_2 }
-			NOT = { has_tech = dd_ftr_2 }
+			FROM = { has_tech = dd_at_6 }
+			NOT = { has_tech = dd_at_6 }
 		}
-		set_technology = { dd_ftr_2 = 1 }
+		set_technology = { dd_at_6 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_cpu_4 }
-			NOT = { has_tech = dd_cpu_4 }
+			FROM = { has_tech = dd_mech_6 }
+			NOT = { has_tech = dd_mech_6 }
 		}
-		set_technology = { dd_cpu_4 = 1 }
+		set_technology = { dd_mech_6 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_cpu_3 }
-			NOT = { has_tech = dd_cpu_3 }
+			FROM = { has_tech = dd_mech_5 }
+			NOT = { has_tech = dd_mech_5 }
 		}
-		set_technology = { dd_cpu_3 = 1 }
+		set_technology = { dd_mech_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cas_6 }
+			NOT = { has_tech = dd_cas_6 }
+		}
+		set_technology = { dd_cas_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_cas_5 }
+			NOT = { has_tech = dd_cas_5 }
+		}
+		set_technology = { dd_cas_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_str_6 }
+			NOT = { has_tech = dd_str_6 }
+		}
+		set_technology = { dd_str_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_str_5 }
+			NOT = { has_tech = dd_str_5 }
+		}
+		set_technology = { dd_str_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_uav_6 }
+			NOT = { has_tech = dd_uav_6 }
+		}
+		set_technology = { dd_uav_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_uav_5 }
+			NOT = { has_tech = dd_uav_5 }
+		}
+		set_technology = { dd_uav_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_hel_6 }
+			NOT = { has_tech = dd_hel_6 }
+		}
+		set_technology = { dd_hel_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_hel_5 }
+			NOT = { has_tech = dd_hel_5 }
+		}
+		set_technology = { dd_hel_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_esc_7 }
+			NOT = { has_tech = dd_esc_7 }
+		}
+		set_technology = { dd_esc_7 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_esc_6 }
+			NOT = { has_tech = dd_esc_6 }
+		}
+		set_technology = { dd_esc_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_esc_5 }
+			NOT = { has_tech = dd_esc_5 }
+		}
+		set_technology = { dd_esc_5 = 1 }
 	}
 	else_if = {
 		limit = {
@@ -185,6 +481,62 @@ dd_intel_steal_pick = {
 			NOT = { has_tech = dd_esc_4 }
 		}
 		set_technology = { dd_esc_4 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ssn_6 }
+			NOT = { has_tech = dd_ssn_6 }
+		}
+		set_technology = { dd_ssn_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ssn_5 }
+			NOT = { has_tech = dd_ssn_5 }
+		}
+		set_technology = { dd_ssn_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_ssbn_4 }
+			NOT = { has_tech = dd_ssbn_4 }
+		}
+		set_technology = { dd_ssbn_4 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_sam_6 }
+			NOT = { has_tech = dd_sam_6 }
+		}
+		set_technology = { dd_sam_6 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_sam_5 }
+			NOT = { has_tech = dd_sam_5 }
+		}
+		set_technology = { dd_sam_5 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_spg_7 }
+			NOT = { has_tech = dd_spg_7 }
+		}
+		set_technology = { dd_spg_7 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_rkt_7 }
+			NOT = { has_tech = dd_rkt_7 }
+		}
+		set_technology = { dd_rkt_7 = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_dew_6 }
+			NOT = { has_tech = dd_dew_6 }
+		}
+		set_technology = { dd_dew_6 = 1 }
 	}
 	else_if = {
 		limit = {
@@ -298,17 +650,13 @@ dd_ig_monthly_cleanup = {
 }
 
 dd_intel_assassinate_one = {
-	# Deterministic: retire the first corps commander, else first field marshal.
+	# Deterministic: remove the first army leader (general or field marshal).
+	# remove_unit_leader is the reliable unit-leader kill; retire alone can no-op.
 	clr_country_flag = dd_intel_kill_done
 	FROM = {
-		every_corps_commander = {
+		every_army_leader = {
 			limit = { NOT = { ROOT = { has_country_flag = dd_intel_kill_done } } }
-			retire = yes
-			ROOT = { set_country_flag = dd_intel_kill_done }
-		}
-		every_field_marshal = {
-			limit = { NOT = { ROOT = { has_country_flag = dd_intel_kill_done } } }
-			retire = yes
+			remove_unit_leader = yes
 			ROOT = { set_country_flag = dd_intel_kill_done }
 		}
 	}

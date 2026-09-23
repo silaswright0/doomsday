@@ -2,6 +2,9 @@
 # Country-scoped. No random_list (deterministic flips).
 #
 # dd_intel_mission: 0 idle, 1 destab, 2 assassinate, 3 arm, 4 coup, 5 sabotage, 6 steal, 7 cyber
+# Most targets use on_map_mode = map_only. Steal / Assassinate use decision lists:
+#   country pick → lock (no cancel) → tech / commander pick.
+# Steal tech picks live in doomsday_intel_steal_picks.txt (generated).
 
 doomsday_intel_category = {
 
@@ -10,7 +13,7 @@ doomsday_intel_category = {
 		allowed = { always = yes }
 		priority = 200
 		visible = {
-			dd_intel_selecting = yes
+			dd_intel_can_cancel_select = yes
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -51,6 +54,7 @@ doomsday_intel_category = {
 			check_variable = { dd_intel_mission = 1 }
 		}
 		targets_dynamic = yes
+		on_map_mode = map_only
 		target_trigger = {
 			FROM = { dd_intel_can_target = yes }
 		}
@@ -92,28 +96,46 @@ doomsday_intel_category = {
 		priority = 50
 		visible = {
 			check_variable = { dd_intel_mission = 2 }
+			NOT = { has_country_flag = dd_intel_locked }
 		}
 		target_root_trigger = {
 			check_variable = { dd_intel_mission = 2 }
+			NOT = { has_country_flag = dd_intel_locked }
 		}
 		targets_dynamic = yes
 		target_trigger = {
 			FROM = {
 				dd_intel_can_target = yes
 				dd_intel_no_agency = yes
+				dd_intel_has_commander = yes
 				NOT = { tag = ROOT }
 			}
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
-			subtract_from_variable = { treasury = 3.0 }
-			dd_intel_finish_select = yes
-			dd_intel_det_flip = yes
-			if = {
-				limit = { check_variable = { dd_intel_flip = 0 } }
-				dd_intel_assassinate_one = yes
-			}
+			dd_intel_lock_assassinate_country = yes
+		}
+	}
+
+	# After country lock: pick a commander. Cannot cancel.
+	dd_intel_assassinate_commander = {
+		icon = generic_assassination
+		allowed = { always = yes }
+		priority = 55
+		visible = {
+			check_variable = { dd_intel_mission = 2 }
+			has_country_flag = dd_intel_locked
+		}
+		target_root_trigger = {
+			check_variable = { dd_intel_mission = 2 }
+			has_country_flag = dd_intel_locked
+		}
+		target_array = dd_intel_cmd_pool
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_intel_assassinate_leader = yes
 		}
 	}
 
@@ -157,6 +179,7 @@ doomsday_intel_category = {
 			}
 		}
 		targets_dynamic = yes
+		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
 				NOT = { tag = ROOT }
@@ -217,6 +240,7 @@ doomsday_intel_category = {
 			check_variable = { dd_intel_mission = 4 }
 		}
 		targets_dynamic = yes
+		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
 				dd_intel_can_target = yes
@@ -243,21 +267,9 @@ doomsday_intel_category = {
 		}
 		available = {
 			dd_intel_mission_ready = yes
-			OR = {
-				AND = {
-					dd_intel_is_t1 = yes
-					custom_trigger_tooltip = {
-						tooltip = DD_INTEL_COST_SABOTAGE_T1
-						NOT = { check_variable = { treasury < 1.5 } }
-					}
-				}
-				AND = {
-					dd_intel_is_t2 = yes
-					custom_trigger_tooltip = {
-						tooltip = DD_INTEL_COST_SABOTAGE_T2
-						NOT = { check_variable = { treasury < 1.0 } }
-					}
-				}
+			custom_trigger_tooltip = {
+				tooltip = DD_INTEL_COST_SABOTAGE
+				NOT = { check_variable = { treasury < 1.5 } }
 			}
 		}
 		cost = 0
@@ -267,88 +279,43 @@ doomsday_intel_category = {
 		}
 	}
 
-	dd_intel_sabotage_country = {
-		icon = generic_construction
-		allowed = { always = yes }
-		priority = 50
-		visible = {
-			check_variable = { dd_intel_mission = 5 }
-			NOT = { has_variable = dd_intel_sabo_country }
-		}
-		target_root_trigger = {
-			check_variable = { dd_intel_mission = 5 }
-			NOT = { has_variable = dd_intel_sabo_country }
-		}
-		targets_dynamic = yes
-		target_trigger = {
-			FROM = {
-				OR = {
-					tag = ROOT
-					dd_intel_can_target = yes
-				}
-			}
-		}
-		cost = 0
-		ai_will_do = { factor = 0 }
-		complete_effect = {
-			set_variable = { dd_intel_sabo_country = FROM }
-		}
-	}
-
+	# Sabotage Buildings: click a state on the map. Damages all buildings in that state.
 	dd_intel_sabotage_state = {
 		icon = generic_construction
 		allowed = { always = yes }
 		priority = 50
 		visible = {
 			check_variable = { dd_intel_mission = 5 }
-			has_variable = dd_intel_sabo_country
 		}
 		target_root_trigger = {
 			check_variable = { dd_intel_mission = 5 }
-			has_variable = dd_intel_sabo_country
 		}
 		targets_dynamic = yes
 		state_target = yes
-		on_map_mode = map_and_decisions_view
+		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
-				is_owned_by = var:ROOT.dd_intel_sabo_country
+				OR = {
+					is_owned_by = ROOT
+					OWNER = { dd_intel_can_target = yes }
+				}
 			}
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
-			if = {
-				limit = { dd_intel_is_t1 = yes }
-				subtract_from_variable = { treasury = 1.5 }
-			}
-			else = {
-				subtract_from_variable = { treasury = 1.0 }
-			}
+			subtract_from_variable = { treasury = 1.5 }
 			dd_intel_finish_select = yes
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				FROM = {
-					damage_building = {
-						type = industrial_complex
-						damage = 0.6
-					}
-					damage_building = {
-						type = arms_factory
-						damage = 0.4
-					}
-				}
+				FROM = { dd_intel_sabotage_all_buildings = yes }
 			}
 			else = {
+				# Tier 2: 50% chance of full building damage.
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					FROM = {
-						damage_building = {
-							type = industrial_complex
-							damage = 0.5
-						}
-					}
+					FROM = { dd_intel_sabotage_all_buildings = yes }
 				}
 			}
 		}
@@ -363,21 +330,9 @@ doomsday_intel_category = {
 		}
 		available = {
 			dd_intel_mission_ready = yes
-			OR = {
-				AND = {
-					dd_intel_is_t1 = yes
-					custom_trigger_tooltip = {
-						tooltip = DD_INTEL_COST_STEAL_T1
-						NOT = { check_variable = { treasury < 2.0 } }
-					}
-				}
-				AND = {
-					dd_intel_is_t2 = yes
-					custom_trigger_tooltip = {
-						tooltip = DD_INTEL_COST_STEAL_T2
-						NOT = { check_variable = { treasury < 1.2 } }
-					}
-				}
+			custom_trigger_tooltip = {
+				tooltip = DD_INTEL_COST_STEAL
+				NOT = { check_variable = { treasury < 2.0 } }
 			}
 		}
 		cost = 0
@@ -393,35 +348,24 @@ doomsday_intel_category = {
 		priority = 50
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
+			NOT = { has_country_flag = dd_intel_locked }
 		}
 		target_root_trigger = {
 			check_variable = { dd_intel_mission = 6 }
+			NOT = { has_country_flag = dd_intel_locked }
 		}
 		targets_dynamic = yes
 		target_trigger = {
 			FROM = {
 				dd_intel_can_target = yes
+				dd_intel_has_stealable_tech = yes
 				NOT = { tag = ROOT }
 			}
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
-			if = {
-				limit = { dd_intel_is_t1 = yes }
-				subtract_from_variable = { treasury = 2.0 }
-				dd_intel_finish_select = yes
-				dd_intel_steal_pick = yes
-			}
-			else = {
-				subtract_from_variable = { treasury = 1.2 }
-				dd_intel_finish_select = yes
-				dd_intel_det_flip = yes
-				if = {
-					limit = { check_variable = { dd_intel_flip = 0 } }
-					dd_intel_steal_pick = yes
-				}
-			}
+			dd_intel_lock_steal_country = yes
 		}
 	}
 
@@ -434,21 +378,9 @@ doomsday_intel_category = {
 		}
 		available = {
 			dd_intel_mission_ready = yes
-			OR = {
-				AND = {
-					dd_intel_is_t1 = yes
-					custom_trigger_tooltip = {
-						tooltip = DD_INTEL_COST_CYBER_T1
-						NOT = { check_variable = { treasury < 1.0 } }
-					}
-				}
-				AND = {
-					dd_intel_is_t2 = yes
-					custom_trigger_tooltip = {
-						tooltip = DD_INTEL_COST_CYBER_T2
-						NOT = { check_variable = { treasury < 0.6 } }
-					}
-				}
+			custom_trigger_tooltip = {
+				tooltip = DD_INTEL_COST_CYBER
+				NOT = { check_variable = { treasury < 1.0 } }
 			}
 		}
 		cost = 0
@@ -469,23 +401,22 @@ doomsday_intel_category = {
 			check_variable = { dd_intel_mission = 7 }
 		}
 		targets_dynamic = yes
+		on_map_mode = map_only
 		target_trigger = {
 			FROM = { dd_intel_can_target = yes }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
+			subtract_from_variable = { treasury = 1.0 }
+			dd_intel_finish_select = yes
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				subtract_from_variable = { treasury = 1.0 }
-				dd_intel_finish_select = yes
 				FROM = {
 					add_timed_idea = { idea = dd_intel_cyber_t1 days = 30 }
 				}
 			}
 			else = {
-				subtract_from_variable = { treasury = 0.6 }
-				dd_intel_finish_select = yes
 				FROM = {
 					add_timed_idea = { idea = dd_intel_cyber_t2 days = 30 }
 				}

@@ -355,8 +355,9 @@ add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 510 produc
 add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = LBA }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = LBA }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = LBA }
+add_ideas = LBA_turkish_support
 add_ideas = dd_welfare_3
-add_ideas = dd_education_3
+add_ideas = dd_education_4
 add_ideas = dd_immigration_2
 add_ideas = dd_taxes_1
 add_ideas = dd_women_2
@@ -373,7 +374,6 @@ add_ideas = dd_civil_military_2
 add_ideas = limited_conscription
 add_ideas = export_focus
 add_ideas = partial_economic_mobilisation
-add_ideas = LBA_turkish_support
 set_politics = {
 	ruling_party = sovereign_democracy
 	last_election = "2024.1.1"
@@ -399,6 +399,3 @@ recruit_character = LBA_john_army
 recruit_character = LBA_john_airforce
 recruit_character = LBA_john_navy
 recruit_character = LBA_gen_field_command
-activate_advisor = LBA_john_army
-activate_advisor = LBA_john_airforce
-activate_advisor = LBA_john_navy

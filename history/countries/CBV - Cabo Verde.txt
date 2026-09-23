@@ -354,7 +354,7 @@ set_technology = {
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = CBV }
 add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = CBV }
 add_ideas = dd_welfare_3
-add_ideas = dd_education_4
+add_ideas = dd_education_3
 add_ideas = dd_immigration_3
 add_ideas = dd_taxes_2
 add_ideas = dd_women_3
@@ -397,6 +397,3 @@ recruit_character = CBV_john_army
 recruit_character = CBV_john_airforce
 recruit_character = CBV_john_navy
 recruit_character = CBV_gen_field_command
-activate_advisor = CBV_john_army
-activate_advisor = CBV_john_airforce
-activate_advisor = CBV_john_navy

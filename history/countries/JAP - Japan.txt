@@ -489,8 +489,9 @@ add_equipment_to_stockpile = { type = artillery_equipment amount = 23 producer =
 add_equipment_to_stockpile = { type = mechanized_equipment amount = 540 producer = JAP }
 add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 22 producer = JAP }
 add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 66 producer = JAP }
+add_ideas = JAP_boj_home_bias
 add_ideas = dd_welfare_4
-add_ideas = dd_education_5
+add_ideas = dd_education_4
 add_ideas = dd_immigration_2
 add_ideas = dd_taxes_3
 add_ideas = dd_women_3
@@ -507,7 +508,6 @@ add_ideas = dd_civil_military_3
 add_ideas = volunteer_only
 add_ideas = export_focus
 add_ideas = civilian_economy
-add_ideas = JAP_boj_home_bias
 set_politics = {
 	ruling_party = liberal_conservatism
 	last_election = "2024.10.27"
@@ -537,6 +537,3 @@ recruit_character = JAP_john_navy
 recruit_character = JAP_fm_yoshida_yoshihide
 recruit_character = JAP_gen_morishita_yasunori
 recruit_character = JAP_nav_saito_akira
-activate_advisor = JAP_john_army
-activate_advisor = JAP_john_airforce
-activate_advisor = JAP_john_navy

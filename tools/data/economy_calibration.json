@@ -1,20 +1,28 @@
 {
   "shipped": true,
   "formula": {
-    "finance": "level * (civs + services + 4) * 0.20",
-    "services": "level * (civs + 2) * 0.15",
-    "tax_standard": "pop_m * 0.02 + civs * 0.80",
-    "tax_high": "2.00 x standard",
-    "admin": "pop_m * 0.02 + civs * 1.20",
-    "policy_default": {
-      "welfare": 0.08,
-      "education": 0.08,
-      "healthcare": 0.08,
-      "investment": 0.16,
-      "aid": 0.08
+    "finance": "level * (civs + services + 4) * 0.30",
+    "services": "level * (civs + 2) * 0.20",
+    "tax_standard": "pop_m * 0.01 + civs * 1.00",
+    "tax_high": "1.50 x standard",
+    "tax_choke": "2.00 x standard",
+    "admin": "pop_m * 0.01 + civs * 1.00",
+    "policy_bands": {
+      "small": 0.05,
+      "medium": 0.10,
+      "large": 0.25,
+      "extreme": 0.50
     },
-    "policy_factor_default": 1.48,
-    "usa_yearly_revenue": 3694
+    "policy_default": {
+      "welfare": 0.05,
+      "education": 0.05,
+      "healthcare": 0.05,
+      "investment": 0.10,
+      "aid": 0.05
+    },
+    "policy_factor_default": 1.30,
+    "usa_yearly_revenue": 4787,
+    "usa_income_pct_gdp": 0.156
   },
-  "notes": "Pop x building income was dropped because Indian mega-states out-earned the USA. Ledger is central/federal cash, not OECD general government. IMF WEO rev/exp and World Bank services shares informed the targets."
+  "notes": "2026-09 audit: central/federal scale vs IMF-ish targets across 48 tags (majors + developing). Pop rates cut so mega-pop poor tags do not print. Policy ladder cleaned to 0.05/0.10/0.25/0.50; free tiers unchanged. Building income (finance/services) raised so USA/ENG/SNG matter. Collapsed micro-GDP tags (AFG) still look rich as % GDP because one civ is $12B/yr."
 }

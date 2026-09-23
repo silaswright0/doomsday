@@ -430,13 +430,18 @@ def paths_for(tree: dict) -> dict[str, list[str]]:
     return out
 
 
-def tech_block(tree_id: str, tree: dict, node: dict, col_x: dict[str, int], leads: list[str]) -> str:
+def tech_block(tree_id: str, tree: dict, node: dict, col_x: dict[str, int], leads: list[str], root_year: int | None = None) -> str:
     nid = node["id"]
     hidden = nid in FLOOR_IDS
     folders = []
     if not hidden:
-        px = col_x[node["col"]]
-        py = year_y(node["year"])
+        # format=UP: x→right, y→down. Relative to branch-root gridbox.
+        # One folder-y unit = one 5-year band (slot height 100 in GUI).
+        def band(y: int) -> int:
+            return max(0, (int(y) - 1955) // 5)
+
+        px = 0
+        py = band(node["year"]) - band(root_year if root_year is not None else node["year"])
         for folder in FOLDERS[tree_id]:
             folders.append(
                 f"\t\tfolder = {{\n\t\t\tname = {folder}\n"
@@ -479,6 +484,12 @@ def write_techs(trees: dict[str, dict]) -> None:
     for tid, tree in trees.items():
         col_x = {cid: i * 2 for i, (cid, _) in enumerate(tree["columns"])}
         leads = paths_for(tree)
+        # First visible (non-floor) node per column is the branch root.
+        root_year_by_col: dict[str, int] = {}
+        for node in sorted(tree["nodes"], key=lambda n: (n["year"], n["id"])):
+            if node["id"] in FLOOR_IDS:
+                continue
+            root_year_by_col.setdefault(node["col"], node["year"])
         macros = ["\t@1955 = 0"]
         for y in range(1960, 2040, 5):
             macros.append(f"\t@{y} = {year_y(y)}")
@@ -489,7 +500,8 @@ def write_techs(trees: dict[str, dict]) -> None:
             "\n",
         ]
         for node in tree["nodes"]:
-            body.append(tech_block(tid, tree, node, col_x, leads.get(node["id"], [])))
+            ry = root_year_by_col.get(node["col"])
+            body.append(tech_block(tid, tree, node, col_x, leads.get(node["id"], []), ry))
         body.append("}\n")
         (TECH_DIR / f"dd_{tid}.txt").write_text("".join(body), encoding="utf-8")
 
@@ -1301,10 +1313,10 @@ def write_gfx(trees: dict[str, dict]) -> None:
 def year_label_boxes(folder: str) -> list[str]:
     boxes = []
     for y in range(1955, 2040, 5):
-        py = 90 + year_y(y) * 36
+        py = 90 + ((y - 1955) // 5) * 100
         boxes.append(
             f'\t\t\tinstantTextBoxType = {{ name = "dd_yr_{folder}_{y}" '
-            f"position = {{ x = 2 y = {py} }} textureFile = \"\" font = \"hoi_22tech\" "
+            f"position = {{ x = 40 y = {py} }} textureFile = \"\" font = \"hoi_22tech\" "
             f'borderSize = {{ x = 0 y = 0 }} text = "{y}" maxWidth = 48 maxHeight = 24 '
             f'format = left Orientation = "UPPER_LEFT" }}'
         )
@@ -1327,16 +1339,22 @@ def write_gui(trees: dict[str, dict]) -> None:
     )
     by_folder: dict[str, list[str]] = defaultdict(list)
     for tid, tree in trees.items():
-        col_x = {cid: i for i, (cid, _) in enumerate(tree["columns"])}
-        for n in tree["nodes"]:
-            if n["id"] in FLOOR_IDS:
+        # One gridbox per column root (first visible tech). format=UP: x→right, y→down.
+        seen_cols: set[str] = set()
+        for n in sorted(tree["nodes"], key=lambda x: (x["year"], x["id"])):
+            if n["id"] in FLOOR_IDS or n["col"] in seen_cols:
                 continue
-            px = 40 + col_x[n["col"]] * 140
-            py = 90 + year_y(n["year"]) * 36
+            seen_cols.add(n["col"])
+            col_i = list(dict(tree["columns"]).keys()).index(n["col"]) if n["col"] in dict(tree["columns"]) else 0
+            # columns is list of tuples
+            col_ids = [c for c, _ in tree["columns"]]
+            col_i = col_ids.index(n["col"])
+            px = 200 + col_i * 130
+            py = 90 + ((n["year"] - 1955) // 5) * 100
             box = (
                 f'\t\t\tgridboxtype = {{ name = "{n["id"]}_tree" '
                 f"position = {{ x = {px} y = {py} }} "
-                f'slotsize = {{ width = 70 height = 70 }} format = "LEFT" }}'
+                f'slotsize = {{ width = 70 height = 100 }} format = "UP" }}'
             )
             for folder in FOLDERS[tid]:
                 by_folder[folder].append(box)
@@ -1359,17 +1377,21 @@ def write_gui(trees: dict[str, dict]) -> None:
         )
         text = text[:insert_at] + block + text[insert_at:]
     for old, new in (
-        ("width = 1600 height = 2100", "width = 1800 height = 2100"),
-        ("width = 1400 height = 1275", "width = 1800 height = 2100"),
-        ("width = 1400 height = 800", "width = 1800 height = 2100"),
-        ("width = 1450 height = 1090", "width = 1800 height = 2100"),
-        ("width = 1900 height = 1090", "width = 2000 height = 2100"),
-        ("width = 1515 height = 1700", "width = 1800 height = 2100"),
-        ("width=1700 height=1300", "width=1800 height=2100"),
-        ("width = 2240 height = 1600", "width = 2240 height = 2100"),
-        ("width = 2500 height = 1600", "width = 2500 height = 2100"),
-        ("width = 710 height = 1100", "width = 1800 height = 2100"),
-        ("width = 1650 height = 1000", "width = 1800 height = 2100"),
+        ("width = 1600 height = 2100", "width = 1600 height = 2000"),
+        ("width = 1400 height = 1275", "width = 1600 height = 2000"),
+        ("width = 1400 height = 800", "width = 1600 height = 2000"),
+        ("width = 1450 height = 1090", "width = 1600 height = 2000"),
+        ("width = 1900 height = 1090", "width = 1800 height = 2000"),
+        ("width = 1515 height = 1700", "width = 1600 height = 2000"),
+        ("width=1700 height=1300", "width=1600 height=2000"),
+        ("width = 2240 height = 1600", "width = 2000 height = 2000"),
+        ("width = 2500 height = 1600", "width = 2200 height = 2000"),
+        ("width = 710 height = 1100", "width = 1600 height = 2000"),
+        ("width = 1650 height = 1000", "width = 1600 height = 2000"),
+        ("width = 1800 height = 2100", "width = 1600 height = 2000"),
+        ("width = 2000 height = 2100", "width = 1800 height = 2000"),
+        ("width = 2240 height = 2100", "width = 2000 height = 2000"),
+        ("width = 2500 height = 2100", "width = 2200 height = 2000"),
     ):
         text = text.replace(old, new)
     GUI.write_text(text, encoding="utf-8")

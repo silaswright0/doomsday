@@ -2,12 +2,13 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "countrytradeview"
-		position = { x=-606 y=78}	
+		position = { x=-1094 y=78}
 		show_position = { x=-6 y =78 }
 		show_animation_type = decelerated
 		hide_animation_type = accelerated
-		animation_time = 300	
-		size = { width=689 height=100%% }
+		animation_time = 300
+		# Wide enough for all 12 resources in one row (no hard-to-see slider).
+		size = { width=1100 height=100%% }
 		clipping = yes
 		#hide_sound = menu_close_window
 		show_sound = menu_open_window
@@ -38,7 +39,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "trade_back"
-			size = { width = 660 height = 400 }
+			size = { width = 1070 height = 400 }
 			position = { x = 8 y = 43 }
 
 			background = {
@@ -107,40 +108,37 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
+		# Must stay a direct child of countrytradeview (engine looks it up by path).
+		# Align exactly with resources_grid (resources.x + grid.x = 112).
+		containerWindowType = {
+			name = "filters"
+			position = { x = 112 y = 78 }
+			size = { width = 948 height = 50 }
+
+			gridBoxType = {
+				name = "resources_grid"
+				position = { x = 0 y = 0 }
+				size = { width = 948 height = 50 }
+				slotsize = { width = 79 height = 46 }
+				max_slots = { x = 12 y = 1 }
+				format = "UPPER_LEFT"
+			}
+		}
+
 		containerWindowType = {
 			name = "resources"
-			position = { x = 11 y = 78 }
-			size = { width = 655 height = 247 }
-			clipping = yes
-			horizontalScrollbar = "bottom_horizontal_slider"
-			scroll_wheel_factor = 40
-			smooth_scrolling = yes
-			margin = { top = 0 bottom = 18 }
+			position = { x = 11 y = 115 }
+			size = { width = 1050 height = 210 }
 
 			background = {
 				name ="resources_bg"
 				spriteType = "GFX_tiled_plain_bg"
 			}
 
-			containerWindowType = {
-				name = "filters"
-				position = { x = 101 y = 0 }
-				size = { width = 948 height = 50 }
-
-				gridBoxType = {
-					name = "resources_grid"
-					position = { x = 0 y = 0 }
-					size = { width = 948 height = 50 }
-					slotsize = { width = 79 height = 46 }
-					max_slots = { x = 12 y = 1 }
-					format = "UPPER_LEFT"
-				}
-			}
-
 			gridBoxType = {
 				name = "resources_grid"
-				position = { x = 101 y = 37 }
-				size = { width = 948 height = 156 }
+				position = { x = 101 y = 0 }
+				size = { width = 948 height = 100%% }
 				slotsize = { width = 79 height = 156 }
 				max_slots = { x = 12 y = 1 }
 				format = "UPPER_LEFT"
@@ -230,7 +228,7 @@ guiTypes = {
 		buttonType = {
 			name = "sort_country"
 			position = {x=17 y=440}
-			size = { x = 170 y = 23 }
+			size = { x = 250 y = 23 }
 			quadTextureSprite = "GFX_tiling_sort_button"
 			font = "hoi_16mbs"
 			buttontext = "TRADE_SORT_COUNTRY"
@@ -239,8 +237,8 @@ guiTypes = {
 
 		buttonType = {
 			name = "sort_export"
-			position = {x=187 y=440}
-			size = { x = 170 y = 23 }
+			position = {x=267 y=440}
+			size = { x = 250 y = 23 }
 			quadTextureSprite = "GFX_tiling_sort_button"
 			font = "hoi_16mbs"
 			buttontext = "TRADE_SORT_EXPORT"
@@ -249,8 +247,8 @@ guiTypes = {
 
 		buttonType = {
 			name = "sort_request"
-			position = {x=357 y=440}
-			size = { x = 170 y = 23 }
+			position = {x=517 y=440}
+			size = { x = 250 y = 23 }
 			quadTextureSprite = "GFX_tiling_sort_button"
 			font = "hoi_16mbs"
 			buttontext = "TRADE_SORT_REQUEST"
@@ -259,8 +257,8 @@ guiTypes = {
 
 		buttonType = {
 			name = "sort_convoys"
-			position = {x=527 y=440}
-			size = { x = 138 y = 23 }
+			position = {x=767 y=440}
+			size = { x = 220 y = 23 }
 			quadTextureSprite = "GFX_tiling_sort_button"
 			font = "hoi_16mbs"
 			buttontext = "TRADE_SORT_CONVOYS"
@@ -271,7 +269,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "country_filters"
 			position = { x = 75 y = 332 }	
-			size = { width = 655 height = 50 }
+			size = { width = 920 height = 50 }
 			verticalScrollbar = "right_vertical_slider"
 				
 			
@@ -288,7 +286,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "trade"
 			position = { x = 15 y = 462 }	
-			size = { width = 674 height = 100%% }
+			size = { width = 990 height = 100%% }
 			verticalScrollbar = "right_vertical_slider"
 			scroll_wheel_factor = 45
 			smooth_scrolling = yes
@@ -303,7 +301,7 @@ guiTypes = {
 				name = "trade_grid"
 				position = { x = 0 y = 0 }
 				size = { width = 100%% height = 100%% }
-				slotsize = { width = 511 height = 45 }
+				slotsize = { width = 980 height = 45 }
 				max_slots_horizontal = 1
 				format = "UPPER_LEFT"
 			}
@@ -654,7 +652,7 @@ guiTypes = {
 		
 		buttonType = {
 			name = "cancel_imports"
-			position = { x= 46 y= 170 }
+			position = { x= 46 y= 148 }
 			quadTextureSprite ="GFX_cancel_import_button"
 			clicksound = click_default
 		}
@@ -663,13 +661,15 @@ guiTypes = {
 	containerWindowType = {
 		name = "resources_filter_entry"
 		position = { x = 0 y = 4 }
-		size = { width = 74 height = 50 }
-		clipping = no
-		
+		# Native GFX_TRADE_resource_btn is 162px — must clamp or icons fold across columns.
+		size = { width = 79 height = 46 }
+		clipping = yes
 		
 		buttonType = {
 			name = "background"
 			quadTextureSprite ="GFX_TRADE_resource_btn"
+			position = { x = 0 y = 0 }
+			size = { x = 79 y = 34 }
 			clicksound = click_checkbox
 		}
 
@@ -709,7 +709,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "country_trade_entry"
 		position = { x = 0 y = 0 }
-		size = { width = 648 height = 45 }
+		size = { width = 980 height = 45 }
 		clipping = no
 
 		background = {
