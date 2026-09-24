@@ -1,10 +1,14 @@
-# Intelligence missions. One button per mission type, then pick a target.
+# Intelligence missions. Click a capital on the map (or any state for sabotage).
+# Targets are map-only. Do not add a country-tag list in the decision tab.
+# Map icons exist only for state-targeted decisions, so country picks use the capital state.
+# Mission id stays in visible (every frame). target_root_trigger is daily, so it must
+# not include the mission id or the icons appear a day late.
 # Country-scoped. No random_list (deterministic flips).
 #
-# dd_intel_mission: 0 idle, 1 destab, 2 assassinate, 3 arm, 4 coup, 5 sabotage, 6 steal, 7 cyber
-# Most targets use on_map_mode = map_only. Steal / Assassinate use decision lists:
-#   country pick → lock (no cancel) → tech / commander pick.
-# Steal tech picks live in doomsday_intel_steal_picks.txt (generated).
+# dd_intel_mission: 0 idle, 1 destab, 2 assassinate, 3 arm, 4 coup,
+#   5 sabotage, 6 steal, 7 cyber, 8 blame scapegoat
+# Steal tech picks: doomsday_intel_steal_picks.txt (generated).
+# Assassinate commander: scripted GUI picker after map lock.
 
 doomsday_intel_category = {
 
@@ -51,21 +55,28 @@ doomsday_intel_category = {
 			check_variable = { dd_intel_mission = 1 }
 		}
 		target_root_trigger = {
-			check_variable = { dd_intel_mission = 1 }
+			dd_intel_has_agency = yes
 		}
-		targets_dynamic = yes
+		state_target = yes
 		on_map_mode = map_only
 		target_trigger = {
-			FROM = { dd_intel_can_target = yes }
+			FROM = {
+				is_capital = yes
+				owner = { dd_intel_target_any = yes }
+			}
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
 			subtract_from_variable = { treasury = 2.0 }
-			dd_intel_finish_select = yes
 			FROM = {
-				add_timed_idea = { idea = dd_intel_destabilized days = 180 }
+				owner = {
+					add_timed_idea = { idea = dd_intel_destabilized days = 180 }
+					news_event = { id = doomsday_intel.1 hours = 2 }
+				}
 			}
+			dd_intel_finish_select = yes
+			dd_intel_maybe_start_blame = yes
 		}
 	}
 
@@ -99,43 +110,23 @@ doomsday_intel_category = {
 			NOT = { has_country_flag = dd_intel_locked }
 		}
 		target_root_trigger = {
-			check_variable = { dd_intel_mission = 2 }
-			NOT = { has_country_flag = dd_intel_locked }
+			dd_intel_has_agency = yes
 		}
-		targets_dynamic = yes
+		state_target = yes
+		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
-				dd_intel_can_target = yes
-				dd_intel_no_agency = yes
-				dd_intel_has_commander = yes
-				NOT = { tag = ROOT }
+				is_capital = yes
+				owner = {
+					dd_intel_target_t1_exclusive = yes
+					dd_intel_has_commander = yes
+				}
 			}
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
 			dd_intel_lock_assassinate_country = yes
-		}
-	}
-
-	# After country lock: pick a commander. Cannot cancel.
-	dd_intel_assassinate_commander = {
-		icon = generic_assassination
-		allowed = { always = yes }
-		priority = 55
-		visible = {
-			check_variable = { dd_intel_mission = 2 }
-			has_country_flag = dd_intel_locked
-		}
-		target_root_trigger = {
-			check_variable = { dd_intel_mission = 2 }
-			has_country_flag = dd_intel_locked
-		}
-		target_array = dd_intel_cmd_pool
-		cost = 0
-		ai_will_do = { factor = 0 }
-		complete_effect = {
-			dd_intel_assassinate_leader = yes
 		}
 	}
 
@@ -167,44 +158,23 @@ doomsday_intel_category = {
 		allowed = { always = yes }
 		priority = 50
 		visible = {
-			OR = {
-				check_variable = { dd_intel_mission = 3 }
-				has_country_flag = dd_intel_arm_running
-			}
+			check_variable = { dd_intel_mission = 3 }
 		}
 		target_root_trigger = {
-			OR = {
-				check_variable = { dd_intel_mission = 3 }
-				has_country_flag = dd_intel_arm_running
-			}
+			dd_intel_has_agency = yes
 		}
-		targets_dynamic = yes
+		state_target = yes
 		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
-				NOT = { tag = ROOT }
-				OR = {
-					AND = {
-						ROOT = { check_variable = { dd_intel_mission = 3 } }
-						dd_intel_can_target = yes
-					}
-					tag = var:ROOT.dd_intel_insurgent_target
-				}
+				is_capital = yes
+				owner = { dd_intel_target_t1_exclusive = yes }
 			}
 		}
 		cost = 0
-		days_remove = 180
 		ai_will_do = { factor = 0 }
 		complete_effect = {
-			subtract_from_variable = { treasury = 2.5 }
-			dd_intel_start_cooldown = yes
-			set_variable = { dd_intel_insurgent_target = FROM }
-			set_country_flag = dd_intel_arm_running
-			dd_intel_cancel_select_effect = yes
-		}
-		remove_effect = {
-			dd_intel_spawn_insurgents = yes
-			clr_country_flag = dd_intel_arm_running
+			dd_intel_arm_confirm = yes
 		}
 	}
 
@@ -237,16 +207,17 @@ doomsday_intel_category = {
 			check_variable = { dd_intel_mission = 4 }
 		}
 		target_root_trigger = {
-			check_variable = { dd_intel_mission = 4 }
+			dd_intel_has_agency = yes
 		}
-		targets_dynamic = yes
+		state_target = yes
 		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
-				dd_intel_can_target = yes
-				dd_intel_no_agency = yes
-				NOT = { tag = ROOT }
-				num_owned_states > 1
+				is_capital = yes
+				owner = {
+					dd_intel_target_t1_exclusive = yes
+					check_variable = { num_owned_states > 1 }
+				}
 			}
 		}
 		cost = 0
@@ -279,7 +250,6 @@ doomsday_intel_category = {
 		}
 	}
 
-	# Sabotage Buildings: click a state on the map. Damages all buildings in that state.
 	dd_intel_sabotage_state = {
 		icon = generic_construction
 		allowed = { always = yes }
@@ -288,16 +258,15 @@ doomsday_intel_category = {
 			check_variable = { dd_intel_mission = 5 }
 		}
 		target_root_trigger = {
-			check_variable = { dd_intel_mission = 5 }
+			dd_intel_has_agency = yes
 		}
-		targets_dynamic = yes
 		state_target = yes
 		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
 				OR = {
 					is_owned_by = ROOT
-					OWNER = { dd_intel_can_target = yes }
+					OWNER = { dd_intel_target_shared = yes }
 				}
 			}
 		}
@@ -305,19 +274,39 @@ doomsday_intel_category = {
 		ai_will_do = { factor = 0 }
 		complete_effect = {
 			subtract_from_variable = { treasury = 1.5 }
-			dd_intel_finish_select = yes
+			clr_country_flag = dd_intel_sabo_hit
 			if = {
 				limit = { dd_intel_is_t1 = yes }
 				FROM = { dd_intel_sabotage_all_buildings = yes }
+				set_country_flag = dd_intel_sabo_hit
 			}
 			else = {
-				# Tier 2: 50% chance of full building damage.
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
 					FROM = { dd_intel_sabotage_all_buildings = yes }
+					set_country_flag = dd_intel_sabo_hit
 				}
 			}
+			FROM = {
+				OWNER = {
+					if = {
+						limit = { ROOT = { has_country_flag = dd_intel_sabo_hit } }
+						news_event = { id = doomsday_intel.10 hours = 2 }
+					}
+					else = {
+						news_event = { id = doomsday_intel.11 hours = 2 }
+					}
+				}
+			}
+			dd_intel_finish_select = yes
+			# Self-sabotage (own state): blame phase.
+			if = {
+				limit = { FROM = { is_owned_by = ROOT } }
+				set_variable = { dd_intel_mission = 8 }
+				country_event = { id = doomsday_intel.20 hours = 1 }
+			}
+			clr_country_flag = dd_intel_sabo_hit
 		}
 	}
 
@@ -338,7 +327,13 @@ doomsday_intel_category = {
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
-			set_variable = { dd_intel_mission = 6 }
+			if = {
+				limit = { dd_intel_steal_has_target = yes }
+				set_variable = { dd_intel_mission = 6 }
+			}
+			else = {
+				country_event = { id = doomsday_intel.22 }
+			}
 		}
 	}
 
@@ -351,15 +346,14 @@ doomsday_intel_category = {
 			NOT = { has_country_flag = dd_intel_locked }
 		}
 		target_root_trigger = {
-			check_variable = { dd_intel_mission = 6 }
-			NOT = { has_country_flag = dd_intel_locked }
+			dd_intel_has_agency = yes
 		}
-		targets_dynamic = yes
+		state_target = yes
+		on_map_mode = map_only
 		target_trigger = {
 			FROM = {
-				dd_intel_can_target = yes
-				dd_intel_has_stealable_tech = yes
-				NOT = { tag = ROOT }
+				is_capital = yes
+				owner = { dd_intel_steal_country_ok = yes }
 			}
 		}
 		cost = 0
@@ -398,29 +392,89 @@ doomsday_intel_category = {
 			check_variable = { dd_intel_mission = 7 }
 		}
 		target_root_trigger = {
-			check_variable = { dd_intel_mission = 7 }
+			dd_intel_has_agency = yes
 		}
-		targets_dynamic = yes
+		state_target = yes
 		on_map_mode = map_only
 		target_trigger = {
-			FROM = { dd_intel_can_target = yes }
+			FROM = {
+				is_capital = yes
+				owner = { dd_intel_target_shared = yes }
+			}
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
 			subtract_from_variable = { treasury = 1.0 }
-			dd_intel_finish_select = yes
 			if = {
 				limit = { dd_intel_is_t1 = yes }
 				FROM = {
-					add_timed_idea = { idea = dd_intel_cyber_t1 days = 30 }
+					owner = {
+						add_timed_idea = { idea = dd_intel_cyber_t1 days = 30 }
+						news_event = { id = doomsday_intel.14 hours = 2 }
+					}
 				}
 			}
 			else = {
 				FROM = {
-					add_timed_idea = { idea = dd_intel_cyber_t2 days = 30 }
+					owner = {
+						add_timed_idea = { idea = dd_intel_cyber_t2 days = 30 }
+						news_event = { id = doomsday_intel.14 hours = 2 }
+					}
+				}
+			}
+			dd_intel_finish_select = yes
+			dd_intel_maybe_start_blame = yes
+		}
+	}
+
+	# After self-target: click another country to blame.
+	dd_intel_blame_target = {
+		icon = generic_nationalism
+		allowed = { always = yes }
+		priority = 60
+		visible = {
+			check_variable = { dd_intel_mission = 8 }
+		}
+		target_root_trigger = {
+			dd_intel_has_agency = yes
+		}
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				is_capital = yes
+				owner = {
+					exists = yes
+					NOT = { tag = ROOT }
 				}
 			}
 		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_intel_apply_blame = yes
+		}
+	}
+
+	# Visible 180-day countdown after Arm Insurgents confirms a capital.
+	dd_intel_arm_countdown = {
+		icon = generic_civil_support
+		priority = 90
+		allowed = { always = yes }
+		is_good = no
+		days_mission_timeout = 180
+		activation = { always = no }
+		available = {
+			hidden_trigger = { always = no }
+		}
+		cancel_trigger = {
+			NOT = { has_country_flag = dd_intel_arm_running }
+		}
+		timeout_effect = {
+			dd_intel_spawn_insurgents = yes
+			clr_country_flag = dd_intel_arm_running
+		}
+		ai_will_do = { factor = 0 }
 	}
 }

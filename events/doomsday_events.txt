@@ -2,6 +2,7 @@
 # Doomsday country/news events go in this folder.
 
 add_namespace = doomsday
+add_namespace = doomsday_intel
 
 # Hidden. Recalc money after history buildings exist (on_startup is too early).
 country_event = {
@@ -12,5 +13,206 @@ country_event = {
 		dd_prime_economy_ledger = yes
 	}
 	option = {
+	}
+}
+
+# --- Anonymous intel news (ROOT = affected country; never names the actor) ---
+
+news_event = {
+	id = doomsday_intel.1
+	title = doomsday_intel.1.t
+	desc = doomsday_intel.1.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.3
+	title = doomsday_intel.3.t
+	desc = doomsday_intel.3.d
+	picture = GFX_news_event_generic_army
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.4
+	title = doomsday_intel.4.t
+	desc = doomsday_intel.4.d
+	picture = GFX_news_event_generic_army
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.5
+	title = doomsday_intel.5.t
+	desc = doomsday_intel.5.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.6
+	title = doomsday_intel.6.t
+	desc = doomsday_intel.6.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.7
+	title = doomsday_intel.7.t
+	desc = doomsday_intel.7.d
+	picture = GFX_news_event_generic_army
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.8
+	title = doomsday_intel.8.t
+	desc = doomsday_intel.8.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.9
+	title = doomsday_intel.9.t
+	desc = doomsday_intel.9.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.10
+	title = doomsday_intel.10.t
+	desc = doomsday_intel.10.d
+	picture = GFX_news_event_generic_factory
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.11
+	title = doomsday_intel.11.t
+	desc = doomsday_intel.11.d
+	picture = GFX_news_event_generic_factory
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.12
+	title = doomsday_intel.12.t
+	desc = doomsday_intel.12.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.13
+	title = doomsday_intel.13.t
+	desc = doomsday_intel.13.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+news_event = {
+	id = doomsday_intel.14
+	title = doomsday_intel.14.t
+	desc = doomsday_intel.14.d
+	picture = GFX_news_event_generic_army
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.news_ok
+	}
+}
+
+# Blame prompt after self-target. Option opens map-click (mission already 8).
+country_event = {
+	id = doomsday_intel.20
+	title = doomsday_intel.20.t
+	desc = doomsday_intel.20.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.20.a
+		# Mission 8 already set; player clicks a country on the map.
+	}
+	option = {
+		name = doomsday_intel.20.b
+		dd_intel_cancel_select_effect = yes
+	}
+}
+
+# Arm Insurgents delayed spawn. New runs use the dd_intel_arm_countdown mission.
+# This event remains so a countdown already queued in an old save still fires.
+country_event = {
+	id = doomsday_intel.21
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		dd_intel_spawn_insurgents = yes
+		clr_country_flag = dd_intel_arm_running
+	}
+	option = {
+	}
+}
+
+# Steal Technology clicked when no other country has a listed tech this country lacks.
+country_event = {
+	id = doomsday_intel.22
+	title = doomsday_intel.22.t
+	desc = doomsday_intel.22.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = doomsday_intel.22.a
 	}
 }

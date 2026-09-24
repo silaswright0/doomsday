@@ -40,6 +40,38 @@ SLOT = 70
 COL_ORIGIN = 240
 YEAR_LABEL_X = 40
 
+# Per-tree overrides: (col_origin, col_px).
+# Wider col_px keeps column 0 fixed and nudges later columns right.
+# Higher col_origin shifts the whole tree right (ship hulls).
+LAYOUT: dict[str, tuple[int, int]] = {
+    "infantry": (240, 205),   # small arms
+    "armor": (240, 205),      # tanks
+    "artillery": (240, 205),
+    "air": (240, 205),        # aircraft
+    "naval": (450, 440),      # ship hulls — col0 fixed; later cols spaced wider
+}
+
+# Extra gap inserted starting at this column index (that column and all to its right).
+# tree_id -> (from_col_index, extra_px)
+COL_GAP_BEFORE: dict[str, tuple[int, int]] = {
+    "armor": (2, 120),  # Airborne light (dd_lt_2) and everything right of it
+}
+
+
+def tree_layout(tid: str) -> tuple[int, int]:
+    return LAYOUT.get(tid, (COL_ORIGIN, COL_PX))
+
+
+def col_x(tid: str, col: int) -> int:
+    origin, step = tree_layout(tid)
+    px = origin + col * step
+    gap = COL_GAP_BEFORE.get(tid)
+    if gap is not None:
+        from_col, extra = gap
+        if col >= from_col:
+            px += extra
+    return px
+
 
 def year_index(year: int) -> int:
     return max(0, (int(year) - 1955) // 5)
@@ -164,10 +196,11 @@ def rebuild_gui(all_trees: dict[str, dict[str, dict]]) -> None:
     for tid, techs in all_trees.items():
         roots = column_roots(techs)
         col_of = assign_columns(techs, roots)
+        origin, step = tree_layout(tid)
         # One gridbox per branch root only.
         for root, col in sorted(col_of.items(), key=lambda kv: kv[1]):
             t = techs[root]
-            px = COL_ORIGIN + col * COL_PX
+            px = col_x(tid, col)
             py = YEAR_ORIGIN + year_index(t["year"]) * YEAR_STEP
             box = (
                 f'\t\t\tgridboxtype = {{ name = "{root}_tree" '
@@ -176,6 +209,8 @@ def rebuild_gui(all_trees: dict[str, dict[str, dict]]) -> None:
             )
             for folder in FOLDERS[tid]:
                 by_folder[folder].append(box)
+        last_col = max(col_of.values()) if col_of else 0
+        print(f"  {tid} col0={origin} step={step} cols={len(col_of)} last_x={col_x(tid, last_col)}")
 
     for folder, boxes in by_folder.items():
         marker = f'name = "{folder}"'
@@ -198,18 +233,21 @@ def rebuild_gui(all_trees: dict[str, dict[str, dict]]) -> None:
         )
         text = text[:insert_at] + block + text[insert_at:]
 
-    # Tall enough for 1955→2035 at 100px steps; wide enough for COL_ORIGIN + n*COL_PX
+    # Tall enough for 1955→2035; wide enough for denser / right-shifted trees
     for old, new in (
-        ("width = 1600 height = 2000", "width = 2400 height = 2000"),
-        ("width = 1800 height = 2000", "width = 2400 height = 2000"),
-        ("width = 2000 height = 2000", "width = 2600 height = 2000"),
+        ("width = 1600 height = 2000", "width = 2800 height = 2000"),
+        ("width = 1800 height = 2000", "width = 2800 height = 2000"),
+        ("width = 2000 height = 2000", "width = 2800 height = 2000"),
         ("width = 2200 height = 2000", "width = 2800 height = 2000"),
-        ("width = 1800 height = 2100", "width = 2400 height = 2000"),
-        ("width = 2000 height = 2100", "width = 2600 height = 2000"),
+        ("width = 2400 height = 2000", "width = 2800 height = 2000"),
+        ("width = 2600 height = 2000", "width = 3000 height = 2000"),
+        ("width = 1800 height = 2100", "width = 2800 height = 2000"),
+        ("width = 2000 height = 2100", "width = 2800 height = 2000"),
         ("width = 2240 height = 2100", "width = 2800 height = 2000"),
         ("width = 2500 height = 2100", "width = 3000 height = 2000"),
-        ("width=1600 height=2000", "width=2400 height=2000"),
-        ("width=1800 height=2100", "width=2400 height=2000"),
+        ("width=1600 height=2000", "width=2800 height=2000"),
+        ("width=1800 height=2100", "width=2800 height=2000"),
+        ("width=2400 height=2000", "width=2800 height=2000"),
     ):
         text = text.replace(old, new)
 

@@ -334,14 +334,21 @@ def entry_gui(row: dict, y: int) -> str:
 
 def list_gui(cat: str, rows: list[dict]) -> str:
     entries = []
-    for i, row in enumerate(rows):
-        entries.append(entry_gui(row, 8 + i * 104))
+    y = 8
+    prev_hull = False
+    for row in rows:
+        entries.append(entry_gui(row, y))
+        hull = "hull" in row["arch"]
+        # Hull cards sit a little closer together than the other rows.
+        step = 96 if hull and prev_hull else 104
+        prev_hull = hull
+        y += step
     inner = "\n".join(entries)
     # Independent windows. Nested lists ignore _visible, so navy sat on top.
     return f"""
 	containerWindowType = {{
 		name = "dd_market_list_{cat}"
-		position = {{ x = 10 y = 226 }}
+		position = {{ x = 10 y = 210 }}
 		size = {{ width = 530 height = 100%% }}
 		margin = {{ top = 0 bottom = 24 }}
 		verticalScrollbar = "right_vertical_slider"
@@ -361,6 +368,21 @@ def write_gui(rows: list[dict]) -> None:
     by_cat = {c: [r for r in rows if r["cat"] == c] for c in ("land", "air", "navy")}
     lists = "".join(list_gui(cat, by_cat[cat]) for cat in ("land", "air", "navy"))
     text = f"""guiTypes = {{
+
+	containerWindowType = {{
+		name = "dd_arms_dismiss_window"
+		position = {{ x = 0 y = 0 }}
+		size = {{ width = 100% height = 100% }}
+		clipping = no
+
+		buttonType = {{
+			name = "dd_arms_dismiss"
+			position = {{ x = 0 y = 0 }}
+			size = {{ width = 100% height = 100% }}
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			clicksound = click_close
+		}}
+	}}
 
 	containerWindowType = {{
 		name = "dd_arms_market_window"
@@ -431,48 +453,39 @@ def write_gui(rows: list[dict]) -> None:
 		containerWindowType = {{
 			name = "dd_market_tabs"
 			position = {{ x = 0 y = 80 }}
-			size = {{ width = 100% height = 40 }}
-			margin = {{ left = 12 right = 12 }}
+			size = {{ width = 550 height = 40 }}
 			clipping = no
 
 			buttonType = {{
 				name = "dd_tab_buy_on"
 				quadTextureSprite = "GFX_button_261x34"
-				position = {{ x = 0 y = 2 }}
-				size = {{ width = 48% height = 34 }}
-				buttonText = "DD_MARKET_TAB_BUY"
+				position = {{ x = 14 y = 2 }}
+				buttonText = "DD_MARKET_TAB_BUY_ON"
 				buttonFont = "hoi_18mbs"
-				frame = 2
 				clicksound = click_default
 			}}
 			buttonType = {{
 				name = "dd_tab_buy_off"
 				quadTextureSprite = "GFX_button_261x34"
-				position = {{ x = 0 y = 2 }}
-				size = {{ width = 48% height = 34 }}
-				buttonText = "DD_MARKET_TAB_BUY"
+				position = {{ x = 14 y = 2 }}
+				buttonText = "DD_MARKET_TAB_BUY_OFF"
 				buttonFont = "hoi_18mbs"
-				frame = 1
 				clicksound = click_default
 			}}
 			buttonType = {{
 				name = "dd_tab_sell_on"
 				quadTextureSprite = "GFX_button_261x34"
-				position = {{ x = 52% y = 2 }}
-				size = {{ width = 48% height = 34 }}
-				buttonText = "DD_MARKET_TAB_SELL"
+				position = {{ x = 275 y = 2 }}
+				buttonText = "DD_MARKET_TAB_SELL_ON"
 				buttonFont = "hoi_18mbs"
-				frame = 2
 				clicksound = click_default
 			}}
 			buttonType = {{
 				name = "dd_tab_sell_off"
 				quadTextureSprite = "GFX_button_261x34"
-				position = {{ x = 52% y = 2 }}
-				size = {{ width = 48% height = 34 }}
-				buttonText = "DD_MARKET_TAB_SELL"
+				position = {{ x = 275 y = 2 }}
+				buttonText = "DD_MARKET_TAB_SELL_OFF"
 				buttonFont = "hoi_18mbs"
-				frame = 1
 				clicksound = click_default
 			}}
 		}}
@@ -484,75 +497,55 @@ def write_gui(rows: list[dict]) -> None:
 			alwaystransparent = yes
 		}}
 
-		containerWindowType = {{
-			name = "dd_market_cats"
-			position = {{ x = 0 y = 184 }}
-			size = {{ width = 100% height = 40 }}
-			margin = {{ left = 12 right = 12 }}
-			clipping = no
-
-			buttonType = {{
-				name = "dd_cat_land_on"
-				quadTextureSprite = "GFX_button_123x34"
-				position = {{ x = 0 y = 2 }}
-				size = {{ width = 31% height = 32 }}
-				buttonText = "DD_MARKET_CAT_LAND"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 2
-			}}
-			buttonType = {{
-				name = "dd_cat_land_off"
-				quadTextureSprite = "GFX_button_123x34"
-				position = {{ x = 0 y = 2 }}
-				size = {{ width = 31% height = 32 }}
-				buttonText = "DD_MARKET_CAT_LAND"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 1
-			}}
-			buttonType = {{
-				name = "dd_cat_air_on"
-				quadTextureSprite = "GFX_button_123x34"
-				position = {{ x = 34% y = 2 }}
-				size = {{ width = 31% height = 32 }}
-				buttonText = "DD_MARKET_CAT_AIR"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 2
-			}}
-			buttonType = {{
-				name = "dd_cat_air_off"
-				quadTextureSprite = "GFX_button_123x34"
-				position = {{ x = 34% y = 2 }}
-				size = {{ width = 31% height = 32 }}
-				buttonText = "DD_MARKET_CAT_AIR"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 1
-			}}
-			buttonType = {{
-				name = "dd_cat_navy_on"
-				quadTextureSprite = "GFX_button_123x34"
-				position = {{ x = 69% y = 2 }}
-				size = {{ width = 31% height = 32 }}
-				buttonText = "DD_MARKET_CAT_NAVY"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 2
-			}}
-			buttonType = {{
-				name = "dd_cat_navy_off"
-				quadTextureSprite = "GFX_button_123x34"
-				position = {{ x = 69% y = 2 }}
-				size = {{ width = 31% height = 32 }}
-				buttonText = "DD_MARKET_CAT_NAVY"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 1
-			}}
+		buttonType = {{
+			name = "dd_cat_land_on"
+			quadTextureSprite = "GFX_button_123x34"
+			position = {{ x = 75 y = 186 }}
+			buttonText = "DD_MARKET_CAT_LAND_ON"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
 		}}
-	}}
+		buttonType = {{
+			name = "dd_cat_land_off"
+			quadTextureSprite = "GFX_button_123x34_gray"
+			position = {{ x = 75 y = 186 }}
+			buttonText = "DD_MARKET_CAT_LAND"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}}
+		buttonType = {{
+			name = "dd_cat_air_on"
+			quadTextureSprite = "GFX_button_123x34"
+			position = {{ x = 214 y = 186 }}
+			buttonText = "DD_MARKET_CAT_AIR_ON"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}}
+		buttonType = {{
+			name = "dd_cat_air_off"
+			quadTextureSprite = "GFX_button_123x34_gray"
+			position = {{ x = 214 y = 186 }}
+			buttonText = "DD_MARKET_CAT_AIR"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}}
+		buttonType = {{
+			name = "dd_cat_navy_on"
+			quadTextureSprite = "GFX_button_123x34"
+			position = {{ x = 353 y = 186 }}
+			buttonText = "DD_MARKET_CAT_NAVY_ON"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}}
+		buttonType = {{
+			name = "dd_cat_navy_off"
+			quadTextureSprite = "GFX_button_123x34_gray"
+			position = {{ x = 353 y = 186 }}
+			buttonText = "DD_MARKET_CAT_NAVY"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}}
+		}}
 {lists}
 }}
 """
@@ -763,8 +756,25 @@ def write_scripted_gui(rows: list[dict]) -> None:
 		}}
 	}}
 
+	dd_arms_dismiss_ui = {{
+		context_type = player_context
+		window_name = "dd_arms_dismiss_window"
+		visible = {{
+			has_country_flag = dd_show_arms_market
+		}}
+		effects = {{
+			dd_arms_dismiss_click = {{
+				clr_country_flag = dd_show_arms_market
+				clr_country_flag = dd_market_sell_tab
+				clr_country_flag = dd_market_air_tab
+				clr_country_flag = dd_market_navy_tab
+			}}
+		}}
+	}}
+
 	dd_arms_market_ui = {{
 		context_type = player_context
+		parent_window_token = decision_tab
 		window_name = "dd_arms_market_window"
 		visible = {{
 			has_country_flag = dd_show_arms_market

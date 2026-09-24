@@ -1321,6 +1321,10 @@ equipments = {
 		archetype = recon_uav_equipment
 		parent = recon_uav_equipment_1
 		priority = 90
+		allow_mission_type = {
+			recon
+			naval_patrol
+		}
 		air_range = 600
 		maximum_speed = 180
 		air_agility = 40

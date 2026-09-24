@@ -142,6 +142,18 @@ technologies = {
 
 	dd_eng_2 = {
 		engineer = { entrenchment = 0.25 river = { attack = 0.10 } }
+		enable_subunits = {
+			light_flame_tank
+			medium_flame_tank
+			heavy_flame_tank
+			assault_engineer
+		}
+		enable_equipment_modules = {
+			flamethrower
+		}
+		enable_equipments = {
+			armored_support_vehicle_1
+		}
 		path = {
 			leads_to_tech = dd_eng_3
 			research_cost_coeff = 1
@@ -162,6 +174,9 @@ technologies = {
 
 	dd_eng_3 = {
 		engineer = { entrenchment = 0.25 river = { attack = 0.10 } }
+		enable_subunits = {
+			armored_engineer
+		}
 		path = {
 			leads_to_tech = dd_eng_4
 			research_cost_coeff = 1

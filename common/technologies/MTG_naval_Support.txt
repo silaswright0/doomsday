@@ -1732,7 +1732,7 @@ technologies = {
 
 	airdrop_mines = {
 		allow_branch = {
-			NOT = { has_dlc = "By Blood Alone" }
+			always = no
 		}
 
 		research_cost = 2
@@ -1772,7 +1772,7 @@ technologies = {
 
 	airdrop_mines_bba = {
 		allow_branch = {
-			has_dlc = "By Blood Alone"
+			always = yes
 		}
 
 
@@ -1847,7 +1847,7 @@ technologies = {
 
 	airsweep_mines = {
 		allow_branch = {
-			NOT = { has_dlc = "By Blood Alone" }
+			always = no
 		}
 
 		research_cost = 2
@@ -1877,7 +1877,7 @@ technologies = {
 
 	airsweep_mines_bba = {
 		allow_branch = {
-			has_dlc = "By Blood Alone"
+			always = yes
 		}
 
 		research_cost = 1
@@ -2078,7 +2078,7 @@ technologies = {
 		underway_replenishment_convoy_cost = -0.2
 
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {
@@ -2139,7 +2139,7 @@ technologies = {
 
 	sp_improved_support_ship = {
 		allow_branch = {
-			has_dlc = "No Compromise, No Surrender"
+			always = yes
 		}
 
 		allow = {
@@ -2169,7 +2169,7 @@ technologies = {
 
 	sp_improved_repair_ship = {
 		allow_branch = {
-			has_dlc = "No Compromise, No Surrender"
+			always = yes
 		}
 
 		allow = {

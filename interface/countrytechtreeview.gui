@@ -57,7 +57,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2400 height = 2000
+					width = 2800 height = 2000
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -252,6 +252,11 @@ guiTypes = {
 			
 			
 			
+			
+			
+			
+			
+			
 			# DD_TECH_GRID_START
 			instantTextBoxType = { name = "dd_yr_infantry_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_infantry_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
@@ -271,13 +276,13 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_infantry_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_infantry_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			gridboxtype = { name = "dd_at_2_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_inf_2_tree" position = { x = 415 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mech_2_tree" position = { x = 590 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_sup_2_tree" position = { x = 765 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_sf_2_tree" position = { x = 940 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_manpad_2_tree" position = { x = 1115 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nv_2_tree" position = { x = 1290 y = 690 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_truck_2_tree" position = { x = 1465 y = 690 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_inf_2_tree" position = { x = 445 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_mech_2_tree" position = { x = 650 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_sup_2_tree" position = { x = 855 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_sf_2_tree" position = { x = 1060 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_manpad_2_tree" position = { x = 1265 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_nv_2_tree" position = { x = 1470 y = 690 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_truck_2_tree" position = { x = 1675 y = 690 } slotsize = { width = 70 height = 100 } format = "UP" }
 			# DD_TECH_GRID_END
 			gridboxtype = {
 				name = "support_weapons_tree"
@@ -399,7 +404,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2400 height = 2000
+					width = 2800 height = 2000
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -591,6 +596,11 @@ guiTypes = {
 			
 			
 			
+			
+			
+			
+			
+			
 			# DD_TECH_GRID_START
 			instantTextBoxType = { name = "dd_yr_support_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_support_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
@@ -666,7 +676,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2400 height = 2000
+					width = 2800 height = 2000
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -938,6 +948,11 @@ guiTypes = {
 			
 			
 			
+			
+			
+			
+			
+			
 			# DD_TECH_GRID_START
 			instantTextBoxType = { name = "dd_yr_armour_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_armour_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
@@ -957,11 +972,11 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_armour_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_armour_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			gridboxtype = { name = "dd_spaa_1_tree" position = { x = 240 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_prot_1_tree" position = { x = 415 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_lt_2_tree" position = { x = 590 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_td_2_tree" position = { x = 765 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mbt_3_tree" position = { x = 940 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_fcs_2_tree" position = { x = 1115 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_prot_1_tree" position = { x = 445 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_lt_2_tree" position = { x = 770 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_td_2_tree" position = { x = 975 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_mbt_3_tree" position = { x = 1180 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_fcs_2_tree" position = { x = 1385 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
 			# DD_TECH_GRID_END
 			gridboxtype = {
 				name = "main_battle_tank_tree"
@@ -991,7 +1006,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2400 height = 2000
+					width = 2800 height = 2000
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -1276,6 +1291,11 @@ guiTypes = {
 			
 			
 			
+			
+			
+			
+			
+			
 			# DD_TECH_GRID_START
 			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
@@ -1295,11 +1315,11 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			gridboxtype = { name = "dd_spaa_1_tree" position = { x = 240 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_prot_1_tree" position = { x = 415 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_lt_2_tree" position = { x = 590 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_td_2_tree" position = { x = 765 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mbt_3_tree" position = { x = 940 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_fcs_2_tree" position = { x = 1115 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_prot_1_tree" position = { x = 445 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_lt_2_tree" position = { x = 770 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_td_2_tree" position = { x = 975 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_mbt_3_tree" position = { x = 1180 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_fcs_2_tree" position = { x = 1385 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
 			# DD_TECH_GRID_END
 			gridboxtype = {
 				name = "main_battle_tank_chassis_tree"
@@ -1345,7 +1365,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x=0 y=0 }
 				size = {
-					width = 2400 height = 2000
+					width = 2800 height = 2000
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -1680,6 +1700,11 @@ guiTypes = {
 			
 			
 			
+			
+			
+			
+			
+			
 			# DD_TECH_GRID_START
 			instantTextBoxType = { name = "dd_yr_artillery_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_artillery_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
@@ -1699,13 +1724,13 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_artillery_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_artillery_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			gridboxtype = { name = "dd_sam_1_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_spg_1_tree" position = { x = 415 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_rkt_1_tree" position = { x = 590 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_shorad_2_tree" position = { x = 765 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_atg_2_tree" position = { x = 940 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mor_2_tree" position = { x = 1115 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_tow_2_tree" position = { x = 1290 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_dew_1_tree" position = { x = 1465 y = 1190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_spg_1_tree" position = { x = 445 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_rkt_1_tree" position = { x = 650 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_shorad_2_tree" position = { x = 855 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_atg_2_tree" position = { x = 1060 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_mor_2_tree" position = { x = 1265 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_tow_2_tree" position = { x = 1470 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_dew_1_tree" position = { x = 1675 y = 1190 } slotsize = { width = 70 height = 100 } format = "UP" }
 			# DD_TECH_GRID_END
 			gridboxtype = {
 				name = "artillery2_tree"
@@ -1915,7 +1940,7 @@ guiTypes = {
 				name = "tiled_window_transparent_transparent"
 				position = { x= 0 y= 0 }
 				size = {
-					width=2400 height=2000
+					width=2800 height=2000
 					min = { width=100%% height=100%% }
 				}
 				clipping = no
@@ -1926,6 +1951,11 @@ guiTypes = {
 				}
 			}
 
+			
+			
+			
+			
+			
 			
 			
 			
@@ -1953,13 +1983,13 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_naval_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_naval_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_naval_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_cv_1_tree" position = { x = 240 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ssbn_1_tree" position = { x = 415 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cg_1_tree" position = { x = 590 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_esc_2_tree" position = { x = 765 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ssk_1_tree" position = { x = 940 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_amph_2_tree" position = { x = 1115 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_usv_1_tree" position = { x = 1290 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_cv_1_tree" position = { x = 450 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_ssbn_1_tree" position = { x = 890 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_cg_1_tree" position = { x = 1330 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_esc_2_tree" position = { x = 1770 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_ssk_1_tree" position = { x = 2210 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_amph_2_tree" position = { x = 2650 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_usv_1_tree" position = { x = 3090 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
 			gridboxtype = { name = "dd_vls_1_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
 			gridboxtype = { name = "dd_son_2_tree" position = { x = 415 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
 			gridboxtype = { name = "dd_ciws_1_tree" position = { x = 590 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
@@ -2236,7 +2266,7 @@ guiTypes = {
 				name = "tiled_window_transparent_transparent"
 				position = { x= 0 y= 0 }
 				size = {
-					width=2400 height=2000
+					width=2800 height=2000
 					min = { width=100%% height=100%% }
 				}
 				clipping = no
@@ -2247,6 +2277,11 @@ guiTypes = {
 				}
 			}
 
+			
+			
+			
+			
+			
 			
 			
 			
@@ -2274,13 +2309,13 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_cv_1_tree" position = { x = 240 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ssbn_1_tree" position = { x = 415 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cg_1_tree" position = { x = 590 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_esc_2_tree" position = { x = 765 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ssk_1_tree" position = { x = 940 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_amph_2_tree" position = { x = 1115 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_usv_1_tree" position = { x = 1290 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_cv_1_tree" position = { x = 450 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_ssbn_1_tree" position = { x = 890 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_cg_1_tree" position = { x = 1330 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_esc_2_tree" position = { x = 1770 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_ssk_1_tree" position = { x = 2210 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_amph_2_tree" position = { x = 2650 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_usv_1_tree" position = { x = 3090 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
 			# DD_TECH_GRID_END
 			gridboxtype = {
 				name = "basic_ship_hull_light_tree"
@@ -2485,7 +2520,7 @@ guiTypes = {
 				name = "tiled_window_transparent_transparent"
 				position = { x= 0 y= 0 }
 				size = {
-					width=2400 height=2000
+					width=2800 height=2000
 					min = { width=100%% height=100%% }
 				}
 				clipping = no
@@ -2496,6 +2531,11 @@ guiTypes = {
 				}
 			}
 
+			
+			
+			
+			
+			
 			
 			
 			
@@ -2934,6 +2974,11 @@ guiTypes = {
 			
 			
 			
+			
+			
+			
+			
+			
 			# DD_TECH_GRID_START
 			instantTextBoxType = { name = "dd_yr_air_techs_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_air_techs_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
@@ -2953,17 +2998,17 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_air_techs_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_air_techs_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			gridboxtype = { name = "dd_cvf_2_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_isr_1_tree" position = { x = 415 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nbm_1_tree" position = { x = 590 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_tac_1_tree" position = { x = 765 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mpa_1_tree" position = { x = 940 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_str_2_tree" position = { x = 1115 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_hel_2_tree" position = { x = 1290 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_wpn_2_tree" position = { x = 1465 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cas_2_tree" position = { x = 1640 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ftr_4_tree" position = { x = 1815 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_uav_1_tree" position = { x = 1990 y = 890 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_uav_4_tree" position = { x = 2165 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_isr_1_tree" position = { x = 445 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_nbm_1_tree" position = { x = 650 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_tac_1_tree" position = { x = 855 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_mpa_1_tree" position = { x = 1060 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_str_2_tree" position = { x = 1265 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_hel_2_tree" position = { x = 1470 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_wpn_2_tree" position = { x = 1675 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_cas_2_tree" position = { x = 1880 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_ftr_4_tree" position = { x = 2085 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_uav_1_tree" position = { x = 2290 y = 890 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_uav_4_tree" position = { x = 2495 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
 			# DD_TECH_GRID_END
 			gridboxtype = {
 				name = "jet_fighter1_tree"
@@ -3058,7 +3103,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2600 height = 2000
+					width = 3000 height = 2000
 					min = { width=100%% height=100%% }
 				}
 				clipping = no
@@ -3324,6 +3369,11 @@ guiTypes = {
 			
 			
 			
+			
+			
+			
+			
+			
 			# DD_TECH_GRID_START
 			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
@@ -3343,17 +3393,17 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			gridboxtype = { name = "dd_cvf_2_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_isr_1_tree" position = { x = 415 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nbm_1_tree" position = { x = 590 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_tac_1_tree" position = { x = 765 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mpa_1_tree" position = { x = 940 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_str_2_tree" position = { x = 1115 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_hel_2_tree" position = { x = 1290 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_wpn_2_tree" position = { x = 1465 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cas_2_tree" position = { x = 1640 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ftr_4_tree" position = { x = 1815 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_uav_1_tree" position = { x = 1990 y = 890 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_uav_4_tree" position = { x = 2165 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_isr_1_tree" position = { x = 445 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_nbm_1_tree" position = { x = 650 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_tac_1_tree" position = { x = 855 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_mpa_1_tree" position = { x = 1060 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_str_2_tree" position = { x = 1265 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_hel_2_tree" position = { x = 1470 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_wpn_2_tree" position = { x = 1675 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_cas_2_tree" position = { x = 1880 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_ftr_4_tree" position = { x = 2085 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_uav_1_tree" position = { x = 2290 y = 890 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_uav_4_tree" position = { x = 2495 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
 			# DD_TECH_GRID_END
 			gridboxtype = {
 				name = "advanced_small_airframe_tree"
@@ -3480,7 +3530,7 @@ guiTypes = {
 				name = "size_filler"
 				position = { x=0 y=0 }
 				size = {
-					width = 2400 height = 2000
+					width = 2800 height = 2000
 					min = { width = 100%% height = 100%% }
 				}
 
@@ -3753,6 +3803,11 @@ guiTypes = {
 			
 			
 			
+			
+			
+			
+			
+			
 			# DD_TECH_GRID_START
 			instantTextBoxType = { name = "dd_yr_industry_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_industry_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
@@ -3842,7 +3897,7 @@ guiTypes = {
 				name = "size_filler"
 				position = { x=0 y=0 }
 				size = {
-					width = 2400 height = 2000
+					width = 2800 height = 2000
 					min = { width= 100%% height = 100%% }
 				}
 
@@ -4198,6 +4253,11 @@ guiTypes = {
 					Orientation = "UPPER_LEFT"
 				}
 
+			
+			
+			
+			
+			
 			
 			
 			

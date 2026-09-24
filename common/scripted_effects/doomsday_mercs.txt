@@ -1,70 +1,87 @@
 # Mercenary market. Country-scoped. Deterministic. No random.
-# Seller picks an army group (unit leader), buyers request, seller accepts or rejects.
-# Accepted force stays seller-owned (volunteer-style) on the buyer's capital.
+# Seller offers 1 division of a chosen template (volunteer-style pick).
+# Buyer may rent only 1 merc division at a time.
 
-dd_ensure_merc_template = {
+# Template ids (shared catalog — matches locked 2026 OOBs):
+# 1 Infantry Division | 2 Armored Division | 3 Mechanized Brigade
+# 4 Marine Division | 5 Mountain Division | 6 Garrison Brigade | 7 Militia Brigade
+# Deployed merc units use create_unit id = 77001 for recall.
+
+dd_merc_refresh_templates = {
+	clear_array = dd_merc_tpls
 	if = {
-		limit = { NOT = { has_country_flag = dd_merc_template_ready } }
-		set_country_flag = dd_merc_template_ready
-		division_template = {
-			name = "Mercenary Brigade"
-			is_locked = yes
-			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 1 y = 0 }
-				infantry = { x = 1 y = 1 }
-				infantry = { x = 2 y = 0 }
-				infantry = { x = 2 y = 1 }
-			}
-		}
+		limit = { has_template = "Infantry Division" }
+		add_to_array = { dd_merc_tpls = 1 }
 	}
-}
-
-dd_merc_sync_leader = {
 	if = {
-		limit = { check_variable = { dd_merc_leaders^num > 0 } }
+		limit = { has_template = "Armored Division" }
+		add_to_array = { dd_merc_tpls = 2 }
+	}
+	if = {
+		limit = { has_template = "Mechanized Brigade" }
+		add_to_array = { dd_merc_tpls = 3 }
+	}
+	if = {
+		limit = { has_template = "Marine Division" }
+		add_to_array = { dd_merc_tpls = 4 }
+	}
+	if = {
+		limit = { has_template = "Mountain Division" }
+		add_to_array = { dd_merc_tpls = 5 }
+	}
+	if = {
+		limit = { has_template = "Garrison Brigade" }
+		add_to_array = { dd_merc_tpls = 6 }
+	}
+	if = {
+		limit = { has_template = "Militia Brigade" }
+		add_to_array = { dd_merc_tpls = 7 }
+	}
+	# Keep prior selection if still available; else first entry.
+	if = {
+		limit = { check_variable = { dd_merc_tpls^num > 0 } }
 		if = {
-			limit = { NOT = { check_variable = { dd_merc_leader_idx < dd_merc_leaders^num } } }
-			set_variable = { dd_merc_leader_idx = 0 }
-		}
-		set_variable = { dd_merc_leader = dd_merc_leaders^dd_merc_leader_idx }
-		var:dd_merc_leader = {
-			export_to_variable = {
-				variable = ROOT.dd_merc_size
-				value = num_units
+			limit = {
+				OR = {
+					NOT = { has_variable = dd_merc_tpl }
+					check_variable = { dd_merc_tpl < 1 }
+					check_variable = { dd_merc_tpl > 7 }
+					AND = {
+						check_variable = { dd_merc_tpl = 1 }
+						NOT = { has_template = "Infantry Division" }
+					}
+					AND = {
+						check_variable = { dd_merc_tpl = 2 }
+						NOT = { has_template = "Armored Division" }
+					}
+					AND = {
+						check_variable = { dd_merc_tpl = 3 }
+						NOT = { has_template = "Mechanized Brigade" }
+					}
+					AND = {
+						check_variable = { dd_merc_tpl = 4 }
+						NOT = { has_template = "Marine Division" }
+					}
+					AND = {
+						check_variable = { dd_merc_tpl = 5 }
+						NOT = { has_template = "Mountain Division" }
+					}
+					AND = {
+						check_variable = { dd_merc_tpl = 6 }
+						NOT = { has_template = "Garrison Brigade" }
+					}
+					AND = {
+						check_variable = { dd_merc_tpl = 7 }
+						NOT = { has_template = "Militia Brigade" }
+					}
+				}
 			}
+			set_variable = { dd_merc_tpl = dd_merc_tpls^0 }
 		}
-		if = {
-			limit = { NOT = { check_variable = { dd_merc_size > 0 } } }
-			set_variable = { dd_merc_size = 1 }
-		}
-		clamp_variable = { var = dd_merc_size min = 1 max = 12 }
 	}
 	else = {
-		clear_variable = dd_merc_leader
-		set_variable = { dd_merc_size = 0 }
-		set_variable = { dd_merc_leader_idx = 0 }
+		clear_variable = dd_merc_tpl
 	}
-}
-
-dd_merc_refresh_leaders = {
-	clear_array = dd_merc_leaders
-	every_unit_leader = {
-		limit = {
-			is_field_marshal = yes
-			num_units > 0
-		}
-		add_to_array = { ROOT.dd_merc_leaders = THIS }
-	}
-	every_unit_leader = {
-		limit = {
-			NOT = { is_field_marshal = yes }
-			num_units > 0
-		}
-		add_to_array = { ROOT.dd_merc_leaders = THIS }
-	}
-	dd_merc_sync_leader = yes
 }
 
 dd_merc_init_defaults = {
@@ -72,35 +89,56 @@ dd_merc_init_defaults = {
 		limit = { NOT = { has_variable = dd_merc_ask } }
 		set_variable = { dd_merc_ask = 2.0 }
 	}
-	dd_merc_refresh_leaders = yes
+	dd_merc_refresh_templates = yes
 }
 
-dd_merc_army_next = {
-	dd_merc_refresh_leaders = yes
+dd_merc_pick_tpl_1 = {
+	dd_merc_refresh_templates = yes
 	if = {
-		limit = { check_variable = { dd_merc_leaders^num > 1 } }
-		add_to_variable = { dd_merc_leader_idx = 1 }
-		if = {
-			limit = { NOT = { check_variable = { dd_merc_leader_idx < dd_merc_leaders^num } } }
-			set_variable = { dd_merc_leader_idx = 0 }
-		}
-		dd_merc_sync_leader = yes
+		limit = { has_template = "Infantry Division" }
+		set_variable = { dd_merc_tpl = 1 }
 	}
 }
-
-dd_merc_army_prev = {
-	dd_merc_refresh_leaders = yes
+dd_merc_pick_tpl_2 = {
+	dd_merc_refresh_templates = yes
 	if = {
-		limit = { check_variable = { dd_merc_leaders^num > 1 } }
-		if = {
-			limit = { check_variable = { dd_merc_leader_idx > 0 } }
-			subtract_from_variable = { dd_merc_leader_idx = 1 }
-		}
-		else = {
-			set_variable = { dd_merc_leader_idx = dd_merc_leaders^num }
-			subtract_from_variable = { dd_merc_leader_idx = 1 }
-		}
-		dd_merc_sync_leader = yes
+		limit = { has_template = "Armored Division" }
+		set_variable = { dd_merc_tpl = 2 }
+	}
+}
+dd_merc_pick_tpl_3 = {
+	dd_merc_refresh_templates = yes
+	if = {
+		limit = { has_template = "Mechanized Brigade" }
+		set_variable = { dd_merc_tpl = 3 }
+	}
+}
+dd_merc_pick_tpl_4 = {
+	dd_merc_refresh_templates = yes
+	if = {
+		limit = { has_template = "Marine Division" }
+		set_variable = { dd_merc_tpl = 4 }
+	}
+}
+dd_merc_pick_tpl_5 = {
+	dd_merc_refresh_templates = yes
+	if = {
+		limit = { has_template = "Mountain Division" }
+		set_variable = { dd_merc_tpl = 5 }
+	}
+}
+dd_merc_pick_tpl_6 = {
+	dd_merc_refresh_templates = yes
+	if = {
+		limit = { has_template = "Garrison Brigade" }
+		set_variable = { dd_merc_tpl = 6 }
+	}
+}
+dd_merc_pick_tpl_7 = {
+	dd_merc_refresh_templates = yes
+	if = {
+		limit = { has_template = "Militia Brigade" }
+		set_variable = { dd_merc_tpl = 7 }
 	}
 }
 
@@ -187,113 +225,112 @@ dd_merc_clear_own_slot = {
 		limit = { check_variable = { global.dd_merc_0_tag = THIS } }
 		clear_variable = global.dd_merc_0_tag
 		set_variable = { global.dd_merc_0_price = 0 }
-		set_variable = { global.dd_merc_0_size = 0 }
+		set_variable = { global.dd_merc_0_tpl = 0 }
 	}
 	else_if = {
 		limit = { check_variable = { global.dd_merc_1_tag = THIS } }
 		clear_variable = global.dd_merc_1_tag
 		set_variable = { global.dd_merc_1_price = 0 }
-		set_variable = { global.dd_merc_1_size = 0 }
+		set_variable = { global.dd_merc_1_tpl = 0 }
 	}
 	else_if = {
 		limit = { check_variable = { global.dd_merc_2_tag = THIS } }
 		clear_variable = global.dd_merc_2_tag
 		set_variable = { global.dd_merc_2_price = 0 }
-		set_variable = { global.dd_merc_2_size = 0 }
+		set_variable = { global.dd_merc_2_tpl = 0 }
 	}
 	else_if = {
 		limit = { check_variable = { global.dd_merc_3_tag = THIS } }
 		clear_variable = global.dd_merc_3_tag
 		set_variable = { global.dd_merc_3_price = 0 }
-		set_variable = { global.dd_merc_3_size = 0 }
+		set_variable = { global.dd_merc_3_tpl = 0 }
 	}
 	else_if = {
 		limit = { check_variable = { global.dd_merc_4_tag = THIS } }
 		clear_variable = global.dd_merc_4_tag
 		set_variable = { global.dd_merc_4_price = 0 }
-		set_variable = { global.dd_merc_4_size = 0 }
+		set_variable = { global.dd_merc_4_tpl = 0 }
 	}
 	else_if = {
 		limit = { check_variable = { global.dd_merc_5_tag = THIS } }
 		clear_variable = global.dd_merc_5_tag
 		set_variable = { global.dd_merc_5_price = 0 }
-		set_variable = { global.dd_merc_5_size = 0 }
+		set_variable = { global.dd_merc_5_tpl = 0 }
 	}
 	else_if = {
 		limit = { check_variable = { global.dd_merc_6_tag = THIS } }
 		clear_variable = global.dd_merc_6_tag
 		set_variable = { global.dd_merc_6_price = 0 }
-		set_variable = { global.dd_merc_6_size = 0 }
+		set_variable = { global.dd_merc_6_tpl = 0 }
 	}
 	else_if = {
 		limit = { check_variable = { global.dd_merc_7_tag = THIS } }
 		clear_variable = global.dd_merc_7_tag
 		set_variable = { global.dd_merc_7_price = 0 }
-		set_variable = { global.dd_merc_7_size = 0 }
+		set_variable = { global.dd_merc_7_tpl = 0 }
 	}
 	clr_country_flag = dd_merc_offering
 }
 
 dd_merc_post_offer = {
 	dd_merc_init_defaults = yes
-	dd_ensure_merc_template = yes
 	if = {
 		limit = { dd_merc_can_post = yes }
 		dd_merc_clear_own_slot = yes
 		if = {
-			limit = { check_variable = { global.dd_merc_0_size < 0.5 } }
+			limit = { check_variable = { global.dd_merc_0_tpl < 0.5 } }
 			set_variable = { global.dd_merc_0_tag = THIS }
 			set_variable = { global.dd_merc_0_price = dd_merc_ask }
-			set_variable = { global.dd_merc_0_size = dd_merc_size }
+			set_variable = { global.dd_merc_0_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
 		else_if = {
-			limit = { check_variable = { global.dd_merc_1_size < 0.5 } }
+			limit = { check_variable = { global.dd_merc_1_tpl < 0.5 } }
 			set_variable = { global.dd_merc_1_tag = THIS }
 			set_variable = { global.dd_merc_1_price = dd_merc_ask }
-			set_variable = { global.dd_merc_1_size = dd_merc_size }
+			set_variable = { global.dd_merc_1_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
 		else_if = {
-			limit = { check_variable = { global.dd_merc_2_size < 0.5 } }
+			limit = { check_variable = { global.dd_merc_2_tpl < 0.5 } }
 			set_variable = { global.dd_merc_2_tag = THIS }
 			set_variable = { global.dd_merc_2_price = dd_merc_ask }
-			set_variable = { global.dd_merc_2_size = dd_merc_size }
+			set_variable = { global.dd_merc_2_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
 		else_if = {
-			limit = { check_variable = { global.dd_merc_3_size < 0.5 } }
+			limit = { check_variable = { global.dd_merc_3_tpl < 0.5 } }
 			set_variable = { global.dd_merc_3_tag = THIS }
 			set_variable = { global.dd_merc_3_price = dd_merc_ask }
-			set_variable = { global.dd_merc_3_size = dd_merc_size }
+			set_variable = { global.dd_merc_3_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
 		else_if = {
-			limit = { check_variable = { global.dd_merc_4_size < 0.5 } }
+			limit = { check_variable = { global.dd_merc_4_tpl < 0.5 } }
 			set_variable = { global.dd_merc_4_tag = THIS }
 			set_variable = { global.dd_merc_4_price = dd_merc_ask }
-			set_variable = { global.dd_merc_4_size = dd_merc_size }
+			set_variable = { global.dd_merc_4_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
 		else_if = {
-			limit = { check_variable = { global.dd_merc_5_size < 0.5 } }
+			limit = { check_variable = { global.dd_merc_5_tpl < 0.5 } }
 			set_variable = { global.dd_merc_5_tag = THIS }
 			set_variable = { global.dd_merc_5_price = dd_merc_ask }
-			set_variable = { global.dd_merc_5_size = dd_merc_size }
+			set_variable = { global.dd_merc_5_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
 		else_if = {
-			limit = { check_variable = { global.dd_merc_6_size < 0.5 } }
+			limit = { check_variable = { global.dd_merc_6_tpl < 0.5 } }
 			set_variable = { global.dd_merc_6_tag = THIS }
 			set_variable = { global.dd_merc_6_price = dd_merc_ask }
-			set_variable = { global.dd_merc_6_size = dd_merc_size }
+			set_variable = { global.dd_merc_6_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
 		else_if = {
-			limit = { check_variable = { global.dd_merc_7_size < 0.5 } }
+			limit = { check_variable = { global.dd_merc_7_tpl < 0.5 } }
 			set_variable = { global.dd_merc_7_tag = THIS }
 			set_variable = { global.dd_merc_7_price = dd_merc_ask }
-			set_variable = { global.dd_merc_7_size = dd_merc_size }
+			set_variable = { global.dd_merc_7_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
 	}
@@ -392,117 +429,77 @@ dd_merc_hire_7 = {
 	dd_merc_request_clean = yes
 }
 
-dd_merc_spawn_brigades = {
-	# ROOT = seller. Buyer capital is in var:dd_merc_client_tag.
-	# Size is dd_merc_hire_size, capped 12. Deterministic unrolled spawns.
-	dd_ensure_merc_template = yes
+# Spawn exactly 1 seller-owned division on the buyer's capital (id 77001).
+dd_merc_spawn_one = {
 	var:dd_merc_client_tag = {
 		capital_scope = {
 			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 0 } }
+				limit = { check_variable = { ROOT.dd_merc_hire_tpl = 1 } }
 				create_unit = {
-					division = "name = \"1st Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					division = "name = \"Mercenary Division\" division_template = \"Infantry Division\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
 					owner = ROOT
 					count = 1
+					id = 77001
 					allow_spawning_on_enemy_provs = no
 				}
 			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 1 } }
+			else_if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_tpl = 2 } }
 				create_unit = {
-					division = "name = \"2nd Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					division = "name = \"Mercenary Division\" division_template = \"Armored Division\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
 					owner = ROOT
 					count = 1
+					id = 77001
 					allow_spawning_on_enemy_provs = no
 				}
 			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 2 } }
+			else_if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_tpl = 3 } }
 				create_unit = {
-					division = "name = \"3rd Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					division = "name = \"Mercenary Division\" division_template = \"Mechanized Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
 					owner = ROOT
 					count = 1
+					id = 77001
 					allow_spawning_on_enemy_provs = no
 				}
 			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 3 } }
+			else_if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_tpl = 4 } }
 				create_unit = {
-					division = "name = \"4th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					division = "name = \"Mercenary Division\" division_template = \"Marine Division\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
 					owner = ROOT
 					count = 1
+					id = 77001
 					allow_spawning_on_enemy_provs = no
 				}
 			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 4 } }
+			else_if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_tpl = 5 } }
 				create_unit = {
-					division = "name = \"5th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					division = "name = \"Mercenary Division\" division_template = \"Mountain Division\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
 					owner = ROOT
 					count = 1
+					id = 77001
 					allow_spawning_on_enemy_provs = no
 				}
 			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 5 } }
+			else_if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_tpl = 6 } }
 				create_unit = {
-					division = "name = \"6th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					division = "name = \"Mercenary Division\" division_template = \"Garrison Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
 					owner = ROOT
 					count = 1
+					id = 77001
 					allow_spawning_on_enemy_provs = no
 				}
 			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 6 } }
+			else_if = {
+				limit = { check_variable = { ROOT.dd_merc_hire_tpl = 7 } }
 				create_unit = {
-					division = "name = \"7th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+					division = "name = \"Mercenary Division\" division_template = \"Militia Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
 					owner = ROOT
 					count = 1
-					allow_spawning_on_enemy_provs = no
-				}
-			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 7 } }
-				create_unit = {
-					division = "name = \"8th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-					allow_spawning_on_enemy_provs = no
-				}
-			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 8 } }
-				create_unit = {
-					division = "name = \"9th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-					allow_spawning_on_enemy_provs = no
-				}
-			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 9 } }
-				create_unit = {
-					division = "name = \"10th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-					allow_spawning_on_enemy_provs = no
-				}
-			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 10 } }
-				create_unit = {
-					division = "name = \"11th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-					allow_spawning_on_enemy_provs = no
-				}
-			}
-			if = {
-				limit = { check_variable = { ROOT.dd_merc_hire_size > 11 } }
-				create_unit = {
-					division = "name = \"12th Mercenary Brigade\" division_template = \"Mercenary Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
+					id = 77001
 					allow_spawning_on_enemy_provs = no
 				}
 			}
@@ -518,13 +515,14 @@ dd_merc_deploy_to_buyer = {
 			NOT = { has_country_flag = dd_merc_deployed }
 			has_country_flag = dd_merc_offering
 			check_variable = { dd_merc_ask > 0.49 }
-			check_variable = { dd_merc_size > 0 }
-			NOT = { check_variable = { dd_merc_size > 12 } }
+			check_variable = { dd_merc_tpl > 0 }
+			check_variable = { dd_merc_tpl < 8 }
 		}
 		var:dd_accept_buyer = {
 			if = {
 				limit = {
 					has_country_flag = dd_merc_pending
+					NOT = { has_country_flag = dd_merc_client }
 					NOT = { check_variable = { treasury < ROOT.dd_merc_ask } }
 				}
 				subtract_from_variable = { treasury = ROOT.dd_merc_ask }
@@ -536,9 +534,9 @@ dd_merc_deploy_to_buyer = {
 				ROOT = {
 					give_military_access = PREV
 					set_variable = { dd_merc_client_tag = PREV }
-					set_variable = { dd_merc_hire_size = dd_merc_size }
+					set_variable = { dd_merc_hire_tpl = dd_merc_tpl }
 					set_country_flag = dd_merc_deployed
-					dd_merc_spawn_brigades = yes
+					dd_merc_spawn_one = yes
 				}
 				every_enemy_country = {
 					ROOT = {
@@ -623,7 +621,7 @@ dd_merc_recall = {
 	if = {
 		limit = { has_country_flag = dd_merc_deployed }
 		delete_unit = {
-			division_template = "Mercenary Brigade"
+			id = 77001
 			disband = yes
 		}
 		var:dd_merc_client_tag = {
@@ -632,6 +630,6 @@ dd_merc_recall = {
 		}
 		clr_country_flag = dd_merc_deployed
 		clear_variable = dd_merc_client_tag
-		clear_variable = dd_merc_hire_size
+		clear_variable = dd_merc_hire_tpl
 	}
 }

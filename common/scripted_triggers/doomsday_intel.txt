@@ -1,10 +1,49 @@
+# Intelligence agency triggers. Country-scoped. Deterministic.
+
 dd_intel_can_target = {
 	exists = yes
-	# Equal or weaker agency only (tier <= ROOT tier). Own country allowed except steal.
+	# Equal or weaker agency only (tier <= ROOT tier).
 	OR = {
 		NOT = { has_variable = dd_intel_tier }
 		check_variable = { dd_intel_tier = 0 }
 		NOT = { check_variable = { dd_intel_tier > ROOT.dd_intel_tier } }
+	}
+}
+
+# T1-only missions: no agency on target (self always has an agency — allow self separately).
+dd_intel_target_t1_exclusive = {
+	dd_intel_can_target = yes
+	OR = {
+		tag = ROOT
+		dd_intel_no_agency = yes
+	}
+}
+
+# Shared T1/T2 missions: any valid peer-or-weaker nation (incl. self where allowed).
+dd_intel_target_shared = {
+	dd_intel_can_target = yes
+}
+
+# T1 destabilize: any existing country, including yourself.
+dd_intel_target_any = {
+	exists = yes
+}
+
+# Steal map target. THIS = target country, ROOT = actor.
+# T1: any other country that is ahead. T2: peer-or-weaker only.
+dd_intel_steal_country_ok = {
+	exists = yes
+	NOT = { tag = ROOT }
+	dd_intel_has_stealable_tech = yes
+	OR = {
+		ROOT = { dd_intel_is_t1 = yes }
+		dd_intel_can_target = yes
+	}
+}
+
+dd_intel_steal_has_target = {
+	any_other_country = {
+		dd_intel_steal_country_ok = yes
 	}
 }
 
@@ -19,8 +58,25 @@ dd_intel_locked = {
 }
 
 dd_intel_can_cancel_select = {
-	dd_intel_selecting = yes
-	NOT = { has_country_flag = dd_intel_locked }
+	OR = {
+		# Blame scapegoat phase — always cancellable.
+		check_variable = { dd_intel_mission = 8 }
+		# Pre-lock map select.
+		AND = {
+			check_variable = { dd_intel_mission > 0 }
+			NOT = { check_variable = { dd_intel_mission = 8 } }
+			NOT = { has_country_flag = dd_intel_locked }
+		}
+		# Steal escape if target no longer has stealable tech.
+		AND = {
+			has_country_flag = dd_intel_locked
+			check_variable = { dd_intel_mission = 6 }
+			OR = {
+				NOT = { has_variable = dd_intel_mission_target }
+				NOT = { var:dd_intel_mission_target = { dd_intel_has_stealable_tech = yes } }
+			}
+		}
+	}
 }
 
 dd_intel_has_agency = {
@@ -61,12 +117,27 @@ dd_intel_no_agency = {
 	}
 }
 
+dd_intel_picking_commander = {
+	check_variable = { dd_intel_mission = 2 }
+	has_country_flag = dd_intel_locked
+}
+
+dd_intel_picking_tech = {
+	check_variable = { dd_intel_mission = 6 }
+	has_country_flag = dd_intel_locked
+}
+
+dd_intel_blaming = {
+	check_variable = { dd_intel_mission = 8 }
+}
+
 dd_ig_is_free = {
+	NOT = { has_country_flag = dd_ig_reserved }
 	OR = {
 		has_country_flag = dd_ig_dormant
 		AND = {
 			NOT = { has_country_flag = dd_ig_active }
-			num_owned_states < 1
+			check_variable = { num_owned_states < 1 }
 			NOT = { has_war = yes }
 		}
 	}

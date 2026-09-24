@@ -1,8 +1,32 @@
 guiTypes = {
 
+	############################################
+	# Click-outside dismiss (drawn under market)
+	############################################
+	containerWindowType = {
+		name = "dd_merc_dismiss_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 100% }
+		clipping = no
+
+		buttonType = {
+			name = "dd_merc_dismiss"
+			position = { x = 0 y = 0 }
+			size = { width = 100% height = 100% }
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			clicksound = click_close
+		}
+	}
+
+	
+
+	############################################
+	# Main mercenary market
+	############################################
 	containerWindowType = {
 		name = "dd_merc_market_window"
-		position = { x = 5 y = 78 }
+		# Same anchor as the arms market: under the decisions title, filling the panel.
+		position = { x = 0 y = 44 }
 		size = { width = 550 height = 100%% }
 		clipping = no
 
@@ -66,14 +90,12 @@ guiTypes = {
 			}
 		}
 
-		# Hire / Offer — native 261x34, 12px side margins, 4px gap.
 		buttonType = {
 			name = "dd_merc_tab_hire_on"
 			quadTextureSprite = "GFX_button_261x34"
 			position = { x = 12 y = 84 }
 			buttonText = "DD_MERC_TAB_HIRE"
 			buttonFont = "hoi_18mbs"
-			frame = 2
 			clicksound = click_default
 		}
 		buttonType = {
@@ -82,7 +104,6 @@ guiTypes = {
 			position = { x = 12 y = 84 }
 			buttonText = "DD_MERC_TAB_HIRE"
 			buttonFont = "hoi_18mbs"
-			frame = 1
 			clicksound = click_default
 		}
 		buttonType = {
@@ -91,7 +112,6 @@ guiTypes = {
 			position = { x = 277 y = 84 }
 			buttonText = "DD_MERC_TAB_OFFER"
 			buttonFont = "hoi_18mbs"
-			frame = 2
 			clicksound = click_default
 		}
 		buttonType = {
@@ -100,203 +120,361 @@ guiTypes = {
 			position = { x = 277 y = 84 }
 			buttonText = "DD_MERC_TAB_OFFER"
 			buttonFont = "hoi_18mbs"
-			frame = 1
 			clicksound = click_default
 		}
 
-		# --- Hire tab ---
+		# --- Hire tab header ---
 		instantTextboxType = {
 			name = "dd_merc_hire_header"
-			position = { x = 16 y = 130 }
+			position = { x = 16 y = 128 }
 			font = "hoi_18mbs"
 			text = "DD_MERC_HIRE_HEADER"
 			maxWidth = 520
-			maxHeight = 20
+			maxHeight = 18
+			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_hire_limit"
+			position = { x = 16 y = 148 }
+			font = "hoi_16mbs"
+			text = "DD_MERC_HIRE_LIMIT"
+			maxWidth = 520
+			maxHeight = 16
 			format = left
 		}
 
+		# --- Hire cards: flag | country · template | price | hire ---
+		iconType = {
+			name = "dd_merc_card_0_bg"
+			quadTextureSprite = "GFX_deployment_binding"
+			position = { x = 12 y = 172 }
+		}
+		iconType = {
+			name = "dd_merc_flag_0"
+			spriteType = "GFX_flag_small"
+			position = { x = 20 y = 178 }
+		}
 		instantTextboxType = {
-			name = "dd_merc_row_0"
-			position = { x = 16 y = 164 }
+			name = "dd_merc_card_0_line"
+			position = { x = 78 y = 180 }
 			font = "hoi_16mbs"
-			text = "DD_MERC_ROW_0"
-			maxWidth = 340
+			text = "DD_MERC_CARD_0_LINE"
+			maxWidth = 230
 			maxHeight = 20
 			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_card_0_price"
+			position = { x = 310 y = 180 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_CARD_0_PRICE"
+			maxWidth = 80
+			maxHeight = 20
+			format = right
 		}
 		buttonType = {
 			name = "dd_merc_hire_0"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 400 y = 156 }
+			position = { x = 410 y = 175 }
 			buttonText = "DD_MERC_HIRE"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
-
+		iconType = {
+			name = "dd_merc_card_1_bg"
+			quadTextureSprite = "GFX_deployment_binding"
+			position = { x = 12 y = 220 }
+		}
+		iconType = {
+			name = "dd_merc_flag_1"
+			spriteType = "GFX_flag_small"
+			position = { x = 20 y = 226 }
+		}
 		instantTextboxType = {
-			name = "dd_merc_row_1"
-			position = { x = 16 y = 200 }
+			name = "dd_merc_card_1_line"
+			position = { x = 78 y = 228 }
 			font = "hoi_16mbs"
-			text = "DD_MERC_ROW_1"
-			maxWidth = 340
+			text = "DD_MERC_CARD_1_LINE"
+			maxWidth = 230
 			maxHeight = 20
 			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_card_1_price"
+			position = { x = 310 y = 228 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_CARD_1_PRICE"
+			maxWidth = 80
+			maxHeight = 20
+			format = right
 		}
 		buttonType = {
 			name = "dd_merc_hire_1"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 400 y = 192 }
+			position = { x = 410 y = 223 }
 			buttonText = "DD_MERC_HIRE"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
-
+		iconType = {
+			name = "dd_merc_card_2_bg"
+			quadTextureSprite = "GFX_deployment_binding"
+			position = { x = 12 y = 268 }
+		}
+		iconType = {
+			name = "dd_merc_flag_2"
+			spriteType = "GFX_flag_small"
+			position = { x = 20 y = 274 }
+		}
 		instantTextboxType = {
-			name = "dd_merc_row_2"
-			position = { x = 16 y = 236 }
+			name = "dd_merc_card_2_line"
+			position = { x = 78 y = 276 }
 			font = "hoi_16mbs"
-			text = "DD_MERC_ROW_2"
-			maxWidth = 340
+			text = "DD_MERC_CARD_2_LINE"
+			maxWidth = 230
 			maxHeight = 20
 			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_card_2_price"
+			position = { x = 310 y = 276 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_CARD_2_PRICE"
+			maxWidth = 80
+			maxHeight = 20
+			format = right
 		}
 		buttonType = {
 			name = "dd_merc_hire_2"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 400 y = 228 }
+			position = { x = 410 y = 271 }
 			buttonText = "DD_MERC_HIRE"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
-
+		iconType = {
+			name = "dd_merc_card_3_bg"
+			quadTextureSprite = "GFX_deployment_binding"
+			position = { x = 12 y = 316 }
+		}
+		iconType = {
+			name = "dd_merc_flag_3"
+			spriteType = "GFX_flag_small"
+			position = { x = 20 y = 322 }
+		}
 		instantTextboxType = {
-			name = "dd_merc_row_3"
-			position = { x = 16 y = 272 }
+			name = "dd_merc_card_3_line"
+			position = { x = 78 y = 324 }
 			font = "hoi_16mbs"
-			text = "DD_MERC_ROW_3"
-			maxWidth = 340
+			text = "DD_MERC_CARD_3_LINE"
+			maxWidth = 230
 			maxHeight = 20
 			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_card_3_price"
+			position = { x = 310 y = 324 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_CARD_3_PRICE"
+			maxWidth = 80
+			maxHeight = 20
+			format = right
 		}
 		buttonType = {
 			name = "dd_merc_hire_3"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 400 y = 264 }
+			position = { x = 410 y = 319 }
 			buttonText = "DD_MERC_HIRE"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
-
+		iconType = {
+			name = "dd_merc_card_4_bg"
+			quadTextureSprite = "GFX_deployment_binding"
+			position = { x = 12 y = 364 }
+		}
+		iconType = {
+			name = "dd_merc_flag_4"
+			spriteType = "GFX_flag_small"
+			position = { x = 20 y = 370 }
+		}
 		instantTextboxType = {
-			name = "dd_merc_row_4"
-			position = { x = 16 y = 308 }
+			name = "dd_merc_card_4_line"
+			position = { x = 78 y = 372 }
 			font = "hoi_16mbs"
-			text = "DD_MERC_ROW_4"
-			maxWidth = 340
+			text = "DD_MERC_CARD_4_LINE"
+			maxWidth = 230
 			maxHeight = 20
 			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_card_4_price"
+			position = { x = 310 y = 372 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_CARD_4_PRICE"
+			maxWidth = 80
+			maxHeight = 20
+			format = right
 		}
 		buttonType = {
 			name = "dd_merc_hire_4"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 400 y = 300 }
+			position = { x = 410 y = 367 }
 			buttonText = "DD_MERC_HIRE"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
-
+		iconType = {
+			name = "dd_merc_card_5_bg"
+			quadTextureSprite = "GFX_deployment_binding"
+			position = { x = 12 y = 412 }
+		}
+		iconType = {
+			name = "dd_merc_flag_5"
+			spriteType = "GFX_flag_small"
+			position = { x = 20 y = 418 }
+		}
 		instantTextboxType = {
-			name = "dd_merc_row_5"
-			position = { x = 16 y = 344 }
+			name = "dd_merc_card_5_line"
+			position = { x = 78 y = 420 }
 			font = "hoi_16mbs"
-			text = "DD_MERC_ROW_5"
-			maxWidth = 340
+			text = "DD_MERC_CARD_5_LINE"
+			maxWidth = 230
 			maxHeight = 20
 			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_card_5_price"
+			position = { x = 310 y = 420 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_CARD_5_PRICE"
+			maxWidth = 80
+			maxHeight = 20
+			format = right
 		}
 		buttonType = {
 			name = "dd_merc_hire_5"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 400 y = 336 }
+			position = { x = 410 y = 415 }
 			buttonText = "DD_MERC_HIRE"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
-
+		iconType = {
+			name = "dd_merc_card_6_bg"
+			quadTextureSprite = "GFX_deployment_binding"
+			position = { x = 12 y = 460 }
+		}
+		iconType = {
+			name = "dd_merc_flag_6"
+			spriteType = "GFX_flag_small"
+			position = { x = 20 y = 466 }
+		}
 		instantTextboxType = {
-			name = "dd_merc_row_6"
-			position = { x = 16 y = 380 }
+			name = "dd_merc_card_6_line"
+			position = { x = 78 y = 468 }
 			font = "hoi_16mbs"
-			text = "DD_MERC_ROW_6"
-			maxWidth = 340
+			text = "DD_MERC_CARD_6_LINE"
+			maxWidth = 230
 			maxHeight = 20
 			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_card_6_price"
+			position = { x = 310 y = 468 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_CARD_6_PRICE"
+			maxWidth = 80
+			maxHeight = 20
+			format = right
 		}
 		buttonType = {
 			name = "dd_merc_hire_6"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 400 y = 372 }
+			position = { x = 410 y = 463 }
 			buttonText = "DD_MERC_HIRE"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
-
+		iconType = {
+			name = "dd_merc_card_7_bg"
+			quadTextureSprite = "GFX_deployment_binding"
+			position = { x = 12 y = 508 }
+		}
+		iconType = {
+			name = "dd_merc_flag_7"
+			spriteType = "GFX_flag_small"
+			position = { x = 20 y = 514 }
+		}
 		instantTextboxType = {
-			name = "dd_merc_row_7"
-			position = { x = 16 y = 416 }
+			name = "dd_merc_card_7_line"
+			position = { x = 78 y = 516 }
 			font = "hoi_16mbs"
-			text = "DD_MERC_ROW_7"
-			maxWidth = 340
+			text = "DD_MERC_CARD_7_LINE"
+			maxWidth = 230
 			maxHeight = 20
 			format = left
+		}
+		instantTextboxType = {
+			name = "dd_merc_card_7_price"
+			position = { x = 310 y = 516 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_CARD_7_PRICE"
+			maxWidth = 80
+			maxHeight = 20
+			format = right
 		}
 		buttonType = {
 			name = "dd_merc_hire_7"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 400 y = 408 }
+			position = { x = 410 y = 511 }
 			buttonText = "DD_MERC_HIRE"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
 
-		# --- Offer tab: army group, ask, post, buyer requests ---
+		# --- Offer tab: one Select Division + price (volunteer-style flow) ---
+		instantTextboxType = {
+			name = "dd_merc_offer_header"
+			position = { x = 16 y = 128 }
+			font = "hoi_18mbs"
+			text = "DD_MERC_OFFER_HEADER"
+			maxWidth = 520
+			maxHeight = 18
+			format = left
+		}
+
 		buttonType = {
-			name = "dd_merc_army_prev"
-			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 12 y = 130 }
-			buttonText = "DD_MERC_ARMY_PREV"
+			name = "dd_merc_open_picker"
+			quadTextureSprite = "GFX_button_359x34"
+			position = { x = 95 y = 160 }
+			buttonText = "DD_MERC_SELECT_DIV"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
+			pdx_tooltip = "DD_MERC_SELECT_DIV_TT"
 		}
+
 		instantTextboxType = {
-			name = "dd_merc_army_label"
-			position = { x = 145 y = 138 }
+			name = "dd_merc_selected_line"
+			position = { x = 16 y = 208 }
 			font = "hoi_18mbs"
-			text = "DD_MERC_ARMY_LABEL"
-			maxWidth = 250
+			text = "DD_MERC_SELECTED_LINE"
+			maxWidth = 520
 			maxHeight = 22
 			format = center
-		}
-		buttonType = {
-			name = "dd_merc_army_next"
-			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 415 y = 130 }
-			buttonText = "DD_MERC_ARMY_NEXT"
-			buttonFont = "hoi_18mbs"
-			clicksound = click_default
 		}
 
 		buttonType = {
 			name = "dd_merc_ask_down"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 12 y = 174 }
+			position = { x = 12 y = 250 }
 			buttonText = "DD_MERC_ASK_DOWN"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
 		}
 		instantTextboxType = {
 			name = "dd_merc_offer_label"
-			position = { x = 145 y = 182 }
+			position = { x = 145 y = 258 }
 			font = "hoi_18mbs"
 			text = "DD_MERC_OFFER_LABEL"
 			maxWidth = 250
@@ -306,7 +484,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_ask_up"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 415 y = 174 }
+			position = { x = 415 y = 250 }
 			buttonText = "DD_MERC_ASK_UP"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
@@ -315,7 +493,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_post_offer"
 			quadTextureSprite = "GFX_button_261x34"
-			position = { x = 12 y = 220 }
+			position = { x = 12 y = 300 }
 			buttonText = "DD_MERC_POST_OFFER"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
@@ -324,7 +502,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_cancel_offer"
 			quadTextureSprite = "GFX_button_261x34"
-			position = { x = 277 y = 220 }
+			position = { x = 277 y = 300 }
 			buttonText = "DD_MERC_CANCEL_OFFER"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
@@ -332,7 +510,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "dd_merc_bid_header"
-			position = { x = 16 y = 268 }
+			position = { x = 16 y = 352 }
 			font = "hoi_18mbs"
 			text = "DD_MERC_BID_HEADER"
 			maxWidth = 520
@@ -342,7 +520,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "dd_merc_bid_0"
-			position = { x = 16 y = 300 }
+			position = { x = 16 y = 384 }
 			font = "hoi_16mbs"
 			text = "DD_MERC_BID_0"
 			maxWidth = 240
@@ -352,7 +530,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_accept_0"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 270 y = 292 }
+			position = { x = 270 y = 376 }
 			buttonText = "DD_MERC_ACCEPT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
@@ -360,7 +538,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_reject_0"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 405 y = 292 }
+			position = { x = 405 y = 376 }
 			buttonText = "DD_MERC_REJECT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
@@ -368,7 +546,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "dd_merc_bid_1"
-			position = { x = 16 y = 336 }
+			position = { x = 16 y = 420 }
 			font = "hoi_16mbs"
 			text = "DD_MERC_BID_1"
 			maxWidth = 240
@@ -378,7 +556,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_accept_1"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 270 y = 328 }
+			position = { x = 270 y = 412 }
 			buttonText = "DD_MERC_ACCEPT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
@@ -386,7 +564,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_reject_1"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 405 y = 328 }
+			position = { x = 405 y = 412 }
 			buttonText = "DD_MERC_REJECT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
@@ -394,7 +572,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "dd_merc_bid_2"
-			position = { x = 16 y = 372 }
+			position = { x = 16 y = 456 }
 			font = "hoi_16mbs"
 			text = "DD_MERC_BID_2"
 			maxWidth = 240
@@ -404,7 +582,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_accept_2"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 270 y = 364 }
+			position = { x = 270 y = 448 }
 			buttonText = "DD_MERC_ACCEPT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
@@ -412,7 +590,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_reject_2"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 405 y = 364 }
+			position = { x = 405 y = 448 }
 			buttonText = "DD_MERC_REJECT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
@@ -420,7 +598,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "dd_merc_bid_3"
-			position = { x = 16 y = 408 }
+			position = { x = 16 y = 492 }
 			font = "hoi_16mbs"
 			text = "DD_MERC_BID_3"
 			maxWidth = 240
@@ -430,7 +608,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_accept_3"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 270 y = 400 }
+			position = { x = 270 y = 484 }
 			buttonText = "DD_MERC_ACCEPT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
@@ -438,7 +616,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_reject_3"
 			quadTextureSprite = "GFX_button_123x34"
-			position = { x = 405 y = 400 }
+			position = { x = 405 y = 484 }
 			buttonText = "DD_MERC_REJECT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
@@ -446,7 +624,7 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "dd_merc_deployed_line"
-			position = { x = 16 y = 448 }
+			position = { x = 16 y = 536 }
 			font = "hoi_16mbs"
 			text = "DD_MERC_DEPLOYED_LINE"
 			maxWidth = 250
@@ -456,11 +634,111 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_recall"
 			quadTextureSprite = "GFX_button_261x34"
-			position = { x = 277 y = 440 }
+			position = { x = 277 y = 528 }
 			buttonText = "DD_MERC_RECALL"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
 			pdx_tooltip = "DD_MERC_RECALL_TT"
+		}
+	}
+
+############################################
+	# Division template picker (dynamic list)
+	############################################
+	containerWindowType = {
+		name = "dd_merc_tpl_picker_window"
+		position = { x = -280 y = -260 }
+		size = { width = 560 height = 520 }
+		Orientation = CENTER
+		clipping = no
+
+		background = {
+			name = "Background"
+			spriteType = "GFX_tiled_bg"
+		}
+
+		iconType = {
+			name = "dd_merc_picker_header_bg"
+			spriteType = "GFX_header_bg"
+			position = { x = 5 y = 7 }
+		}
+
+		instantTextboxType = {
+			name = "dd_merc_picker_title"
+			position = { x = 45 y = 10 }
+			font = "hoi_24header"
+			text = "DD_MERC_PICKER_TITLE"
+			maxWidth = 460
+			maxHeight = 24
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_merc_picker_close"
+			position = { x = -43 y = 9 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+		}
+
+		instantTextboxType = {
+			name = "dd_merc_picker_hint"
+			position = { x = 16 y = 52 }
+			font = "hoi_16mbs"
+			text = "DD_MERC_PICKER_HINT"
+			maxWidth = 520
+			maxHeight = 18
+			format = left
+		}
+
+		containerWindowType = {
+			name = "dd_merc_tpl_list"
+			position = { x = 16 y = 80 }
+			size = { width = 528 height = 380 }
+			verticalScrollbar = "right_vertical_slider"
+			scroll_wheel_factor = 40
+			smooth_scrolling = yes
+			clipping = yes
+
+			background = {
+				name = "dd_merc_tpl_list_bg"
+				spriteType = "GFX_tiled_window2_1b_border"
+			}
+
+			gridBoxType = {
+				name = "dd_merc_tpl_grid"
+				position = { x = 8 y = 8 }
+				size = { width = 100% height = 100% }
+				slotsize = { width = 500 height = 42 }
+				max_slots_horizontal = 1
+				format = "UPPER_LEFT"
+			}
+		}
+
+		buttonType = {
+			name = "dd_merc_picker_back"
+			quadTextureSprite = "GFX_button_261x34"
+			position = { x = 150 y = 472 }
+			buttonText = "DD_MERC_PICKER_BACK"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_close
+		}
+	}
+
+	containerWindowType = {
+		name = "dd_merc_tpl_entry"
+		size = { width = 500 height = 42 }
+		clipping = no
+
+		buttonType = {
+			name = "dd_merc_tpl_pick"
+			quadTextureSprite = "GFX_button_359x34"
+			position = { x = 70 y = 4 }
+			buttonText = "DD_MERC_TPL_ENTRY"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
 		}
 	}
 }

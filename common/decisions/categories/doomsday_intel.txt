@@ -1,7 +1,8 @@
 doomsday_intel_category = {
 	icon = generic_intel_bonus
 	scripted_gui = doomsday_intel_ui
-	priority = 190
+	# Lowest priority so this category stays at the bottom of the decisions tab.
+	priority = 1
 	visible = {
 		dd_intel_has_agency = yes
 	}

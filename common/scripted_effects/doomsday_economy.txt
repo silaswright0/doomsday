@@ -442,22 +442,27 @@ dd_repay_loan = {
 	}
 }
 
-# Cover an overdraft with small loans (1× monthly revenue each). Cap 12.
+# Cover an overdraft automatically. One loan: at least 1× monthly revenue,
+# or exactly enough to reach 0 if the hole is larger. Floor 0.1B if income is 0.
 dd_auto_loan_if_negative = {
-	dd_refresh_loan_preview = yes
-	for_loop_effect = {
-		start = 0
-		end = 12
-		compare = less_than
-		add = 1
-		value = v
+	if = {
+		limit = { check_variable = { treasury < 0 } }
+		dd_refresh_loan_preview = yes
 		if = {
-			limit = {
-				check_variable = { treasury < 0 }
-				check_variable = { dd_loan_small > 0.01 }
-			}
-			dd_take_loan_small = yes
+			limit = { NOT = { check_variable = { dd_loan_small > 0.1 } } }
+			set_variable = { dd_loan_small = 0.1 }
 		}
+		set_temp_variable = { dd_cover = treasury }
+		multiply_temp_variable = { dd_cover = -1 }
+		if = {
+			limit = { check_variable = { dd_cover < dd_loan_small } }
+			set_temp_variable = { dd_cover = dd_loan_small }
+		}
+		add_to_variable = { treasury = dd_cover }
+		add_to_variable = { debt = dd_cover }
+		dd_refresh_interest = yes
+		dd_refresh_debt_burden = yes
+		dd_refresh_loan_preview = yes
 	}
 }
 

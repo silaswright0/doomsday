@@ -754,7 +754,7 @@ technologies = {
 
 		on_research_complete = {
 			if = {
-				limit = { has_dlc = "Gotterdammerung"}
+				limit = { always = yes}
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_PROJECT
 					PROJECT = sp_air_intercontinental_bomber	
@@ -1016,7 +1016,7 @@ technologies = {
 		start_year = 1922
 
 
-		allow_branch = { has_dlc = "La Resistance" }
+		allow_branch = { always = yes }
 		
 		categories = {
 			air_equipment
@@ -1813,7 +1813,7 @@ technologies = {
 
 	sp_centrifugal_jet_tech = {
 		allow_branch = {
-			has_dlc = "Gotterdammerung"
+			always = yes
 		}
 		
 		allow = {
@@ -1854,7 +1854,7 @@ technologies = {
 
 	reinforced_wings_mothership = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}	
 
 		allow = {

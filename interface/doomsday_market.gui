@@ -1,8 +1,27 @@
 guiTypes = {
 
+	############################################
+	# Click-outside dismiss (under arms panel)
+	############################################
+	containerWindowType = {
+		name = "dd_arms_dismiss_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 100% }
+		clipping = no
+
+		buttonType = {
+			name = "dd_arms_dismiss"
+			position = { x = 0 y = 0 }
+			size = { width = 100% height = 100% }
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			clicksound = click_close
+		}
+	}
+
 	containerWindowType = {
 		name = "dd_arms_market_window"
-		position = { x = 5 y = 78 }
+		# decision_tab already starts at the decisions panel. y=44 sits under that title; 100%% fills the rest.
+		position = { x = 0 y = 44 }
 		size = { width = 550 height = 100%% }
 		clipping = no
 
@@ -66,135 +85,104 @@ guiTypes = {
 			}
 		}
 
-		containerWindowType = {
-			name = "dd_market_tabs"
-			position = { x = 0 y = 80 }
-			size = { width = 100% height = 40 }
-			margin = { left = 12 right = 12 }
-			clipping = no
-
-			buttonType = {
-				name = "dd_tab_buy_on"
-				quadTextureSprite = "GFX_button_261x34"
-				position = { x = 0 y = 2 }
-				size = { width = 48% height = 34 }
-				buttonText = "DD_MARKET_TAB_BUY"
-				buttonFont = "hoi_18mbs"
-				frame = 2
-				clicksound = click_default
-			}
-			buttonType = {
-				name = "dd_tab_buy_off"
-				quadTextureSprite = "GFX_button_261x34"
-				position = { x = 0 y = 2 }
-				size = { width = 48% height = 34 }
-				buttonText = "DD_MARKET_TAB_BUY"
-				buttonFont = "hoi_18mbs"
-				frame = 1
-				clicksound = click_default
-			}
-			buttonType = {
-				name = "dd_tab_sell_on"
-				quadTextureSprite = "GFX_button_261x34"
-				position = { x = 52% y = 2 }
-				size = { width = 48% height = 34 }
-				buttonText = "DD_MARKET_TAB_SELL"
-				buttonFont = "hoi_18mbs"
-				frame = 2
-				clicksound = click_default
-			}
-			buttonType = {
-				name = "dd_tab_sell_off"
-				quadTextureSprite = "GFX_button_261x34"
-				position = { x = 52% y = 2 }
-				size = { width = 48% height = 34 }
-				buttonText = "DD_MARKET_TAB_SELL"
-				buttonFont = "hoi_18mbs"
-				frame = 1
-				clicksound = click_default
-			}
+		# Direct children (a nested container collapsed these to nothing). Sprites are 1-frame.
+		buttonType = {
+			name = "dd_tab_buy_on"
+			quadTextureSprite = "GFX_button_261x34"
+			position = { x = 14 y = 86 }
+			size = { width = 261 height = 34 }
+			buttonText = "DD_MARKET_TAB_BUY_ON"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_tab_buy_off"
+			quadTextureSprite = "GFX_button_261x34"
+			position = { x = 14 y = 86 }
+			size = { width = 261 height = 34 }
+			buttonText = "DD_MARKET_TAB_BUY_OFF"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_tab_sell_on"
+			quadTextureSprite = "GFX_button_261x34"
+			position = { x = 275 y = 86 }
+			size = { width = 261 height = 34 }
+			buttonText = "DD_MARKET_TAB_SELL_ON"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+		}
+		buttonType = {
+			name = "dd_tab_sell_off"
+			quadTextureSprite = "GFX_button_261x34"
+			position = { x = 275 y = 86 }
+			size = { width = 261 height = 34 }
+			buttonText = "DD_MARKET_TAB_SELL_OFF"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
 		}
 
-		iconType = {
-			name = "dd_tabs_background"
-			quadTextureSprite = "GFX_tab_diplomacy_bg"
-			position = { x = 12 y = 184 }
-			alwaystransparent = yes
+		# Centered Land / Air / Navy (123px + 16px gaps, group centered in 550)
+		buttonType = {
+			name = "dd_cat_land_on"
+			quadTextureSprite = "GFX_button_123x34"
+			position = { x = 75 y = 126 }
+			size = { width = 123 height = 34 }
+			buttonText = "DD_MARKET_CAT_LAND_ON"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
 		}
-
-		containerWindowType = {
-			name = "dd_market_cats"
-			position = { x = 0 y = 184 }
-			size = { width = 100% height = 40 }
-			margin = { left = 12 right = 12 }
-			clipping = no
-
-			buttonType = {
-				name = "dd_cat_land_on"
-				quadTextureSprite = "GFX_button_123x34"
-				position = { x = 0 y = 2 }
-				size = { width = 31% height = 32 }
-				buttonText = "DD_MARKET_CAT_LAND"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 2
-			}
-			buttonType = {
-				name = "dd_cat_land_off"
-				quadTextureSprite = "GFX_button_123x34"
-				position = { x = 0 y = 2 }
-				size = { width = 31% height = 32 }
-				buttonText = "DD_MARKET_CAT_LAND"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 1
-			}
-			buttonType = {
-				name = "dd_cat_air_on"
-				quadTextureSprite = "GFX_button_123x34"
-				position = { x = 34% y = 2 }
-				size = { width = 31% height = 32 }
-				buttonText = "DD_MARKET_CAT_AIR"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 2
-			}
-			buttonType = {
-				name = "dd_cat_air_off"
-				quadTextureSprite = "GFX_button_123x34"
-				position = { x = 34% y = 2 }
-				size = { width = 31% height = 32 }
-				buttonText = "DD_MARKET_CAT_AIR"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 1
-			}
-			buttonType = {
-				name = "dd_cat_navy_on"
-				quadTextureSprite = "GFX_button_123x34"
-				position = { x = 69% y = 2 }
-				size = { width = 31% height = 32 }
-				buttonText = "DD_MARKET_CAT_NAVY"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 2
-			}
-			buttonType = {
-				name = "dd_cat_navy_off"
-				quadTextureSprite = "GFX_button_123x34"
-				position = { x = 69% y = 2 }
-				size = { width = 31% height = 32 }
-				buttonText = "DD_MARKET_CAT_NAVY"
-				buttonFont = "hoi_16mbs"
-				clicksound = click_scroll
-				frame = 1
-			}
+		buttonType = {
+			name = "dd_cat_land_off"
+			quadTextureSprite = "GFX_button_123x34_gray"
+			position = { x = 75 y = 126 }
+			size = { width = 123 height = 34 }
+			buttonText = "DD_MARKET_CAT_LAND"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}
+		buttonType = {
+			name = "dd_cat_air_on"
+			quadTextureSprite = "GFX_button_123x34"
+			position = { x = 214 y = 126 }
+			size = { width = 123 height = 34 }
+			buttonText = "DD_MARKET_CAT_AIR_ON"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}
+		buttonType = {
+			name = "dd_cat_air_off"
+			quadTextureSprite = "GFX_button_123x34_gray"
+			position = { x = 214 y = 126 }
+			size = { width = 123 height = 34 }
+			buttonText = "DD_MARKET_CAT_AIR"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}
+		buttonType = {
+			name = "dd_cat_navy_on"
+			quadTextureSprite = "GFX_button_123x34"
+			position = { x = 353 y = 126 }
+			size = { width = 123 height = 34 }
+			buttonText = "DD_MARKET_CAT_NAVY_ON"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
+		}
+		buttonType = {
+			name = "dd_cat_navy_off"
+			quadTextureSprite = "GFX_button_123x34_gray"
+			position = { x = 353 y = 126 }
+			size = { width = 123 height = 34 }
+			buttonText = "DD_MARKET_CAT_NAVY"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_scroll
 		}
 	}
 
 	containerWindowType = {
 		name = "dd_market_list_land"
-		position = { x = 10 y = 226 }
+		position = { x = 10 y = 210 }
 		size = { width = 530 height = 100%% }
 		margin = { top = 0 bottom = 24 }
 		verticalScrollbar = "right_vertical_slider"
@@ -3329,7 +3317,7 @@ guiTypes = {
 	}
 	containerWindowType = {
 		name = "dd_market_list_air"
-		position = { x = 10 y = 226 }
+		position = { x = 10 y = 210 }
 		size = { width = 530 height = 100%% }
 		margin = { top = 0 bottom = 24 }
 		verticalScrollbar = "right_vertical_slider"
@@ -5007,7 +4995,7 @@ guiTypes = {
 	}
 	containerWindowType = {
 		name = "dd_market_list_navy"
-		position = { x = 10 y = 226 }
+		position = { x = 10 y = 210 }
 		size = { width = 530 height = 100%% }
 		margin = { top = 0 bottom = 24 }
 		verticalScrollbar = "right_vertical_slider"
@@ -5333,7 +5321,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "dd_row_ship_hull_carrier"
-				position = { x = 10 y = 320 }
+				position = { x = 10 y = 312 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -5436,7 +5424,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "dd_row_ship_hull_cruiser"
-				position = { x = 10 y = 424 }
+				position = { x = 10 y = 408 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -5539,7 +5527,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "dd_row_ship_hull_heavy"
-				position = { x = 10 y = 528 }
+				position = { x = 10 y = 504 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -5642,7 +5630,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "dd_row_ship_hull_light"
-				position = { x = 10 y = 632 }
+				position = { x = 10 y = 600 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -5745,7 +5733,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "dd_row_ship_hull_submarine"
-				position = { x = 10 y = 736 }
+				position = { x = 10 y = 696 }
 				size = { width = 500 height = 100 }
 				clipping = no
 
@@ -5848,7 +5836,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "dd_row_support_ship_hull"
-				position = { x = 10 y = 840 }
+				position = { x = 10 y = 792 }
 				size = { width = 500 height = 100 }
 				clipping = no
 

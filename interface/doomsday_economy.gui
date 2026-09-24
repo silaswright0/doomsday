@@ -26,8 +26,9 @@ guiTypes = {
 			format = left
 		}
 
-		# Dual checkbox: only one visible. Flag dd_auto_repay drives state.
-		checkBoxType = {
+		# Dual buttons (checkbox art): only one visible. Flag dd_auto_repay drives state.
+		# buttonType — checkBoxType ignores scripted_gui clicks (effect is internal).
+		buttonType = {
 			name = "dd_auto_repay_off"
 			position = { x = 275 y = 24 }
 			quadTextureSprite = "GFX_generic_checkbox"
@@ -36,7 +37,7 @@ guiTypes = {
 			pdx_tooltip = "DD_AUTO_REPAY_OFF_TT"
 		}
 
-		checkBoxType = {
+		buttonType = {
 			name = "dd_auto_repay_on"
 			position = { x = 275 y = 24 }
 			quadTextureSprite = "GFX_generic_checkbox"

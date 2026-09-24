@@ -124,7 +124,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_org_factor = -0.025
+				army_org_factor = -0.05
 			}
 		}
 
@@ -147,6 +147,16 @@ ideas = {
 				stability_factor = -0.05
 				political_power_factor = -0.10
 				army_org_factor = -0.05
+			}
+		}
+
+		# Self-target scapegoat: +5% war support for 2 years.
+		dd_intel_blame_ws = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
 			}
 		}
 	}

@@ -41,7 +41,7 @@ technologies = {
 		#}
 
 		allow_branch = {
-			has_dlc = "Man the Guns"
+			always = yes
 		}
 
 		research_cost = 1.5
@@ -653,7 +653,7 @@ technologies = {
 		#}
 
 		allow_branch = {
-			has_dlc = "Man the Guns"
+			always = yes
 		}
 
 		on_research_complete = {
@@ -1134,7 +1134,7 @@ technologies = {
 		}
 		on_research_complete = {
 			if = {
-				limit = {has_dlc = "Gotterdammerung"}
+				limit = {always = yes}
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_PROJECT
 					PROJECT = sp_naval_modern_battleship	
@@ -1335,7 +1335,7 @@ early_ship_hull_carrier = {
 		}
 		on_research_complete = {
 			if = {
-				limit = {has_dlc = "No Compromise, No Surrender"}
+				limit = {always = yes}
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_PROJECT
 					PROJECT = sp_naval_escort_carrier	
@@ -1379,7 +1379,7 @@ early_ship_hull_carrier = {
 		}
 		on_research_complete = {
 			if = {
-				limit = {has_dlc = "Gotterdammerung"}
+				limit = {always = yes}
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_PROJECT
 					PROJECT = sp_naval_ice_carrier	
@@ -1388,8 +1388,8 @@ early_ship_hull_carrier = {
 			if = {
 				limit = {
 					is_ai = no
-					has_dlc = "No Compromise, No Surrender"
-					has_dlc = "Gotterdammerung"
+					always = yes
+					always = yes
 					original_tag = PHI
 				}
 				set_country_flag = PHI_did_carrier_tech
@@ -1451,7 +1451,7 @@ early_ship_hull_carrier = {
 		}
 		on_research_complete = {
 			if = {
-				limit = { has_dlc = "Gotterdammerung"}
+				limit = { always = yes}
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_PROJECT
 					PROJECT = sp_naval_modern_carrier	
@@ -1551,7 +1551,7 @@ early_ship_hull_carrier = {
 		}
 		on_research_complete = {
 			if = {
-				limit = { has_dlc = "Gotterdammerung"}
+				limit = { always = yes}
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_PROJECT
 					PROJECT = sp_naval_aip_engine	
@@ -1861,7 +1861,7 @@ early_ship_hull_carrier = {
 	sp_aip_engine_improved_tech = {
 
 		allow_branch = {
-			 	has_dlc = "Gotterdammerung"
+			 	always = yes
 		}	
 
 		allow = {
@@ -1920,7 +1920,7 @@ early_ship_hull_carrier = {
 	sp_refined_pykrete = {
 
 		allow_branch = {
-			has_dlc = "Gotterdammerung"
+			always = yes
 		}		
 
 		enable_equipment_modules = {

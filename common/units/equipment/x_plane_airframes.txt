@@ -114,7 +114,20 @@ duplicate_archetypes = {
 		}
 		air_map_icon_frame = 13
 		interface_overview_category_index = 7
+		# Camera in the main slot is what puts Air Recon on the mission bar.
+		# The parent airframe only grants Training, and this frame forbids that.
+		allow_mission_type = {
+			recon
+			naval_patrol
+		}
 		forbid_mission_type = training
+		default_modules = {
+			fixed_main_weapon_slot = recon_camera
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+		}
 	}
 
 	# large_plane

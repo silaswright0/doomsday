@@ -376,7 +376,7 @@ technologies = {
 		}
 
 		allow_branch = {
-			has_dlc = "Man the Guns"
+			always = yes
 		}
 
 		research_cost = 2
@@ -1322,7 +1322,7 @@ technologies = {
 
 			if = {
 				limit = {
-					has_dlc = "Gotterdammerung"
+					always = yes
 				}
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_PROJECT
@@ -1929,7 +1929,7 @@ technologies = {
 
 	sp_armored_lc_naval_engine_conversion_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {
@@ -1995,7 +1995,7 @@ technologies = {
 
 	sp_armored_lc_transmission_improvements_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {
@@ -2081,7 +2081,7 @@ technologies = {
 
 	sp_armored_lc_specialized_field_manuals_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {
@@ -2143,7 +2143,7 @@ technologies = {
 
 	sp_armored_lc_weapon_fire_control_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {
@@ -2199,7 +2199,7 @@ technologies = {
 
 	sp_armored_lc_high_impact_obliterator_cannon_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {

@@ -82,9 +82,7 @@ technologies = {
 			modifier = {
 				factor = 6
 				original_tag = CHI
-				NOT = {
-					has_dlc = "No Compromise, No Surrender"
-				}
+				always = no
 			}
 
 		}
@@ -97,7 +95,7 @@ technologies = {
 			engineer
 		}
 		enable_subunits = {
-			limit = { has_dlc = "Thunder at Our Gates"}
+			limit = { always = yes}
 			hq_engineer
 		}
 
@@ -149,9 +147,7 @@ technologies = {
 			modifier = {
 				factor = 6
 				original_tag = CHI
-				NOT = {
-					has_dlc = "No Compromise, No Surrender"
-				}
+				always = no
 			}
 			
 		}
@@ -159,7 +155,7 @@ technologies = {
 		on_research_complete = {
 			if = {
 				limit = {
-					has_dlc = "No Step Back"
+					always = yes
 				}
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_PROJECT
@@ -175,7 +171,7 @@ technologies = {
 			if = {
 				limit = {
 					original_tag = AFG
-					has_dlc = "Graveyard of Empires"
+					always = yes
 					has_completed_focus = AFG_expand_quami_template
 				}
 				add_units_to_division_template = {
@@ -227,7 +223,7 @@ technologies = {
 		#	hidden_effect = {
 		#		if = {
 		#			limit = {
-		#				has_dlc = "No Step Back"
+		#				always = yes
 		#				original_tag = ITA
 		#				has_completed_focus = ITA_italian_tankettes
 		#			}
@@ -458,7 +454,7 @@ technologies = {
 
 		}
 		enable_subunits = {
-			limit = { has_dlc = "Thunder at Our Gates"}
+			limit = { always = yes}
 			hq_recon
 		}
 
@@ -642,14 +638,14 @@ technologies = {
 			military_police
 		}
 		enable_subunits = {
-			limit = { has_dlc = "Thunder at Our Gates"}
+			limit = { always = yes}
 			hq_military_police
 		}
 
 		on_research_complete = {
 			if = {
 				limit = {
-					has_dlc = "Thunder at Our Gates"
+					always = yes
 					tag = ENG
 					is_ai = yes
 				}
@@ -724,7 +720,7 @@ technologies = {
 			if = {
 				limit = {
 					original_tag = AFG
-					has_dlc = "Graveyard of Empires"
+					always = yes
 					has_completed_focus = AFG_expand_quami_template
 				}
 				add_units_to_division_template = {
@@ -862,14 +858,14 @@ technologies = {
 			maintenance_company
 		}
 		enable_subunits = {
-			limit = { has_dlc = "Thunder at Our Gates"}
+			limit = { always = yes}
 			hq_maintenance
 		}
 
 		on_research_complete = {
 			if = {
 				limit = {
-					has_dlc = "Thunder at Our Gates"
+					always = yes
 					tag = FRA
 					is_ai = yes
 				}
@@ -1081,7 +1077,7 @@ technologies = {
 			field_hospital
 		}
 		enable_subunits = {
-			limit = { has_dlc = "Thunder at Our Gates"}
+			limit = { always = yes}
 			hq_field_hospital
 		}
 
@@ -1132,7 +1128,7 @@ technologies = {
 			if = {
 				limit = {
 					original_tag = AFG
-					has_dlc = "Graveyard of Empires"
+					always = yes
 					has_completed_focus = AFG_expand_quami_template
 				}
 				add_units_to_division_template = {
@@ -1329,14 +1325,14 @@ technologies = {
 			logistics_company
 		}
 		enable_subunits = {
-			limit = { has_dlc = "Thunder at Our Gates"}
+			limit = { always = yes}
 			hq_logistics
 		}
 
 		on_research_complete = {
 			if = {
 				limit = {
-					has_dlc = "Thunder at Our Gates"
+					always = yes
 					tag = USA
 					is_ai = yes
 				}
@@ -1347,7 +1343,7 @@ technologies = {
 			}
 			if = {
 				limit = {
-					has_dlc = "Thunder at Our Gates"
+					always = yes
 					tag = SOV
 					is_ai = yes
 				}
@@ -1554,7 +1550,7 @@ technologies = {
 			signal_company
 		}
 		enable_subunits = {
-			limit = { has_dlc = "Thunder at Our Gates"}
+			limit = { always = yes}
 			hq_signal
 		}
 
@@ -1861,7 +1857,7 @@ technologies = {
 		}
 
 		allow_branch = {
-			has_dlc = "No Step Back"
+			always = yes
 		}
 
 		path = {
@@ -1950,7 +1946,7 @@ technologies = {
 		on_research_complete = {
 			if = {
 				limit = {
-					has_dlc = "Gotterdammerung"
+					always = yes
 				}
 				SP_create_variant_based_on_country_armored_engineer = yes
 			}
@@ -2000,7 +1996,7 @@ technologies = {
 		on_research_complete = {
 			if = {
 				limit = {
-					has_dlc = "Gotterdammerung"
+					always = yes
 				}
 				SP_create_variant_based_on_country_armored_maintenance = yes
 			}
@@ -2055,7 +2051,7 @@ technologies = {
 		on_research_complete = {
 			if = {
 				limit = {
-					has_dlc = "Gotterdammerung"
+					always = yes
 				}
 				SP_create_variant_based_on_country_armored_signal = yes
 			}
@@ -2083,7 +2079,7 @@ technologies = {
 
 	sp_helicopter_transport_pods_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {
@@ -2124,7 +2120,7 @@ technologies = {
 
 	sp_helicopter_artillery_observers_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {
@@ -2170,7 +2166,7 @@ technologies = {
 
 	sp_helicopter_med_evac_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {
@@ -2221,7 +2217,7 @@ technologies = {
 
 	sp_armored_motorized_military_police_tech = {
 		allow_branch = {
-			 has_dlc = "Gotterdammerung"
+			 always = yes
 		}
 
 		allow = {

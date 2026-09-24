@@ -1,11 +1,13 @@
 dd_merc_can_post = {
 	NOT = { has_country_flag = dd_merc_deployed }
-	has_variable = dd_merc_leader
+	has_variable = dd_merc_tpl
+	check_variable = { dd_merc_tpl > 0 }
+	check_variable = { dd_merc_tpl < 8 }
 	check_variable = { dd_merc_ask > 0.49 }
-	check_variable = { dd_merc_size > 0 }
-	NOT = { check_variable = { dd_merc_size > 12 } }
+	check_variable = { dd_merc_tpls^num > 0 }
 }
 
+# Buyer may only rent one merc division.
 dd_merc_can_request = {
 	NOT = { has_country_flag = dd_merc_pending }
 	NOT = { has_country_flag = dd_merc_client }
@@ -18,4 +20,53 @@ dd_merc_on_offer_tab = {
 
 dd_merc_on_hire_tab = {
 	NOT = { has_country_flag = dd_merc_offer_tab }
+}
+
+dd_merc_tpl_selected_1 = { check_variable = { dd_merc_tpl = 1 } }
+dd_merc_tpl_selected_2 = { check_variable = { dd_merc_tpl = 2 } }
+dd_merc_tpl_selected_3 = { check_variable = { dd_merc_tpl = 3 } }
+dd_merc_tpl_selected_4 = { check_variable = { dd_merc_tpl = 4 } }
+dd_merc_tpl_selected_5 = { check_variable = { dd_merc_tpl = 5 } }
+dd_merc_tpl_selected_6 = { check_variable = { dd_merc_tpl = 6 } }
+dd_merc_tpl_selected_7 = { check_variable = { dd_merc_tpl = 7 } }
+
+dd_merc_has_tpl_1 = { has_template = "Infantry Division" }
+dd_merc_has_tpl_2 = { has_template = "Armored Division" }
+dd_merc_has_tpl_3 = { has_template = "Mechanized Brigade" }
+dd_merc_has_tpl_4 = { has_template = "Marine Division" }
+dd_merc_has_tpl_5 = { has_template = "Mountain Division" }
+dd_merc_has_tpl_6 = { has_template = "Garrison Brigade" }
+dd_merc_has_tpl_7 = { has_template = "Militia Brigade" }
+
+dd_merc_slot_0_open = {
+	has_variable = global.dd_merc_0_tag
+	check_variable = { global.dd_merc_0_tpl > 0.5 }
+}
+dd_merc_slot_1_open = {
+	has_variable = global.dd_merc_1_tag
+	check_variable = { global.dd_merc_1_tpl > 0.5 }
+}
+dd_merc_slot_2_open = {
+	has_variable = global.dd_merc_2_tag
+	check_variable = { global.dd_merc_2_tpl > 0.5 }
+}
+dd_merc_slot_3_open = {
+	has_variable = global.dd_merc_3_tag
+	check_variable = { global.dd_merc_3_tpl > 0.5 }
+}
+dd_merc_slot_4_open = {
+	has_variable = global.dd_merc_4_tag
+	check_variable = { global.dd_merc_4_tpl > 0.5 }
+}
+dd_merc_slot_5_open = {
+	has_variable = global.dd_merc_5_tag
+	check_variable = { global.dd_merc_5_tpl > 0.5 }
+}
+dd_merc_slot_6_open = {
+	has_variable = global.dd_merc_6_tag
+	check_variable = { global.dd_merc_6_tpl > 0.5 }
+}
+dd_merc_slot_7_open = {
+	has_variable = global.dd_merc_7_tag
+	check_variable = { global.dd_merc_7_tpl > 0.5 }
 }

@@ -14,6 +14,7 @@ equipments = {
 		air_map_icon_frame = 12
 		interface_category = interface_category_air
 		interface_overview_category_index = 5
+		module_slots = none
 
 		allow_mission_type = {
 			recon
@@ -41,6 +42,10 @@ equipments = {
 		year = 1995
 		archetype = recon_uav_equipment
 		priority = 90
+		allow_mission_type = {
+			recon
+			naval_patrol
+		}
 		air_range = 1800
 		maximum_speed = 400
 		air_agility = 35

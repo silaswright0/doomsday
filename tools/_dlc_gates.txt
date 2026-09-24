@@ -1,0 +1,98 @@
+
+## raids
+  raids\air_raids.txt: gates=['By Blood Alone', 'Gotterdammerung', 'Thunder at Our Gates'] req_blocks=0
+  raids\air_raids_custom.txt: gates=['Gotterdammerung', 'No Compromise, No Surrender', 'Peace For Our Time', 'Thunder at Our Gates'] req_blocks=0
+  raids\categories\raid_categories.txt: gates=['Gotterdammerung', 'No Compromise, No Surrender', 'Thunder at Our Gates'] req_blocks=0
+  raids\land_infiltration_custom.txt: gates=['No Compromise, No Surrender', 'Thunder at Our Gates'] req_blocks=0
+  raids\land_infiltration_raids.txt: gates=['Thunder at Our Gates'] req_blocks=0
+  raids\naval_commando_raids.txt: gates=['Thunder at Our Gates'] req_blocks=0
+  raids\nuclear_raids.txt: gates=['Gotterdammerung'] req_blocks=0
+  raids\paratrooper_raids.txt: gates=['Gotterdammerung'] req_blocks=0
+  raids\paratrooper_raids_custom.txt: gates=['Gotterdammerung', 'Peace For Our Time'] req_blocks=0
+
+## intelligence_agencies
+  intelligence_agencies\00_intelligence_agencies.txt: gates=['Gotterdammerung'] req_blocks=0
+
+## intelligence_agency_upgrades
+  intelligence_agency_upgrades\intelligence_agency_upgrades.txt: gates=- req_blocks=0
+
+## operations
+  operations\00_operations.txt: gates=['By Blood Alone', 'Man the Guns', 'No Step Back'] req_blocks=0
+  operations\LaR_FRA_operations.txt: gates=- req_blocks=0
+  operations\LaR_historical_operations.txt: gates=- req_blocks=0
+  operations\NSB_historical_operations.txt: gates=- req_blocks=0
+  operations\POL_historical_operations.txt: gates=- req_blocks=0
+  operations\SIA_operations.txt: gates=['Thunder at Our Gates'] req_blocks=0
+
+## special_projects
+  special_projects\project_tags\tags.txt: gates=- req_blocks=0
+  special_projects\projects\air_projects.txt: gates=['By Blood Alone', 'Gotterdammerung', 'No Step Back'] req_blocks=0
+  special_projects\projects\land_projects.txt: gates=['Gotterdammerung', 'No Step Back', 'Peace For Our Time'] req_blocks=0
+  special_projects\projects\naval_projects.txt: gates=['Gotterdammerung', 'Man the Guns', 'No Compromise, No Surrender'] req_blocks=0
+  special_projects\projects\nuclear_projects.txt: gates=['Gotterdammerung'] req_blocks=0
+  special_projects\projects\radar_projects.txt: gates=['Gotterdammerung', 'Man the Guns', 'No Step Back'] req_blocks=0
+  special_projects\projects\rocket_projects.txt: gates=['By Blood Alone', 'Gotterdammerung'] req_blocks=0
+  special_projects\prototype_rewards\generic_air_prototype_rewards.txt: gates=- req_blocks=0
+  special_projects\prototype_rewards\generic_land_prototype_rewards.txt: gates=- req_blocks=0
+  special_projects\prototype_rewards\generic_naval_prototype_rewards.txt: gates=- req_blocks=0
+  special_projects\prototype_rewards\generic_nuclear_prototype_rewards.txt: gates=- req_blocks=0
+  special_projects\prototype_rewards\generic_rocket_prototype_rewards.txt: gates=- req_blocks=0
+  special_projects\specialization\specializations.txt: gates=- req_blocks=0
+
+## raid type allow snippets
+
+## market scripted
+
+## mod replace_path impact
+  REPLACE common/bookmarks
+  REPLACE common/idea_tags
+  REPLACE common/ideologies
+  REPLACE common/characters
+  REPLACE common/technologies
+  REPLACE common/units
+  REPLACE common/units/equipment
+  REPLACE history/countries
+  REPLACE history/states
+  REPLACE events
+  REPLACE common/on_actions
+  REPLACE common/national_focus
+  REPLACE common/decisions
+  REPLACE common/decisions/categories
+  REPLACE common/ai_strategy_plans
+  REPLACE common/ai_strategy
+  REPLACE common/ai_templates
+  REPLACE common/military_industrial_organization
+  REPLACE common/military_industrial_organization/organizations
+  REPLACE common/military_industrial_organization/policies
+  REPLACE history/general
+
+## support battalion presence (mod)
+  HAS flame_tank.txt
+  HAS engineer.txt
+  HAS recon.txt
+  HAS signal.txt
+  HAS maintenance.txt
+  HAS logistics.txt
+  HAS field_hospital.txt
+  HAS military_police.txt
+  HAS armored_car_battalion.txt
+  HAS land_cruiser.txt
+  HAS railway_gun.txt
+  HAS helicopter_brigade.txt
+  HAS hq_support.txt
+
+## mod tech mentions
+  flame: ['NSB_armor.txt', 'support.txt']
+  armored_support: []
+  armored_car: ['artillery.txt', 'infantry.txt', 'support.txt']
+  land_cruiser: ['armor.txt', 'NSB_armor.txt']
+  railway_gun: ['support.txt']
+  super_heavy_railway: ['support.txt']
+
+## special project files
+  air_projects.txt
+  land_projects.txt
+  naval_projects.txt
+  nuclear_projects.txt
+  radar_projects.txt
+  rocket_projects.txt

@@ -43,8 +43,120 @@ guiTypes = {
 			font = "hoi_16mbs"
 			text = "DD_INTEL_SELECT_LINE"
 			maxWidth = 700
-			maxHeight = 22
+			maxHeight = 40
 			format = left
+		}
+	}
+
+	# Assassinate: pick named commander after map lock.
+	containerWindowType = {
+		name = "dd_intel_cmd_picker_window"
+		position = { x = 420 y = 120 }
+		size = { width = 440 height = 260 }
+		moveable = yes
+		clipping = no
+
+		background = {
+			name = "Background"
+			spriteType = "GFX_tiled_bg"
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_cmd_title"
+			position = { x = 16 y = 12 }
+			font = "hoi_20b"
+			text = "DD_INTEL_CMD_PICK_TITLE"
+			maxWidth = 360
+			maxHeight = 24
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_intel_cmd_close"
+			position = { x = -36 y = 8 }
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_cmd_target"
+			position = { x = 16 y = 40 }
+			font = "hoi_16mbs"
+			text = "DD_INTEL_CMD_PICK_TARGET"
+			maxWidth = 400
+			maxHeight = 20
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_intel_cmd_prev"
+			position = { x = 16 y = 72 }
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_INTEL_CMD_PREV"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_cmd_name"
+			position = { x = 150 y = 78 }
+			font = "hoi_18mbs"
+			text = "DD_INTEL_CMD_NAME"
+			maxWidth = 120
+			maxHeight = 22
+			format = centre
+		}
+
+		buttonType = {
+			name = "dd_intel_cmd_next"
+			position = { x = 280 y = 72 }
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_INTEL_CMD_NEXT"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_cmd_rank"
+			position = { x = 16 y = 116 }
+			font = "hoi_16mbs"
+			text = "DD_INTEL_CMD_RANK"
+			maxWidth = 400
+			maxHeight = 20
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_intel_cmd_stats"
+			position = { x = 16 y = 140 }
+			font = "hoi_16mbs"
+			text = "DD_INTEL_CMD_STATS"
+			maxWidth = 400
+			maxHeight = 40
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_intel_cmd_cancel"
+			position = { x = 16 y = 200 }
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_INTEL_CMD_CANCEL"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_close
+			pdx_tooltip = "DD_INTEL_CMD_CANCEL_TT"
+		}
+
+		buttonType = {
+			name = "dd_intel_cmd_confirm"
+			position = { x = 160 y = 200 }
+			quadTextureSprite = "GFX_button_261x34"
+			buttonText = "DD_INTEL_CMD_CONFIRM"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_INTEL_CMD_CONFIRM_TT"
 		}
 	}
 }

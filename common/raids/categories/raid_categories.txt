@@ -1,0 +1,48 @@
+categories = {
+
+	air_raids = {
+		visible = { always = yes }
+		intel_source = air
+		faction_influence_score_on_success = 200
+	}
+
+	paratrooper_raids = {
+		intel_source = air
+		visible = { always = yes }
+		faction_influence_score_on_success = 100
+		available = {
+			OR = {
+				has_tech = paratroopers
+				has_tech = dd_sf_1
+			}
+		}
+	}
+
+	nuclear_raids = {
+		intel_source = air
+		free_targeting = yes
+		faction_influence_score_on_success = -100
+		available = {
+			OR = {
+				is_special_project_completed = sp:sp_nuclear_bomb
+				num_of_nukes > 0
+			}
+		}
+	}
+
+	land_infiltration_raids = {
+		intel_source = army
+		faction_influence_score_on_success = 50
+		visible = { always = yes }
+		available = {
+		}
+	}
+
+	naval_commando_raids = {
+		intel_source = naval
+		faction_influence_score_on_success = 50
+		visible = { always = yes }
+		available = {
+		}
+	}
+}
