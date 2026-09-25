@@ -17,16 +17,6 @@ bookmarks = {
 				naval_effort
 			}
 		}
-		"CHI"={
-			history = "CHI_DOOMSDAY_DESC"
-			ideology = state_socialism
-			ideas = { }
-			focuses = {
-				industrial_effort
-				army_effort
-				aviation_effort
-			}
-		}
 		"SOV"={
 			history = "SOV_DOOMSDAY_DESC"
 			ideology = sovereign_democracy
@@ -35,16 +25,6 @@ bookmarks = {
 				industrial_effort
 				army_effort
 				construction_effort
-			}
-		}
-		"RAJ"={
-			history = "RAJ_DOOMSDAY_DESC"
-			ideology = national_populism
-			ideas = { }
-			focuses = {
-				industrial_effort
-				army_effort
-				production_effort
 			}
 		}
 		"ENG"={
@@ -77,6 +57,16 @@ bookmarks = {
 				production_effort
 			}
 		}
+		"ITA"={
+			history = "ITA_DOOMSDAY_DESC"
+			ideology = national_populism
+			ideas = { }
+			focuses = {
+				industrial_effort
+				army_effort
+				naval_effort
+			}
+		}
 		"JAP"={
 			history = "JAP_DOOMSDAY_DESC"
 			ideology = liberal_conservatism
@@ -87,7 +77,6 @@ bookmarks = {
 				aviation_effort
 			}
 		}
-
 		"---"={
 			history = "OTHER_DOOMSDAY_DESC"
 		}

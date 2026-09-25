@@ -1,0 +1,7 @@
+# NATO and CSTO start with this. The faction leader can clear it for 1 initiative.
+dd_call_to_war_defensive_only = {
+	type = call_to_war_rules
+	trigger = {
+		has_offensive_war = no
+	}
+}

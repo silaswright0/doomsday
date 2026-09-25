@@ -1488,13 +1488,14 @@ equipment_modules = {
 			mine_warfare_offense = scout_plane
 		}
 
+		xp_cost = 2
 		add_stats = {
 			build_cost_ic = 1
 			weight = 1
 		}
-		xp_cost = 2
 		allow_mission_type = {
 			recon
+			naval_patrol
 		}
 	}
 

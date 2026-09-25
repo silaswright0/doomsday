@@ -1,0 +1,133 @@
+# The faction rule is part of the DLC faction screen and does not block the
+# call or join button. This gate does, for CSTO members who hold the spirit.
+# Russia can still call them when Russia is not the aggressor in any war.
+
+DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			tag = SOV
+			has_offensive_war = yes
+			FROM = { has_idea = dd_csto_defensive_only }
+		}
+		custom_trigger_tooltip = {
+			tooltip = DD_CSTO_NO_OFFENSIVE_CALL
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_global_flag = ethiopia_recognized_flag }
+			OR = {
+				ROOT = { tag = ETH }
+				FROM = { tag = ETH }
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = LON_NON_INTERFERENCE_RESOLUTION_CALL
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_war_with_non_exiled_country = yes }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_NON_GIE_CALL
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			FROM = {
+				original_tag = ICE
+				has_idea = neutrality_idea
+				is_subject = yes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = ICELAND_HAS_DECLARED_NEUTRALITY_CALL
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			FROM = {
+				original_tag = DEN
+				has_country_flag = DEN_is_protectorate_flag
+				is_subject = yes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = DENMARK_IS_A_PUPPET_CALL
+			always = no
+		}
+	}
+}
+
+DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_idea = dd_csto_defensive_only
+			FROM = {
+				tag = SOV
+				has_offensive_war = yes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = DD_CSTO_NO_OFFENSIVE_JOIN
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_global_flag = ethiopia_recognized_flag }
+			OR = {
+				ROOT = { tag = ETH }
+				FROM = { tag = ETH }
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = LON_NON_INTERFERENCE_RESOLUTION_JOIN
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			FROM = { NOT = { has_war_with_non_exiled_country = yes } }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_NON_GIE_JOIN
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			ROOT = {
+				original_tag = ICE
+				has_idea = neutrality_idea
+				is_subject = yes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = ICELAND_HAS_DECLARED_NEUTRALITY_JOIN
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Arms Against Tyranny"
+			ROOT = {
+				original_tag = DEN
+				has_country_flag = DEN_is_protectorate_flag
+				is_subject = yes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = DENMARK_IS_A_PUPPET_JOIN
+			always = no
+		}
+	}
+}

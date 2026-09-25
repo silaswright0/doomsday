@@ -1,5 +1,8 @@
 # Mercenary market. Country-scoped. Deterministic. No random.
-# Seller offers 1 division of a chosen template (volunteer-style pick).
+# Seller picks one division that is on the map.
+# A hire request opens an accept/decline popup for the seller.
+# Accept removes that division and raises the same template at the buyer's capital.
+# Recall disbands that deployed division and raises it again at home.
 # Buyer may rent only 1 merc division at a time.
 
 # Template ids (shared catalog — matches locked 2026 OOBs):
@@ -7,80 +10,174 @@
 # 4 Marine Division | 5 Mountain Division | 6 Garrison Brigade | 7 Militia Brigade
 # Deployed merc units use create_unit id = 77001 for recall.
 
+# Stamp every on-map division with a stable id, then fill the offer list.
+# Ids are never reused, so posting still points at the division you clicked.
 dd_merc_refresh_templates = {
-	clear_array = dd_merc_tpls
 	if = {
-		limit = { has_template = "Infantry Division" }
-		add_to_array = { dd_merc_tpls = 1 }
+		limit = { NOT = { has_variable = dd_merc_next_uid } }
+		set_variable = { dd_merc_next_uid = 0 }
 	}
-	if = {
-		limit = { has_template = "Armored Division" }
-		add_to_array = { dd_merc_tpls = 2 }
-	}
-	if = {
-		limit = { has_template = "Mechanized Brigade" }
-		add_to_array = { dd_merc_tpls = 3 }
-	}
-	if = {
-		limit = { has_template = "Marine Division" }
-		add_to_array = { dd_merc_tpls = 4 }
-	}
-	if = {
-		limit = { has_template = "Mountain Division" }
-		add_to_array = { dd_merc_tpls = 5 }
-	}
-	if = {
-		limit = { has_template = "Garrison Brigade" }
-		add_to_array = { dd_merc_tpls = 6 }
-	}
-	if = {
-		limit = { has_template = "Militia Brigade" }
-		add_to_array = { dd_merc_tpls = 7 }
-	}
-	# Keep prior selection if still available; else first entry.
-	if = {
-		limit = { check_variable = { dd_merc_tpls^num > 0 } }
+	set_variable = { dd_c1 = 0 }
+	set_variable = { dd_c2 = 0 }
+	set_variable = { dd_c3 = 0 }
+	set_variable = { dd_c4 = 0 }
+	set_variable = { dd_c5 = 0 }
+	set_variable = { dd_c6 = 0 }
+	set_variable = { dd_c7 = 0 }
+	set_variable = { dd_c8 = 0 }
+	set_variable = { dd_merc_shown = 0 }
+	clear_array = dd_merc_uids
+	clear_array = dd_merc_kinds
+	clear_array = dd_merc_ords
+	clear_array = dd_merc_orgs
+	clear_array = dd_merc_states
+	every_country_division = {
 		if = {
-			limit = {
-				OR = {
-					NOT = { has_variable = dd_merc_tpl }
-					check_variable = { dd_merc_tpl < 1 }
-					check_variable = { dd_merc_tpl > 7 }
-					AND = {
-						check_variable = { dd_merc_tpl = 1 }
-						NOT = { has_template = "Infantry Division" }
-					}
-					AND = {
-						check_variable = { dd_merc_tpl = 2 }
-						NOT = { has_template = "Armored Division" }
-					}
-					AND = {
-						check_variable = { dd_merc_tpl = 3 }
-						NOT = { has_template = "Mechanized Brigade" }
-					}
-					AND = {
-						check_variable = { dd_merc_tpl = 4 }
-						NOT = { has_template = "Marine Division" }
-					}
-					AND = {
-						check_variable = { dd_merc_tpl = 5 }
-						NOT = { has_template = "Mountain Division" }
-					}
-					AND = {
-						check_variable = { dd_merc_tpl = 6 }
-						NOT = { has_template = "Garrison Brigade" }
-					}
-					AND = {
-						check_variable = { dd_merc_tpl = 7 }
-						NOT = { has_template = "Militia Brigade" }
-					}
-				}
-			}
-			set_variable = { dd_merc_tpl = dd_merc_tpls^0 }
+			limit = { NOT = { check_variable = { dd_merc_uid > 0 } } }
+			ROOT = { add_to_variable = { dd_merc_next_uid = 1 } }
+			set_variable = { dd_merc_uid = ROOT.dd_merc_next_uid }
 		}
 	}
-	else = {
-		clear_variable = dd_merc_tpl
+	# List divisions from the state they are standing in, and copy that state
+	# into the row at once. A variable saved as PREV keeps updating, so every
+	# row was left pointing at the last state, Guantanamo Bay.
+	every_state = {
+		limit = {
+			any_state_division = {
+				OWNER = { tag = ROOT }
+			}
+		}
+		every_state_division = {
+			limit = {
+				OWNER = { tag = ROOT }
+				check_variable = { ROOT.dd_merc_shown < 80 }
+			}
+			if = {
+				limit = {
+					OR = {
+						division_has_battalion_in_template = modern_armor
+						division_has_battalion_in_template = light_armor
+						division_has_battalion_in_template = medium_armor
+						division_has_battalion_in_template = heavy_armor
+						division_has_majority_template = light_armor
+						division_has_majority_template = medium_armor
+						division_has_majority_template = heavy_armor
+					}
+				}
+				set_variable = { dd_merc_kind = 2 }
+				ROOT = { add_to_variable = { dd_c2 = 1 } }
+				set_variable = { dd_merc_ord = ROOT.dd_c2 }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						division_has_battalion_in_template = mechanized
+						division_has_majority_template = mechanized
+					}
+				}
+				set_variable = { dd_merc_kind = 3 }
+				ROOT = { add_to_variable = { dd_c3 = 1 } }
+				set_variable = { dd_merc_ord = ROOT.dd_c3 }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						division_has_battalion_in_template = marine
+						division_has_majority_template = marine
+					}
+				}
+				set_variable = { dd_merc_kind = 4 }
+				ROOT = { add_to_variable = { dd_c4 = 1 } }
+				set_variable = { dd_merc_ord = ROOT.dd_c4 }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						division_has_battalion_in_template = mountaineers
+						division_has_majority_template = mountaineers
+					}
+				}
+				set_variable = { dd_merc_kind = 5 }
+				ROOT = { add_to_variable = { dd_c5 = 1 } }
+				set_variable = { dd_merc_ord = ROOT.dd_c5 }
+			}
+			else_if = {
+				limit = {
+					division_has_majority_template = infantry
+					division_has_battalion_in_template = engineer
+					NOT = { division_has_battalion_in_template = artillery }
+				}
+				set_variable = { dd_merc_kind = 6 }
+				ROOT = { add_to_variable = { dd_c6 = 1 } }
+				set_variable = { dd_merc_ord = ROOT.dd_c6 }
+			}
+			else_if = {
+				limit = {
+					division_has_majority_template = infantry
+					NOT = { division_has_battalion_in_template = engineer }
+					NOT = { division_has_battalion_in_template = artillery }
+				}
+				set_variable = { dd_merc_kind = 7 }
+				ROOT = { add_to_variable = { dd_c7 = 1 } }
+				set_variable = { dd_merc_ord = ROOT.dd_c7 }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						division_has_battalion_in_template = infantry
+						division_has_majority_template = infantry
+					}
+				}
+				set_variable = { dd_merc_kind = 1 }
+				ROOT = { add_to_variable = { dd_c1 = 1 } }
+				set_variable = { dd_merc_ord = ROOT.dd_c1 }
+			}
+			else = {
+				set_variable = { dd_merc_kind = 8 }
+				ROOT = { add_to_variable = { dd_c8 = 1 } }
+				set_variable = { dd_merc_ord = ROOT.dd_c8 }
+			}
+			if = {
+				limit = { unit_organization > 0.66 }
+				set_variable = { dd_merc_org_band = 2 }
+			}
+			else_if = {
+				limit = { unit_organization > 0.33 }
+				set_variable = { dd_merc_org_band = 1 }
+			}
+			else = {
+				set_variable = { dd_merc_org_band = 0 }
+			}
+			set_temp_variable = { t_uid = dd_merc_uid }
+			set_temp_variable = { t_kind = dd_merc_kind }
+			set_temp_variable = { t_ord = dd_merc_ord }
+			set_temp_variable = { t_org = dd_merc_org_band }
+			ROOT = {
+				add_to_array = { dd_merc_uids = t_uid }
+				add_to_array = { dd_merc_kinds = t_kind }
+				add_to_array = { dd_merc_ords = t_ord }
+				add_to_array = { dd_merc_orgs = t_org }
+				add_to_variable = { dd_merc_shown = 1 }
+			}
+			PREV = {
+				ROOT = { add_to_array = { dd_merc_states = PREV } }
+			}
+		}
+	}
+	if = {
+		limit = { check_variable = { dd_merc_pick_uid > 0 } }
+		clr_country_flag = dd_merc_pick_ok
+		every_country_division = {
+			limit = { check_variable = { dd_merc_uid = PREV.dd_merc_pick_uid } }
+			PREV = { set_country_flag = dd_merc_pick_ok }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_merc_pick_ok } }
+			set_variable = { dd_merc_pick_uid = 0 }
+			clear_variable = dd_merc_tpl
+			clear_variable = dd_merc_sel_kind
+		}
+		clr_country_flag = dd_merc_pick_ok
 	}
 }
 
@@ -159,22 +256,46 @@ dd_merc_clear_buyer_pending = {
 dd_merc_reject_all_bids = {
 	if = {
 		limit = { has_variable = dd_merc_bid_0 }
-		var:dd_merc_bid_0 = { dd_merc_clear_buyer_pending = yes }
+		var:dd_merc_bid_0 = {
+			if = {
+				limit = { has_country_flag = dd_merc_pending }
+				country_event = { id = doomsday_merc.3 }
+			}
+			dd_merc_clear_buyer_pending = yes
+		}
 		clear_variable = dd_merc_bid_0
 	}
 	if = {
 		limit = { has_variable = dd_merc_bid_1 }
-		var:dd_merc_bid_1 = { dd_merc_clear_buyer_pending = yes }
+		var:dd_merc_bid_1 = {
+			if = {
+				limit = { has_country_flag = dd_merc_pending }
+				country_event = { id = doomsday_merc.3 }
+			}
+			dd_merc_clear_buyer_pending = yes
+		}
 		clear_variable = dd_merc_bid_1
 	}
 	if = {
 		limit = { has_variable = dd_merc_bid_2 }
-		var:dd_merc_bid_2 = { dd_merc_clear_buyer_pending = yes }
+		var:dd_merc_bid_2 = {
+			if = {
+				limit = { has_country_flag = dd_merc_pending }
+				country_event = { id = doomsday_merc.3 }
+			}
+			dd_merc_clear_buyer_pending = yes
+		}
 		clear_variable = dd_merc_bid_2
 	}
 	if = {
 		limit = { has_variable = dd_merc_bid_3 }
-		var:dd_merc_bid_3 = { dd_merc_clear_buyer_pending = yes }
+		var:dd_merc_bid_3 = {
+			if = {
+				limit = { has_country_flag = dd_merc_pending }
+				country_event = { id = doomsday_merc.3 }
+			}
+			dd_merc_clear_buyer_pending = yes
+		}
 		clear_variable = dd_merc_bid_3
 	}
 }
@@ -270,6 +391,8 @@ dd_merc_clear_own_slot = {
 		set_variable = { global.dd_merc_7_tpl = 0 }
 	}
 	clr_country_flag = dd_merc_offering
+	clear_variable = dd_merc_listed_tpl
+	clear_variable = dd_merc_listed_uid
 }
 
 dd_merc_post_offer = {
@@ -277,6 +400,8 @@ dd_merc_post_offer = {
 	if = {
 		limit = { dd_merc_can_post = yes }
 		dd_merc_clear_own_slot = yes
+		set_variable = { dd_merc_listed_tpl = dd_merc_tpl }
+		set_variable = { dd_merc_listed_uid = dd_merc_pick_uid }
 		if = {
 			limit = { check_variable = { global.dd_merc_0_tpl < 0.5 } }
 			set_variable = { global.dd_merc_0_tag = THIS }
@@ -333,6 +458,10 @@ dd_merc_post_offer = {
 			set_variable = { global.dd_merc_7_tpl = dd_merc_tpl }
 			set_country_flag = dd_merc_offering
 		}
+		else = {
+			clear_variable = dd_merc_listed_tpl
+			clear_variable = dd_merc_listed_uid
+		}
 	}
 }
 
@@ -353,12 +482,17 @@ dd_merc_request_clean = {
 		}
 		var:dd_hire_tag = {
 			if = {
+				limit = { NOT = { dd_merc_has_listed_division = yes } }
+				ROOT = { country_event = { id = doomsday_merc.4 } }
+			}
+			else_if = {
 				limit = { NOT = { has_variable = dd_merc_bid_0 } }
 				set_variable = { dd_merc_bid_0 = ROOT }
 				ROOT = {
 					set_country_flag = dd_merc_pending
 					set_variable = { dd_merc_pending_seller = PREV }
 				}
+				country_event = { id = doomsday_merc.1 }
 			}
 			else_if = {
 				limit = { NOT = { has_variable = dd_merc_bid_1 } }
@@ -367,6 +501,7 @@ dd_merc_request_clean = {
 					set_country_flag = dd_merc_pending
 					set_variable = { dd_merc_pending_seller = PREV }
 				}
+				country_event = { id = doomsday_merc.1 }
 			}
 			else_if = {
 				limit = { NOT = { has_variable = dd_merc_bid_2 } }
@@ -375,6 +510,7 @@ dd_merc_request_clean = {
 					set_country_flag = dd_merc_pending
 					set_variable = { dd_merc_pending_seller = PREV }
 				}
+				country_event = { id = doomsday_merc.1 }
 			}
 			else_if = {
 				limit = { NOT = { has_variable = dd_merc_bid_3 } }
@@ -383,6 +519,7 @@ dd_merc_request_clean = {
 					set_country_flag = dd_merc_pending
 					set_variable = { dd_merc_pending_seller = PREV }
 				}
+				country_event = { id = doomsday_merc.1 }
 			}
 		}
 	}
@@ -427,6 +564,246 @@ dd_merc_hire_7 = {
 	set_variable = { dd_hire_tag = global.dd_merc_7_tag }
 	set_variable = { dd_hire_price = global.dd_merc_7_price }
 	dd_merc_request_clean = yes
+}
+
+# Identical layout to the listed template, so converting one division does not change its gear.
+# Deleted with disband after the convert, which returns that one division to the stockpile.
+dd_merc_ensure_hold = {
+	if = {
+		limit = {
+			check_variable = { dd_merc_listed_tpl = 1 }
+			NOT = { has_template = "DD Merc Hold 1" }
+		}
+		division_template = {
+			name = "DD Merc Hold 1"
+			is_locked = yes
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				artillery = { x = 0 y = 1 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_merc_listed_tpl = 2 }
+			NOT = { has_template = "DD Merc Hold 2" }
+		}
+		division_template = {
+			name = "DD Merc Hold 2"
+			is_locked = yes
+			regiments = {
+				modern_armor = { x = 0 y = 0 }
+				modern_armor = { x = 0 y = 1 }
+				modern_armor = { x = 0 y = 2 }
+				mechanized = { x = 1 y = 0 }
+				mechanized = { x = 1 y = 1 }
+				mechanized = { x = 1 y = 2 }
+				mechanized = { x = 2 y = 0 }
+				mechanized = { x = 2 y = 1 }
+				mechanized = { x = 2 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				artillery = { x = 0 y = 1 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_merc_listed_tpl = 3 }
+			NOT = { has_template = "DD Merc Hold 3" }
+		}
+		division_template = {
+			name = "DD Merc Hold 3"
+			is_locked = yes
+			regiments = {
+				mechanized = { x = 0 y = 0 }
+				mechanized = { x = 0 y = 1 }
+				mechanized = { x = 0 y = 2 }
+				mechanized = { x = 1 y = 0 }
+				mechanized = { x = 1 y = 1 }
+				mechanized = { x = 1 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				artillery = { x = 0 y = 1 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_merc_listed_tpl = 4 }
+			NOT = { has_template = "DD Merc Hold 4" }
+		}
+		division_template = {
+			name = "DD Merc Hold 4"
+			is_locked = yes
+			regiments = {
+				marine = { x = 0 y = 0 }
+				marine = { x = 0 y = 1 }
+				marine = { x = 0 y = 2 }
+				marine = { x = 1 y = 0 }
+				marine = { x = 1 y = 1 }
+				marine = { x = 1 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				artillery = { x = 0 y = 1 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_merc_listed_tpl = 5 }
+			NOT = { has_template = "DD Merc Hold 5" }
+		}
+		division_template = {
+			name = "DD Merc Hold 5"
+			is_locked = yes
+			regiments = {
+				mountaineers = { x = 0 y = 0 }
+				mountaineers = { x = 0 y = 1 }
+				mountaineers = { x = 0 y = 2 }
+				mountaineers = { x = 1 y = 0 }
+				mountaineers = { x = 1 y = 1 }
+				mountaineers = { x = 1 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				artillery = { x = 0 y = 1 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_merc_listed_tpl = 6 }
+			NOT = { has_template = "DD Merc Hold 6" }
+		}
+		division_template = {
+			name = "DD Merc Hold 6"
+			is_locked = yes
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_merc_listed_tpl = 7 }
+			NOT = { has_template = "DD Merc Hold 7" }
+		}
+		division_template = {
+			name = "DD Merc Hold 7"
+			is_locked = yes
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+		}
+	}
+}
+
+# Take the first on-map division of the listed template off the map and refund its gear.
+# dd_merc_pulled stays set only if the division count actually fell.
+dd_merc_pull_one = {
+	clr_country_flag = dd_merc_pulled
+	if = {
+		limit = { dd_merc_has_listed_division = yes }
+		set_variable = { dd_merc_divs_before = num_divisions }
+		dd_merc_ensure_hold = yes
+		every_country_division = {
+		limit = {
+			NOT = { ROOT = { has_country_flag = dd_merc_pulled } }
+			check_variable = { dd_merc_uid = ROOT.dd_merc_listed_uid }
+		}
+		ROOT = { set_country_flag = dd_merc_pulled }
+		if = {
+			limit = { check_variable = { ROOT.dd_merc_listed_tpl = 1 } }
+			change_division_template = { division_template = "DD Merc Hold 1" }
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_listed_tpl = 2 } }
+			change_division_template = { division_template = "DD Merc Hold 2" }
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_listed_tpl = 3 } }
+			change_division_template = { division_template = "DD Merc Hold 3" }
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_listed_tpl = 4 } }
+			change_division_template = { division_template = "DD Merc Hold 4" }
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_listed_tpl = 5 } }
+			change_division_template = { division_template = "DD Merc Hold 5" }
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_listed_tpl = 6 } }
+			change_division_template = { division_template = "DD Merc Hold 6" }
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_listed_tpl = 7 } }
+			change_division_template = { division_template = "DD Merc Hold 7" }
+		}
+	}
+	if = {
+		limit = { has_country_flag = dd_merc_pulled }
+		if = {
+			limit = { check_variable = { dd_merc_listed_tpl = 1 } }
+			delete_unit_template_and_units = { division_template = "DD Merc Hold 1" disband = yes }
+		}
+		else_if = {
+			limit = { check_variable = { dd_merc_listed_tpl = 2 } }
+			delete_unit_template_and_units = { division_template = "DD Merc Hold 2" disband = yes }
+		}
+		else_if = {
+			limit = { check_variable = { dd_merc_listed_tpl = 3 } }
+			delete_unit_template_and_units = { division_template = "DD Merc Hold 3" disband = yes }
+		}
+		else_if = {
+			limit = { check_variable = { dd_merc_listed_tpl = 4 } }
+			delete_unit_template_and_units = { division_template = "DD Merc Hold 4" disband = yes }
+		}
+		else_if = {
+			limit = { check_variable = { dd_merc_listed_tpl = 5 } }
+			delete_unit_template_and_units = { division_template = "DD Merc Hold 5" disband = yes }
+		}
+		else_if = {
+			limit = { check_variable = { dd_merc_listed_tpl = 6 } }
+			delete_unit_template_and_units = { division_template = "DD Merc Hold 6" disband = yes }
+		}
+		else_if = {
+			limit = { check_variable = { dd_merc_listed_tpl = 7 } }
+			delete_unit_template_and_units = { division_template = "DD Merc Hold 7" disband = yes }
+		}
+		if = {
+			limit = { NOT = { check_variable = { num_divisions < dd_merc_divs_before } } }
+			clr_country_flag = dd_merc_pulled
+		}
+		clear_variable = dd_merc_divs_before
+	}
+}
 }
 
 # Spawn exactly 1 seller-owned division on the buyer's capital (id 77001).
@@ -507,6 +884,49 @@ dd_merc_spawn_one = {
 	}
 }
 
+dd_merc_drop_buyer = {
+	# Seller scope. dd_drop_buyer is the buyer to release.
+	if = {
+		limit = { has_variable = dd_drop_buyer }
+		if = {
+			limit = { check_variable = { dd_merc_bid_0 = dd_drop_buyer } }
+			clear_variable = dd_merc_bid_0
+		}
+		if = {
+			limit = { check_variable = { dd_merc_bid_1 = dd_drop_buyer } }
+			clear_variable = dd_merc_bid_1
+		}
+		if = {
+			limit = { check_variable = { dd_merc_bid_2 = dd_drop_buyer } }
+			clear_variable = dd_merc_bid_2
+		}
+		if = {
+			limit = { check_variable = { dd_merc_bid_3 = dd_drop_buyer } }
+			clear_variable = dd_merc_bid_3
+		}
+		var:dd_drop_buyer = { dd_merc_clear_buyer_pending = yes }
+		dd_merc_compact_bids = yes
+		clear_variable = dd_drop_buyer
+	}
+}
+
+dd_merc_decline_from = {
+	# Seller event option. FROM = buyer. No charge.
+	# A second click after the request was already closed does nothing.
+	if = {
+		limit = { FROM = { has_country_flag = dd_merc_pending } }
+		if = {
+			limit = { NOT = { dd_merc_has_listed_division = yes } }
+			FROM = { country_event = { id = doomsday_merc.4 } }
+		}
+		else = {
+			FROM = { country_event = { id = doomsday_merc.3 } }
+		}
+		set_variable = { dd_drop_buyer = FROM }
+		dd_merc_drop_buyer = yes
+	}
+}
+
 dd_merc_deploy_to_buyer = {
 	# ROOT = seller. dd_accept_buyer = buyer.
 	if = {
@@ -514,10 +934,11 @@ dd_merc_deploy_to_buyer = {
 			has_variable = dd_accept_buyer
 			NOT = { has_country_flag = dd_merc_deployed }
 			has_country_flag = dd_merc_offering
+			check_variable = { dd_merc_listed_tpl > 0 }
+			check_variable = { dd_merc_listed_tpl < 8 }
 			check_variable = { dd_merc_ask > 0.49 }
-			check_variable = { dd_merc_tpl > 0 }
-			check_variable = { dd_merc_tpl < 8 }
 		}
+		clr_country_flag = dd_merc_deal_done
 		var:dd_accept_buyer = {
 			if = {
 				limit = {
@@ -525,32 +946,50 @@ dd_merc_deploy_to_buyer = {
 					NOT = { has_country_flag = dd_merc_client }
 					NOT = { check_variable = { treasury < ROOT.dd_merc_ask } }
 				}
-				subtract_from_variable = { treasury = ROOT.dd_merc_ask }
-				ROOT = { add_to_variable = { treasury = ROOT.dd_merc_ask } }
-				set_country_flag = dd_merc_client
-				set_variable = { dd_merc_seller_tag = ROOT }
-				dd_merc_clear_buyer_pending = yes
-				give_military_access = ROOT
-				ROOT = {
-					give_military_access = PREV
-					set_variable = { dd_merc_client_tag = PREV }
-					set_variable = { dd_merc_hire_tpl = dd_merc_tpl }
-					set_country_flag = dd_merc_deployed
-					dd_merc_spawn_one = yes
-				}
-				every_enemy_country = {
+				ROOT = { dd_merc_pull_one = yes }
+				if = {
+					limit = { ROOT = { has_country_flag = dd_merc_pulled } }
+					subtract_from_variable = { treasury = ROOT.dd_merc_ask }
+					ROOT = { add_to_variable = { treasury = ROOT.dd_merc_ask } }
+					set_country_flag = dd_merc_client
+					set_variable = { dd_merc_seller_tag = ROOT }
+					dd_merc_clear_buyer_pending = yes
+					give_military_access = ROOT
 					ROOT = {
-						add_to_war = {
-							targeted_alliance = PREV.PREV
-							enemy = PREV
-							hostility_reason = asked_to_join
+						give_military_access = PREV
+						set_variable = { dd_merc_client_tag = PREV }
+						set_variable = { dd_merc_hire_tpl = dd_merc_listed_tpl }
+						set_country_flag = dd_merc_deployed
+						set_country_flag = dd_merc_deal_done
+						dd_merc_spawn_one = yes
+					}
+					every_enemy_country = {
+						ROOT = {
+							add_to_war = {
+								targeted_alliance = PREV.PREV
+								enemy = PREV
+								hostility_reason = asked_to_join
+							}
 						}
+					}
+					country_event = { id = doomsday_merc.2 }
+				}
+				else = {
+					country_event = { id = doomsday_merc.4 }
+					ROOT = {
+						set_variable = { dd_drop_buyer = PREV }
+						dd_merc_drop_buyer = yes
 					}
 				}
 			}
 		}
-		dd_merc_reject_all_bids = yes
-		dd_merc_clear_own_slot = yes
+		if = {
+			limit = { has_country_flag = dd_merc_deal_done }
+			dd_merc_reject_all_bids = yes
+			dd_merc_clear_own_slot = yes
+			clr_country_flag = dd_merc_deal_done
+			clr_country_flag = dd_merc_pulled
+		}
 		clear_variable = dd_accept_buyer
 	}
 }
@@ -587,7 +1026,13 @@ dd_merc_accept_3 = {
 dd_merc_reject_0 = {
 	if = {
 		limit = { has_variable = dd_merc_bid_0 }
-		var:dd_merc_bid_0 = { dd_merc_clear_buyer_pending = yes }
+		var:dd_merc_bid_0 = {
+			if = {
+				limit = { has_country_flag = dd_merc_pending }
+				country_event = { id = doomsday_merc.3 }
+			}
+			dd_merc_clear_buyer_pending = yes
+		}
 		clear_variable = dd_merc_bid_0
 		dd_merc_compact_bids = yes
 	}
@@ -595,7 +1040,13 @@ dd_merc_reject_0 = {
 dd_merc_reject_1 = {
 	if = {
 		limit = { has_variable = dd_merc_bid_1 }
-		var:dd_merc_bid_1 = { dd_merc_clear_buyer_pending = yes }
+		var:dd_merc_bid_1 = {
+			if = {
+				limit = { has_country_flag = dd_merc_pending }
+				country_event = { id = doomsday_merc.3 }
+			}
+			dd_merc_clear_buyer_pending = yes
+		}
 		clear_variable = dd_merc_bid_1
 		dd_merc_compact_bids = yes
 	}
@@ -603,7 +1054,13 @@ dd_merc_reject_1 = {
 dd_merc_reject_2 = {
 	if = {
 		limit = { has_variable = dd_merc_bid_2 }
-		var:dd_merc_bid_2 = { dd_merc_clear_buyer_pending = yes }
+		var:dd_merc_bid_2 = {
+			if = {
+				limit = { has_country_flag = dd_merc_pending }
+				country_event = { id = doomsday_merc.3 }
+			}
+			dd_merc_clear_buyer_pending = yes
+		}
 		clear_variable = dd_merc_bid_2
 		dd_merc_compact_bids = yes
 	}
@@ -611,18 +1068,98 @@ dd_merc_reject_2 = {
 dd_merc_reject_3 = {
 	if = {
 		limit = { has_variable = dd_merc_bid_3 }
-		var:dd_merc_bid_3 = { dd_merc_clear_buyer_pending = yes }
+		var:dd_merc_bid_3 = {
+			if = {
+				limit = { has_country_flag = dd_merc_pending }
+				country_event = { id = doomsday_merc.3 }
+			}
+			dd_merc_clear_buyer_pending = yes
+		}
 		clear_variable = dd_merc_bid_3
 		dd_merc_compact_bids = yes
+	}
+}
+
+# Same template, back on the seller capital. No contract id, so a later recall cannot delete it.
+dd_merc_spawn_home = {
+	capital_scope = {
+		if = {
+			limit = { check_variable = { ROOT.dd_merc_hire_tpl = 1 } }
+			create_unit = {
+				division = "name = \"Recalled Division\" division_template = \"Infantry Division\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 1
+				allow_spawning_on_enemy_provs = no
+			}
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_hire_tpl = 2 } }
+			create_unit = {
+				division = "name = \"Recalled Division\" division_template = \"Armored Division\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 1
+				allow_spawning_on_enemy_provs = no
+			}
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_hire_tpl = 3 } }
+			create_unit = {
+				division = "name = \"Recalled Division\" division_template = \"Mechanized Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 1
+				allow_spawning_on_enemy_provs = no
+			}
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_hire_tpl = 4 } }
+			create_unit = {
+				division = "name = \"Recalled Division\" division_template = \"Marine Division\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 1
+				allow_spawning_on_enemy_provs = no
+			}
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_hire_tpl = 5 } }
+			create_unit = {
+				division = "name = \"Recalled Division\" division_template = \"Mountain Division\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 1
+				allow_spawning_on_enemy_provs = no
+			}
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_hire_tpl = 6 } }
+			create_unit = {
+				division = "name = \"Recalled Division\" division_template = \"Garrison Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 1
+				allow_spawning_on_enemy_provs = no
+			}
+		}
+		else_if = {
+			limit = { check_variable = { ROOT.dd_merc_hire_tpl = 7 } }
+			create_unit = {
+				division = "name = \"Recalled Division\" division_template = \"Militia Brigade\" start_experience_factor = 0.35 start_equipment_factor = 1.0"
+				owner = ROOT
+				count = 1
+				allow_spawning_on_enemy_provs = no
+			}
+		}
 	}
 }
 
 dd_merc_recall = {
 	if = {
 		limit = { has_country_flag = dd_merc_deployed }
+		set_variable = { dd_merc_divs = num_divisions }
 		delete_unit = {
 			id = 77001
 			disband = yes
+		}
+		if = {
+			limit = { check_variable = { num_divisions < dd_merc_divs } }
+			dd_merc_spawn_home = yes
 		}
 		var:dd_merc_client_tag = {
 			clr_country_flag = dd_merc_client
@@ -631,5 +1168,6 @@ dd_merc_recall = {
 		clr_country_flag = dd_merc_deployed
 		clear_variable = dd_merc_client_tag
 		clear_variable = dd_merc_hire_tpl
+		clear_variable = dd_merc_divs
 	}
 }

@@ -177,6 +177,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 410 y = 175 }
 			buttonText = "DD_MERC_HIRE"
+			pdx_tooltip = "DD_MERC_HIRE_TT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
@@ -213,6 +214,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 410 y = 223 }
 			buttonText = "DD_MERC_HIRE"
+			pdx_tooltip = "DD_MERC_HIRE_TT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
@@ -249,6 +251,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 410 y = 271 }
 			buttonText = "DD_MERC_HIRE"
+			pdx_tooltip = "DD_MERC_HIRE_TT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
@@ -285,6 +288,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 410 y = 319 }
 			buttonText = "DD_MERC_HIRE"
+			pdx_tooltip = "DD_MERC_HIRE_TT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
@@ -321,6 +325,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 410 y = 367 }
 			buttonText = "DD_MERC_HIRE"
+			pdx_tooltip = "DD_MERC_HIRE_TT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
@@ -357,6 +362,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 410 y = 415 }
 			buttonText = "DD_MERC_HIRE"
+			pdx_tooltip = "DD_MERC_HIRE_TT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
@@ -393,6 +399,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 410 y = 463 }
 			buttonText = "DD_MERC_HIRE"
+			pdx_tooltip = "DD_MERC_HIRE_TT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
@@ -429,6 +436,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 410 y = 511 }
 			buttonText = "DD_MERC_HIRE"
+			pdx_tooltip = "DD_MERC_HIRE_TT"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}
@@ -709,9 +717,9 @@ guiTypes = {
 
 			gridBoxType = {
 				name = "dd_merc_tpl_grid"
-				position = { x = 8 y = 8 }
+				position = { x = 0 y = 8 }
 				size = { width = 100% height = 100% }
-				slotsize = { width = 500 height = 42 }
+				slotsize = { width = 490 height = 42 }
 				max_slots_horizontal = 1
 				format = "UPPER_LEFT"
 			}
@@ -735,8 +743,8 @@ guiTypes = {
 		buttonType = {
 			name = "dd_merc_tpl_pick"
 			quadTextureSprite = "GFX_button_359x34"
-			position = { x = 70 y = 4 }
-			buttonText = "DD_MERC_TPL_ENTRY"
+			position = { x = 8 y = 4 }
+			buttonText = "DD_MERC_DIV_ENTRY"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_default
 		}

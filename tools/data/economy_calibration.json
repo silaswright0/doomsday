@@ -1,28 +1,11 @@
 {
   "shipped": true,
   "formula": {
-    "finance": "level * (civs + services + 4) * 0.30",
-    "services": "level * (civs + 2) * 0.20",
-    "tax_standard": "pop_m * 0.01 + civs * 1.00",
-    "tax_high": "1.50 x standard",
-    "tax_choke": "2.00 x standard",
-    "admin": "pop_m * 0.01 + civs * 1.00",
-    "policy_bands": {
-      "small": 0.05,
-      "medium": 0.10,
-      "large": 0.25,
-      "extreme": 0.50
-    },
-    "policy_default": {
-      "welfare": 0.05,
-      "education": 0.05,
-      "healthcare": 0.05,
-      "investment": 0.10,
-      "aid": 0.05
-    },
-    "policy_factor_default": 1.30,
-    "usa_yearly_revenue": 4787,
-    "usa_income_pct_gdp": 0.156
+    "gdp": "(pop_m*1 + civ*8 + mil*4 + dock*6 + finance*12 + services*5) * dd_prod",
+    "dd_prod": "real 2026 GDP / formula at the start. One number per country. Focuses may change it.",
+    "tax_share_of_gdp": {"none": 0, "low": 0.18, "standard": 0.22, "high": 0.28, "choke": 0.34},
+    "spend_base_share_of_gdp": 0.05,
+    "interest": "debt * 0.03 / 12"
   },
-  "notes": "2026-09 audit: central/federal scale vs IMF-ish targets across 48 tags (majors + developing). Pop rates cut so mega-pop poor tags do not print. Policy ladder cleaned to 0.05/0.10/0.25/0.50; free tiers unchanged. Building income (finance/services) raised so USA/ENG/SNG matter. Collapsed micro-GDP tags (AFG) still look rich as % GDP because one civ is $12B/yr."
+  "notes": "Revenue and program spending are shares of a live GDP. Productivity is stamped in country history so 1 Jan 2026 GDP matches the real figure. No per-country tax or spending weight. Low tax is 18% of GDP, so the US starts near an 18% take and about 24% spending including interest. Universal health and top-tier education are priced so France's high-tier basket lands near 40% of GDP."
 }

@@ -158,11 +158,156 @@ defined_text = {
 defined_text = {
 	name = GetDdMercSelected
 	text = {
-		trigger = { check_variable = { dd_merc_tpl > 0 } }
+		trigger = { check_variable = { dd_merc_pick_uid > 0 } }
 		localization_key = DD_MERC_SELECTED_ON
 	}
 	text = {
 		localization_key = DD_MERC_SELECTED_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdMercSelKind
+	text = {
+		trigger = { check_variable = { dd_merc_sel_kind = 2 } }
+		localization_key = DD_MERC_ROW_2
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_sel_kind = 3 } }
+		localization_key = DD_MERC_ROW_3
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_sel_kind = 4 } }
+		localization_key = DD_MERC_ROW_4
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_sel_kind = 5 } }
+		localization_key = DD_MERC_ROW_5
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_sel_kind = 6 } }
+		localization_key = DD_MERC_ROW_6
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_sel_kind = 7 } }
+		localization_key = DD_MERC_ROW_7
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_sel_kind = 8 } }
+		localization_key = DD_MERC_ROW_8
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_sel_kind = 1 } }
+		localization_key = DD_MERC_ROW_1
+	}
+	text = {
+		localization_key = DD_MERC_TPL_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdMercSelOrg
+	text = {
+		trigger = { check_variable = { dd_merc_sel_org = 2 } }
+		localization_key = DD_MERC_ORG_2
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_sel_org = 1 } }
+		localization_key = DD_MERC_ORG_1
+	}
+	text = {
+		localization_key = DD_MERC_ORG_0
+	}
+}
+
+defined_text = {
+	name = GetDdMercDivMark
+	text = {
+		trigger = { check_variable = { dd_merc_uids^dd_merc_div_i = dd_merc_pick_uid } }
+		localization_key = DD_MERC_MARK_ON
+	}
+	text = {
+		localization_key = DD_MERC_MARK_OFF
+	}
+}
+
+defined_text = {
+	name = GetDdMercDivKind
+	text = {
+		trigger = { check_variable = { dd_merc_kinds^dd_merc_div_i = 2 } }
+		localization_key = DD_MERC_ROW_2
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_kinds^dd_merc_div_i = 3 } }
+		localization_key = DD_MERC_ROW_3
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_kinds^dd_merc_div_i = 4 } }
+		localization_key = DD_MERC_ROW_4
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_kinds^dd_merc_div_i = 5 } }
+		localization_key = DD_MERC_ROW_5
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_kinds^dd_merc_div_i = 6 } }
+		localization_key = DD_MERC_ROW_6
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_kinds^dd_merc_div_i = 7 } }
+		localization_key = DD_MERC_ROW_7
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_kinds^dd_merc_div_i = 8 } }
+		localization_key = DD_MERC_ROW_8
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_kinds^dd_merc_div_i = 1 } }
+		localization_key = DD_MERC_ROW_1
+	}
+	text = {
+		localization_key = DD_MERC_TPL_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdMercDivState
+	text = {
+		trigger = {
+			check_variable = { dd_merc_row_state = 0 compare = equals }
+		}
+		localization_key = DD_MERC_DIV_NOWHERE
+	}
+	text = {
+		localization_key = DD_MERC_DIV_STATE
+	}
+}
+
+defined_text = {
+	name = GetDdMercSelState
+	text = {
+		trigger = {
+			check_variable = { dd_merc_sel_state = 0 compare = equals }
+		}
+		localization_key = DD_MERC_DIV_NOWHERE
+	}
+	text = {
+		localization_key = DD_MERC_SEL_STATE
+	}
+}
+
+defined_text = {
+	name = GetDdMercDivOrg
+	text = {
+		trigger = { check_variable = { dd_merc_orgs^dd_merc_div_i = 2 } }
+		localization_key = DD_MERC_ORG_2
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_orgs^dd_merc_div_i = 1 } }
+		localization_key = DD_MERC_ORG_1
+	}
+	text = {
+		localization_key = DD_MERC_ORG_0
 	}
 }
 
@@ -194,6 +339,41 @@ defined_text = {
 	}
 	text = {
 		trigger = { check_variable = { dd_merc_tpl = 7 } }
+		localization_key = DD_MERC_TPL_7
+	}
+	text = {
+		localization_key = DD_MERC_TPL_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdMercListedName
+	text = {
+		trigger = { check_variable = { dd_merc_listed_tpl = 1 } }
+		localization_key = DD_MERC_TPL_1
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_listed_tpl = 2 } }
+		localization_key = DD_MERC_TPL_2
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_listed_tpl = 3 } }
+		localization_key = DD_MERC_TPL_3
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_listed_tpl = 4 } }
+		localization_key = DD_MERC_TPL_4
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_listed_tpl = 5 } }
+		localization_key = DD_MERC_TPL_5
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_listed_tpl = 6 } }
+		localization_key = DD_MERC_TPL_6
+	}
+	text = {
+		trigger = { check_variable = { dd_merc_listed_tpl = 7 } }
 		localization_key = DD_MERC_TPL_7
 	}
 	text = {

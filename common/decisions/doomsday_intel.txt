@@ -406,21 +406,10 @@ doomsday_intel_category = {
 		ai_will_do = { factor = 0 }
 		complete_effect = {
 			subtract_from_variable = { treasury = 1.0 }
-			if = {
-				limit = { dd_intel_is_t1 = yes }
-				FROM = {
-					owner = {
-						add_timed_idea = { idea = dd_intel_cyber_t1 days = 30 }
-						news_event = { id = doomsday_intel.14 hours = 2 }
-					}
-				}
-			}
-			else = {
-				FROM = {
-					owner = {
-						add_timed_idea = { idea = dd_intel_cyber_t2 days = 30 }
-						news_event = { id = doomsday_intel.14 hours = 2 }
-					}
+			FROM = {
+				owner = {
+					add_timed_idea = { idea = dd_intel_cyber_t2 days = 30 }
+					news_event = { id = doomsday_intel.14 hours = 2 }
 				}
 			}
 			dd_intel_finish_select = yes

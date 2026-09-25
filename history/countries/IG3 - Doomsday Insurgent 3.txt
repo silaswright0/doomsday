@@ -352,24 +352,22 @@ set_technology = {
 	dd_wpn_1 = 1
 }
 set_politics = {
-	ruling_party = sovereign_democracy
+	ruling_party = progressive_populism
 	last_election = "2024.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	sovereign_democracy = 88
-	liberal_conservatism = 6
-	social_democracy = 4
-	communism = 2
+	progressive_populism = 100
 }
 set_variable = { debt = 0.0000 }
 set_variable = { treasury = 1.0000 }
+set_variable = { dd_prod = 1.0000 }
 create_country_leader = {
 	name = "IG3 Government"
 	desc = IG3_LEADER_DESC
 	picture = GFX_portrait_unknown
-	ideology = oligarch
+	ideology = progressive_populist
 	traits = { }
 }
 recruit_character = IG3_john_army

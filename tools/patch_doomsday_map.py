@@ -45,6 +45,9 @@ Azawad pockets 13417 Tinzaouaten, 13418 Tessalit, 13419 Kidal stay in 782; 13420
 Gibraltar 4135 shrinks to the sea tip; hinterland pixels become Spanish 7153
 Kherson city is 3755 (UKR); occupied 721 stays on the left-bank estuary
 Transnistria 834 keeps 741 754 9576 9423 (Moldova-border tile, not 9435) and is thinned on the bmp
+Cyprus 7193/11984 follow the 1974 green line (Karpas and the north coast stay 11984).
+9894 takes the southern sliver of 11816 so Herzegovina has a one-pixel Neum coast.
+7273 is split in half; the half facing Aksai Chin joins 5042.
 """
 from __future__ import annotations
 
@@ -2262,6 +2265,532 @@ def patch_strategic_region() -> None:
         dest.write_text(text.replace(needle, repl), encoding="utf-8")
 
 
+# Local fit of the HOI4 Cyprus sprite onto the real island (Akamas, Karpas tip, Cape Gata).
+# A global Miller fit is about ten pixels off, which is the whole island.
+_CYP_LON0, _CYP_LON1 = 32.27, 34.59
+_CYP_LAT_SOUTH, _CYP_LAT_NORTH = 34.56, 35.70
+# Southern edge of Turkish-held Cyprus, west to east, then closed east of the Karpas.
+_CYP_GREEN = (
+    (32.72, 35.16),
+    (32.86, 35.08),
+    (33.02, 35.11),
+    (33.16, 35.15),
+    (33.30, 35.17),
+    (33.37, 35.175),
+    (33.44, 35.15),
+    (33.50, 35.10),
+    (33.47, 34.99),
+    (33.55, 35.05),
+    (33.68, 35.06),
+    (33.82, 35.02),
+    (33.96, 35.03),
+    (34.08, 35.06),
+)
+_BORDER_PROVS = (7193, 11984, 11816, 9894, 7273, 5042)
+_PROV_STATE = {7193: 183, 11984: 1087, 11816: 103, 9894: 804, 7273: 441, 5042: 1119}
+
+
+def _id_rgb(definition: Path) -> dict[int, tuple[int, int, int]]:
+    out: dict[int, tuple[int, int, int]] = {}
+    for line in definition.read_text(encoding="utf-8", errors="ignore").splitlines():
+        p = line.split(";")
+        if len(p) < 4:
+            continue
+        try:
+            out[int(p[0])] = (int(p[1]), int(p[2]), int(p[3]))
+        except ValueError:
+            continue
+    return out
+
+
+def _scan_colors(
+    px,
+    x0: int,
+    x1: int,
+    y0: int,
+    y1: int,
+    wanted: set[tuple[int, int, int]],
+) -> dict[tuple[int, int, int], list[tuple[int, int]]]:
+    out: dict[tuple[int, int, int], list[tuple[int, int]]] = {c: [] for c in wanted}
+    for y in range(y0, y1 + 1):
+        for x in range(x0, x1 + 1):
+            rgb = px[x, y][:3]
+            if rgb in out:
+                out[rgb].append((x, y))
+    return out
+
+
+def _pip(poly: list[tuple[float, float]], x: float, y: float) -> bool:
+    n = len(poly)
+    inside = False
+    j = n - 1
+    for i in range(n):
+        xi, yi = poly[i]
+        xj, yj = poly[j]
+        if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / (yj - yi) + xi:
+            inside = not inside
+        j = i
+    return inside
+
+
+def _land_components(cells: set[tuple[int, int]]) -> list[list[tuple[int, int]]]:
+    seen: set[tuple[int, int]] = set()
+    parts: list[list[tuple[int, int]]] = []
+    for start in cells:
+        if start in seen:
+            continue
+        q = deque([start])
+        seen.add(start)
+        cur = [start]
+        while q:
+            x, y = q.popleft()
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                n = (x + dx, y + dy)
+                if n in cells and n not in seen:
+                    seen.add(n)
+                    q.append(n)
+                    cur.append(n)
+        parts.append(cur)
+    return parts
+
+
+def _touches_kind(
+    cells: set[tuple[int, int]],
+    px,
+    rgb_to_id: dict[tuple[int, int, int], int],
+    id_to_kind: dict[int, str],
+    kind: str,
+) -> bool:
+    for x, y in cells:
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            nid = rgb_to_id.get(px[x + dx, y + dy][:3])
+            if id_to_kind.get(nid) == kind:
+                return True
+    return False
+
+
+def _touches_pid(cells: set[tuple[int, int]], px, rgb_to_id: dict[tuple[int, int, int], int], pid: int) -> bool:
+    for x, y in cells:
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            if rgb_to_id.get(px[x + dx, y + dy][:3]) == pid:
+                return True
+    return False
+
+
+def paint_real_borders(bmp_path: Path) -> None:
+    """Green Line on Cyprus, Neum sliver on 9894, northern half of 7273 onto 5042."""
+    definition = MOD_MAP / "definition.csv"
+    rgb_of = _id_rgb(definition)
+    vanilla = Image.open(VANILLA_MAP / "provinces.bmp")
+    im = Image.open(bmp_path)
+    vpx = vanilla.load()
+    px = im.load()
+    try:
+        _paint_cyprus(vpx, px, rgb_of)
+        _paint_neum(vpx, px, rgb_of)
+        _paint_ladakh(vpx, px, rgb_of)
+        im.save(bmp_path)
+    finally:
+        _close_images(vanilla, im)
+    _mark_neum_coastal(definition)
+    _ensure_herzegovina_naval(ROOT / "history" / "states" / "804-Herzegovina.txt")
+
+
+def _paint_cyprus(vpx, px, rgb_of: dict[int, tuple[int, int, int]]) -> None:
+    south_rgb = rgb_of[7193]
+    north_rgb = rgb_of[11984]
+    found = _scan_colors(vpx, 3300, 3355, 795, 830, {south_rgb, north_rgb})
+    island = found[south_rgb] + found[north_rgb]
+    if len(island) < 200:
+        raise SystemExit(f"Cyprus sprite too small to repaint ({len(island)} px)")
+    minx = min(p[0] for p in island)
+    maxx = max(p[0] for p in island)
+    miny = min(p[1] for p in island)
+    maxy = max(p[1] for p in island)
+
+    def lon(x: float) -> float:
+        return _CYP_LON0 + (x - minx) * (_CYP_LON1 - _CYP_LON0) / (maxx - minx)
+
+    def lat(y: float) -> float:
+        return _CYP_LAT_NORTH - (y - miny) * (_CYP_LAT_NORTH - _CYP_LAT_SOUTH) / (maxy - miny)
+
+    poly = list(_CYP_GREEN) + [(34.95, 35.20), (34.95, 36.30), (32.00, 36.30), (32.00, 35.16)]
+    lab = {(x, y): "N" if _pip(poly, lon(x + 0.5), lat(y + 0.5)) else "S" for x, y in island}
+    # Drop 1-pixel specks the line clips off the main body (Lefka pixel, Louroujina nick).
+    changed = True
+    while changed:
+        changed = False
+        cells = {"N": {p for p, v in lab.items() if v == "N"}, "S": {p for p, v in lab.items() if v == "S"}}
+        for ch, other in (("N", "S"), ("S", "N")):
+            for comp in _land_components(cells[ch]):
+                if len(comp) > 2:
+                    continue
+                if any(
+                    lab.get((x + dx, y + dy)) == other
+                    for x, y in comp
+                    for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))
+                ):
+                    for p in comp:
+                        lab[p] = other
+                    changed = True
+    north = {p for p, v in lab.items() if v == "N"}
+    south = {p for p, v in lab.items() if v == "S"}
+    if len(_land_components(north)) != 1 or len(_land_components(south)) != 1:
+        raise SystemExit("Cyprus repaint split a state into two pieces")
+    for x, y in north:
+        px[x, y] = north_rgb
+    for x, y in south:
+        px[x, y] = south_rgb
+    print(f"cyprus: north {len(north)} south {len(south)}")
+
+
+def _paint_neum(vpx, px, rgb_of: dict[int, tuple[int, int, int]]) -> None:
+    """Southern row of 11816 becomes 9894 so Bosnia touches the Adriatic."""
+    cro_rgb = rgb_of[11816]
+    bos_rgb = rgb_of[9894]
+    found = _scan_colors(vpx, 3060, 3105, 645, 685, {cro_rgb, bos_rgb})
+    cro = set(found[cro_rgb])
+    if len(cro) < 40:
+        raise SystemExit(f"province 11816 too small to nick ({len(cro)} px)")
+    # Restore vanilla before the nick so a second run does not eat another row.
+    for x, y in cro:
+        px[x, y] = cro_rgb
+    for x, y in found[bos_rgb]:
+        px[x, y] = bos_rgb
+    max_y = max(y for _, y in cro)
+    sliver = {p for p in cro if p[1] == max_y}
+    rgb_to_id, id_to_kind = load_definition_maps(MOD_MAP / "definition.csv")
+    # The southern row meets the sea and Dubrovnik. Weld it to 9894 with the
+    # shortest path that leaves the rest of 11816 in one piece. (3080, 666)
+    # is a bridge; the corner pixel (3082, 666) is the weld that is not.
+    if not _touches_pid(sliver, px, rgb_to_id, 9894):
+        targets = {
+            p
+            for p in cro
+            if any(
+                rgb_to_id.get(px[p[0] + dx, p[1] + dy][:3]) == 9894
+                for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))
+            )
+        }
+        prev: dict[tuple[int, int], tuple[int, int] | None] = {p: None for p in sliver}
+        q = deque(sorted(sliver))
+        hits: list[tuple[int, int]] = []
+        while q:
+            cur = q.popleft()
+            if cur in targets and cur not in sliver:
+                hits.append(cur)
+                continue
+            x, y = cur
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                nxt = (x + dx, y + dy)
+                if nxt in cro and nxt not in prev:
+                    prev[nxt] = cur
+                    q.append(nxt)
+        welded = False
+        for hit in hits:
+            trial = set(sliver)
+            walk: tuple[int, int] | None = hit
+            while walk is not None and walk not in sliver:
+                trial.add(walk)
+                walk = prev[walk]
+            if len(_land_components(cro - trial)) == 1:
+                sliver = trial
+                welded = True
+                break
+        if not welded:
+            raise SystemExit("no Neum weld keeps 11816 in one piece")
+    if not _touches_pid(sliver, px, rgb_to_id, 9894) or not _touches_kind(sliver, px, rgb_to_id, id_to_kind, "sea"):
+        raise SystemExit("Neum sliver does not touch both Bosnia and the sea")
+    rest = cro - sliver
+    if len(_land_components(rest)) != 1:
+        raise SystemExit("giving Bosnia the sliver would split the Croatian province")
+    for x, y in sliver:
+        px[x, y] = bos_rgb
+    # Re-read colors from the image we just wrote. 9894's old pixels plus the sliver.
+    bos = set(found[bos_rgb]) | sliver
+    if len(_land_components(bos)) != 1:
+        raise SystemExit("Neum sliver is not connected to the rest of 9894")
+    print(f"neum: moved {sorted(sliver)} onto 9894 ({len(sliver)} px)")
+
+
+def _paint_ladakh(vpx, px, rgb_of: dict[int, tuple[int, int, int]]) -> None:
+    """China-facing half of Indian 7273 joins Aksai Chin 5042."""
+    ind_rgb = rgb_of[7273]
+    chi_rgb = rgb_of[5042]
+    found = _scan_colors(vpx, 3960, 4085, 760, 860, {ind_rgb, chi_rgb})
+    indian = found[ind_rgb]
+    if len(indian) < 100:
+        raise SystemExit(f"province 7273 too small to halve ({len(indian)} px)")
+    for x, y in indian:
+        px[x, y] = ind_rgb
+    ind_set = set(indian)
+    # Current 5042, ignoring pixels that vanilla calls 7273 (a previous half).
+    china = []
+    for y in range(760, 861):
+        for x in range(3960, 4086):
+            if px[x, y][:3] == chi_rgb and (x, y) not in ind_set:
+                china.append((x, y))
+    if not china:
+        raise SystemExit("no Aksai Chin pixels to aim the 7273 split at")
+    cx = sum(p[0] for p in indian) / len(indian)
+    cy = sum(p[1] for p in indian) / len(indian)
+    ax = sum(p[0] for p in china) / len(china)
+    ay = sum(p[1] for p in china) / len(china)
+    vx, vy = ax - cx, ay - cy
+    ranked = sorted(indian, key=lambda p: (-((p[0] - cx) * vx + (p[1] - cy) * vy), p[1], p[0]))
+    half = set(ranked[: len(indian) // 2])
+    rest = ind_set - half
+    if len(_land_components(half)) != 1 or len(_land_components(rest)) != 1:
+        raise SystemExit("halving 7273 did not leave two single pieces")
+    if not _touches_pid(half, px, {chi_rgb: 5042, ind_rgb: 7273}, 5042):
+        raise SystemExit("Chinese half of 7273 does not touch 5042")
+    for x, y in half:
+        px[x, y] = chi_rgb
+    print(f"ladakh: {len(half)} px of 7273 -> 5042, {len(rest)} stay Indian")
+
+
+def _mark_neum_coastal(definition: Path) -> None:
+    raw = definition.read_bytes()
+    newline = "\r\n" if b"\r\n" in raw else "\n"
+    lines = raw.decode("utf-8", errors="ignore").splitlines()
+    out = []
+    changed = False
+    for line in lines:
+        if line.startswith("9894;"):
+            parts = line.split(";")
+            if len(parts) >= 6 and parts[5] != "true":
+                parts[5] = "true"
+                line = ";".join(parts)
+                changed = True
+        out.append(line)
+    if changed:
+        definition.write_bytes((newline.join(out) + newline).encode("utf-8"))
+
+
+def _ensure_herzegovina_naval(path: Path) -> None:
+    raw = path.read_bytes()
+    newline = "\r\n" if b"\r\n" in raw else "\n"
+    text = raw.decode("utf-8")
+    if "naval_base" in text:
+        return
+    needle = "infrastructure = 3"
+    if needle not in text:
+        raise SystemExit(f"{path.name} has no infrastructure line to hang the naval base on")
+    text = text.replace(
+        needle,
+        needle + newline + "\t\t\t9894 = {" + newline + "\t\t\t\tnaval_base = 1" + newline + "\t\t\t}",
+        1,
+    )
+    path.write_bytes(text.encode("utf-8"))
+
+
+def fix_real_border_spawns(buildings: Path, unitstacks: Path) -> None:
+    """Retag map models that sit on repainted pixels, and give the new coasts a port."""
+    definition = MOD_MAP / "definition.csv"
+    rgb_to_id, id_to_kind = load_definition_maps(definition)
+    rgb_of = _id_rgb(definition)
+    state_provs = parse_state_provinces(ROOT / "history" / "states")
+    prov_to_state = {pid: sid for sid, pids in state_provs.items() for pid in pids}
+    vanilla = Image.open(VANILLA_MAP / "provinces.bmp")
+    im = Image.open(MOD_MAP / "provinces.bmp")
+    vpx = vanilla.load()
+    px = im.load()
+    w, h = im.size
+    try:
+        changed: set[tuple[int, int]] = set()
+        watch = {rgb_of[pid] for pid in _BORDER_PROVS}
+        windows = (
+            (3300, 3355, 795, 830),
+            (3060, 3105, 645, 685),
+            (3960, 4085, 760, 860),
+        )
+        pixels: dict[int, list[tuple[int, int]]] = {pid: [] for pid in _BORDER_PROVS}
+        coastal: dict[int, list[tuple[int, int]]] = {pid: [] for pid in _BORDER_PROVS}
+        for x0, x1, y0, y1 in windows:
+            for y in range(y0, y1 + 1):
+                for x in range(x0, x1 + 1):
+                    vrgb = vpx[x, y][:3]
+                    crgb = px[x, y][:3]
+                    if vrgb != crgb and vrgb in watch:
+                        changed.add((x, y))
+                    pid = rgb_to_id.get(crgb)
+                    if pid not in pixels:
+                        continue
+                    pixels[pid].append((x, y))
+                    if any(
+                        id_to_kind.get(rgb_to_id.get(px[x + dx, y + dy][:3])) == "sea"
+                        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))
+                        if 0 <= x + dx < w and 0 <= y + dy < h
+                    ):
+                        coastal[pid].append((x, y))
+        n_build = _retag_changed_buildings(
+            buildings, px, h, w, h, rgb_to_id, id_to_kind, prov_to_state, changed
+        )
+        n_port = _ensure_border_ports(buildings, h, pixels, coastal)
+        n_stack = _snap_border_unitstacks(
+            unitstacks, px, h, w, h, rgb_to_id, id_to_kind, pixels, coastal, changed
+        )
+        print(f"border spawns: retagged {n_build} buildings, added {n_port} ports, snapped {n_stack} unitstacks")
+    finally:
+        _close_images(vanilla, im)
+
+
+def _retag_changed_buildings(
+    buildings: Path,
+    px,
+    height: int,
+    w: int,
+    h: int,
+    rgb_to_id: dict[tuple[int, int, int], int],
+    id_to_kind: dict[int, str],
+    prov_to_state: dict[int, int],
+    changed: set[tuple[int, int]],
+) -> int:
+    lines = buildings.read_text(encoding="utf-8", errors="ignore").splitlines()
+    out: list[str] = []
+    n = 0
+    for line in lines:
+        parts = line.split(";")
+        if len(parts) < 5 or not line.strip():
+            if line.strip():
+                out.append(line)
+            continue
+        pix = _hoi4_pixel(parts[2], parts[4], height)
+        if pix is None or pix not in changed:
+            out.append(line)
+            continue
+        ix, iy = pix
+        if not (0 <= ix < w and 0 <= iy < h):
+            out.append(line)
+            continue
+        pid = rgb_to_id.get(px[ix, iy][:3])
+        if id_to_kind.get(pid) != "land":
+            out.append(line)
+            continue
+        sid = prov_to_state.get(pid)
+        if sid is None:
+            out.append(line)
+            continue
+        while len(parts) < 7:
+            parts.append("0")
+        if parts[0] != str(sid) or parts[6] != str(pid):
+            parts[0] = str(sid)
+            parts[6] = str(pid)
+            n += 1
+            out.append(";".join(parts))
+        else:
+            out.append(line)
+    if n:
+        write_buildings_txt(buildings, out)
+    return n
+
+
+def _ensure_border_ports(
+    buildings: Path,
+    height: int,
+    pixels: dict[int, list[tuple[int, int]]],
+    coastal: dict[int, list[tuple[int, int]]],
+) -> int:
+    """North Cyprus and the new Bosnian coast need a harbor model on their own land."""
+    text = buildings.read_text(encoding="utf-8", errors="ignore")
+    have: set[tuple[int, int]] = set()
+    for line in text.splitlines():
+        parts = line.split(";")
+        if len(parts) < 7 or parts[1] != "naval_base_spawn":
+            continue
+        try:
+            have.add((int(parts[0]), int(parts[6])))
+        except ValueError:
+            continue
+    # Famagusta-side coast of the repainted north. The old 11984 harbor sat on land that is now the south.
+    want = (
+        (1087, 11984, (3336, 813)),
+        (804, 9894, None),
+    )
+    add: list[str] = []
+    for sid, pid, prefer in want:
+        if (sid, pid) in have:
+            continue
+        pool = coastal.get(pid) or []
+        if not pool:
+            print(f"warning: {pid} has no coastal pixel for a naval spawn")
+            continue
+        if prefer is None:
+            spot = min(pool, key=lambda p: (p[1], p[0]))
+        else:
+            spot = min(pool, key=lambda p: ((p[0] - prefer[0]) ** 2 + (p[1] - prefer[1]) ** 2, p[1], p[0]))
+        x, z = _to_xz(spot[0], spot[1], height)
+        add.append(f"{sid};naval_base_spawn;{x};9.50;{z};0.00;{pid}")
+    if add:
+        append_building_lines(buildings, add)
+    return len(add)
+
+
+def _snap_border_unitstacks(
+    path: Path,
+    px,
+    height: int,
+    w: int,
+    h: int,
+    rgb_to_id: dict[tuple[int, int, int], int],
+    id_to_kind: dict[int, str],
+    pixels: dict[int, list[tuple[int, int]]],
+    coastal: dict[int, list[tuple[int, int]]],
+    changed: set[tuple[int, int]],
+) -> int:
+    raw = path.read_bytes()
+    newline = "\r\n" if b"\r\n" in raw else "\n"
+    trailing = raw.endswith(b"\n")
+    lines = raw.decode("utf-8", errors="ignore").splitlines()
+    out: list[str] = []
+    n = 0
+    affected = set(_BORDER_PROVS)
+    for line in lines:
+        parts = line.split(";")
+        if len(parts) < 5:
+            out.append(line)
+            continue
+        try:
+            pid = int(parts[0])
+        except ValueError:
+            out.append(line)
+            continue
+        if pid not in affected:
+            out.append(line)
+            continue
+        pix = _hoi4_pixel(parts[2], parts[4], height)
+        if pix is None or pix not in changed:
+            out.append(line)
+            continue
+        ix, iy = pix
+        if not (0 <= ix < w and 0 <= iy < h):
+            out.append(line)
+            continue
+        got = rgb_to_id.get(px[ix, iy][:3])
+        if got == pid or id_to_kind.get(got) != "land":
+            out.append(line)
+            continue
+        old_coast = any(
+            id_to_kind.get(rgb_to_id.get(px[ix + dx, iy + dy][:3])) == "sea"
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))
+            if 0 <= ix + dx < w and 0 <= iy + dy < h
+        )
+        pool = coastal.get(pid) if old_coast and coastal.get(pid) else pixels.get(pid)
+        if not pool:
+            out.append(line)
+            continue
+        spot = min(pool, key=lambda p: ((p[0] - ix) ** 2 + (p[1] - iy) ** 2, p[1], p[0]))
+        parts[2], parts[4] = _to_xz(spot[0], spot[1], height)
+        out.append(";".join(parts))
+        n += 1
+    if n:
+        data = newline.join(out)
+        if trailing:
+            data += newline
+        path.write_bytes(data.encode("utf-8"))
+    return n
+
+
 def ensure_map_splits() -> None:
     MOD_MAP.mkdir(parents=True, exist_ok=True)
     definition = _copy_if_needed("definition.csv")
@@ -2290,6 +2819,7 @@ def ensure_map_splits() -> None:
     paint_aksai_chin(bmp)
     paint_kherson_front(bmp)
     paint_azawad_pockets(bmp)
+    paint_real_borders(bmp)
     ensure_wes_south_definition(definition)
     ensure_azawad_definition(definition)
     mark_koper_coastal(definition)
@@ -2383,6 +2913,7 @@ def ensure_map_splits() -> None:
             pixels,
             coastal_land,
         )
+        fix_real_border_spawns(buildings, unitstacks)
         print(
             f"buildings: retagged {n_retag} rows, added {n_add} on-land sites, "
             f"snapped {n_snap} off water, reconciled {n_fix}, required ports {n_req}"

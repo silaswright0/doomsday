@@ -1,0 +1,10 @@
+ideas = {
+	country = {
+		# CSTO members other than Russia. The diplomacy gate reads this idea.
+		dd_csto_defensive_only = {
+			picture = generic_wall_line
+			allowed = { always = no }
+			removal_cost = -1
+		}
+	}
+}

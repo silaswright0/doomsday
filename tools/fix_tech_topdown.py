@@ -48,7 +48,7 @@ LAYOUT: dict[str, tuple[int, int]] = {
     "armor": (240, 205),      # tanks
     "artillery": (240, 205),
     "air": (240, 205),        # aircraft
-    "naval": (450, 440),      # ship hulls — col0 fixed; later cols spaced wider
+    "naval": (450, 360),      # ship hulls — 360px between columns
 }
 
 # Extra gap inserted starting at this column index (that column and all to its right).

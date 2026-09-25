@@ -13,6 +13,22 @@ on_actions = {
 				dd_init_economy = yes
 				dd_intel_init = yes
 				dd_merc_init_defaults = yes
+				dd_sync_csto_spirit = yes
+			}
+			# Once only. A later load must not put the rule back after it was cleared.
+			USA = {
+				if = {
+					limit = { NOT = { has_country_flag = dd_defensive_pact_set } }
+					set_country_flag = dd_defensive_pact_set
+					set_faction_rule = dd_call_to_war_defensive_only
+				}
+			}
+			SOV = {
+				if = {
+					limit = { NOT = { has_country_flag = dd_defensive_pact_set } }
+					set_country_flag = dd_defensive_pact_set
+					set_faction_rule = dd_call_to_war_defensive_only
+				}
 			}
 		}
 	}
@@ -22,6 +38,7 @@ on_actions = {
 			dd_economy_monthly_tick = yes
 			dd_intel_cd_tick = yes
 			dd_ig_monthly_cleanup = yes
+			dd_sync_csto_spirit = yes
 		}
 	}
 

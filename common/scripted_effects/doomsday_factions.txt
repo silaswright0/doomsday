@@ -1,0 +1,25 @@
+# CSTO members keep the defensive spirit. Russia does not.
+# Country-scoped. No random.
+
+dd_sync_csto_spirit = {
+	if = {
+		limit = {
+			is_in_faction_with = SOV
+			NOT = { tag = SOV }
+			SOV = { is_faction_leader = yes }
+			NOT = { has_idea = dd_csto_defensive_only }
+		}
+		add_ideas = dd_csto_defensive_only
+	}
+	else_if = {
+		limit = {
+			has_idea = dd_csto_defensive_only
+			OR = {
+				tag = SOV
+				NOT = { is_in_faction_with = SOV }
+				NOT = { SOV = { is_faction_leader = yes } }
+			}
+		}
+		remove_ideas = dd_csto_defensive_only
+	}
+}

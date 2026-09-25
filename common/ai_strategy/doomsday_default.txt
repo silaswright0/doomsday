@@ -26,3 +26,68 @@ doomsday_unit_production = {
 		value = 5
 	}
 }
+
+# Stay in the pact. Still allowed to leave if the desire overcomes this.
+dd_nato_stay = {
+	enable = {
+		is_in_faction_with = USA
+		USA = { is_faction_leader = yes }
+		NOT = { tag = USA }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = USA
+		value = 200
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = USA
+		target = leave_faction
+		value = -200
+	}
+}
+
+dd_csto_stay = {
+	enable = {
+		is_in_faction_with = SOV
+		SOV = { is_faction_leader = yes }
+		NOT = { tag = SOV }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = alliance
+		id = SOV
+		value = 200
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = SOV
+		target = leave_faction
+		value = -200
+	}
+}
+
+# Spirit holders do not volunteer for a war Russia started.
+dd_csto_no_offensive = {
+	enable = {
+		has_idea = dd_csto_defensive_only
+		SOV = { has_offensive_war = yes }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = SOV
+		target = join_allies
+		value = -1000
+	}
+	ai_strategy = {
+		type = diplo_action_acceptance
+		id = SOV
+		target = call_allies
+		value = -1000
+	}
+}

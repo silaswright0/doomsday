@@ -1,10 +1,10 @@
 dd_merc_can_post = {
 	NOT = { has_country_flag = dd_merc_deployed }
-	has_variable = dd_merc_tpl
+	check_variable = { dd_merc_pick_uid > 0 }
 	check_variable = { dd_merc_tpl > 0 }
 	check_variable = { dd_merc_tpl < 8 }
 	check_variable = { dd_merc_ask > 0.49 }
-	check_variable = { dd_merc_tpls^num > 0 }
+	dd_merc_has_picked_division = yes
 }
 
 # Buyer may only rent one merc division.
@@ -69,4 +69,97 @@ dd_merc_slot_6_open = {
 dd_merc_slot_7_open = {
 	has_variable = global.dd_merc_7_tag
 	check_variable = { global.dd_merc_7_tpl > 0.5 }
+}
+
+# Division scope. Locked 2026 templates, told apart by battalion mix.
+# Infantry, garrison, and militia are all infantry-majority, so line type is not enough.
+dd_merc_div_inf = {
+	division_has_battalion_in_template = infantry
+	division_has_battalion_in_template = engineer
+	division_has_battalion_in_template = artillery
+	NOT = { division_has_battalion_in_template = modern_armor }
+	NOT = { division_has_battalion_in_template = mechanized }
+	NOT = { division_has_battalion_in_template = marine }
+	NOT = { division_has_battalion_in_template = mountaineers }
+}
+dd_merc_div_arm = {
+	division_has_battalion_in_template = modern_armor
+}
+dd_merc_div_mec = {
+	division_has_battalion_in_template = mechanized
+	NOT = { division_has_battalion_in_template = modern_armor }
+}
+dd_merc_div_mar = {
+	division_has_battalion_in_template = marine
+}
+dd_merc_div_mtn = {
+	division_has_battalion_in_template = mountaineers
+}
+dd_merc_div_gar = {
+	division_has_battalion_in_template = infantry
+	division_has_battalion_in_template = engineer
+	NOT = { division_has_battalion_in_template = artillery }
+	NOT = { division_has_battalion_in_template = modern_armor }
+	NOT = { division_has_battalion_in_template = mechanized }
+	NOT = { division_has_battalion_in_template = marine }
+	NOT = { division_has_battalion_in_template = mountaineers }
+}
+dd_merc_div_mil = {
+	division_has_battalion_in_template = infantry
+	NOT = { division_has_battalion_in_template = engineer }
+	NOT = { division_has_battalion_in_template = artillery }
+	NOT = { division_has_battalion_in_template = modern_armor }
+	NOT = { division_has_battalion_in_template = mechanized }
+	NOT = { division_has_battalion_in_template = marine }
+	NOT = { division_has_battalion_in_template = mountaineers }
+}
+
+# Division scope. ROOT is the seller. Matches the template they listed.
+dd_merc_div_matches_listed = {
+	OR = {
+		AND = {
+			check_variable = { ROOT.dd_merc_listed_tpl = 1 }
+			dd_merc_div_inf = yes
+		}
+		AND = {
+			check_variable = { ROOT.dd_merc_listed_tpl = 2 }
+			dd_merc_div_arm = yes
+		}
+		AND = {
+			check_variable = { ROOT.dd_merc_listed_tpl = 3 }
+			dd_merc_div_mec = yes
+		}
+		AND = {
+			check_variable = { ROOT.dd_merc_listed_tpl = 4 }
+			dd_merc_div_mar = yes
+		}
+		AND = {
+			check_variable = { ROOT.dd_merc_listed_tpl = 5 }
+			dd_merc_div_mtn = yes
+		}
+		AND = {
+			check_variable = { ROOT.dd_merc_listed_tpl = 6 }
+			dd_merc_div_gar = yes
+		}
+		AND = {
+			check_variable = { ROOT.dd_merc_listed_tpl = 7 }
+			dd_merc_div_mil = yes
+		}
+	}
+}
+
+# Country scope. The division the player highlighted is still on the map.
+dd_merc_has_picked_division = {
+	check_variable = { dd_merc_pick_uid > 0 }
+	any_country_division = {
+		check_variable = { dd_merc_uid = ROOT.dd_merc_pick_uid }
+	}
+}
+
+# Country scope. The exact division that was posted is still on the map.
+dd_merc_has_listed_division = {
+	check_variable = { dd_merc_listed_uid > 0 }
+	any_country_division = {
+		check_variable = { dd_merc_uid = ROOT.dd_merc_listed_uid }
+	}
 }

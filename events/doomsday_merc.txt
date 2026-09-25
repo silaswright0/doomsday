@@ -1,0 +1,73 @@
+add_namespace = doomsday_merc
+
+# Seller popup. ROOT = seller, FROM = buyer.
+country_event = {
+	id = doomsday_merc.1
+	title = doomsday_merc.1.t
+	desc = doomsday_merc.1.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+
+	option = {
+		name = doomsday_merc.1.a
+		trigger = {
+			dd_merc_has_listed_division = yes
+			has_country_flag = dd_merc_offering
+			NOT = { has_country_flag = dd_merc_deployed }
+		}
+		ai_chance = { factor = 100 }
+		set_variable = { dd_accept_buyer = FROM }
+		dd_merc_deploy_to_buyer = yes
+	}
+
+	option = {
+		name = doomsday_merc.1.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				dd_merc_has_listed_division = yes
+			}
+		}
+		dd_merc_decline_from = yes
+	}
+}
+
+# Buyer notice: seller accepted. ROOT = buyer, FROM = seller.
+country_event = {
+	id = doomsday_merc.2
+	title = doomsday_merc.2.t
+	desc = doomsday_merc.2.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+
+	option = {
+		name = doomsday_merc.2.a
+	}
+}
+
+# Buyer notice: seller declined.
+country_event = {
+	id = doomsday_merc.3
+	title = doomsday_merc.3.t
+	desc = doomsday_merc.3.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+
+	option = {
+		name = doomsday_merc.3.a
+	}
+}
+
+# Buyer notice: the posted division is no longer on the seller's map.
+country_event = {
+	id = doomsday_merc.4
+	title = doomsday_merc.4.t
+	desc = doomsday_merc.4.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+
+	option = {
+		name = doomsday_merc.4.a
+	}
+}

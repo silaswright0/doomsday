@@ -485,6 +485,7 @@ set_popularities = {
 }
 set_variable = { debt = 415.3440 }
 set_variable = { treasury = 12.2160 }
+set_variable = { dd_prod = 6.6681 }
 create_country_leader = {
 	name = "Benjamin Netanyahu"
 	desc = ISR_LEADER_DESC
@@ -514,4 +515,9 @@ add_named_threat = {
 add_named_threat = {
 	threat = 3
 	name = DD_THREAT_ISR_HEZBOLLAH
+}
+set_autonomy = {
+	target = PAL
+	autonomous_state = autonomy_puppet
+	freedom_level = 0.4
 }

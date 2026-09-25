@@ -39,18 +39,6 @@ ideas = {
 			}
 		}
 
-		dd_intel_mss = {
-			picture = generic_spy_intel
-			allowed = { always = no }
-			removal_cost = -1
-			modifier = {
-				decryption = 3
-				encryption = 3
-				civilian_intel_to_others = -0.45
-				army_intel_to_others = -0.3
-			}
-		}
-
 		# Tier 2 agencies: same specialties as the old Tier 1 baseline.
 		dd_intel_rgb = {
 			picture = generic_spy_intel
@@ -100,6 +88,18 @@ ideas = {
 			}
 		}
 
+		dd_intel_mss = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption = 1
+				encryption = 1
+				civilian_intel_to_others = -0.15
+				army_intel_to_others = -0.1
+			}
+		}
+
 		dd_intel_destabilized = {
 			picture = generic_morale_bonus
 			allowed = { always = no }
@@ -110,12 +110,13 @@ ideas = {
 			}
 		}
 
+		# Same hit for every agency tier. t1 kept so a debuff already on the map stays valid.
 		dd_intel_cyber_t1 = {
 			picture = generic_exploit_mines
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_org_factor = -0.10
+				army_org_factor = -0.05
 			}
 		}
 

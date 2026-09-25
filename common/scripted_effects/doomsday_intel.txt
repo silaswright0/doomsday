@@ -1,7 +1,8 @@
 # Intelligence agencies. Country-scoped. Deterministic (no random_list).
 #
 # Insurgent tag policy:
-# - Arm Insurgents → reserved off-map pool IG1–IG4 (cosmetic DD_INSURGENT).
+# - Arm Insurgents → reserved pool IG1–IG4 (cosmetic DD_INSURGENT).
+#   Spawn hands them the stored capital so the tag exists, then declares war.
 #   Slots recycle when the IG has no states and is not at war.
 # - Coup civil war → vanilla start_civil_war (dynamic sibling of the target,
 #   ~25% army/states). Cosmetic DD_COUP_REB. Not taken from the IG pool.
@@ -27,11 +28,6 @@ dd_intel_init = {
 			add_ideas = dd_intel_mossad
 		}
 		else_if = {
-			limit = { tag = CHI }
-			set_variable = { dd_intel_tier = 1 }
-			add_ideas = dd_intel_mss
-		}
-		else_if = {
 			limit = { tag = DPK }
 			set_variable = { dd_intel_tier = 2 }
 			add_ideas = dd_intel_rgb
@@ -51,9 +47,22 @@ dd_intel_init = {
 			set_variable = { dd_intel_tier = 2 }
 			add_ideas = dd_intel_mi6
 		}
+		else_if = {
+			limit = { tag = CHI }
+			set_variable = { dd_intel_tier = 2 }
+			add_ideas = dd_intel_mss
+		}
 		else = {
 			set_variable = { dd_intel_tier = 0 }
 		}
+	}
+	# Saves started while MSS was tier 1 keep the init flag.
+	if = {
+		limit = {
+			tag = CHI
+			check_variable = { dd_intel_tier = 1 }
+		}
+		set_variable = { dd_intel_tier = 2 }
 	}
 }
 
@@ -303,6 +312,8 @@ dd_intel_arm_confirm = {
 		limit = { has_variable = dd_intel_ig_picked }
 		subtract_from_variable = { treasury = 2.5 }
 		dd_intel_start_cooldown = yes
+		# FROM is the clicked capital. Keep it so day-180 spawn can give the tag land.
+		set_variable = { dd_intel_insurgent_state = FROM }
 		FROM = {
 			owner = {
 				ROOT = { set_variable = { dd_intel_insurgent_target = PREV } }
@@ -757,55 +768,99 @@ dd_intel_pick_ig = {
 }
 
 dd_intel_spawn_insurgents = {
-	# Use IG reserved at confirm. If target/IG gone, collapse + release.
+	# IG tags start with no states, so they do not exist. Hand them the capital
+	# first; war and militia only stick once the tag owns land.
 	clr_country_flag = dd_intel_arm_ok
+	clr_country_flag = dd_intel_arm_self
 	if = {
 		limit = {
 			has_variable = dd_intel_ig_picked
 			has_variable = dd_intel_insurgent_target
-			var:dd_intel_insurgent_target = { exists = yes }
+			var:dd_intel_insurgent_target = {
+				exists = yes
+				check_variable = { num_owned_states > 0 }
+			}
+		}
+		if = {
+			limit = { var:dd_intel_insurgent_target = { tag = ROOT } }
+			set_country_flag = dd_intel_arm_self
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_variable = dd_intel_insurgent_state }
+					NOT = {
+						var:dd_intel_insurgent_target = {
+							owns_state = var:ROOT.dd_intel_insurgent_state
+						}
+					}
+				}
+			}
+			var:dd_intel_insurgent_target = {
+				capital_scope = {
+					ROOT = { set_variable = { dd_intel_insurgent_state = PREV } }
+				}
+			}
 		}
 		var:dd_intel_ig_picked = {
+			save_event_target_as = dd_ig_spawn_tag
+		}
+		var:dd_intel_insurgent_state = {
+			save_event_target_as = dd_ig_rise_state
+			transfer_state_to = event_target:dd_ig_spawn_tag
+		}
+		event_target:dd_ig_spawn_tag = {
+			set_capital = { state = event_target:dd_ig_rise_state }
+			add_state_core = event_target:dd_ig_rise_state
 			clr_country_flag = dd_ig_dormant
 			clr_country_flag = dd_ig_reserved
 			set_country_flag = dd_ig_active
 			set_cosmetic_tag = DD_INSURGENT
 			set_politics = {
-				ruling_party = left_wing_nationalism
+				ruling_party = progressive_populism
 				elections_allowed = no
 			}
 			set_popularities = {
-				left_wing_nationalism = 100
+				progressive_populism = 100
+			}
+			add_manpower = 15000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_cw1
+				amount = 1500
 			}
 			dd_intel_ensure_militia = yes
-			declare_war_on = {
-				target = var:ROOT.dd_intel_insurgent_target
-				type = annex_everything
+			if = {
+				limit = { var:ROOT.dd_intel_insurgent_target = { exists = yes } }
+				declare_war_on = {
+					target = var:ROOT.dd_intel_insurgent_target
+					type = annex_everything
+				}
+				var:ROOT.dd_intel_insurgent_target = {
+					add_timed_idea = { idea = dd_intel_insurgency days = 180 }
+					news_event = { id = doomsday_intel.5 hours = 2 }
+				}
 			}
-			var:ROOT.dd_intel_insurgent_target = {
-				add_timed_idea = { idea = dd_intel_insurgency days = 180 }
-				capital_scope = {
-					create_unit = {
-						division = "name = \"1st Insurgent Militia\" division_template = \"Insurgent Militia\" start_experience_factor = 0.15 start_equipment_factor = 0.8"
-						owner = PREV.PREV
-						count = 1
-						allow_spawning_on_enemy_provs = yes
-					}
-					create_unit = {
-						division = "name = \"2nd Insurgent Militia\" division_template = \"Insurgent Militia\" start_experience_factor = 0.15 start_equipment_factor = 0.8"
-						owner = PREV.PREV
-						count = 1
-						allow_spawning_on_enemy_provs = yes
-					}
+			else = {
+				ROOT = { news_event = { id = doomsday_intel.5 hours = 2 } }
+			}
+			event_target:dd_ig_rise_state = {
+				create_unit = {
+					division = "name = \"1st Insurgent Militia\" division_template = \"Insurgent Militia\" start_experience_factor = 0.15 start_equipment_factor = 0.8"
+					owner = PREV
+					count = 1
+					allow_spawning_on_enemy_provs = yes
+				}
+				create_unit = {
+					division = "name = \"2nd Insurgent Militia\" division_template = \"Insurgent Militia\" start_experience_factor = 0.15 start_equipment_factor = 0.8"
+					owner = PREV
+					count = 1
+					allow_spawning_on_enemy_provs = yes
 				}
 			}
 		}
 		ROOT = { set_country_flag = dd_intel_arm_ok }
-		var:dd_intel_insurgent_target = {
-			news_event = { id = doomsday_intel.5 hours = 2 }
-		}
 		if = {
-			limit = { var:dd_intel_insurgent_target = { tag = ROOT } }
+			limit = { has_country_flag = dd_intel_arm_self }
 			set_variable = { dd_intel_mission = 8 }
 			country_event = { id = doomsday_intel.20 hours = 1 }
 		}
@@ -828,7 +883,9 @@ dd_intel_spawn_insurgents = {
 		}
 	}
 	clr_country_flag = dd_intel_arm_ok
+	clr_country_flag = dd_intel_arm_self
 	clear_variable = dd_intel_insurgent_target
+	clear_variable = dd_intel_insurgent_state
 	clear_variable = dd_intel_ig_picked
 }
 
@@ -884,6 +941,23 @@ dd_intel_assassinate_one = {
 	clr_country_flag = dd_intel_kill_done
 }
 
+# THIS = installed government. ROOT = sponsoring agency.
+dd_intel_sponsor_opinion = {
+	if = {
+		limit = { NOT = { tag = ROOT } }
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = dd_intel_sponsored
+		}
+		ROOT = {
+			add_opinion_modifier = {
+				target = PREV
+				modifier = dd_intel_sponsored
+			}
+		}
+	}
+}
+
 dd_intel_coup_success = {
 	FROM = {
 		owner = {
@@ -897,6 +971,7 @@ dd_intel_coup_success = {
 		}
 		add_stability = -0.10
 		add_war_support = 0.05
+		dd_intel_sponsor_opinion = yes
 		news_event = { id = doomsday_intel.7 hours = 2 }
 		}
 	}
@@ -932,6 +1007,7 @@ dd_intel_coup_civil_war = {
 			set_cosmetic_tag = DD_COUP_REB
 			set_country_flag = dd_intel_coup_rebels
 			set_variable = { dd_intel_tier = 0 }
+			dd_intel_sponsor_opinion = yes
 		}
 		news_event = { id = doomsday_intel.9 hours = 2 }
 		}

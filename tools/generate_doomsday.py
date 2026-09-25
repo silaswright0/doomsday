@@ -543,7 +543,8 @@ SPLIT_NEW_STATES = [
         "from_id": 554,
         "provinces": [1074],
         "owner": "ISR",
-        "cores": ["ISR", "SYR"],
+        "cores": ["SYR"],
+        "claims": ["ISR"],
         "category": "pastoral",
         "manpower": 50000,
         "vps": [(1074, 1)],
@@ -1017,11 +1018,12 @@ EXTRA_CORES = {
 }
 
 # Morocco claims Western Sahara; it does not core the leftover coast or the Free Zone.
-SKIP_OWNER_CORE = {699, 1119}
+SKIP_OWNER_CORE = {699, 1119, 1088}
 EXTRA_CLAIMS = {
     699: ["MOR"],
     1118: ["MOR"],
     1119: ["CHI"],
+    1088: ["ISR"],  # Golan Heights — claim, not a core
 }
 
 # VPs missing from vanilla leftovers.
@@ -1096,6 +1098,7 @@ START_THREATS = {
 # Written into the overlord country file. Do not also set controller=.
 PUPPETS = {
     "DEN": [("GRN", "autonomy_puppet", 0.40)],
+    "ISR": [("PAL", "autonomy_puppet", 0.40)],
 }
 
 
@@ -1320,7 +1323,7 @@ def pick_owner(state: dict) -> str:
         1086: "PAL",   # West Bank — PA
         1087: "NCY",   # Northern Cyprus
         183: "CYP",    # Republic of Cyprus
-        1088: "ISR",   # Golan Heights
+        1088: "ISR",   # Golan Heights — Israeli-held, Syrian core, Israeli claim only
         1089: "HEZ",   # South Lebanon — Hezbollah
         293: "HOU",    # Houthi-held North Yemen / Sana'a
         1102: "YEM",   # Marib — PLC leftover on 1 Jan 2026
@@ -1827,6 +1830,7 @@ def write_country(tag: str, filename: str, row: dict | None, capital: int, facti
         "}",
         f"set_variable = {{ debt = {abs_debt:.4f} }}",
         f"set_variable = {{ treasury = {treasury:.4f} }}",
+        f"set_variable = {{ dd_prod = {float(bits.get('prod') or 1):.4f} }}",
         "create_country_leader = {",
         f'	name = "{leader}"',
         f"	desc = {tag}_LEADER_DESC",

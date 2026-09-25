@@ -3,7 +3,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "doomsday_economy_window"
 		position = { x = 0 y = 0 }
-		size = { width = 100% height = 240 }
+		size = { width = 100% height = 260 }
 		clipping = no
 
 		instantTextboxType = {
@@ -101,13 +101,24 @@ guiTypes = {
 			pdx_tooltip = "DD_ECON_NET_TT"
 		}
 
+		instantTextboxType = {
+			name = "dd_prod"
+			position = { x = 12 y = 140 }
+			font = "hoi_18mbs"
+			text = "DD_ECON_PROD"
+			maxWidth = 500
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_ECON_PROD_TT"
+		}
+
 		# AAT market sprite (guns art). Slightly under native 261 width.
 		buttonType = {
 			name = "dd_open_market"
 			quadTextureSprite = "GFX_Access_&_buy_equipment"
 			buttonText = "DD_OPEN_ARMS_MARKET"
 			buttonFont = "hoi_18mbs"
-			position = { x = 12 y = 150 }
+			position = { x = 12 y = 172 }
 			size = { width = 220 height = 34 }
 			clicksound = click_default
 			pdx_tooltip = "DD_OPEN_ARMS_MARKET_TT"
@@ -118,7 +129,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_Access_&_buy_equipment"
 			buttonText = "DD_OPEN_MERC_MARKET"
 			buttonFont = "hoi_18mbs"
-			position = { x = 244 y = 150 }
+			position = { x = 244 y = 172 }
 			size = { width = 220 height = 34 }
 			clicksound = click_default
 			pdx_tooltip = "DD_OPEN_MERC_MARKET_TT"

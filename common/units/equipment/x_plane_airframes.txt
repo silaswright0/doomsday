@@ -104,9 +104,6 @@ duplicate_archetypes = {
 	medium_plane_scout_plane_airframe = {
 		archetype = medium_plane_airframe
 		type = scout_plane
-		for_each = {
-			air_superiority = { set = 0 }
-		}
 		sprite = scout_plane
 		variant_name = {
 			medium_plane_scout_plane_airframe_1 = scout_plane_equipment_1
@@ -114,13 +111,15 @@ duplicate_archetypes = {
 		}
 		air_map_icon_frame = 13
 		interface_overview_category_index = 7
-		# Camera in the main slot is what puts Air Recon on the mission bar.
-		# The parent airframe only grants Training, and this frame forbids that.
+		forbid_mission_type = training
+		# Recon and naval patrol are always available. The camera module loads with By Blood Alone.
+		for_each = {
+			air_superiority = { set = 0 }
+		}
 		allow_mission_type = {
 			recon
 			naval_patrol
 		}
-		forbid_mission_type = training
 		default_modules = {
 			fixed_main_weapon_slot = recon_camera
 			fixed_auxiliary_weapon_slot_1 = empty
@@ -1540,16 +1539,18 @@ equipments = {
 		archetype = medium_plane_scout_plane_airframe
 		priority = 100
 
-		allow_mission_type = {
-			recon
-			naval_patrol
-		}
+					allow_mission_type = {
+				recon
+				naval_patrol
+			}
+			air_superiority = 0
+			air_attack = 0
+		
 		forbid_mission_type = training
 
 		air_range = 1300
 		maximum_speed = 500
 		air_agility = 25
-		air_attack = 0
 		air_defence = 13
 
 		build_cost_ic = 20
@@ -1561,7 +1562,6 @@ equipments = {
 			aluminium = 2
 			rubber = 1
 		}
-		air_superiority = 0
 		reliability = 0.8
 		manpower = 40
 		fuel_consumption = 0.26
@@ -1577,8 +1577,14 @@ equipments = {
 		air_range = 1700
 		maximum_speed = 550
 		air_agility = 30
-		air_attack = 0
 		air_defence = 15
+					allow_mission_type = {
+				recon
+				naval_patrol
+			}
+			air_attack = 0
+			air_superiority = 0
+		
 
 		build_cost_ic = 20
 		resources = {
@@ -1589,7 +1595,6 @@ equipments = {
 		naval_strike_targetting = 0
 		surface_detection = 60 # For airwing of 100 planes (Destroyer I: 20 surface detection)
 		sub_detection = 15 # For airwing of 100 planes (Destroyer I: 5 sub detection )
-		air_superiority = 0
 		reliability = 0.8
 		manpower = 40
 		fuel_consumption = 0.26

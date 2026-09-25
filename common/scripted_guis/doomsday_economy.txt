@@ -150,6 +150,7 @@ scripted_gui = {
 				dd_merc_on_offer_tab = yes
 				has_variable = dd_merc_bid_0
 			}
+			dd_merc_accept_0_click_enabled = { dd_merc_has_listed_division = yes }
 			dd_merc_reject_0_visible = {
 				dd_merc_on_offer_tab = yes
 				has_variable = dd_merc_bid_0
@@ -162,6 +163,7 @@ scripted_gui = {
 				dd_merc_on_offer_tab = yes
 				has_variable = dd_merc_bid_1
 			}
+			dd_merc_accept_1_click_enabled = { dd_merc_has_listed_division = yes }
 			dd_merc_reject_1_visible = {
 				dd_merc_on_offer_tab = yes
 				has_variable = dd_merc_bid_1
@@ -174,6 +176,7 @@ scripted_gui = {
 				dd_merc_on_offer_tab = yes
 				has_variable = dd_merc_bid_2
 			}
+			dd_merc_accept_2_click_enabled = { dd_merc_has_listed_division = yes }
 			dd_merc_reject_2_visible = {
 				dd_merc_on_offer_tab = yes
 				has_variable = dd_merc_bid_2
@@ -186,6 +189,7 @@ scripted_gui = {
 				dd_merc_on_offer_tab = yes
 				has_variable = dd_merc_bid_3
 			}
+			dd_merc_accept_3_click_enabled = { dd_merc_has_listed_division = yes }
 			dd_merc_reject_3_visible = {
 				dd_merc_on_offer_tab = yes
 				has_variable = dd_merc_bid_3
@@ -217,6 +221,7 @@ scripted_gui = {
 			dd_merc_hire_0_click_enabled = {
 				dd_merc_can_request = yes
 				NOT = { check_variable = { treasury < global.dd_merc_0_price } }
+				var:global.dd_merc_0_tag = { dd_merc_has_listed_division = yes }
 			}
 
 			dd_merc_card_1_bg_visible = { dd_merc_on_hire_tab = yes dd_merc_slot_1_open = yes }
@@ -231,6 +236,7 @@ scripted_gui = {
 			dd_merc_hire_1_click_enabled = {
 				dd_merc_can_request = yes
 				NOT = { check_variable = { treasury < global.dd_merc_1_price } }
+				var:global.dd_merc_1_tag = { dd_merc_has_listed_division = yes }
 			}
 
 			dd_merc_card_2_bg_visible = { dd_merc_on_hire_tab = yes dd_merc_slot_2_open = yes }
@@ -245,6 +251,7 @@ scripted_gui = {
 			dd_merc_hire_2_click_enabled = {
 				dd_merc_can_request = yes
 				NOT = { check_variable = { treasury < global.dd_merc_2_price } }
+				var:global.dd_merc_2_tag = { dd_merc_has_listed_division = yes }
 			}
 
 			dd_merc_card_3_bg_visible = { dd_merc_on_hire_tab = yes dd_merc_slot_3_open = yes }
@@ -259,6 +266,7 @@ scripted_gui = {
 			dd_merc_hire_3_click_enabled = {
 				dd_merc_can_request = yes
 				NOT = { check_variable = { treasury < global.dd_merc_3_price } }
+				var:global.dd_merc_3_tag = { dd_merc_has_listed_division = yes }
 			}
 
 			dd_merc_card_4_bg_visible = { dd_merc_on_hire_tab = yes dd_merc_slot_4_open = yes }
@@ -273,6 +281,7 @@ scripted_gui = {
 			dd_merc_hire_4_click_enabled = {
 				dd_merc_can_request = yes
 				NOT = { check_variable = { treasury < global.dd_merc_4_price } }
+				var:global.dd_merc_4_tag = { dd_merc_has_listed_division = yes }
 			}
 
 			dd_merc_card_5_bg_visible = { dd_merc_on_hire_tab = yes dd_merc_slot_5_open = yes }
@@ -287,6 +296,7 @@ scripted_gui = {
 			dd_merc_hire_5_click_enabled = {
 				dd_merc_can_request = yes
 				NOT = { check_variable = { treasury < global.dd_merc_5_price } }
+				var:global.dd_merc_5_tag = { dd_merc_has_listed_division = yes }
 			}
 
 			dd_merc_card_6_bg_visible = { dd_merc_on_hire_tab = yes dd_merc_slot_6_open = yes }
@@ -301,6 +311,7 @@ scripted_gui = {
 			dd_merc_hire_6_click_enabled = {
 				dd_merc_can_request = yes
 				NOT = { check_variable = { treasury < global.dd_merc_6_price } }
+				var:global.dd_merc_6_tag = { dd_merc_has_listed_division = yes }
 			}
 
 			dd_merc_card_7_bg_visible = { dd_merc_on_hire_tab = yes dd_merc_slot_7_open = yes }
@@ -315,6 +326,7 @@ scripted_gui = {
 			dd_merc_hire_7_click_enabled = {
 				dd_merc_can_request = yes
 				NOT = { check_variable = { treasury < global.dd_merc_7_price } }
+				var:global.dd_merc_7_tag = { dd_merc_has_listed_division = yes }
 			}
 		}
 	}
@@ -329,9 +341,10 @@ scripted_gui = {
 		}
 		dynamic_lists = {
 			dd_merc_tpl_grid = {
-				array = dd_merc_tpls
+				array = dd_merc_states
 				entry_container = dd_merc_tpl_entry
-				index = dd_merc_tpl_i
+				index = dd_merc_div_i
+				value = dd_merc_row_state
 				change_scope = no
 			}
 		}
@@ -339,7 +352,16 @@ scripted_gui = {
 			dd_merc_picker_close_click = { clr_country_flag = dd_merc_picking_tpl }
 			dd_merc_picker_back_click = { clr_country_flag = dd_merc_picking_tpl }
 			dd_merc_tpl_pick_click = {
-				set_variable = { dd_merc_tpl = dd_merc_tpls^dd_merc_tpl_i }
+				set_variable = { dd_merc_pick_uid = dd_merc_uids^dd_merc_div_i }
+				set_variable = { dd_merc_sel_kind = dd_merc_kinds^dd_merc_div_i }
+				set_variable = { dd_merc_sel_ord = dd_merc_ords^dd_merc_div_i }
+				set_variable = { dd_merc_sel_org = dd_merc_orgs^dd_merc_div_i }
+				set_variable = { dd_merc_sel_state = dd_merc_states^dd_merc_div_i }
+				set_variable = { dd_merc_tpl = dd_merc_sel_kind }
+				if = {
+					limit = { check_variable = { dd_merc_tpl > 7 } }
+					set_variable = { dd_merc_tpl = 1 }
+				}
 				clr_country_flag = dd_merc_picking_tpl
 			}
 		}

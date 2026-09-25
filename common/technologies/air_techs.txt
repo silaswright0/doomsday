@@ -1346,9 +1346,13 @@ technologies = {
 			leads_to_tech = scout_plane2
 			research_cost_coeff = 1
 		}
-		allow_branch = { has_dlc = "La Resistance" }
+		allow_branch = { always = yes }
 		research_cost = 2
 		start_year = 1936
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 4 }
+		}
 		
 		categories = {
 			medium_air

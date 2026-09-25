@@ -1142,9 +1142,9 @@ def character_block(tag: str, ndiv: int, force: tuple[int, ...]) -> str:
             f"	{cid} = {{\n"
             f'		name = "{label}"\n'
             "		portraits = {\n"
-            "			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }\n"
-            "			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }\n"
-            "			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }\n"
+            "			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }\n"
+            "			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }\n"
+            "			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }\n"
             "		}\n"
             "		advisor = {\n"
             f"			slot = {slot}\n"
@@ -1392,6 +1392,17 @@ def write_sidecars(countries: dict, tags: list[str], bits: dict) -> None:
         (DATA_DIR / "SOURCES.md").write_text(sources.rstrip() + "\n" + extra, encoding="utf-8")
 
 
+_PROD: dict[str, float] | None = None
+
+
+def productivity_for(tag: str) -> float:
+    global _PROD
+    if _PROD is None:
+        from productivity import all_productivity
+        _PROD = all_productivity()
+    return _PROD.get(tag, 1.0)
+
+
 def history_bits(tag: str, row: dict | None) -> dict:
     ideology = resolve(tag, (row or {}).get("ideology") or "", (row or {}).get("subideology") or "")
     last, freq, allowed = election_fields(tag, row, ideology)
@@ -1407,6 +1418,7 @@ def history_bits(tag: str, row: dict | None) -> dict:
         "ideas": policies_for(tag, ideology, row),
         "debt": debt,
         "treasury": treasury,
+        "prod": productivity_for(tag),
         "extra_techs": extra_techs(tag),
         "stab": 0.90,
         "ws": 0.70,
