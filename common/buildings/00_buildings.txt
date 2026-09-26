@@ -359,11 +359,11 @@ buildings = {
 	}
 
 	# Doomsday economy buildings. Cost order civ > finance > renewable > services.
-	# Construction strip only has frames 1-31; unique icons need frames 32+ and a longer GFX_buildings_strip.
+	# Frames 32-34 on GFX_buildings_strip: services, finance, renewable.
 	finance_center = {
 		show_on_map = 1
 		base_cost = 7200
-		icon_frame = 14
+		icon_frame = 33
 		value = 6
 		infrastructure_construction_effect = yes
 		level_cap = {
@@ -375,7 +375,7 @@ buildings = {
 	services_building = {
 		show_on_map = 1
 		base_cost = 3200
-		icon_frame = 1
+		icon_frame = 32
 		value = 3
 		infrastructure_construction_effect = yes
 		level_cap = {
@@ -387,7 +387,7 @@ buildings = {
 	renewable_park = {
 		show_on_map = 1
 		base_cost = 4800
-		icon_frame = 10
+		icon_frame = 34
 		value = 4
 		infrastructure_construction_effect = yes
 		affects_energy = yes

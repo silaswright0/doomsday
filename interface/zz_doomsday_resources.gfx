@@ -1,4 +1,7 @@
 spriteTypes = {
+	# Must sort after interface/general_stuff.gfx. That file also defines
+	# these sprites with noOfFrames = 7, and the later filename wins.
+	# 12 resources, 27px each, on a 324px strip.
 	spriteType = {
 		name = "GFX_resources_strip"
 		texturefile = "gfx/interface/resources_strip.dds"

@@ -205,6 +205,24 @@ country_event = {
 	}
 }
 
+# Flawless coup against a human. AI never receives this; AI coups are applied directly.
+country_event = {
+	id = doomsday_intel.30
+	title = doomsday_intel.30.t
+	desc = doomsday_intel.30.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = doomsday_intel.30.a
+		dd_intel_coup_player_accept = yes
+	}
+	option = {
+		name = doomsday_intel.30.b
+		dd_intel_coup_player_fight = yes
+	}
+}
+
 # Steal Technology clicked when no other country has a listed tech this country lacks.
 country_event = {
 	id = doomsday_intel.22

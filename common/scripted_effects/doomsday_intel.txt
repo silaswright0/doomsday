@@ -203,6 +203,14 @@ dd_intel_cmd_sync_stats = {
 			set_variable = { ROOT.dd_intel_cmd_pln = planning_skill_level }
 			set_variable = { ROOT.dd_intel_cmd_log = logistics_skill_level }
 		}
+		# 90% at skill 0, minus 10% per skill level. Shown on the confirm button.
+		set_variable = { dd_intel_kill_pct = 9 }
+		subtract_from_variable = { dd_intel_kill_pct = dd_intel_cmd_skill }
+		if = {
+			limit = { check_variable = { dd_intel_kill_pct < 0 } }
+			set_variable = { dd_intel_kill_pct = 0 }
+		}
+		multiply_variable = { dd_intel_kill_pct = 10 }
 	}
 }
 
@@ -239,7 +247,7 @@ dd_intel_cmd_cancel = {
 }
 
 dd_intel_assassinate_confirm = {
-	# 80% success (d10 0-7). Kill selected commander from pool.
+	# 90% at skill 0, minus 10% per skill level (d10). Kill selected commander.
 	clr_country_flag = dd_intel_kill_success
 	set_temp_variable = { dd_intel_roll = num_owned_states }
 	add_to_temp_variable = { dd_intel_roll = num_divisions }
@@ -250,9 +258,12 @@ dd_intel_assassinate_confirm = {
 		add_to_temp_variable = { PREV.dd_intel_roll = num_divisions }
 	}
 	modulo_temp_variable = { dd_intel_roll = 10 }
+	set_temp_variable = { dd_kill_need = 9 }
+	subtract_from_temp_variable = { dd_kill_need = dd_intel_cmd_skill }
 	if = {
 		limit = {
-			check_variable = { dd_intel_roll < 8 }
+			check_variable = { dd_kill_need > 0 }
+			check_variable = { dd_intel_roll < dd_kill_need }
 			check_variable = { dd_intel_cmd_pool^num > 0 }
 		}
 		set_temp_variable = { dd_kill_leader = dd_intel_cmd_pool^dd_intel_cmd_idx }
@@ -988,16 +999,17 @@ dd_intel_coup_fail = {
 }
 
 dd_intel_coup_civil_war = {
-	# 25% of the country (army + states) rises as a junta civil-war sibling.
+	# 40% of the army and the states rise. The government keeps 60%.
 	FROM = {
 		owner = {
 		add_popularity = {
 			ideology = military_junta
-			popularity = 0.25
+			popularity = 0.40
 		}
 		start_civil_war = {
 			ideology = military_junta
-			size = 0.25
+			size = 0.40
+			army_ratio = 0.40
 		}
 		every_enemy_country = {
 			limit = {
@@ -1014,12 +1026,102 @@ dd_intel_coup_civil_war = {
 	}
 }
 
+# Target country scope. Sponsor is dd_intel_coup_sponsor. Player accepted the junta.
+dd_intel_coup_player_accept = {
+	set_politics = {
+		ruling_party = military_junta
+		elections_allowed = no
+	}
+	add_popularity = {
+		ideology = military_junta
+		popularity = 0.40
+	}
+	add_stability = -0.10
+	add_war_support = 0.05
+	if = {
+		limit = {
+			has_variable = dd_intel_coup_sponsor
+			NOT = { tag = var:dd_intel_coup_sponsor }
+		}
+		add_opinion_modifier = {
+			target = var:dd_intel_coup_sponsor
+			modifier = dd_intel_sponsored
+		}
+		var:dd_intel_coup_sponsor = {
+			add_opinion_modifier = {
+				target = PREV
+				modifier = dd_intel_sponsored
+			}
+		}
+	}
+	news_event = { id = doomsday_intel.7 hours = 2 }
+	clear_variable = dd_intel_coup_sponsor
+}
+
+# Target country scope. Player keeps the government and a junta rises.
+dd_intel_coup_player_fight = {
+	add_popularity = {
+		ideology = military_junta
+		popularity = 0.40
+	}
+	start_civil_war = {
+		ideology = military_junta
+		size = 0.40
+		army_ratio = 0.40
+	}
+	every_enemy_country = {
+		limit = {
+			original_tag = PREV
+			has_government = military_junta
+		}
+		set_cosmetic_tag = DD_COUP_REB
+		set_country_flag = dd_intel_coup_rebels
+		set_variable = { dd_intel_tier = 0 }
+		if = {
+			limit = { PREV = { has_variable = dd_intel_coup_sponsor } }
+			set_variable = { dd_intel_coup_sponsor = PREV.dd_intel_coup_sponsor }
+		}
+		if = {
+			limit = {
+				has_variable = dd_intel_coup_sponsor
+				NOT = { tag = var:dd_intel_coup_sponsor }
+			}
+			add_opinion_modifier = {
+				target = var:dd_intel_coup_sponsor
+				modifier = dd_intel_sponsored
+			}
+			var:dd_intel_coup_sponsor = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = dd_intel_sponsored
+				}
+			}
+		}
+		clear_variable = dd_intel_coup_sponsor
+	}
+	news_event = { id = doomsday_intel.9 hours = 2 }
+	clear_variable = dd_intel_coup_sponsor
+}
+
 dd_intel_coup_resolve = {
-	# d10: 0-2 success (30%), 3-7 fail (50%), 8-9 civil war (20%).
+	# d10: 0-2 flawless (30%), 3-7 fail (50%), 8-9 civil war (20%).
+	# A flawless coup against a player asks them to accept or fight. AI always accepts.
+	# That choice is separate from the 20% civil-war roll.
 	dd_intel_det_d10 = yes
 	if = {
 		limit = { check_variable = { dd_intel_roll < 3 } }
-		dd_intel_coup_success = yes
+		if = {
+			limit = { FROM = { owner = { is_ai = no } } }
+			FROM = {
+				owner = {
+					set_variable = { dd_intel_coup_sponsor = ROOT }
+					country_event = { id = doomsday_intel.30 }
+				}
+			}
+		}
+		else = {
+			dd_intel_coup_success = yes
+		}
 	}
 	else_if = {
 		limit = { check_variable = { dd_intel_roll < 8 } }

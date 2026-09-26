@@ -10,6 +10,11 @@ dd_intel_can_target = {
 	}
 }
 
+# Coup map target. THIS = country. Stability is 0–1. Below 60% only.
+dd_intel_coup_unstable = {
+	check_variable = { stability < 0.6 }
+}
+
 # T1-only missions: no agency on target (self always has an agency — allow self separately).
 dd_intel_target_t1_exclusive = {
 	dd_intel_can_target = yes

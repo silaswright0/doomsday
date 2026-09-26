@@ -217,15 +217,21 @@ doomsday_intel_category = {
 				owner = {
 					dd_intel_target_t1_exclusive = yes
 					check_variable = { num_owned_states > 1 }
+					dd_intel_coup_unstable = yes
 				}
 			}
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
-			subtract_from_variable = { treasury = 4.0 }
-			dd_intel_finish_select = yes
-			dd_intel_coup_resolve = yes
+			if = {
+				limit = {
+					FROM = { owner = { dd_intel_coup_unstable = yes } }
+				}
+				subtract_from_variable = { treasury = 4.0 }
+				dd_intel_finish_select = yes
+				dd_intel_coup_resolve = yes
+			}
 		}
 	}
 
