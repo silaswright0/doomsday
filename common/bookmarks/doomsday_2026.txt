@@ -27,14 +27,14 @@ bookmarks = {
 				construction_effort
 			}
 		}
-		"ENG"={
-			history = "ENG_DOOMSDAY_DESC"
-			ideology = social_democracy
+		"CHI"={
+			history = "CHI_DOOMSDAY_DESC"
+			ideology = state_socialism
 			ideas = { }
 			focuses = {
 				industrial_effort
-				naval_effort
-				aviation_effort
+				army_effort
+				construction_effort
 			}
 		}
 		"FRA"={
@@ -47,9 +47,9 @@ bookmarks = {
 				naval_effort
 			}
 		}
-		"GER"={
-			history = "GER_DOOMSDAY_DESC"
-			ideology = liberal_conservatism
+		"RAJ"={
+			history = "RAJ_DOOMSDAY_DESC"
+			ideology = national_populism
 			ideas = { }
 			focuses = {
 				industrial_effort
@@ -57,24 +57,24 @@ bookmarks = {
 				production_effort
 			}
 		}
-		"ITA"={
-			history = "ITA_DOOMSDAY_DESC"
+		"ISR"={
+			history = "ISR_DOOMSDAY_DESC"
 			ideology = national_populism
 			ideas = { }
 			focuses = {
 				industrial_effort
 				army_effort
-				naval_effort
+				aviation_effort
 			}
 		}
-		"JAP"={
-			history = "JAP_DOOMSDAY_DESC"
-			ideology = liberal_conservatism
+		"PER"={
+			history = "PER_DOOMSDAY_DESC"
+			ideology = theocratic_absolutism
 			ideas = { }
 			focuses = {
 				industrial_effort
-				naval_effort
-				aviation_effort
+				army_effort
+				production_effort
 			}
 		}
 		"---"={
