@@ -1,11 +1,9 @@
 # Ethiopia - Doomsday 2026
 capital = 271
-SML = {
-	diplomatic_relation = {
-		country = ETH
-		relation = docking_rights
-		active = yes
-	}
+diplomatic_relation = {
+	country = SML
+	relation = docking_rights
+	active = yes
 }
 oob = "ETH_2026"
 set_research_slots = 2

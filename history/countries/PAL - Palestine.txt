@@ -386,13 +386,7 @@ set_popularities = {
 set_variable = { debt = 4.0000 }
 set_variable = { treasury = 1.0000 }
 set_variable = { dd_prod = 0.5161 }
-create_country_leader = {
-	name = "Mahmoud Abbas"
-	desc = PAL_LEADER_DESC
-	picture = GFX_portrait_PAL_leader
-	ideology = oligarch
-	traits = { }
-}
+recruit_character = PAL_mahmoud_abbas
 recruit_character = PAL_john_army
 recruit_character = PAL_john_airforce
 recruit_character = PAL_john_navy

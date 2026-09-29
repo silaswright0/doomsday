@@ -1007,6 +1007,19 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	PAL_mahmoud_abbas = {
+		name = "Mahmoud Abbas"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_PAL_leader
+				small = GFX_portrait_PAL_leader
+			}
+		}
+		country_leader = {
+			ideology = oligarch
+			desc = PAL_LEADER_DESC
+		}
+	}
 	PAL_john_army = {
 		name = "John Army"
 		portraits = {

@@ -3,6 +3,36 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			# History add_ideas skips idea on_add, so these factories are granted here.
+			# Flag-guarded: on_startup also runs when a save is loaded.
+			SUD = {
+				if = {
+					limit = {
+						has_idea = dd_compromised_by_islamists
+						NOT = { has_country_flag = dd_islamist_mils_granted }
+					}
+					set_country_flag = dd_islamist_mils_granted
+					add_offsite_building = { type = arms_factory level = 1 }
+				}
+			}
+			WES = {
+				if = {
+					limit = {
+						has_idea = dd_algerian_support
+						NOT = { has_country_flag = dd_algerian_mils_granted }
+					}
+					set_country_flag = dd_algerian_mils_granted
+					add_offsite_building = { type = arms_factory level = 2 }
+				}
+			}
+			# set_autonomy spawns a blank leader on the puppet. Put Abbas back once.
+			PAL = {
+				if = {
+					limit = { NOT = { has_country_flag = dd_pal_abbas_promoted } }
+					set_country_flag = dd_pal_abbas_promoted
+					promote_character = PAL_mahmoud_abbas
+				}
+			}
 			# Hide leftover vanilla NATO decisions (date > 1944). Same PP cost
 			# as the 24 Jan crash; complete_effect still fired missing events.
 			set_global_flag = brussels_to_fired

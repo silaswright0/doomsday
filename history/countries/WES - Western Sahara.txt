@@ -1,6 +1,6 @@
 # Western Sahara - Doomsday 2026
 capital = 1118
-oob = "DOOMSDAY_EMPTY"
+oob = "WES_2026"
 set_research_slots = 1
 set_stability = 0.90
 set_war_support = 0.70
@@ -350,7 +350,9 @@ set_technology = {
 	dd_uav_3 = 1
 	dd_vls_1 = 1
 	dd_wpn_1 = 1
+	militia_tech = 1
 }
+add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1200 producer = WES }
 set_politics = {
 	ruling_party = left_wing_nationalism
 	last_election = "2024.1.1"
@@ -384,3 +386,4 @@ add_named_threat = {
 	threat = 1
 	name = DD_THREAT_WESTERN_SAHARA
 }
+add_ideas = dd_algerian_support

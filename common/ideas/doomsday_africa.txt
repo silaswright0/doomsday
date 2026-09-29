@@ -69,12 +69,6 @@ ideas = {
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			on_add = {
-				add_offsite_building = {
-					type = arms_factory
-					level = 1
-				}
-			}
 			modifier = {
 				army_org_factor = 0.05
 				army_attack_factor = 0.05
@@ -124,6 +118,27 @@ ideas = {
 				improve_relations_maintain_cost_factor = 0.75
 				opinion_gain_monthly = -0.40
 				trade_opinion_factor = -0.50
+			}
+		}
+		dd_international_attention = {
+			picture = generic_spy_political
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.1
+				war_support_factor = -0.10
+				army_attack_factor = -0.20
+			}
+		}
+		dd_algerian_support = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.10
+				army_org_factor = 0.10
 			}
 		}
 	}
