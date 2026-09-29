@@ -1,0 +1,28 @@
+state = {
+	id = 1122
+	name = "STATE_1122"
+	manpower = 3268604
+	state_category = city
+	history = {
+		owner = AWN
+		add_core_of = AWN
+		add_core_of = SUD
+		add_core_of = RSF
+		victory_points = {
+			5060 3
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 0
+			arms_factory = 0
+
+5060 = {
+				supply_node = 1
+			}
+		}
+	}
+	provinces = {
+		5060
+	}
+	local_supplies = 0.0
+}

@@ -365,6 +365,7 @@ add_ideas = dd_security_4
 add_ideas = dd_healthcare_2
 add_ideas = dd_labor_3
 add_ideas = dd_fertility_3
+add_ideas = dd_jihadist_insurgents
 add_ideas = dd_aid_1
 add_ideas = dd_religion_3
 add_ideas = dd_media_2
@@ -398,3 +399,11 @@ recruit_character = CMR_john_army
 recruit_character = CMR_john_airforce
 recruit_character = CMR_john_navy
 recruit_character = CMR_gen_field_command
+declare_war_on = {
+	target = AMB
+	type = annex_everything
+}
+add_named_threat = {
+	threat = 1
+	name = DD_THREAT_AMBAZONIA
+}

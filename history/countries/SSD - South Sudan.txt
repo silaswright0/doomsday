@@ -399,11 +399,3 @@ recruit_character = SSD_john_airforce
 recruit_character = SSD_john_navy
 recruit_character = SSD_fm_army_command
 recruit_character = SSD_gen_field_command
-declare_war_on = {
-	target = SIO
-	type = annex_everything
-}
-add_named_threat = {
-	threat = 1
-	name = DD_THREAT_SOUTH_SUDAN
-}

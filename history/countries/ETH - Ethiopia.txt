@@ -1,5 +1,12 @@
 # Ethiopia - Doomsday 2026
 capital = 271
+SML = {
+	diplomatic_relation = {
+		country = ETH
+		relation = docking_rights
+		active = yes
+	}
+}
 oob = "ETH_2026"
 set_research_slots = 2
 set_stability = 0.90
@@ -367,6 +374,8 @@ add_ideas = dd_security_4
 add_ideas = dd_healthcare_2
 add_ideas = dd_labor_3
 add_ideas = dd_fertility_2
+add_ideas = dd_fragile_peace
+add_ideas = dd_berbera_access
 add_ideas = dd_aid_1
 add_ideas = dd_religion_2
 add_ideas = dd_media_3

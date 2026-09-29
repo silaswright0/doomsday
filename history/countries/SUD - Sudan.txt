@@ -367,6 +367,7 @@ add_ideas = dd_security_5
 add_ideas = dd_healthcare_1
 add_ideas = dd_labor_2
 add_ideas = dd_fertility_2
+add_ideas = dd_compromised_by_islamists
 add_ideas = dd_aid_1
 add_ideas = dd_religion_2
 add_ideas = dd_media_2
@@ -404,6 +405,10 @@ recruit_character = SUD_gen_field_command
 recruit_character = SUD_gen_corps_command
 declare_war_on = {
 	target = RSF
+	type = annex_everything
+}
+declare_war_on = {
+	target = HLW
 	type = annex_everything
 }
 add_named_threat = {
