@@ -1,0 +1,15 @@
+#!/bin/sh
+# Every commit lists both authors. Git strips a duplicate trailer.
+MSG="$1"
+USER_TRAILER="Co-authored-by: silaswright0 <sir_silas123@outlook.com>"
+CURSOR_TRAILER="Co-authored-by: Cursor <cursoragent@cursor.com>"
+
+add_if_missing() {
+	trailer="$1"
+	if ! grep -F -q -e "$trailer" "$MSG"; then
+		git interpret-trailers --in-place --trailer "$trailer" "$MSG"
+	fi
+}
+
+add_if_missing "$USER_TRAILER"
+add_if_missing "$CURSOR_TRAILER"
