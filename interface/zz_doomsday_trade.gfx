@@ -1,0 +1,13 @@
+spriteTypes = {
+	# Loads after countrytradeview.gfx so this definition wins.
+	# Vanilla is a fixed 648px frame (3 states side by side). The trade
+	# list is wider than that, so tile the middle and keep the end caps.
+	corneredTileSpriteType = {
+		name = "GFX_country_trade_entry_bg_wide"
+		size = { x = 648 y = 45 }
+		textureFile = "gfx/interface/tradeview/country_trade_entry_bg_wide.dds"
+		borderSize = { x = 20 y = 6 }
+		tilingCenter = yes
+		noofframes = 3
+	}
+}

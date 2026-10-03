@@ -13,10 +13,13 @@ NDefines.NAI.MIN_FACTORIES_TO_WANT_TO_IMPORT = {
 	0, -- tungsten
 	0, -- steel
 	0, -- chromium
-	10, -- coal
+	0, -- titanium
 	0, -- rare_earths
 	0, -- lithium
 	0, -- cobalt
 	0, -- copper
 	0, -- graphite
+	0, -- uranium
+	0, -- microchips
+	10, -- coal
 }

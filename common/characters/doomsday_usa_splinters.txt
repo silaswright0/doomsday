@@ -1,0 +1,20 @@
+characters = {
+	AOG_pete_hegseth = {
+		name = "Pete Hegseth"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown }
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		country_leader = {
+			ideology = theocrat
+			expire = "1965.1.1"
+		}
+		corps_commander = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+}

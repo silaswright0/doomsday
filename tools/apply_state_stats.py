@@ -38,6 +38,9 @@ RESOURCE_KEYS = (
     "cobalt",
     "copper",
     "graphite",
+    "titanium",
+    "uranium",
+    "microchips",
 )
 STATE_BUILDINGS = (
     "infrastructure",

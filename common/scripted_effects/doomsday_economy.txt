@@ -185,13 +185,21 @@ dd_apply_rates = {
 	set_variable = { dd_w_civ = 8 }
 	set_variable = { dd_w_mil = 4 }
 	set_variable = { dd_w_dock = 6 }
-	set_variable = { dd_w_fin = 12 }
+	# A financial centre is local. Base, plus civilian factories in that state, plus services there.
+	# Caps stop one megacity from minting points. Services stay a flat 5 and are cheap to build.
+	set_variable = { dd_fin_base = 6 }
+	set_variable = { dd_fin_civ_cap = 8 }
+	set_variable = { dd_fin_srv_cap = 4 }
 	set_variable = { dd_w_srv = 5 }
-	# Tax law is a share of yearly GDP. None / low / standard / high / choke.
+	# Tax law is a share of yearly GDP. No Taxes is sales and tax on foreign firms, not a wage tax.
+	set_variable = { dd_tax_share_1 = 0.03 }
 	set_variable = { dd_tax_share_2 = 0.18 }
 	set_variable = { dd_tax_share_3 = 0.22 }
 	set_variable = { dd_tax_share_4 = 0.28 }
 	set_variable = { dd_tax_share_5 = 0.34 }
+	# Oil spirit: billions per controlled oil unit per month. Checkpoint spirit is a flat monthly sum.
+	set_variable = { dd_oil_rent = 0.05 }
+	set_variable = { dd_checkpoint_income = 0.02 }
 	# Core state, before policy tiers. Policy adds more shares of GDP.
 	set_variable = { dd_spend_base = 0.05 }
 	# 3% a year on the debt stock (US Treasury average coupon is ~3.3% in 2026).
@@ -335,6 +343,10 @@ dd_refresh_usd_display = {
 	multiply_variable = { dd_fin_m = 1000 }
 	set_variable = { dd_srv_m = income_services }
 	multiply_variable = { dd_srv_m = 1000 }
+	set_variable = { dd_oil_m = dd_income_oil }
+	multiply_variable = { dd_oil_m = 1000 }
+	set_variable = { dd_checkpoint_m = dd_income_checkpoint }
+	multiply_variable = { dd_checkpoint_m = 1000 }
 	set_variable = { dd_pol_m = expense_policy }
 	multiply_variable = { dd_pol_m = 1000 }
 	set_variable = { dd_adm_m = expense_admin }
@@ -348,61 +360,1707 @@ dd_refresh_usd_display = {
 }
 
 dd_refresh_market_counts = {
-	set_variable = { dd_stock_amphibious_mechanized_eq = num_equipment@amphibious_mechanized_equipment }
-	set_variable = { dd_stock_amphibious_tank_chassis = num_equipment@amphibious_tank_chassis }
-	set_variable = { dd_stock_anti_air_eq = num_equipment@anti_air_equipment }
-	set_variable = { dd_stock_anti_tank_eq = num_equipment@anti_tank_equipment }
-	set_variable = { dd_stock_armored_car_eq = num_equipment@armored_car_equipment }
-	set_variable = { dd_stock_armored_support_vehicle = num_equipment@armored_support_vehicle }
-	set_variable = { dd_stock_artillery_eq = num_equipment@artillery_equipment }
-	set_variable = { dd_stock_dew_eq = num_equipment@dew_equipment }
-	set_variable = { dd_stock_heavy_tank_chassis = num_equipment@heavy_tank_chassis }
-	set_variable = { dd_stock_helicopter_eq = num_equipment@helicopter_equipment }
-	set_variable = { dd_stock_infantry_eq = num_equipment@infantry_equipment }
-	set_variable = { dd_stock_land_cruiser_chassis = num_equipment@land_cruiser_chassis }
-	set_variable = { dd_stock_light_tank_chassis = num_equipment@light_tank_chassis }
-	set_variable = { dd_stock_manpads_eq = num_equipment@manpads_equipment }
-	set_variable = { dd_stock_mechanized_eq = num_equipment@mechanized_equipment }
-	set_variable = { dd_stock_medium_tank_chassis = num_equipment@medium_tank_chassis }
-	set_variable = { dd_stock_modern_tank_chassis = num_equipment@modern_tank_chassis }
-	set_variable = { dd_stock_motorbike_eq = num_equipment@motorbike_equipment }
-	set_variable = { dd_stock_motorized_eq = num_equipment@motorized_equipment }
-	set_variable = { dd_stock_motorized_rocket_eq = num_equipment@motorized_rocket_equipment }
-	set_variable = { dd_stock_prsm_eq = num_equipment@prsm_equipment }
-	set_variable = { dd_stock_railway_gun_eq = num_equipment@railway_gun_equipment }
-	set_variable = { dd_stock_rocket_artillery_eq = num_equipment@rocket_artillery_equipment }
-	set_variable = { dd_stock_self_propelled_super_heavy_artillery_eq = num_equipment@self_propelled_super_heavy_artillery_equipment }
-	set_variable = { dd_stock_spg_eq = num_equipment@spg_equipment }
-	set_variable = { dd_stock_super_heavy_artillery_eq = num_equipment@super_heavy_artillery_equipment }
-	set_variable = { dd_stock_super_heavy_railway_gun_eq = num_equipment@super_heavy_railway_gun_equipment }
-	set_variable = { dd_stock_super_heavy_tank_chassis = num_equipment@super_heavy_tank_chassis }
-	set_variable = { dd_stock_support_eq = num_equipment@support_equipment }
-	set_variable = { dd_stock_train_eq = num_equipment@train_equipment }
-	set_variable = { dd_stock_ballistic_missile_eq = num_equipment@ballistic_missile_equipment }
-	set_variable = { dd_stock_cv_small_plane_airframe = num_equipment@cv_small_plane_airframe }
-	set_variable = { dd_stock_explosive_ammo_eq = num_equipment@explosive_ammo_equipment }
-	set_variable = { dd_stock_guided_missile_eq = num_equipment@guided_missile_equipment }
-	set_variable = { dd_stock_hypersonic_missile_eq = num_equipment@hypersonic_missile_equipment }
-	set_variable = { dd_stock_large_plane_airframe = num_equipment@large_plane_airframe }
-	set_variable = { dd_stock_loitering_munition_eq = num_equipment@loitering_munition_equipment }
-	set_variable = { dd_stock_medium_plane_airframe = num_equipment@medium_plane_airframe }
-	set_variable = { dd_stock_nuclear_missile_eq = num_equipment@nuclear_missile_equipment }
-	set_variable = { dd_stock_recon_uav_eq = num_equipment@recon_uav_equipment }
-	set_variable = { dd_stock_sam_missile_eq = num_equipment@sam_missile_equipment }
-	set_variable = { dd_stock_small_plane_airframe = num_equipment@small_plane_airframe }
-	set_variable = { dd_stock_strat_bomber_intercontinental_eq = num_equipment@strat_bomber_intercontinental_equipment }
-	set_variable = { dd_stock_strike_uav_eq = num_equipment@strike_uav_equipment }
-	set_variable = { dd_stock_transport_heli_eq = num_equipment@transport_heli_equipment }
-	set_variable = { dd_stock_transport_plane_eq = num_equipment@transport_plane_equipment }
-	set_variable = { dd_stock_convoy = num_equipment@convoy }
-	set_variable = { dd_stock_floating_harbor_eq = num_equipment@floating_harbor_equipment }
-	set_variable = { dd_stock_repair_ship_hull = num_equipment@repair_ship_hull }
-	set_variable = { dd_stock_ship_hull_carrier = num_equipment@ship_hull_carrier }
-	set_variable = { dd_stock_ship_hull_cruiser = num_equipment@ship_hull_cruiser }
-	set_variable = { dd_stock_ship_hull_heavy = num_equipment@ship_hull_heavy }
-	set_variable = { dd_stock_ship_hull_light = num_equipment@ship_hull_light }
-	set_variable = { dd_stock_ship_hull_submarine = num_equipment@ship_hull_submarine }
-	set_variable = { dd_stock_support_ship_hull = num_equipment@support_ship_hull }
+	if = {
+		limit = { check_variable = { dd_my_ask_amphibious_mechanized_eq_1 < 1 } }
+		set_variable = { dd_my_ask_amphibious_mechanized_eq_1 = 2 }
+	}
+	set_variable = { dd_stock_amphibious_mechanized_eq_1 = num_equipment@amphibious_mechanized_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_amphibious_mechanized_eq_2 < 1 } }
+		set_variable = { dd_my_ask_amphibious_mechanized_eq_2 = 3 }
+	}
+	set_variable = { dd_stock_amphibious_mechanized_eq_2 = num_equipment@amphibious_mechanized_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_amphibious_tank_chassis_1 < 1 } }
+		set_variable = { dd_my_ask_amphibious_tank_chassis_1 = 1 }
+	}
+	set_variable = { dd_stock_amphibious_tank_chassis_1 = num_equipment@amphibious_tank_chassis_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_air_eq_1 < 1 } }
+		set_variable = { dd_my_ask_anti_air_eq_1 = 3 }
+	}
+	set_variable = { dd_stock_anti_air_eq_1 = num_equipment@anti_air_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_air_eq_2 < 1 } }
+		set_variable = { dd_my_ask_anti_air_eq_2 = 4 }
+	}
+	set_variable = { dd_stock_anti_air_eq_2 = num_equipment@anti_air_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_air_eq_3 < 1 } }
+		set_variable = { dd_my_ask_anti_air_eq_3 = 5 }
+	}
+	set_variable = { dd_stock_anti_air_eq_3 = num_equipment@anti_air_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_air_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_anti_air_eq_cw1 = 6 }
+	}
+	set_variable = { dd_stock_anti_air_eq_cw1 = num_equipment@anti_air_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_sam_eq_1 < 1 } }
+		set_variable = { dd_my_ask_sam_eq_1 = 16 }
+	}
+	set_variable = { dd_stock_sam_eq_1 = num_equipment@sam_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spaa_eq_1 < 1 } }
+		set_variable = { dd_my_ask_spaa_eq_1 = 7 }
+	}
+	set_variable = { dd_stock_spaa_eq_1 = num_equipment@spaa_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_shorad_eq_1 < 1 } }
+		set_variable = { dd_my_ask_shorad_eq_1 = 9 }
+	}
+	set_variable = { dd_stock_shorad_eq_1 = num_equipment@shorad_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spaa_eq_2 < 1 } }
+		set_variable = { dd_my_ask_spaa_eq_2 = 8 }
+	}
+	set_variable = { dd_stock_spaa_eq_2 = num_equipment@spaa_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_sam_eq_2 < 1 } }
+		set_variable = { dd_my_ask_sam_eq_2 = 17 }
+	}
+	set_variable = { dd_stock_sam_eq_2 = num_equipment@sam_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_shorad_eq_2 < 1 } }
+		set_variable = { dd_my_ask_shorad_eq_2 = 13 }
+	}
+	set_variable = { dd_stock_shorad_eq_2 = num_equipment@shorad_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spaa_eq_3 < 1 } }
+		set_variable = { dd_my_ask_spaa_eq_3 = 10 }
+	}
+	set_variable = { dd_stock_spaa_eq_3 = num_equipment@spaa_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_shorad_eq_3 < 1 } }
+		set_variable = { dd_my_ask_shorad_eq_3 = 14 }
+	}
+	set_variable = { dd_stock_shorad_eq_3 = num_equipment@shorad_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_sam_eq_3 < 1 } }
+		set_variable = { dd_my_ask_sam_eq_3 = 19 }
+	}
+	set_variable = { dd_stock_sam_eq_3 = num_equipment@sam_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spaa_eq_4 < 1 } }
+		set_variable = { dd_my_ask_spaa_eq_4 = 11 }
+	}
+	set_variable = { dd_stock_spaa_eq_4 = num_equipment@spaa_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_bmd_eq_1 < 1 } }
+		set_variable = { dd_my_ask_bmd_eq_1 = 28 }
+	}
+	set_variable = { dd_stock_bmd_eq_1 = num_equipment@bmd_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_sam_eq_4 < 1 } }
+		set_variable = { dd_my_ask_sam_eq_4 = 20 }
+	}
+	set_variable = { dd_stock_sam_eq_4 = num_equipment@sam_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_shorad_eq_4 < 1 } }
+		set_variable = { dd_my_ask_shorad_eq_4 = 15 }
+	}
+	set_variable = { dd_stock_shorad_eq_4 = num_equipment@shorad_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ifpc_eq_1 < 1 } }
+		set_variable = { dd_my_ask_ifpc_eq_1 = 18 }
+	}
+	set_variable = { dd_stock_ifpc_eq_1 = num_equipment@ifpc_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spaa_eq_5 < 1 } }
+		set_variable = { dd_my_ask_spaa_eq_5 = 12 }
+	}
+	set_variable = { dd_stock_spaa_eq_5 = num_equipment@spaa_equipment_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_tank_eq_1 < 1 } }
+		set_variable = { dd_my_ask_anti_tank_eq_1 = 2 }
+	}
+	set_variable = { dd_stock_anti_tank_eq_1 = num_equipment@anti_tank_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_tank_eq_2 < 1 } }
+		set_variable = { dd_my_ask_anti_tank_eq_2 = 3 }
+	}
+	set_variable = { dd_stock_anti_tank_eq_2 = num_equipment@anti_tank_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_tank_eq_3 < 1 } }
+		set_variable = { dd_my_ask_anti_tank_eq_3 = 4 }
+	}
+	set_variable = { dd_stock_anti_tank_eq_3 = num_equipment@anti_tank_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_tank_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_anti_tank_eq_cw1 = 13 }
+	}
+	set_variable = { dd_stock_anti_tank_eq_cw1 = num_equipment@anti_tank_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_at_eq_1 < 1 } }
+		set_variable = { dd_my_ask_infantry_at_eq_1 = 5 }
+	}
+	set_variable = { dd_stock_infantry_at_eq_1 = num_equipment@infantry_at_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_td_eq_1 < 1 } }
+		set_variable = { dd_my_ask_td_eq_1 = 17 }
+	}
+	set_variable = { dd_stock_td_eq_1 = num_equipment@td_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_at_eq_2 < 1 } }
+		set_variable = { dd_my_ask_infantry_at_eq_2 = 6 }
+	}
+	set_variable = { dd_stock_infantry_at_eq_2 = num_equipment@infantry_at_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_tank_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_anti_tank_eq_cw2 = 14 }
+	}
+	set_variable = { dd_stock_anti_tank_eq_cw2 = num_equipment@anti_tank_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_at_eq_3 < 1 } }
+		set_variable = { dd_my_ask_infantry_at_eq_3 = 7 }
+	}
+	set_variable = { dd_stock_infantry_at_eq_3 = num_equipment@infantry_at_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_td_eq_2 < 1 } }
+		set_variable = { dd_my_ask_td_eq_2 = 18 }
+	}
+	set_variable = { dd_stock_td_eq_2 = num_equipment@td_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_td_eq_3 < 1 } }
+		set_variable = { dd_my_ask_td_eq_3 = 19 }
+	}
+	set_variable = { dd_stock_td_eq_3 = num_equipment@td_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_at_eq_4 < 1 } }
+		set_variable = { dd_my_ask_infantry_at_eq_4 = 8 }
+	}
+	set_variable = { dd_stock_infantry_at_eq_4 = num_equipment@infantry_at_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_tank_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_anti_tank_eq_cw3 = 15 }
+	}
+	set_variable = { dd_stock_anti_tank_eq_cw3 = num_equipment@anti_tank_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_at_eq_5 < 1 } }
+		set_variable = { dd_my_ask_infantry_at_eq_5 = 9 }
+	}
+	set_variable = { dd_stock_infantry_at_eq_5 = num_equipment@infantry_at_equipment_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_td_eq_4 < 1 } }
+		set_variable = { dd_my_ask_td_eq_4 = 20 }
+	}
+	set_variable = { dd_stock_td_eq_4 = num_equipment@td_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_at_eq_6 < 1 } }
+		set_variable = { dd_my_ask_infantry_at_eq_6 = 10 }
+	}
+	set_variable = { dd_stock_infantry_at_eq_6 = num_equipment@infantry_at_equipment_6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_anti_tank_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_anti_tank_eq_cw4 = 16 }
+	}
+	set_variable = { dd_stock_anti_tank_eq_cw4 = num_equipment@anti_tank_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_at_eq_7 < 1 } }
+		set_variable = { dd_my_ask_infantry_at_eq_7 = 11 }
+	}
+	set_variable = { dd_stock_infantry_at_eq_7 = num_equipment@infantry_at_equipment_7 }
+	if = {
+		limit = { check_variable = { dd_my_ask_td_eq_5 < 1 } }
+		set_variable = { dd_my_ask_td_eq_5 = 21 }
+	}
+	set_variable = { dd_stock_td_eq_5 = num_equipment@td_equipment_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_at_eq_8 < 1 } }
+		set_variable = { dd_my_ask_infantry_at_eq_8 = 12 }
+	}
+	set_variable = { dd_stock_infantry_at_eq_8 = num_equipment@infantry_at_equipment_8 }
+	if = {
+		limit = { check_variable = { dd_my_ask_gw_armored_car_eq < 1 } }
+		set_variable = { dd_my_ask_gw_armored_car_eq = 1 }
+	}
+	set_variable = { dd_stock_gw_armored_car_eq = num_equipment@gw_armored_car_equipment }
+	if = {
+		limit = { check_variable = { dd_my_ask_armored_car_eq_1 < 1 } }
+		set_variable = { dd_my_ask_armored_car_eq_1 = 2 }
+	}
+	set_variable = { dd_stock_armored_car_eq_1 = num_equipment@armored_car_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_armored_car_at_eq < 1 } }
+		set_variable = { dd_my_ask_armored_car_at_eq = 4 }
+	}
+	set_variable = { dd_stock_armored_car_at_eq = num_equipment@armored_car_at_equipment }
+	if = {
+		limit = { check_variable = { dd_my_ask_armored_car_eq_2 < 1 } }
+		set_variable = { dd_my_ask_armored_car_eq_2 = 3 }
+	}
+	set_variable = { dd_stock_armored_car_eq_2 = num_equipment@armored_car_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_armored_support_vehicle_1 < 1 } }
+		set_variable = { dd_my_ask_armored_support_vehicle_1 = 2 }
+	}
+	set_variable = { dd_stock_armored_support_vehicle_1 = num_equipment@armored_support_vehicle_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_artillery_eq_1 < 1 } }
+		set_variable = { dd_my_ask_artillery_eq_1 = 3 }
+	}
+	set_variable = { dd_stock_artillery_eq_1 = num_equipment@artillery_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_artillery_eq_2 < 1 } }
+		set_variable = { dd_my_ask_artillery_eq_2 = 4 }
+	}
+	set_variable = { dd_stock_artillery_eq_2 = num_equipment@artillery_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_artillery_eq_3 < 1 } }
+		set_variable = { dd_my_ask_artillery_eq_3 = 5 }
+	}
+	set_variable = { dd_stock_artillery_eq_3 = num_equipment@artillery_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_artillery_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_artillery_eq_cw1 = 10 }
+	}
+	set_variable = { dd_stock_artillery_eq_cw1 = num_equipment@artillery_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mortar_eq_1 < 1 } }
+		set_variable = { dd_my_ask_mortar_eq_1 = 6 }
+	}
+	set_variable = { dd_stock_mortar_eq_1 = num_equipment@mortar_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mortar_eq_2 < 1 } }
+		set_variable = { dd_my_ask_mortar_eq_2 = 7 }
+	}
+	set_variable = { dd_stock_mortar_eq_2 = num_equipment@mortar_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_artillery_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_artillery_eq_cw2 = 11 }
+	}
+	set_variable = { dd_stock_artillery_eq_cw2 = num_equipment@artillery_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mortar_eq_3 < 1 } }
+		set_variable = { dd_my_ask_mortar_eq_3 = 8 }
+	}
+	set_variable = { dd_stock_mortar_eq_3 = num_equipment@mortar_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_artillery_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_artillery_eq_cw3 = 12 }
+	}
+	set_variable = { dd_stock_artillery_eq_cw3 = num_equipment@artillery_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_artillery_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_artillery_eq_cw4 = 13 }
+	}
+	set_variable = { dd_stock_artillery_eq_cw4 = num_equipment@artillery_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mortar_eq_4 < 1 } }
+		set_variable = { dd_my_ask_mortar_eq_4 = 9 }
+	}
+	set_variable = { dd_stock_mortar_eq_4 = num_equipment@mortar_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_dew_eq_1 < 1 } }
+		set_variable = { dd_my_ask_dew_eq_1 = 6 }
+	}
+	set_variable = { dd_stock_dew_eq_1 = num_equipment@dew_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_dew_eq_2 < 1 } }
+		set_variable = { dd_my_ask_dew_eq_2 = 11 }
+	}
+	set_variable = { dd_stock_dew_eq_2 = num_equipment@dew_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_dew_eq_3 < 1 } }
+		set_variable = { dd_my_ask_dew_eq_3 = 14 }
+	}
+	set_variable = { dd_stock_dew_eq_3 = num_equipment@dew_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_hpm_eq_1 < 1 } }
+		set_variable = { dd_my_ask_hpm_eq_1 = 10 }
+	}
+	set_variable = { dd_stock_hpm_eq_1 = num_equipment@hpm_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_dew_eq_4 < 1 } }
+		set_variable = { dd_my_ask_dew_eq_4 = 18 }
+	}
+	set_variable = { dd_stock_dew_eq_4 = num_equipment@dew_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_dew_eq_5 < 1 } }
+		set_variable = { dd_my_ask_dew_eq_5 = 22 }
+	}
+	set_variable = { dd_stock_dew_eq_5 = num_equipment@dew_equipment_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_heavy_tank_chassis_0 < 1 } }
+		set_variable = { dd_my_ask_heavy_tank_chassis_0 = 2 }
+	}
+	set_variable = { dd_stock_heavy_tank_chassis_0 = num_equipment@heavy_tank_chassis_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_heavy_tank_chassis_1 < 1 } }
+		set_variable = { dd_my_ask_heavy_tank_chassis_1 = 3 }
+	}
+	set_variable = { dd_stock_heavy_tank_chassis_1 = num_equipment@heavy_tank_chassis_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_heavy_tank_chassis_2 < 1 } }
+		set_variable = { dd_my_ask_heavy_tank_chassis_2 = 4 }
+	}
+	set_variable = { dd_stock_heavy_tank_chassis_2 = num_equipment@heavy_tank_chassis_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_heavy_tank_chassis_3 < 1 } }
+		set_variable = { dd_my_ask_heavy_tank_chassis_3 = 5 }
+	}
+	set_variable = { dd_stock_heavy_tank_chassis_3 = num_equipment@heavy_tank_chassis_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_helicopter_eq_1 < 1 } }
+		set_variable = { dd_my_ask_helicopter_eq_1 = 4 }
+	}
+	set_variable = { dd_stock_helicopter_eq_1 = num_equipment@helicopter_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_attack_heli_eq_1 < 1 } }
+		set_variable = { dd_my_ask_attack_heli_eq_1 = 10 }
+	}
+	set_variable = { dd_stock_attack_heli_eq_1 = num_equipment@attack_heli_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_attack_heli_eq_2 < 1 } }
+		set_variable = { dd_my_ask_attack_heli_eq_2 = 14 }
+	}
+	set_variable = { dd_stock_attack_heli_eq_2 = num_equipment@attack_heli_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_attack_heli_eq_3 < 1 } }
+		set_variable = { dd_my_ask_attack_heli_eq_3 = 16 }
+	}
+	set_variable = { dd_stock_attack_heli_eq_3 = num_equipment@attack_heli_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_attack_heli_eq_4 < 1 } }
+		set_variable = { dd_my_ask_attack_heli_eq_4 = 17 }
+	}
+	set_variable = { dd_stock_attack_heli_eq_4 = num_equipment@attack_heli_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_0 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_0 = 5 }
+	}
+	set_variable = { dd_stock_infantry_eq_0 = num_equipment@infantry_equipment_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_1 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_1 = 6 }
+	}
+	set_variable = { dd_stock_infantry_eq_1 = num_equipment@infantry_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_2 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_2 = 7 }
+	}
+	set_variable = { dd_stock_infantry_eq_2 = num_equipment@infantry_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_3 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_3 = 8 }
+	}
+	set_variable = { dd_stock_infantry_eq_3 = num_equipment@infantry_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_cw1 = 9 }
+	}
+	set_variable = { dd_stock_infantry_eq_cw1 = num_equipment@infantry_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_cw2 = 10 }
+	}
+	set_variable = { dd_stock_infantry_eq_cw2 = num_equipment@infantry_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_cw3 = 11 }
+	}
+	set_variable = { dd_stock_infantry_eq_cw3 = num_equipment@infantry_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_cw4 = 12 }
+	}
+	set_variable = { dd_stock_infantry_eq_cw4 = num_equipment@infantry_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_cw5 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_cw5 = 13 }
+	}
+	set_variable = { dd_stock_infantry_eq_cw5 = num_equipment@infantry_equipment_cw5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_cw6 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_cw6 = 14 }
+	}
+	set_variable = { dd_stock_infantry_eq_cw6 = num_equipment@infantry_equipment_cw6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_cw7 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_cw7 = 17 }
+	}
+	set_variable = { dd_stock_infantry_eq_cw7 = num_equipment@infantry_equipment_cw7 }
+	if = {
+		limit = { check_variable = { dd_my_ask_infantry_eq_cw8 < 1 } }
+		set_variable = { dd_my_ask_infantry_eq_cw8 = 21 }
+	}
+	set_variable = { dd_stock_infantry_eq_cw8 = num_equipment@infantry_equipment_cw8 }
+	if = {
+		limit = { check_variable = { dd_my_ask_land_cruiser_chassis_1 < 1 } }
+		set_variable = { dd_my_ask_land_cruiser_chassis_1 = 7 }
+	}
+	set_variable = { dd_stock_land_cruiser_chassis_1 = num_equipment@land_cruiser_chassis_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_chassis_0 < 1 } }
+		set_variable = { dd_my_ask_light_tank_chassis_0 = 1 }
+	}
+	set_variable = { dd_stock_light_tank_chassis_0 = num_equipment@light_tank_chassis_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_chassis_1 < 1 } }
+		set_variable = { dd_my_ask_light_tank_chassis_1 = 2 }
+	}
+	set_variable = { dd_stock_light_tank_chassis_1 = num_equipment@light_tank_chassis_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_chassis_2 < 1 } }
+		set_variable = { dd_my_ask_light_tank_chassis_2 = 3 }
+	}
+	set_variable = { dd_stock_light_tank_chassis_2 = num_equipment@light_tank_chassis_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_chassis_3 < 1 } }
+		set_variable = { dd_my_ask_light_tank_chassis_3 = 4 }
+	}
+	set_variable = { dd_stock_light_tank_chassis_3 = num_equipment@light_tank_chassis_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_light_tank_eq_cw1 = 5 }
+	}
+	set_variable = { dd_stock_light_tank_eq_cw1 = num_equipment@light_tank_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_light_tank_eq_cw2 = 6 }
+	}
+	set_variable = { dd_stock_light_tank_eq_cw2 = num_equipment@light_tank_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_light_tank_eq_cw3 = 7 }
+	}
+	set_variable = { dd_stock_light_tank_eq_cw3 = num_equipment@light_tank_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_light_tank_eq_cw4 = 8 }
+	}
+	set_variable = { dd_stock_light_tank_eq_cw4 = num_equipment@light_tank_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_eq_cw5 < 1 } }
+		set_variable = { dd_my_ask_light_tank_eq_cw5 = 9 }
+	}
+	set_variable = { dd_stock_light_tank_eq_cw5 = num_equipment@light_tank_equipment_cw5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_eq_cw6 < 1 } }
+		set_variable = { dd_my_ask_light_tank_eq_cw6 = 10 }
+	}
+	set_variable = { dd_stock_light_tank_eq_cw6 = num_equipment@light_tank_equipment_cw6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_tank_eq_cw7 < 1 } }
+		set_variable = { dd_my_ask_light_tank_eq_cw7 = 11 }
+	}
+	set_variable = { dd_stock_light_tank_eq_cw7 = num_equipment@light_tank_equipment_cw7 }
+	if = {
+		limit = { check_variable = { dd_my_ask_manpads_eq_1 < 1 } }
+		set_variable = { dd_my_ask_manpads_eq_1 = 2 }
+	}
+	set_variable = { dd_stock_manpads_eq_1 = num_equipment@manpads_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_manpads_eq_2 < 1 } }
+		set_variable = { dd_my_ask_manpads_eq_2 = 3 }
+	}
+	set_variable = { dd_stock_manpads_eq_2 = num_equipment@manpads_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_manpads_eq_3 < 1 } }
+		set_variable = { dd_my_ask_manpads_eq_3 = 4 }
+	}
+	set_variable = { dd_stock_manpads_eq_3 = num_equipment@manpads_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_manpads_eq_4 < 1 } }
+		set_variable = { dd_my_ask_manpads_eq_4 = 5 }
+	}
+	set_variable = { dd_stock_manpads_eq_4 = num_equipment@manpads_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mechanized_eq_1 < 1 } }
+		set_variable = { dd_my_ask_mechanized_eq_1 = 2 }
+	}
+	set_variable = { dd_stock_mechanized_eq_1 = num_equipment@mechanized_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mechanized_eq_2 < 1 } }
+		set_variable = { dd_my_ask_mechanized_eq_2 = 3 }
+	}
+	set_variable = { dd_stock_mechanized_eq_2 = num_equipment@mechanized_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mechanized_eq_3 < 1 } }
+		set_variable = { dd_my_ask_mechanized_eq_3 = 4 }
+	}
+	set_variable = { dd_stock_mechanized_eq_3 = num_equipment@mechanized_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mechanized_eq_4 < 1 } }
+		set_variable = { dd_my_ask_mechanized_eq_4 = 5 }
+	}
+	set_variable = { dd_stock_mechanized_eq_4 = num_equipment@mechanized_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mechanized_eq_5 < 1 } }
+		set_variable = { dd_my_ask_mechanized_eq_5 = 6 }
+	}
+	set_variable = { dd_stock_mechanized_eq_5 = num_equipment@mechanized_equipment_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mechanized_eq_6 < 1 } }
+		set_variable = { dd_my_ask_mechanized_eq_6 = 7 }
+	}
+	set_variable = { dd_stock_mechanized_eq_6 = num_equipment@mechanized_equipment_6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_tank_chassis_0 < 1 } }
+		set_variable = { dd_my_ask_medium_tank_chassis_0 = 1 }
+	}
+	set_variable = { dd_stock_medium_tank_chassis_0 = num_equipment@medium_tank_chassis_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_tank_chassis_1 < 1 } }
+		set_variable = { dd_my_ask_medium_tank_chassis_1 = 2 }
+	}
+	set_variable = { dd_stock_medium_tank_chassis_1 = num_equipment@medium_tank_chassis_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_tank_chassis_2 < 1 } }
+		set_variable = { dd_my_ask_medium_tank_chassis_2 = 3 }
+	}
+	set_variable = { dd_stock_medium_tank_chassis_2 = num_equipment@medium_tank_chassis_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_tank_chassis_3 < 1 } }
+		set_variable = { dd_my_ask_medium_tank_chassis_3 = 4 }
+	}
+	set_variable = { dd_stock_medium_tank_chassis_3 = num_equipment@medium_tank_chassis_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_modern_tank_chassis_1 < 1 } }
+		set_variable = { dd_my_ask_modern_tank_chassis_1 = 1 }
+	}
+	set_variable = { dd_stock_modern_tank_chassis_1 = num_equipment@modern_tank_chassis_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_1 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_1 = 4 }
+	}
+	set_variable = { dd_stock_mbt_eq_1 = num_equipment@mbt_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_2 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_2 = 5 }
+	}
+	set_variable = { dd_stock_mbt_eq_2 = num_equipment@mbt_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_3 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_3 = 6 }
+	}
+	set_variable = { dd_stock_mbt_eq_3 = num_equipment@mbt_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_4 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_4 = 7 }
+	}
+	set_variable = { dd_stock_mbt_eq_4 = num_equipment@mbt_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_5 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_5 = 8 }
+	}
+	set_variable = { dd_stock_mbt_eq_5 = num_equipment@mbt_equipment_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_6 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_6 = 9 }
+	}
+	set_variable = { dd_stock_mbt_eq_6 = num_equipment@mbt_equipment_6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_7 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_7 = 11 }
+	}
+	set_variable = { dd_stock_mbt_eq_7 = num_equipment@mbt_equipment_7 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_8 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_8 = 12 }
+	}
+	set_variable = { dd_stock_mbt_eq_8 = num_equipment@mbt_equipment_8 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mbt_eq_9 < 1 } }
+		set_variable = { dd_my_ask_mbt_eq_9 = 14 }
+	}
+	set_variable = { dd_stock_mbt_eq_9 = num_equipment@mbt_equipment_9 }
+	if = {
+		limit = { check_variable = { dd_my_ask_motorbike_eq_1 < 1 } }
+		set_variable = { dd_my_ask_motorbike_eq_1 = 1 }
+	}
+	set_variable = { dd_stock_motorbike_eq_1 = num_equipment@motorbike_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_motorized_eq_0 < 1 } }
+		set_variable = { dd_my_ask_motorized_eq_0 = 2 }
+	}
+	set_variable = { dd_stock_motorized_eq_0 = num_equipment@motorized_equipment_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_motorized_eq_1 < 1 } }
+		set_variable = { dd_my_ask_motorized_eq_1 = 3 }
+	}
+	set_variable = { dd_stock_motorized_eq_1 = num_equipment@motorized_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_motorized_eq_2 < 1 } }
+		set_variable = { dd_my_ask_motorized_eq_2 = 4 }
+	}
+	set_variable = { dd_stock_motorized_eq_2 = num_equipment@motorized_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_motorized_eq_3 < 1 } }
+		set_variable = { dd_my_ask_motorized_eq_3 = 5 }
+	}
+	set_variable = { dd_stock_motorized_eq_3 = num_equipment@motorized_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_motorized_eq_4 < 1 } }
+		set_variable = { dd_my_ask_motorized_eq_4 = 6 }
+	}
+	set_variable = { dd_stock_motorized_eq_4 = num_equipment@motorized_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_motorized_rocket_eq_1 < 1 } }
+		set_variable = { dd_my_ask_motorized_rocket_eq_1 = 7 }
+	}
+	set_variable = { dd_stock_motorized_rocket_eq_1 = num_equipment@motorized_rocket_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_prsm_eq_1 < 1 } }
+		set_variable = { dd_my_ask_prsm_eq_1 = 14 }
+	}
+	set_variable = { dd_stock_prsm_eq_1 = num_equipment@prsm_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mrc_eq_1 < 1 } }
+		set_variable = { dd_my_ask_mrc_eq_1 = 19 }
+	}
+	set_variable = { dd_stock_mrc_eq_1 = num_equipment@mrc_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_hypersonic_glcm_eq_1 < 1 } }
+		set_variable = { dd_my_ask_hypersonic_glcm_eq_1 = 28 }
+	}
+	set_variable = { dd_stock_hypersonic_glcm_eq_1 = num_equipment@hypersonic_glcm_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_railway_gun_eq_1 < 1 } }
+		set_variable = { dd_my_ask_railway_gun_eq_1 = 16 }
+	}
+	set_variable = { dd_stock_railway_gun_eq_1 = num_equipment@railway_gun_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_rocket_artillery_eq_1 < 1 } }
+		set_variable = { dd_my_ask_rocket_artillery_eq_1 = 4 }
+	}
+	set_variable = { dd_stock_rocket_artillery_eq_1 = num_equipment@rocket_artillery_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_rocket_artillery_eq_2 < 1 } }
+		set_variable = { dd_my_ask_rocket_artillery_eq_2 = 5 }
+	}
+	set_variable = { dd_stock_rocket_artillery_eq_2 = num_equipment@rocket_artillery_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_rocket_artillery_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_rocket_artillery_eq_cw1 = 6 }
+	}
+	set_variable = { dd_stock_rocket_artillery_eq_cw1 = num_equipment@rocket_artillery_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_rocket_artillery_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_rocket_artillery_eq_cw2 = 9 }
+	}
+	set_variable = { dd_stock_rocket_artillery_eq_cw2 = num_equipment@rocket_artillery_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_rocket_artillery_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_rocket_artillery_eq_cw3 = 10 }
+	}
+	set_variable = { dd_stock_rocket_artillery_eq_cw3 = num_equipment@rocket_artillery_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_self_propelled_super_heavy_artillery_eq_1 < 1 } }
+		set_variable = { dd_my_ask_self_propelled_super_heavy_artillery_eq_1 = 26 }
+	}
+	set_variable = { dd_stock_self_propelled_super_heavy_artillery_eq_1 = num_equipment@self_propelled_super_heavy_artillery_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spg_eq_1 < 1 } }
+		set_variable = { dd_my_ask_spg_eq_1 = 7 }
+	}
+	set_variable = { dd_stock_spg_eq_1 = num_equipment@spg_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spg_eq_2 < 1 } }
+		set_variable = { dd_my_ask_spg_eq_2 = 9 }
+	}
+	set_variable = { dd_stock_spg_eq_2 = num_equipment@spg_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spg_eq_3 < 1 } }
+		set_variable = { dd_my_ask_spg_eq_3 = 11 }
+	}
+	set_variable = { dd_stock_spg_eq_3 = num_equipment@spg_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spg_eq_4 < 1 } }
+		set_variable = { dd_my_ask_spg_eq_4 = 12 }
+	}
+	set_variable = { dd_stock_spg_eq_4 = num_equipment@spg_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spg_eq_5 < 1 } }
+		set_variable = { dd_my_ask_spg_eq_5 = 13 }
+	}
+	set_variable = { dd_stock_spg_eq_5 = num_equipment@spg_equipment_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spg_eq_6 < 1 } }
+		set_variable = { dd_my_ask_spg_eq_6 = 15 }
+	}
+	set_variable = { dd_stock_spg_eq_6 = num_equipment@spg_equipment_6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_spg_eq_7 < 1 } }
+		set_variable = { dd_my_ask_spg_eq_7 = 17 }
+	}
+	set_variable = { dd_stock_spg_eq_7 = num_equipment@spg_equipment_7 }
+	if = {
+		limit = { check_variable = { dd_my_ask_super_heavy_artillery_eq_1 < 1 } }
+		set_variable = { dd_my_ask_super_heavy_artillery_eq_1 = 18 }
+	}
+	set_variable = { dd_stock_super_heavy_artillery_eq_1 = num_equipment@super_heavy_artillery_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_super_heavy_railway_gun_eq_1 < 1 } }
+		set_variable = { dd_my_ask_super_heavy_railway_gun_eq_1 = 32 }
+	}
+	set_variable = { dd_stock_super_heavy_railway_gun_eq_1 = num_equipment@super_heavy_railway_gun_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_super_heavy_tank_chassis_1 < 1 } }
+		set_variable = { dd_my_ask_super_heavy_tank_chassis_1 = 6 }
+	}
+	set_variable = { dd_stock_super_heavy_tank_chassis_1 = num_equipment@super_heavy_tank_chassis_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_support_eq_1 < 1 } }
+		set_variable = { dd_my_ask_support_eq_1 = 16 }
+	}
+	set_variable = { dd_stock_support_eq_1 = num_equipment@support_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_support_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_support_eq_cw1 = 17 }
+	}
+	set_variable = { dd_stock_support_eq_cw1 = num_equipment@support_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_support_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_support_eq_cw2 = 20 }
+	}
+	set_variable = { dd_stock_support_eq_cw2 = num_equipment@support_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_support_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_support_eq_cw3 = 24 }
+	}
+	set_variable = { dd_stock_support_eq_cw3 = num_equipment@support_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_support_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_support_eq_cw4 = 28 }
+	}
+	set_variable = { dd_stock_support_eq_cw4 = num_equipment@support_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_support_eq_cw5 < 1 } }
+		set_variable = { dd_my_ask_support_eq_cw5 = 32 }
+	}
+	set_variable = { dd_stock_support_eq_cw5 = num_equipment@support_equipment_cw5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_train_eq_1 < 1 } }
+		set_variable = { dd_my_ask_train_eq_1 = 7 }
+	}
+	set_variable = { dd_stock_train_eq_1 = num_equipment@train_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_train_eq_3 < 1 } }
+		set_variable = { dd_my_ask_train_eq_3 = 10 }
+	}
+	set_variable = { dd_stock_train_eq_3 = num_equipment@train_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_train_eq_2 < 1 } }
+		set_variable = { dd_my_ask_train_eq_2 = 8 }
+	}
+	set_variable = { dd_stock_train_eq_2 = num_equipment@train_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ballistic_missile_eq_1 < 1 } }
+		set_variable = { dd_my_ask_ballistic_missile_eq_1 = 10 }
+	}
+	set_variable = { dd_stock_ballistic_missile_eq_1 = num_equipment@ballistic_missile_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ballistic_missile_eq_2 < 1 } }
+		set_variable = { dd_my_ask_ballistic_missile_eq_2 = 15 }
+	}
+	set_variable = { dd_stock_ballistic_missile_eq_2 = num_equipment@ballistic_missile_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ballistic_missile_eq_3 < 1 } }
+		set_variable = { dd_my_ask_ballistic_missile_eq_3 = 18 }
+	}
+	set_variable = { dd_stock_ballistic_missile_eq_3 = num_equipment@ballistic_missile_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ballistic_missile_eq_4 < 1 } }
+		set_variable = { dd_my_ask_ballistic_missile_eq_4 = 14 }
+	}
+	set_variable = { dd_stock_ballistic_missile_eq_4 = num_equipment@ballistic_missile_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cv_small_plane_airframe_0 < 1 } }
+		set_variable = { dd_my_ask_cv_small_plane_airframe_0 = 1 }
+	}
+	set_variable = { dd_stock_cv_small_plane_airframe_0 = num_equipment@cv_small_plane_airframe_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cv_small_plane_airframe_1 < 1 } }
+		set_variable = { dd_my_ask_cv_small_plane_airframe_1 = 2 }
+	}
+	set_variable = { dd_stock_cv_small_plane_airframe_1 = num_equipment@cv_small_plane_airframe_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cv_small_plane_airframe_2 < 1 } }
+		set_variable = { dd_my_ask_cv_small_plane_airframe_2 = 3 }
+	}
+	set_variable = { dd_stock_cv_small_plane_airframe_2 = num_equipment@cv_small_plane_airframe_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cv_small_plane_airframe_3 < 1 } }
+		set_variable = { dd_my_ask_cv_small_plane_airframe_3 = 4 }
+	}
+	set_variable = { dd_stock_cv_small_plane_airframe_3 = num_equipment@cv_small_plane_airframe_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cv_small_plane_airframe_4 < 1 } }
+		set_variable = { dd_my_ask_cv_small_plane_airframe_4 = 5 }
+	}
+	set_variable = { dd_stock_cv_small_plane_airframe_4 = num_equipment@cv_small_plane_airframe_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cv_fighter_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_cv_fighter_eq_cw2 = 6 }
+	}
+	set_variable = { dd_stock_cv_fighter_eq_cw2 = num_equipment@cv_fighter_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cv_fighter_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_cv_fighter_eq_cw4 = 9 }
+	}
+	set_variable = { dd_stock_cv_fighter_eq_cw4 = num_equipment@cv_fighter_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cv_fighter_eq_cw5 < 1 } }
+		set_variable = { dd_my_ask_cv_fighter_eq_cw5 = 16 }
+	}
+	set_variable = { dd_stock_cv_fighter_eq_cw5 = num_equipment@cv_fighter_equipment_cw5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_explosive_ammo_eq_1 < 1 } }
+		set_variable = { dd_my_ask_explosive_ammo_eq_1 = 5 }
+	}
+	set_variable = { dd_stock_explosive_ammo_eq_1 = num_equipment@explosive_ammo_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_guided_missile_eq_1 < 1 } }
+		set_variable = { dd_my_ask_guided_missile_eq_1 = 7 }
+	}
+	set_variable = { dd_stock_guided_missile_eq_1 = num_equipment@guided_missile_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_guided_missile_eq_2 < 1 } }
+		set_variable = { dd_my_ask_guided_missile_eq_2 = 8 }
+	}
+	set_variable = { dd_stock_guided_missile_eq_2 = num_equipment@guided_missile_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_guided_missile_eq_3 < 1 } }
+		set_variable = { dd_my_ask_guided_missile_eq_3 = 15 }
+	}
+	set_variable = { dd_stock_guided_missile_eq_3 = num_equipment@guided_missile_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_guided_missile_eq_cw < 1 } }
+		set_variable = { dd_my_ask_guided_missile_eq_cw = 17 }
+	}
+	set_variable = { dd_stock_guided_missile_eq_cw = num_equipment@guided_missile_equipment_cw }
+	if = {
+		limit = { check_variable = { dd_my_ask_guided_missile_eq_4 < 1 } }
+		set_variable = { dd_my_ask_guided_missile_eq_4 = 16 }
+	}
+	set_variable = { dd_stock_guided_missile_eq_4 = num_equipment@guided_missile_equipment_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_hypersonic_missile_eq_1 < 1 } }
+		set_variable = { dd_my_ask_hypersonic_missile_eq_1 = 18 }
+	}
+	set_variable = { dd_stock_hypersonic_missile_eq_1 = num_equipment@hypersonic_missile_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_large_plane_airframe_0 < 1 } }
+		set_variable = { dd_my_ask_large_plane_airframe_0 = 3 }
+	}
+	set_variable = { dd_stock_large_plane_airframe_0 = num_equipment@large_plane_airframe_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_large_plane_airframe_1 < 1 } }
+		set_variable = { dd_my_ask_large_plane_airframe_1 = 4 }
+	}
+	set_variable = { dd_stock_large_plane_airframe_1 = num_equipment@large_plane_airframe_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_large_plane_airframe_2 < 1 } }
+		set_variable = { dd_my_ask_large_plane_airframe_2 = 5 }
+	}
+	set_variable = { dd_stock_large_plane_airframe_2 = num_equipment@large_plane_airframe_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_large_plane_airframe_3 < 1 } }
+		set_variable = { dd_my_ask_large_plane_airframe_3 = 6 }
+	}
+	set_variable = { dd_stock_large_plane_airframe_3 = num_equipment@large_plane_airframe_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_large_plane_airframe_4 < 1 } }
+		set_variable = { dd_my_ask_large_plane_airframe_4 = 7 }
+	}
+	set_variable = { dd_stock_large_plane_airframe_4 = num_equipment@large_plane_airframe_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_strat_bomber_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_strat_bomber_eq_cw1 = 16 }
+	}
+	set_variable = { dd_stock_strat_bomber_eq_cw1 = num_equipment@strat_bomber_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_strat_bomber_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_strat_bomber_eq_cw2 = 20 }
+	}
+	set_variable = { dd_stock_strat_bomber_eq_cw2 = num_equipment@strat_bomber_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_strat_bomber_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_strat_bomber_eq_cw3 = 24 }
+	}
+	set_variable = { dd_stock_strat_bomber_eq_cw3 = num_equipment@strat_bomber_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_strat_bomber_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_strat_bomber_eq_cw4 = 40 }
+	}
+	set_variable = { dd_stock_strat_bomber_eq_cw4 = num_equipment@strat_bomber_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_strat_bomber_eq_cw5 < 1 } }
+		set_variable = { dd_my_ask_strat_bomber_eq_cw5 = 41 }
+	}
+	set_variable = { dd_stock_strat_bomber_eq_cw5 = num_equipment@strat_bomber_equipment_cw5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_strat_bomber_eq_cw6 < 1 } }
+		set_variable = { dd_my_ask_strat_bomber_eq_cw6 = 42 }
+	}
+	set_variable = { dd_stock_strat_bomber_eq_cw6 = num_equipment@strat_bomber_equipment_cw6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_loitering_munition_eq_1 < 1 } }
+		set_variable = { dd_my_ask_loitering_munition_eq_1 = 2 }
+	}
+	set_variable = { dd_stock_loitering_munition_eq_1 = num_equipment@loitering_munition_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_plane_airframe_0 < 1 } }
+		set_variable = { dd_my_ask_medium_plane_airframe_0 = 1 }
+	}
+	set_variable = { dd_stock_medium_plane_airframe_0 = num_equipment@medium_plane_airframe_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_plane_airframe_1 < 1 } }
+		set_variable = { dd_my_ask_medium_plane_airframe_1 = 2 }
+	}
+	set_variable = { dd_stock_medium_plane_airframe_1 = num_equipment@medium_plane_airframe_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_plane_airframe_2 < 1 } }
+		set_variable = { dd_my_ask_medium_plane_airframe_2 = 3 }
+	}
+	set_variable = { dd_stock_medium_plane_airframe_2 = num_equipment@medium_plane_airframe_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_plane_airframe_3 < 1 } }
+		set_variable = { dd_my_ask_medium_plane_airframe_3 = 4 }
+	}
+	set_variable = { dd_stock_medium_plane_airframe_3 = num_equipment@medium_plane_airframe_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_medium_plane_airframe_4 < 1 } }
+		set_variable = { dd_my_ask_medium_plane_airframe_4 = 5 }
+	}
+	set_variable = { dd_stock_medium_plane_airframe_4 = num_equipment@medium_plane_airframe_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_tac_bomber_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_tac_bomber_eq_cw1 = 7 }
+	}
+	set_variable = { dd_stock_tac_bomber_eq_cw1 = num_equipment@tac_bomber_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_tac_bomber_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_tac_bomber_eq_cw2 = 10 }
+	}
+	set_variable = { dd_stock_tac_bomber_eq_cw2 = num_equipment@tac_bomber_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_tac_bomber_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_tac_bomber_eq_cw3 = 11 }
+	}
+	set_variable = { dd_stock_tac_bomber_eq_cw3 = num_equipment@tac_bomber_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_tac_bomber_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_tac_bomber_eq_cw4 = 12 }
+	}
+	set_variable = { dd_stock_tac_bomber_eq_cw4 = num_equipment@tac_bomber_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_nuclear_missile_eq_1 < 1 } }
+		set_variable = { dd_my_ask_nuclear_missile_eq_1 = 160 }
+	}
+	set_variable = { dd_stock_nuclear_missile_eq_1 = num_equipment@nuclear_missile_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_nuclear_missile_eq_2 < 1 } }
+		set_variable = { dd_my_ask_nuclear_missile_eq_2 = 240 }
+	}
+	set_variable = { dd_stock_nuclear_missile_eq_2 = num_equipment@nuclear_missile_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_recon_uav_eq_1 < 1 } }
+		set_variable = { dd_my_ask_recon_uav_eq_1 = 4 }
+	}
+	set_variable = { dd_stock_recon_uav_eq_1 = num_equipment@recon_uav_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_hale_uav_eq_1 < 1 } }
+		set_variable = { dd_my_ask_hale_uav_eq_1 = 7 }
+	}
+	set_variable = { dd_stock_hale_uav_eq_1 = num_equipment@hale_uav_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_recon_uav_eq_2 < 1 } }
+		set_variable = { dd_my_ask_recon_uav_eq_2 = 5 }
+	}
+	set_variable = { dd_stock_recon_uav_eq_2 = num_equipment@recon_uav_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_sam_missile_eq_1 < 1 } }
+		set_variable = { dd_my_ask_sam_missile_eq_1 = 6 }
+	}
+	set_variable = { dd_stock_sam_missile_eq_1 = num_equipment@sam_missile_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_sam_missile_eq_2 < 1 } }
+		set_variable = { dd_my_ask_sam_missile_eq_2 = 7 }
+	}
+	set_variable = { dd_stock_sam_missile_eq_2 = num_equipment@sam_missile_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_small_plane_airframe_0 < 1 } }
+		set_variable = { dd_my_ask_small_plane_airframe_0 = 1 }
+	}
+	set_variable = { dd_stock_small_plane_airframe_0 = num_equipment@small_plane_airframe_0 }
+	if = {
+		limit = { check_variable = { dd_my_ask_small_plane_airframe_1 < 1 } }
+		set_variable = { dd_my_ask_small_plane_airframe_1 = 2 }
+	}
+	set_variable = { dd_stock_small_plane_airframe_1 = num_equipment@small_plane_airframe_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_small_plane_airframe_2 < 1 } }
+		set_variable = { dd_my_ask_small_plane_airframe_2 = 3 }
+	}
+	set_variable = { dd_stock_small_plane_airframe_2 = num_equipment@small_plane_airframe_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_small_plane_airframe_3 < 1 } }
+		set_variable = { dd_my_ask_small_plane_airframe_3 = 4 }
+	}
+	set_variable = { dd_stock_small_plane_airframe_3 = num_equipment@small_plane_airframe_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_small_plane_airframe_4 < 1 } }
+		set_variable = { dd_my_ask_small_plane_airframe_4 = 5 }
+	}
+	set_variable = { dd_stock_small_plane_airframe_4 = num_equipment@small_plane_airframe_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_small_plane_airframe_5 < 1 } }
+		set_variable = { dd_my_ask_small_plane_airframe_5 = 6 }
+	}
+	set_variable = { dd_stock_small_plane_airframe_5 = num_equipment@small_plane_airframe_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_fighter_eq_cw1 < 1 } }
+		set_variable = { dd_my_ask_fighter_eq_cw1 = 7 }
+	}
+	set_variable = { dd_stock_fighter_eq_cw1 = num_equipment@fighter_equipment_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_fighter_eq_cw2 < 1 } }
+		set_variable = { dd_my_ask_fighter_eq_cw2 = 8 }
+	}
+	set_variable = { dd_stock_fighter_eq_cw2 = num_equipment@fighter_equipment_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_fighter_eq_cw3 < 1 } }
+		set_variable = { dd_my_ask_fighter_eq_cw3 = 9 }
+	}
+	set_variable = { dd_stock_fighter_eq_cw3 = num_equipment@fighter_equipment_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_fighter_eq_cw4 < 1 } }
+		set_variable = { dd_my_ask_fighter_eq_cw4 = 10 }
+	}
+	set_variable = { dd_stock_fighter_eq_cw4 = num_equipment@fighter_equipment_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_fighter_eq_cw45 < 1 } }
+		set_variable = { dd_my_ask_fighter_eq_cw45 = 11 }
+	}
+	set_variable = { dd_stock_fighter_eq_cw45 = num_equipment@fighter_equipment_cw45 }
+	if = {
+		limit = { check_variable = { dd_my_ask_fighter_eq_cw5a < 1 } }
+		set_variable = { dd_my_ask_fighter_eq_cw5a = 18 }
+	}
+	set_variable = { dd_stock_fighter_eq_cw5a = num_equipment@fighter_equipment_cw5a }
+	if = {
+		limit = { check_variable = { dd_my_ask_fighter_eq_cw5b < 1 } }
+		set_variable = { dd_my_ask_fighter_eq_cw5b = 14 }
+	}
+	set_variable = { dd_stock_fighter_eq_cw5b = num_equipment@fighter_equipment_cw5b }
+	if = {
+		limit = { check_variable = { dd_my_ask_cca_eq_1 < 1 } }
+		set_variable = { dd_my_ask_cca_eq_1 = 12 }
+	}
+	set_variable = { dd_stock_cca_eq_1 = num_equipment@cca_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_fighter_eq_cw6 < 1 } }
+		set_variable = { dd_my_ask_fighter_eq_cw6 = 22 }
+	}
+	set_variable = { dd_stock_fighter_eq_cw6 = num_equipment@fighter_equipment_cw6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cca_eq_2 < 1 } }
+		set_variable = { dd_my_ask_cca_eq_2 = 13 }
+	}
+	set_variable = { dd_stock_cca_eq_2 = num_equipment@cca_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_strat_bomber_intercontinental_eq_1 < 1 } }
+		set_variable = { dd_my_ask_strat_bomber_intercontinental_eq_1 = 28 }
+	}
+	set_variable = { dd_stock_strat_bomber_intercontinental_eq_1 = num_equipment@strat_bomber_intercontinental_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_strike_uav_eq_1 < 1 } }
+		set_variable = { dd_my_ask_strike_uav_eq_1 = 4 }
+	}
+	set_variable = { dd_stock_strike_uav_eq_1 = num_equipment@strike_uav_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_transport_heli_eq_1 < 1 } }
+		set_variable = { dd_my_ask_transport_heli_eq_1 = 6 }
+	}
+	set_variable = { dd_stock_transport_heli_eq_1 = num_equipment@transport_heli_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_transport_heli_eq_2 < 1 } }
+		set_variable = { dd_my_ask_transport_heli_eq_2 = 7 }
+	}
+	set_variable = { dd_stock_transport_heli_eq_2 = num_equipment@transport_heli_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_transport_heli_eq_3 < 1 } }
+		set_variable = { dd_my_ask_transport_heli_eq_3 = 10 }
+	}
+	set_variable = { dd_stock_transport_heli_eq_3 = num_equipment@transport_heli_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_transport_plane_eq_1 < 1 } }
+		set_variable = { dd_my_ask_transport_plane_eq_1 = 8 }
+	}
+	set_variable = { dd_stock_transport_plane_eq_1 = num_equipment@transport_plane_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_transport_plane_eq_2 < 1 } }
+		set_variable = { dd_my_ask_transport_plane_eq_2 = 9 }
+	}
+	set_variable = { dd_stock_transport_plane_eq_2 = num_equipment@transport_plane_equipment_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_transport_plane_eq_3 < 1 } }
+		set_variable = { dd_my_ask_transport_plane_eq_3 = 10 }
+	}
+	set_variable = { dd_stock_transport_plane_eq_3 = num_equipment@transport_plane_equipment_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_convoy_1 < 1 } }
+		set_variable = { dd_my_ask_convoy_1 = 14 }
+	}
+	set_variable = { dd_stock_convoy_1 = num_equipment@convoy_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_floating_harbor_eq_1 < 1 } }
+		set_variable = { dd_my_ask_floating_harbor_eq_1 = 8 }
+	}
+	set_variable = { dd_stock_floating_harbor_eq_1 = num_equipment@floating_harbor_equipment_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_repair_ship_1 < 1 } }
+		set_variable = { dd_my_ask_repair_ship_1 = 10 }
+	}
+	set_variable = { dd_stock_repair_ship_1 = num_equipment@repair_ship_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_repair_ship_2 < 1 } }
+		set_variable = { dd_my_ask_repair_ship_2 = 13 }
+	}
+	set_variable = { dd_stock_repair_ship_2 = num_equipment@repair_ship_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_carrier_1 < 1 } }
+		set_variable = { dd_my_ask_carrier_1 = 75 }
+	}
+	set_variable = { dd_stock_carrier_1 = num_equipment@carrier_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_conversion_bb < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_conversion_bb = 54 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_conversion_bb = num_equipment@ship_hull_carrier_conversion_bb }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_conversion_ca < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_conversion_ca = 55 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_conversion_ca = num_equipment@ship_hull_carrier_conversion_ca }
+	if = {
+		limit = { check_variable = { dd_my_ask_carrier_2 < 1 } }
+		set_variable = { dd_my_ask_carrier_2 = 90 }
+	}
+	set_variable = { dd_stock_carrier_2 = num_equipment@carrier_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_escort_carrier < 1 } }
+		set_variable = { dd_my_ask_escort_carrier = 30 }
+	}
+	set_variable = { dd_stock_escort_carrier = num_equipment@escort_carrier }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_1 = 42 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_1 = num_equipment@ship_hull_carrier_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_escort_carrier < 1 } }
+		set_variable = { dd_my_ask_ship_hull_escort_carrier = 25 }
+	}
+	set_variable = { dd_stock_ship_hull_escort_carrier = num_equipment@ship_hull_escort_carrier }
+	if = {
+		limit = { check_variable = { dd_my_ask_carrier_3 < 1 } }
+		set_variable = { dd_my_ask_carrier_3 = 105 }
+	}
+	set_variable = { dd_stock_carrier_3 = num_equipment@carrier_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_2 = 52 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_2 = num_equipment@ship_hull_carrier_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_carrier_4 < 1 } }
+		set_variable = { dd_my_ask_carrier_4 = 120 }
+	}
+	set_variable = { dd_stock_carrier_4 = num_equipment@carrier_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_mega_carrier < 1 } }
+		set_variable = { dd_my_ask_mega_carrier = 92 }
+	}
+	set_variable = { dd_stock_mega_carrier = num_equipment@mega_carrier }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_3 = 65 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_3 = num_equipment@ship_hull_carrier_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_mega_carrier < 1 } }
+		set_variable = { dd_my_ask_ship_hull_mega_carrier = 93 }
+	}
+	set_variable = { dd_stock_ship_hull_mega_carrier = num_equipment@ship_hull_mega_carrier }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_modern < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_modern = 85 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_modern = num_equipment@ship_hull_carrier_modern }
+	if = {
+		limit = { check_variable = { dd_my_ask_modern_carrier < 1 } }
+		set_variable = { dd_my_ask_modern_carrier = 130 }
+	}
+	set_variable = { dd_stock_modern_carrier = num_equipment@modern_carrier }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_cw1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_cw1 = 66 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_cw1 = num_equipment@ship_hull_carrier_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_cw2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_cw2 = 68 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_cw2 = num_equipment@ship_hull_carrier_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_cw3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_cw3 = 76 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_cw3 = num_equipment@ship_hull_carrier_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_cw4 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_cw4 = 77 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_cw4 = num_equipment@ship_hull_carrier_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_cw5 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_cw5 = 91 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_cw5 = num_equipment@ship_hull_carrier_cw5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_cw6 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_cw6 = 96 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_cw6 = num_equipment@ship_hull_carrier_cw6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_heavy_cruiser_1 < 1 } }
+		set_variable = { dd_my_ask_heavy_cruiser_1 = 53 }
+	}
+	set_variable = { dd_stock_heavy_cruiser_1 = num_equipment@heavy_cruiser_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_cruiser_1 < 1 } }
+		set_variable = { dd_my_ask_light_cruiser_1 = 36 }
+	}
+	set_variable = { dd_stock_light_cruiser_1 = num_equipment@light_cruiser_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_1 = 39 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_1 = num_equipment@ship_hull_cruiser_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_coastal_defense_ship < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_coastal_defense_ship = 30 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_coastal_defense_ship = num_equipment@ship_hull_cruiser_coastal_defense_ship }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_panzerschiff < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_panzerschiff = 56 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_panzerschiff = num_equipment@ship_hull_cruiser_panzerschiff }
+	if = {
+		limit = { check_variable = { dd_my_ask_heavy_cruiser_2 < 1 } }
+		set_variable = { dd_my_ask_heavy_cruiser_2 = 54 }
+	}
+	set_variable = { dd_stock_heavy_cruiser_2 = num_equipment@heavy_cruiser_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_cruiser_2 < 1 } }
+		set_variable = { dd_my_ask_light_cruiser_2 = 37 }
+	}
+	set_variable = { dd_stock_light_cruiser_2 = num_equipment@light_cruiser_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_2 = 41 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_2 = num_equipment@ship_hull_cruiser_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_heavy_cruiser_3 < 1 } }
+		set_variable = { dd_my_ask_heavy_cruiser_3 = 60 }
+	}
+	set_variable = { dd_stock_heavy_cruiser_3 = num_equipment@heavy_cruiser_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_cruiser_3 < 1 } }
+		set_variable = { dd_my_ask_light_cruiser_3 = 38 }
+	}
+	set_variable = { dd_stock_light_cruiser_3 = num_equipment@light_cruiser_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_3 = 42 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_3 = num_equipment@ship_hull_cruiser_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_torpedo_cruiser < 1 } }
+		set_variable = { dd_my_ask_ship_hull_torpedo_cruiser = 34 }
+	}
+	set_variable = { dd_stock_ship_hull_torpedo_cruiser = num_equipment@ship_hull_torpedo_cruiser }
+	if = {
+		limit = { check_variable = { dd_my_ask_torpedo_cruiser < 1 } }
+		set_variable = { dd_my_ask_torpedo_cruiser = 35 }
+	}
+	set_variable = { dd_stock_torpedo_cruiser = num_equipment@torpedo_cruiser }
+	if = {
+		limit = { check_variable = { dd_my_ask_heavy_cruiser_4 < 1 } }
+		set_variable = { dd_my_ask_heavy_cruiser_4 = 68 }
+	}
+	set_variable = { dd_stock_heavy_cruiser_4 = num_equipment@heavy_cruiser_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_light_cruiser_4 < 1 } }
+		set_variable = { dd_my_ask_light_cruiser_4 = 40 }
+	}
+	set_variable = { dd_stock_light_cruiser_4 = num_equipment@light_cruiser_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_4 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_4 = 43 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_4 = num_equipment@ship_hull_cruiser_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_modern_aa < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_modern_aa = 52 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_modern_aa = num_equipment@ship_hull_cruiser_modern_aa }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_amphib_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_amphib_1 = 44 }
+	}
+	set_variable = { dd_stock_ship_hull_amphib_1 = num_equipment@ship_hull_amphib_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_cw1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_cw1 = 47 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_cw1 = num_equipment@ship_hull_cruiser_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_amphib_2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_amphib_2 = 45 }
+	}
+	set_variable = { dd_stock_ship_hull_amphib_2 = num_equipment@ship_hull_amphib_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_cw2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_cw2 = 50 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_cw2 = num_equipment@ship_hull_cruiser_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_amphib_3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_amphib_3 = 46 }
+	}
+	set_variable = { dd_stock_ship_hull_amphib_3 = num_equipment@ship_hull_amphib_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_amphib_4 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_amphib_4 = 48 }
+	}
+	set_variable = { dd_stock_ship_hull_amphib_4 = num_equipment@ship_hull_amphib_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_cw3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_cw3 = 51 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_cw3 = num_equipment@ship_hull_cruiser_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_amphib_5 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_amphib_5 = 49 }
+	}
+	set_variable = { dd_stock_ship_hull_amphib_5 = num_equipment@ship_hull_amphib_5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_pre_dreadnought < 1 } }
+		set_variable = { dd_my_ask_ship_hull_pre_dreadnought = 52 }
+	}
+	set_variable = { dd_stock_ship_hull_pre_dreadnought = num_equipment@ship_hull_pre_dreadnought }
+	if = {
+		limit = { check_variable = { dd_my_ask_battle_cruiser_1 < 1 } }
+		set_variable = { dd_my_ask_battle_cruiser_1 = 50 }
+	}
+	set_variable = { dd_stock_battle_cruiser_1 = num_equipment@battle_cruiser_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_battleship_1 < 1 } }
+		set_variable = { dd_my_ask_battleship_1 = 112 }
+	}
+	set_variable = { dd_stock_battleship_1 = num_equipment@battleship_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_heavy_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_heavy_1 = 56 }
+	}
+	set_variable = { dd_stock_ship_hull_heavy_1 = num_equipment@ship_hull_heavy_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_SH_battleship_1 < 1 } }
+		set_variable = { dd_my_ask_SH_battleship_1 = 170 }
+	}
+	set_variable = { dd_stock_SH_battleship_1 = num_equipment@SH_battleship_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_battleship_2 < 1 } }
+		set_variable = { dd_my_ask_battleship_2 = 113 }
+	}
+	set_variable = { dd_stock_battleship_2 = num_equipment@battleship_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_heavy_2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_heavy_2 = 60 }
+	}
+	set_variable = { dd_stock_ship_hull_heavy_2 = num_equipment@ship_hull_heavy_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_battle_cruiser_2 < 1 } }
+		set_variable = { dd_my_ask_battle_cruiser_2 = 80 }
+	}
+	set_variable = { dd_stock_battle_cruiser_2 = num_equipment@battle_cruiser_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_battleship_3 < 1 } }
+		set_variable = { dd_my_ask_battleship_3 = 114 }
+	}
+	set_variable = { dd_stock_battleship_3 = num_equipment@battleship_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_heavy_3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_heavy_3 = 64 }
+	}
+	set_variable = { dd_stock_ship_hull_heavy_3 = num_equipment@ship_hull_heavy_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_super_heavy_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_super_heavy_1 = 110 }
+	}
+	set_variable = { dd_stock_ship_hull_super_heavy_1 = num_equipment@ship_hull_super_heavy_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_SH_battleship_2 < 1 } }
+		set_variable = { dd_my_ask_SH_battleship_2 = 260 }
+	}
+	set_variable = { dd_stock_SH_battleship_2 = num_equipment@SH_battleship_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_battleship_4 < 1 } }
+		set_variable = { dd_my_ask_battleship_4 = 120 }
+	}
+	set_variable = { dd_stock_battleship_4 = num_equipment@battleship_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_heavy_4 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_heavy_4 = 68 }
+	}
+	set_variable = { dd_stock_ship_hull_heavy_4 = num_equipment@ship_hull_heavy_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_modern_battleship < 1 } }
+		set_variable = { dd_my_ask_modern_battleship = 124 }
+	}
+	set_variable = { dd_stock_modern_battleship = num_equipment@modern_battleship }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_heavy_modern < 1 } }
+		set_variable = { dd_my_ask_ship_hull_heavy_modern = 72 }
+	}
+	set_variable = { dd_stock_ship_hull_heavy_modern = num_equipment@ship_hull_heavy_modern }
+	if = {
+		limit = { check_variable = { dd_my_ask_destroyer_1 < 1 } }
+		set_variable = { dd_my_ask_destroyer_1 = 8 }
+	}
+	set_variable = { dd_stock_destroyer_1 = num_equipment@destroyer_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_1 = 9 }
+	}
+	set_variable = { dd_stock_ship_hull_light_1 = num_equipment@ship_hull_light_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_destroyer_2 < 1 } }
+		set_variable = { dd_my_ask_destroyer_2 = 10 }
+	}
+	set_variable = { dd_stock_destroyer_2 = num_equipment@destroyer_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_2 = 13 }
+	}
+	set_variable = { dd_stock_ship_hull_light_2 = num_equipment@ship_hull_light_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_destroyer_3 < 1 } }
+		set_variable = { dd_my_ask_destroyer_3 = 11 }
+	}
+	set_variable = { dd_stock_destroyer_3 = num_equipment@destroyer_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_3 = 14 }
+	}
+	set_variable = { dd_stock_ship_hull_light_3 = num_equipment@ship_hull_light_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_destroyer_4 < 1 } }
+		set_variable = { dd_my_ask_destroyer_4 = 12 }
+	}
+	set_variable = { dd_stock_destroyer_4 = num_equipment@destroyer_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_4 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_4 = 15 }
+	}
+	set_variable = { dd_stock_ship_hull_light_4 = num_equipment@ship_hull_light_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_cw1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_cw1 = 18 }
+	}
+	set_variable = { dd_stock_ship_hull_light_cw1 = num_equipment@ship_hull_light_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_cw2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_cw2 = 19 }
+	}
+	set_variable = { dd_stock_ship_hull_light_cw2 = num_equipment@ship_hull_light_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_cw3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_cw3 = 20 }
+	}
+	set_variable = { dd_stock_ship_hull_light_cw3 = num_equipment@ship_hull_light_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_cw4 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_cw4 = 28 }
+	}
+	set_variable = { dd_stock_ship_hull_light_cw4 = num_equipment@ship_hull_light_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_cw5 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_cw5 = 29 }
+	}
+	set_variable = { dd_stock_ship_hull_light_cw5 = num_equipment@ship_hull_light_cw5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_cw6 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_cw6 = 36 }
+	}
+	set_variable = { dd_stock_ship_hull_light_cw6 = num_equipment@ship_hull_light_cw6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_usv_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_usv_1 = 16 }
+	}
+	set_variable = { dd_stock_ship_hull_usv_1 = num_equipment@ship_hull_usv_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_light_cw7 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_light_cw7 = 44 }
+	}
+	set_variable = { dd_stock_ship_hull_light_cw7 = num_equipment@ship_hull_light_cw7 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_usv_2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_usv_2 = 17 }
+	}
+	set_variable = { dd_stock_ship_hull_usv_2 = num_equipment@ship_hull_usv_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_1 = 9 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_1 = num_equipment@ship_hull_submarine_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_submarine_1 < 1 } }
+		set_variable = { dd_my_ask_submarine_1 = 5 }
+	}
+	set_variable = { dd_stock_submarine_1 = num_equipment@submarine_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_cruiser_submarine < 1 } }
+		set_variable = { dd_my_ask_cruiser_submarine = 15 }
+	}
+	set_variable = { dd_stock_cruiser_submarine = num_equipment@cruiser_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_2 = 10 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_2 = num_equipment@ship_hull_submarine_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_submarine_2 < 1 } }
+		set_variable = { dd_my_ask_submarine_2 = 6 }
+	}
+	set_variable = { dd_stock_submarine_2 = num_equipment@submarine_2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_fleet_submarine < 1 } }
+		set_variable = { dd_my_ask_fleet_submarine = 17 }
+	}
+	set_variable = { dd_stock_fleet_submarine = num_equipment@fleet_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_midget_submarine < 1 } }
+		set_variable = { dd_my_ask_midget_submarine = 3 }
+	}
+	set_variable = { dd_stock_midget_submarine = num_equipment@midget_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_cruiser_submarine < 1 } }
+		set_variable = { dd_my_ask_ship_hull_cruiser_submarine = 16 }
+	}
+	set_variable = { dd_stock_ship_hull_cruiser_submarine = num_equipment@ship_hull_cruiser_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_fleet_submarine < 1 } }
+		set_variable = { dd_my_ask_ship_hull_fleet_submarine = 19 }
+	}
+	set_variable = { dd_stock_ship_hull_fleet_submarine = num_equipment@ship_hull_fleet_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_midget_submarine < 1 } }
+		set_variable = { dd_my_ask_ship_hull_midget_submarine = 4 }
+	}
+	set_variable = { dd_stock_ship_hull_midget_submarine = num_equipment@ship_hull_midget_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_3 = 11 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_3 = num_equipment@ship_hull_submarine_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_submarine_3 < 1 } }
+		set_variable = { dd_my_ask_submarine_3 = 7 }
+	}
+	set_variable = { dd_stock_submarine_3 = num_equipment@submarine_3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_carrier_submarine < 1 } }
+		set_variable = { dd_my_ask_ship_hull_carrier_submarine = 20 }
+	}
+	set_variable = { dd_stock_ship_hull_carrier_submarine = num_equipment@ship_hull_carrier_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_4 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_4 = 13 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_4 = num_equipment@ship_hull_submarine_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_submarine_4 < 1 } }
+		set_variable = { dd_my_ask_submarine_4 = 8 }
+	}
+	set_variable = { dd_stock_submarine_4 = num_equipment@submarine_4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_rocket_submarine < 1 } }
+		set_variable = { dd_my_ask_rocket_submarine = 21 }
+	}
+	set_variable = { dd_stock_rocket_submarine = num_equipment@rocket_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_nuclear_submarine < 1 } }
+		set_variable = { dd_my_ask_nuclear_submarine = 23 }
+	}
+	set_variable = { dd_stock_nuclear_submarine = num_equipment@nuclear_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_nuclear_missile_submarine < 1 } }
+		set_variable = { dd_my_ask_nuclear_missile_submarine = 29 }
+	}
+	set_variable = { dd_stock_nuclear_missile_submarine = num_equipment@nuclear_missile_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_nuclear_submarine < 1 } }
+		set_variable = { dd_my_ask_ship_hull_nuclear_submarine = 24 }
+	}
+	set_variable = { dd_stock_ship_hull_nuclear_submarine = num_equipment@ship_hull_nuclear_submarine }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_cw1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_cw1 = 18 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_cw1 = num_equipment@ship_hull_submarine_cw1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_diesel_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_diesel_1 = 12 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_diesel_1 = num_equipment@ship_hull_submarine_diesel_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_cw2 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_cw2 = 28 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_cw2 = num_equipment@ship_hull_submarine_cw2 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_cw3 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_cw3 = 40 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_cw3 = num_equipment@ship_hull_submarine_cw3 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_cw4 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_cw4 = 48 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_cw4 = num_equipment@ship_hull_submarine_cw4 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_cw5 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_cw5 = 56 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_cw5 = num_equipment@ship_hull_submarine_cw5 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_uuv_1 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_uuv_1 = 14 }
+	}
+	set_variable = { dd_stock_ship_hull_uuv_1 = num_equipment@ship_hull_uuv_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_ship_hull_submarine_cw6 < 1 } }
+		set_variable = { dd_my_ask_ship_hull_submarine_cw6 = 64 }
+	}
+	set_variable = { dd_stock_ship_hull_submarine_cw6 = num_equipment@ship_hull_submarine_cw6 }
+	if = {
+		limit = { check_variable = { dd_my_ask_support_ship_1 < 1 } }
+		set_variable = { dd_my_ask_support_ship_1 = 10 }
+	}
+	set_variable = { dd_stock_support_ship_1 = num_equipment@support_ship_1 }
+	if = {
+		limit = { check_variable = { dd_my_ask_support_ship_2 < 1 } }
+		set_variable = { dd_my_ask_support_ship_2 = 13 }
+	}
+	set_variable = { dd_stock_support_ship_2 = num_equipment@support_ship_2 }
+	dd_refresh_buy_slots = yes
 }
 
 dd_take_loan_small = {
@@ -549,6 +2207,7 @@ dd_recalc_policy_expense = {
 	if = { limit = { has_idea = dd_minority_5 } add_to_variable = { dd_spend_share = 0.02 } }
 	if = { limit = { has_idea = dd_fertility_1 } add_to_variable = { dd_spend_share = 0.01 } }
 	if = { limit = { has_idea = dd_fertility_2 } add_to_variable = { dd_spend_share = 0.005 } }
+	if = { limit = { has_idea = dd_taxes_1 } set_variable = { dd_tax_share = dd_tax_share_1 } }
 	if = { limit = { has_idea = dd_taxes_2 } set_variable = { dd_tax_share = dd_tax_share_2 } }
 	if = { limit = { has_idea = dd_taxes_3 } set_variable = { dd_tax_share = dd_tax_share_3 } }
 	if = { limit = { has_idea = dd_taxes_4 } set_variable = { dd_tax_share = dd_tax_share_4 } }
@@ -567,6 +2226,7 @@ dd_recalc_accounts = {
 	set_variable = { dd_n_dock = 0 }
 	set_variable = { dd_n_fin = 0 }
 	set_variable = { dd_n_srv = 0 }
+	set_variable = { dd_pts_fin = 0 }
 	every_controlled_state = {
 		set_temp_variable = { pop_m = state_population_k }
 		divide_temp_variable = { pop_m = 1000 }
@@ -584,6 +2244,24 @@ dd_recalc_accounts = {
 		add_to_variable = { ROOT.dd_n_dock = st_dock }
 		add_to_variable = { ROOT.dd_n_fin = st_fin }
 		add_to_variable = { ROOT.dd_n_srv = st_srv }
+		if = {
+			limit = { check_variable = { st_fin > 0 } }
+			set_temp_variable = { fin_civ = st_civ }
+			if = {
+				limit = { check_variable = { fin_civ > ROOT.dd_fin_civ_cap } }
+				set_temp_variable = { fin_civ = ROOT.dd_fin_civ_cap }
+			}
+			set_temp_variable = { fin_srv = st_srv }
+			if = {
+				limit = { check_variable = { fin_srv > ROOT.dd_fin_srv_cap } }
+				set_temp_variable = { fin_srv = ROOT.dd_fin_srv_cap }
+			}
+			set_temp_variable = { fin_each = ROOT.dd_fin_base }
+			add_to_temp_variable = { fin_each = fin_civ }
+			add_to_temp_variable = { fin_each = fin_srv }
+			multiply_temp_variable = { fin_each = st_fin }
+			add_to_variable = { ROOT.dd_pts_fin = fin_each }
+		}
 	}
 	set_variable = { dd_pts_pop = dd_pop_m }
 	multiply_variable = { dd_pts_pop = dd_w_pop }
@@ -593,8 +2271,6 @@ dd_recalc_accounts = {
 	multiply_variable = { dd_pts_mil = dd_w_mil }
 	set_variable = { dd_pts_dock = dd_n_dock }
 	multiply_variable = { dd_pts_dock = dd_w_dock }
-	set_variable = { dd_pts_fin = dd_n_fin }
-	multiply_variable = { dd_pts_fin = dd_w_fin }
 	set_variable = { dd_pts_srv = dd_n_srv }
 	multiply_variable = { dd_pts_srv = dd_w_srv }
 	set_variable = { dd_gdp_points = dd_pts_pop }
@@ -631,6 +2307,26 @@ dd_recalc_accounts = {
 		multiply_variable = { income_services = dd_pts_srv }
 		divide_variable = { income_services = dd_gdp_points }
 	}
+
+	# Spirits are handed out in history. They are revenue, so debt uses them.
+	set_variable = { dd_oil_units = 0 }
+	set_variable = { dd_income_oil = 0 }
+	set_variable = { dd_income_checkpoint = 0 }
+	if = {
+		limit = { has_idea = dd_oil_revenue }
+		every_controlled_state = {
+			set_temp_variable = { st_oil = resource@oil }
+			add_to_variable = { ROOT.dd_oil_units = st_oil }
+		}
+		set_variable = { dd_income_oil = dd_oil_units }
+		multiply_variable = { dd_income_oil = dd_oil_rent }
+	}
+	if = {
+		limit = { has_idea = dd_checkpoint_revenue }
+		set_variable = { dd_income_checkpoint = dd_checkpoint_income }
+	}
+	add_to_variable = { dd_last_income = dd_income_oil }
+	add_to_variable = { dd_last_income = dd_income_checkpoint }
 
 	set_variable = { expense_admin = dd_gdp }
 	multiply_variable = { expense_admin = dd_spend_base }

@@ -1,0 +1,518 @@
+# USA politics and the second civil war. Country-scoped. No random.
+
+dd_usa_take_out_maduro = {
+	USA = {
+		set_autonomy = {
+			target = VEN
+			autonomous_state = autonomy_puppet
+			freedom_level = 0.4
+		}
+		give_resource_rights = { receiver = USA state = 307 }
+		give_resource_rights = { receiver = USA state = 488 }
+		give_resource_rights = { receiver = USA state = 489 }
+		add_fuel = 1000000
+	}
+	VEN = {
+		set_politics = {
+			ruling_party = liberal_conservatism
+			elections_allowed = no
+		}
+		create_country_leader = {
+			name = "Edmundo Gonzalez Urrutia"
+			desc = VEN_LEADER_DESC
+			picture = GFX_portrait_unknown
+			ideology = liberal_conservative
+		}
+	}
+}
+
+dd_usa_nato_ultimatum_start = {
+	every_other_country = {
+		limit = { is_in_faction_with = ROOT }
+		set_variable = { dd_nato_start_divs = num_divisions }
+		set_variable = { dd_nato_need_divs = dd_nato_start_divs }
+		multiply_variable = { dd_nato_need_divs = 1.2 }
+		set_country_flag = dd_nato_ultimatum
+	}
+	country_event = { id = dd_usa_nato.1 days = 365 }
+}
+
+dd_usa_apply_tariffs = {
+	add_ideas = dd_usa_global_tariff_plan
+	every_other_country = {
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = dd_usa_tariff_opinion
+		}
+	}
+}
+
+dd_usa_student_visas = {
+	remove_ideas = dd_immigration_1
+	remove_ideas = dd_immigration_2
+	remove_ideas = dd_immigration_3
+	remove_ideas = dd_immigration_4
+	remove_ideas = dd_immigration_5
+	add_ideas = dd_immigration_2
+}
+
+dd_usa_high_taxes = {
+	remove_ideas = dd_taxes_1
+	remove_ideas = dd_taxes_2
+	remove_ideas = dd_taxes_3
+	remove_ideas = dd_taxes_4
+	remove_ideas = dd_taxes_5
+	add_ideas = dd_taxes_4
+}
+
+dd_usa_most_liberal_policy = {
+	remove_ideas = dd_women_1
+	remove_ideas = dd_women_2
+	remove_ideas = dd_women_3
+	remove_ideas = dd_women_4
+	remove_ideas = dd_women_5
+	add_ideas = dd_women_5
+	remove_ideas = dd_minority_1
+	remove_ideas = dd_minority_2
+	remove_ideas = dd_minority_3
+	remove_ideas = dd_minority_4
+	remove_ideas = dd_minority_5
+	add_ideas = dd_minority_4
+	remove_ideas = dd_immigration_1
+	remove_ideas = dd_immigration_2
+	remove_ideas = dd_immigration_3
+	remove_ideas = dd_immigration_4
+	remove_ideas = dd_immigration_5
+	add_ideas = dd_immigration_5
+	remove_ideas = dd_minority_4
+	add_ideas = dd_minority_5
+	remove_ideas = dd_labor_1
+	remove_ideas = dd_labor_2
+	remove_ideas = dd_labor_3
+	remove_ideas = dd_labor_4
+	remove_ideas = dd_labor_5
+	add_ideas = dd_labor_4
+	remove_ideas = dd_welfare_1
+	remove_ideas = dd_welfare_2
+	remove_ideas = dd_welfare_3
+	remove_ideas = dd_welfare_4
+	remove_ideas = dd_welfare_5
+	add_ideas = dd_welfare_5
+	remove_ideas = dd_education_1
+	remove_ideas = dd_education_2
+	remove_ideas = dd_education_3
+	remove_ideas = dd_education_4
+	remove_ideas = dd_education_5
+	add_ideas = dd_education_5
+	remove_ideas = dd_healthcare_1
+	remove_ideas = dd_healthcare_2
+	remove_ideas = dd_healthcare_3
+	remove_ideas = dd_healthcare_4
+	remove_ideas = dd_healthcare_5
+	add_ideas = dd_healthcare_5
+}
+
+dd_usa_liberal_policy_set = {
+	dd_usa_high_taxes = yes
+	remove_ideas = dd_women_1
+	remove_ideas = dd_women_2
+	remove_ideas = dd_women_3
+	remove_ideas = dd_women_4
+	remove_ideas = dd_women_5
+	add_ideas = dd_women_4
+	remove_ideas = dd_minority_1
+	remove_ideas = dd_minority_2
+	remove_ideas = dd_minority_3
+	remove_ideas = dd_minority_4
+	remove_ideas = dd_minority_5
+	add_ideas = dd_minority_4
+	remove_ideas = dd_labor_1
+	remove_ideas = dd_labor_2
+	remove_ideas = dd_labor_3
+	remove_ideas = dd_labor_4
+	remove_ideas = dd_labor_5
+	add_ideas = dd_labor_4
+}
+
+dd_usa_conservative_policy_set = {
+	remove_ideas = dd_taxes_1
+	remove_ideas = dd_taxes_2
+	remove_ideas = dd_taxes_3
+	remove_ideas = dd_taxes_4
+	remove_ideas = dd_taxes_5
+	add_ideas = dd_taxes_2
+	remove_ideas = dd_immigration_1
+	remove_ideas = dd_immigration_2
+	remove_ideas = dd_immigration_3
+	remove_ideas = dd_immigration_4
+	remove_ideas = dd_immigration_5
+	add_ideas = dd_immigration_2
+	remove_ideas = dd_minority_1
+	remove_ideas = dd_minority_2
+	remove_ideas = dd_minority_3
+	remove_ideas = dd_minority_4
+	remove_ideas = dd_minority_5
+	add_ideas = dd_minority_2
+	remove_ideas = dd_labor_1
+	remove_ideas = dd_labor_2
+	remove_ideas = dd_labor_3
+	remove_ideas = dd_labor_4
+	remove_ideas = dd_labor_5
+	add_ideas = dd_labor_2
+}
+
+dd_usa_demsoc_policy_set = {
+	dd_usa_high_taxes = yes
+	remove_ideas = dd_welfare_1
+	remove_ideas = dd_welfare_2
+	remove_ideas = dd_welfare_3
+	remove_ideas = dd_welfare_4
+	remove_ideas = dd_welfare_5
+	add_ideas = dd_welfare_5
+	remove_ideas = dd_labor_1
+	remove_ideas = dd_labor_2
+	remove_ideas = dd_labor_3
+	remove_ideas = dd_labor_4
+	remove_ideas = dd_labor_5
+	add_ideas = dd_labor_4
+	remove_ideas = dd_education_1
+	remove_ideas = dd_education_2
+	remove_ideas = dd_education_3
+	remove_ideas = dd_education_4
+	remove_ideas = dd_education_5
+	add_ideas = dd_education_5
+	remove_ideas = dd_healthcare_1
+	remove_ideas = dd_healthcare_2
+	remove_ideas = dd_healthcare_3
+	remove_ideas = dd_healthcare_4
+	remove_ideas = dd_healthcare_5
+	add_ideas = dd_healthcare_5
+}
+
+dd_usa_pull_gulf_access = {
+	BHR = { diplomatic_relation = { country = USA relation = military_access active = no } }
+	IRQ = { diplomatic_relation = { country = USA relation = military_access active = no } }
+	KUW = { diplomatic_relation = { country = USA relation = military_access active = no } }
+	QAT = { diplomatic_relation = { country = USA relation = military_access active = no } }
+	SAU = { diplomatic_relation = { country = USA relation = military_access active = no } }
+	UAE = { diplomatic_relation = { country = USA relation = military_access active = no } }
+	OMA = { diplomatic_relation = { country = USA relation = military_access active = no } }
+}
+
+dd_usa_blob_tick = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_usa_blob_1 } }
+		set_country_flag = dd_usa_blob_1
+		if = {
+			limit = { NOT = { has_completed_focus = USA_distance_from_trump } }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
+			custom_effect_tooltip = dd_usa_blob_tt_1
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_usa_blob_2 } }
+		set_country_flag = dd_usa_blob_2
+		if = {
+			limit = { NOT = { has_completed_focus = USA_mission_to_the_centre } }
+			add_popularity = { ideology = social_liberalism popularity = -0.06 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
+			custom_effect_tooltip = dd_usa_blob_tt_2
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_usa_blob_3 } }
+		set_country_flag = dd_usa_blob_3
+		if = {
+			limit = { NOT = { has_completed_focus = USA_win_back_maga } }
+			add_popularity = { ideology = national_populism popularity = -0.06 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
+			custom_effect_tooltip = dd_usa_blob_tt_3
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_usa_blob_4 } }
+		set_country_flag = dd_usa_blob_4
+		if = {
+			limit = { NOT = { has_completed_focus = USA_cr_attack_far_left } }
+			add_popularity = { ideology = communism popularity = -0.02 }
+			add_popularity = { ideology = progressive_populism popularity = -0.02 }
+			add_political_power = 100
+			custom_effect_tooltip = dd_usa_blob_tt_4
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_usa_blob_5 } }
+		set_country_flag = dd_usa_blob_5
+		if = {
+			limit = { NOT = { has_completed_focus = USA_cr_attack_far_right } }
+			add_popularity = { ideology = national_populism popularity = -0.04 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.04 }
+			add_political_power = 100
+			custom_effect_tooltip = dd_usa_blob_tt_5
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_usa_blob_6 } }
+		set_country_flag = dd_usa_blob_6
+		if = {
+			limit = { NOT = { has_completed_focus = USA_usurp_maga } }
+			add_popularity = { ideology = national_populism popularity = -0.10 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.10 }
+			custom_effect_tooltip = dd_usa_blob_tt_6
+		}
+	}
+}
+
+dd_usa_provoke_blob = {
+	if = {
+		limit = { NOT = { has_idea = dd_usa_provoking_the_blob } }
+		add_ideas = dd_usa_provoking_the_blob
+	}
+}
+
+dd_usa_start_civil_war = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_usa_civil_war } }
+		set_country_flag = dd_usa_civil_war
+		remove_ideas = dd_usa_youll_have_to_kill_us
+		clr_country_flag = dd_usa_keep_eas
+		clr_country_flag = dd_usa_keep_wcl
+		clr_country_flag = dd_usa_keep_rbm
+		clr_country_flag = dd_usa_keep_vnm
+		clr_country_flag = dd_usa_keep_fds
+		clr_country_flag = dd_usa_keep_rbl
+		clr_country_flag = dd_usa_keep_aca
+		clr_country_flag = dd_usa_keep_fed
+		if = {
+			limit = {
+				OR = {
+					has_government = social_democracy
+					has_government = progressive_populism
+				}
+			}
+			set_country_flag = dd_usa_keep_eas
+		}
+		else_if = {
+			limit = { has_government = social_liberalism }
+			set_country_flag = dd_usa_keep_wcl
+			set_capital = { state = 385 }
+		}
+		else_if = {
+			limit = { has_government = liberal_conservatism }
+			set_country_flag = dd_usa_keep_rbm
+			set_capital = { state = 373 }
+		}
+		else_if = {
+			limit = { has_government = national_populism }
+			set_country_flag = dd_usa_keep_vnm
+			set_capital = { state = 391 }
+		}
+		else_if = {
+			limit = { has_government = fascism }
+			set_country_flag = dd_usa_keep_fds
+			set_capital = { state = 367 }
+		}
+		else_if = {
+			limit = { has_government = communism }
+			set_country_flag = dd_usa_keep_rbl
+			set_capital = { state = 358 }
+		}
+		else_if = {
+			limit = { has_government = anarcho_communism }
+			set_country_flag = dd_usa_keep_aca
+			set_capital = { state = 378 }
+		}
+		else = {
+			set_country_flag = dd_usa_keep_fed
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_aca } }
+			ACA = {
+				transfer_state = 378
+				add_state_core = 378
+				transfer_state = 377
+				add_state_core = 377
+				transfer_state = 376
+				add_state_core = 376
+				set_country_flag = dd_cw_released
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_wcl } }
+			WCL = {
+				transfer_state = 379
+				add_state_core = 379
+				transfer_state = 385
+				add_state_core = 385
+				transfer_state = 386
+				add_state_core = 386
+				set_country_flag = dd_cw_released
+			}
+		}
+		AOG = {
+			transfer_state = 387
+			add_state_core = 387
+			transfer_state = 388
+			add_state_core = 388
+			set_country_flag = dd_cw_released
+		}
+		DES = {
+			transfer_state = 380
+			add_state_core = 380
+			set_country_flag = dd_cw_released
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_rbm } }
+			RBM = {
+				transfer_state = 383
+				add_state_core = 383
+				transfer_state = 384
+				add_state_core = 384
+				transfer_state = 373
+				add_state_core = 373
+				transfer_state = 392
+				add_state_core = 392
+				transfer_state = 369
+				add_state_core = 369
+				transfer_state = 374
+				add_state_core = 374
+				set_country_flag = dd_cw_released
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_vnm } }
+			VNM = {
+				transfer_state = 389
+				add_state_core = 389
+				transfer_state = 390
+				add_state_core = 390
+				transfer_state = 391
+				add_state_core = 391
+				transfer_state = 381
+				add_state_core = 381
+				transfer_state = 382
+				add_state_core = 382
+				set_country_flag = dd_cw_released
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_rbl } }
+			RBL = {
+				transfer_state = 358
+				add_state_core = 358
+				transfer_state = 393
+				add_state_core = 393
+				transfer_state = 261
+				add_state_core = 261
+				transfer_state = 396
+				add_state_core = 396
+				transfer_state = 360
+				add_state_core = 360
+				transfer_state = 394
+				add_state_core = 394
+				transfer_state = 395
+				add_state_core = 395
+				set_country_flag = dd_cw_released
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_fds } }
+			FDS = {
+				transfer_state = 367
+				add_state_core = 367
+				transfer_state = 370
+				add_state_core = 370
+				transfer_state = 365
+				add_state_core = 365
+				transfer_state = 364
+				add_state_core = 364
+				transfer_state = 371
+				add_state_core = 371
+				transfer_state = 372
+				add_state_core = 372
+				set_country_flag = dd_cw_released
+			}
+		}
+		SCN = {
+			transfer_state = 368
+			add_state_core = 368
+			transfer_state = 363
+			add_state_core = 363
+			set_country_flag = dd_cw_released
+		}
+		FLO = {
+			transfer_state = 366
+			add_state_core = 366
+			set_country_flag = dd_cw_released
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_eas } }
+			EAS = {
+				transfer_state = 357
+				add_state_core = 357
+				transfer_state = 359
+				add_state_core = 359
+				transfer_state = 816
+				add_state_core = 816
+				transfer_state = 361
+				add_state_core = 361
+				set_country_flag = dd_cw_released
+			}
+		}
+		TXG = {
+			transfer_state = 375
+			add_state_core = 375
+			set_country_flag = dd_cw_released
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_fed } }
+			FVA = {
+				transfer_state = 362
+				add_state_core = 362
+				set_country_flag = dd_cw_released
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = dd_usa_keep_aca }
+				NOT = { has_country_flag = dd_usa_keep_rbl }
+			}
+			RBL = {
+				set_autonomy = {
+					target = ACA
+					autonomous_state = autonomy_puppet
+					freedom_level = 0.2
+				}
+			}
+			ACA = {
+				create_country_leader = {
+					name = "Commune Council"
+					picture = GFX_portrait_unknown
+					ideology = anarcho_communist
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = dd_usa_keep_rbl
+				NOT = { has_country_flag = dd_usa_keep_aca }
+			}
+			USA = {
+				set_autonomy = {
+					target = ACA
+					autonomous_state = autonomy_puppet
+					freedom_level = 0.2
+				}
+			}
+			ACA = {
+				create_country_leader = {
+					name = "Commune Council"
+					picture = GFX_portrait_unknown
+					ideology = anarcho_communist
+				}
+			}
+		}
+		dd_usa_civil_war_fights = yes
+		news_event = { id = dd_usa_news.10 }
+	}
+}

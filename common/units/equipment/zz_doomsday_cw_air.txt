@@ -30,7 +30,7 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
+			chromium = 1
 		}
 	}
 	fighter_equipment_cw2 = {
@@ -62,7 +62,7 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
+			chromium = 1
 		}
 	}
 	fighter_equipment_cw3 = {
@@ -94,7 +94,8 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
+			chromium = 1
+			titanium = 1
 		}
 	}
 	fighter_equipment_cw4 = {
@@ -127,8 +128,9 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
+			titanium = 1
 			rare_earths = 1
-			cobalt = 1
+			copper = 1
 		}
 	}
 	fighter_equipment_cw45 = {
@@ -159,10 +161,13 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.28
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
+			titanium = 2
 			rare_earths = 1
 			cobalt = 1
+			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	fighter_equipment_cw5a = {
@@ -193,11 +198,13 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.3
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
+			titanium = 2
 			rare_earths = 1
 			cobalt = 1
 			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	fighter_equipment_cw5b = {
@@ -228,11 +235,13 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.28
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
+			titanium = 2
 			rare_earths = 1
 			cobalt = 1
 			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	fighter_equipment_cw6 = {
@@ -263,11 +272,13 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.32
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
+			titanium = 2
 			rare_earths = 1
 			cobalt = 1
 			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	cv_fighter_equipment_cw2 = {
@@ -300,7 +311,7 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
+			chromium = 1
 		}
 	}
 	cv_fighter_equipment_cw4 = {
@@ -334,8 +345,9 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
+			titanium = 1
 			rare_earths = 1
-			cobalt = 1
+			copper = 1
 		}
 	}
 	cv_fighter_equipment_cw5 = {
@@ -367,11 +379,13 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.28
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
+			titanium = 2
 			rare_earths = 1
 			cobalt = 1
 			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	cas_equipment_cw1 = {
@@ -402,9 +416,9 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.26
 		resources = {
-			aluminium = 3
+			aluminium = 2
 			rubber = 1
-			rare_earths = 1
+			steel = 1
 		}
 	}
 	cas_equipment_cw2 = {
@@ -435,9 +449,9 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.28
 		resources = {
-			aluminium = 3
+			aluminium = 2
 			rubber = 1
-			rare_earths = 1
+			steel = 1
 		}
 	}
 	cas_equipment_cw3 = {
@@ -468,10 +482,10 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.28
 		resources = {
-			aluminium = 3
+			aluminium = 2
 			rubber = 1
-			rare_earths = 1
-			cobalt = 1
+			steel = 1
+			titanium = 1
 		}
 	}
 	cas_equipment_cw4 = {
@@ -502,11 +516,13 @@ equipments = {
 		manpower = 20
 		fuel_consumption = 0.3
 		resources = {
-			aluminium = 3
+			aluminium = 2
 			rubber = 1
+			steel = 1
+			titanium = 1
 			rare_earths = 1
-			cobalt = 1
 			copper = 1
+			microchips = 1
 		}
 	}
 	nav_bomber_equipment_cw1 = {
@@ -539,7 +555,6 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
 		}
 	}
 	nav_bomber_equipment_cw2 = {
@@ -572,8 +587,6 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
-			cobalt = 1
 		}
 	}
 	nav_bomber_equipment_cw3 = {
@@ -606,8 +619,7 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
-			cobalt = 1
+			titanium = 1
 			copper = 1
 		}
 	}
@@ -642,7 +654,6 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
 		}
 	}
 	tac_bomber_equipment_cw2 = {
@@ -676,7 +687,6 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
 		}
 	}
 	tac_bomber_equipment_cw3 = {
@@ -710,8 +720,8 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
-			cobalt = 1
+			titanium = 1
+			copper = 1
 		}
 	}
 	tac_bomber_equipment_cw4 = {
@@ -745,9 +755,10 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
+			titanium = 1
 			rare_earths = 1
-			cobalt = 1
 			copper = 1
+			microchips = 1
 		}
 	}
 	strat_bomber_equipment_cw1 = {
@@ -780,7 +791,7 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
+			steel = 1
 		}
 	}
 	strat_bomber_equipment_cw2 = {
@@ -813,7 +824,7 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
+			steel = 1
 		}
 	}
 	strat_bomber_equipment_cw3 = {
@@ -846,8 +857,7 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
-			rare_earths = 1
-			cobalt = 1
+			steel = 1
 		}
 	}
 	strat_bomber_equipment_cw4 = {
@@ -880,8 +890,11 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
+			titanium = 1
 			rare_earths = 1
-			cobalt = 1
+			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	strat_bomber_equipment_cw5 = {
@@ -914,9 +927,11 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
+			titanium = 1
 			rare_earths = 1
-			cobalt = 1
 			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	strat_bomber_equipment_cw6 = {
@@ -949,9 +964,11 @@ equipments = {
 		resources = {
 			aluminium = 3
 			rubber = 1
+			titanium = 1
 			rare_earths = 1
-			cobalt = 1
 			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	scout_plane_equipment_cw1 = {
@@ -981,9 +998,9 @@ equipments = {
 		manpower = 40
 		fuel_consumption = 0.26
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
 			rare_earths = 1
+			copper = 1
 		}
 	}
 	aew_equipment_1 = {
@@ -1013,9 +1030,10 @@ equipments = {
 		manpower = 60
 		fuel_consumption = 0.55
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
 			rare_earths = 1
+			copper = 1
+			microchips = 1
 		}
 	}
 	aew_equipment_2 = {
@@ -1045,11 +1063,10 @@ equipments = {
 		manpower = 60
 		fuel_consumption = 0.55
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
 			rare_earths = 1
-			cobalt = 1
 			copper = 1
+			microchips = 1
 		}
 	}
 	aew_equipment_3 = {
@@ -1079,11 +1096,10 @@ equipments = {
 		manpower = 60
 		fuel_consumption = 0.55
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
 			rare_earths = 1
-			cobalt = 1
 			copper = 1
+			microchips = 1
 		}
 	}
 	mpa_equipment_cw1 = {
@@ -1115,9 +1131,10 @@ equipments = {
 		manpower = 80
 		fuel_consumption = 0.7
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
 			rare_earths = 1
+			copper = 1
+			microchips = 1
 		}
 	}
 	mpa_equipment_cw2 = {
@@ -1149,10 +1166,10 @@ equipments = {
 		manpower = 80
 		fuel_consumption = 0.75
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
 			rare_earths = 1
-			cobalt = 1
+			copper = 1
+			microchips = 1
 		}
 	}
 	mpa_equipment_cw3 = {
@@ -1184,11 +1201,10 @@ equipments = {
 		manpower = 80
 		fuel_consumption = 0.8
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 2
 			rare_earths = 1
-			cobalt = 1
 			copper = 1
+			microchips = 1
 		}
 	}
 	cca_equipment_1 = {
@@ -1219,11 +1235,11 @@ equipments = {
 		manpower = 0
 		fuel_consumption = 0.18
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 1
 			rare_earths = 1
-			cobalt = 1
-			copper = 1
+			lithium = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	cca_equipment_2 = {
@@ -1254,11 +1270,11 @@ equipments = {
 		manpower = 0
 		fuel_consumption = 0.16
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 1
 			rare_earths = 1
-			cobalt = 1
-			copper = 1
+			lithium = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	cca_strike_equipment_1 = {
@@ -1289,11 +1305,12 @@ equipments = {
 		manpower = 0
 		fuel_consumption = 0.18
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 1
 			rare_earths = 1
+			lithium = 1
 			cobalt = 1
-			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	hale_uav_equipment_1 = {
@@ -1323,10 +1340,11 @@ equipments = {
 		manpower = 5
 		fuel_consumption = 0.06
 		resources = {
-			aluminium = 3
-			rubber = 1
+			aluminium = 1
 			rare_earths = 1
-			cobalt = 1
+			lithium = 1
+			graphite = 1
+			microchips = 1
 		}
 	}
 	recon_uav_equipment_2 = {
@@ -1349,6 +1367,13 @@ equipments = {
 		surface_detection = 28
 		sub_detection = 6
 		fuel_consumption = 0.02
+		resources = {
+			aluminium = 1
+			rare_earths = 1
+			lithium = 1
+			graphite = 1
+			microchips = 1
+		}
 	}
 	transport_heli_equipment_2 = {
 		year = 1975
@@ -1362,6 +1387,10 @@ equipments = {
 		air_attack = 0
 		build_cost_ic = 22.0
 		fuel_consumption = 0.35
+		resources = {
+			aluminium = 2
+			steel = 1
+		}
 	}
 	transport_heli_equipment_3 = {
 		year = 2030
@@ -1375,6 +1404,10 @@ equipments = {
 		air_attack = 0
 		build_cost_ic = 48.0
 		fuel_consumption = 0.4
+		resources = {
+			aluminium = 2
+			steel = 1
+		}
 	}
 	guided_missile_equipment_cw = {
 		year = 2009
@@ -1388,5 +1421,13 @@ equipments = {
 		air_attack = 0
 		build_cost_ic = 48.0
 		air_bombing = 720
+		resources = {
+			aluminium = 2
+			tungsten = 1
+			rare_earths = 1
+			copper = 1
+			graphite = 1
+			microchips = 1
+		}
 	}
 }

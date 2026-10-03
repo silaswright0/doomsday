@@ -1,0 +1,17 @@
+ideas = {
+	country = {
+		# Handed out in history. The ledger reads these in dd_recalc_accounts.
+		dd_oil_revenue = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+		}
+		dd_checkpoint_revenue = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+		}
+	}
+}

@@ -1,6 +1,6 @@
 # Country-scoped. Variable values come from ROOT. No random.
 
-dd_debt_burden = {
+	dd_debt_burden = {
 	enable = { always = yes }
 	icon = GFX_idea_generic_goods_red_bonus
 	remove_trigger = {
@@ -8,4 +8,21 @@ dd_debt_burden = {
 	}
 	production_speed_buildings_factor = dd_debt_con_pen
 	stability_factor = dd_debt_stab_pen
+}
+
+# Values are set by dd_sync_reactor_fuel. Present only while at least one reactor is short of fuel.
+dd_reactor_fuel = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_production_bonus
+	nuclear_production_factor = dd_reactor_nuke_pen
+	thermonuclear_production_factor = dd_reactor_thermo_pen
+	sp_nuclear_bomb_speed_factor = dd_reactor_bomb_pen
+	sp_thermo_nuclear_bomb_speed_factor = dd_reactor_bomb_pen
+}
+
+# Cancels commercial_nuclear_reactor's -50% local factory coal use in that state.
+dd_reactor_energy_offline = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_production_bonus
+	local_factory_energy_consumption = 0.50
 }

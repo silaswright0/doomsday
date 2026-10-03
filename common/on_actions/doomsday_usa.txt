@@ -1,0 +1,54 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			USA = {
+				if = {
+					limit = { NOT = { has_country_flag = dd_usa_calendar_set } }
+					set_country_flag = dd_usa_calendar_set
+					country_event = { id = dd_usa_election.1 days = 796 }
+					country_event = { id = dd_usa_election.2 days = 1041 }
+				}
+			}
+		}
+	}
+
+	on_monthly_USA = {
+		effect = {
+			if = {
+				limit = {
+					has_idea = dd_usa_provoking_the_blob
+					NOT = { has_country_flag = dd_usa_post_election }
+				}
+				add_to_variable = { dd_usa_blob_months = 1 }
+				if = {
+					limit = { check_variable = { dd_usa_blob_months > 2 } }
+					set_variable = { dd_usa_blob_months = 0 }
+					dd_usa_blob_tick = yes
+				}
+			}
+		}
+	}
+
+	on_daily_USA = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = dd_usa_civil_war }
+					has_stability < 0.01
+				}
+				dd_usa_start_civil_war = yes
+			}
+		}
+	}
+
+	on_yearly = {
+		effect = {
+			USA = {
+				if = {
+					limit = { has_idea = dd_usa_tax_on_big_business }
+					add_to_variable = { treasury = 1000 }
+				}
+			}
+		}
+	}
+}

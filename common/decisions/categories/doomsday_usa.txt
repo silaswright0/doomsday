@@ -1,0 +1,21 @@
+dd_usa_tariff_category = {
+	icon = generic_trade
+	priority = 80
+	visible = {
+		OR = {
+			tag = USA
+			tag = CAN
+			tag = MEX
+		}
+		has_global_flag = dd_usa_tariff_board
+	}
+}
+
+dd_usa_debug_category = {
+	icon = generic_civil_support
+	priority = 1
+	visible = {
+		tag = USA
+		NOT = { has_country_flag = dd_usa_civil_war }
+	}
+}

@@ -71,6 +71,8 @@ on_actions = {
 				}
 
 				# Mozambique Balama graphite: Syrah / US DFC and DOE offtake finance.
+				# The same state holds the Moma ilmenite. Rights cover every resource there,
+				# so that titanium goes to the USA with the graphite. Kenmare is not a second grant.
 				MZB = {
 					give_resource_rights = { receiver = USA state = 897 }
 				}
@@ -83,6 +85,17 @@ on_actions = {
 				# Gabon: Eramet/Comilog manganese (chromium) and TotalEnergies oil.
 				GAB = {
 					give_resource_rights = { receiver = FRA state = 539 }
+				}
+
+				# Senegal Grande Côte ilmenite: Eramet. The state has no other resource.
+				SEN = {
+					give_resource_rights = { receiver = FRA state = 272 }
+				}
+
+				# Namibia central coast: Husab (CGN) and Rossing (CNNC). Langer Heinrich
+				# is the smaller Paladin mine in the same state, so China takes the line.
+				NMB = {
+					give_resource_rights = { receiver = CHI state = 541 }
 				}
 			}
 		}

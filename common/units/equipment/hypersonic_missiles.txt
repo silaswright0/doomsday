@@ -46,11 +46,13 @@ equipments = {
 		
 		build_cost_ic = 90
 		resources = {
-			aluminium = 3
-			tungsten = 3
-			rare_earths = 2
+			aluminium = 2
+			tungsten = 1
+			rare_earths = 1
 			cobalt = 1
 			copper = 1
+			graphite = 1
+			microchips = 1
 		}
 
 		fuel_consumption = 0
@@ -69,5 +71,14 @@ equipments = {
 		air_agility = 18
 		air_defence = 72
 		air_bombing = 780
+		resources = {
+			aluminium = 2
+			tungsten = 1
+			rare_earths = 1
+			cobalt = 1
+			copper = 1
+			graphite = 1
+			microchips = 1
+		}
 	}
 }

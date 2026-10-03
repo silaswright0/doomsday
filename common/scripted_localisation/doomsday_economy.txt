@@ -322,3 +322,61 @@ defined_text = {
 		localization_key = DD_USD_SUB_B
 	}
 }
+
+defined_text = {
+	name = GetDdTopbarFlow
+	text = {
+		trigger = { NOT = { has_country_flag = dd_econ_budget_shown } }
+		localization_key = DD_TOPBAR_FLOW_PENDING
+	}
+	text = {
+		trigger = { check_variable = { dd_last_net < 0 } }
+		localization_key = DD_TOPBAR_FLOW_DEFICIT
+	}
+	text = {
+		localization_key = DD_TOPBAR_FLOW_INCOME
+	}
+}
+
+defined_text = {
+	name = GetDdOilInc
+	text = {
+		trigger = {
+			check_variable = { dd_income_oil < 1 }
+			check_variable = { dd_income_oil > -1 }
+		}
+		localization_key = DD_USD_OIL_M
+	}
+	text = {
+		localization_key = DD_USD_OIL_B
+	}
+}
+
+defined_text = {
+	name = GetDdCheckpointInc
+	text = {
+		trigger = {
+			check_variable = { dd_income_checkpoint < 1 }
+			check_variable = { dd_income_checkpoint > -1 }
+		}
+		localization_key = DD_USD_CHECKPOINT_M
+	}
+	text = {
+		localization_key = DD_USD_CHECKPOINT_B
+	}
+}
+
+defined_text = {
+	name = GetDdExtraIncome
+	text = {
+		trigger = { has_idea = dd_oil_revenue }
+		localization_key = DD_ECON_OIL_LINE
+	}
+	text = {
+		trigger = { has_idea = dd_checkpoint_revenue }
+		localization_key = DD_ECON_CHECKPOINT_LINE
+	}
+	text = {
+		localization_key = DD_EMPTY
+	}
+}

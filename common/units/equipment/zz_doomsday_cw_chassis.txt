@@ -18,9 +18,9 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 4.0
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 3
+			chromium = 1
 		}
 	}
 	mbt_equipment_2 = {
@@ -41,9 +41,9 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 4.2
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 3
+			chromium = 1
 		}
 	}
 	mbt_equipment_3 = {
@@ -64,9 +64,9 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 4.4
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 3
+			chromium = 1
 		}
 	}
 	mbt_equipment_4 = {
@@ -87,9 +87,9 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 4.8
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 3
+			chromium = 1
 		}
 	}
 	mbt_equipment_5 = {
@@ -110,9 +110,11 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 5.0
 		resources = {
-			steel = 3
 			tungsten = 1
+			steel = 3
+			chromium = 1
 			rare_earths = 1
+			copper = 1
 		}
 	}
 	mbt_equipment_6 = {
@@ -133,8 +135,9 @@ equipments = {
 		air_attack = 4
 		fuel_consumption = 5.2
 		resources = {
-			steel = 3
 			tungsten = 1
+			steel = 3
+			chromium = 1
 			rare_earths = 1
 			copper = 1
 		}
@@ -157,11 +160,13 @@ equipments = {
 		air_attack = 8
 		fuel_consumption = 5.4
 		resources = {
-			steel = 3
 			tungsten = 1
+			steel = 3
+			chromium = 1
+			titanium = 1
 			rare_earths = 1
 			copper = 1
-			cobalt = 1
+			microchips = 1
 		}
 	}
 	mbt_equipment_8 = {
@@ -182,11 +187,13 @@ equipments = {
 		air_attack = 12
 		fuel_consumption = 5.6
 		resources = {
-			steel = 3
 			tungsten = 1
+			steel = 3
+			chromium = 1
+			titanium = 1
 			rare_earths = 1
 			copper = 1
-			cobalt = 1
+			microchips = 1
 		}
 	}
 	mbt_equipment_9 = {
@@ -207,11 +214,13 @@ equipments = {
 		air_attack = 16
 		fuel_consumption = 5.8
 		resources = {
-			steel = 3
 			tungsten = 1
+			steel = 3
+			chromium = 1
+			titanium = 1
 			rare_earths = 1
 			copper = 1
-			cobalt = 1
+			microchips = 1
 		}
 	}
 	light_tank_equipment_cw1 = {
@@ -232,9 +241,8 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 2.4
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 2
 		}
 	}
 	light_tank_equipment_cw2 = {
@@ -255,9 +263,8 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 2.6
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 2
 		}
 	}
 	light_tank_equipment_cw3 = {
@@ -278,9 +285,8 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 2.8
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 2
 		}
 	}
 	light_tank_equipment_cw4 = {
@@ -301,9 +307,8 @@ equipments = {
 		air_attack = 0
 		fuel_consumption = 3.0
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 2
 		}
 	}
 	light_tank_equipment_cw5 = {
@@ -324,11 +329,10 @@ equipments = {
 		air_attack = 2
 		fuel_consumption = 3.2
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 2
+			chromium = 1
 			copper = 1
-			cobalt = 1
 		}
 	}
 	light_tank_equipment_cw6 = {
@@ -349,11 +353,10 @@ equipments = {
 		air_attack = 4
 		fuel_consumption = 3.4
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 2
+			chromium = 1
 			copper = 1
-			cobalt = 1
 		}
 	}
 	light_tank_equipment_cw7 = {
@@ -374,11 +377,10 @@ equipments = {
 		air_attack = 6
 		fuel_consumption = 3.6
 		resources = {
-			steel = 3
 			tungsten = 1
-			rare_earths = 1
+			steel = 2
+			chromium = 1
 			copper = 1
-			cobalt = 1
 		}
 	}
 }

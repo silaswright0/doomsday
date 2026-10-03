@@ -1,0 +1,134 @@
+# Wars for the shatter. Texas fights nobody. Federal Virginia fights nobody
+# until another federal tag exists. Fascists skip Christian allies.
+# Communists and their anarchist puppet skip Texas and each other.
+
+dd_usa_civil_war_fights = {
+	if = {
+		limit = { ACA = { has_country_flag = dd_cw_released } }
+		ACA = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = ACA count = 4 } }
+	}
+	if = {
+		limit = { WCL = { has_country_flag = dd_cw_released } }
+		WCL = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = WCL count = 4 } }
+	}
+	if = {
+		limit = { AOG = { has_country_flag = dd_cw_released } }
+		AOG = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = AOG count = 4 } }
+	}
+	if = {
+		limit = { DES = { has_country_flag = dd_cw_released } }
+		DES = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = DES count = 4 } }
+	}
+	if = {
+		limit = { RBM = { has_country_flag = dd_cw_released } }
+		RBM = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = RBM count = 4 } }
+	}
+	if = {
+		limit = { VNM = { has_country_flag = dd_cw_released } }
+		VNM = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = VNM count = 4 } }
+	}
+	if = {
+		limit = { RBL = { has_country_flag = dd_cw_released } }
+		RBL = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = RBL count = 4 } }
+	}
+	if = {
+		limit = { FDS = { has_country_flag = dd_cw_released } }
+		FDS = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = FDS count = 4 } }
+	}
+	if = {
+		limit = { SCN = { has_country_flag = dd_cw_released } }
+		SCN = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = SCN count = 4 } }
+	}
+	if = {
+		limit = { FLO = { has_country_flag = dd_cw_released } }
+		FLO = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = FLO count = 4 } }
+	}
+	if = {
+		limit = { EAS = { has_country_flag = dd_cw_released } }
+		EAS = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = EAS count = 4 } }
+	}
+	if = {
+		limit = { TXG = { has_country_flag = dd_cw_released } }
+		TXG = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = TXG count = 4 } }
+	}
+	if = {
+		limit = { FVA = { has_country_flag = dd_cw_released } }
+		FVA = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = FVA count = 4 } }
+	}
+
+	# Fascist actor.
+	if = {
+		limit = { NOT = { has_country_flag = dd_usa_keep_fds } }
+		if = { limit = { ACA = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = ACA type = annex_everything } } }
+		if = { limit = { WCL = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = WCL type = annex_everything } } }
+		if = { limit = { DES = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = DES type = annex_everything } } }
+		if = { limit = { RBM = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = RBM type = annex_everything } } }
+		if = { limit = { VNM = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = VNM type = annex_everything } } }
+		if = { limit = { RBL = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = RBL type = annex_everything } } }
+		if = { limit = { FLO = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = FLO type = annex_everything } } }
+		if = { limit = { EAS = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = EAS type = annex_everything } } }
+		FDS = { declare_war_on = { target = USA type = annex_everything } }
+		if = {
+			limit = { NOT = { has_global_flag = dd_usa_christian_alliance } }
+			FDS = { declare_war_on = { target = AOG type = annex_everything } }
+		}
+	}
+	if = {
+		limit = { has_country_flag = dd_usa_keep_fds }
+		if = { limit = { ACA = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = ACA type = annex_everything } } }
+		if = { limit = { WCL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = WCL type = annex_everything } } }
+		if = { limit = { DES = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = DES type = annex_everything } } }
+		if = { limit = { RBM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBM type = annex_everything } } }
+		if = { limit = { VNM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = VNM type = annex_everything } } }
+		if = { limit = { RBL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBL type = annex_everything } } }
+		if = { limit = { FLO = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FLO type = annex_everything } } }
+		if = { limit = { EAS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = EAS type = annex_everything } } }
+		if = {
+			limit = { NOT = { has_global_flag = dd_usa_christian_alliance } }
+			USA = { declare_war_on = { target = AOG type = annex_everything } }
+		}
+	}
+
+	# Communist actor. Skips Texas, the anarchist puppet, and the federal tag.
+	if = {
+		limit = {
+			NOT = { has_country_flag = dd_usa_keep_rbl }
+			NOT = { has_country_flag = dd_usa_keep_aca }
+		}
+		if = { limit = { WCL = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = WCL type = annex_everything } } }
+		if = { limit = { AOG = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = AOG type = annex_everything } } }
+		if = { limit = { DES = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = DES type = annex_everything } } }
+		if = { limit = { RBM = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = RBM type = annex_everything } } }
+		if = { limit = { VNM = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = VNM type = annex_everything } } }
+		if = { limit = { FDS = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = FDS type = annex_everything } } }
+		if = { limit = { SCN = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = SCN type = annex_everything } } }
+		if = { limit = { FLO = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = FLO type = annex_everything } } }
+		if = { limit = { EAS = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = EAS type = annex_everything } } }
+		RBL = { declare_war_on = { target = USA type = annex_everything } }
+	}
+	if = {
+		limit = { has_country_flag = dd_usa_keep_rbl }
+		if = { limit = { WCL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = WCL type = annex_everything } } }
+		if = { limit = { AOG = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = AOG type = annex_everything } } }
+		if = { limit = { DES = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = DES type = annex_everything } } }
+		if = { limit = { RBM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBM type = annex_everything } } }
+		if = { limit = { VNM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = VNM type = annex_everything } } }
+		if = { limit = { FDS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FDS type = annex_everything } } }
+		if = { limit = { SCN = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = SCN type = annex_everything } } }
+		if = { limit = { FLO = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FLO type = annex_everything } } }
+		if = { limit = { EAS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = EAS type = annex_everything } } }
+	}
+	if = {
+		limit = { has_country_flag = dd_usa_keep_aca }
+		if = { limit = { WCL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = WCL type = annex_everything } } }
+		if = { limit = { AOG = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = AOG type = annex_everything } } }
+		if = { limit = { DES = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = DES type = annex_everything } } }
+		if = { limit = { RBM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBM type = annex_everything } } }
+		if = { limit = { VNM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = VNM type = annex_everything } } }
+		if = { limit = { RBL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBL type = annex_everything } } }
+		if = { limit = { FDS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FDS type = annex_everything } } }
+		if = { limit = { SCN = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = SCN type = annex_everything } } }
+		if = { limit = { FLO = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FLO type = annex_everything } } }
+		if = { limit = { EAS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = EAS type = annex_everything } } }
+	}
+}

@@ -1630,6 +1630,62 @@ GRID_KEYWORDS = {
 }
 
 
+# Ilmenite and rutile. USGS MCS 2025 mine concentrates, not sponge smelters.
+TITANIUM_KEYWORDS = {
+    "CHI": {"panzhihua": 12, "sichuan": 8, "chengdu": 4, "yunnan": 4, "hainan": 3, "hebei": 3},
+    "MZB": {"nampula": 12, "zambezia": 6, "quelimane": 6, "mozambique": 2},
+    "SAF": {"kwazulu": 8, "natal": 6, "durban": 4, "richards": 8},
+    "AST": {"westernaustralia": 8, "geraldton": 6, "perth": 3, "eucla": 4},
+    "CAN": {"quebec": 6, "saguenay": 8, "northshore": 6, "cotednord": 6},
+    "NOR": {"vestlandet": 10, "rogaland": 8, "stavanger": 6},
+    "MAD": {"toliara": 10, "tulear": 8, "fort": 6, "south": 3, "madagascar": 1},
+    "SEN": {"thies": 8, "dakar": 4, "senegal": 2},
+    "RAJ": {"kerala": 6, "tamil": 4, "orissa": 3},
+    "UKR": {"zhytomyr": 8, "zhitomir": 8, "vinnytsia": 3},
+    "VIN": {"binh": 4, "central": 2},
+    "SIE": {"sierra": 6, "freetown": 3},
+    "USA": {"florida": 6, "georgia": 4},
+    "KEN": {"coast": 6, "mombasa": 4},
+    "BRA": {"para": 3, "bahia": 3},
+    "SRL": {"ceylon": 6, "colombo": 3},
+    "SOV": {"ural": 2},
+}
+
+# WNA uranium mine production, 2024. Kazakhstan is domestic JVs, not a concession.
+URANIUM_KEYWORDS = {
+    "KAZ": {"turkestan": 10, "shymkent": 6, "kyzylorda": 8, "kizilorda": 8, "sozak": 8, "north": 4},
+    "CAN": {"saskatchewan": 12, "athabasca": 8},
+    "NMB": {"erongo": 12, "swakop": 10, "walvis": 6, "namibia": 2},
+    "AST": {"southaustralia": 10, "olympic": 8, "flinders": 4},
+    "UZB": {"navoi": 10, "bukhara": 6, "kyzylkum": 6},
+    "SOV": {"chita": 6, "buryat": 4, "zabaykal": 6, "kurgan": 3},
+    "CHI": {"jiangxi": 4, "xinjiang": 4, "guangdong": 2},
+    "NGR": {"agadez": 10, "air": 6, "niger": 2},
+    "RAJ": {"jharkhand": 6, "andhra": 4},
+    "UKR": {"kirovohrad": 6, "dnipro": 3},
+    "SAF": {"karoo": 4, "northerncape": 3},
+    "USA": {"wyoming": 8, "newmexico": 4},
+}
+
+# Foundry wafer output, not mines. TrendForce / SEMI 2024-2025 capacity.
+MICROCHIP_KEYWORDS = {
+    "FOR": {"hsinchu": 12, "tainan": 10, "taichung": 8, "taipei": 6, "kaohsiung": 4, "taiwan": 4, "formosa": 4},
+    "KOR": {"gyeonggi": 12, "gyeongsang": 4, "chungcheong": 6, "seoul": 3},
+    "CHI": {"shanghai": 10, "jiangsu": 8, "beijing": 6, "guangdong": 6, "shenzhen": 4},
+    "USA": {"arizona": 8, "oregon": 8, "newmexico": 4, "newyork": 4, "idaho": 4, "vermont": 3, "texas": 2},
+    "JAP": {"kumamoto": 10, "kyushu": 6, "ibaraki": 4, "mie": 3},
+    "GER": {"sachsen": 12, "saxony": 10, "dresden": 8, "silesia": 3},
+    "IRE": {"leinster": 8, "dublin": 6, "ireland": 2},
+    "SNG": {"singapore": 10},
+    "ISR": {"negev": 8, "south": 3},
+    "MAL": {"penang": 8, "kedah": 6, "malaya": 2},
+    "FRA": {"savoy": 8, "rhone": 4, "grenoble": 6},
+    "HOL": {"gelderland": 8, "nijmegen": 6},
+    "ITA": {"lombardy": 6, "milan": 4, "sicily": 4, "catania": 6},
+    "VIN": {"saigon": 6, "cochinchina": 4, "hanoi": 3},
+}
+
+
 def keyword_bonus(owner: str, loc_name: str, pretty: str, table: dict) -> float:
     blob = norm_name(loc_name) + " " + norm_name(pretty)
     bonus = 0.0

@@ -1,0 +1,2387 @@
+# Name of the shipment that just paid this country.
+defined_text = {
+	name = GetDdSaleShipment
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 0 }
+		}
+		localization_key = amphibious_mechanized_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 1 }
+		}
+		localization_key = amphibious_mechanized_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 2 }
+		}
+		localization_key = amphibious_tank_chassis_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 3 }
+		}
+		localization_key = anti_air_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 4 }
+		}
+		localization_key = anti_air_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 5 }
+		}
+		localization_key = anti_air_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 6 }
+		}
+		localization_key = anti_air_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 7 }
+		}
+		localization_key = sam_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 8 }
+		}
+		localization_key = spaa_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 9 }
+		}
+		localization_key = shorad_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 10 }
+		}
+		localization_key = spaa_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 11 }
+		}
+		localization_key = sam_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 12 }
+		}
+		localization_key = shorad_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 13 }
+		}
+		localization_key = spaa_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 14 }
+		}
+		localization_key = shorad_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 15 }
+		}
+		localization_key = sam_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 16 }
+		}
+		localization_key = spaa_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 17 }
+		}
+		localization_key = bmd_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 18 }
+		}
+		localization_key = sam_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 19 }
+		}
+		localization_key = shorad_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 20 }
+		}
+		localization_key = ifpc_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 21 }
+		}
+		localization_key = spaa_equipment_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 22 }
+		}
+		localization_key = anti_tank_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 23 }
+		}
+		localization_key = anti_tank_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 24 }
+		}
+		localization_key = anti_tank_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 25 }
+		}
+		localization_key = anti_tank_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 26 }
+		}
+		localization_key = infantry_at_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 27 }
+		}
+		localization_key = td_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 28 }
+		}
+		localization_key = infantry_at_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 29 }
+		}
+		localization_key = anti_tank_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 30 }
+		}
+		localization_key = infantry_at_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 31 }
+		}
+		localization_key = td_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 32 }
+		}
+		localization_key = td_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 33 }
+		}
+		localization_key = infantry_at_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 34 }
+		}
+		localization_key = anti_tank_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 35 }
+		}
+		localization_key = infantry_at_equipment_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 36 }
+		}
+		localization_key = td_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 37 }
+		}
+		localization_key = infantry_at_equipment_6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 38 }
+		}
+		localization_key = anti_tank_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 39 }
+		}
+		localization_key = infantry_at_equipment_7
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 40 }
+		}
+		localization_key = td_equipment_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 41 }
+		}
+		localization_key = infantry_at_equipment_8
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 42 }
+		}
+		localization_key = gw_armored_car_equipment
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 43 }
+		}
+		localization_key = armored_car_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 44 }
+		}
+		localization_key = armored_car_at_equipment
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 45 }
+		}
+		localization_key = armored_car_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 46 }
+		}
+		localization_key = armored_support_vehicle_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 47 }
+		}
+		localization_key = artillery_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 48 }
+		}
+		localization_key = artillery_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 49 }
+		}
+		localization_key = artillery_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 50 }
+		}
+		localization_key = artillery_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 51 }
+		}
+		localization_key = mortar_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 52 }
+		}
+		localization_key = mortar_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 53 }
+		}
+		localization_key = artillery_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 54 }
+		}
+		localization_key = mortar_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 55 }
+		}
+		localization_key = artillery_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 56 }
+		}
+		localization_key = artillery_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 57 }
+		}
+		localization_key = mortar_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 58 }
+		}
+		localization_key = dew_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 59 }
+		}
+		localization_key = dew_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 60 }
+		}
+		localization_key = dew_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 61 }
+		}
+		localization_key = hpm_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 62 }
+		}
+		localization_key = dew_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 63 }
+		}
+		localization_key = dew_equipment_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 64 }
+		}
+		localization_key = heavy_tank_chassis_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 65 }
+		}
+		localization_key = heavy_tank_chassis_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 66 }
+		}
+		localization_key = heavy_tank_chassis_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 67 }
+		}
+		localization_key = heavy_tank_chassis_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 68 }
+		}
+		localization_key = helicopter_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 69 }
+		}
+		localization_key = attack_heli_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 70 }
+		}
+		localization_key = attack_heli_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 71 }
+		}
+		localization_key = attack_heli_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 72 }
+		}
+		localization_key = attack_heli_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 73 }
+		}
+		localization_key = infantry_equipment_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 74 }
+		}
+		localization_key = infantry_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 75 }
+		}
+		localization_key = infantry_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 76 }
+		}
+		localization_key = infantry_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 77 }
+		}
+		localization_key = infantry_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 78 }
+		}
+		localization_key = infantry_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 79 }
+		}
+		localization_key = infantry_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 80 }
+		}
+		localization_key = infantry_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 81 }
+		}
+		localization_key = infantry_equipment_cw5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 82 }
+		}
+		localization_key = infantry_equipment_cw6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 83 }
+		}
+		localization_key = infantry_equipment_cw7
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 84 }
+		}
+		localization_key = infantry_equipment_cw8
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 85 }
+		}
+		localization_key = land_cruiser_chassis_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 86 }
+		}
+		localization_key = light_tank_chassis_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 87 }
+		}
+		localization_key = light_tank_chassis_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 88 }
+		}
+		localization_key = light_tank_chassis_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 89 }
+		}
+		localization_key = light_tank_chassis_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 90 }
+		}
+		localization_key = light_tank_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 91 }
+		}
+		localization_key = light_tank_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 92 }
+		}
+		localization_key = light_tank_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 93 }
+		}
+		localization_key = light_tank_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 94 }
+		}
+		localization_key = light_tank_equipment_cw5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 95 }
+		}
+		localization_key = light_tank_equipment_cw6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 96 }
+		}
+		localization_key = light_tank_equipment_cw7
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 97 }
+		}
+		localization_key = manpads_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 98 }
+		}
+		localization_key = manpads_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 99 }
+		}
+		localization_key = manpads_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 100 }
+		}
+		localization_key = manpads_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 101 }
+		}
+		localization_key = mechanized_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 102 }
+		}
+		localization_key = mechanized_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 103 }
+		}
+		localization_key = mechanized_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 104 }
+		}
+		localization_key = mechanized_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 105 }
+		}
+		localization_key = mechanized_equipment_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 106 }
+		}
+		localization_key = mechanized_equipment_6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 107 }
+		}
+		localization_key = medium_tank_chassis_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 108 }
+		}
+		localization_key = medium_tank_chassis_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 109 }
+		}
+		localization_key = medium_tank_chassis_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 110 }
+		}
+		localization_key = medium_tank_chassis_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 111 }
+		}
+		localization_key = modern_tank_chassis_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 112 }
+		}
+		localization_key = mbt_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 113 }
+		}
+		localization_key = mbt_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 114 }
+		}
+		localization_key = mbt_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 115 }
+		}
+		localization_key = mbt_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 116 }
+		}
+		localization_key = mbt_equipment_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 117 }
+		}
+		localization_key = mbt_equipment_6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 118 }
+		}
+		localization_key = mbt_equipment_7
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 119 }
+		}
+		localization_key = mbt_equipment_8
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 120 }
+		}
+		localization_key = mbt_equipment_9
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 121 }
+		}
+		localization_key = motorbike_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 122 }
+		}
+		localization_key = motorized_equipment_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 123 }
+		}
+		localization_key = motorized_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 124 }
+		}
+		localization_key = motorized_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 125 }
+		}
+		localization_key = motorized_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 126 }
+		}
+		localization_key = motorized_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 127 }
+		}
+		localization_key = motorized_rocket_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 128 }
+		}
+		localization_key = prsm_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 129 }
+		}
+		localization_key = mrc_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 130 }
+		}
+		localization_key = hypersonic_glcm_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 131 }
+		}
+		localization_key = railway_gun_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 132 }
+		}
+		localization_key = rocket_artillery_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 133 }
+		}
+		localization_key = rocket_artillery_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 134 }
+		}
+		localization_key = rocket_artillery_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 135 }
+		}
+		localization_key = rocket_artillery_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 136 }
+		}
+		localization_key = rocket_artillery_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 137 }
+		}
+		localization_key = self_propelled_super_heavy_artillery_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 138 }
+		}
+		localization_key = spg_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 139 }
+		}
+		localization_key = spg_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 140 }
+		}
+		localization_key = spg_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 141 }
+		}
+		localization_key = spg_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 142 }
+		}
+		localization_key = spg_equipment_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 143 }
+		}
+		localization_key = spg_equipment_6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 144 }
+		}
+		localization_key = spg_equipment_7
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 145 }
+		}
+		localization_key = super_heavy_artillery_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 146 }
+		}
+		localization_key = super_heavy_railway_gun_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 147 }
+		}
+		localization_key = super_heavy_tank_chassis_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 148 }
+		}
+		localization_key = support_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 149 }
+		}
+		localization_key = support_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 150 }
+		}
+		localization_key = support_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 151 }
+		}
+		localization_key = support_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 152 }
+		}
+		localization_key = support_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 153 }
+		}
+		localization_key = support_equipment_cw5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 154 }
+		}
+		localization_key = train_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 155 }
+		}
+		localization_key = train_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 0 }
+			check_variable = { dd_sale_idx = 156 }
+		}
+		localization_key = train_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 0 }
+		}
+		localization_key = ballistic_missile_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 1 }
+		}
+		localization_key = ballistic_missile_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 2 }
+		}
+		localization_key = ballistic_missile_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 3 }
+		}
+		localization_key = ballistic_missile_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 4 }
+		}
+		localization_key = cv_small_plane_airframe_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 5 }
+		}
+		localization_key = cv_small_plane_airframe_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 6 }
+		}
+		localization_key = cv_small_plane_airframe_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 7 }
+		}
+		localization_key = cv_small_plane_airframe_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 8 }
+		}
+		localization_key = cv_small_plane_airframe_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 9 }
+		}
+		localization_key = cv_fighter_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 10 }
+		}
+		localization_key = cv_fighter_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 11 }
+		}
+		localization_key = cv_fighter_equipment_cw5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 12 }
+		}
+		localization_key = explosive_ammo_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 13 }
+		}
+		localization_key = guided_missile_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 14 }
+		}
+		localization_key = guided_missile_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 15 }
+		}
+		localization_key = guided_missile_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 16 }
+		}
+		localization_key = guided_missile_equipment_cw
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 17 }
+		}
+		localization_key = guided_missile_equipment_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 18 }
+		}
+		localization_key = hypersonic_missile_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 19 }
+		}
+		localization_key = large_plane_airframe_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 20 }
+		}
+		localization_key = large_plane_airframe_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 21 }
+		}
+		localization_key = large_plane_airframe_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 22 }
+		}
+		localization_key = large_plane_airframe_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 23 }
+		}
+		localization_key = large_plane_airframe_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 24 }
+		}
+		localization_key = strat_bomber_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 25 }
+		}
+		localization_key = strat_bomber_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 26 }
+		}
+		localization_key = strat_bomber_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 27 }
+		}
+		localization_key = strat_bomber_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 28 }
+		}
+		localization_key = strat_bomber_equipment_cw5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 29 }
+		}
+		localization_key = strat_bomber_equipment_cw6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 30 }
+		}
+		localization_key = loitering_munition_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 31 }
+		}
+		localization_key = medium_plane_airframe_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 32 }
+		}
+		localization_key = medium_plane_airframe_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 33 }
+		}
+		localization_key = medium_plane_airframe_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 34 }
+		}
+		localization_key = medium_plane_airframe_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 35 }
+		}
+		localization_key = medium_plane_airframe_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 36 }
+		}
+		localization_key = tac_bomber_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 37 }
+		}
+		localization_key = tac_bomber_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 38 }
+		}
+		localization_key = tac_bomber_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 39 }
+		}
+		localization_key = tac_bomber_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 40 }
+		}
+		localization_key = nuclear_missile_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 41 }
+		}
+		localization_key = nuclear_missile_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 42 }
+		}
+		localization_key = recon_uav_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 43 }
+		}
+		localization_key = hale_uav_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 44 }
+		}
+		localization_key = recon_uav_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 45 }
+		}
+		localization_key = sam_missile_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 46 }
+		}
+		localization_key = sam_missile_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 47 }
+		}
+		localization_key = small_plane_airframe_0
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 48 }
+		}
+		localization_key = small_plane_airframe_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 49 }
+		}
+		localization_key = small_plane_airframe_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 50 }
+		}
+		localization_key = small_plane_airframe_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 51 }
+		}
+		localization_key = small_plane_airframe_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 52 }
+		}
+		localization_key = small_plane_airframe_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 53 }
+		}
+		localization_key = fighter_equipment_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 54 }
+		}
+		localization_key = fighter_equipment_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 55 }
+		}
+		localization_key = fighter_equipment_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 56 }
+		}
+		localization_key = fighter_equipment_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 57 }
+		}
+		localization_key = fighter_equipment_cw45
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 58 }
+		}
+		localization_key = fighter_equipment_cw5a
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 59 }
+		}
+		localization_key = fighter_equipment_cw5b
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 60 }
+		}
+		localization_key = cca_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 61 }
+		}
+		localization_key = fighter_equipment_cw6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 62 }
+		}
+		localization_key = cca_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 63 }
+		}
+		localization_key = strat_bomber_intercontinental_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 64 }
+		}
+		localization_key = strike_uav_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 65 }
+		}
+		localization_key = transport_heli_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 66 }
+		}
+		localization_key = transport_heli_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 67 }
+		}
+		localization_key = transport_heli_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 68 }
+		}
+		localization_key = transport_plane_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 69 }
+		}
+		localization_key = transport_plane_equipment_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 1 }
+			check_variable = { dd_sale_idx = 70 }
+		}
+		localization_key = transport_plane_equipment_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 0 }
+		}
+		localization_key = convoy_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 1 }
+		}
+		localization_key = floating_harbor_equipment_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 2 }
+		}
+		localization_key = repair_ship_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 3 }
+		}
+		localization_key = repair_ship_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 4 }
+		}
+		localization_key = carrier_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 5 }
+		}
+		localization_key = ship_hull_carrier_conversion_bb
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 6 }
+		}
+		localization_key = ship_hull_carrier_conversion_ca
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 7 }
+		}
+		localization_key = carrier_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 8 }
+		}
+		localization_key = escort_carrier
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 9 }
+		}
+		localization_key = ship_hull_carrier_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 10 }
+		}
+		localization_key = ship_hull_escort_carrier
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 11 }
+		}
+		localization_key = carrier_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 12 }
+		}
+		localization_key = ship_hull_carrier_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 13 }
+		}
+		localization_key = carrier_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 14 }
+		}
+		localization_key = mega_carrier
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 15 }
+		}
+		localization_key = ship_hull_carrier_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 16 }
+		}
+		localization_key = ship_hull_mega_carrier
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 17 }
+		}
+		localization_key = ship_hull_carrier_modern
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 18 }
+		}
+		localization_key = modern_carrier
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 19 }
+		}
+		localization_key = ship_hull_carrier_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 20 }
+		}
+		localization_key = ship_hull_carrier_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 21 }
+		}
+		localization_key = ship_hull_carrier_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 22 }
+		}
+		localization_key = ship_hull_carrier_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 23 }
+		}
+		localization_key = ship_hull_carrier_cw5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 24 }
+		}
+		localization_key = ship_hull_carrier_cw6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 25 }
+		}
+		localization_key = heavy_cruiser_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 26 }
+		}
+		localization_key = light_cruiser_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 27 }
+		}
+		localization_key = ship_hull_cruiser_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 28 }
+		}
+		localization_key = ship_hull_cruiser_coastal_defense_ship
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 29 }
+		}
+		localization_key = ship_hull_cruiser_panzerschiff
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 30 }
+		}
+		localization_key = heavy_cruiser_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 31 }
+		}
+		localization_key = light_cruiser_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 32 }
+		}
+		localization_key = ship_hull_cruiser_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 33 }
+		}
+		localization_key = heavy_cruiser_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 34 }
+		}
+		localization_key = light_cruiser_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 35 }
+		}
+		localization_key = ship_hull_cruiser_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 36 }
+		}
+		localization_key = ship_hull_torpedo_cruiser
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 37 }
+		}
+		localization_key = torpedo_cruiser
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 38 }
+		}
+		localization_key = heavy_cruiser_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 39 }
+		}
+		localization_key = light_cruiser_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 40 }
+		}
+		localization_key = ship_hull_cruiser_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 41 }
+		}
+		localization_key = ship_hull_cruiser_modern_aa
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 42 }
+		}
+		localization_key = ship_hull_amphib_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 43 }
+		}
+		localization_key = ship_hull_cruiser_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 44 }
+		}
+		localization_key = ship_hull_amphib_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 45 }
+		}
+		localization_key = ship_hull_cruiser_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 46 }
+		}
+		localization_key = ship_hull_amphib_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 47 }
+		}
+		localization_key = ship_hull_amphib_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 48 }
+		}
+		localization_key = ship_hull_cruiser_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 49 }
+		}
+		localization_key = ship_hull_amphib_5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 50 }
+		}
+		localization_key = ship_hull_pre_dreadnought
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 51 }
+		}
+		localization_key = battle_cruiser_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 52 }
+		}
+		localization_key = battleship_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 53 }
+		}
+		localization_key = ship_hull_heavy_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 54 }
+		}
+		localization_key = SH_battleship_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 55 }
+		}
+		localization_key = battleship_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 56 }
+		}
+		localization_key = ship_hull_heavy_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 57 }
+		}
+		localization_key = battle_cruiser_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 58 }
+		}
+		localization_key = battleship_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 59 }
+		}
+		localization_key = ship_hull_heavy_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 60 }
+		}
+		localization_key = ship_hull_super_heavy_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 61 }
+		}
+		localization_key = SH_battleship_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 62 }
+		}
+		localization_key = battleship_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 63 }
+		}
+		localization_key = ship_hull_heavy_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 64 }
+		}
+		localization_key = modern_battleship
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 65 }
+		}
+		localization_key = ship_hull_heavy_modern
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 66 }
+		}
+		localization_key = destroyer_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 67 }
+		}
+		localization_key = ship_hull_light_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 68 }
+		}
+		localization_key = destroyer_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 69 }
+		}
+		localization_key = ship_hull_light_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 70 }
+		}
+		localization_key = destroyer_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 71 }
+		}
+		localization_key = ship_hull_light_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 72 }
+		}
+		localization_key = destroyer_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 73 }
+		}
+		localization_key = ship_hull_light_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 74 }
+		}
+		localization_key = ship_hull_light_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 75 }
+		}
+		localization_key = ship_hull_light_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 76 }
+		}
+		localization_key = ship_hull_light_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 77 }
+		}
+		localization_key = ship_hull_light_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 78 }
+		}
+		localization_key = ship_hull_light_cw5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 79 }
+		}
+		localization_key = ship_hull_light_cw6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 80 }
+		}
+		localization_key = ship_hull_usv_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 81 }
+		}
+		localization_key = ship_hull_light_cw7
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 82 }
+		}
+		localization_key = ship_hull_usv_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 83 }
+		}
+		localization_key = ship_hull_submarine_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 84 }
+		}
+		localization_key = submarine_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 85 }
+		}
+		localization_key = cruiser_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 86 }
+		}
+		localization_key = ship_hull_submarine_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 87 }
+		}
+		localization_key = submarine_2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 88 }
+		}
+		localization_key = fleet_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 89 }
+		}
+		localization_key = midget_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 90 }
+		}
+		localization_key = ship_hull_cruiser_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 91 }
+		}
+		localization_key = ship_hull_fleet_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 92 }
+		}
+		localization_key = ship_hull_midget_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 93 }
+		}
+		localization_key = ship_hull_submarine_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 94 }
+		}
+		localization_key = submarine_3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 95 }
+		}
+		localization_key = ship_hull_carrier_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 96 }
+		}
+		localization_key = ship_hull_submarine_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 97 }
+		}
+		localization_key = submarine_4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 98 }
+		}
+		localization_key = rocket_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 99 }
+		}
+		localization_key = nuclear_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 100 }
+		}
+		localization_key = nuclear_missile_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 101 }
+		}
+		localization_key = ship_hull_nuclear_submarine
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 102 }
+		}
+		localization_key = ship_hull_submarine_cw1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 103 }
+		}
+		localization_key = ship_hull_submarine_diesel_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 104 }
+		}
+		localization_key = ship_hull_submarine_cw2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 105 }
+		}
+		localization_key = ship_hull_submarine_cw3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 106 }
+		}
+		localization_key = ship_hull_submarine_cw4
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 107 }
+		}
+		localization_key = ship_hull_submarine_cw5
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 108 }
+		}
+		localization_key = ship_hull_uuv_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 109 }
+		}
+		localization_key = ship_hull_submarine_cw6
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 110 }
+		}
+		localization_key = support_ship_1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_sale_cat = 2 }
+			check_variable = { dd_sale_idx = 111 }
+		}
+		localization_key = support_ship_2
+	}
+	text = {
+		localization_key = DD_MARKET_SALE_UNKNOWN
+	}
+}

@@ -1,0 +1,30 @@
+characters = {
+	USA_zionist_liaison = {
+		name = "Zionist Liaison"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_zionist_liaison
+			allowed = { original_tag = USA }
+			available = { has_country_flag = dd_usa_zionist_advisors }
+			traits = { ideological_crusader }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_little_tech_advisor = {
+		name = "Little Tech Advisor"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_little_tech_advisor
+			allowed = { original_tag = USA }
+			available = { has_country_flag = dd_usa_little_tech_advisors }
+			traits = { captain_of_industry }
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

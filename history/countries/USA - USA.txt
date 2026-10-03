@@ -597,14 +597,15 @@ set_politics = {
 	ruling_party = national_populism
 	last_election = "2024.11.5"
 	election_frequency = 48
-	elections_allowed = yes
+	elections_allowed = no
 }
 set_popularities = {
-	national_populism = 47
+	national_populism = 45
+	fascism = 2
 	social_liberalism = 28
-	progressive_populism = 14
 	liberal_conservatism = 8
-	social_democracy = 2
+	social_democracy = 12
+	progressive_populism = 4
 	communism = 1
 }
 set_variable = { debt = 37539.0340 }

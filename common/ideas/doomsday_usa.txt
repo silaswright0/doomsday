@@ -1,0 +1,231 @@
+ideas = {
+	country = {
+		dd_usa_global_tariff_plan = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.05
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = 0.20
+				trade_opinion_factor = -0.25
+			}
+		}
+
+		dd_usa_greenland_security = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_intel_to_others = 0.10
+			}
+		}
+
+		dd_usa_provoking_the_blob = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = -0.25
+				production_speed_buildings_factor = -0.30
+			}
+		}
+
+		dd_usa_little_tech = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.05
+				research_speed_factor = 0.02
+				stability_factor = -0.02
+				war_support_factor = 0.02
+			}
+		}
+		dd_usa_little_tech_2 = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.10
+				research_speed_factor = 0.04
+				stability_factor = -0.02
+				war_support_factor = 0.02
+			}
+		}
+		dd_usa_little_tech_3 = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.10
+				research_speed_factor = 0.08
+				stability_factor = -0.02
+				war_support_factor = 0.02
+				encryption_factor = 0.10
+				decryption_power_factor = 0.10
+			}
+		}
+		dd_usa_little_tech_4 = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.10
+				research_speed_factor = 0.12
+				stability_factor = -0.02
+				war_support_factor = 0.02
+				encryption_factor = 0.10
+				decryption_power_factor = 0.10
+			}
+		}
+		dd_usa_little_tech_5 = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.20
+				research_speed_factor = 0.12
+				stability_factor = 0.03
+				war_support_factor = 0.02
+				encryption_factor = 0.20
+				decryption_power_factor = 0.20
+				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		dd_usa_little_tech_6 = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.20
+				research_speed_factor = 0.12
+				stability_factor = 0.03
+				war_support_factor = 0.02
+				encryption_factor = 0.20
+				decryption_power_factor = 0.20
+				industrial_capacity_factory = 0.10
+				production_factory_max_efficiency_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.10
+			}
+		}
+
+		dd_usa_marching_institutions = {
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.10
+			}
+		}
+
+		dd_usa_radicalizing_white_america = {
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_weekly = -0.002
+				war_support_weekly = 0.002
+				fascism_drift = 0.06
+				communism_drift = 0.04
+				anarcho_communism_drift = 0.04
+			}
+		}
+
+		dd_usa_tax_on_big_business = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = -0.30
+				production_factory_max_efficiency_factor = -0.10
+				industrial_capacity_factory = -0.05
+			}
+		}
+
+		dd_usa_final_demsoc = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.10
+			}
+		}
+		dd_usa_final_liberal = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				research_speed_factor = 0.05
+			}
+		}
+		dd_usa_final_conservative = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		dd_usa_final_centre = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				drift_defence_factor = 0.25
+			}
+		}
+		dd_usa_final_natpop = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.10
+				army_attack_factor = 0.05
+			}
+		}
+		dd_usa_state_oversight = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		dd_usa_youll_have_to_kill_us = {
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -2.0
+			}
+		}
+	}
+}

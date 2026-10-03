@@ -1,4 +1,4 @@
-"""Generate treasury Arms Market rows from every equipment archetype."""
+"""Generate treasury Arms Market rows, one per equipment variant."""
 from __future__ import annotations
 
 import math
@@ -11,7 +11,18 @@ SKIP_DIRS = {"modules", "upgrades"}
 SKIP_FILES = {"plane_filters.txt", "tank_filters.txt", "x_plane_airframes.txt", "x_tank_chassis.txt"}
 SKIP_ARCH = {"mothership_equipment"}
 
+# Cash asks are integer billions. build_cost_ic × lot / 50 lands a current rifle
+# battalion near 15B and a fleet carrier near 90B. USA starts near 615B, a
+# mid power near 30B. The old divisor (7, newest model only) priced a
+# battleship above 1800B, past both the ask cap and US cash.
+PRICE_DIVISOR = 50
+# One world record per (model, price). Same price adds to that record.
+LIST_MAX = 96
+LOT_MAX = 128
+CAT_ID = {"land": 0, "air": 1, "navy": 2}
+
 # World pool seed, in lots (lot size × this). Floor kit only; nukes/ships stay at 0.
+# Applied to the newest model with year <= 2026, not to every level.
 SEED_LOTS = {
     "infantry_equipment": 40,
     "support_equipment": 12,
@@ -129,6 +140,8 @@ def parse():
                         "name": name,
                         "year": int(year) if year else 0,
                         "ic": float(ic) if ic else None,
+                        "parent": first(r"parent\s*=\s*(\S+)", content),
+                        "picture": first(r"picture\s*=\s*(\S+)", content),
                     }
                 )
     return archetypes, variants
@@ -188,39 +201,115 @@ def sprite_for(arch: str, picture: str | None) -> tuple[str, float]:
     return "GFX_infantry_equipment_text_icon", 1.0
 
 
+def slugify(name: str) -> str:
+    return name.replace("equipment", "eq").replace("__", "_").strip("_")
+
+
+def assign_family_prices(vs: list[dict], eff_ic, amount: int) -> dict[str, int]:
+    """One price per variant. A model costs at least 1B more than the model it replaces."""
+    byname = {v["name"]: v for v in vs}
+    children: dict[str, list[str]] = {v["name"]: [] for v in vs}
+    roots = []
+    for v in vs:
+        parent = v["parent"]
+        if parent in byname and parent != v["name"]:
+            children[parent].append(v["name"])
+        else:
+            roots.append(v["name"])
+    used: set[int] = set()
+    prices: dict[str, int] = {}
+
+    def take(price: int) -> int:
+        price = max(1, price)
+        while price in used:
+            price += 1
+        used.add(price)
+        return price
+
+    def walk(name: str, seen: set[str]) -> None:
+        if name in seen:
+            return
+        parent = byname[name]["parent"]
+        floor = prices[parent] + 1 if parent in prices else 1
+        raw = eff_ic(name) * amount
+        base = max(floor, int(round(raw / PRICE_DIVISOR)))
+        prices[name] = take(base)
+        kids = sorted(children[name], key=lambda n: (eff_ic(n), byname[n]["year"], n))
+        nxt = seen | {name}
+        for kid in kids:
+            walk(kid, nxt)
+
+    for name in sorted(roots, key=lambda n: (byname[n]["year"], eff_ic(n), n)):
+        walk(name, set())
+    return prices
+
+
 def catalog() -> list[dict]:
     archetypes, variants = parse()
     rows = []
+    used_slugs: set[str] = set()
     for arch, info in archetypes.items():
         if arch in SKIP_ARCH:
             continue
         vs = variants.get(arch, [])
         if not vs:
             continue
-        best = max(vs, key=lambda x: (x["year"], x["name"]))
+        dedup = {}
+        for v in vs:
+            dedup[v["name"]] = v
+        vs = list(dedup.values())
         cat = category(info["iface"], arch)
-        ic = best["ic"] or info["ic"] or default_ic(cat, arch)
+        byname = {v["name"]: v for v in vs}
+
+        def eff_ic(name: str, seen: set[str] | None = None) -> float:
+            seen = seen or set()
+            if name in seen or name not in byname:
+                return info["ic"] or default_ic(cat, arch)
+            seen = seen | {name}
+            v = byname[name]
+            if v["ic"]:
+                return v["ic"]
+            if v["parent"]:
+                return eff_ic(v["parent"], seen)
+            return info["ic"] or default_ic(cat, arch)
+
         amount = lot_size(cat, arch)
-        buy = max(1, int(round(ic * amount / 7.0)))
-        sell = max(1, buy // 2)
-        sprite, scale = sprite_for(arch, info["picture"])
-        slug = arch.replace("equipment", "eq").replace("__", "_").strip("_")
-        rows.append(
-            {
-                "arch": arch,
-                "buy_type": best["name"],
-                "slug": slug,
-                "cat": cat,
-                "amount": amount,
-                "buy": buy,
-                "sell": sell,
-                "sprite": sprite,
-                "scale": scale,
-                "seed": SEED_LOTS.get(arch, 0) * amount,
-            }
-        )
+        prices = assign_family_prices(vs, eff_ic, amount)
+        seed_name = None
+        if arch in SEED_LOTS:
+            pool = [v for v in vs if v["year"] <= 2026] or vs
+            top_ic = max(eff_ic(v["name"]) for v in pool)
+            # Latest service model, ignoring a cheap sidegrade that shares the family.
+            main = [v for v in pool if eff_ic(v["name"]) >= top_ic * 0.5] or pool
+            seed_name = max(main, key=lambda v: (v["year"], eff_ic(v["name"]), v["name"]))["name"]
+        for v in vs:
+            base = slugify(v["name"])
+            slug = base
+            n = 2
+            while slug in used_slugs:
+                slug = f"{base}_{n}"
+                n += 1
+            used_slugs.add(slug)
+            sprite, scale = sprite_for(arch, v["picture"] or info["picture"])
+            buy = prices[v["name"]]
+            rows.append(
+                {
+                    "arch": arch,
+                    "variant": v["name"],
+                    "year": v["year"],
+                    "buy_type": v["name"],
+                    "slug": slug,
+                    "cat": cat,
+                    "amount": amount,
+                    "buy": buy,
+                    "sell": buy,
+                    "sprite": sprite,
+                    "scale": scale,
+                    "seed": SEED_LOTS.get(arch, 0) * amount if v["name"] == seed_name else 0,
+                }
+            )
     order = {"land": 0, "air": 1, "navy": 2}
-    rows.sort(key=lambda r: (order[r["cat"]], r["arch"]))
+    rows.sort(key=lambda r: (order[r["cat"]], r["arch"], r["year"], r["variant"]))
     return rows
 
 
@@ -386,7 +475,8 @@ def write_gui(rows: list[dict]) -> None:
 
 	containerWindowType = {{
 		name = "dd_arms_market_window"
-		position = {{ x = 5 y = 78 }}
+		# decision_tab already starts at the decisions panel. y=44 sits under that title; 100%% fills the rest.
+		position = {{ x = 0 y = 44 }}
 		size = {{ width = 550 height = 100%% }}
 		clipping = no
 
@@ -450,57 +540,50 @@ def write_gui(rows: list[dict]) -> None:
 			}}
 		}}
 
-		containerWindowType = {{
-			name = "dd_market_tabs"
-			position = {{ x = 0 y = 80 }}
-			size = {{ width = 550 height = 40 }}
-			clipping = no
-
-			buttonType = {{
-				name = "dd_tab_buy_on"
-				quadTextureSprite = "GFX_button_261x34"
-				position = {{ x = 14 y = 2 }}
-				buttonText = "DD_MARKET_TAB_BUY_ON"
-				buttonFont = "hoi_18mbs"
-				clicksound = click_default
-			}}
-			buttonType = {{
-				name = "dd_tab_buy_off"
-				quadTextureSprite = "GFX_button_261x34"
-				position = {{ x = 14 y = 2 }}
-				buttonText = "DD_MARKET_TAB_BUY_OFF"
-				buttonFont = "hoi_18mbs"
-				clicksound = click_default
-			}}
-			buttonType = {{
-				name = "dd_tab_sell_on"
-				quadTextureSprite = "GFX_button_261x34"
-				position = {{ x = 275 y = 2 }}
-				buttonText = "DD_MARKET_TAB_SELL_ON"
-				buttonFont = "hoi_18mbs"
-				clicksound = click_default
-			}}
-			buttonType = {{
-				name = "dd_tab_sell_off"
-				quadTextureSprite = "GFX_button_261x34"
-				position = {{ x = 275 y = 2 }}
-				buttonText = "DD_MARKET_TAB_SELL_OFF"
-				buttonFont = "hoi_18mbs"
-				clicksound = click_default
-			}}
+		# Direct children (a nested container collapsed these to nothing). Sprites are 1-frame.
+		buttonType = {{
+			name = "dd_tab_buy_on"
+			quadTextureSprite = "GFX_button_261x34"
+			position = {{ x = 14 y = 86 }}
+			size = {{ width = 261 height = 34 }}
+			buttonText = "DD_MARKET_TAB_BUY_ON"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+		}}
+		buttonType = {{
+			name = "dd_tab_buy_off"
+			quadTextureSprite = "GFX_button_261x34"
+			position = {{ x = 14 y = 86 }}
+			size = {{ width = 261 height = 34 }}
+			buttonText = "DD_MARKET_TAB_BUY_OFF"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+		}}
+		buttonType = {{
+			name = "dd_tab_sell_on"
+			quadTextureSprite = "GFX_button_261x34"
+			position = {{ x = 275 y = 86 }}
+			size = {{ width = 261 height = 34 }}
+			buttonText = "DD_MARKET_TAB_SELL_ON"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
+		}}
+		buttonType = {{
+			name = "dd_tab_sell_off"
+			quadTextureSprite = "GFX_button_261x34"
+			position = {{ x = 275 y = 86 }}
+			size = {{ width = 261 height = 34 }}
+			buttonText = "DD_MARKET_TAB_SELL_OFF"
+			buttonFont = "hoi_18mbs"
+			clicksound = click_default
 		}}
 
-		iconType = {{
-			name = "dd_tabs_background"
-			quadTextureSprite = "GFX_tab_diplomacy_bg"
-			position = {{ x = 12 y = 184 }}
-			alwaystransparent = yes
-		}}
-
+		# Centered Land / Air / Navy (123px + 16px gaps, group centered in 550)
 		buttonType = {{
 			name = "dd_cat_land_on"
 			quadTextureSprite = "GFX_button_123x34"
-			position = {{ x = 75 y = 186 }}
+			position = {{ x = 75 y = 126 }}
+			size = {{ width = 123 height = 34 }}
 			buttonText = "DD_MARKET_CAT_LAND_ON"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -508,7 +591,8 @@ def write_gui(rows: list[dict]) -> None:
 		buttonType = {{
 			name = "dd_cat_land_off"
 			quadTextureSprite = "GFX_button_123x34_gray"
-			position = {{ x = 75 y = 186 }}
+			position = {{ x = 75 y = 126 }}
+			size = {{ width = 123 height = 34 }}
 			buttonText = "DD_MARKET_CAT_LAND"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -516,7 +600,8 @@ def write_gui(rows: list[dict]) -> None:
 		buttonType = {{
 			name = "dd_cat_air_on"
 			quadTextureSprite = "GFX_button_123x34"
-			position = {{ x = 214 y = 186 }}
+			position = {{ x = 214 y = 126 }}
+			size = {{ width = 123 height = 34 }}
 			buttonText = "DD_MARKET_CAT_AIR_ON"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -524,7 +609,8 @@ def write_gui(rows: list[dict]) -> None:
 		buttonType = {{
 			name = "dd_cat_air_off"
 			quadTextureSprite = "GFX_button_123x34_gray"
-			position = {{ x = 214 y = 186 }}
+			position = {{ x = 214 y = 126 }}
+			size = {{ width = 123 height = 34 }}
 			buttonText = "DD_MARKET_CAT_AIR"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -532,7 +618,8 @@ def write_gui(rows: list[dict]) -> None:
 		buttonType = {{
 			name = "dd_cat_navy_on"
 			quadTextureSprite = "GFX_button_123x34"
-			position = {{ x = 353 y = 186 }}
+			position = {{ x = 353 y = 126 }}
+			size = {{ width = 123 height = 34 }}
 			buttonText = "DD_MARKET_CAT_NAVY_ON"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -540,12 +627,13 @@ def write_gui(rows: list[dict]) -> None:
 		buttonType = {{
 			name = "dd_cat_navy_off"
 			quadTextureSprite = "GFX_button_123x34_gray"
-			position = {{ x = 353 y = 186 }}
+			position = {{ x = 353 y = 126 }}
+			size = {{ width = 123 height = 34 }}
 			buttonText = "DD_MARKET_CAT_NAVY"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
 		}}
-		}}
+	}}
 {lists}
 }}
 """
@@ -556,72 +644,600 @@ def effect_block(row: dict) -> str:
     slug = row["slug"]
     sell_have = row["amount"] - 1
     pool_have = row["amount"] - 1
-    ask = f"global.dd_ask_{slug}"
+    mine = f"dd_my_ask_{slug}"
     pool = f"global.dd_pool_{slug}"
     return f"""
+dd_buy_all_{slug} = {{
+		set_temp_variable = {{ dd_i = global.dd_active_list }}
+		set_temp_variable = {{ dd_price = global.dd_list_price^dd_i }}
+		set_temp_variable = {{ dd_qty = global.dd_list_qty^dd_i }}
+		set_temp_variable = {{ dd_cat = global.dd_list_cat^dd_i }}
+		set_temp_variable = {{ dd_idx = global.dd_list_idx^dd_i }}
+		if = {{
+			limit = {{
+				check_variable = {{ dd_cat = {row['cat_id']} }}
+				check_variable = {{ dd_idx = {row['idx']} }}
+				check_variable = {{ dd_price > 0 }}
+				NOT = {{ check_variable = {{ treasury < dd_price }} }}
+				check_variable = {{ dd_qty > {pool_have} }}
+				check_variable = {{ {pool} > {pool_have} }}
+			}}
+			set_variable = {{ global.dd_pay_amt = dd_price }}
+			set_variable = {{ global.dd_div_n = dd_qty }}
+			set_variable = {{ global.dd_div_d = {row['amount']} }}
+			dd_floor_div = yes
+			set_variable = {{ global.dd_bulk_lots = global.dd_div_q }}
+			set_variable = {{ global.dd_div_n = {pool} }}
+			set_variable = {{ global.dd_div_d = {row['amount']} }}
+			dd_floor_div = yes
+			if = {{
+				limit = {{ check_variable = {{ global.dd_div_q < global.dd_bulk_lots }} }}
+				set_variable = {{ global.dd_bulk_lots = global.dd_div_q }}
+			}}
+			set_variable = {{ global.dd_div_n = treasury }}
+			set_variable = {{ global.dd_div_d = global.dd_pay_amt }}
+			dd_floor_div = yes
+			if = {{
+				limit = {{ check_variable = {{ global.dd_div_q < global.dd_bulk_lots }} }}
+				set_variable = {{ global.dd_bulk_lots = global.dd_div_q }}
+			}}
+			if = {{
+				limit = {{ check_variable = {{ global.dd_bulk_lots > 0 }} }}
+				set_variable = {{ global.dd_pay_qty = {row['amount']} }}
+				set_variable = {{ global.dd_pay_cost = global.dd_pay_amt }}
+				multiply_variable = {{ global.dd_pay_cost = global.dd_bulk_lots }}
+				set_variable = {{ global.dd_pay_units = global.dd_pay_qty }}
+				multiply_variable = {{ global.dd_pay_units = global.dd_bulk_lots }}
+				subtract_from_variable = {{ treasury = global.dd_pay_cost }}
+				dd_pay_bulk = yes
+				set_temp_variable = {{ dd_i = global.dd_active_list }}
+				subtract_from_variable = {{ global.dd_list_qty^dd_i = global.dd_pay_units }}
+				subtract_from_variable = {{ {pool} = global.dd_pay_units }}
+				if = {{
+					limit = {{ check_variable = {{ global.dd_list_qty^dd_i < 1 }} }}
+					set_variable = {{ global.dd_list_cat^dd_i = -1 }}
+					set_variable = {{ global.dd_list_qty^dd_i = 0 }}
+					set_variable = {{ global.dd_list_price^dd_i = 0 }}
+				}}
+				add_equipment_to_stockpile = {{
+					type = {row['buy_type']}
+					amount = global.dd_pay_units
+					producer = ROOT
+				}}
+				dd_refresh_market_counts = yes
+				dd_refresh_loan_preview = yes
+			}}
+		}}
+}}
+
 dd_buy_{slug} = {{
+		set_temp_variable = {{ dd_i = global.dd_active_list }}
+		set_temp_variable = {{ dd_price = global.dd_list_price^dd_i }}
+		set_temp_variable = {{ dd_qty = global.dd_list_qty^dd_i }}
+		set_temp_variable = {{ dd_cat = global.dd_list_cat^dd_i }}
+		set_temp_variable = {{ dd_idx = global.dd_list_idx^dd_i }}
+		if = {{
+			limit = {{
+				check_variable = {{ dd_cat = {row['cat_id']} }}
+				check_variable = {{ dd_idx = {row['idx']} }}
+				NOT = {{ check_variable = {{ treasury < dd_price }} }}
+				check_variable = {{ dd_qty > {pool_have} }}
+				check_variable = {{ {pool} > {pool_have} }}
+			}}
+			subtract_from_variable = {{ treasury = dd_price }}
+			set_variable = {{ global.dd_pay_amt = dd_price }}
+			set_variable = {{ global.dd_pay_qty = {row['amount']} }}
+			dd_pay_front_seller = yes
+			set_temp_variable = {{ dd_i = global.dd_active_list }}
+			subtract_from_variable = {{ global.dd_list_qty^dd_i = {row['amount']} }}
+			subtract_from_variable = {{ {pool} = {row['amount']} }}
+			if = {{
+				limit = {{ check_variable = {{ global.dd_list_qty^dd_i < 1 }} }}
+				set_variable = {{ global.dd_list_cat^dd_i = -1 }}
+				set_variable = {{ global.dd_list_qty^dd_i = 0 }}
+				set_variable = {{ global.dd_list_price^dd_i = 0 }}
+			}}
+			add_equipment_to_stockpile = {{
+				type = {row['buy_type']}
+				amount = {row['amount']}
+				producer = ROOT
+			}}
+			dd_refresh_market_counts = yes
+			dd_refresh_loan_preview = yes
+		}}
+}}
+
+dd_sell_all_{slug} = {{
+	if = {{
+		limit = {{ check_variable = {{ {mine} < 1 }} }}
+		set_variable = {{ {mine} = {row['buy']} }}
+	}}
 	if = {{
 		limit = {{
-			NOT = {{ check_variable = {{ treasury < {ask} }} }}
-			check_variable = {{ {pool} > {pool_have} }}
+			has_equipment = {{ {row['variant']} > {sell_have} }}
+			check_variable = {{ {mine} > 0 }}
 		}}
-		subtract_from_variable = {{ treasury = {ask} }}
-		subtract_from_variable = {{ {pool} = {row['amount']} }}
-		add_equipment_to_stockpile = {{
-			type = {row['buy_type']}
-			amount = {row['amount']}
-			producer = ROOT
+			set_variable = {{ global.dd_div_n = num_equipment@{row['variant']} }}
+			set_variable = {{ global.dd_div_d = {row['amount']} }}
+			dd_floor_div = yes
+			if = {{
+				limit = {{ check_variable = {{ global.dd_div_q > 0 }} }}
+				set_variable = {{ global.dd_pay_units = global.dd_div_q }}
+				multiply_variable = {{ global.dd_pay_units = {row['amount']} }}
+				set_variable = {{ global.dd_post_cat = {row['cat_id']} }}
+				set_variable = {{ global.dd_post_idx = {row['idx']} }}
+				set_variable = {{ global.dd_post_price = {mine} }}
+				set_variable = {{ global.dd_post_amt = {row['amount']} }}
+				set_variable = {{ global.dd_post_qty = global.dd_pay_units }}
+				dd_post_listing = yes
+				if = {{
+					limit = {{ check_variable = {{ global.dd_post_ok = 1 }} }}
+					dd_enqueue_seller = yes
+					if = {{
+						limit = {{ check_variable = {{ global.dd_enqueue_ok = 1 }} }}
+						set_variable = {{ global.dd_pay_units = 0 }}
+						subtract_from_variable = {{ global.dd_pay_units = global.dd_post_qty }}
+						add_equipment_to_stockpile = {{
+							type = {row['variant']}
+							amount = global.dd_pay_units
+						}}
+						add_to_variable = {{ {pool} = global.dd_post_qty }}
+						dd_refresh_market_counts = yes
+						dd_refresh_loan_preview = yes
+					}}
+					else = {{
+						dd_unpost_lot = yes
+					}}
+				}}
+			}}
 		}}
-		dd_refresh_market_counts = yes
-		dd_refresh_loan_preview = yes
-	}}
 }}
 
 dd_sell_{slug} = {{
 	if = {{
-		limit = {{ has_equipment = {{ {row['arch']} > {sell_have} }} }}
-		add_equipment_to_stockpile = {{
-			type = {row['arch']}
-			amount = -{row['amount']}
+		limit = {{ check_variable = {{ {mine} < 1 }} }}
+		set_variable = {{ {mine} = {row['buy']} }}
+	}}
+	if = {{
+		limit = {{
+			has_equipment = {{ {row['variant']} > {sell_have} }}
+			check_variable = {{ {mine} > 0 }}
 		}}
-		add_to_variable = {{ {pool} = {row['amount']} }}
-		add_to_variable = {{ treasury = {ask} }}
-		dd_refresh_market_counts = yes
-		dd_refresh_loan_preview = yes
+		set_variable = {{ global.dd_post_cat = {row['cat_id']} }}
+		set_variable = {{ global.dd_post_idx = {row['idx']} }}
+		set_variable = {{ global.dd_post_price = {mine} }}
+		set_variable = {{ global.dd_post_amt = {row['amount']} }}
+		set_variable = {{ global.dd_post_qty = {row['amount']} }}
+		dd_post_listing = yes
+		if = {{
+			limit = {{ check_variable = {{ global.dd_post_ok = 1 }} }}
+			dd_enqueue_seller = yes
+			if = {{
+				limit = {{ check_variable = {{ global.dd_enqueue_ok = 1 }} }}
+				add_equipment_to_stockpile = {{
+					type = {row['variant']}
+					amount = -{row['amount']}
+				}}
+				add_to_variable = {{ {pool} = {row['amount']} }}
+				dd_refresh_market_counts = yes
+				dd_refresh_loan_preview = yes
+			}}
+			else = {{
+				dd_unpost_lot = yes
+			}}
+		}}
 	}}
 }}
 
 dd_ask_up_{slug} = {{
 	if = {{
 		limit = {{
-			has_equipment = {{ {row['arch']} > 0 }}
-			check_variable = {{ {ask} < 999 }}
+			has_equipment = {{ {row['variant']} > 0 }}
+			check_variable = {{ {mine} > 0 }}
+			check_variable = {{ {mine} < 999 }}
 		}}
-		add_to_variable = {{ {ask} = 1 }}
+		add_to_variable = {{ {mine} = 1 }}
+		dd_refresh_buy_slots = yes
 	}}
 }}
 
 dd_ask_down_{slug} = {{
 	if = {{
 		limit = {{
-			has_equipment = {{ {row['arch']} > 0 }}
-			check_variable = {{ {ask} > 1 }}
+			has_equipment = {{ {row['variant']} > 0 }}
+			check_variable = {{ {mine} > 1 }}
 		}}
-		subtract_from_variable = {{ {ask} = 1 }}
+		subtract_from_variable = {{ {mine} = 1 }}
+		dd_refresh_buy_slots = yes
 	}}
 }}
 """
 
 
+def listing_book() -> str:
+    return f"""
+dd_clear_listings = {{
+	set_temp_variable = {{ dd_i = 0 }}
+	while_loop_effect = {{
+		limit = {{ check_variable = {{ dd_i < {LIST_MAX} }} }}
+		set_variable = {{ global.dd_list_cat^dd_i = -1 }}
+		set_variable = {{ global.dd_list_idx^dd_i = -1 }}
+		set_variable = {{ global.dd_list_price^dd_i = 0 }}
+		set_variable = {{ global.dd_list_qty^dd_i = 0 }}
+		set_variable = {{ global.dd_list_amt^dd_i = 0 }}
+		add_to_temp_variable = {{ dd_i = 1 }}
+	}}
+	set_temp_variable = {{ dd_i = 0 }}
+	while_loop_effect = {{
+		limit = {{ check_variable = {{ dd_i < {LOT_MAX} }} }}
+		set_variable = {{ global.dd_lot_qty^dd_i = 0 }}
+		set_variable = {{ global.dd_lot_list^dd_i = -1 }}
+		set_variable = {{ global.dd_lot_seq^dd_i = 0 }}
+		add_to_temp_variable = {{ dd_i = 1 }}
+	}}
+	set_variable = {{ global.dd_lot_next = 1 }}
+}}
+
+# Merge into the record with this model and price, or open a new one.
+dd_post_listing = {{
+	set_variable = {{ global.dd_post_ok = 0 }}
+	set_variable = {{ global.dd_post_at = -1 }}
+	set_temp_variable = {{ dd_i = 0 }}
+	set_temp_variable = {{ dd_found = -1 }}
+	set_temp_variable = {{ dd_empty = -1 }}
+	while_loop_effect = {{
+		limit = {{
+			check_variable = {{ dd_i < {LIST_MAX} }}
+			check_variable = {{ dd_found < 0 }}
+		}}
+		set_temp_variable = {{ dd_cat = global.dd_list_cat^dd_i }}
+		set_temp_variable = {{ dd_idx = global.dd_list_idx^dd_i }}
+		set_temp_variable = {{ dd_pr = global.dd_list_price^dd_i }}
+		set_temp_variable = {{ dd_q = global.dd_list_qty^dd_i }}
+		if = {{
+			limit = {{
+				check_variable = {{ dd_q > 0 }}
+				check_variable = {{ dd_cat = global.dd_post_cat }}
+				check_variable = {{ dd_idx = global.dd_post_idx }}
+				check_variable = {{ dd_pr = global.dd_post_price }}
+			}}
+			set_temp_variable = {{ dd_found = dd_i }}
+		}}
+		if = {{
+			limit = {{
+				check_variable = {{ dd_empty < 0 }}
+				check_variable = {{ dd_q < 1 }}
+			}}
+			set_temp_variable = {{ dd_empty = dd_i }}
+		}}
+		add_to_temp_variable = {{ dd_i = 1 }}
+	}}
+	if = {{
+		limit = {{ check_variable = {{ dd_found > -1 }} }}
+		add_to_variable = {{ global.dd_list_qty^dd_found = global.dd_post_qty }}
+		set_variable = {{ global.dd_post_at = dd_found }}
+		set_variable = {{ global.dd_post_ok = 1 }}
+	}}
+	else_if = {{
+		limit = {{ check_variable = {{ dd_empty > -1 }} }}
+		set_variable = {{ global.dd_list_cat^dd_empty = global.dd_post_cat }}
+		set_variable = {{ global.dd_list_idx^dd_empty = global.dd_post_idx }}
+		set_variable = {{ global.dd_list_price^dd_empty = global.dd_post_price }}
+		set_variable = {{ global.dd_list_qty^dd_empty = global.dd_post_qty }}
+		set_variable = {{ global.dd_list_amt^dd_empty = global.dd_post_amt }}
+		set_variable = {{ global.dd_post_at = dd_empty }}
+		set_variable = {{ global.dd_post_ok = 1 }}
+	}}
+}}
+
+# Undo the listing add when the seller queue cannot take another claim.
+dd_unpost_lot = {{
+	set_temp_variable = {{ dd_i = global.dd_post_at }}
+	subtract_from_variable = {{ global.dd_list_qty^dd_i = global.dd_post_qty }}
+	if = {{
+		limit = {{ check_variable = {{ global.dd_list_qty^dd_i < 1 }} }}
+		set_variable = {{ global.dd_list_cat^dd_i = -1 }}
+		set_variable = {{ global.dd_list_idx^dd_i = -1 }}
+		set_variable = {{ global.dd_list_price^dd_i = 0 }}
+		set_variable = {{ global.dd_list_qty^dd_i = 0 }}
+		set_variable = {{ global.dd_list_amt^dd_i = 0 }}
+	}}
+}}
+
+# Remember who sold this lot. Same country selling again at the same price extends their latest claim.
+dd_enqueue_seller = {{
+	set_variable = {{ global.dd_enqueue_ok = 0 }}
+	set_variable = {{ global.dd_pay_best = -1 }}
+	set_variable = {{ global.dd_lot_empty = -1 }}
+	set_temp_variable = {{ dd_tail_seq = -1 }}
+	set_temp_variable = {{ dd_i = 0 }}
+	while_loop_effect = {{
+		limit = {{ check_variable = {{ dd_i < {LOT_MAX} }} }}
+		set_temp_variable = {{ dd_q = global.dd_lot_qty^dd_i }}
+		set_temp_variable = {{ dd_list = global.dd_lot_list^dd_i }}
+		set_temp_variable = {{ dd_seq = global.dd_lot_seq^dd_i }}
+		if = {{
+			limit = {{
+				check_variable = {{ dd_q > 0 }}
+				check_variable = {{ dd_list = global.dd_post_at }}
+			}}
+			if = {{
+				limit = {{ check_variable = {{ dd_seq > dd_tail_seq }} }}
+				set_variable = {{ global.dd_pay_best = dd_i }}
+				set_temp_variable = {{ dd_tail_seq = dd_seq }}
+			}}
+		}}
+		if = {{
+			limit = {{
+				check_variable = {{ global.dd_lot_empty < 0 }}
+				check_variable = {{ dd_q < 1 }}
+			}}
+			set_variable = {{ global.dd_lot_empty = dd_i }}
+		}}
+		add_to_temp_variable = {{ dd_i = 1 }}
+	}}
+	set_variable = {{ global.dd_same_seller = 0 }}
+	if = {{
+		limit = {{ check_variable = {{ global.dd_pay_best > -1 }} }}
+		set_temp_variable = {{ dd_best = global.dd_pay_best }}
+		set_variable = {{ global.dd_pay_who = global.dd_lot_who^dd_best }}
+		var:global.dd_pay_who = {{
+			if = {{
+				limit = {{ tag = ROOT }}
+				set_variable = {{ global.dd_same_seller = 1 }}
+			}}
+		}}
+	}}
+	if = {{
+		limit = {{ check_variable = {{ global.dd_same_seller = 1 }} }}
+		set_temp_variable = {{ dd_best = global.dd_pay_best }}
+		add_to_variable = {{ global.dd_lot_qty^dd_best = global.dd_post_qty }}
+		set_variable = {{ global.dd_enqueue_ok = 1 }}
+	}}
+	else_if = {{
+		limit = {{ check_variable = {{ global.dd_lot_empty > -1 }} }}
+		set_temp_variable = {{ dd_empty = global.dd_lot_empty }}
+		set_variable = {{ global.dd_lot_list^dd_empty = global.dd_post_at }}
+		set_variable = {{ global.dd_lot_qty^dd_empty = global.dd_post_qty }}
+		set_variable = {{ global.dd_lot_seq^dd_empty = global.dd_lot_next }}
+		set_variable = {{ global.dd_lot_who^dd_empty = THIS }}
+		add_to_variable = {{ global.dd_lot_next = 1 }}
+		set_variable = {{ global.dd_enqueue_ok = 1 }}
+	}}
+}}
+
+# Pay the oldest seller of global.dd_active_list one lot.
+# A dead seller's lot is still consumed. That cash is not paid to anyone.
+# Starting stock has no seller, so that cash is not paid either.
+dd_pay_front_seller = {{
+	set_variable = {{ global.dd_paid = 0 }}
+	set_variable = {{ global.dd_pay_guard = 0 }}
+	while_loop_effect = {{
+		limit = {{
+			check_variable = {{ global.dd_paid = 0 }}
+			check_variable = {{ global.dd_pay_guard < {LOT_MAX} }}
+		}}
+		add_to_variable = {{ global.dd_pay_guard = 1 }}
+		set_variable = {{ global.dd_pay_best = -1 }}
+		set_temp_variable = {{ dd_best_seq = 0 }}
+		set_temp_variable = {{ dd_i = 0 }}
+		while_loop_effect = {{
+			limit = {{ check_variable = {{ dd_i < {LOT_MAX} }} }}
+			set_temp_variable = {{ dd_q = global.dd_lot_qty^dd_i }}
+			set_temp_variable = {{ dd_list = global.dd_lot_list^dd_i }}
+			set_temp_variable = {{ dd_seq = global.dd_lot_seq^dd_i }}
+			if = {{
+				limit = {{
+					check_variable = {{ dd_q > 0 }}
+					check_variable = {{ dd_list = global.dd_active_list }}
+				}}
+				if = {{
+					limit = {{ check_variable = {{ global.dd_pay_best < 0 }} }}
+					set_variable = {{ global.dd_pay_best = dd_i }}
+					set_temp_variable = {{ dd_best_seq = dd_seq }}
+				}}
+				else_if = {{
+					limit = {{ check_variable = {{ dd_seq < dd_best_seq }} }}
+					set_variable = {{ global.dd_pay_best = dd_i }}
+					set_temp_variable = {{ dd_best_seq = dd_seq }}
+				}}
+			}}
+			add_to_temp_variable = {{ dd_i = 1 }}
+		}}
+		if = {{
+			limit = {{ check_variable = {{ global.dd_pay_best < 0 }} }}
+			set_variable = {{ global.dd_paid = 1 }}
+		}}
+		else = {{
+			set_temp_variable = {{ dd_best = global.dd_pay_best }}
+			set_temp_variable = {{ dd_list = global.dd_active_list }}
+			set_variable = {{ global.dd_sale_cat = global.dd_list_cat^dd_list }}
+			set_variable = {{ global.dd_sale_idx = global.dd_list_idx^dd_list }}
+			set_variable = {{ global.dd_pay_who = global.dd_lot_who^dd_best }}
+			set_variable = {{ global.dd_seller_alive = 0 }}
+			var:global.dd_pay_who = {{
+				if = {{
+					limit = {{ exists = yes }}
+					set_variable = {{ global.dd_seller_alive = 1 }}
+					add_to_variable = {{ treasury = global.dd_pay_amt }}
+					set_variable = {{ dd_sale_paid = global.dd_pay_amt }}
+					set_variable = {{ dd_sale_cat = global.dd_sale_cat }}
+					set_variable = {{ dd_sale_idx = global.dd_sale_idx }}
+					country_event = {{ id = doomsday_market.1 }}
+				}}
+			}}
+			set_temp_variable = {{ dd_best = global.dd_pay_best }}
+			subtract_from_variable = {{ global.dd_lot_qty^dd_best = global.dd_pay_qty }}
+			set_variable = {{ global.dd_paid = 1 }}
+			set_temp_variable = {{ dd_q = global.dd_lot_qty^dd_best }}
+			if = {{
+				limit = {{ check_variable = {{ dd_q < 1 }} }}
+				set_variable = {{ global.dd_lot_qty^dd_best = 0 }}
+				set_variable = {{ global.dd_lot_list^dd_best = -1 }}
+				set_variable = {{ global.dd_lot_seq^dd_best = 0 }}
+			}}
+		}}
+	}}
+}}
+
+# Floor of global.dd_div_n / global.dd_div_d. Result is global.dd_div_q.
+dd_floor_div = {{
+	set_temp_variable = {{ dd_q = global.dd_div_n }}
+	divide_temp_variable = {{ dd_q = global.dd_div_d }}
+	round_temp_variable = dd_q
+	set_temp_variable = {{ dd_cost = dd_q }}
+	multiply_temp_variable = {{ dd_cost = global.dd_div_d }}
+	if = {{
+		limit = {{ check_variable = {{ global.dd_div_n < dd_cost }} }}
+		subtract_from_temp_variable = {{ dd_q = 1 }}
+	}}
+	if = {{
+		limit = {{ check_variable = {{ dd_q < 1 }} }}
+		set_temp_variable = {{ dd_q = 0 }}
+	}}
+	set_variable = {{ global.dd_div_q = dd_q }}
+}}
+
+# Pay global.dd_bulk_lots of the active listing. One popup per seller, for the whole sum.
+# Lots with no living seller are still delivered. That cash is not paid to anyone.
+dd_pay_bulk = {{
+	set_temp_variable = {{ dd_list = global.dd_active_list }}
+	set_variable = {{ global.dd_sale_cat = global.dd_list_cat^dd_list }}
+	set_variable = {{ global.dd_sale_idx = global.dd_list_idx^dd_list }}
+	set_variable = {{ global.dd_pay_guard = 0 }}
+	while_loop_effect = {{
+		limit = {{
+			check_variable = {{ global.dd_bulk_lots > 0 }}
+			check_variable = {{ global.dd_pay_guard < {LOT_MAX} }}
+		}}
+		add_to_variable = {{ global.dd_pay_guard = 1 }}
+		set_variable = {{ global.dd_pay_best = -1 }}
+		set_temp_variable = {{ dd_best_seq = 0 }}
+		set_temp_variable = {{ dd_i = 0 }}
+		while_loop_effect = {{
+			limit = {{ check_variable = {{ dd_i < {LOT_MAX} }} }}
+			set_temp_variable = {{ dd_q = global.dd_lot_qty^dd_i }}
+			set_temp_variable = {{ dd_list = global.dd_lot_list^dd_i }}
+			set_temp_variable = {{ dd_seq = global.dd_lot_seq^dd_i }}
+			if = {{
+				limit = {{
+					check_variable = {{ dd_q > 0 }}
+					check_variable = {{ dd_list = global.dd_active_list }}
+				}}
+				if = {{
+					limit = {{ check_variable = {{ global.dd_pay_best < 0 }} }}
+					set_variable = {{ global.dd_pay_best = dd_i }}
+					set_temp_variable = {{ dd_best_seq = dd_seq }}
+				}}
+				else_if = {{
+					limit = {{ check_variable = {{ dd_seq < dd_best_seq }} }}
+					set_variable = {{ global.dd_pay_best = dd_i }}
+					set_temp_variable = {{ dd_best_seq = dd_seq }}
+				}}
+			}}
+			add_to_temp_variable = {{ dd_i = 1 }}
+		}}
+		if = {{
+			limit = {{ check_variable = {{ global.dd_pay_best < 0 }} }}
+			set_variable = {{ global.dd_bulk_lots = 0 }}
+		}}
+		else = {{
+			set_temp_variable = {{ dd_best = global.dd_pay_best }}
+			set_variable = {{ global.dd_div_n = global.dd_lot_qty^dd_best }}
+			set_variable = {{ global.dd_div_d = global.dd_pay_qty }}
+			dd_floor_div = yes
+			set_variable = {{ global.dd_pay_take = global.dd_div_q }}
+			if = {{
+				limit = {{ check_variable = {{ global.dd_pay_take > global.dd_bulk_lots }} }}
+				set_variable = {{ global.dd_pay_take = global.dd_bulk_lots }}
+			}}
+			if = {{
+				limit = {{ check_variable = {{ global.dd_pay_take < 1 }} }}
+				set_variable = {{ global.dd_lot_qty^dd_best = 0 }}
+				set_variable = {{ global.dd_lot_list^dd_best = -1 }}
+				set_variable = {{ global.dd_lot_seq^dd_best = 0 }}
+			}}
+			else = {{
+				set_variable = {{ global.dd_sale_sum = global.dd_pay_amt }}
+				multiply_variable = {{ global.dd_sale_sum = global.dd_pay_take }}
+				set_variable = {{ global.dd_pay_units = global.dd_pay_qty }}
+				multiply_variable = {{ global.dd_pay_units = global.dd_pay_take }}
+				set_variable = {{ global.dd_pay_who = global.dd_lot_who^dd_best }}
+				var:global.dd_pay_who = {{
+					if = {{
+						limit = {{ exists = yes }}
+						add_to_variable = {{ treasury = global.dd_sale_sum }}
+						set_variable = {{ dd_sale_paid = global.dd_sale_sum }}
+						set_variable = {{ dd_sale_cat = global.dd_sale_cat }}
+						set_variable = {{ dd_sale_idx = global.dd_sale_idx }}
+						country_event = {{ id = doomsday_market.1 }}
+					}}
+				}}
+				set_temp_variable = {{ dd_best = global.dd_pay_best }}
+				subtract_from_variable = {{ global.dd_lot_qty^dd_best = global.dd_pay_units }}
+				subtract_from_variable = {{ global.dd_bulk_lots = global.dd_pay_take }}
+				set_temp_variable = {{ dd_q = global.dd_lot_qty^dd_best }}
+				if = {{
+					limit = {{ check_variable = {{ dd_q < 1 }} }}
+					set_variable = {{ global.dd_lot_qty^dd_best = 0 }}
+					set_variable = {{ global.dd_lot_list^dd_best = -1 }}
+					set_variable = {{ global.dd_lot_seq^dd_best = 0 }}
+				}}
+			}}
+		}}
+	}}
+}}
+"""
+
+
+def write_sale_loc(rows: list[dict]) -> None:
+    lines = [
+        "# Name of the shipment that just paid this country.",
+        "defined_text = {",
+        "	name = GetDdSaleShipment",
+    ]
+    for r in rows:
+        lines.append("	text = {")
+        lines.append("		trigger = {")
+        lines.append(f"			check_variable = {{ dd_sale_cat = {r['cat_id']} }}")
+        lines.append(f"			check_variable = {{ dd_sale_idx = {r['idx']} }}")
+        lines.append("		}")
+        lines.append(f"		localization_key = {r['variant']}")
+        lines.append("	}")
+    lines.append("	text = {")
+    lines.append("		localization_key = DD_MARKET_SALE_UNKNOWN")
+    lines.append("	}")
+    lines.append("}")
+    path = ROOT / "common" / "scripted_localisation" / "doomsday_market_sale.txt"
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def write_effects(rows: list[dict]) -> None:
-    counts = "\n".join(
-        f"\tset_variable = {{ dd_stock_{r['slug']} = num_equipment@{r['arch']} }}"
-        for r in rows
-    )
+    counts = []
+    for cat in ("land", "air", "navy"):
+        n = 0
+        for r in rows:
+            if r["cat"] != cat:
+                continue
+            r["cat_id"] = CAT_ID[cat]
+            r["idx"] = n
+            n += 1
+    for r in rows:
+        counts.append(
+            f"\tif = {{\n"
+            f"\t\tlimit = {{ check_variable = {{ dd_my_ask_{r['slug']} < 1 }} }}\n"
+            f"\t\tset_variable = {{ dd_my_ask_{r['slug']} = {r['buy']} }}\n"
+            f"\t}}"
+        )
+        counts.append(
+            f"\tset_variable = {{ dd_stock_{r['slug']} = num_equipment@{r['variant']} }}"
+        )
     init_lines = ["dd_init_market_pool = {"]
     init_lines.append("	if = {")
-    init_lines.append("		limit = { NOT = { has_global_flag = dd_market_pool_init } }")
-    init_lines.append("		set_global_flag = dd_market_pool_init")
+    init_lines.append("		limit = { NOT = { has_global_flag = dd_market_pool_v5 } }")
+    init_lines.append("		set_global_flag = dd_market_pool_v5")
+    init_lines.append("		dd_clear_listings = yes")
+    init_lines.append("		set_temp_variable = { dd_n = 0 }")
     for r in rows:
         init_lines.append(
             f"		set_variable = {{ global.dd_ask_{r['slug']} = {r['buy']} }}"
@@ -629,12 +1245,19 @@ def write_effects(rows: list[dict]) -> None:
         init_lines.append(
             f"		set_variable = {{ global.dd_pool_{r['slug']} = {r['seed']} }}"
         )
+        if r["seed"]:
+            init_lines.append(f"		set_variable = {{ global.dd_list_cat^dd_n = {r['cat_id']} }}")
+            init_lines.append(f"		set_variable = {{ global.dd_list_idx^dd_n = {r['idx']} }}")
+            init_lines.append(f"		set_variable = {{ global.dd_list_price^dd_n = {r['buy']} }}")
+            init_lines.append(f"		set_variable = {{ global.dd_list_qty^dd_n = {r['seed']} }}")
+            init_lines.append(f"		set_variable = {{ global.dd_list_amt^dd_n = {r['amount']} }}")
+            init_lines.append("		add_to_temp_variable = { dd_n = 1 }")
     init_lines.append("	}")
     init_lines.append("}")
     body = (
-        "# Generated. Shared world pool. Listed cash ask. Host and clients "
-        "must never disagree.\n\n"
+        "# Generated. One shared record per model and price. The earliest seller of that price is paid when a buyer takes a lot.\n"
     )
+    body += listing_book()
     body += "\n".join(init_lines) + "\n"
     body += "\n".join(effect_block(r).rstrip() for r in rows)
     (ROOT / "common" / "scripted_effects" / "doomsday_market.txt").write_text(
@@ -642,7 +1265,9 @@ def write_effects(rows: list[dict]) -> None:
     )
     econ = ROOT / "common" / "scripted_effects" / "doomsday_economy.txt"
     text = econ.read_text(encoding="utf-8")
-    new_fn = "dd_refresh_market_counts = {\n" + counts + "\n}\n"
+    new_fn = (
+        "dd_refresh_market_counts = {\n" + "\n".join(counts) + "\n\tdd_refresh_buy_slots = yes\n}\n"
+    )
     text = re.sub(
         r"dd_refresh_market_counts = \{.*?\n\}",
         new_fn.rstrip(),
@@ -651,6 +1276,7 @@ def write_effects(rows: list[dict]) -> None:
         flags=re.S,
     )
     econ.write_text(text, encoding="utf-8")
+    write_sale_loc(rows)
 
 
 def row_clicks(rows: list[dict]) -> tuple[str, str]:
@@ -689,13 +1315,13 @@ def row_clicks(rows: list[dict]) -> tuple[str, str]:
 				NOT = {{ check_variable = {{ treasury < {ask} }} }}
 				check_variable = {{ {pool} > {pool_have} }}
 			}}
-			dd_sell_{slug}_click_enabled = {{ has_equipment = {{ {r['arch']} > {sell_have} }} }}
+			dd_sell_{slug}_click_enabled = {{ has_equipment = {{ {r['variant']} > {sell_have} }} }}
 			dd_ask_up_{slug}_click_enabled = {{
-				has_equipment = {{ {r['arch']} > 0 }}
+				has_equipment = {{ {r['variant']} > 0 }}
 				check_variable = {{ {ask} < 999 }}
 			}}
 			dd_ask_down_{slug}_click_enabled = {{
-				has_equipment = {{ {r['arch']} > 0 }}
+				has_equipment = {{ {r['variant']} > 0 }}
 				check_variable = {{ {ask} > 1 }}
 			}}"""
         )
@@ -703,18 +1329,12 @@ def row_clicks(rows: list[dict]) -> tuple[str, str]:
 
 
 def list_visible(cat: str) -> str:
-    if cat == "land":
-        return """			has_country_flag = dd_show_arms_market
-			NOT = { has_country_flag = dd_market_air_tab }
-			NOT = { has_country_flag = dd_market_navy_tab }"""
-    if cat == "air":
-        return """			has_country_flag = dd_show_arms_market
-			has_country_flag = dd_market_air_tab"""
-    return """			has_country_flag = dd_show_arms_market
-			has_country_flag = dd_market_navy_tab"""
+    # Sell uses the packed slot list, and only for models you can spare a lot of.
+    return "			always = no"
 
 
 def write_scripted_gui(rows: list[dict]) -> None:
+    """Sell-tab lists. Kept out of doomsday_economy.txt so the merc window stays."""
     by_cat = {c: [r for r in rows if r["cat"] == c] for c in ("land", "air", "navy")}
     list_uis = []
     for cat in ("land", "air", "navy"):
@@ -723,7 +1343,7 @@ def write_scripted_gui(rows: list[dict]) -> None:
             f"""
 	dd_market_list_{cat}_ui = {{
 		context_type = player_context
-		parent_window_name = dd_arms_market_window
+		parent_window_token = decision_tab
 		window_name = "dd_market_list_{cat}"
 		visible = {{
 {list_visible(cat)}
@@ -738,149 +1358,16 @@ def write_scripted_gui(rows: list[dict]) -> None:
 		}}
 	}}"""
         )
-    text = f"""scripted_gui = {{
-
-	doomsday_economy_ui = {{
-		context_type = decision_category
-		window_name = "doomsday_economy_window"
-
-		effects = {{
-			dd_open_market_click = {{
-				set_country_flag = dd_show_arms_market
-				clr_country_flag = dd_market_sell_tab
-				clr_country_flag = dd_market_air_tab
-				clr_country_flag = dd_market_navy_tab
-				dd_refresh_market_counts = yes
-				dd_refresh_loan_preview = yes
-			}}
-		}}
-	}}
-
-	dd_arms_dismiss_ui = {{
-		context_type = player_context
-		window_name = "dd_arms_dismiss_window"
-		visible = {{
-			has_country_flag = dd_show_arms_market
-		}}
-		effects = {{
-			dd_arms_dismiss_click = {{
-				clr_country_flag = dd_show_arms_market
-				clr_country_flag = dd_market_sell_tab
-				clr_country_flag = dd_market_air_tab
-				clr_country_flag = dd_market_navy_tab
-			}}
-		}}
-	}}
-
-	dd_arms_market_ui = {{
-		context_type = player_context
-		parent_window_token = decision_tab
-		window_name = "dd_arms_market_window"
-		visible = {{
-			has_country_flag = dd_show_arms_market
-		}}
-
-		effects = {{
-			dd_close_market_click = {{
-				clr_country_flag = dd_show_arms_market
-				clr_country_flag = dd_market_sell_tab
-				clr_country_flag = dd_market_air_tab
-				clr_country_flag = dd_market_navy_tab
-			}}
-			dd_tab_buy_on_click = {{ clr_country_flag = dd_market_sell_tab }}
-			dd_tab_buy_off_click = {{ clr_country_flag = dd_market_sell_tab }}
-			dd_tab_sell_on_click = {{ set_country_flag = dd_market_sell_tab }}
-			dd_tab_sell_off_click = {{ set_country_flag = dd_market_sell_tab }}
-			dd_cat_land_on_click = {{
-				clr_country_flag = dd_market_air_tab
-				clr_country_flag = dd_market_navy_tab
-			}}
-			dd_cat_land_off_click = {{
-				clr_country_flag = dd_market_air_tab
-				clr_country_flag = dd_market_navy_tab
-			}}
-			dd_cat_air_on_click = {{
-				set_country_flag = dd_market_air_tab
-				clr_country_flag = dd_market_navy_tab
-			}}
-			dd_cat_air_off_click = {{
-				set_country_flag = dd_market_air_tab
-				clr_country_flag = dd_market_navy_tab
-			}}
-			dd_cat_navy_on_click = {{
-				clr_country_flag = dd_market_air_tab
-				set_country_flag = dd_market_navy_tab
-			}}
-			dd_cat_navy_off_click = {{
-				clr_country_flag = dd_market_air_tab
-				set_country_flag = dd_market_navy_tab
-			}}
-		}}
-
-		triggers = {{
-			dd_tab_buy_on_visible = {{
-				NOT = {{ has_country_flag = dd_market_sell_tab }}
-			}}
-			dd_tab_buy_off_visible = {{
-				has_country_flag = dd_market_sell_tab
-			}}
-			dd_tab_sell_on_visible = {{
-				has_country_flag = dd_market_sell_tab
-			}}
-			dd_tab_sell_off_visible = {{
-				NOT = {{ has_country_flag = dd_market_sell_tab }}
-			}}
-			dd_cat_land_on_visible = {{
-				NOT = {{ has_country_flag = dd_market_air_tab }}
-				NOT = {{ has_country_flag = dd_market_navy_tab }}
-			}}
-			dd_cat_land_off_visible = {{
-				OR = {{
-					has_country_flag = dd_market_air_tab
-					has_country_flag = dd_market_navy_tab
-				}}
-			}}
-			dd_cat_air_on_visible = {{
-				has_country_flag = dd_market_air_tab
-			}}
-			dd_cat_air_off_visible = {{
-				NOT = {{ has_country_flag = dd_market_air_tab }}
-			}}
-			dd_cat_navy_on_visible = {{
-				has_country_flag = dd_market_navy_tab
-			}}
-			dd_cat_navy_off_visible = {{
-				NOT = {{ has_country_flag = dd_market_navy_tab }}
-			}}
-		}}
-	}}
-{"".join(list_uis)}
-
-	dd_topbar_econ = {{
-		context_type = player_context
-		parent_window_token = top_bar
-		window_name = "dd_topbar_econ_window"
-		visible = {{
-			always = yes
-		}}
-		triggers = {{
-			dd_net_up_visible = {{
-				check_variable = {{ dd_last_net > -0.005 }}
-			}}
-			dd_net_down_visible = {{
-				check_variable = {{ dd_last_net < 0 }}
-			}}
-			dd_net_pos_visible = {{
-				check_variable = {{ dd_last_net > -0.005 }}
-			}}
-			dd_net_neg_visible = {{
-				check_variable = {{ dd_last_net < 0 }}
-			}}
-		}}
-	}}
-}}
-"""
-    (ROOT / "common" / "scripted_guis" / "doomsday_economy.txt").write_text(text, encoding="utf-8")
+    out = "scripted_gui = {\n" + "".join(list_uis) + "\n}\n"
+    (ROOT / "common" / "scripted_guis" / "doomsday_market_lists.txt").write_text(
+        out, encoding="utf-8"
+    )
+    econ_path = ROOT / "common" / "scripted_guis" / "doomsday_economy.txt"
+    econ = econ_path.read_text(encoding="utf-8")
+    cut_at = econ.find("\n\tdd_market_list_land_ui")
+    topbar = econ.find("\n\tdd_topbar_econ")
+    if cut_at != -1 and topbar != -1 and cut_at < topbar:
+        econ_path.write_text(econ[:cut_at] + "\n" + econ[topbar:], encoding="utf-8")
 
 
 def write_loc(rows: list[dict]) -> None:
@@ -891,15 +1378,15 @@ def write_loc(rows: list[dict]) -> None:
     lines.append(' DD_MARKET_ASK_UP:0 "+1B"')
     lines.append(' DD_MARKET_ASK_DOWN:0 "-1B"')
     lines.append(
-        ' DD_ASK_UP_TT:0 "Raise the listed cash price by 1B. Only countries that hold this equipment can set the ask."'
+        ' DD_ASK_UP_TT:0 "Raise your asking price by 1B. The next lot you sell uses this price. Stock already listed keeps its own price."'
     )
     lines.append(
-        ' DD_ASK_DOWN_TT:0 "Lower the listed cash price by 1B. Only countries that hold this equipment can set the ask."'
+        ' DD_ASK_DOWN_TT:0 "Lower your asking price by 1B. A different price is its own row on the buy menu."'
     )
     for r in rows:
         u = r["slug"].upper()
         slug = r["slug"]
-        lines.append(f' DD_MARKET_NAME_{u}:0 "${r["arch"]}$"')
+        lines.append(f' DD_MARKET_NAME_{u}:0 "${r["variant"]}$"')
         lines.append(
             f' DD_MARKET_STOCK_{u}:0 "Yours: [?dd_stock_{slug}|0]  ·  Pool: [?global.dd_pool_{slug}|0]"'
         )
@@ -910,11 +1397,17 @@ def write_loc(rows: list[dict]) -> None:
             f' DD_MARKET_PRICE_{u}_SELL:0 "[?global.dd_ask_{slug}|0]B  ({r["amount"]} units)"'
         )
         lines.append(
-            f' DD_BUY_{u}_TT:0 "Buy {r["amount"]} ${r["arch"]}$ from the world pool for [?global.dd_ask_{slug}|0]B cash. Requires pool stock."'
+            f' DD_BUY_{u}_TT:0 "Buy {r["amount"]} ${r["variant"]}$ from the world pool for [?global.dd_ask_{slug}|0]B cash. Requires pool stock."'
         )
         lines.append(
-            f' DD_SELL_{u}_TT:0 "Sell {r["amount"]} ${r["arch"]}$ into the world pool for the listed [?global.dd_ask_{slug}|0]B cash."'
+            f' DD_SELL_{u}_TT:0 "List {r["amount"]} ${r["variant"]}$ at your ask of [?dd_my_ask_{slug}|0]B. You are paid when a buyer takes a lot. The earliest seller at this price is paid first."'
         )
+    lines.append(' doomsday_market.1.t:0 "Shipment delivered"')
+    lines.append(
+        ' doomsday_market.1.d:0 "A buyer accepted your shipment of [GetDdSaleShipment]. You received §Y[?dd_sale_paid|0]B§!."'
+    )
+    lines.append(' doomsday_market.1.a:0 "Good."')
+    lines.append(' DD_MARKET_SALE_UNKNOWN:0 "equipment"')
     path = ROOT / "localisation" / "english" / "doomsday_market_l_english.yml"
     path.write_bytes("\ufeff".encode("utf-8") + ("\n".join(lines) + "\n").encode("utf-8"))
 
@@ -924,9 +1417,8 @@ def main() -> None:
     print("rows", len(rows), {c: sum(1 for r in rows if r["cat"] == c) for c in ("land", "air", "navy")})
     seeded = [r for r in rows if r["seed"]]
     print("seed", sum(r["seed"] for r in seeded), "units across", len(seeded), "types")
-    for r in rows:
-        seed_mark = f" seed {r['seed']}" if r["seed"] else ""
-        print(f"  {r['cat']:4} {r['slug']:42} ask {r['buy']:4} x{r['amount']:<3} {r['buy_type']}{seed_mark}")
+    prices = [r["buy"] for r in rows]
+    print("ask", min(prices), "to", max(prices))
     write_gui(rows)
     write_effects(rows)
     write_scripted_gui(rows)

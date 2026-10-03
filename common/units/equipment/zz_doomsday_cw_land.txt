@@ -14,7 +14,7 @@ equipments = {
 		ap_attack = 12
 		reliability = 0.85
 		resources = {
-			steel = 4
+			steel = 2
 		}
 	}
 
@@ -32,7 +32,7 @@ equipments = {
 		ap_attack = 14
 		reliability = 0.85
 		resources = {
-			steel = 4
+			steel = 2
 		}
 	}
 
@@ -50,7 +50,7 @@ equipments = {
 		ap_attack = 16
 		reliability = 0.85
 		resources = {
-			steel = 4
+			steel = 2
 		}
 	}
 
@@ -68,7 +68,7 @@ equipments = {
 		ap_attack = 18
 		reliability = 0.85
 		resources = {
-			steel = 4
+			steel = 2
 			copper = 1
 		}
 	}
@@ -87,7 +87,7 @@ equipments = {
 		ap_attack = 20
 		reliability = 0.85
 		resources = {
-			steel = 4
+			steel = 2
 			copper = 1
 		}
 	}
@@ -106,7 +106,7 @@ equipments = {
 		ap_attack = 22
 		reliability = 0.85
 		resources = {
-			steel = 4
+			steel = 2
 			copper = 1
 		}
 	}
@@ -125,7 +125,7 @@ equipments = {
 		ap_attack = 26
 		reliability = 0.85
 		resources = {
-			steel = 4
+			steel = 2
 			copper = 1
 		}
 	}
@@ -144,7 +144,7 @@ equipments = {
 		ap_attack = 30
 		reliability = 0.85
 		resources = {
-			steel = 4
+			steel = 2
 			copper = 1
 		}
 	}
@@ -159,6 +159,10 @@ equipments = {
 		maximum_speed = 14
 		hardness = 0.15
 		breakthrough = 6
+		resources = {
+			rubber = 1
+			steel = 1
+		}
 	}
 
 	motorized_equipment_3 = {
@@ -171,6 +175,10 @@ equipments = {
 		maximum_speed = 16
 		hardness = 0.25
 		breakthrough = 8
+		resources = {
+			rubber = 1
+			steel = 1
+		}
 	}
 
 	motorized_equipment_4 = {
@@ -183,6 +191,11 @@ equipments = {
 		maximum_speed = 18
 		hardness = 0.35
 		breakthrough = 10
+		resources = {
+			rubber = 1
+			steel = 1
+			copper = 1
+		}
 	}
 
 	mechanized_equipment_4 = {
@@ -200,6 +213,11 @@ equipments = {
 		ap_attack = 28
 		hard_attack = 8
 		air_attack = 2
+		resources = {
+			rubber = 1
+			steel = 3
+			chromium = 1
+		}
 	}
 
 	mechanized_equipment_5 = {
@@ -217,6 +235,12 @@ equipments = {
 		ap_attack = 36
 		hard_attack = 12
 		air_attack = 4
+		resources = {
+			rubber = 1
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
 	}
 
 	mechanized_equipment_6 = {
@@ -234,6 +258,13 @@ equipments = {
 		ap_attack = 44
 		hard_attack = 16
 		air_attack = 6
+		resources = {
+			rubber = 1
+			steel = 3
+			chromium = 1
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	support_equipment_cw1 = {
@@ -244,6 +275,10 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 8.0
 		reliability = 0.8200000000000001
+		resources = {
+			aluminium = 1
+			steel = 1
+		}
 	}
 
 	support_equipment_cw2 = {
@@ -254,6 +289,10 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 10.0
 		reliability = 0.8400000000000001
+		resources = {
+			aluminium = 1
+			steel = 1
+		}
 	}
 
 	support_equipment_cw3 = {
@@ -264,6 +303,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 12.0
 		reliability = 0.8600000000000001
+		resources = {
+			aluminium = 1
+			steel = 1
+			copper = 1
+		}
 	}
 
 	support_equipment_cw4 = {
@@ -274,6 +318,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 14.0
 		reliability = 0.88
+		resources = {
+			aluminium = 1
+			steel = 1
+			copper = 1
+		}
 	}
 
 	support_equipment_cw5 = {
@@ -284,6 +333,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 16.0
 		reliability = 0.9
+		resources = {
+			aluminium = 1
+			steel = 1
+			copper = 1
+		}
 	}
 
 	artillery_equipment_cw1 = {
@@ -296,6 +350,10 @@ equipments = {
 		soft_attack = 38
 		breakthrough = 10
 		defense = 13
+		resources = {
+			tungsten = 1
+			steel = 2
+		}
 	}
 
 	artillery_equipment_cw2 = {
@@ -308,6 +366,10 @@ equipments = {
 		soft_attack = 46
 		breakthrough = 12
 		defense = 14
+		resources = {
+			tungsten = 1
+			steel = 2
+		}
 	}
 
 	artillery_equipment_cw3 = {
@@ -320,6 +382,11 @@ equipments = {
 		soft_attack = 54
 		breakthrough = 14
 		defense = 15
+		resources = {
+			tungsten = 1
+			steel = 2
+			copper = 1
+		}
 	}
 
 	artillery_equipment_cw4 = {
@@ -332,6 +399,11 @@ equipments = {
 		soft_attack = 62
 		breakthrough = 16
 		defense = 16
+		resources = {
+			tungsten = 1
+			steel = 2
+			copper = 1
+		}
 	}
 
 	rocket_artillery_equipment_cw1 = {
@@ -343,6 +415,11 @@ equipments = {
 		build_cost_ic = 12.0
 		soft_attack = 52
 		breakthrough = 13
+		resources = {
+			aluminium = 1
+			tungsten = 1
+			steel = 1
+		}
 	}
 
 	rocket_artillery_equipment_cw2 = {
@@ -354,6 +431,11 @@ equipments = {
 		build_cost_ic = 22.0
 		soft_attack = 64
 		breakthrough = 16
+		resources = {
+			aluminium = 1
+			tungsten = 1
+			steel = 1
+		}
 	}
 
 	rocket_artillery_equipment_cw3 = {
@@ -365,6 +447,12 @@ equipments = {
 		build_cost_ic = 24.0
 		soft_attack = 76
 		breakthrough = 19
+		resources = {
+			aluminium = 1
+			tungsten = 1
+			steel = 1
+			copper = 1
+		}
 	}
 
 	anti_tank_equipment_cw1 = {
@@ -376,6 +464,10 @@ equipments = {
 		build_cost_ic = 8.0
 		hard_attack = 38
 		ap_attack = 130
+		resources = {
+			tungsten = 2
+			steel = 2
+		}
 	}
 
 	anti_tank_equipment_cw2 = {
@@ -387,6 +479,10 @@ equipments = {
 		build_cost_ic = 12.0
 		hard_attack = 48
 		ap_attack = 170
+		resources = {
+			tungsten = 2
+			steel = 2
+		}
 	}
 
 	anti_tank_equipment_cw3 = {
@@ -398,6 +494,11 @@ equipments = {
 		build_cost_ic = 16.0
 		hard_attack = 58
 		ap_attack = 210
+		resources = {
+			tungsten = 2
+			steel = 2
+			copper = 1
+		}
 	}
 
 	anti_tank_equipment_cw4 = {
@@ -409,6 +510,11 @@ equipments = {
 		build_cost_ic = 20.0
 		hard_attack = 68
 		ap_attack = 250
+		resources = {
+			tungsten = 2
+			steel = 2
+			copper = 1
+		}
 	}
 
 	anti_air_equipment_cw1 = {
@@ -419,6 +525,9 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 8.0
 		air_attack = 38
+		resources = {
+			steel = 2
+		}
 	}
 
 	manpads_equipment = {
@@ -436,7 +545,11 @@ equipments = {
 		hard_attack = 1
 		air_attack = 22
 		build_cost_ic = 6
-		resources = { steel = 1 rare_earths = 1 copper = 1 }
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	manpads_equipment_1 = {
@@ -447,6 +560,11 @@ equipments = {
 		build_cost_ic = 6.0
 		air_attack = 30
 		hard_attack = 2
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	manpads_equipment_2 = {
@@ -458,6 +576,11 @@ equipments = {
 		build_cost_ic = 8.0
 		air_attack = 38
 		hard_attack = 3
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	manpads_equipment_3 = {
@@ -469,6 +592,12 @@ equipments = {
 		build_cost_ic = 10.0
 		air_attack = 46
 		hard_attack = 4
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+			microchips = 1
+		}
 	}
 
 	manpads_equipment_4 = {
@@ -480,6 +609,12 @@ equipments = {
 		build_cost_ic = 12.0
 		air_attack = 54
 		hard_attack = 5
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+			microchips = 1
+		}
 	}
 
 	spg_equipment = {
@@ -498,7 +633,11 @@ equipments = {
 		maximum_speed = 8
 		build_cost_ic = 18
 		fuel_consumption = 1.8
-		resources = { steel = 2 tungsten = 1 rare_earths = 1 copper = 1 }
+		resources = {
+			rubber = 1
+			tungsten = 1
+			steel = 2
+		}
 	}
 
 	dew_equipment = {
@@ -513,7 +652,12 @@ equipments = {
 		air_attack = 40
 		defense = 6
 		build_cost_ic = 28
-		resources = { steel = 2 tungsten = 1 rare_earths = 1 copper = 1 }
+		resources = {
+			chromium = 1
+			rare_earths = 2
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	prsm_equipment = {
@@ -531,7 +675,13 @@ equipments = {
 		build_cost_ic = 36
 		maximum_speed = 10
 		fuel_consumption = 2
-		resources = { steel = 2 tungsten = 1 rare_earths = 1 copper = 1 }
+		resources = {
+			aluminium = 2
+			rare_earths = 1
+			copper = 1
+			graphite = 1
+			microchips = 1
+		}
 	}
 
 	spg_equipment_1 = {
@@ -541,6 +691,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 18.0
 		soft_attack = 44
+		resources = {
+			rubber = 1
+			tungsten = 1
+			steel = 2
+		}
 	}
 
 	spg_equipment_2 = {
@@ -551,6 +706,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 22.0
 		soft_attack = 48
+		resources = {
+			rubber = 1
+			tungsten = 1
+			steel = 2
+		}
 	}
 
 	spg_equipment_3 = {
@@ -561,6 +721,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 28.0
 		soft_attack = 52
+		resources = {
+			rubber = 1
+			tungsten = 1
+			steel = 2
+		}
 	}
 
 	spg_equipment_4 = {
@@ -571,6 +736,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 24.0
 		soft_attack = 56
+		resources = {
+			rubber = 1
+			tungsten = 1
+			steel = 2
+		}
 	}
 
 	spg_equipment_5 = {
@@ -581,6 +751,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 32.0
 		soft_attack = 60
+		resources = {
+			rubber = 1
+			tungsten = 1
+			steel = 2
+			copper = 1
+		}
 	}
 
 	spg_equipment_6 = {
@@ -591,6 +767,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 38.0
 		soft_attack = 64
+		resources = {
+			rubber = 1
+			tungsten = 1
+			steel = 2
+			copper = 1
+		}
 	}
 
 	spg_equipment_7 = {
@@ -601,6 +783,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 42.0
 		soft_attack = 68
+		resources = {
+			rubber = 1
+			tungsten = 1
+			steel = 2
+			copper = 1
+		}
 	}
 
 	shorad_equipment_1 = {
@@ -611,6 +799,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 14.0
 		air_attack = 44
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	shorad_equipment_2 = {
@@ -621,6 +814,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 20.0
 		air_attack = 52
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	shorad_equipment_3 = {
@@ -631,6 +829,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 26.0
 		air_attack = 60
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	shorad_equipment_4 = {
@@ -641,6 +845,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 24.0
 		air_attack = 68
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	dew_equipment_1 = {
@@ -650,6 +860,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 16.0
 		air_attack = 44
+		resources = {
+			chromium = 1
+			rare_earths = 2
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	dew_equipment_2 = {
@@ -660,6 +876,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 28.0
 		air_attack = 48
+		resources = {
+			chromium = 1
+			rare_earths = 2
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	dew_equipment_3 = {
@@ -670,6 +892,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 36.0
 		air_attack = 52
+		resources = {
+			chromium = 1
+			rare_earths = 2
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	dew_equipment_4 = {
@@ -680,6 +908,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 45.0
 		air_attack = 56
+		resources = {
+			chromium = 1
+			rare_earths = 2
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	dew_equipment_5 = {
@@ -690,6 +924,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 55.0
 		air_attack = 60
+		resources = {
+			chromium = 1
+			rare_earths = 2
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	hpm_equipment_1 = {
@@ -699,6 +939,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 24.0
 		air_attack = 40
+		resources = {
+			rare_earths = 2
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	prsm_equipment_1 = {
@@ -709,6 +954,13 @@ equipments = {
 		build_cost_ic = 36.0
 		soft_attack = 74
 		hard_attack = 28
+		resources = {
+			aluminium = 2
+			rare_earths = 1
+			copper = 1
+			graphite = 1
+			microchips = 1
+		}
 	}
 
 	mrc_equipment_1 = {
@@ -719,6 +971,13 @@ equipments = {
 		build_cost_ic = 48.0
 		soft_attack = 84
 		hard_attack = 32
+		resources = {
+			aluminium = 2
+			rare_earths = 1
+			copper = 1
+			graphite = 1
+			microchips = 1
+		}
 	}
 
 	hypersonic_glcm_equipment_1 = {
@@ -729,6 +988,13 @@ equipments = {
 		build_cost_ic = 70.0
 		soft_attack = 94
 		hard_attack = 40
+		resources = {
+			aluminium = 2
+			rare_earths = 1
+			copper = 1
+			graphite = 1
+			microchips = 1
+		}
 	}
 
 	mortar_equipment_1 = {
@@ -739,6 +1005,9 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 4.0
 		soft_attack = 22
+		resources = {
+			steel = 1
+		}
 	}
 
 	mortar_equipment_2 = {
@@ -749,6 +1018,9 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 6.0
 		soft_attack = 26
+		resources = {
+			steel = 1
+		}
 	}
 
 	mortar_equipment_3 = {
@@ -759,6 +1031,10 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 8.0
 		soft_attack = 30
+		resources = {
+			steel = 1
+			copper = 1
+		}
 	}
 
 	mortar_equipment_4 = {
@@ -769,6 +1045,10 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 10.0
 		soft_attack = 34
+		resources = {
+			steel = 1
+			copper = 1
+		}
 	}
 
 	td_equipment_1 = {
@@ -780,6 +1060,11 @@ equipments = {
 		build_cost_ic = 16.0
 		hard_attack = 32
 		ap_attack = 140
+		resources = {
+			tungsten = 2
+			steel = 3
+			chromium = 1
+		}
 	}
 
 	td_equipment_2 = {
@@ -791,6 +1076,11 @@ equipments = {
 		build_cost_ic = 14.0
 		hard_attack = 40
 		ap_attack = 170
+		resources = {
+			tungsten = 2
+			steel = 3
+			chromium = 1
+		}
 	}
 
 	td_equipment_3 = {
@@ -802,6 +1092,11 @@ equipments = {
 		build_cost_ic = 18.0
 		hard_attack = 48
 		ap_attack = 190
+		resources = {
+			tungsten = 2
+			steel = 3
+			chromium = 1
+		}
 	}
 
 	td_equipment_4 = {
@@ -813,6 +1108,12 @@ equipments = {
 		build_cost_ic = 16.0
 		hard_attack = 56
 		ap_attack = 220
+		resources = {
+			tungsten = 2
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
 	}
 
 	td_equipment_5 = {
@@ -824,6 +1125,12 @@ equipments = {
 		build_cost_ic = 20.0
 		hard_attack = 64
 		ap_attack = 250
+		resources = {
+			tungsten = 2
+			steel = 3
+			chromium = 1
+			copper = 1
+		}
 	}
 
 	spaa_equipment_1 = {
@@ -834,6 +1141,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 14.0
 		air_attack = 36
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	spaa_equipment_2 = {
@@ -844,6 +1156,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 18.0
 		air_attack = 42
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	spaa_equipment_3 = {
@@ -854,6 +1171,11 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 24.0
 		air_attack = 48
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	spaa_equipment_4 = {
@@ -864,6 +1186,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 22.0
 		air_attack = 54
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	spaa_equipment_5 = {
@@ -874,6 +1202,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 28.0
 		air_attack = 60
+		resources = {
+			steel = 2
+			rare_earths = 1
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	ifpc_equipment_1 = {
@@ -884,6 +1218,13 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 32.0
 		air_attack = 70
+		resources = {
+			aluminium = 1
+			steel = 2
+			rare_earths = 1
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	bmd_equipment_1 = {
@@ -894,6 +1235,13 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 70.0
 		air_attack = 90
+		resources = {
+			aluminium = 1
+			steel = 2
+			rare_earths = 1
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	sam_equipment_1 = {
@@ -904,6 +1252,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 22.0
 		air_attack = 52
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	sam_equipment_2 = {
@@ -914,6 +1268,12 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 36.0
 		air_attack = 62
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	sam_equipment_3 = {
@@ -924,6 +1284,13 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 48.0
 		air_attack = 72
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	sam_equipment_4 = {
@@ -934,6 +1301,13 @@ equipments = {
 		visual_level = 1
 		build_cost_ic = 40.0
 		air_attack = 82
+		resources = {
+			aluminium = 1
+			steel = 1
+			rare_earths = 1
+			copper = 1
+			microchips = 1
+		}
 	}
 
 	infantry_at_equipment_1 = {
@@ -945,6 +1319,10 @@ equipments = {
 		build_cost_ic = 4.0
 		hard_attack = 22
 		ap_attack = 90
+		resources = {
+			tungsten = 1
+			steel = 1
+		}
 	}
 
 	infantry_at_equipment_2 = {
@@ -956,6 +1334,10 @@ equipments = {
 		build_cost_ic = 5.0
 		hard_attack = 26
 		ap_attack = 120
+		resources = {
+			tungsten = 1
+			steel = 1
+		}
 	}
 
 	infantry_at_equipment_3 = {
@@ -967,6 +1349,10 @@ equipments = {
 		build_cost_ic = 9.0
 		hard_attack = 32
 		ap_attack = 160
+		resources = {
+			tungsten = 1
+			steel = 1
+		}
 	}
 
 	infantry_at_equipment_4 = {
@@ -978,6 +1364,10 @@ equipments = {
 		build_cost_ic = 11.0
 		hard_attack = 36
 		ap_attack = 180
+		resources = {
+			tungsten = 1
+			steel = 1
+		}
 	}
 
 	infantry_at_equipment_5 = {
@@ -989,6 +1379,11 @@ equipments = {
 		build_cost_ic = 14.0
 		hard_attack = 40
 		ap_attack = 200
+		resources = {
+			tungsten = 1
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	infantry_at_equipment_6 = {
@@ -1000,6 +1395,11 @@ equipments = {
 		build_cost_ic = 16.0
 		hard_attack = 44
 		ap_attack = 220
+		resources = {
+			tungsten = 1
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	infantry_at_equipment_7 = {
@@ -1011,6 +1411,11 @@ equipments = {
 		build_cost_ic = 7.0
 		hard_attack = 48
 		ap_attack = 240
+		resources = {
+			tungsten = 1
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	infantry_at_equipment_8 = {
@@ -1022,6 +1427,11 @@ equipments = {
 		build_cost_ic = 22.0
 		hard_attack = 52
 		ap_attack = 260
+		resources = {
+			tungsten = 1
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	attack_heli_equipment_1 = {
@@ -1039,6 +1449,11 @@ equipments = {
 		hard_attack = 10
 		ap_attack = 45
 		air_attack = 4
+		resources = {
+			aluminium = 2
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	attack_heli_equipment_2 = {
@@ -1056,6 +1471,11 @@ equipments = {
 		hard_attack = 22
 		ap_attack = 90
 		air_attack = 8
+		resources = {
+			aluminium = 2
+			steel = 1
+			rare_earths = 1
+		}
 	}
 
 	attack_heli_equipment_3 = {
@@ -1073,6 +1493,13 @@ equipments = {
 		hard_attack = 32
 		ap_attack = 140
 		air_attack = 12
+		resources = {
+			aluminium = 2
+			steel = 1
+			rare_earths = 1
+			cobalt = 1
+			microchips = 1
+		}
 	}
 
 	attack_heli_equipment_4 = {
@@ -1090,5 +1517,12 @@ equipments = {
 		hard_attack = 40
 		ap_attack = 180
 		air_attack = 16
+		resources = {
+			aluminium = 2
+			steel = 1
+			rare_earths = 1
+			cobalt = 1
+			microchips = 1
+		}
 	}
 }

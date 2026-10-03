@@ -75,6 +75,12 @@ equipments = {
 		air_defence = 12
 		air_bombing = 0
 		air_attack = 22
+		resources = {
+			aluminium = 1
+			tungsten = 1
+			rare_earths = 1
+			copper = 1
+		}
 	}
 
 	sam_missile_equipment_2 = {
@@ -88,9 +94,10 @@ equipments = {
 		build_cost_ic = 36
 		resources = {
 			aluminium = 1
-			tungsten = 2
+			tungsten = 1
 			rare_earths = 1
 			copper = 1
+			microchips = 1
 		}
 		air_range = 800
 		maximum_speed = 2800

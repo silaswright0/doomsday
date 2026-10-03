@@ -1,0 +1,57 @@
+dd_usa_tariff_category = {
+	dd_usa_review_tariff_schedule = {
+		icon = generic_trade
+		allowed = { always = yes }
+		cost = 25
+		days_remove = 14
+		ai_will_do = { factor = 0 }
+		visible = { has_global_flag = dd_usa_tariff_board }
+		complete_effect = {
+			add_political_power = 10
+		}
+	}
+
+	dd_usa_file_section_338 = {
+		icon = generic_decision
+		allowed = { always = yes }
+		cost = 50
+		ai_will_do = { factor = 0 }
+		visible = { has_global_flag = dd_usa_tariff_board }
+		complete_effect = {
+			add_political_power = 25
+			if = {
+				limit = { tag = USA }
+				add_war_support = 0.01
+			}
+		}
+	}
+
+	dd_usa_draft_new_deal = {
+		icon = generic_trade
+		allowed = { always = yes }
+		cost = 50
+		ai_will_do = { factor = 0 }
+		visible = { has_global_flag = dd_usa_tariff_draft }
+		complete_effect = {
+			country_event = { id = dd_usa_tariff.1 }
+		}
+	}
+}
+
+dd_usa_debug_category = {
+	dd_usa_trigger_civil_war = {
+		icon = generic_civil_support
+		allowed = { tag = USA }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = USA
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		complete_effect = {
+			add_ideas = dd_usa_youll_have_to_kill_us
+			add_stability = -2
+			dd_usa_start_civil_war = yes
+		}
+	}
+}

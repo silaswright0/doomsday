@@ -30,6 +30,9 @@ from state_stats_geo import (  # noqa: E402
     GRAPHITE_KEYWORDS,
     GRID_KEYWORDS,
     LITHIUM_KEYWORDS,
+    MICROCHIP_KEYWORDS,
+    TITANIUM_KEYWORDS,
+    URANIUM_KEYWORDS,
     MIL_KEYWORDS,
     OIL_KEYWORDS,
     REE_KEYWORDS,
@@ -131,6 +134,9 @@ RESOURCE_KEYWORDS = {
     "cobalt": COBALT_KEYWORDS,
     "rare_earths": REE_KEYWORDS,
     "rubber": RUBBER_KEYWORDS,
+    "titanium": TITANIUM_KEYWORDS,
+    "uranium": URANIUM_KEYWORDS,
+    "microchips": MICROCHIP_KEYWORDS,
 }
 
 
@@ -502,6 +508,11 @@ def main() -> None:
             steel_nodes = float(res_totals.get("steel") or 0) + float(iron_mt) * STEEL_PER_MT
             n = int(round(steel_nodes))
             res_totals["steel"] = n if n > 0 else 1
+        extra_nodes = jload("new_resource_nodes.json")
+        for key in ("titanium", "uranium", "microchips"):
+            res_totals.setdefault(key, 0)
+            if tag in (extra_nodes.get(key) or {}):
+                res_totals[key] = int(extra_nodes[key][tag])
 
         res_alloc: dict[str, list[int]] = {}
         for key, total in res_totals.items():
@@ -588,6 +599,9 @@ def main() -> None:
                 "cobalt": res_alloc["cobalt"][i],
                 "rare_earths": res_alloc["rare_earths"][i],
                 "rubber": res_alloc["rubber"][i],
+                "titanium": res_alloc["titanium"][i],
+                "uranium": res_alloc["uranium"][i],
+                "microchips": res_alloc["microchips"][i],
             }
             plan_rows.append(rec)
             gaz_rows.append(
@@ -616,6 +630,7 @@ def main() -> None:
             "extra_slots", "category", "pop_source",
             "oil", "coal", "steel", "aluminium", "tungsten", "chromium", "copper", "graphite",
             "lithium", "cobalt", "rare_earths", "rubber",
+            "titanium", "uranium", "microchips",
         ],
     )
     write_csv(

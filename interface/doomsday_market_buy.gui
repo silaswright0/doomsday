@@ -1,0 +1,347 @@
+guiTypes = {
+	containerWindowType = {
+		name = "dd_market_buy_land"
+		position = { x = 10 y = 210 }
+		size = { width = 530 height = 100%% }
+		margin = { top = 0 bottom = 24 }
+		verticalScrollbar = "right_vertical_slider"
+		scroll_wheel_factor = 40
+		smooth_scrolling = yes
+		clipping = yes
+
+		background = {
+			name = "dd_market_buy_land_bg"
+			spriteType = "GFX_tiled_window2_1b_border"
+		}
+
+		gridBoxType = {
+			name = "dd_market_land_grid"
+			position = { x = 8 y = 4 }
+			size = { width = 500 height = 100%% }
+			slotsize = { width = 500 height = 104 }
+			format = "UPPER_LEFT"
+			max_slots_horizontal = 1
+		}
+	}
+	containerWindowType = {
+		name = "dd_market_buy_air"
+		position = { x = 10 y = 210 }
+		size = { width = 530 height = 100%% }
+		margin = { top = 0 bottom = 24 }
+		verticalScrollbar = "right_vertical_slider"
+		scroll_wheel_factor = 40
+		smooth_scrolling = yes
+		clipping = yes
+
+		background = {
+			name = "dd_market_buy_air_bg"
+			spriteType = "GFX_tiled_window2_1b_border"
+		}
+
+		gridBoxType = {
+			name = "dd_market_air_grid"
+			position = { x = 8 y = 4 }
+			size = { width = 500 height = 100%% }
+			slotsize = { width = 500 height = 104 }
+			format = "UPPER_LEFT"
+			max_slots_horizontal = 1
+		}
+	}
+	containerWindowType = {
+		name = "dd_market_buy_navy"
+		position = { x = 10 y = 210 }
+		size = { width = 530 height = 100%% }
+		margin = { top = 0 bottom = 24 }
+		verticalScrollbar = "right_vertical_slider"
+		scroll_wheel_factor = 40
+		smooth_scrolling = yes
+		clipping = yes
+
+		background = {
+			name = "dd_market_buy_navy_bg"
+			spriteType = "GFX_tiled_window2_1b_border"
+		}
+
+		gridBoxType = {
+			name = "dd_market_navy_grid"
+			position = { x = 8 y = 4 }
+			size = { width = 500 height = 100%% }
+			slotsize = { width = 500 height = 104 }
+			format = "UPPER_LEFT"
+			max_slots_horizontal = 1
+		}
+	}
+	containerWindowType = {
+		name = "dd_market_land_row"
+		size = { width = 500 height = 100 }
+
+		iconType = {
+			name = "dd_land_row_card"
+			spriteType = "GFX_land_equipment_market_entry"
+			position = { x = 0 y = 0 }
+			frame = 1
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "dd_land_row_icon"
+			spriteType = "GFX_infantry_equipment_text_icon"
+			position = { x = 168 y = 18 }
+			scale = 0.42
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_land_row_name"
+			position = { x = 12 y = 6 }
+			font = "hoi_18mbs"
+			text = "DD_MARKET_ROW_LAND_NAME"
+			maxWidth = 300
+			maxHeight = 20
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_land_row_stock"
+			position = { x = 12 y = 28 }
+			font = "hoi_16mbs"
+			text = "DD_MARKET_ROW_LAND_STOCK"
+			maxWidth = 300
+			maxHeight = 18
+			format = left
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "dd_land_row_cash"
+			spriteType = "GFX_dd_icon_cash"
+			position = { x = 12 y = 68 }
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_land_row_price"
+			position = { x = 40 y = 70 }
+			font = "hoi_18mbs"
+			text = "DD_MARKET_ROW_LAND_PRICE"
+			maxWidth = 220
+			maxHeight = 20
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "dd_land_row_buy"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_BUY"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 18 }
+			clicksound = click_default
+			pdx_tooltip = "DD_MARKET_BUY_SLOT_TT"
+		}
+		buttonType = {
+			name = "dd_land_row_sell"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_SELL"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 18 }
+			clicksound = click_default
+			pdx_tooltip = "DD_MARKET_SELL_SLOT_TT"
+		}
+		buttonType = {
+			name = "dd_land_row_ask_down"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_ASK_DOWN"
+			buttonFont = "hoi_16mbs"
+			position = { x = 268 y = 58 }
+			clicksound = click_default
+			pdx_tooltip = "DD_ASK_DOWN_TT"
+		}
+		buttonType = {
+			name = "dd_land_row_ask_up"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_ASK_UP"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 58 }
+			clicksound = click_default
+			pdx_tooltip = "DD_ASK_UP_TT"
+		}
+	}
+	containerWindowType = {
+		name = "dd_market_air_row"
+		size = { width = 500 height = 100 }
+
+		iconType = {
+			name = "dd_air_row_card"
+			spriteType = "GFX_land_equipment_market_entry"
+			position = { x = 0 y = 0 }
+			frame = 1
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "dd_air_row_icon"
+			spriteType = "GFX_infantry_equipment_text_icon"
+			position = { x = 168 y = 18 }
+			scale = 0.42
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_air_row_name"
+			position = { x = 12 y = 6 }
+			font = "hoi_18mbs"
+			text = "DD_MARKET_ROW_AIR_NAME"
+			maxWidth = 300
+			maxHeight = 20
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_air_row_stock"
+			position = { x = 12 y = 28 }
+			font = "hoi_16mbs"
+			text = "DD_MARKET_ROW_AIR_STOCK"
+			maxWidth = 300
+			maxHeight = 18
+			format = left
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "dd_air_row_cash"
+			spriteType = "GFX_dd_icon_cash"
+			position = { x = 12 y = 68 }
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_air_row_price"
+			position = { x = 40 y = 70 }
+			font = "hoi_18mbs"
+			text = "DD_MARKET_ROW_AIR_PRICE"
+			maxWidth = 220
+			maxHeight = 20
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "dd_air_row_buy"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_BUY"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 18 }
+			clicksound = click_default
+			pdx_tooltip = "DD_MARKET_BUY_SLOT_TT"
+		}
+		buttonType = {
+			name = "dd_air_row_sell"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_SELL"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 18 }
+			clicksound = click_default
+			pdx_tooltip = "DD_MARKET_SELL_SLOT_TT"
+		}
+		buttonType = {
+			name = "dd_air_row_ask_down"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_ASK_DOWN"
+			buttonFont = "hoi_16mbs"
+			position = { x = 268 y = 58 }
+			clicksound = click_default
+			pdx_tooltip = "DD_ASK_DOWN_TT"
+		}
+		buttonType = {
+			name = "dd_air_row_ask_up"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_ASK_UP"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 58 }
+			clicksound = click_default
+			pdx_tooltip = "DD_ASK_UP_TT"
+		}
+	}
+	containerWindowType = {
+		name = "dd_market_navy_row"
+		size = { width = 500 height = 100 }
+
+		iconType = {
+			name = "dd_navy_row_card"
+			spriteType = "GFX_land_equipment_market_entry"
+			position = { x = 0 y = 0 }
+			frame = 1
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "dd_navy_row_icon"
+			spriteType = "GFX_infantry_equipment_text_icon"
+			position = { x = 168 y = 18 }
+			scale = 0.42
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_navy_row_name"
+			position = { x = 12 y = 6 }
+			font = "hoi_18mbs"
+			text = "DD_MARKET_ROW_NAVY_NAME"
+			maxWidth = 300
+			maxHeight = 20
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_navy_row_stock"
+			position = { x = 12 y = 28 }
+			font = "hoi_16mbs"
+			text = "DD_MARKET_ROW_NAVY_STOCK"
+			maxWidth = 300
+			maxHeight = 18
+			format = left
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "dd_navy_row_cash"
+			spriteType = "GFX_dd_icon_cash"
+			position = { x = 12 y = 68 }
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "dd_navy_row_price"
+			position = { x = 40 y = 70 }
+			font = "hoi_18mbs"
+			text = "DD_MARKET_ROW_NAVY_PRICE"
+			maxWidth = 220
+			maxHeight = 20
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "dd_navy_row_buy"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_BUY"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 18 }
+			clicksound = click_default
+			pdx_tooltip = "DD_MARKET_BUY_SLOT_TT"
+		}
+		buttonType = {
+			name = "dd_navy_row_sell"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_SELL"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 18 }
+			clicksound = click_default
+			pdx_tooltip = "DD_MARKET_SELL_SLOT_TT"
+		}
+		buttonType = {
+			name = "dd_navy_row_ask_down"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_ASK_DOWN"
+			buttonFont = "hoi_16mbs"
+			position = { x = 268 y = 58 }
+			clicksound = click_default
+			pdx_tooltip = "DD_ASK_DOWN_TT"
+		}
+		buttonType = {
+			name = "dd_navy_row_ask_up"
+			quadTextureSprite = "GFX_diplo_filter_entry"
+			buttonText = "DD_MARKET_ASK_UP"
+			buttonFont = "hoi_16mbs"
+			position = { x = 360 y = 58 }
+			clicksound = click_default
+			pdx_tooltip = "DD_ASK_UP_TT"
+		}
+	}
+}

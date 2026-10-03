@@ -1,0 +1,826 @@
+# Reactor fuel. Country-scoped. No random.
+# 1 uranium node is about 500 t of natural uranium a year.
+# A 1 GWe reactor needs about 200 t, so 1 surplus uranium runs 2 reactors.
+# Surplus is the country balance after warhead lines and nuclear engines have drawn.
+
+dd_sync_reactor_fuel = {
+	set_variable = { dd_reactor_n1 = 0 }
+	set_variable = { dd_reactor_n2 = 0 }
+	set_variable = { dd_reactor_n3 = 0 }
+	every_controlled_state = {
+		add_to_variable = { PREV.dd_reactor_n1 = building_level@nuclear_reactor }
+		add_to_variable = { PREV.dd_reactor_n2 = building_level@nuclear_reactor_heavy_water }
+		add_to_variable = { PREV.dd_reactor_n3 = building_level@commercial_nuclear_reactor }
+	}
+	set_variable = { dd_reactor_n = dd_reactor_n1 }
+	add_to_variable = { dd_reactor_n = dd_reactor_n2 }
+	add_to_variable = { dd_reactor_n = dd_reactor_n3 }
+
+	set_variable = { dd_reactor_nuke_bonus = dd_reactor_n1 }
+	multiply_variable = { dd_reactor_nuke_bonus = 3 }
+	set_variable = { dd_hw_nuke = dd_reactor_n2 }
+	multiply_variable = { dd_hw_nuke = 2 }
+	add_to_variable = { dd_reactor_nuke_bonus = dd_hw_nuke }
+	set_variable = { dd_cm_nuke = dd_reactor_n3 }
+	multiply_variable = { dd_cm_nuke = 3 }
+	add_to_variable = { dd_reactor_nuke_bonus = dd_cm_nuke }
+
+	set_variable = { dd_reactor_thermo_bonus = dd_reactor_n1 }
+	multiply_variable = { dd_reactor_thermo_bonus = 2 }
+	add_to_variable = { dd_reactor_thermo_bonus = dd_reactor_n2 }
+	set_variable = { dd_cm_thermo = dd_reactor_n3 }
+	multiply_variable = { dd_cm_thermo = 2 }
+	add_to_variable = { dd_reactor_thermo_bonus = dd_cm_thermo }
+
+	set_variable = { dd_reactor_bomb_bonus = dd_reactor_n1 }
+	multiply_variable = { dd_reactor_bomb_bonus = 0.05 }
+	set_variable = { dd_hw_bomb = dd_reactor_n2 }
+	multiply_variable = { dd_hw_bomb = 0.03 }
+	add_to_variable = { dd_reactor_bomb_bonus = dd_hw_bomb }
+
+	set_variable = { dd_u_balance = 0 }
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 0
+			}
+		}
+		set_variable = { dd_u_balance = 1 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 1
+			}
+		}
+		set_variable = { dd_u_balance = 2 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 2
+			}
+		}
+		set_variable = { dd_u_balance = 3 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 3
+			}
+		}
+		set_variable = { dd_u_balance = 4 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 4
+			}
+		}
+		set_variable = { dd_u_balance = 5 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 5
+			}
+		}
+		set_variable = { dd_u_balance = 6 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 6
+			}
+		}
+		set_variable = { dd_u_balance = 7 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 7
+			}
+		}
+		set_variable = { dd_u_balance = 8 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 8
+			}
+		}
+		set_variable = { dd_u_balance = 9 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 9
+			}
+		}
+		set_variable = { dd_u_balance = 10 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 10
+			}
+		}
+		set_variable = { dd_u_balance = 11 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 11
+			}
+		}
+		set_variable = { dd_u_balance = 12 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 12
+			}
+		}
+		set_variable = { dd_u_balance = 13 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 13
+			}
+		}
+		set_variable = { dd_u_balance = 14 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 14
+			}
+		}
+		set_variable = { dd_u_balance = 15 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 15
+			}
+		}
+		set_variable = { dd_u_balance = 16 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 16
+			}
+		}
+		set_variable = { dd_u_balance = 17 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 17
+			}
+		}
+		set_variable = { dd_u_balance = 18 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 18
+			}
+		}
+		set_variable = { dd_u_balance = 19 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 19
+			}
+		}
+		set_variable = { dd_u_balance = 20 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 20
+			}
+		}
+		set_variable = { dd_u_balance = 21 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 21
+			}
+		}
+		set_variable = { dd_u_balance = 22 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 22
+			}
+		}
+		set_variable = { dd_u_balance = 23 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 23
+			}
+		}
+		set_variable = { dd_u_balance = 24 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 24
+			}
+		}
+		set_variable = { dd_u_balance = 25 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 25
+			}
+		}
+		set_variable = { dd_u_balance = 26 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 26
+			}
+		}
+		set_variable = { dd_u_balance = 27 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 27
+			}
+		}
+		set_variable = { dd_u_balance = 28 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 28
+			}
+		}
+		set_variable = { dd_u_balance = 29 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 29
+			}
+		}
+		set_variable = { dd_u_balance = 30 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 30
+			}
+		}
+		set_variable = { dd_u_balance = 31 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 31
+			}
+		}
+		set_variable = { dd_u_balance = 32 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 32
+			}
+		}
+		set_variable = { dd_u_balance = 33 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 33
+			}
+		}
+		set_variable = { dd_u_balance = 34 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 34
+			}
+		}
+		set_variable = { dd_u_balance = 35 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 35
+			}
+		}
+		set_variable = { dd_u_balance = 36 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 36
+			}
+		}
+		set_variable = { dd_u_balance = 37 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 37
+			}
+		}
+		set_variable = { dd_u_balance = 38 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 38
+			}
+		}
+		set_variable = { dd_u_balance = 39 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 39
+			}
+		}
+		set_variable = { dd_u_balance = 40 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 40
+			}
+		}
+		set_variable = { dd_u_balance = 41 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 41
+			}
+		}
+		set_variable = { dd_u_balance = 42 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 42
+			}
+		}
+		set_variable = { dd_u_balance = 43 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 43
+			}
+		}
+		set_variable = { dd_u_balance = 44 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 44
+			}
+		}
+		set_variable = { dd_u_balance = 45 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 45
+			}
+		}
+		set_variable = { dd_u_balance = 46 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 46
+			}
+		}
+		set_variable = { dd_u_balance = 47 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 47
+			}
+		}
+		set_variable = { dd_u_balance = 48 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 48
+			}
+		}
+		set_variable = { dd_u_balance = 49 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 49
+			}
+		}
+		set_variable = { dd_u_balance = 50 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 50
+			}
+		}
+		set_variable = { dd_u_balance = 51 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 51
+			}
+		}
+		set_variable = { dd_u_balance = 52 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 52
+			}
+		}
+		set_variable = { dd_u_balance = 53 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 53
+			}
+		}
+		set_variable = { dd_u_balance = 54 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 54
+			}
+		}
+		set_variable = { dd_u_balance = 55 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 55
+			}
+		}
+		set_variable = { dd_u_balance = 56 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 56
+			}
+		}
+		set_variable = { dd_u_balance = 57 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 57
+			}
+		}
+		set_variable = { dd_u_balance = 58 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 58
+			}
+		}
+		set_variable = { dd_u_balance = 59 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 59
+			}
+		}
+		set_variable = { dd_u_balance = 60 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 60
+			}
+		}
+		set_variable = { dd_u_balance = 61 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 61
+			}
+		}
+		set_variable = { dd_u_balance = 62 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 62
+			}
+		}
+		set_variable = { dd_u_balance = 63 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 63
+			}
+		}
+		set_variable = { dd_u_balance = 64 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 64
+			}
+		}
+		set_variable = { dd_u_balance = 65 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 65
+			}
+		}
+		set_variable = { dd_u_balance = 66 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 66
+			}
+		}
+		set_variable = { dd_u_balance = 67 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 67
+			}
+		}
+		set_variable = { dd_u_balance = 68 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 68
+			}
+		}
+		set_variable = { dd_u_balance = 69 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 69
+			}
+		}
+		set_variable = { dd_u_balance = 70 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 70
+			}
+		}
+		set_variable = { dd_u_balance = 71 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 71
+			}
+		}
+		set_variable = { dd_u_balance = 72 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 72
+			}
+		}
+		set_variable = { dd_u_balance = 73 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 73
+			}
+		}
+		set_variable = { dd_u_balance = 74 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 74
+			}
+		}
+		set_variable = { dd_u_balance = 75 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 75
+			}
+		}
+		set_variable = { dd_u_balance = 76 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 76
+			}
+		}
+		set_variable = { dd_u_balance = 77 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 77
+			}
+		}
+		set_variable = { dd_u_balance = 78 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 78
+			}
+		}
+		set_variable = { dd_u_balance = 79 }
+	}
+	if = {
+		limit = {
+			has_resources_in_country = {
+				resource = uranium
+				amount > 79
+			}
+		}
+		set_variable = { dd_u_balance = 80 }
+	}
+
+	set_variable = { dd_reactor_slots = dd_u_balance }
+	if = {
+		limit = { check_variable = { dd_reactor_slots < 0 } }
+		set_variable = { dd_reactor_slots = 0 }
+	}
+	multiply_variable = { dd_reactor_slots = 2 }
+	set_variable = { dd_reactor_fueled = dd_reactor_slots }
+	if = {
+		limit = { check_variable = { dd_reactor_fueled > dd_reactor_n } }
+		set_variable = { dd_reactor_fueled = dd_reactor_n }
+	}
+	set_variable = { dd_reactor_short = dd_reactor_n }
+	subtract_from_variable = { dd_reactor_short = dd_reactor_fueled }
+	set_variable = { dd_reactor_short_ratio = 0 }
+	if = {
+		limit = { check_variable = { dd_reactor_n > 0 } }
+		set_variable = { dd_reactor_short_ratio = dd_reactor_short }
+		divide_variable = { dd_reactor_short_ratio = dd_reactor_n }
+	}
+	set_variable = { dd_reactor_nuke_pen = dd_reactor_nuke_bonus }
+	multiply_variable = { dd_reactor_nuke_pen = dd_reactor_short_ratio }
+	multiply_variable = { dd_reactor_nuke_pen = -1 }
+	set_variable = { dd_reactor_thermo_pen = dd_reactor_thermo_bonus }
+	multiply_variable = { dd_reactor_thermo_pen = dd_reactor_short_ratio }
+	multiply_variable = { dd_reactor_thermo_pen = -1 }
+	set_variable = { dd_reactor_bomb_pen = dd_reactor_bomb_bonus }
+	multiply_variable = { dd_reactor_bomb_pen = dd_reactor_short_ratio }
+	multiply_variable = { dd_reactor_bomb_pen = -1 }
+
+	if = {
+		limit = { check_variable = { dd_reactor_short > 0 } }
+		set_country_flag = dd_reactor_fuel_short
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = dd_reactor_fuel } } }
+			add_dynamic_modifier = { modifier = dd_reactor_fuel }
+		}
+		force_update_dynamic_modifier = yes
+	}
+	else = {
+		clr_country_flag = dd_reactor_fuel_short
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_reactor_fuel } }
+			remove_dynamic_modifier = { modifier = dd_reactor_fuel }
+		}
+	}
+	every_controlled_state = {
+		if = {
+			limit = {
+				check_variable = { building_level@commercial_nuclear_reactor > 0 }
+				ROOT = { has_country_flag = dd_reactor_fuel_short }
+			}
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = dd_reactor_energy_offline } } }
+				add_dynamic_modifier = { modifier = dd_reactor_energy_offline }
+			}
+		}
+		else = {
+			if = {
+				limit = { has_dynamic_modifier = { modifier = dd_reactor_energy_offline } }
+				remove_dynamic_modifier = { modifier = dd_reactor_energy_offline }
+			}
+		}
+	}
+}

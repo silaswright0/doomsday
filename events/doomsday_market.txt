@@ -1,0 +1,15 @@
+add_namespace = doomsday_market
+
+# Seller notice. Payment already happened. ROOT is the seller.
+country_event = {
+	id = doomsday_market.1
+	title = doomsday_market.1.t
+	desc = doomsday_market.1.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+
+	option = {
+		name = doomsday_market.1.a
+		ai_chance = { factor = 100 }
+	}
+}

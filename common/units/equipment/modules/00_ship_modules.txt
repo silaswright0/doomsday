@@ -1641,6 +1641,10 @@ equipment_modules = {
 		abbreviation = "sbn"
 		category = sub_ship_nuclear_engine
 		sfx = sfx_ui_sd_module_engine
+		# One core load. 1 uranium node is about 500 t of natural uranium a year.
+		build_cost_resources = {
+			uranium = 1
+		}
 
 		
 		add_stats = {
@@ -1889,6 +1893,9 @@ equipment_modules = {
 		abbreviation = "sbn"
 		category = heavy_ship_nuclear_engine
 		sfx = sfx_ui_sd_module_engine
+		build_cost_resources = {
+			uranium = 1
+		}
 
 		
 		add_stats = {
@@ -2028,6 +2035,9 @@ equipment_modules = {
 		abbreviation = "sbn"
 		category = carrier_ship_nuclear_engine
 		sfx = sfx_ui_sd_module_engine
+		build_cost_resources = {
+			uranium = 1
+		}
 
 		
 		add_stats = {

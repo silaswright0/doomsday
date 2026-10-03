@@ -1,0 +1,1909 @@
+focus_tree = {
+	id = usa_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = USA
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	initial_show_position = { focus = USA_take_out_maduro }
+	continuous_focus_position = { x = 70 y = 0 }
+	focus = {
+		id = USA_take_out_maduro
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 0
+		cost = 0.43
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			dd_usa_take_out_maduro = yes
+		}
+	}
+	focus = {
+		id = USA_nato_ultimatum
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 1
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_take_out_maduro }
+		completion_reward = {
+			dd_usa_nato_ultimatum_start = yes
+		}
+	}
+	focus = {
+		id = USA_greenland_question
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 2
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_nato_ultimatum }
+		completion_reward = {
+			GRN = { country_event = { id = dd_usa_greenland.1 } }
+		}
+	}
+	focus = {
+		id = USA_global_tariff_plan
+		icon = GFX_goal_generic_political_pressure
+		x = 30
+		y = 2
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_nato_ultimatum }
+		completion_reward = {
+			dd_usa_apply_tariffs = yes
+		}
+	}
+	focus = {
+		id = USA_visa_processing_ban
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 3
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_greenland_question }
+		completion_reward = {
+			dd_usa_student_visas = yes
+		}
+	}
+	focus = {
+		id = USA_attack_on_dei
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 4
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_visa_processing_ban }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_popularity = { ideology = social_liberalism popularity = -0.03 }
+			add_popularity = { ideology = progressive_populism popularity = 0.03 }
+		}
+	}
+	focus = {
+		id = USA_withhold_blue_states
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 5
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_attack_on_dei }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_popularity = { ideology = social_liberalism popularity = -0.03 }
+			add_popularity = { ideology = progressive_populism popularity = 0.03 }
+		}
+	}
+	focus = {
+		id = USA_throw_out_usmca
+		icon = GFX_goal_generic_political_pressure
+		x = 30
+		y = 3
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_global_tariff_plan }
+		completion_reward = {
+			CAN = { add_opinion_modifier = { target = USA modifier = dd_usa_usmca_opinion } }
+			MEX = { add_opinion_modifier = { target = USA modifier = dd_usa_usmca_opinion } }
+			add_popularity = { ideology = social_liberalism popularity = -0.02 }
+			add_popularity = { ideology = progressive_populism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_weaponize_section_338
+		icon = GFX_goal_generic_political_pressure
+		x = 30
+		y = 4
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_throw_out_usmca }
+		completion_reward = {
+			set_global_flag = dd_usa_tariff_board
+		}
+	}
+	focus = {
+		id = USA_negotiate_with_neighbors
+		icon = GFX_goal_generic_political_pressure
+		x = 30
+		y = 5
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_weaponize_section_338 }
+		completion_reward = {
+			set_global_flag = dd_usa_tariff_draft
+		}
+	}
+	focus = {
+		id = USA_republican_convention
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 6
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_withhold_blue_states }
+		prerequisite = { focus = USA_negotiate_with_neighbors }
+		completion_reward = {
+			add_political_power = 100
+			country_event = { id = dd_usa_convention.1 }
+		}
+	}
+	focus = {
+		id = USA_democrat_sweep
+		icon = GFX_goal_generic_political_pressure
+		x = 20
+		y = 7
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_republican_convention }
+		mutually_exclusive = { focus = USA_republicans_cling_senate }
+		completion_reward = {
+			add_popularity = { ideology = progressive_populism popularity = 0.01 }
+			add_popularity = { ideology = social_democracy popularity = 0.01 }
+			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_republicans_cling_senate
+		icon = GFX_goal_generic_political_pressure
+		x = 28
+		y = 7
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_republican_convention }
+		mutually_exclusive = { focus = USA_democrat_sweep }
+		completion_reward = {
+			add_popularity = { ideology = liberal_conservatism popularity = 0.01 }
+			add_popularity = { ideology = national_populism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_path_dsa
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 8
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_democrat_sweep focus = USA_republicans_cling_senate }
+		mutually_exclusive = { focus = USA_path_centre_left focus = USA_path_centre_right focus = USA_path_maga focus = USA_path_alt_right }
+		completion_reward = {
+			dd_usa_provoke_blob = yes
+		}
+	}
+	focus = {
+		id = USA_path_centre_left
+		icon = GFX_goal_generic_political_pressure
+		x = 12
+		y = 8
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_democrat_sweep focus = USA_republicans_cling_senate }
+		mutually_exclusive = { focus = USA_path_dsa focus = USA_path_centre_right focus = USA_path_maga focus = USA_path_alt_right }
+		completion_reward = {
+			set_country_flag = dd_usa_zionist_advisors
+		}
+	}
+	focus = {
+		id = USA_path_centre_right
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 8
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_democrat_sweep focus = USA_republicans_cling_senate }
+		mutually_exclusive = { focus = USA_path_dsa focus = USA_path_centre_left focus = USA_path_maga focus = USA_path_alt_right }
+		completion_reward = {
+			set_country_flag = dd_usa_zionist_advisors
+		}
+	}
+	focus = {
+		id = USA_path_maga
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 8
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_democrat_sweep focus = USA_republicans_cling_senate }
+		mutually_exclusive = { focus = USA_path_dsa focus = USA_path_centre_left focus = USA_path_centre_right focus = USA_path_alt_right }
+		completion_reward = {
+			dd_usa_provoke_blob = yes
+		}
+	}
+	focus = {
+		id = USA_path_alt_right
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 8
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_democrat_sweep focus = USA_republicans_cling_senate }
+		mutually_exclusive = { focus = USA_path_dsa focus = USA_path_centre_left focus = USA_path_centre_right focus = USA_path_maga }
+		completion_reward = {
+			dd_usa_provoke_blob = yes
+		}
+	}
+	focus = {
+		id = USA_confront_trump
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 9
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_dsa focus = USA_path_centre_left }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_popularity = { ideology = social_democracy popularity = 0.05 }
+			add_popularity = { ideology = communism popularity = 0.04 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.04 }
+			add_popularity = { ideology = fascism popularity = 0.02 }
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_disarm_maga
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 10
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_confront_trump }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_political_power = 50
+			add_popularity = { ideology = communism popularity = 0.04 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.04 }
+			add_popularity = { ideology = social_democracy popularity = 0.05 }
+			add_popularity = { ideology = fascism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_next_gen
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 11
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_dsa }
+		prerequisite = { focus = USA_disarm_maga }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.03 }
+			add_popularity = { ideology = progressive_populism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_approach_establishment
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 11
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_centre_left }
+		prerequisite = { focus = USA_disarm_maga }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = 0.04 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_campaign_affordability
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 12
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_next_gen focus = USA_approach_establishment }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_criticize_israel
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 13
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_next_gen }
+		prerequisite = { focus = USA_campaign_affordability }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.04 }
+			add_popularity = { ideology = progressive_populism popularity = 0.02 }
+			add_popularity = { ideology = communism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_iran_must_be_disarmed
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 13
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_approach_establishment }
+		prerequisite = { focus = USA_campaign_affordability }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = 0.03 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_muster_volunteers
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 14
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_criticize_israel }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.02 }
+			add_popularity = { ideology = progressive_populism popularity = 0.02 }
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_streets_and_campuses
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 15
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_muster_volunteers }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_break_the_parties
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 16
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_streets_and_campuses }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_dual_power
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 17
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_break_the_parties }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_open_the_armories
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_dual_power }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_path_anarchist
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 19
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_open_the_armories }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_path_communist
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 19
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_open_the_armories }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_path_demsoc_left
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 19
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_open_the_armories }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_attack_on_capital
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 20
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_anarchist focus = USA_path_communist }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_attack_on_the_right
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 20
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_demsoc_left }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_outspend_competition
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 14
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_iran_must_be_disarmed }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = 0.08 }
+		}
+	}
+	focus = {
+		id = USA_fund_state_parties
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 15
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_outspend_competition }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_register_the_suburbs
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 16
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_fund_state_parties }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_affordability_tour
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 17
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_register_the_suburbs }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_lock_the_delegates
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_affordability_tour }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_attack_maga_liberal
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 19
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_lock_the_delegates }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.02 }
+		}
+	}
+	focus = {
+		id = USA_distance_from_trump
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 9
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_centre_right }
+		completion_reward = {
+			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
+		}
+	}
+	focus = {
+		id = USA_mission_to_the_centre
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 10
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_distance_from_trump }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = -0.06 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
+		}
+	}
+	focus = {
+		id = USA_win_back_maga
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 11
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_mission_to_the_centre }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.06 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
+		}
+	}
+	focus = {
+		id = USA_cr_attack_far_left
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 12
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_win_back_maga }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = -0.02 }
+			add_popularity = { ideology = progressive_populism popularity = -0.02 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_cr_attack_far_right
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 13
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cr_attack_far_left }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.04 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.04 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_usurp_maga
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 14
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cr_attack_far_right }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.10 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.10 }
+		}
+	}
+	focus = {
+		id = USA_pander_far_right
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 9
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_maga }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.04 }
+			add_popularity = { ideology = national_populism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_sway_the_centrists
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 10
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_pander_far_right }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = -0.04 }
+			add_popularity = { ideology = liberal_conservatism popularity = -0.04 }
+		}
+	}
+	focus = {
+		id = USA_np_attack_far_left
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 11
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_sway_the_centrists }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = -0.02 }
+			add_popularity = { ideology = social_democracy popularity = -0.02 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_little_tech
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 12
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_np_attack_far_left }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = 0.02 }
+			add_ideas = dd_usa_little_tech
+		}
+	}
+	focus = {
+		id = USA_reassure_the_blob
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 13
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_little_tech }
+		completion_reward = {
+			add_political_power = 200
+			remove_ideas = dd_usa_provoking_the_blob
+		}
+	}
+	focus = {
+		id = USA_maga_endorsement
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 14
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_reassure_the_blob }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = 0.03 }
+			add_popularity = { ideology = liberal_conservatism popularity = -0.03 }
+		}
+	}
+	focus = {
+		id = USA_demand_law_and_order
+		icon = GFX_goal_generic_political_pressure
+		x = 30
+		y = 15
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_usurp_maga }
+		prerequisite = { focus = USA_maga_endorsement }
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_stricter_immigration
+		icon = GFX_goal_generic_political_pressure
+		x = 30
+		y = 16
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_demand_law_and_order }
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_conservative_bargain
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 17
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_usurp_maga }
+		prerequisite = { focus = USA_stricter_immigration }
+		completion_reward = {
+			add_popularity = { ideology = liberal_conservatism popularity = 0.10 }
+			add_political_power = 200
+		}
+	}
+	focus = {
+		id = USA_renegotiate_israel
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 17
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_maga_endorsement }
+		prerequisite = { focus = USA_stricter_immigration }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = 0.03 }
+			add_political_power = 50
+			set_country_flag = dd_usa_zionist_advisors
+		}
+	}
+	focus = {
+		id = USA_demand_respect
+		icon = GFX_goal_generic_political_pressure
+		x = 36
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_renegotiate_israel }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = USA_long_march
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 9
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_alt_right }
+		completion_reward = {
+			add_ideas = dd_usa_marching_institutions
+		}
+	}
+	focus = {
+		id = USA_radicalize_white_america
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 10
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_long_march }
+		completion_reward = {
+			add_ideas = dd_usa_radicalizing_white_america
+		}
+	}
+	focus = {
+		id = USA_expose_vance
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 11
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_radicalize_white_america }
+		completion_reward = {
+			add_stability = -0.01
+			add_popularity = { ideology = national_populism popularity = -0.08 }
+			add_popularity = { ideology = fascism popularity = 0.03 }
+		}
+	}
+	focus = {
+		id = USA_attack_vance
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 12
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_expose_vance }
+		completion_reward = {
+			add_stability = -0.01
+			add_popularity = { ideology = national_populism popularity = -0.07 }
+			add_popularity = { ideology = fascism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_ar_attack_the_centre
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 13
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_attack_vance }
+		completion_reward = {
+			add_stability = -0.01
+			add_popularity = { ideology = liberal_conservatism popularity = -0.03 }
+			add_popularity = { ideology = social_liberalism popularity = -0.06 }
+			add_popularity = { ideology = fascism popularity = 0.03 }
+		}
+	}
+	focus = {
+		id = USA_ar_attack_far_left
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 14
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_ar_attack_the_centre }
+		completion_reward = {
+			add_stability = -0.01
+			add_popularity = { ideology = fascism popularity = 0.01 }
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_christian_country
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 15
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_ar_attack_far_left }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.02 }
+			set_global_flag = dd_usa_christian_alliance
+		}
+	}
+	focus = {
+		id = USA_abandon_israel
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 16
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_christian_country }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_demand_reimmigration
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 17
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_abandon_israel }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.02 }
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_white_movement
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_demand_reimmigration }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.02 }
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_election_demsoc
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 32
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		mutually_exclusive = { focus = USA_election_liberal focus = USA_election_conservative focus = USA_election_natpop }
+		available = {
+			has_country_flag = dd_usa_resolving_election
+		}
+		completion_reward = {
+			set_politics = { ruling_party = social_democracy elections_allowed = no }
+			create_country_leader = { name = "Alexandria Ocasio-Cortez" picture = GFX_portrait_unknown ideology = social_democrat }
+		}
+	}
+	focus = {
+		id = USA_election_liberal
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 32
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		mutually_exclusive = { focus = USA_election_demsoc focus = USA_election_conservative focus = USA_election_natpop }
+		available = {
+			has_country_flag = dd_usa_resolving_election
+		}
+		completion_reward = {
+			set_politics = { ruling_party = social_liberalism elections_allowed = no }
+			set_country_flag = dd_usa_zionist_advisors
+			create_country_leader = { name = "Gavin Newsom" picture = GFX_portrait_unknown ideology = social_liberal }
+		}
+	}
+	focus = {
+		id = USA_election_conservative
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 32
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		mutually_exclusive = { focus = USA_election_demsoc focus = USA_election_liberal focus = USA_election_natpop }
+		available = {
+			has_country_flag = dd_usa_resolving_election
+		}
+		completion_reward = {
+			set_politics = { ruling_party = liberal_conservatism elections_allowed = no }
+			set_country_flag = dd_usa_zionist_advisors
+			create_country_leader = { name = "Marco Rubio" picture = GFX_portrait_unknown ideology = liberal_conservative }
+		}
+	}
+	focus = {
+		id = USA_election_natpop
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 32
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		mutually_exclusive = { focus = USA_election_demsoc focus = USA_election_liberal focus = USA_election_conservative }
+		available = {
+			has_country_flag = dd_usa_resolving_election
+		}
+		completion_reward = {
+			set_politics = { ruling_party = national_populism elections_allowed = no }
+			create_country_leader = { name = "JD Vance" picture = GFX_portrait_unknown ideology = national_populist }
+		}
+	}
+	focus = {
+		id = USA_emerge_caucus
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 33
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_election_demsoc }
+		mutually_exclusive = { focus = USA_mug_caucus focus = USA_socialist_majority }
+		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
+			set_country_flag = dd_usa_caucus_anarchist
+		}
+	}
+	focus = {
+		id = USA_mug_caucus
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 33
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_election_demsoc }
+		mutually_exclusive = { focus = USA_emerge_caucus focus = USA_socialist_majority }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.02 }
+			set_country_flag = dd_usa_caucus_communist
+		}
+	}
+	focus = {
+		id = USA_socialist_majority
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 33
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_election_demsoc }
+		mutually_exclusive = { focus = USA_emerge_caucus focus = USA_mug_caucus }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.02 }
+			set_country_flag = dd_usa_caucus_demsoc
+		}
+	}
+	focus = {
+		id = USA_appoint_loyalists
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 33
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_election_liberal }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_expose_maga
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 34
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_emerge_caucus focus = USA_mug_caucus focus = USA_socialist_majority focus = USA_appoint_loyalists }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_unleash_subpoenas
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 35
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_expose_maga }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+		}
+	}
+	focus = {
+		id = USA_crush_maga
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 36
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_unleash_subpoenas }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+		}
+	}
+	focus = {
+		id = USA_degrowth
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 37
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_crush_maga }
+		prerequisite = { focus = USA_emerge_caucus focus = USA_mug_caucus focus = USA_socialist_majority }
+		mutually_exclusive = { focus = USA_green_new_deal }
+		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_green_new_deal
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 37
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_crush_maga }
+		prerequisite = { focus = USA_emerge_caucus focus = USA_mug_caucus focus = USA_socialist_majority }
+		mutually_exclusive = { focus = USA_degrowth }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.03 }
+			add_popularity = { ideology = progressive_populism popularity = 0.02 }
+			add_popularity = { ideology = communism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_liberal_socialist_campus
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 38
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_degrowth focus = USA_green_new_deal }
+		mutually_exclusive = { focus = USA_red_star focus = USA_groundwork }
+		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_red_star
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 38
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_degrowth focus = USA_green_new_deal }
+		mutually_exclusive = { focus = USA_liberal_socialist_campus focus = USA_groundwork }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_groundwork
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 38
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_degrowth focus = USA_green_new_deal }
+		mutually_exclusive = { focus = USA_liberal_socialist_campus focus = USA_red_star }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_develop_foreign_policy
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 39
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_liberal_socialist_campus focus = USA_red_star focus = USA_groundwork }
+		completion_reward = {
+			country_event = { id = dd_usa_foreign.1 }
+		}
+	}
+	focus = {
+		id = USA_communist_caucus
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 40
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_develop_foreign_policy }
+		mutually_exclusive = { focus = USA_reform_and_revolution focus = USA_bread_and_roses }
+		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_reform_and_revolution
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 40
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_develop_foreign_policy }
+		mutually_exclusive = { focus = USA_communist_caucus focus = USA_bread_and_roses }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_bread_and_roses
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 40
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_develop_foreign_policy }
+		mutually_exclusive = { focus = USA_communist_caucus focus = USA_reform_and_revolution }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_increase_taxes
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 41
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_communist_caucus focus = USA_reform_and_revolution focus = USA_bread_and_roses }
+		completion_reward = {
+			dd_usa_high_taxes = yes
+		}
+	}
+	focus = {
+		id = USA_adjust_policies
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 42
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_increase_taxes }
+		completion_reward = {
+			dd_usa_demsoc_policy_set = yes
+		}
+	}
+	focus = {
+		id = USA_peace_out_iran
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 43
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_adjust_policies }
+		completion_reward = {
+			dd_usa_pull_gulf_access = yes
+		}
+	}
+	focus = {
+		id = USA_jobs_as_a_right
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 44
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_peace_out_iran }
+		mutually_exclusive = { focus = USA_break_the_republic }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.05 }
+			add_popularity = { ideology = progressive_populism popularity = 0.02 }
+			dd_usa_most_liberal_policy = yes
+		}
+	}
+	focus = {
+		id = USA_break_the_republic
+		icon = GFX_goal_generic_political_pressure
+		x = 5
+		y = 44
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_peace_out_iran }
+		mutually_exclusive = { focus = USA_jobs_as_a_right }
+		completion_reward = {
+			dd_usa_start_civil_war = yes
+		}
+	}
+	focus = {
+		id = USA_big_industries
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 45
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_jobs_as_a_right }
+		completion_reward = {
+			add_to_variable = { treasury = 1000 }
+			add_ideas = dd_usa_tax_on_big_business
+		}
+	}
+	focus = {
+		id = USA_pacify_radicals
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 46
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_big_industries }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = -0.05 }
+			add_popularity = { ideology = anarcho_communism popularity = -0.05 }
+			add_popularity = { ideology = social_democracy popularity = 0.10 }
+		}
+	}
+	focus = {
+		id = USA_demsoc_final
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 47
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_pacify_radicals }
+		completion_reward = {
+			add_ideas = dd_usa_final_demsoc
+		}
+	}
+	focus = {
+		id = USA_liberal_set_policies
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 37
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_crush_maga }
+		prerequisite = { focus = USA_appoint_loyalists }
+		completion_reward = {
+			dd_usa_liberal_policy_set = yes
+		}
+	}
+	focus = {
+		id = USA_liberal_final
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 38
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_liberal_set_policies }
+		mutually_exclusive = { focus = USA_consolidate_control }
+		completion_reward = {
+			add_ideas = dd_usa_final_liberal
+		}
+	}
+	focus = {
+		id = USA_far_right_scapegoat
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 33
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_election_conservative }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = -0.05 }
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_stability = 0.05
+			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_challenge_far_left
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 34
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_far_right_scapegoat }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = -0.05 }
+			add_popularity = { ideology = anarcho_communism popularity = -0.05 }
+			add_stability = 0.05
+			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_court_centre_left
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 35
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_challenge_far_left }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = -0.05 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_face_of_the_right
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 36
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_court_centre_left }
+		completion_reward = {
+			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_conservative_policy
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 37
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_face_of_the_right }
+		completion_reward = {
+			dd_usa_conservative_policy_set = yes
+		}
+	}
+	focus = {
+		id = USA_conservative_final
+		icon = GFX_goal_generic_political_pressure
+		x = 26
+		y = 38
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_conservative_policy }
+		mutually_exclusive = { focus = USA_consolidate_control }
+		completion_reward = {
+			add_ideas = dd_usa_final_conservative
+		}
+	}
+	focus = {
+		id = USA_consolidate_control
+		icon = GFX_goal_generic_political_pressure
+		x = 20
+		y = 39
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_liberal_set_policies focus = USA_conservative_policy }
+		mutually_exclusive = { focus = USA_liberal_final focus = USA_conservative_final }
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_combat_extremism
+		icon = GFX_goal_generic_political_pressure
+		x = 20
+		y = 40
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_consolidate_control }
+		completion_reward = {
+			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+			add_popularity = { ideology = social_liberalism popularity = 0.05 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_point_of_no_return
+		icon = GFX_goal_generic_political_pressure
+		x = 20
+		y = 41
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_combat_extremism }
+		completion_reward = {
+			set_country_flag = dd_usa_elections_closed
+			set_politics = { ruling_party = sovereign_democracy elections_allowed = no }
+			add_popularity = { ideology = social_liberalism popularity = -0.40 }
+			add_popularity = { ideology = liberal_conservatism popularity = -0.40 }
+			add_popularity = { ideology = sovereign_democracy popularity = 0.50 }
+			if = { limit = { has_completed_focus = USA_election_liberal } create_country_leader = { name = "Gavin Newsom" picture = GFX_portrait_unknown ideology = oligarch } }
+			if = { limit = { has_completed_focus = USA_election_conservative } create_country_leader = { name = "Marco Rubio" picture = GFX_portrait_unknown ideology = oligarch } }
+		}
+	}
+	focus = {
+		id = USA_centre_final
+		icon = GFX_goal_generic_political_pressure
+		x = 20
+		y = 42
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_point_of_no_return }
+		completion_reward = {
+			add_ideas = dd_usa_final_centre
+		}
+	}
+	focus = {
+		id = USA_bring_in_little_tech
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 33
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_election_natpop }
+		completion_reward = {
+			remove_ideas = dd_usa_little_tech
+			remove_ideas = dd_usa_little_tech_2
+			add_ideas = dd_usa_little_tech_2
+			set_country_flag = dd_usa_little_tech_advisors
+		}
+	}
+	focus = {
+		id = USA_divide_the_left
+		icon = GFX_goal_generic_political_pressure
+		x = 34
+		y = 34
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_bring_in_little_tech }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = -0.05 }
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_prepare_for_agi
+		icon = GFX_goal_generic_political_pressure
+		x = 42
+		y = 34
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_bring_in_little_tech }
+		completion_reward = {
+			remove_ideas = dd_usa_little_tech
+			remove_ideas = dd_usa_little_tech_2
+			remove_ideas = dd_usa_little_tech_3
+			add_ideas = dd_usa_little_tech_3
+		}
+	}
+	focus = {
+		id = USA_new_culture_war
+		icon = GFX_goal_generic_political_pressure
+		x = 34
+		y = 35
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_divide_the_left }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = -0.03 }
+			add_popularity = { ideology = social_democracy popularity = -0.02 }
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_unite_moderates
+		icon = GFX_goal_generic_political_pressure
+		x = 34
+		y = 36
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_new_culture_war }
+		completion_reward = {
+			add_popularity = { ideology = social_liberalism popularity = -0.03 }
+			add_popularity = { ideology = social_democracy popularity = -0.02 }
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_final_stretch
+		icon = GFX_goal_generic_political_pressure
+		x = 42
+		y = 35
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_prepare_for_agi }
+		completion_reward = {
+			remove_ideas = dd_usa_little_tech_3
+			remove_ideas = dd_usa_little_tech_4
+			add_ideas = dd_usa_little_tech_4
+		}
+	}
+	focus = {
+		id = USA_ai_administration
+		icon = GFX_goal_generic_political_pressure
+		x = 42
+		y = 36
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_final_stretch }
+		completion_reward = {
+			remove_ideas = dd_usa_little_tech_4
+			remove_ideas = dd_usa_little_tech_5
+			add_ideas = dd_usa_little_tech_5
+		}
+	}
+	focus = {
+		id = USA_against_communists
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 37
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_unite_moderates }
+		prerequisite = { focus = USA_ai_administration }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_expand_oversight
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 38
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_against_communists }
+		completion_reward = {
+			add_ideas = dd_usa_state_oversight
+		}
+	}
+	focus = {
+		id = USA_outlaw_dsa
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 39
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_expand_oversight }
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = -1 }
+			country_event = { id = dd_usa_dsa.1 }
+		}
+	}
+	focus = {
+		id = USA_capitalisms_final_form
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 40
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_outlaw_dsa }
+		completion_reward = {
+			set_country_flag = dd_usa_elections_closed
+			set_politics = { ruling_party = technocracy elections_allowed = no }
+			add_popularity = { ideology = national_populism popularity = -1 }
+			add_popularity = { ideology = technocracy popularity = 0.40 }
+			remove_ideas = dd_usa_little_tech_5
+			add_ideas = dd_usa_little_tech_6
+			create_country_leader = { name = "JD Vance" picture = GFX_portrait_unknown ideology = technocrat }
+		}
+	}
+	focus = {
+		id = USA_natpop_final
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 41
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_capitalisms_final_form }
+		completion_reward = {
+			add_ideas = dd_usa_final_natpop
+		}
+	}
+	focus = {
+		id = USA_shoot_for_32
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 22
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		allow_branch = { has_country_flag = dd_usa_bide_time }
+		available = {
+			has_country_flag = dd_usa_resolving_election
+		}
+		completion_reward = {
+			add_stability = -0.01
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_highlight_racial_divide
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 23
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_shoot_for_32 }
+		completion_reward = {
+			add_stability = -0.01
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_return_to_christ
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 24
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_highlight_racial_divide }
+		completion_reward = {
+			add_stability = -0.01
+			add_popularity = { ideology = fascism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_reassure_capitalists
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 25
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_return_to_christ }
+		completion_reward = {
+			remove_ideas = dd_usa_provoking_the_blob
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_expose_corruption
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 26
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_reassure_capitalists }
+		completion_reward = {
+			add_stability = -0.01
+			add_popularity = { ideology = fascism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = USA_american_glory
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 27
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_expose_corruption }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_popularity = { ideology = fascism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = USA_absorb_maga
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 28
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_american_glory }
+		completion_reward = {
+			add_popularity = { ideology = national_populism popularity = -0.20 }
+			add_popularity = { ideology = fascism popularity = 0.20 }
+			set_country_flag = dd_usa_fascists_electable
+			set_politics = { elections_allowed = no }
+			create_country_leader = { name = "Alt-Right Nominee" picture = GFX_portrait_unknown ideology = fascism_ideology }
+		}
+	}
+	focus = {
+		id = USA_youll_have_to_kill_us
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 29
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_absorb_maga }
+		completion_reward = {
+			add_ideas = dd_usa_youll_have_to_kill_us
+			country_event = { id = dd_usa_fuse.6 days = 2 }
+		}
+	}
+	focus = {
+		id = USA_intro_anarchist
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 0
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		available = {
+			has_government = anarcho_communism
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_start_civil_war = yes
+		}
+	}
+	focus = {
+		id = USA_intro_communist
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 2
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		available = {
+			has_government = communism
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_start_civil_war = yes
+		}
+	}
+	focus = {
+		id = USA_intro_fascist
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 4
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		available = {
+			has_government = fascism
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_start_civil_war = yes
+		}
+	}
+}

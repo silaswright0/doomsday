@@ -1,0 +1,276 @@
+scripted_gui = {
+	dd_market_buy_land_ui = {
+		context_type = player_context
+		parent_window_token = decision_tab
+		window_name = "dd_market_buy_land"
+		visible = {
+			has_country_flag = dd_show_arms_market
+			NOT = { has_country_flag = dd_market_air_tab }
+			NOT = { has_country_flag = dd_market_navy_tab }
+		}
+
+		dynamic_lists = {
+			dd_market_land_grid = {
+				array = global.dd_buy_land_slots
+				value = dd_eq
+				index = dd_row
+				change_scope = no
+				entry_container = "dd_market_land_row"
+			}
+		}
+
+		effects = {
+			dd_land_row_buy_click = {
+				set_variable = { global.dd_active_list = global.dd_land_row_list^dd_row }
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_buy_land_picked = yes
+			}
+			dd_land_row_buy_shift_click = {
+				set_variable = { global.dd_active_list = global.dd_land_row_list^dd_row }
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_buy_all_land_picked = yes
+			}
+			dd_land_row_sell_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_sell_land_picked = yes
+			}
+			dd_land_row_sell_shift_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_sell_all_land_picked = yes
+			}
+			dd_land_row_ask_up_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_ask_up_land_picked = yes
+			}
+			dd_land_row_ask_down_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_ask_down_land_picked = yes
+			}
+		}
+
+		triggers = {
+			dd_land_row_buy_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_land_row_sell_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_land_row_ask_up_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_land_row_ask_down_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_land_row_buy_click_enabled = {
+				check_variable = { global.dd_land_row_ask^dd_row > 0 }
+				NOT = { check_variable = { treasury < global.dd_land_row_ask^dd_row } }
+				check_variable = { global.dd_land_row_pool^dd_row > global.dd_land_row_need^dd_row }
+			}
+			dd_land_row_buy_shift_click_enabled = {
+				check_variable = { global.dd_land_row_ask^dd_row > 0 }
+				NOT = { check_variable = { treasury < global.dd_land_row_ask^dd_row } }
+				check_variable = { global.dd_land_row_pool^dd_row > global.dd_land_row_need^dd_row }
+			}
+			dd_land_row_sell_click_enabled = {
+				check_variable = { global.dd_land_row_stock^dd_row > global.dd_land_row_need^dd_row }
+			}
+			dd_land_row_sell_shift_click_enabled = {
+				check_variable = { global.dd_land_row_stock^dd_row > global.dd_land_row_need^dd_row }
+			}
+			dd_land_row_ask_up_click_enabled = {
+				check_variable = { global.dd_land_row_ask^dd_row < 999 }
+			}
+			dd_land_row_ask_down_click_enabled = {
+				check_variable = { global.dd_land_row_ask^dd_row > 1 }
+			}
+		}
+
+		properties = {
+			dd_land_row_icon = {
+				image = "[dd_market_land_icon]"
+			}
+		}
+	}
+	dd_market_buy_air_ui = {
+		context_type = player_context
+		parent_window_token = decision_tab
+		window_name = "dd_market_buy_air"
+		visible = {
+			has_country_flag = dd_show_arms_market
+			has_country_flag = dd_market_air_tab
+		}
+
+		dynamic_lists = {
+			dd_market_air_grid = {
+				array = global.dd_buy_air_slots
+				value = dd_eq
+				index = dd_row
+				change_scope = no
+				entry_container = "dd_market_air_row"
+			}
+		}
+
+		effects = {
+			dd_air_row_buy_click = {
+				set_variable = { global.dd_active_list = global.dd_air_row_list^dd_row }
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_buy_air_picked = yes
+			}
+			dd_air_row_buy_shift_click = {
+				set_variable = { global.dd_active_list = global.dd_air_row_list^dd_row }
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_buy_all_air_picked = yes
+			}
+			dd_air_row_sell_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_sell_air_picked = yes
+			}
+			dd_air_row_sell_shift_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_sell_all_air_picked = yes
+			}
+			dd_air_row_ask_up_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_ask_up_air_picked = yes
+			}
+			dd_air_row_ask_down_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_ask_down_air_picked = yes
+			}
+		}
+
+		triggers = {
+			dd_air_row_buy_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_air_row_sell_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_air_row_ask_up_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_air_row_ask_down_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_air_row_buy_click_enabled = {
+				check_variable = { global.dd_air_row_ask^dd_row > 0 }
+				NOT = { check_variable = { treasury < global.dd_air_row_ask^dd_row } }
+				check_variable = { global.dd_air_row_pool^dd_row > global.dd_air_row_need^dd_row }
+			}
+			dd_air_row_buy_shift_click_enabled = {
+				check_variable = { global.dd_air_row_ask^dd_row > 0 }
+				NOT = { check_variable = { treasury < global.dd_air_row_ask^dd_row } }
+				check_variable = { global.dd_air_row_pool^dd_row > global.dd_air_row_need^dd_row }
+			}
+			dd_air_row_sell_click_enabled = {
+				check_variable = { global.dd_air_row_stock^dd_row > global.dd_air_row_need^dd_row }
+			}
+			dd_air_row_sell_shift_click_enabled = {
+				check_variable = { global.dd_air_row_stock^dd_row > global.dd_air_row_need^dd_row }
+			}
+			dd_air_row_ask_up_click_enabled = {
+				check_variable = { global.dd_air_row_ask^dd_row < 999 }
+			}
+			dd_air_row_ask_down_click_enabled = {
+				check_variable = { global.dd_air_row_ask^dd_row > 1 }
+			}
+		}
+
+		properties = {
+			dd_air_row_icon = {
+				image = "[dd_market_air_icon]"
+			}
+		}
+	}
+	dd_market_buy_navy_ui = {
+		context_type = player_context
+		parent_window_token = decision_tab
+		window_name = "dd_market_buy_navy"
+		visible = {
+			has_country_flag = dd_show_arms_market
+			has_country_flag = dd_market_navy_tab
+		}
+
+		dynamic_lists = {
+			dd_market_navy_grid = {
+				array = global.dd_buy_navy_slots
+				value = dd_eq
+				index = dd_row
+				change_scope = no
+				entry_container = "dd_market_navy_row"
+			}
+		}
+
+		effects = {
+			dd_navy_row_buy_click = {
+				set_variable = { global.dd_active_list = global.dd_navy_row_list^dd_row }
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_buy_navy_picked = yes
+			}
+			dd_navy_row_buy_shift_click = {
+				set_variable = { global.dd_active_list = global.dd_navy_row_list^dd_row }
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_buy_all_navy_picked = yes
+			}
+			dd_navy_row_sell_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_sell_navy_picked = yes
+			}
+			dd_navy_row_sell_shift_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_sell_all_navy_picked = yes
+			}
+			dd_navy_row_ask_up_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_ask_up_navy_picked = yes
+			}
+			dd_navy_row_ask_down_click = {
+				set_temp_variable = { dd_pick = dd_eq }
+				dd_ask_down_navy_picked = yes
+			}
+		}
+
+		triggers = {
+			dd_navy_row_buy_visible = {
+				NOT = { has_country_flag = dd_market_sell_tab }
+			}
+			dd_navy_row_sell_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_navy_row_ask_up_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_navy_row_ask_down_visible = {
+				has_country_flag = dd_market_sell_tab
+			}
+			dd_navy_row_buy_click_enabled = {
+				check_variable = { global.dd_navy_row_ask^dd_row > 0 }
+				NOT = { check_variable = { treasury < global.dd_navy_row_ask^dd_row } }
+				check_variable = { global.dd_navy_row_pool^dd_row > global.dd_navy_row_need^dd_row }
+			}
+			dd_navy_row_buy_shift_click_enabled = {
+				check_variable = { global.dd_navy_row_ask^dd_row > 0 }
+				NOT = { check_variable = { treasury < global.dd_navy_row_ask^dd_row } }
+				check_variable = { global.dd_navy_row_pool^dd_row > global.dd_navy_row_need^dd_row }
+			}
+			dd_navy_row_sell_click_enabled = {
+				check_variable = { global.dd_navy_row_stock^dd_row > global.dd_navy_row_need^dd_row }
+			}
+			dd_navy_row_sell_shift_click_enabled = {
+				check_variable = { global.dd_navy_row_stock^dd_row > global.dd_navy_row_need^dd_row }
+			}
+			dd_navy_row_ask_up_click_enabled = {
+				check_variable = { global.dd_navy_row_ask^dd_row < 999 }
+			}
+			dd_navy_row_ask_down_click_enabled = {
+				check_variable = { global.dd_navy_row_ask^dd_row > 1 }
+			}
+		}
+
+		properties = {
+			dd_navy_row_icon = {
+				image = "[dd_market_navy_icon]"
+			}
+		}
+	}
+}

@@ -1,0 +1,536 @@
+add_namespace = dd_usa_greenland
+add_namespace = dd_usa_nato
+add_namespace = dd_usa_convention
+add_namespace = dd_usa_election
+add_namespace = dd_usa_alt
+add_namespace = dd_usa_fuse
+add_namespace = dd_usa_tariff
+add_namespace = dd_usa_foreign
+add_namespace = dd_usa_dsa
+add_namespace = dd_usa_news
+
+country_event = {
+	id = dd_usa_greenland.1
+	title = dd_usa_greenland.1.t
+	desc = dd_usa_greenland.1.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_greenland.1.a
+		ai_chance = { factor = 0 }
+		USA = {
+			set_autonomy = {
+				target = GRN
+				autonomous_state = autonomy_puppet
+				freedom_level = 0.4
+			}
+		}
+		create_country_leader = {
+			name = "Jens-Frederik Nielsen"
+			picture = GFX_portrait_unknown
+			ideology = social_democrat
+		}
+	}
+	option = {
+		name = dd_usa_greenland.1.b
+		ai_chance = { factor = 100 }
+		USA = { country_event = { id = dd_usa_greenland.2 } }
+	}
+}
+
+country_event = {
+	id = dd_usa_greenland.2
+	title = dd_usa_greenland.2.t
+	desc = dd_usa_greenland.2.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_greenland.2.a
+		declare_war_on = { target = GRN type = puppet_wargoal_focus }
+	}
+	option = {
+		name = dd_usa_greenland.2.b
+		GRN = {
+			give_military_access = USA
+			add_ideas = dd_usa_greenland_security
+			add_opinion_modifier = { target = SOV modifier = dd_usa_greenland_ban_opinion }
+			add_opinion_modifier = { target = CHI modifier = dd_usa_greenland_ban_opinion }
+			add_ai_strategy = { type = antagonize id = SOV value = 400 }
+			add_ai_strategy = { type = antagonize id = CHI value = 400 }
+			add_ai_strategy = { type = alliance id = USA value = 200 }
+			country_event = { id = dd_usa_greenland.3 }
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_greenland.3
+	title = dd_usa_greenland.3.t
+	desc = dd_usa_greenland.3.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = { name = dd_usa_greenland.3.a }
+}
+
+country_event = {
+	id = dd_usa_nato.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_variable = { dd_nato_failed = 0 }
+		set_variable = { dd_nato_total = 0 }
+		every_other_country = {
+			limit = {
+				has_country_flag = dd_nato_ultimatum
+				is_in_faction_with = ROOT
+			}
+			add_to_variable = { ROOT.dd_nato_total = 1 }
+			if = {
+				limit = { check_variable = { num_divisions < dd_nato_need_divs } }
+				add_to_variable = { ROOT.dd_nato_failed = 1 }
+				remove_from_faction = yes
+			}
+			clr_country_flag = dd_nato_ultimatum
+		}
+		set_temp_variable = { dd_nato_half = dd_nato_total }
+		multiply_temp_variable = { dd_nato_half = 0.5 }
+		if = {
+			limit = { check_variable = { dd_nato_failed > dd_nato_half } }
+			remove_from_faction = yes
+			news_event = { id = dd_usa_news.2 }
+		}
+		else = {
+			news_event = { id = dd_usa_news.1 }
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_convention.1
+	title = dd_usa_convention.1.t
+	desc = dd_usa_convention.1.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_convention.1.a
+		add_popularity = { ideology = national_populism popularity = 0.03 }
+	}
+	option = {
+		name = dd_usa_convention.1.b
+		add_popularity = { ideology = national_populism popularity = -0.03 }
+	}
+}
+
+country_event = {
+	id = dd_usa_election.1
+	title = dd_usa_election.1.t
+	desc = dd_usa_election.1.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_election.1.a
+		set_temp_variable = { dd_left = party_popularity@social_democracy }
+		set_temp_variable = { dd_left_best = 1 }
+		if = {
+			limit = { check_variable = { party_popularity@progressive_populism > dd_left } }
+			set_temp_variable = { dd_left = party_popularity@progressive_populism }
+			set_temp_variable = { dd_left_best = 2 }
+		}
+		if = {
+			limit = { check_variable = { party_popularity@communism > dd_left } }
+			set_temp_variable = { dd_left = party_popularity@communism }
+			set_temp_variable = { dd_left_best = 3 }
+		}
+		if = {
+			limit = { check_variable = { party_popularity@anarcho_communism > dd_left } }
+			set_temp_variable = { dd_left_best = 4 }
+		}
+		set_temp_variable = { dd_right = party_popularity@liberal_conservatism }
+		set_temp_variable = { dd_right_best = 1 }
+		if = {
+			limit = { check_variable = { party_popularity@national_populism > dd_right } }
+			set_temp_variable = { dd_right_best = 2 }
+		}
+		if = {
+			limit = { check_variable = { dd_left_best = 1 } }
+			custom_effect_tooltip = dd_usa_primary_left_demsoc
+		}
+		if = {
+			limit = { check_variable = { dd_left_best = 2 } }
+			custom_effect_tooltip = dd_usa_primary_left_prog
+		}
+		if = {
+			limit = { check_variable = { dd_left_best = 3 } }
+			custom_effect_tooltip = dd_usa_primary_left_com
+		}
+		if = {
+			limit = { check_variable = { dd_left_best = 4 } }
+			custom_effect_tooltip = dd_usa_primary_left_anarch
+		}
+		if = {
+			limit = { check_variable = { dd_right_best = 1 } }
+			custom_effect_tooltip = dd_usa_primary_right_con
+		}
+		if = {
+			limit = { check_variable = { dd_right_best = 2 } }
+			custom_effect_tooltip = dd_usa_primary_right_nat
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_election.2
+	title = dd_usa_election.2.t
+	desc = dd_usa_election.2.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_election.2.a
+		set_temp_variable = { dd_dem = party_popularity@social_democracy }
+		add_to_temp_variable = { dd_dem = party_popularity@progressive_populism }
+		add_to_temp_variable = { dd_dem = party_popularity@communism }
+		set_temp_variable = { dd_lib = party_popularity@social_liberalism }
+		set_temp_variable = { dd_con = party_popularity@liberal_conservatism }
+		set_temp_variable = { dd_nat = party_popularity@national_populism }
+		set_temp_variable = { dd_win = dd_dem }
+		set_temp_variable = { dd_which = 1 }
+		if = {
+			limit = { check_variable = { dd_lib > dd_win } }
+			set_temp_variable = { dd_win = dd_lib }
+			set_temp_variable = { dd_which = 2 }
+		}
+		if = {
+			limit = { check_variable = { dd_con > dd_win } }
+			set_temp_variable = { dd_win = dd_con }
+			set_temp_variable = { dd_which = 3 }
+		}
+		if = {
+			limit = { check_variable = { dd_nat > dd_win } }
+			set_temp_variable = { dd_win = dd_nat }
+			set_temp_variable = { dd_which = 4 }
+		}
+		set_country_flag = dd_usa_post_election
+		set_country_flag = dd_usa_resolving_election
+		if = {
+			limit = { check_variable = { dd_which = 1 } }
+			complete_national_focus = USA_election_demsoc
+		}
+		if = {
+			limit = { check_variable = { dd_which = 2 } }
+			complete_national_focus = USA_election_liberal
+		}
+		if = {
+			limit = { check_variable = { dd_which = 3 } }
+			complete_national_focus = USA_election_conservative
+		}
+		if = {
+			limit = { check_variable = { dd_which = 4 } }
+			complete_national_focus = USA_election_natpop
+		}
+		clr_country_flag = dd_usa_resolving_election
+		if = {
+			limit = { has_completed_focus = USA_path_alt_right }
+			country_event = { id = dd_usa_alt.1 days = 7 }
+		}
+		country_event = { id = dd_usa_election.3 days = 1461 }
+	}
+}
+
+# 2032.11.7, four years after the 2028 count. Fascism can win only after Absorb MAGA.
+country_event = {
+	id = dd_usa_election.3
+	title = dd_usa_election.3.t
+	desc = dd_usa_election.3.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_election.3.a
+		if = {
+			limit = {
+				has_country_flag = dd_usa_post_election
+				NOT = { has_country_flag = dd_usa_civil_war }
+				NOT = { has_country_flag = dd_usa_elections_closed }
+			}
+			set_temp_variable = { dd_dem = party_popularity@social_democracy }
+			add_to_temp_variable = { dd_dem = party_popularity@progressive_populism }
+			add_to_temp_variable = { dd_dem = party_popularity@communism }
+			set_temp_variable = { dd_lib = party_popularity@social_liberalism }
+			set_temp_variable = { dd_con = party_popularity@liberal_conservatism }
+			set_temp_variable = { dd_nat = party_popularity@national_populism }
+			set_temp_variable = { dd_win = dd_dem }
+			set_temp_variable = { dd_which = 1 }
+			if = {
+				limit = { check_variable = { dd_lib > dd_win } }
+				set_temp_variable = { dd_win = dd_lib }
+				set_temp_variable = { dd_which = 2 }
+			}
+			if = {
+				limit = { check_variable = { dd_con > dd_win } }
+				set_temp_variable = { dd_win = dd_con }
+				set_temp_variable = { dd_which = 3 }
+			}
+			if = {
+				limit = { check_variable = { dd_nat > dd_win } }
+				set_temp_variable = { dd_win = dd_nat }
+				set_temp_variable = { dd_which = 4 }
+			}
+			if = {
+				limit = {
+					has_country_flag = dd_usa_fascists_electable
+					check_variable = { party_popularity@fascism > dd_win }
+				}
+				set_temp_variable = { dd_which = 5 }
+			}
+			if = {
+				limit = { check_variable = { dd_which = 1 } }
+				set_politics = { ruling_party = social_democracy elections_allowed = yes }
+				create_country_leader = { name = "Alexandria Ocasio-Cortez" picture = GFX_portrait_unknown ideology = social_democrat }
+			}
+			if = {
+				limit = { check_variable = { dd_which = 2 } }
+				set_politics = { ruling_party = social_liberalism elections_allowed = yes }
+				create_country_leader = { name = "Gavin Newsom" picture = GFX_portrait_unknown ideology = social_liberal }
+			}
+			if = {
+				limit = { check_variable = { dd_which = 3 } }
+				set_politics = { ruling_party = liberal_conservatism elections_allowed = yes }
+				create_country_leader = { name = "Marco Rubio" picture = GFX_portrait_unknown ideology = liberal_conservative }
+			}
+			if = {
+				limit = { check_variable = { dd_which = 4 } }
+				set_politics = { ruling_party = national_populism elections_allowed = yes }
+				create_country_leader = { name = "JD Vance" picture = GFX_portrait_unknown ideology = national_populist }
+			}
+			if = {
+				limit = { check_variable = { dd_which = 5 } }
+				set_politics = { ruling_party = fascism elections_allowed = yes }
+				create_country_leader = { name = "Alt-Right Nominee" picture = GFX_portrait_unknown ideology = fascism_ideology }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_alt.1
+	title = dd_usa_alt.1.t
+	desc = dd_usa_alt.1.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_alt.1.a
+		add_popularity = { ideology = fascism popularity = -1 }
+		custom_effect_tooltip = dd_usa_fascism_outlawed_tt
+	}
+	option = {
+		name = dd_usa_alt.1.b
+		set_country_flag = dd_usa_bide_time
+		set_country_flag = dd_usa_resolving_election
+		complete_national_focus = USA_shoot_for_32
+		clr_country_flag = dd_usa_resolving_election
+	}
+	option = {
+		name = dd_usa_alt.1.c
+		set_country_flag = dd_usa_light_the_fuse
+		country_event = { id = dd_usa_fuse.1 days = 45 }
+		country_event = { id = dd_usa_fuse.2 days = 58 }
+		country_event = { id = dd_usa_fuse.3 days = 59 }
+		country_event = { id = dd_usa_fuse.4 days = 60 }
+	}
+}
+
+country_event = {
+	id = dd_usa_fuse.2
+	title = dd_usa_fuse.2.t
+	desc = dd_usa_fuse.2.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = { name = dd_usa_fuse.2.a }
+}
+
+country_event = {
+	id = dd_usa_fuse.4
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		news_event = { id = dd_usa_news.5 }
+		country_event = { id = dd_usa_fuse.5 hours = 12 }
+	}
+}
+
+country_event = {
+	id = dd_usa_fuse.5
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		dd_usa_start_civil_war = yes
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.1
+	title = dd_usa_tariff.1.t
+	desc = dd_usa_tariff.1.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.1.a
+		add_political_power = 25
+	}
+	option = {
+		name = dd_usa_tariff.1.b
+		CAN = { add_opinion_modifier = { target = USA modifier = dd_usa_usmca_opinion } }
+		MEX = { add_opinion_modifier = { target = USA modifier = dd_usa_usmca_opinion } }
+	}
+}
+
+country_event = {
+	id = dd_usa_foreign.1
+	title = dd_usa_foreign.1.t
+	desc = dd_usa_foreign.1.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_foreign.1.a
+		if = {
+			limit = { has_country_flag = dd_usa_caucus_anarchist }
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
+		}
+		if = {
+			limit = { has_country_flag = dd_usa_caucus_communist }
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+		if = {
+			limit = { has_country_flag = dd_usa_caucus_demsoc }
+			add_popularity = { ideology = social_democracy popularity = 0.02 }
+		}
+	}
+	option = {
+		name = dd_usa_foreign.1.b
+		if = {
+			limit = { has_country_flag = dd_usa_caucus_anarchist }
+			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
+		}
+		if = {
+			limit = { has_country_flag = dd_usa_caucus_communist }
+			add_popularity = { ideology = communism popularity = 0.03 }
+		}
+		if = {
+			limit = { has_country_flag = dd_usa_caucus_demsoc }
+			add_popularity = { ideology = social_democracy popularity = 0.03 }
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_dsa.1
+	title = dd_usa_dsa.1.t
+	desc = dd_usa_dsa.1.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = { name = dd_usa_dsa.1.a }
+}
+
+country_event = {
+	id = dd_usa_fuse.6
+	title = dd_usa_fuse.6.t
+	desc = dd_usa_fuse.6.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	hidden = yes
+	immediate = { remove_ideas = dd_usa_youll_have_to_kill_us }
+	option = { name = dd_usa_fuse.6.a }
+}
+
+news_event = {
+	id = dd_usa_news.1
+	title = dd_usa_news.1.t
+	desc = dd_usa_news.1.d
+	picture = GFX_news_event_generic_sign_treaty
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.1.a }
+}
+
+news_event = {
+	id = dd_usa_news.2
+	title = dd_usa_news.2.t
+	desc = dd_usa_news.2.d
+	picture = GFX_news_event_generic_sign_treaty
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.2.a }
+}
+
+news_event = {
+	id = dd_usa_news.3
+	title = dd_usa_news.3.t
+	desc = dd_usa_news.3.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.3.a }
+}
+
+news_event = {
+	id = dd_usa_news.4
+	title = dd_usa_news.4.t
+	desc = dd_usa_news.4.d
+	picture = GFX_news_event_generic_rally
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.4.a }
+}
+
+news_event = {
+	id = dd_usa_news.5
+	title = dd_usa_news.5.t
+	desc = dd_usa_news.5.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.5.a }
+}
+
+news_event = {
+	id = dd_usa_news.6
+	title = dd_usa_news.6.t
+	desc = dd_usa_news.6.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.6.a }
+}
+
+news_event = {
+	id = dd_usa_news.7
+	title = dd_usa_news.7.t
+	desc = dd_usa_news.7.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.7.a }
+}
+
+news_event = {
+	id = dd_usa_news.10
+	title = dd_usa_news.10.t
+	desc = dd_usa_news.10.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.10.a }
+}
+
+country_event = {
+	id = dd_usa_fuse.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = { news_event = { id = dd_usa_news.3 } }
+}
+
+country_event = {
+	id = dd_usa_fuse.3
+	hidden = yes
+	is_triggered_only = yes
+	immediate = { news_event = { id = dd_usa_news.4 } }
+}

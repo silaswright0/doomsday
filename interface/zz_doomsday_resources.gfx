@@ -1,15 +1,17 @@
 spriteTypes = {
 	# Must sort after interface/general_stuff.gfx. That file also defines
 	# these sprites with noOfFrames = 7, and the later filename wins.
-	# 12 resources, 27px each, on a 324px strip.
+	# 15 resources, 27px each, on a 405px strip.
+	# Order: oil, aluminium, rubber, tungsten, steel, chromium, titanium,
+	# rare earths, lithium, cobalt, copper, graphite, uranium, microchips, coal.
 	spriteType = {
 		name = "GFX_resources_strip"
 		texturefile = "gfx/interface/resources_strip.dds"
-		noOfFrames = 12
+		noOfFrames = 15
 	}
 	spriteType = {
 		name = "GFX_missing_resources_strip"
 		texturefile = "gfx/interface/missing_resources_strip.dds"
-		noOfFrames = 12
+		noOfFrames = 15
 	}
 }

@@ -192,6 +192,7 @@ def check_start_setup() -> None:
 def check_no_random() -> None:
     files = [
         ROOT / "common" / "scripted_effects" / "doomsday_economy.txt",
+        ROOT / "common" / "scripted_effects" / "doomsday_reactors.txt",
         ROOT / "common" / "scripted_effects" / "doomsday_market.txt",
         ROOT / "common" / "scripted_effects" / "doomsday_mercs.txt",
         ROOT / "common" / "scripted_triggers" / "doomsday_mercs.txt",
@@ -574,8 +575,36 @@ def check_market_pool() -> None:
         fail("on_startup must seed the arms market pool")
     if "check_variable = { global.dd_pool_" not in market:
         fail("buys must require pool stock")
-    if "set_global_flag = dd_market_pool_init" not in market:
+    if "set_global_flag = dd_market_pool_v5" not in market:
         fail("pool seed must run once")
+    if "\n\twhile = {" in market or "\n\t\twhile = {" in market:
+        fail("market loops must use while_loop_effect")
+    if "while_loop_effect" not in market:
+        fail("market loops must use while_loop_effect")
+    if "dd_post_listing" not in market or "global.dd_list_price" not in market:
+        fail("each price of a model needs its own listing record")
+    if "dd_pay_front_seller" not in market or "global.dd_lot_who" not in market:
+        fail("buyers must pay the earliest seller of that price")
+    if "add_to_variable = { treasury = dd_my_ask_" in market:
+        fail("sellers must be paid on buy, not on sell")
+    if "country_event = { id = doomsday_market.1 }" not in market:
+        fail("a paid seller must get the shipment popup")
+    if "dd_pay_bulk" not in market or "dd_floor_div" not in market:
+        fail("shift-click must buy or sell every available lot")
+    if "global.dd_bulk = 1" in market or "check_variable = { global.dd_bulk = 1 }" in market:
+        fail("shift must be the click itself, not a sticky flag")
+    if "dd_buy_all_" not in market or "dd_sell_all_" not in market:
+        fail("shift-click must call the all-lots effect")
+    buy_gui = (ROOT / "common" / "scripted_guis" / "doomsday_market_buy.txt").read_text(encoding="utf-8")
+    if "_row_buy_shift_click" not in buy_gui or "_row_sell_shift_click" not in buy_gui:
+        fail("buy and sell buttons must accept shift-click")
+    if "global.dd_bulk" in buy_gui:
+        fail("shift must be the click itself, not a sticky flag")
+    if "dynamic_lists" not in buy_gui:
+        fail("market rows must be a packed list with no empty cards")
+    event = ROOT / "events" / "doomsday_market.txt"
+    if not event.exists() or "id = doomsday_market.1" not in event.read_text(encoding="utf-8"):
+        fail("missing shipment delivered event")
 
 
 def check_energy_define() -> None:
@@ -583,19 +612,30 @@ def check_energy_define() -> None:
     if 'ENERGY_RESOURCE = "coal"' not in text:
         fail("ENERGY_RESOURCE must stay coal")
     res = (ROOT / "common" / "resources" / "00_resources.txt").read_text(encoding="utf-8")
-    for name in ("coal", "rare_earths", "lithium", "cobalt", "copper", "graphite"):
+    for name in ("coal", "rare_earths", "lithium", "cobalt", "copper", "graphite", "titanium", "uranium", "microchips"):
         if f"{name} = {{" not in res:
             fail(f"missing resource {name}")
-    gfx = (ROOT / "interface" / "doomsday_resources.gfx").read_text(encoding="utf-8")
-    if gfx.count("noOfFrames = 12") < 2:
-        fail("resource icon strips must have 12 frames")
+    if res.find("chromium = {") > res.find("titanium = {"):
+        fail("chromium must sit beside titanium")
+    if not res.rstrip().endswith("}"):
+        fail("resource file must stay closed")
+    coal_at = res.find("\tcoal = {")
+    if coal_at < res.find("\tmicrochips = {"):
+        fail("energy must be the last resource")
+    gfx = (ROOT / "interface" / "zz_doomsday_resources.gfx").read_text(encoding="utf-8")
+    if gfx.count("noOfFrames = 15") < 2:
+        fail("resource icon strips must have 15 frames")
     prod = (ROOT / "interface" / "countryproductionlineview.gui").read_text(encoding="utf-8")
-    for token in ("rare_earths_checkbox", "copper_checkbox", "graphite_checkbox"):
+    for token in ("rare_earths_checkbox", "copper_checkbox", "graphite_checkbox", "titanium_checkbox", "uranium_checkbox", "microchips_checkbox", "coal_checkbox"):
         if token not in prod:
             fail(f"production filter missing {token}")
+    if prod.find('name = "chromium_icon"') > prod.find('name = "titanium_icon"'):
+        fail("production filter must keep chromium beside titanium")
+    if prod.find('name = "coal_icon"') < prod.find('name = "microchips_icon"'):
+        fail("production filter must keep energy on the right")
     trade = (ROOT / "interface" / "countrytradeview.gui").read_text(encoding="utf-8")
-    if "verticalScrollbar" not in trade or "max_slots = { x = 12 y = 1 }" not in trade:
-        fail("trade resource grid must list all 12 resources")
+    if "verticalScrollbar" not in trade or "max_slots = { x = 15 y = 1 }" not in trade:
+        fail("trade resource grid must list all 15 resources")
 
 
 def check_resource_rights() -> None:

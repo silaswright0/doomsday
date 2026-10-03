@@ -44,6 +44,7 @@ on_actions = {
 				dd_intel_init = yes
 				dd_merc_init_defaults = yes
 				dd_sync_csto_spirit = yes
+				dd_sync_reactor_fuel = yes
 			}
 			# Once only. A later load must not put the rule back after it was cleared.
 			USA = {
@@ -66,6 +67,7 @@ on_actions = {
 	on_monthly = {
 		effect = {
 			dd_economy_monthly_tick = yes
+			dd_sync_reactor_fuel = yes
 			dd_intel_cd_tick = yes
 			dd_ig_monthly_cleanup = yes
 			dd_sync_csto_spirit = yes

@@ -374,7 +374,8 @@ buildings = {
 
 	services_building = {
 		show_on_map = 1
-		base_cost = 3200
+		# Cheap on purpose. A civilian factory builds, adds more GDP, and raises a financial centre further.
+		base_cost = 2400
 		icon_frame = 32
 		value = 3
 		infrastructure_construction_effect = yes
@@ -464,6 +465,7 @@ buildings = {
 		value = 10
 		tags = { specialization_nuclear }
 		infrastructure_construction_effect = yes
+		# dd_sync_reactor_fuel scales these bonuses back when surplus uranium is short. 1 uranium runs 2 reactors.
 
 		country_modifiers = {
 			modifiers = {
