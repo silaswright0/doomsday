@@ -1,0 +1,21 @@
+state={
+	id=1129
+	name="STATE_1129"
+	manpower = 5131207
+	state_category = town
+	history={
+		owner = USA
+		add_extra_state_shared_building_slots = 2
+		add_core_of = USA
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			services_building = 1
+			6785 = { naval_base = 1 }
+		}
+	}
+	provinces={
+		1954 2019 5038 5061 6785 6987 10740 10894 12369 12728
+	}
+	local_supplies=0.0
+}

@@ -28,7 +28,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 24
 		y = 1
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_take_out_maduro }
@@ -41,7 +41,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 18
 		y = 2
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_nato_ultimatum }
@@ -54,7 +54,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 30
 		y = 2
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_nato_ultimatum }
@@ -67,7 +67,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 18
 		y = 3
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_greenland_question }
@@ -80,7 +80,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 18
 		y = 4
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_visa_processing_ban }
@@ -96,7 +96,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 18
 		y = 5
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_attack_on_dei }
@@ -112,11 +112,13 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 30
 		y = 3
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_global_tariff_plan }
 		completion_reward = {
+			add_opinion_modifier = { target = CAN modifier = dd_usa_usmca_opinion }
+			add_opinion_modifier = { target = MEX modifier = dd_usa_usmca_opinion }
 			CAN = { add_opinion_modifier = { target = USA modifier = dd_usa_usmca_opinion } }
 			MEX = { add_opinion_modifier = { target = USA modifier = dd_usa_usmca_opinion } }
 			add_popularity = { ideology = social_liberalism popularity = -0.02 }
@@ -128,7 +130,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 30
 		y = 4
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_throw_out_usmca }
@@ -141,7 +143,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 30
 		y = 5
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_weaponize_section_338 }
@@ -154,7 +156,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 24
 		y = 6
-		cost = 5.14
+		cost = 3.714
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_withhold_blue_states }
@@ -212,7 +214,7 @@ focus_tree = {
 	focus = {
 		id = USA_path_centre_left
 		icon = GFX_goal_generic_political_pressure
-		x = 12
+		x = 10
 		y = 8
 		cost = 5.14
 		available_if_capitulated = yes
@@ -226,7 +228,7 @@ focus_tree = {
 	focus = {
 		id = USA_path_centre_right
 		icon = GFX_goal_generic_political_pressure
-		x = 24
+		x = 20
 		y = 8
 		cost = 5.14
 		available_if_capitulated = yes
@@ -240,7 +242,7 @@ focus_tree = {
 	focus = {
 		id = USA_path_maga
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 30
 		y = 8
 		cost = 5.14
 		available_if_capitulated = yes
@@ -254,7 +256,7 @@ focus_tree = {
 	focus = {
 		id = USA_path_alt_right
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 8
 		cost = 5.14
 		available_if_capitulated = yes
@@ -276,10 +278,6 @@ focus_tree = {
 		prerequisite = { focus = USA_path_dsa focus = USA_path_centre_left }
 		completion_reward = {
 			add_popularity = { ideology = national_populism popularity = -0.05 }
-			add_popularity = { ideology = social_democracy popularity = 0.05 }
-			add_popularity = { ideology = communism popularity = 0.04 }
-			add_popularity = { ideology = anarcho_communism popularity = 0.04 }
-			add_popularity = { ideology = fascism popularity = 0.02 }
 			add_political_power = 50
 		}
 	}
@@ -295,10 +293,6 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = national_populism popularity = -0.05 }
 			add_political_power = 50
-			add_popularity = { ideology = communism popularity = 0.04 }
-			add_popularity = { ideology = anarcho_communism popularity = 0.04 }
-			add_popularity = { ideology = social_democracy popularity = 0.05 }
-			add_popularity = { ideology = fascism popularity = 0.02 }
 		}
 	}
 	focus = {
@@ -393,66 +387,41 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_streets_and_campuses
+		id = USA_path_anarchist
 		icon = GFX_goal_generic_political_pressure
-		x = 2
+		x = 0
 		y = 15
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_muster_volunteers }
+		mutually_exclusive = { focus = USA_path_communist focus = USA_path_demsoc_left }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
 	focus = {
-		id = USA_break_the_parties
+		id = USA_path_anarchist_2
 		icon = GFX_goal_generic_political_pressure
-		x = 2
+		x = 0
 		y = 16
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_streets_and_campuses }
+		prerequisite = { focus = USA_path_anarchist }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
 	focus = {
-		id = USA_dual_power
+		id = USA_path_anarchist_3
 		icon = GFX_goal_generic_political_pressure
-		x = 2
+		x = 0
 		y = 17
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_break_the_parties }
-		completion_reward = {
-			add_popularity = { ideology = fascism popularity = 0.01 }
-		}
-	}
-	focus = {
-		id = USA_open_the_armories
-		icon = GFX_goal_generic_political_pressure
-		x = 2
-		y = 18
-		cost = 5.14
-		available_if_capitulated = yes
-		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_dual_power }
-		completion_reward = {
-			add_popularity = { ideology = fascism popularity = 0.01 }
-		}
-	}
-	focus = {
-		id = USA_path_anarchist
-		icon = GFX_goal_generic_political_pressure
-		x = 0
-		y = 19
-		cost = 5.14
-		available_if_capitulated = yes
-		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_open_the_armories }
+		prerequisite = { focus = USA_path_anarchist_2 }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
@@ -461,11 +430,38 @@ focus_tree = {
 		id = USA_path_communist
 		icon = GFX_goal_generic_political_pressure
 		x = 2
-		y = 19
+		y = 15
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_open_the_armories }
+		prerequisite = { focus = USA_muster_volunteers }
+		mutually_exclusive = { focus = USA_path_anarchist focus = USA_path_demsoc_left }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_path_communist_2
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 16
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_communist }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_path_communist_3
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 17
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_communist_2 }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
@@ -474,11 +470,94 @@ focus_tree = {
 		id = USA_path_demsoc_left
 		icon = GFX_goal_generic_political_pressure
 		x = 4
-		y = 19
+		y = 15
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_open_the_armories }
+		prerequisite = { focus = USA_muster_volunteers }
+		mutually_exclusive = { focus = USA_path_anarchist focus = USA_path_communist }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_path_demsoc_2
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 16
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_demsoc_left }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_path_demsoc_3
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 17
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_demsoc_2 }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_streets_and_campuses
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_anarchist_3 }
+		mutually_exclusive = { focus = USA_break_the_parties focus = USA_dual_power focus = USA_open_the_armories }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_dual_power
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_anarchist_3 focus = USA_path_communist_3 }
+		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_break_the_parties focus = USA_open_the_armories }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_break_the_parties
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_communist_3 focus = USA_path_demsoc_3 }
+		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_open_the_armories }
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_open_the_armories
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_demsoc_3 }
+		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_break_the_parties }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
@@ -487,11 +566,11 @@ focus_tree = {
 		id = USA_attack_on_capital
 		icon = GFX_goal_generic_political_pressure
 		x = 1
-		y = 20
+		y = 19
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_path_anarchist focus = USA_path_communist }
+		prerequisite = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_break_the_parties }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
@@ -499,12 +578,12 @@ focus_tree = {
 	focus = {
 		id = USA_attack_on_the_right
 		icon = GFX_goal_generic_political_pressure
-		x = 4
-		y = 20
+		x = 5
+		y = 19
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_path_demsoc_left }
+		prerequisite = { focus = USA_break_the_parties focus = USA_open_the_armories }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
@@ -590,7 +669,7 @@ focus_tree = {
 	focus = {
 		id = USA_distance_from_trump
 		icon = GFX_goal_generic_political_pressure
-		x = 24
+		x = 20
 		y = 9
 		cost = 5.14
 		available_if_capitulated = yes
@@ -603,7 +682,7 @@ focus_tree = {
 	focus = {
 		id = USA_mission_to_the_centre
 		icon = GFX_goal_generic_political_pressure
-		x = 24
+		x = 20
 		y = 10
 		cost = 5.14
 		available_if_capitulated = yes
@@ -617,7 +696,7 @@ focus_tree = {
 	focus = {
 		id = USA_win_back_maga
 		icon = GFX_goal_generic_political_pressure
-		x = 24
+		x = 20
 		y = 11
 		cost = 5.14
 		available_if_capitulated = yes
@@ -631,7 +710,7 @@ focus_tree = {
 	focus = {
 		id = USA_cr_attack_far_left
 		icon = GFX_goal_generic_political_pressure
-		x = 24
+		x = 20
 		y = 12
 		cost = 5.14
 		available_if_capitulated = yes
@@ -646,7 +725,7 @@ focus_tree = {
 	focus = {
 		id = USA_cr_attack_far_right
 		icon = GFX_goal_generic_political_pressure
-		x = 24
+		x = 20
 		y = 13
 		cost = 5.14
 		available_if_capitulated = yes
@@ -661,7 +740,7 @@ focus_tree = {
 	focus = {
 		id = USA_usurp_maga
 		icon = GFX_goal_generic_political_pressure
-		x = 24
+		x = 20
 		y = 14
 		cost = 5.14
 		available_if_capitulated = yes
@@ -675,7 +754,7 @@ focus_tree = {
 	focus = {
 		id = USA_pander_far_right
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 30
 		y = 9
 		cost = 5.14
 		available_if_capitulated = yes
@@ -689,7 +768,7 @@ focus_tree = {
 	focus = {
 		id = USA_sway_the_centrists
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 30
 		y = 10
 		cost = 5.14
 		available_if_capitulated = yes
@@ -703,7 +782,7 @@ focus_tree = {
 	focus = {
 		id = USA_np_attack_far_left
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 30
 		y = 11
 		cost = 5.14
 		available_if_capitulated = yes
@@ -718,7 +797,7 @@ focus_tree = {
 	focus = {
 		id = USA_little_tech
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 30
 		y = 12
 		cost = 5.14
 		available_if_capitulated = yes
@@ -732,7 +811,7 @@ focus_tree = {
 	focus = {
 		id = USA_reassure_the_blob
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 30
 		y = 13
 		cost = 5.14
 		available_if_capitulated = yes
@@ -746,7 +825,7 @@ focus_tree = {
 	focus = {
 		id = USA_maga_endorsement
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 30
 		y = 14
 		cost = 5.14
 		available_if_capitulated = yes
@@ -760,7 +839,7 @@ focus_tree = {
 	focus = {
 		id = USA_demand_law_and_order
 		icon = GFX_goal_generic_political_pressure
-		x = 30
+		x = 25
 		y = 15
 		cost = 5.14
 		available_if_capitulated = yes
@@ -776,7 +855,7 @@ focus_tree = {
 	focus = {
 		id = USA_stricter_immigration
 		icon = GFX_goal_generic_political_pressure
-		x = 30
+		x = 25
 		y = 16
 		cost = 5.14
 		available_if_capitulated = yes
@@ -789,9 +868,9 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_conservative_bargain
+		id = USA_reinforce_israel
 		icon = GFX_goal_generic_political_pressure
-		x = 24
+		x = 20
 		y = 17
 		cost = 5.14
 		available_if_capitulated = yes
@@ -799,14 +878,15 @@ focus_tree = {
 		prerequisite = { focus = USA_usurp_maga }
 		prerequisite = { focus = USA_stricter_immigration }
 		completion_reward = {
-			add_popularity = { ideology = liberal_conservatism popularity = 0.10 }
-			add_political_power = 200
+			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+			add_political_power = 50
+			set_country_flag = dd_usa_zionist_advisors
 		}
 	}
 	focus = {
 		id = USA_renegotiate_israel
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 30
 		y = 17
 		cost = 5.14
 		available_if_capitulated = yes
@@ -822,12 +902,12 @@ focus_tree = {
 	focus = {
 		id = USA_demand_respect
 		icon = GFX_goal_generic_political_pressure
-		x = 36
+		x = 25
 		y = 18
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_renegotiate_israel }
+		prerequisite = { focus = USA_reinforce_israel focus = USA_renegotiate_israel }
 		completion_reward = {
 			add_popularity = { ideology = national_populism popularity = 0.05 }
 			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
@@ -837,7 +917,7 @@ focus_tree = {
 	focus = {
 		id = USA_long_march
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 9
 		cost = 5.14
 		available_if_capitulated = yes
@@ -850,7 +930,7 @@ focus_tree = {
 	focus = {
 		id = USA_radicalize_white_america
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 10
 		cost = 5.14
 		available_if_capitulated = yes
@@ -863,7 +943,7 @@ focus_tree = {
 	focus = {
 		id = USA_expose_vance
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 11
 		cost = 5.14
 		available_if_capitulated = yes
@@ -878,7 +958,7 @@ focus_tree = {
 	focus = {
 		id = USA_attack_vance
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 42
 		y = 12
 		cost = 5.14
 		available_if_capitulated = yes
@@ -893,12 +973,12 @@ focus_tree = {
 	focus = {
 		id = USA_ar_attack_the_centre
 		icon = GFX_goal_generic_political_pressure
-		x = 48
-		y = 13
+		x = 38
+		y = 12
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_attack_vance }
+		prerequisite = { focus = USA_expose_vance }
 		completion_reward = {
 			add_stability = -0.01
 			add_popularity = { ideology = liberal_conservatism popularity = -0.03 }
@@ -909,12 +989,12 @@ focus_tree = {
 	focus = {
 		id = USA_ar_attack_far_left
 		icon = GFX_goal_generic_political_pressure
-		x = 48
-		y = 14
+		x = 40
+		y = 12
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_ar_attack_the_centre }
+		prerequisite = { focus = USA_expose_vance }
 		completion_reward = {
 			add_stability = -0.01
 			add_popularity = { ideology = fascism popularity = 0.01 }
@@ -924,22 +1004,26 @@ focus_tree = {
 	focus = {
 		id = USA_christian_country
 		icon = GFX_goal_generic_political_pressure
-		x = 48
-		y = 15
+		x = 40
+		y = 13
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_ar_attack_the_centre }
 		prerequisite = { focus = USA_ar_attack_far_left }
+		prerequisite = { focus = USA_attack_vance }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.02 }
+			add_popularity = { ideology = communism popularity = 0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.01 }
 			set_global_flag = dd_usa_christian_alliance
 		}
 	}
 	focus = {
 		id = USA_abandon_israel
 		icon = GFX_goal_generic_political_pressure
-		x = 48
-		y = 16
+		x = 40
+		y = 14
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -951,28 +1035,32 @@ focus_tree = {
 	focus = {
 		id = USA_demand_reimmigration
 		icon = GFX_goal_generic_political_pressure
-		x = 48
-		y = 17
+		x = 40
+		y = 15
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_abandon_israel }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.02 }
+			add_popularity = { ideology = communism popularity = 0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.01 }
 			add_political_power = 50
 		}
 	}
 	focus = {
 		id = USA_white_movement
 		icon = GFX_goal_generic_political_pressure
-		x = 48
-		y = 18
+		x = 40
+		y = 16
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_demand_reimmigration }
 		completion_reward = {
 			add_popularity = { ideology = fascism popularity = 0.02 }
+			add_popularity = { ideology = communism popularity = 0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.01 }
 			add_political_power = 50
 		}
 	}
@@ -996,7 +1084,7 @@ focus_tree = {
 	focus = {
 		id = USA_election_liberal
 		icon = GFX_goal_generic_political_pressure
-		x = 14
+		x = 12
 		y = 32
 		cost = 1
 		available_if_capitulated = yes
@@ -1014,7 +1102,7 @@ focus_tree = {
 	focus = {
 		id = USA_election_conservative
 		icon = GFX_goal_generic_political_pressure
-		x = 26
+		x = 22
 		y = 32
 		cost = 1
 		available_if_capitulated = yes
@@ -1032,7 +1120,7 @@ focus_tree = {
 	focus = {
 		id = USA_election_natpop
 		icon = GFX_goal_generic_political_pressure
-		x = 38
+		x = 32
 		y = 32
 		cost = 1
 		available_if_capitulated = yes
@@ -1094,7 +1182,7 @@ focus_tree = {
 	focus = {
 		id = USA_appoint_loyalists
 		icon = GFX_goal_generic_political_pressure
-		x = 14
+		x = 12
 		y = 33
 		cost = 10
 		available_if_capitulated = yes
@@ -1388,7 +1476,7 @@ focus_tree = {
 	focus = {
 		id = USA_liberal_set_policies
 		icon = GFX_goal_generic_political_pressure
-		x = 14
+		x = 12
 		y = 37
 		cost = 10
 		available_if_capitulated = yes
@@ -1402,7 +1490,7 @@ focus_tree = {
 	focus = {
 		id = USA_liberal_final
 		icon = GFX_goal_generic_political_pressure
-		x = 14
+		x = 12
 		y = 38
 		cost = 10
 		available_if_capitulated = yes
@@ -1416,7 +1504,7 @@ focus_tree = {
 	focus = {
 		id = USA_far_right_scapegoat
 		icon = GFX_goal_generic_political_pressure
-		x = 26
+		x = 22
 		y = 33
 		cost = 10
 		available_if_capitulated = yes
@@ -1432,7 +1520,7 @@ focus_tree = {
 	focus = {
 		id = USA_challenge_far_left
 		icon = GFX_goal_generic_political_pressure
-		x = 26
+		x = 22
 		y = 34
 		cost = 10
 		available_if_capitulated = yes
@@ -1448,7 +1536,7 @@ focus_tree = {
 	focus = {
 		id = USA_court_centre_left
 		icon = GFX_goal_generic_political_pressure
-		x = 26
+		x = 22
 		y = 35
 		cost = 10
 		available_if_capitulated = yes
@@ -1462,7 +1550,7 @@ focus_tree = {
 	focus = {
 		id = USA_face_of_the_right
 		icon = GFX_goal_generic_political_pressure
-		x = 26
+		x = 22
 		y = 36
 		cost = 10
 		available_if_capitulated = yes
@@ -1475,7 +1563,7 @@ focus_tree = {
 	focus = {
 		id = USA_conservative_policy
 		icon = GFX_goal_generic_political_pressure
-		x = 26
+		x = 22
 		y = 37
 		cost = 10
 		available_if_capitulated = yes
@@ -1488,7 +1576,7 @@ focus_tree = {
 	focus = {
 		id = USA_conservative_final
 		icon = GFX_goal_generic_political_pressure
-		x = 26
+		x = 22
 		y = 38
 		cost = 10
 		available_if_capitulated = yes
@@ -1502,7 +1590,7 @@ focus_tree = {
 	focus = {
 		id = USA_consolidate_control
 		icon = GFX_goal_generic_political_pressure
-		x = 20
+		x = 18
 		y = 39
 		cost = 10
 		available_if_capitulated = yes
@@ -1516,7 +1604,7 @@ focus_tree = {
 	focus = {
 		id = USA_combat_extremism
 		icon = GFX_goal_generic_political_pressure
-		x = 20
+		x = 18
 		y = 40
 		cost = 10
 		available_if_capitulated = yes
@@ -1531,7 +1619,7 @@ focus_tree = {
 	focus = {
 		id = USA_point_of_no_return
 		icon = GFX_goal_generic_political_pressure
-		x = 20
+		x = 18
 		y = 41
 		cost = 10
 		available_if_capitulated = yes
@@ -1550,7 +1638,7 @@ focus_tree = {
 	focus = {
 		id = USA_centre_final
 		icon = GFX_goal_generic_political_pressure
-		x = 20
+		x = 18
 		y = 42
 		cost = 10
 		available_if_capitulated = yes
@@ -1563,7 +1651,7 @@ focus_tree = {
 	focus = {
 		id = USA_bring_in_little_tech
 		icon = GFX_goal_generic_political_pressure
-		x = 38
+		x = 32
 		y = 33
 		cost = 10
 		available_if_capitulated = yes
@@ -1579,7 +1667,7 @@ focus_tree = {
 	focus = {
 		id = USA_divide_the_left
 		icon = GFX_goal_generic_political_pressure
-		x = 34
+		x = 28
 		y = 34
 		cost = 10
 		available_if_capitulated = yes
@@ -1593,7 +1681,7 @@ focus_tree = {
 	focus = {
 		id = USA_prepare_for_agi
 		icon = GFX_goal_generic_political_pressure
-		x = 42
+		x = 36
 		y = 34
 		cost = 10
 		available_if_capitulated = yes
@@ -1609,7 +1697,7 @@ focus_tree = {
 	focus = {
 		id = USA_new_culture_war
 		icon = GFX_goal_generic_political_pressure
-		x = 34
+		x = 28
 		y = 35
 		cost = 10
 		available_if_capitulated = yes
@@ -1624,7 +1712,7 @@ focus_tree = {
 	focus = {
 		id = USA_unite_moderates
 		icon = GFX_goal_generic_political_pressure
-		x = 34
+		x = 28
 		y = 36
 		cost = 10
 		available_if_capitulated = yes
@@ -1639,7 +1727,7 @@ focus_tree = {
 	focus = {
 		id = USA_final_stretch
 		icon = GFX_goal_generic_political_pressure
-		x = 42
+		x = 36
 		y = 35
 		cost = 10
 		available_if_capitulated = yes
@@ -1654,7 +1742,7 @@ focus_tree = {
 	focus = {
 		id = USA_ai_administration
 		icon = GFX_goal_generic_political_pressure
-		x = 42
+		x = 36
 		y = 36
 		cost = 10
 		available_if_capitulated = yes
@@ -1669,7 +1757,7 @@ focus_tree = {
 	focus = {
 		id = USA_against_communists
 		icon = GFX_goal_generic_political_pressure
-		x = 38
+		x = 32
 		y = 37
 		cost = 10
 		available_if_capitulated = yes
@@ -1684,7 +1772,7 @@ focus_tree = {
 	focus = {
 		id = USA_expand_oversight
 		icon = GFX_goal_generic_political_pressure
-		x = 38
+		x = 32
 		y = 38
 		cost = 10
 		available_if_capitulated = yes
@@ -1697,7 +1785,7 @@ focus_tree = {
 	focus = {
 		id = USA_outlaw_dsa
 		icon = GFX_goal_generic_political_pressure
-		x = 38
+		x = 32
 		y = 39
 		cost = 10
 		available_if_capitulated = yes
@@ -1711,7 +1799,7 @@ focus_tree = {
 	focus = {
 		id = USA_capitalisms_final_form
 		icon = GFX_goal_generic_political_pressure
-		x = 38
+		x = 32
 		y = 40
 		cost = 10
 		available_if_capitulated = yes
@@ -1730,7 +1818,7 @@ focus_tree = {
 	focus = {
 		id = USA_natpop_final
 		icon = GFX_goal_generic_political_pressure
-		x = 38
+		x = 32
 		y = 41
 		cost = 10
 		available_if_capitulated = yes
@@ -1743,7 +1831,7 @@ focus_tree = {
 	focus = {
 		id = USA_shoot_for_32
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 22
 		cost = 10
 		available_if_capitulated = yes
@@ -1760,7 +1848,7 @@ focus_tree = {
 	focus = {
 		id = USA_highlight_racial_divide
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 23
 		cost = 10
 		available_if_capitulated = yes
@@ -1774,7 +1862,7 @@ focus_tree = {
 	focus = {
 		id = USA_return_to_christ
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 24
 		cost = 10
 		available_if_capitulated = yes
@@ -1788,7 +1876,7 @@ focus_tree = {
 	focus = {
 		id = USA_reassure_capitalists
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 25
 		cost = 10
 		available_if_capitulated = yes
@@ -1802,7 +1890,7 @@ focus_tree = {
 	focus = {
 		id = USA_expose_corruption
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 26
 		cost = 10
 		available_if_capitulated = yes
@@ -1816,7 +1904,7 @@ focus_tree = {
 	focus = {
 		id = USA_american_glory
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 27
 		cost = 10
 		available_if_capitulated = yes
@@ -1830,7 +1918,7 @@ focus_tree = {
 	focus = {
 		id = USA_absorb_maga
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 28
 		cost = 10
 		available_if_capitulated = yes
@@ -1847,7 +1935,7 @@ focus_tree = {
 	focus = {
 		id = USA_youll_have_to_kill_us
 		icon = GFX_goal_generic_political_pressure
-		x = 48
+		x = 40
 		y = 29
 		cost = 10
 		available_if_capitulated = yes
@@ -1861,7 +1949,7 @@ focus_tree = {
 	focus = {
 		id = USA_intro_anarchist
 		icon = GFX_goal_generic_political_pressure
-		x = 60
+		x = 52
 		y = 0
 		cost = 5.14
 		available_if_capitulated = yes
@@ -1877,7 +1965,7 @@ focus_tree = {
 	focus = {
 		id = USA_intro_communist
 		icon = GFX_goal_generic_political_pressure
-		x = 60
+		x = 52
 		y = 2
 		cost = 5.14
 		available_if_capitulated = yes
@@ -1893,7 +1981,7 @@ focus_tree = {
 	focus = {
 		id = USA_intro_fascist
 		icon = GFX_goal_generic_political_pressure
-		x = 60
+		x = 52
 		y = 4
 		cost = 5.14
 		available_if_capitulated = yes

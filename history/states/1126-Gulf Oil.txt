@@ -1,0 +1,26 @@
+state={
+	id=1126
+	name="STATE_1126"
+	manpower = 7000000
+	state_category = large_city
+	resources={ oil=110 }
+	history={
+		owner = USA
+		add_extra_state_shared_building_slots = 6
+		add_core_of = USA
+		buildings = {
+			infrastructure = 4
+			arms_factory = 1
+			industrial_complex = 5
+			air_base = 1
+			services_building = 3
+			synthetic_refinery = 2
+			10337 = { naval_base = 1 }
+		}
+		victory_points = { 10337 10 }
+	}
+	provinces={
+		1500 2042 4884 7628 10337 10504 12410 12486
+	}
+	local_supplies=0.0
+}

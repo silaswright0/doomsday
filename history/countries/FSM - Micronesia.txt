@@ -397,3 +397,29 @@ recruit_character = FSM_john_army
 recruit_character = FSM_john_airforce
 recruit_character = FSM_john_navy
 recruit_character = FSM_gen_field_command
+USA = {
+	set_autonomy = {
+		target = FSM
+		autonomous_state = autonomy_integrated_puppet
+		freedom_level = 0.2
+	}
+}
+set_politics = {
+	ruling_party = sovereign_democracy
+	last_election = "2024.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	sovereign_democracy = 88
+	liberal_conservatism = 6
+	social_democracy = 4
+	communism = 2
+}
+create_country_leader = {
+	name = "Wesley Simina"
+	desc = FSM_LEADER_DESC
+	picture = GFX_portrait_FSM_leader
+	ideology = oligarch
+	traits = { }
+}

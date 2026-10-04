@@ -127,7 +127,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				fascism_drift = 0.10
+				fascism_drift = 0.05
 			}
 		}
 
@@ -137,11 +137,11 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_weekly = -0.002
-				war_support_weekly = 0.002
-				fascism_drift = 0.06
-				communism_drift = 0.04
-				anarcho_communism_drift = 0.04
+				stability_weekly = -0.001
+				war_support_weekly = 0.001
+				fascism_drift = 0.03
+				communism_drift = 0.02
+				anarcho_communism_drift = 0.02
 			}
 		}
 

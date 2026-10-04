@@ -209,7 +209,7 @@ guiTypes = {
 			name = "land"
 			position = { x= 796 y = 5}
 			clipping = yes
-			size = { width=40 height=28 }
+			size = { width=56 height=32 }
 			Orientation = UPPER_LEFT
 
 			background = {
@@ -220,20 +220,20 @@ guiTypes = {
 			iconType = {
 				name ="experience_icon"
 				spriteType = "GFX_army_experience"
-				position = { x= 2 y = 9 }
-				scale = 0.5
+				position = { x= 2 y = 6 }
+				scale = 0.65
 				Orientation = "UPPER_LEFT"
 				alwaystransparent = yes
 			}
 			
 			instantTextBoxType = {
 				name ="experience_value"
-				position = { x= 14 y = 6 }
+				position = { x= 22 y = 7 }
 				font = "hoi_16mbs"
 				text = "999"
 				format = left
-				maxWidth = 24
-				maxHeight = 18
+				maxWidth = 32
+				maxHeight = 20
 				fixedsize = yes
 				alwaystransparent = yes
 			}
@@ -241,9 +241,9 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "navy"
-			position = { x= 838 y = 5}
+			position = { x= 854 y = 5}
 			clipping = yes
-			size = { width=40 height=28 }
+			size = { width=56 height=32 }
 			Orientation = UPPER_LEFT
 				
 			background = {
@@ -254,20 +254,20 @@ guiTypes = {
 			iconType = {
 				name ="navy_experience_icon"
 				spriteType = "GFX_navy_experience"
-				position = { x= 2 y = 9 }
-				scale = 0.5
+				position = { x= 2 y = 6 }
+				scale = 0.65
 				Orientation = "UPPER_LEFT"
 				alwaystransparent = yes
 			}		
 			
 			instantTextBoxType = {
 				name ="navy_experience_value"
-				position = { x= 14 y = 6 }
+				position = { x= 22 y = 7 }
 				font = "hoi_16mbs"
 				text = "999"
 				format = left
-				maxWidth = 24
-				maxHeight = 18
+				maxWidth = 32
+				maxHeight = 20
 				fixedsize = yes
 				alwaystransparent = yes
 			}
@@ -275,9 +275,9 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "air"
-			position = { x= 880 y = 5}
+			position = { x= 912 y = 5}
 			clipping = yes
-			size = { width=40 height=28 }
+			size = { width=56 height=32 }
 			Orientation = UPPER_LEFT
 			
 			background = {
@@ -288,20 +288,20 @@ guiTypes = {
 			iconType = {
 				name ="air_experience_icon"
 				spriteType = "GFX_air_experience"
-				position = { x= 2 y = 9 }
-				scale = 0.5
+				position = { x= 2 y = 6 }
+				scale = 0.65
 				Orientation = "UPPER_LEFT"
 				alwaystransparent = yes
 			}
 			
 			instantTextBoxType = {
 				name ="air_experience_value"
-				position = { x= 14 y = 6 }
+				position = { x= 22 y = 7 }
 				font = "hoi_16mbs"
 				text = "999"
 				format = left
-				maxWidth = 24
-				maxHeight = 18
+				maxWidth = 32
+				maxHeight = 20
 				fixedsize = yes
 				alwaystransparent = yes
 			}
@@ -309,7 +309,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "nukes"
-			position = { x= 922 y = 5}
+			position = { x= 970 y = 5}
 			clipping = no
 			size = { width=56 height=30 }
 			Orientation = UPPER_LEFT

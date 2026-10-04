@@ -1,134 +1,1122 @@
-# Wars for the shatter. Texas fights nobody. Federal Virginia fights nobody
-# until another federal tag exists. Fascists skip Christian allies.
-# Communists and their anarchist puppet skip Texas and each other.
+# Wars for the shatter. Everyone fights everyone.
+# Alaska Command does not declare on the free states.
+# Texas, the Texas minors, and the oil enclave only fight the rest of Texas.
+# Border Command only fights the Texas minors, Florida, and the fascists.
+# The anarchists are a communist puppet. Army of God is allied with Rubio.
+# The Covenant Army is allied with the fascists.
+# The standing army is split by party support. Majors also get 10 militia.
+# AOC is democratic socialism plus progressive populism.
 
-dd_usa_civil_war_fights = {
+dd_usa_disband_army = {
+	delete_units = { division_template = "Infantry Division" disband = yes }
+	delete_units = { division_template = "Garrison Brigade" disband = yes }
+	delete_units = { division_template = "Armored Division" disband = yes }
+	delete_units = { division_template = "Mechanized Brigade" disband = yes }
+	delete_units = { division_template = "Mountain Division" disband = yes }
+	delete_units = { division_template = "Marine Division" disband = yes }
+	delete_units = { division_template = "Militia Brigade" disband = yes }
+}
+
+# Splinters have no US template. One division per loop so the count can be a variable.
+dd_usa_spawn_army = {
+	if = {
+		limit = { check_variable = { dd_cw_spawn > 0 } }
+		division_template = {
+			name = "Infantry Division"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+			}
+		}
+		while_loop_effect = {
+			limit = { check_variable = { dd_cw_spawn > 0 } }
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1000 }
+			create_unit = {
+				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.4 start_equipment_factor = 0.7"
+				owner = THIS
+				count = 1
+			}
+			subtract_from_variable = { dd_cw_spawn = 1 }
+		}
+	}
+}
+
+# Washington already has the locked template. Disbanded gear stays in its stockpile.
+dd_usa_spawn_army_home = {
+	if = {
+		limit = { check_variable = { dd_cw_spawn > 0 } }
+		while_loop_effect = {
+			limit = { check_variable = { dd_cw_spawn > 0 } }
+			create_unit = {
+				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.4 start_equipment_factor = 0.7"
+				owner = THIS
+				count = 1
+			}
+			subtract_from_variable = { dd_cw_spawn = 1 }
+		}
+	}
+}
+
+# The state stays in one piece. The other side only controls these provinces.
+# Control sticks only while the two countries are at war, same as Mali in Azawad.
+dd_usa_control_east_washington = {
+	set_province_controller = 1690
+	set_province_controller = 4747
+	set_province_controller = 10198
+	set_province_controller = 10327
+	set_province_controller = 10687
+	set_province_controller = 10693
+	set_province_controller = 12673
+}
+
+dd_usa_control_north_new_mexico = {
+	set_province_controller = 2102
+	set_province_controller = 4975
+	set_province_controller = 10642
+	set_province_controller = 10867
+	set_province_controller = 12552
+	set_province_controller = 12684
+}
+
+# Northern half of Florida, the panhandle side. The state stays with Florida.
+dd_usa_control_north_florida = {
+	set_province_controller = 10352
+	set_province_controller = 10380
+	set_province_controller = 10407
+	set_province_controller = 12353
+	set_province_controller = 12381
+	set_province_controller = 1556
+	set_province_controller = 1572
+	set_province_controller = 12439
+}
+
+dd_usa_control_south_ohio = {
+	set_province_controller = 827
+	set_province_controller = 831
+	set_province_controller = 971
+	set_province_controller = 3829
+	set_province_controller = 4601
+	set_province_controller = 6855
+	set_province_controller = 7528
+	set_province_controller = 9760
+	set_province_controller = 9775
+	set_province_controller = 11776
+	set_province_controller = 11890
+}
+
+dd_usa_province_control = {
+	if = {
+		limit = { 386 = { NOT = { is_owned_by = AOG } } }
+		if = {
+			limit = {
+				386 = { is_owned_by = WCL }
+				NOT = { AOG = { has_war_with = WCL } }
+			}
+			AOG = { declare_war_on = { target = WCL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				386 = { is_owned_by = USA }
+				NOT = { AOG = { is_subject_of = USA } }
+				NOT = { AOG = { is_in_faction_with = USA } }
+				NOT = { AOG = { has_war_with = USA } }
+			}
+			AOG = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		AOG = { dd_usa_control_east_washington = yes }
+	}
+	if = {
+		limit = {
+			RBM = { has_country_flag = dd_cw_released }
+			376 = { NOT = { is_owned_by = RBM } }
+		}
+		if = {
+			limit = {
+				376 = { is_owned_by = ACA }
+				NOT = { RBM = { has_war_with = ACA } }
+			}
+			RBM = { declare_war_on = { target = ACA type = dd_annex } }
+		}
+		if = {
+			limit = {
+				376 = { is_owned_by = USA }
+				NOT = { RBM = { has_war_with = USA } }
+			}
+			RBM = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		RBM = { dd_usa_control_north_new_mexico = yes }
+	}
+	else_if = {
+		limit = { 376 = { NOT = { is_owned_by = USA } } }
+		if = {
+			limit = {
+				376 = { is_owned_by = ACA }
+				NOT = { has_war_with = ACA }
+			}
+			declare_war_on = { target = ACA type = dd_annex }
+		}
+		dd_usa_control_north_new_mexico = yes
+	}
+	if = {
+		limit = {
+			VNM = { has_country_flag = dd_cw_released }
+			261 = { NOT = { is_owned_by = VNM } }
+		}
+		if = {
+			limit = {
+				261 = { is_owned_by = RBL }
+				NOT = { VNM = { has_war_with = RBL } }
+			}
+			VNM = { declare_war_on = { target = RBL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				261 = { is_owned_by = USA }
+				NOT = { VNM = { has_war_with = USA } }
+			}
+			VNM = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		VNM = { dd_usa_control_south_ohio = yes }
+	}
+	else_if = {
+		limit = { 261 = { NOT = { is_owned_by = USA } } }
+		if = {
+			limit = {
+				261 = { is_owned_by = RBL }
+				NOT = { has_war_with = RBL }
+			}
+			declare_war_on = { target = RBL type = dd_annex }
+		}
+		dd_usa_control_south_ohio = yes
+	}
+	# National populists hold the two southernmost Illinois provinces.
+	if = {
+		limit = {
+			VNM = { has_country_flag = dd_cw_released }
+			395 = { NOT = { is_owned_by = VNM } }
+		}
+		if = {
+			limit = {
+				395 = { is_owned_by = RBL }
+				NOT = { VNM = { has_war_with = RBL } }
+			}
+			VNM = { declare_war_on = { target = RBL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				395 = { is_owned_by = USA }
+				NOT = { VNM = { has_war_with = USA } }
+			}
+			VNM = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		VNM = {
+			set_province_controller = 7831
+			set_province_controller = 954
+		}
+	}
+	else_if = {
+		limit = { 395 = { NOT = { is_owned_by = USA } } }
+		if = {
+			limit = {
+				395 = { is_owned_by = RBL }
+				NOT = { has_war_with = RBL }
+			}
+			declare_war_on = { target = RBL type = dd_annex }
+		}
+		set_province_controller = 7831
+		set_province_controller = 954
+	}
+	# Democratic socialists hold the southernmost Pennsylvania provinces.
+	if = {
+		limit = {
+			EAS = { has_country_flag = dd_cw_released }
+			360 = { NOT = { is_owned_by = EAS } }
+		}
+		if = {
+			limit = {
+				360 = { is_owned_by = RBL }
+				NOT = { EAS = { has_war_with = RBL } }
+			}
+			EAS = { declare_war_on = { target = RBL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				360 = { is_owned_by = USA }
+				NOT = { EAS = { has_war_with = USA } }
+			}
+			EAS = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		EAS = {
+			set_province_controller = 822
+			set_province_controller = 9789
+			set_province_controller = 11758
+			set_province_controller = 11769
+			set_province_controller = 3824
+			set_province_controller = 3847
+			set_province_controller = 6845
+			set_province_controller = 3802
+		}
+	}
+	else_if = {
+		limit = { 360 = { NOT = { is_owned_by = USA } } }
+		if = {
+			limit = {
+				360 = { is_owned_by = RBL }
+				NOT = { has_war_with = RBL }
+			}
+			declare_war_on = { target = RBL type = dd_annex }
+		}
+		set_province_controller = 822
+		set_province_controller = 9789
+		set_province_controller = 11758
+		set_province_controller = 11769
+		set_province_controller = 3824
+		set_province_controller = 3847
+		set_province_controller = 6845
+		set_province_controller = 3802
+	}
+	# Anarchists hold Portland, Seattle, and two Arizona provinces.
 	if = {
 		limit = { ACA = { has_country_flag = dd_cw_released } }
-		ACA = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = ACA count = 4 } }
+		if = {
+			limit = {
+				385 = { is_owned_by = WCL }
+				NOT = { ACA = { has_war_with = WCL } }
+			}
+			ACA = { declare_war_on = { target = WCL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				377 = { is_owned_by = WCL }
+				NOT = { ACA = { has_war_with = WCL } }
+			}
+			ACA = { declare_war_on = { target = WCL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				OR = {
+					385 = { is_owned_by = USA }
+					386 = { is_owned_by = USA }
+					377 = { is_owned_by = USA }
+				}
+				NOT = { ACA = { has_war_with = USA } }
+			}
+			ACA = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		if = {
+			limit = { 385 = { NOT = { is_owned_by = ACA } } }
+			ACA = { set_province_controller = 3513 }
+		}
+		if = {
+			limit = { 386 = { NOT = { is_owned_by = ACA } } }
+			ACA = { set_province_controller = 7315 }
+		}
+		if = {
+			limit = { 377 = { NOT = { is_owned_by = ACA } } }
+			ACA = {
+				set_province_controller = 8115
+				set_province_controller = 10783
+			}
+		}
 	}
+	else_if = {
+		if = {
+			limit = { 385 = { NOT = { is_owned_by = USA } } }
+			if = {
+				limit = {
+					385 = { is_owned_by = WCL }
+					NOT = { has_war_with = WCL }
+				}
+				declare_war_on = { target = WCL type = dd_annex }
+			}
+			set_province_controller = 3513
+		}
+		if = {
+			limit = { 386 = { NOT = { is_owned_by = USA } } }
+			if = {
+				limit = {
+					386 = { is_owned_by = WCL }
+					NOT = { has_war_with = WCL }
+				}
+				declare_war_on = { target = WCL type = dd_annex }
+			}
+			set_province_controller = 7315
+		}
+		if = {
+			limit = { 377 = { NOT = { is_owned_by = USA } } }
+			if = {
+				limit = {
+					377 = { is_owned_by = WCL }
+					NOT = { has_war_with = WCL }
+				}
+				declare_war_on = { target = WCL type = dd_annex }
+			}
+			set_province_controller = 8115
+			set_province_controller = 10783
+		}
+	}
+	# Rubio holds northern and central Arizona. The rest stays with the Pacific liberals.
+	if = {
+		limit = {
+			RBM = { has_country_flag = dd_cw_released }
+			377 = { NOT = { is_owned_by = RBM } }
+		}
+		if = {
+			limit = {
+				377 = { is_owned_by = WCL }
+				NOT = { RBM = { has_war_with = WCL } }
+			}
+			RBM = { declare_war_on = { target = WCL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				377 = { is_owned_by = USA }
+				NOT = { RBM = { has_war_with = USA } }
+			}
+			RBM = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		RBM = {
+			set_province_controller = 11814
+			set_province_controller = 1793
+			set_province_controller = 853
+			set_province_controller = 7747
+			set_province_controller = 7920
+			set_province_controller = 3834
+		}
+	}
+	else_if = {
+		limit = { 377 = { NOT = { is_owned_by = USA } } }
+		if = {
+			limit = {
+				377 = { is_owned_by = WCL }
+				NOT = { has_war_with = WCL }
+			}
+			declare_war_on = { target = WCL type = dd_annex }
+		}
+		set_province_controller = 11814
+		set_province_controller = 1793
+		set_province_controller = 853
+		set_province_controller = 7747
+		set_province_controller = 7920
+		set_province_controller = 3834
+	}
+	# Pacific liberals hold two northern New Mexico provinces and four in Colorado.
 	if = {
 		limit = { WCL = { has_country_flag = dd_cw_released } }
-		WCL = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = WCL count = 4 } }
+		if = {
+			limit = {
+				376 = { is_owned_by = ACA }
+				NOT = { WCL = { has_war_with = ACA } }
+			}
+			WCL = { declare_war_on = { target = ACA type = dd_annex } }
+		}
+		if = {
+			limit = {
+				382 = { is_owned_by = RBM }
+				NOT = { WCL = { has_war_with = RBM } }
+			}
+			WCL = { declare_war_on = { target = RBM type = dd_annex } }
+		}
+		if = {
+			limit = {
+				OR = {
+					376 = { is_owned_by = USA }
+					382 = { is_owned_by = USA }
+				}
+				NOT = { WCL = { has_war_with = USA } }
+			}
+			WCL = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		if = {
+			limit = { 376 = { NOT = { is_owned_by = WCL } } }
+			WCL = {
+				set_province_controller = 10645
+				set_province_controller = 1972
+			}
+		}
+		if = {
+			limit = { 382 = { NOT = { is_owned_by = WCL } } }
+			WCL = {
+				set_province_controller = 9792
+				set_province_controller = 868
+				set_province_controller = 10588
+				set_province_controller = 1827
+			}
+		}
+	}
+	else_if = {
+		if = {
+			limit = { 376 = { NOT = { is_owned_by = USA } } }
+			if = {
+				limit = {
+					376 = { is_owned_by = ACA }
+					NOT = { has_war_with = ACA }
+				}
+				declare_war_on = { target = ACA type = dd_annex }
+			}
+			set_province_controller = 10645
+			set_province_controller = 1972
+		}
+		if = {
+			limit = { 382 = { NOT = { is_owned_by = USA } } }
+			if = {
+				limit = {
+					382 = { is_owned_by = RBM }
+					NOT = { has_war_with = RBM }
+				}
+				declare_war_on = { target = RBM type = dd_annex }
+			}
+			set_province_controller = 9792
+			set_province_controller = 868
+			set_province_controller = 10588
+			set_province_controller = 1827
+		}
+	}
+	# National populists hold the west of Virginia. The democratic socialists own the rest.
+	if = {
+		limit = {
+			VNM = { has_country_flag = dd_cw_released }
+			362 = { NOT = { is_owned_by = VNM } }
+		}
+		if = {
+			limit = {
+				362 = { is_owned_by = EAS }
+				NOT = { VNM = { has_war_with = EAS } }
+			}
+			VNM = { declare_war_on = { target = EAS type = dd_annex } }
+		}
+		if = {
+			limit = {
+				362 = { is_owned_by = USA }
+				NOT = { VNM = { has_war_with = USA } }
+			}
+			VNM = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		VNM = {
+			set_province_controller = 9779
+			set_province_controller = 7558
+			set_province_controller = 10439
+			set_province_controller = 1506
+		}
+	}
+	else_if = {
+		limit = { 362 = { NOT = { is_owned_by = USA } } }
+		if = {
+			limit = {
+				362 = { is_owned_by = EAS }
+				NOT = { has_war_with = EAS }
+			}
+			declare_war_on = { target = EAS type = dd_annex }
+		}
+		set_province_controller = 9779
+		set_province_controller = 7558
+		set_province_controller = 10439
+		set_province_controller = 1506
+	}
+	# Democratic socialists hold inland northern North Carolina. Fascists own the south and the coast.
+	if = {
+		limit = {
+			EAS = { has_country_flag = dd_cw_released }
+			363 = { NOT = { is_owned_by = EAS } }
+		}
+		if = {
+			limit = {
+				363 = { is_owned_by = FDS }
+				NOT = { EAS = { has_war_with = FDS } }
+			}
+			EAS = { declare_war_on = { target = FDS type = dd_annex } }
+		}
+		if = {
+			limit = {
+				363 = { is_owned_by = USA }
+				NOT = { EAS = { has_war_with = USA } }
+			}
+			EAS = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		EAS = {
+			set_province_controller = 10495
+			set_province_controller = 10468
+			set_province_controller = 10096
+			set_province_controller = 7138
+			set_province_controller = 12445
+			set_province_controller = 10081
+			set_province_controller = 7083
+			set_province_controller = 7045
+			set_province_controller = 12054
+		}
+	}
+	else_if = {
+		limit = { 363 = { NOT = { is_owned_by = USA } } }
+		if = {
+			limit = {
+				363 = { is_owned_by = FDS }
+				NOT = { has_war_with = FDS }
+			}
+			declare_war_on = { target = FDS type = dd_annex }
+		}
+		set_province_controller = 10495
+		set_province_controller = 10468
+		set_province_controller = 10096
+		set_province_controller = 7138
+		set_province_controller = 12445
+		set_province_controller = 10081
+		set_province_controller = 7083
+		set_province_controller = 7045
+		set_province_controller = 12054
+	}
+	# Alaska Command holds the mainland bases. Guantanamo is already owned as state 1112.
+	# Wars are only against whoever owns those bases so the holds stick.
+	if = {
+		limit = {
+			368 = { is_owned_by = SCN }
+			NOT = { FVA = { has_war_with = SCN } }
+		}
+		FVA = { declare_war_on = { target = SCN type = dd_annex } }
 	}
 	if = {
-		limit = { AOG = { has_country_flag = dd_cw_released } }
-		AOG = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = AOG count = 4 } }
+		limit = {
+			362 = { is_owned_by = EAS }
+			NOT = { FVA = { has_war_with = EAS } }
+		}
+		FVA = { declare_war_on = { target = EAS type = dd_annex } }
 	}
 	if = {
-		limit = { DES = { has_country_flag = dd_cw_released } }
-		DES = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = DES count = 4 } }
+		limit = {
+			363 = { is_owned_by = FDS }
+			NOT = { FVA = { has_war_with = FDS } }
+		}
+		FVA = { declare_war_on = { target = FDS type = dd_annex } }
 	}
 	if = {
-		limit = { RBM = { has_country_flag = dd_cw_released } }
-		RBM = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = RBM count = 4 } }
+		limit = {
+			386 = { is_owned_by = WCL }
+			NOT = { FVA = { has_war_with = WCL } }
+		}
+		FVA = { declare_war_on = { target = WCL type = dd_annex } }
 	}
 	if = {
-		limit = { VNM = { has_country_flag = dd_cw_released } }
-		VNM = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = VNM count = 4 } }
+		limit = {
+			375 = { is_owned_by = TXG }
+			NOT = { FVA = { has_war_with = TXG } }
+		}
+		FVA = { declare_war_on = { target = TXG type = dd_annex } }
 	}
 	if = {
-		limit = { RBL = { has_country_flag = dd_cw_released } }
-		RBL = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = RBL count = 4 } }
+		limit = {
+			OR = {
+				368 = { is_owned_by = USA }
+				362 = { is_owned_by = USA }
+				363 = { is_owned_by = USA }
+				386 = { is_owned_by = USA }
+				375 = { is_owned_by = USA }
+			}
+			NOT = { FVA = { has_war_with = USA } }
+		}
+		FVA = { declare_war_on = { target = USA type = dd_annex } }
 	}
+	FVA = {
+		set_province_controller = 10051
+		set_province_controller = 788
+		set_province_controller = 7255
+		set_province_controller = 12341
+		set_province_controller = 12670
+	}
+	if = {
+		limit = {
+			366 = { is_owned_by = FLO }
+			NOT = { EBC = { has_war_with = FLO } }
+		}
+		EBC = { declare_war_on = { target = FLO type = dd_annex } }
+	}
+	EBC = { set_province_controller = 1843 }
+	# Fascists hold the northern half of Florida. Miami stays with Border Command.
 	if = {
 		limit = { FDS = { has_country_flag = dd_cw_released } }
-		FDS = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = FDS count = 4 } }
+		FDS = { dd_usa_control_north_florida = yes }
 	}
+	else_if = {
+		limit = { has_country_flag = dd_usa_keep_fds }
+		dd_usa_control_north_florida = yes
+	}
+}
+
+dd_usa_civil_war_fights = {
+	set_variable = { dd_army_total = num_divisions }
+	set_variable = { dd_share_eas = party_popularity@social_democracy }
+	add_to_variable = { dd_share_eas = party_popularity@progressive_populism }
+	multiply_variable = { dd_share_eas = dd_army_total }
+	round_variable = dd_share_eas
+	set_variable = { dd_share_wcl = party_popularity@social_liberalism }
+	multiply_variable = { dd_share_wcl = dd_army_total }
+	round_variable = dd_share_wcl
+	set_variable = { dd_share_rbm = party_popularity@liberal_conservatism }
+	multiply_variable = { dd_share_rbm = dd_army_total }
+	round_variable = dd_share_rbm
+	set_variable = { dd_share_vnm = party_popularity@national_populism }
+	multiply_variable = { dd_share_vnm = dd_army_total }
+	round_variable = dd_share_vnm
+	set_variable = { dd_share_fds = party_popularity@fascism }
+	multiply_variable = { dd_share_fds = dd_army_total }
+	round_variable = dd_share_fds
+	set_variable = { dd_share_rbl = party_popularity@communism }
+	multiply_variable = { dd_share_rbl = dd_army_total }
+	round_variable = dd_share_rbl
+	set_variable = { dd_share_aca = party_popularity@anarcho_communism }
+	multiply_variable = { dd_share_aca = dd_army_total }
+	round_variable = dd_share_aca
+	set_variable = { dd_share_sum = dd_share_eas }
+	add_to_variable = { dd_share_sum = dd_share_wcl }
+	add_to_variable = { dd_share_sum = dd_share_rbm }
+	add_to_variable = { dd_share_sum = dd_share_vnm }
+	add_to_variable = { dd_share_sum = dd_share_fds }
+	add_to_variable = { dd_share_sum = dd_share_rbl }
+	add_to_variable = { dd_share_sum = dd_share_aca }
+	set_variable = { dd_share_usa = dd_army_total }
+	subtract_from_variable = { dd_share_usa = dd_share_sum }
 	if = {
-		limit = { SCN = { has_country_flag = dd_cw_released } }
-		SCN = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = SCN count = 4 } }
+		limit = { check_variable = { dd_share_usa < 0 } }
+		set_variable = { dd_share_usa = 0 }
+	}
+	dd_usa_disband_army = yes
+	# Eastern Compact, AOC. Democratic socialism plus progressive populism.
+	if = {
+		limit = { EAS = { has_country_flag = dd_cw_released } }
+		EAS = {
+			set_capital = { state = 361 }
+			set_variable = { dd_cw_spawn = PREV.dd_share_eas }
+			dd_usa_spawn_army = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = EAS count = 10 }
+		}
+	}
+	else = {
+		add_to_variable = { dd_share_usa = dd_share_eas }
+	}
+	# Pacific Republic, Newsom. Social liberalism.
+	if = {
+		limit = { WCL = { has_country_flag = dd_cw_released } }
+		WCL = {
+			set_capital = { state = 385 }
+			set_variable = { dd_cw_spawn = PREV.dd_share_wcl }
+			dd_usa_spawn_army = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = WCL count = 10 }
+		}
+	}
+	else = {
+		add_to_variable = { dd_share_usa = dd_share_wcl }
+	}
+	# Heartland, Rubio. Liberal conservatism. Plains, Montana, northern New Mexico.
+	if = {
+		limit = { RBM = { has_country_flag = dd_cw_released } }
+		RBM = {
+			set_capital = { state = 383 }
+			set_variable = { dd_cw_spawn = PREV.dd_share_rbm }
+			dd_usa_spawn_army = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = RBM count = 10 }
+		}
+	}
+	else = {
+		add_to_variable = { dd_share_usa = dd_share_rbm }
+	}
+	# American Mandate, Vance. National populism. Heartland, Dakotas, Indiana, south Ohio.
+	if = {
+		limit = { VNM = { has_country_flag = dd_cw_released } }
+		VNM = {
+			set_capital = { state = 373 }
+			set_variable = { dd_cw_spawn = PREV.dd_share_vnm }
+			dd_usa_spawn_army = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = VNM count = 10 }
+		}
+	}
+	else = {
+		add_to_variable = { dd_share_usa = dd_share_vnm }
+	}
+	# Deep South. Fascism.
+	if = {
+		limit = { FDS = { has_country_flag = dd_cw_released } }
+		FDS = {
+			set_capital = { state = 367 }
+			set_variable = { dd_cw_spawn = PREV.dd_share_fds }
+			dd_usa_spawn_army = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = FDS count = 10 }
+		}
+	}
+	else = {
+		add_to_variable = { dd_share_usa = dd_share_fds }
+	}
+	# Rust Belt. Communism. Northern Ohio stays here. Indiana does not.
+	if = {
+		limit = { RBL = { has_country_flag = dd_cw_released } }
+		RBL = {
+			set_capital = { state = 393 }
+			set_variable = { dd_cw_spawn = PREV.dd_share_rbl }
+			dd_usa_spawn_army = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = RBL count = 10 }
+		}
+	}
+	else = {
+		add_to_variable = { dd_share_usa = dd_share_rbl }
+	}
+	# Anarchist communes.
+	if = {
+		limit = { ACA = { has_country_flag = dd_cw_released } }
+		ACA = {
+			set_capital = { state = 378 }
+			set_variable = { dd_cw_spawn = PREV.dd_share_aca }
+			dd_usa_spawn_army = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = ACA count = 10 }
+		}
+	}
+	else = {
+		add_to_variable = { dd_share_usa = dd_share_aca }
+	}
+	set_variable = { dd_cw_spawn = dd_share_usa }
+	dd_usa_spawn_army_home = yes
+	clear_variable = dd_cw_spawn
+	clear_variable = dd_army_total
+	clear_variable = dd_share_sum
+	clear_variable = dd_share_usa
+	clear_variable = dd_share_eas
+	clear_variable = dd_share_wcl
+	clear_variable = dd_share_rbm
+	clear_variable = dd_share_vnm
+	clear_variable = dd_share_fds
+	clear_variable = dd_share_rbl
+	clear_variable = dd_share_aca
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_keep_eas
+				has_country_flag = dd_usa_keep_wcl
+				has_country_flag = dd_usa_keep_rbm
+				has_country_flag = dd_usa_keep_vnm
+				has_country_flag = dd_usa_keep_fds
+				has_country_flag = dd_usa_keep_rbl
+				has_country_flag = dd_usa_keep_aca
+			}
+		}
+		division_template = {
+			name = "Militia"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+		}
+		add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+		create_unit = {
+			division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45"
+			owner = USA
+			count = 10
+		}
 	}
 	if = {
 		limit = { FLO = { has_country_flag = dd_cw_released } }
-		FLO = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = FLO count = 4 } }
-	}
-	if = {
-		limit = { EAS = { has_country_flag = dd_cw_released } }
-		EAS = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = EAS count = 4 } }
+		FLO = {
+			set_capital = { state = 366 }
+			division_template = {
+				name = "Florida State Guard"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+				}
+			}
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Florida State Guard\" division_template = \"Florida State Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.7" owner = FLO count = 6 }
+		}
 	}
 	if = {
 		limit = { TXG = { has_country_flag = dd_cw_released } }
-		TXG = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = TXG count = 4 } }
+		TXG = {
+			set_capital = { state = 375 }
+			division_template = {
+				name = "Texas Guard"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+			}
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 6000 }
+			create_unit = { division = "name = \"Texas Guard\" division_template = \"Texas Guard\" start_experience_factor = 0.35 start_equipment_factor = 0.7" owner = TXG count = 8 }
+		}
+	}
+	if = {
+		limit = { DES = { has_country_flag = dd_cw_released } }
+		DES = {
+			set_capital = { state = 380 }
+			division_template = {
+				name = "Nauvoo Legion"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+				}
+			}
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
+			create_unit = { division = "name = \"Nauvoo Legion\" division_template = \"Nauvoo Legion\" start_experience_factor = 0.25 start_equipment_factor = 0.65" owner = DES count = 6 }
+		}
+	}
+	if = {
+		limit = { AOG = { has_country_flag = dd_cw_released } }
+		AOG = {
+			set_capital = { state = 387 }
+			division_template = {
+				name = "Faithful Band"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+			}
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 2000 }
+			create_unit = { division = "name = \"Faithful Band\" division_template = \"Faithful Band\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = AOG count = 4 }
+		}
+	}
+	if = {
+		limit = { SCN = { has_country_flag = dd_cw_released } }
+		SCN = {
+			set_capital = { state = 368 }
+			division_template = {
+				name = "Covenant Host"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+			}
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 2500 }
+			create_unit = { division = "name = \"Covenant Host\" division_template = \"Covenant Host\" start_experience_factor = 0.25 start_equipment_factor = 0.6" owner = SCN count = 5 }
+		}
 	}
 	if = {
 		limit = { FVA = { has_country_flag = dd_cw_released } }
-		FVA = { create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2" owner = FVA count = 4 } }
-	}
-
-	# Fascist actor.
-	if = {
-		limit = { NOT = { has_country_flag = dd_usa_keep_fds } }
-		if = { limit = { ACA = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = ACA type = annex_everything } } }
-		if = { limit = { WCL = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = WCL type = annex_everything } } }
-		if = { limit = { DES = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = DES type = annex_everything } } }
-		if = { limit = { RBM = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = RBM type = annex_everything } } }
-		if = { limit = { VNM = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = VNM type = annex_everything } } }
-		if = { limit = { RBL = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = RBL type = annex_everything } } }
-		if = { limit = { FLO = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = FLO type = annex_everything } } }
-		if = { limit = { EAS = { has_country_flag = dd_cw_released } } FDS = { declare_war_on = { target = EAS type = annex_everything } } }
-		FDS = { declare_war_on = { target = USA type = annex_everything } }
-		if = {
-			limit = { NOT = { has_global_flag = dd_usa_christian_alliance } }
-			FDS = { declare_war_on = { target = AOG type = annex_everything } }
+		FVA = {
+			set_capital = { state = 463 }
+			division_template = {
+				name = "Federal Garrison"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+				}
+			}
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 }
+			create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 6 }
 		}
 	}
+	SFT = { set_capital = { state = 1124 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = SFT count = 4 } }
+	ABR = { set_capital = { state = 1132 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = ABR count = 6 } }
+	PTF = { set_capital = { state = 1136 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 2000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = PTF count = 3 } }
+	NYF = { set_capital = { state = 1125 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = NYF count = 4 } }
+	TXO = { set_capital = { state = 1126 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = TXO count = 4 } }
+	TXR = { set_capital = { state = 1127 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = TXR count = 4 } }
+	ETX = { set_capital = { state = 1128 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = ETX count = 4 } }
+	EBC = { set_capital = { state = 1129 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = EBC count = 4 } }
+	VIR = { set_capital = { state = 1090 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 2000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = VIR count = 2 } }
+
+	# Anarchists are a puppet of the communists. set_autonomy clears the leader.
 	if = {
-		limit = { has_country_flag = dd_usa_keep_fds }
-		if = { limit = { ACA = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = ACA type = annex_everything } } }
-		if = { limit = { WCL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = WCL type = annex_everything } } }
-		if = { limit = { DES = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = DES type = annex_everything } } }
-		if = { limit = { RBM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBM type = annex_everything } } }
-		if = { limit = { VNM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = VNM type = annex_everything } } }
-		if = { limit = { RBL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBL type = annex_everything } } }
-		if = { limit = { FLO = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FLO type = annex_everything } } }
-		if = { limit = { EAS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = EAS type = annex_everything } } }
+		limit = { ACA = { has_country_flag = dd_cw_released } }
 		if = {
-			limit = { NOT = { has_global_flag = dd_usa_christian_alliance } }
-			USA = { declare_war_on = { target = AOG type = annex_everything } }
+			limit = { RBL = { has_country_flag = dd_cw_released } }
+			RBL = {
+				set_autonomy = {
+					target = ACA
+					autonomous_state = autonomy_puppet
+					freedom_level = 0.4
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = dd_usa_keep_rbl }
+			set_autonomy = {
+				target = ACA
+				autonomous_state = autonomy_puppet
+				freedom_level = 0.4
+			}
+		}
+		ACA = {
+			set_politics = { ruling_party = anarcho_communism elections_allowed = no }
+			set_popularities = {
+				anarcho_communism = 70
+				social_liberalism = 10
+				liberal_conservatism = 10
+				national_populism = 10
+			}
+			create_country_leader = {
+				name = "Commune Council"
+				picture = GFX_portrait_unknown
+				expire = "1965.1.1"
+				ideology = anarcho_communist
+			}
 		}
 	}
-
-	# Communist actor. Skips Texas, the anarchist puppet, and the federal tag.
 	if = {
 		limit = {
-			NOT = { has_country_flag = dd_usa_keep_rbl }
-			NOT = { has_country_flag = dd_usa_keep_aca }
+			has_country_flag = dd_usa_keep_aca
+			RBL = { has_country_flag = dd_cw_released }
 		}
-		if = { limit = { WCL = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = WCL type = annex_everything } } }
-		if = { limit = { AOG = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = AOG type = annex_everything } } }
-		if = { limit = { DES = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = DES type = annex_everything } } }
-		if = { limit = { RBM = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = RBM type = annex_everything } } }
-		if = { limit = { VNM = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = VNM type = annex_everything } } }
-		if = { limit = { FDS = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = FDS type = annex_everything } } }
-		if = { limit = { SCN = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = SCN type = annex_everything } } }
-		if = { limit = { FLO = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = FLO type = annex_everything } } }
-		if = { limit = { EAS = { has_country_flag = dd_cw_released } } RBL = { declare_war_on = { target = EAS type = annex_everything } } }
-		RBL = { declare_war_on = { target = USA type = annex_everything } }
+		RBL = {
+			set_autonomy = {
+				target = USA
+				autonomous_state = autonomy_puppet
+				freedom_level = 0.4
+			}
+		}
+		set_politics = { ruling_party = anarcho_communism elections_allowed = no }
+		set_popularities = {
+			anarcho_communism = 70
+			communism = 10
+			social_liberalism = 10
+			social_democracy = 10
+		}
+		create_country_leader = {
+			name = "Commune Council"
+			picture = GFX_portrait_unknown
+			expire = "1965.1.1"
+			ideology = anarcho_communist
+		}
+	}
+	# Army of God stands with Rubio. The Covenant stands with the fascists.
+	if = {
+		limit = { AOG = { has_country_flag = dd_cw_released } }
+		if = {
+			limit = { RBM = { has_country_flag = dd_cw_released } }
+			RBM = {
+				set_rule = { can_create_factions = yes }
+				create_faction = FACTION_HEARTLAND_PACT
+				add_to_faction = AOG
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = dd_usa_keep_rbm }
+			set_rule = { can_create_factions = yes }
+			create_faction = FACTION_HEARTLAND_PACT
+			add_to_faction = AOG
+		}
 	}
 	if = {
-		limit = { has_country_flag = dd_usa_keep_rbl }
-		if = { limit = { WCL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = WCL type = annex_everything } } }
-		if = { limit = { AOG = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = AOG type = annex_everything } } }
-		if = { limit = { DES = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = DES type = annex_everything } } }
-		if = { limit = { RBM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBM type = annex_everything } } }
-		if = { limit = { VNM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = VNM type = annex_everything } } }
-		if = { limit = { FDS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FDS type = annex_everything } } }
-		if = { limit = { SCN = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = SCN type = annex_everything } } }
-		if = { limit = { FLO = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FLO type = annex_everything } } }
-		if = { limit = { EAS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = EAS type = annex_everything } } }
+		limit = {
+			OR = {
+				SCN = { has_country_flag = dd_cw_released }
+				PTF = { has_country_flag = dd_cw_released }
+			}
+		}
+		if = {
+			limit = { FDS = { has_country_flag = dd_cw_released } }
+			FDS = {
+				set_rule = { can_create_factions = yes }
+				create_faction = FACTION_SOUTHERN_PACT
+			}
+			if = { limit = { SCN = { has_country_flag = dd_cw_released } } FDS = { add_to_faction = SCN } }
+			if = { limit = { PTF = { has_country_flag = dd_cw_released } } FDS = { add_to_faction = PTF } }
+		}
+		else_if = {
+			limit = { has_country_flag = dd_usa_keep_fds }
+			set_rule = { can_create_factions = yes }
+			create_faction = FACTION_SOUTHERN_PACT
+			if = { limit = { SCN = { has_country_flag = dd_cw_released } } add_to_faction = SCN }
+			if = { limit = { PTF = { has_country_flag = dd_cw_released } } add_to_faction = PTF }
+		}
 	}
 	if = {
-		limit = { has_country_flag = dd_usa_keep_aca }
-		if = { limit = { WCL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = WCL type = annex_everything } } }
-		if = { limit = { AOG = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = AOG type = annex_everything } } }
-		if = { limit = { DES = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = DES type = annex_everything } } }
-		if = { limit = { RBM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBM type = annex_everything } } }
-		if = { limit = { VNM = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = VNM type = annex_everything } } }
-		if = { limit = { RBL = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = RBL type = annex_everything } } }
-		if = { limit = { FDS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FDS type = annex_everything } } }
-		if = { limit = { SCN = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = SCN type = annex_everything } } }
-		if = { limit = { FLO = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = FLO type = annex_everything } } }
-		if = { limit = { EAS = { has_country_flag = dd_cw_released } } USA = { declare_war_on = { target = EAS type = annex_everything } } }
+		limit = { NOT = { has_country_flag = dd_usa_keep_aca } }
+		set_country_flag = dd_cw_general
 	}
+	if = { limit = { EAS = { has_country_flag = dd_cw_released } } EAS = { set_country_flag = dd_cw_general } }
+	if = { limit = { WCL = { has_country_flag = dd_cw_released } } WCL = { set_country_flag = dd_cw_general } }
+	if = { limit = { RBM = { has_country_flag = dd_cw_released } } RBM = { set_country_flag = dd_cw_general } }
+	if = { limit = { VNM = { has_country_flag = dd_cw_released } } VNM = { set_country_flag = dd_cw_general } }
+	if = { limit = { FDS = { has_country_flag = dd_cw_released } } FDS = { set_country_flag = dd_cw_general } }
+	if = { limit = { RBL = { has_country_flag = dd_cw_released } } RBL = { set_country_flag = dd_cw_general } }
+	DES = { set_country_flag = dd_cw_general }
+	AOG = { set_country_flag = dd_cw_general }
+	SCN = { set_country_flag = dd_cw_general }
+	FLO = { set_country_flag = dd_cw_general }
+	SFT = { set_country_flag = dd_cw_general }
+	NYF = { set_country_flag = dd_cw_general }
+	VIR = { set_country_flag = dd_cw_general }
+	ABR = { set_country_flag = dd_cw_general }
+	PTF = { set_country_flag = dd_cw_general }
+	every_country = {
+		limit = { has_country_flag = dd_cw_general }
+		every_other_country = {
+			limit = {
+				has_country_flag = dd_cw_general
+				NOT = { has_war_with = PREV }
+				NOT = { is_in_faction_with = PREV }
+			}
+			declare_war_on = { target = PREV type = dd_annex }
+		}
+	}
+	every_country = {
+		limit = { has_country_flag = dd_cw_general }
+		clr_country_flag = dd_cw_general
+	}
+	# Texas, the reds, the brethren, and the oil enclave only fight each other.
+	TXG = {
+		declare_war_on = { target = TXR type = dd_annex }
+		declare_war_on = { target = ETX type = dd_annex }
+		declare_war_on = { target = TXO type = dd_annex }
+	}
+	TXR = {
+		declare_war_on = { target = ETX type = dd_annex }
+		declare_war_on = { target = TXO type = dd_annex }
+	}
+	ETX = { declare_war_on = { target = TXO type = dd_annex } }
+	# Border Command fights the Texas minors, Florida, and the fascists.
+	EBC = {
+		declare_war_on = { target = TXR type = dd_annex }
+		declare_war_on = { target = ETX type = dd_annex }
+		declare_war_on = { target = TXO type = dd_annex }
+		declare_war_on = { target = FLO type = dd_annex }
+	}
+	if = {
+		limit = { FDS = { has_country_flag = dd_cw_released } }
+		EBC = { declare_war_on = { target = FDS type = dd_annex } }
+	}
+	else_if = {
+		limit = { has_country_flag = dd_usa_keep_fds }
+		EBC = { declare_war_on = { target = USA type = dd_annex } }
+	}
+	dd_usa_province_control = yes
 }

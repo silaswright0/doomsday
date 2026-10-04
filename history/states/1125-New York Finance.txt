@@ -1,0 +1,31 @@
+state={
+	id=1125
+	name="STATE_1125"
+	manpower = 3642857
+	state_category = megalopolis
+	history={
+		owner = USA
+		add_extra_state_shared_building_slots = 8
+		add_core_of = USA
+		buildings = {
+			infrastructure = 5
+			industrial_complex = 5
+			finance_center = 3
+			services_building = 3
+			air_base = 1
+			3878 = {
+				supply_node = 1
+				naval_base = 1
+				landmark_statue_of_liberty = {
+					level = 1
+					allowed = { has_dlc = "Gotterdammerung" }
+				}
+			}
+		}
+		victory_points = { 3878 30 }
+	}
+	provinces={
+		3878 3894 6911
+	}
+	local_supplies=0.0
+}

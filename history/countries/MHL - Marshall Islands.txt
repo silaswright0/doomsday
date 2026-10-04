@@ -398,3 +398,30 @@ recruit_character = MHL_john_army
 recruit_character = MHL_john_airforce
 recruit_character = MHL_john_navy
 recruit_character = MHL_gen_field_command
+USA = {
+	set_autonomy = {
+		target = MHL
+		autonomous_state = autonomy_integrated_puppet
+		freedom_level = 0.2
+	}
+}
+set_politics = {
+	ruling_party = social_liberalism
+	last_election = "2024.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = {
+	social_liberalism = 55
+	liberal_conservatism = 19
+	social_democracy = 13
+	national_populism = 9
+	communism = 4
+}
+create_country_leader = {
+	name = "Hilda Heine"
+	desc = MHL_LEADER_DESC
+	picture = GFX_portrait_MHL_leader
+	ideology = social_liberal
+	traits = { }
+}

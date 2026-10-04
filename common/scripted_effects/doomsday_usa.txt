@@ -4,8 +4,8 @@ dd_usa_take_out_maduro = {
 	USA = {
 		set_autonomy = {
 			target = VEN
-			autonomous_state = autonomy_puppet
-			freedom_level = 0.4
+			autonomous_state = autonomy_dominion
+			freedom_level = 0.85
 		}
 		give_resource_rights = { receiver = USA state = 307 }
 		give_resource_rights = { receiver = USA state = 488 }
@@ -14,14 +14,152 @@ dd_usa_take_out_maduro = {
 	}
 	VEN = {
 		set_politics = {
-			ruling_party = liberal_conservatism
+			ruling_party = left_wing_nationalism
+			last_election = "2024.7.28"
+			election_frequency = 72
 			elections_allowed = no
 		}
+		set_popularities = {
+			left_wing_nationalism = 48
+			liberal_conservatism = 22
+			social_democracy = 10
+			national_populism = 8
+			communism = 8
+			military_junta = 4
+		}
 		create_country_leader = {
-			name = "Edmundo Gonzalez Urrutia"
-			desc = VEN_LEADER_DESC
+			name = "Delcy Rodríguez"
+			desc = VEN_DELCY_PUPPET_DESC
 			picture = GFX_portrait_unknown
-			ideology = liberal_conservative
+			ideology = left_nationalist
+		}
+	}
+}
+
+# set_autonomy clears the leader. Put the real one back for the subjects we actually have.
+dd_usa_restore_known_puppet = {
+	if = {
+		limit = { tag = FSM }
+		set_politics = { ruling_party = sovereign_democracy elections_allowed = no }
+		set_popularities = { sovereign_democracy = 88 liberal_conservatism = 6 social_democracy = 4 communism = 2 }
+		create_country_leader = { name = "Wesley Simina" desc = FSM_LEADER_DESC picture = GFX_portrait_FSM_leader ideology = oligarch }
+	}
+	if = {
+		limit = { tag = MHL }
+		set_politics = { ruling_party = social_liberalism elections_allowed = yes }
+		set_popularities = { social_liberalism = 55 liberal_conservatism = 19 social_democracy = 13 national_populism = 9 communism = 4 }
+		create_country_leader = { name = "Hilda Heine" desc = MHL_LEADER_DESC picture = GFX_portrait_MHL_leader ideology = social_liberal }
+	}
+	if = {
+		limit = { tag = PLU }
+		set_politics = { ruling_party = sovereign_democracy elections_allowed = no }
+		set_popularities = { sovereign_democracy = 88 liberal_conservatism = 6 social_democracy = 4 communism = 2 }
+		create_country_leader = { name = "Surangel Whipps Jr" desc = PLU_LEADER_DESC picture = GFX_portrait_PLU_leader ideology = oligarch }
+	}
+	if = {
+		limit = { tag = VEN }
+		set_politics = { ruling_party = left_wing_nationalism elections_allowed = no }
+		set_popularities = { left_wing_nationalism = 48 liberal_conservatism = 22 social_democracy = 10 national_populism = 8 communism = 8 military_junta = 4 }
+		create_country_leader = { name = "Delcy Rodríguez" desc = VEN_DELCY_PUPPET_DESC picture = GFX_portrait_unknown ideology = left_nationalist }
+	}
+}
+
+# France takes the chair, then the United States is out. Subjects are pulled out first.
+# dismantle_faction releases the leader's puppets, and a subject left inside NATO is freed
+# the moment Washington goes to war with that alliance.
+dd_usa_hand_nato_to_france = {
+	if = {
+		limit = { is_in_faction = yes }
+		if = {
+			limit = { is_faction_leader = yes }
+			every_country = {
+				limit = { is_subject_of = ROOT }
+				if = {
+					limit = { has_autonomy_state = autonomy_integrated_puppet }
+					add_to_array = { ROOT.dd_sub_integrated = THIS }
+				}
+				else_if = {
+					limit = { has_autonomy_state = autonomy_dominion }
+					add_to_array = { ROOT.dd_sub_dominion = THIS }
+				}
+				else = {
+					add_to_array = { ROOT.dd_sub_puppet = THIS }
+				}
+				if = {
+					limit = { is_in_faction = yes }
+					remove_from_faction = yes
+				}
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					NOT = { is_subject_of = ROOT }
+				}
+				add_to_array = { ROOT.dd_nato_remain = THIS }
+			}
+			dismantle_faction = yes
+			FRA = {
+				create_faction = NATO
+				set_faction_rule = dd_call_to_war_defensive_only
+			}
+			every_country = {
+				limit = {
+					is_in_array = { array = ROOT.dd_nato_remain value = THIS }
+					NOT = { tag = FRA }
+					NOT = { tag = USA }
+					NOT = { is_subject_of = ROOT }
+				}
+				FRA = { add_to_faction = PREV }
+			}
+			every_country = {
+				limit = {
+					is_in_array = { array = ROOT.dd_sub_integrated value = THIS }
+					is_subject = no
+				}
+				ROOT = {
+					set_autonomy = {
+						target = PREV
+						autonomous_state = autonomy_integrated_puppet
+						freedom_level = 0.2
+					}
+				}
+				dd_usa_restore_known_puppet = yes
+			}
+			every_country = {
+				limit = {
+					is_in_array = { array = ROOT.dd_sub_dominion value = THIS }
+					is_subject = no
+				}
+				ROOT = {
+					set_autonomy = {
+						target = PREV
+						autonomous_state = autonomy_dominion
+						freedom_level = 0.85
+					}
+				}
+				dd_usa_restore_known_puppet = yes
+			}
+			every_country = {
+				limit = {
+					is_in_array = { array = ROOT.dd_sub_puppet value = THIS }
+					is_subject = no
+				}
+				ROOT = {
+					set_autonomy = {
+						target = PREV
+						autonomous_state = autonomy_puppet
+						freedom_level = 0.4
+					}
+				}
+				dd_usa_restore_known_puppet = yes
+			}
+			clear_array = ROOT.dd_nato_remain
+			clear_array = ROOT.dd_sub_integrated
+			clear_array = ROOT.dd_sub_dominion
+			clear_array = ROOT.dd_sub_puppet
+		}
+		else = {
+			remove_from_faction = yes
 		}
 	}
 }
@@ -48,11 +186,6 @@ dd_usa_apply_tariffs = {
 }
 
 dd_usa_student_visas = {
-	remove_ideas = dd_immigration_1
-	remove_ideas = dd_immigration_2
-	remove_ideas = dd_immigration_3
-	remove_ideas = dd_immigration_4
-	remove_ideas = dd_immigration_5
 	add_ideas = dd_immigration_2
 }
 
@@ -199,6 +332,60 @@ dd_usa_pull_gulf_access = {
 	OMA = { diplomatic_relation = { country = USA relation = military_access active = no } }
 }
 
+# Iran's terms: bases, docking, guarantees, and any gulf land Washington annexed.
+dd_usa_surrender_persian_gulf = {
+	dd_usa_pull_gulf_access = yes
+	BHR = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
+	IRQ = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
+	KUW = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
+	QAT = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
+	SAU = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
+	UAE = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
+	OMA = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
+	diplomatic_relation = { country = BHR relation = guarantee active = no }
+	diplomatic_relation = { country = IRQ relation = guarantee active = no }
+	diplomatic_relation = { country = KUW relation = guarantee active = no }
+	diplomatic_relation = { country = QAT relation = guarantee active = no }
+	diplomatic_relation = { country = SAU relation = guarantee active = no }
+	diplomatic_relation = { country = UAE relation = guarantee active = no }
+	diplomatic_relation = { country = OMA relation = guarantee active = no }
+	BHR = { diplomatic_relation = { country = USA relation = guarantee active = no } }
+	IRQ = { diplomatic_relation = { country = USA relation = guarantee active = no } }
+	KUW = { diplomatic_relation = { country = USA relation = guarantee active = no } }
+	QAT = { diplomatic_relation = { country = USA relation = guarantee active = no } }
+	SAU = { diplomatic_relation = { country = USA relation = guarantee active = no } }
+	UAE = { diplomatic_relation = { country = USA relation = guarantee active = no } }
+	OMA = { diplomatic_relation = { country = USA relation = guarantee active = no } }
+	every_owned_state = {
+		limit = { is_core_of = BHR }
+		transfer_state_to = BHR
+	}
+	every_owned_state = {
+		limit = { is_core_of = IRQ }
+		transfer_state_to = IRQ
+	}
+	every_owned_state = {
+		limit = { is_core_of = KUW }
+		transfer_state_to = KUW
+	}
+	every_owned_state = {
+		limit = { is_core_of = QAT }
+		transfer_state_to = QAT
+	}
+	every_owned_state = {
+		limit = { is_core_of = SAU }
+		transfer_state_to = SAU
+	}
+	every_owned_state = {
+		limit = { is_core_of = UAE }
+		transfer_state_to = UAE
+	}
+	every_owned_state = {
+		limit = { is_core_of = OMA }
+		transfer_state_to = OMA
+	}
+}
+
 dd_usa_blob_tick = {
 	if = {
 		limit = { NOT = { has_country_flag = dd_usa_blob_1 } }
@@ -206,8 +393,13 @@ dd_usa_blob_tick = {
 		if = {
 			limit = { NOT = { has_completed_focus = USA_distance_from_trump } }
 			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
-			custom_effect_tooltip = dd_usa_blob_tt_1
 		}
+		if = {
+			limit = { NOT = { has_completed_focus = USA_approach_establishment } }
+			add_popularity = { ideology = social_liberalism popularity = 0.04 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.01 }
+		}
+		custom_effect_tooltip = dd_usa_blob_tt_1
 	}
 	else_if = {
 		limit = { NOT = { has_country_flag = dd_usa_blob_2 } }
@@ -216,8 +408,14 @@ dd_usa_blob_tick = {
 			limit = { NOT = { has_completed_focus = USA_mission_to_the_centre } }
 			add_popularity = { ideology = social_liberalism popularity = -0.06 }
 			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
-			custom_effect_tooltip = dd_usa_blob_tt_2
 		}
+		if = {
+			limit = { NOT = { has_completed_focus = USA_iran_must_be_disarmed } }
+			add_popularity = { ideology = social_liberalism popularity = 0.03 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
+			add_political_power = 100
+		}
+		custom_effect_tooltip = dd_usa_blob_tt_2
 	}
 	else_if = {
 		limit = { NOT = { has_country_flag = dd_usa_blob_3 } }
@@ -226,8 +424,12 @@ dd_usa_blob_tick = {
 			limit = { NOT = { has_completed_focus = USA_win_back_maga } }
 			add_popularity = { ideology = national_populism popularity = -0.06 }
 			add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
-			custom_effect_tooltip = dd_usa_blob_tt_3
 		}
+		if = {
+			limit = { NOT = { has_completed_focus = USA_outspend_competition } }
+			add_popularity = { ideology = social_liberalism popularity = 0.08 }
+		}
+		custom_effect_tooltip = dd_usa_blob_tt_3
 	}
 	else_if = {
 		limit = { NOT = { has_country_flag = dd_usa_blob_4 } }
@@ -237,8 +439,12 @@ dd_usa_blob_tick = {
 			add_popularity = { ideology = communism popularity = -0.02 }
 			add_popularity = { ideology = progressive_populism popularity = -0.02 }
 			add_political_power = 100
-			custom_effect_tooltip = dd_usa_blob_tt_4
 		}
+		if = {
+			limit = { NOT = { has_completed_focus = USA_fund_state_parties } }
+			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+		}
+		custom_effect_tooltip = dd_usa_blob_tt_4
 	}
 	else_if = {
 		limit = { NOT = { has_country_flag = dd_usa_blob_5 } }
@@ -248,8 +454,12 @@ dd_usa_blob_tick = {
 			add_popularity = { ideology = national_populism popularity = -0.04 }
 			add_popularity = { ideology = liberal_conservatism popularity = 0.04 }
 			add_political_power = 100
-			custom_effect_tooltip = dd_usa_blob_tt_5
 		}
+		if = {
+			limit = { NOT = { has_completed_focus = USA_register_the_suburbs } }
+			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+		}
+		custom_effect_tooltip = dd_usa_blob_tt_5
 	}
 	else_if = {
 		limit = { NOT = { has_country_flag = dd_usa_blob_6 } }
@@ -258,8 +468,12 @@ dd_usa_blob_tick = {
 			limit = { NOT = { has_completed_focus = USA_usurp_maga } }
 			add_popularity = { ideology = national_populism popularity = -0.10 }
 			add_popularity = { ideology = liberal_conservatism popularity = 0.10 }
-			custom_effect_tooltip = dd_usa_blob_tt_6
 		}
+		if = {
+			limit = { NOT = { has_completed_focus = USA_lock_the_delegates } }
+			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+		}
+		custom_effect_tooltip = dd_usa_blob_tt_6
 	}
 }
 
@@ -300,12 +514,12 @@ dd_usa_start_civil_war = {
 		else_if = {
 			limit = { has_government = liberal_conservatism }
 			set_country_flag = dd_usa_keep_rbm
-			set_capital = { state = 373 }
+			set_capital = { state = 383 }
 		}
 		else_if = {
 			limit = { has_government = national_populism }
 			set_country_flag = dd_usa_keep_vnm
-			set_capital = { state = 391 }
+			set_capital = { state = 373 }
 		}
 		else_if = {
 			limit = { has_government = fascism }
@@ -315,7 +529,7 @@ dd_usa_start_civil_war = {
 		else_if = {
 			limit = { has_government = communism }
 			set_country_flag = dd_usa_keep_rbl
-			set_capital = { state = 358 }
+			set_capital = { state = 393 }
 		}
 		else_if = {
 			limit = { has_government = anarcho_communism }
@@ -326,12 +540,24 @@ dd_usa_start_civil_war = {
 			set_country_flag = dd_usa_keep_fed
 		}
 		if = {
+			limit = { has_war_with = PER }
+			dd_usa_surrender_persian_gulf = yes
+		}
+		every_country = {
+			limit = { has_war_with = PREV }
+			white_peace = PREV
+		}
+		dd_usa_hand_nato_to_france = yes
+		every_country = {
+			limit = { is_subject_of = ROOT }
+			ROOT = { end_puppet = PREV }
+			dd_usa_restore_known_puppet = yes
+		}
+		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_aca } }
 			ACA = {
 				transfer_state = 378
 				add_state_core = 378
-				transfer_state = 377
-				add_state_core = 377
 				transfer_state = 376
 				add_state_core = 376
 				set_country_flag = dd_cw_released
@@ -346,14 +572,14 @@ dd_usa_start_civil_war = {
 				add_state_core = 385
 				transfer_state = 386
 				add_state_core = 386
+				transfer_state = 377
+				add_state_core = 377
 				set_country_flag = dd_cw_released
 			}
 		}
 		AOG = {
 			transfer_state = 387
 			add_state_core = 387
-			transfer_state = 388
-			add_state_core = 388
 			set_country_flag = dd_cw_released
 		}
 		DES = {
@@ -366,50 +592,54 @@ dd_usa_start_civil_war = {
 			RBM = {
 				transfer_state = 383
 				add_state_core = 383
-				transfer_state = 384
-				add_state_core = 384
-				transfer_state = 373
-				add_state_core = 373
-				transfer_state = 392
-				add_state_core = 392
-				transfer_state = 369
-				add_state_core = 369
 				transfer_state = 374
 				add_state_core = 374
+				transfer_state = 381
+				add_state_core = 381
+				transfer_state = 382
+				add_state_core = 382
+				transfer_state = 388
+				add_state_core = 388
+				transfer_state = 384
+				add_state_core = 384
+				set_capital = { state = 383 }
 				set_country_flag = dd_cw_released
 			}
 		}
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_vnm } }
 			VNM = {
+				transfer_state = 391
+				add_state_core = 391
+				transfer_state = 394
+				add_state_core = 394
+				transfer_state = 373
+				add_state_core = 373
+				transfer_state = 392
+				add_state_core = 392
+				transfer_state = 369
+				add_state_core = 369
 				transfer_state = 389
 				add_state_core = 389
 				transfer_state = 390
 				add_state_core = 390
-				transfer_state = 391
-				add_state_core = 391
-				transfer_state = 381
-				add_state_core = 381
-				transfer_state = 382
-				add_state_core = 382
+				transfer_state = 396
+				add_state_core = 396
+				transfer_state = 816
+				add_state_core = 816
+				set_capital = { state = 373 }
 				set_country_flag = dd_cw_released
 			}
 		}
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_rbl } }
 			RBL = {
-				transfer_state = 358
-				add_state_core = 358
 				transfer_state = 393
 				add_state_core = 393
 				transfer_state = 261
 				add_state_core = 261
-				transfer_state = 396
-				add_state_core = 396
 				transfer_state = 360
 				add_state_core = 360
-				transfer_state = 394
-				add_state_core = 394
 				transfer_state = 395
 				add_state_core = 395
 				set_country_flag = dd_cw_released
@@ -430,14 +660,14 @@ dd_usa_start_civil_war = {
 				add_state_core = 371
 				transfer_state = 372
 				add_state_core = 372
+				transfer_state = 363
+				add_state_core = 363
 				set_country_flag = dd_cw_released
 			}
 		}
 		SCN = {
 			transfer_state = 368
 			add_state_core = 368
-			transfer_state = 363
-			add_state_core = 363
 			set_country_flag = dd_cw_released
 		}
 		FLO = {
@@ -452,10 +682,14 @@ dd_usa_start_civil_war = {
 				add_state_core = 357
 				transfer_state = 359
 				add_state_core = 359
-				transfer_state = 816
-				add_state_core = 816
 				transfer_state = 361
 				add_state_core = 361
+				transfer_state = 686
+				add_state_core = 686
+				transfer_state = 358
+				add_state_core = 358
+				transfer_state = 362
+				add_state_core = 362
 				set_country_flag = dd_cw_released
 			}
 		}
@@ -464,52 +698,75 @@ dd_usa_start_civil_war = {
 			add_state_core = 375
 			set_country_flag = dd_cw_released
 		}
-		if = {
-			limit = { NOT = { has_country_flag = dd_usa_keep_fed } }
-			FVA = {
-				transfer_state = 362
-				add_state_core = 362
-				set_country_flag = dd_cw_released
-			}
+		FVA = {
+			transfer_state = 463
+			add_state_core = 463
+			transfer_state = 1112
+			add_state_core = 1112
+			set_country_flag = dd_cw_released
 		}
-		if = {
-			limit = {
-				NOT = { has_country_flag = dd_usa_keep_aca }
-				NOT = { has_country_flag = dd_usa_keep_rbl }
-			}
-			RBL = {
-				set_autonomy = {
-					target = ACA
-					autonomous_state = autonomy_puppet
-					freedom_level = 0.2
-				}
-			}
-			ACA = {
-				create_country_leader = {
-					name = "Commune Council"
-					picture = GFX_portrait_unknown
-					ideology = anarcho_communist
-				}
-			}
+		SFT = {
+			transfer_state = 1124
+			add_state_core = 1124
+			set_country_flag = dd_cw_released
 		}
-		if = {
-			limit = {
-				has_country_flag = dd_usa_keep_rbl
-				NOT = { has_country_flag = dd_usa_keep_aca }
-			}
-			USA = {
-				set_autonomy = {
-					target = ACA
-					autonomous_state = autonomy_puppet
-					freedom_level = 0.2
-				}
-			}
-			ACA = {
-				create_country_leader = {
-					name = "Commune Council"
-					picture = GFX_portrait_unknown
-					ideology = anarcho_communist
-				}
+		NYF = {
+			transfer_state = 1125
+			add_state_core = 1125
+			set_country_flag = dd_cw_released
+		}
+		TXO = {
+			transfer_state = 1126
+			add_state_core = 1126
+			set_country_flag = dd_cw_released
+		}
+		TXR = {
+			transfer_state = 1127
+			add_state_core = 1127
+			set_country_flag = dd_cw_released
+		}
+		ETX = {
+			transfer_state = 1128
+			add_state_core = 1128
+			set_country_flag = dd_cw_released
+		}
+		EBC = {
+			transfer_state = 1129
+			add_state_core = 1129
+			set_country_flag = dd_cw_released
+		}
+		VIR = {
+			transfer_state = 1090
+			add_state_core = 1090
+			set_country_flag = dd_cw_released
+		}
+		ABR = {
+			transfer_state = 1130
+			add_state_core = 1130
+			transfer_state = 1131
+			add_state_core = 1131
+			transfer_state = 1132
+			add_state_core = 1132
+			transfer_state = 1133
+			add_state_core = 1133
+			transfer_state = 1134
+			add_state_core = 1134
+			transfer_state = 1135
+			add_state_core = 1135
+			set_country_flag = dd_cw_released
+		}
+		PTF = {
+			transfer_state = 1136
+			add_state_core = 1136
+			set_country_flag = dd_cw_released
+		}
+		AOG = {
+			set_politics = { ruling_party = theocratic_absolutism elections_allowed = no }
+			set_popularities = { theocratic_absolutism = 70 social_liberalism = 10 liberal_conservatism = 10 national_populism = 10 }
+			create_country_leader = {
+				name = "Pete Hegseth"
+				picture = GFX_portrait_unknown
+				ideology = theocrat
 			}
 		}
 		dd_usa_civil_war_fights = yes

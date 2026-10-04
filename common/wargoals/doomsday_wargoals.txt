@@ -1,0 +1,18 @@
+wargoal_types = {
+	# annex_everything is allowed = { always = no }, so an event cannot use it.
+	dd_annex = {
+		war_name = WAR_NAME
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+		}
+
+		take_states = {
+		}
+
+		threat = 0.5
+	}
+}

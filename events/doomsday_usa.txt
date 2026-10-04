@@ -46,7 +46,18 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = dd_usa_greenland.2.a
-		declare_war_on = { target = GRN type = puppet_wargoal_focus }
+		# Greenland starts as Denmark's puppet, and Denmark is in NATO, so a war
+		# goal on Nuuk is refused while Washington shares that faction.
+		dd_usa_hand_nato_to_france = yes
+		if = {
+			limit = { GRN = { is_subject = yes } }
+			GRN = { overlord = { end_puppet = PREV } }
+		}
+		if = {
+			limit = { GRN = { is_in_faction = yes } }
+			GRN = { remove_from_faction = yes }
+		}
+		declare_war_on = { target = GRN type = dd_annex }
 	}
 	option = {
 		name = dd_usa_greenland.2.b
@@ -96,7 +107,7 @@ country_event = {
 		multiply_temp_variable = { dd_nato_half = 0.5 }
 		if = {
 			limit = { check_variable = { dd_nato_failed > dd_nato_half } }
-			remove_from_faction = yes
+			dd_usa_hand_nato_to_france = yes
 			news_event = { id = dd_usa_news.2 }
 		}
 		else = {
