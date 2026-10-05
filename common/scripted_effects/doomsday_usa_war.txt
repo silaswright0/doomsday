@@ -4,64 +4,206 @@
 # Border Command only fights the Texas minors, Florida, and the fascists.
 # The anarchists are a communist puppet. Army of God is allied with Rubio.
 # The Covenant Army is allied with the fascists.
-# The standing army is split by party support. Majors also get 10 militia.
+# Standing army/air/equipment split by party popularity via transfer_units_fraction.
+# Navy is hardcoded 80% Alaska / 10% Newsom / 10% Deep South.
+# Extra NG/militia/minor loadouts are spawned with while_loop count = 1.
 # AOC is democratic socialism plus progressive populism.
 
-dd_usa_disband_army = {
-	delete_units = { division_template = "Infantry Division" disband = yes }
-	delete_units = { division_template = "Garrison Brigade" disband = yes }
-	delete_units = { division_template = "Armored Division" disband = yes }
-	delete_units = { division_template = "Mechanized Brigade" disband = yes }
-	delete_units = { division_template = "Mountain Division" disband = yes }
-	delete_units = { division_template = "Marine Division" disband = yes }
-	delete_units = { division_template = "Militia Brigade" disband = yes }
+dd_usa_cw_tpl_militia_2x6 = {
+	division_template = {
+		name = "Militia"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 0 y = 4 }
+			infantry = { x = 0 y = 5 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 1 y = 4 }
+			infantry = { x = 1 y = 5 }
+		}
+	}
 }
 
-# Splinters have no US template. Variable count in one create_unit (no while_loop — scope-safe).
-dd_usa_spawn_army = {
-	if = {
+dd_usa_cw_tpl_militia_3x6 = {
+	division_template = {
+		name = "Militia"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 0 y = 4 }
+			infantry = { x = 0 y = 5 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 1 y = 4 }
+			infantry = { x = 1 y = 5 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+			infantry = { x = 2 y = 2 }
+			infantry = { x = 2 y = 3 }
+			infantry = { x = 2 y = 4 }
+			infantry = { x = 2 y = 5 }
+		}
+	}
+}
+
+dd_usa_cw_tpl_infantry_3x6_eng = {
+	division_template = {
+		name = "Infantry Division"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 0 y = 4 }
+			infantry = { x = 0 y = 5 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 1 y = 4 }
+			infantry = { x = 1 y = 5 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+			infantry = { x = 2 y = 2 }
+			infantry = { x = 2 y = 3 }
+			infantry = { x = 2 y = 4 }
+			infantry = { x = 2 y = 5 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+		}
+	}
+}
+
+dd_usa_cw_tpl_national_guard = {
+	division_template = {
+		name = "National Guard"
+		is_locked = yes
+		regiments = {
+			motorized = { x = 0 y = 0 }
+			motorized = { x = 0 y = 1 }
+			motorized = { x = 0 y = 2 }
+			motorized = { x = 0 y = 3 }
+			motorized = { x = 0 y = 4 }
+			motorized = { x = 0 y = 5 }
+			motorized = { x = 1 y = 0 }
+			motorized = { x = 1 y = 1 }
+			motorized = { x = 1 y = 2 }
+			motorized = { x = 1 y = 3 }
+			motorized = { x = 1 y = 4 }
+			motorized = { x = 1 y = 5 }
+			motorized = { x = 2 y = 0 }
+			motorized = { x = 2 y = 1 }
+			motorized = { x = 2 y = 2 }
+			motorized = { x = 2 y = 3 }
+			motorized = { x = 2 y = 4 }
+			motorized = { x = 2 y = 5 }
+		}
+		support = {
+			artillery = { x = 0 y = 0 }
+			engineer = { x = 0 y = 1 }
+		}
+	}
+}
+
+# Country-scoped. Caller sets dd_cw_spawn. create_unit is state-scoped only.
+dd_usa_cw_spawn_militia_n = {
+	dd_usa_cw_tpl_militia_2x6 = yes
+	set_temp_variable = { dd_cw_eq = dd_cw_spawn }
+	multiply_temp_variable = { dd_cw_eq = 1500 }
+	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = dd_cw_eq }
+	while_loop_effect = {
 		limit = { check_variable = { dd_cw_spawn > 0 } }
-		division_template = {
-			name = "Infantry Division"
-			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 0 y = 2 }
-				infantry = { x = 1 y = 0 }
-				infantry = { x = 1 y = 1 }
-				infantry = { x = 1 y = 2 }
-				infantry = { x = 2 y = 0 }
-				infantry = { x = 2 y = 1 }
-				infantry = { x = 2 y = 2 }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
 			}
 		}
-		set_temp_variable = { dd_cw_eq = dd_cw_spawn }
-		multiply_temp_variable = { dd_cw_eq = 1000 }
-		add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = dd_cw_eq }
-		create_unit = {
-			division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.4 start_equipment_factor = 0.7"
-			owner = THIS
-			count = dd_cw_spawn
-		}
-		set_variable = { dd_cw_spawn = 0 }
+		subtract_from_variable = { dd_cw_spawn = 1 }
 	}
+	clear_variable = dd_cw_spawn
 }
 
-# Washington already has the locked template. Disbanded gear stays in its stockpile.
-dd_usa_spawn_army_home = {
-	if = {
+dd_usa_cw_spawn_militia_3x6_n = {
+	dd_usa_cw_tpl_militia_3x6 = yes
+	set_temp_variable = { dd_cw_eq = dd_cw_spawn }
+	multiply_temp_variable = { dd_cw_eq = 2000 }
+	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = dd_cw_eq }
+	while_loop_effect = {
 		limit = { check_variable = { dd_cw_spawn > 0 } }
-		create_unit = {
-			division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.4 start_equipment_factor = 0.7"
-			owner = THIS
-			count = dd_cw_spawn
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+			}
 		}
-		set_variable = { dd_cw_spawn = 0 }
+		subtract_from_variable = { dd_cw_spawn = 1 }
 	}
+	clear_variable = dd_cw_spawn
 }
 
-# The state stays in one piece. The other side only controls these provinces.
-# Control sticks only while the two countries are at war, same as Mali in Azawad.
+dd_usa_cw_spawn_ng_n = {
+	dd_usa_cw_tpl_national_guard = yes
+	set_temp_variable = { dd_cw_eq = dd_cw_spawn }
+	multiply_temp_variable = { dd_cw_eq = 2200 }
+	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = dd_cw_eq }
+	set_temp_variable = { dd_cw_eq_mot = dd_cw_spawn }
+	multiply_temp_variable = { dd_cw_eq_mot = 2200 }
+	add_equipment_to_stockpile = { type = motorized_equipment_1 amount = dd_cw_eq_mot }
+	set_temp_variable = { dd_cw_eq_arty = dd_cw_spawn }
+	multiply_temp_variable = { dd_cw_eq_arty = 120 }
+	add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = dd_cw_eq_arty }
+	add_equipment_to_stockpile = { type = support_equipment amount = 200 }
+	while_loop_effect = {
+		limit = { check_variable = { dd_cw_spawn > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	clear_variable = dd_cw_spawn
+}
+
+dd_usa_cw_spawn_inf_eng_n = {
+	dd_usa_cw_tpl_infantry_3x6_eng = yes
+	set_temp_variable = { dd_cw_eq = dd_cw_spawn }
+	multiply_temp_variable = { dd_cw_eq = 2500 }
+	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = dd_cw_eq }
+	add_equipment_to_stockpile = { type = support_equipment amount = 200 }
+	while_loop_effect = {
+		limit = { check_variable = { dd_cw_spawn > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.35 start_equipment_factor = 0.7"
+				owner = PREV
+				count = 1
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	clear_variable = dd_cw_spawn
+}
+
+
 dd_usa_control_east_washington = {
 	set_province_controller = 1690
 	set_province_controller = 4747
@@ -644,156 +786,358 @@ dd_usa_province_control = {
 }
 
 dd_usa_civil_war_fights = {
-	# Capture army size and party shares on ROOT (USA) before any country scopes.
-	# Temp vars are unscoped so nested TAG = { } blocks cannot lose PREV.
-	set_temp_variable = { dd_army_total_t = num_divisions }
+	# Party shares on ROOT (USA). Fractions 0-1 for transfer_units_fraction.
+	set_temp_variable = { dd_pop_eas = party_popularity@social_democracy }
+	add_to_temp_variable = { dd_pop_eas = party_popularity@progressive_populism }
+	set_temp_variable = { dd_pop_wcl = party_popularity@social_liberalism }
+	set_temp_variable = { dd_pop_rbm = party_popularity@liberal_conservatism }
+	set_temp_variable = { dd_pop_vnm = party_popularity@national_populism }
+	set_temp_variable = { dd_pop_fds = party_popularity@fascism }
+	set_temp_variable = { dd_pop_rbl = party_popularity@communism }
+	set_temp_variable = { dd_pop_aca = party_popularity@anarcho_communism }
 
-	set_temp_variable = { dd_share_eas_t = party_popularity@social_democracy }
-	add_to_temp_variable = { dd_share_eas_t = party_popularity@progressive_populism }
-	multiply_temp_variable = { dd_share_eas_t = dd_army_total_t }
-	round_temp_variable = dd_share_eas_t
-
-	set_temp_variable = { dd_share_wcl_t = party_popularity@social_liberalism }
-	multiply_temp_variable = { dd_share_wcl_t = dd_army_total_t }
-	round_temp_variable = dd_share_wcl_t
-
-	set_temp_variable = { dd_share_rbm_t = party_popularity@liberal_conservatism }
-	multiply_temp_variable = { dd_share_rbm_t = dd_army_total_t }
-	round_temp_variable = dd_share_rbm_t
-
-	set_temp_variable = { dd_share_vnm_t = party_popularity@national_populism }
-	multiply_temp_variable = { dd_share_vnm_t = dd_army_total_t }
-	round_temp_variable = dd_share_vnm_t
-
-	set_temp_variable = { dd_share_fds_t = party_popularity@fascism }
-	multiply_temp_variable = { dd_share_fds_t = dd_army_total_t }
-	round_temp_variable = dd_share_fds_t
-
-	set_temp_variable = { dd_share_rbl_t = party_popularity@communism }
-	multiply_temp_variable = { dd_share_rbl_t = dd_army_total_t }
-	round_temp_variable = dd_share_rbl_t
-
-	set_temp_variable = { dd_share_aca_t = party_popularity@anarcho_communism }
-	multiply_temp_variable = { dd_share_aca_t = dd_army_total_t }
-	round_temp_variable = dd_share_aca_t
-
-	set_temp_variable = { dd_share_sum_t = dd_share_eas_t }
-	add_to_temp_variable = { dd_share_sum_t = dd_share_wcl_t }
-	add_to_temp_variable = { dd_share_sum_t = dd_share_rbm_t }
-	add_to_temp_variable = { dd_share_sum_t = dd_share_vnm_t }
-	add_to_temp_variable = { dd_share_sum_t = dd_share_fds_t }
-	add_to_temp_variable = { dd_share_sum_t = dd_share_rbl_t }
-	add_to_temp_variable = { dd_share_sum_t = dd_share_aca_t }
-
-	set_temp_variable = { dd_share_usa_t = dd_army_total_t }
-	subtract_from_temp_variable = { dd_share_usa_t = dd_share_sum_t }
+	# Shares for tags that stay with USA fold back into the remainder.
 	if = {
-		limit = { check_variable = { dd_share_usa_t < 0 } }
-		set_temp_variable = { dd_share_usa_t = 0 }
+		limit = { NOT = { EAS = { has_country_flag = dd_cw_released } } }
+		set_temp_variable = { dd_pop_eas = 0 }
+	}
+	if = {
+		limit = { NOT = { WCL = { has_country_flag = dd_cw_released } } }
+		set_temp_variable = { dd_pop_wcl = 0 }
+	}
+	if = {
+		limit = { NOT = { RBM = { has_country_flag = dd_cw_released } } }
+		set_temp_variable = { dd_pop_rbm = 0 }
+	}
+	if = {
+		limit = { NOT = { VNM = { has_country_flag = dd_cw_released } } }
+		set_temp_variable = { dd_pop_vnm = 0 }
+	}
+	if = {
+		limit = { NOT = { FDS = { has_country_flag = dd_cw_released } } }
+		set_temp_variable = { dd_pop_fds = 0 }
+	}
+	if = {
+		limit = { NOT = { RBL = { has_country_flag = dd_cw_released } } }
+		set_temp_variable = { dd_pop_rbl = 0 }
+	}
+	if = {
+		limit = { NOT = { ACA = { has_country_flag = dd_cw_released } } }
+		set_temp_variable = { dd_pop_aca = 0 }
 	}
 
-	dd_usa_disband_army = yes
-	# Eastern Compact, AOC. Democratic socialism plus progressive populism.
+	set_temp_variable = { dd_cw_rem = 1 }
+
+	if = {
+		limit = { EAS = { has_country_flag = dd_cw_released } }
+		set_temp_variable = { dd_cw_share = dd_pop_eas }
+		if = {
+			limit = {
+				check_variable = { dd_cw_share > 0.0001 }
+				check_variable = { dd_cw_rem > 0.0001 }
+			}
+			set_temp_variable = { dd_cw_size = dd_cw_share }
+			divide_temp_variable = { dd_cw_size = dd_cw_rem }
+			if = { limit = { check_variable = { dd_cw_size > 1 } } set_temp_variable = { dd_cw_size = 1 } }
+			transfer_units_fraction = {
+				target = EAS
+				size = 0
+				army_ratio = var:dd_cw_size
+				air_ratio = var:dd_cw_size
+				stockpile_ratio = var:dd_cw_size
+				navy_ratio = 0
+			}
+			subtract_from_temp_variable = { dd_cw_rem = dd_cw_share }
+		}
+	}
+	if = {
+		limit = { WCL = { has_country_flag = dd_cw_released } }
+		set_temp_variable = { dd_cw_share = dd_pop_wcl }
+		if = {
+			limit = {
+				check_variable = { dd_cw_share > 0.0001 }
+				check_variable = { dd_cw_rem > 0.0001 }
+			}
+			set_temp_variable = { dd_cw_size = dd_cw_share }
+			divide_temp_variable = { dd_cw_size = dd_cw_rem }
+			if = { limit = { check_variable = { dd_cw_size > 1 } } set_temp_variable = { dd_cw_size = 1 } }
+			transfer_units_fraction = {
+				target = WCL
+				size = 0
+				army_ratio = var:dd_cw_size
+				air_ratio = var:dd_cw_size
+				stockpile_ratio = var:dd_cw_size
+				navy_ratio = 0
+			}
+			subtract_from_temp_variable = { dd_cw_rem = dd_cw_share }
+		}
+	}
+	if = {
+		limit = { RBM = { has_country_flag = dd_cw_released } }
+		set_temp_variable = { dd_cw_share = dd_pop_rbm }
+		if = {
+			limit = {
+				check_variable = { dd_cw_share > 0.0001 }
+				check_variable = { dd_cw_rem > 0.0001 }
+			}
+			set_temp_variable = { dd_cw_size = dd_cw_share }
+			divide_temp_variable = { dd_cw_size = dd_cw_rem }
+			if = { limit = { check_variable = { dd_cw_size > 1 } } set_temp_variable = { dd_cw_size = 1 } }
+			transfer_units_fraction = {
+				target = RBM
+				size = 0
+				army_ratio = var:dd_cw_size
+				air_ratio = var:dd_cw_size
+				stockpile_ratio = var:dd_cw_size
+				navy_ratio = 0
+			}
+			subtract_from_temp_variable = { dd_cw_rem = dd_cw_share }
+		}
+	}
+	if = {
+		limit = { VNM = { has_country_flag = dd_cw_released } }
+		set_temp_variable = { dd_cw_share = dd_pop_vnm }
+		if = {
+			limit = {
+				check_variable = { dd_cw_share > 0.0001 }
+				check_variable = { dd_cw_rem > 0.0001 }
+			}
+			set_temp_variable = { dd_cw_size = dd_cw_share }
+			divide_temp_variable = { dd_cw_size = dd_cw_rem }
+			if = { limit = { check_variable = { dd_cw_size > 1 } } set_temp_variable = { dd_cw_size = 1 } }
+			transfer_units_fraction = {
+				target = VNM
+				size = 0
+				army_ratio = var:dd_cw_size
+				air_ratio = var:dd_cw_size
+				stockpile_ratio = var:dd_cw_size
+				navy_ratio = 0
+			}
+			subtract_from_temp_variable = { dd_cw_rem = dd_cw_share }
+		}
+	}
+	if = {
+		limit = { FDS = { has_country_flag = dd_cw_released } }
+		set_temp_variable = { dd_cw_share = dd_pop_fds }
+		if = {
+			limit = {
+				check_variable = { dd_cw_share > 0.0001 }
+				check_variable = { dd_cw_rem > 0.0001 }
+			}
+			set_temp_variable = { dd_cw_size = dd_cw_share }
+			divide_temp_variable = { dd_cw_size = dd_cw_rem }
+			if = { limit = { check_variable = { dd_cw_size > 1 } } set_temp_variable = { dd_cw_size = 1 } }
+			transfer_units_fraction = {
+				target = FDS
+				size = 0
+				army_ratio = var:dd_cw_size
+				air_ratio = var:dd_cw_size
+				stockpile_ratio = var:dd_cw_size
+				navy_ratio = 0
+			}
+			subtract_from_temp_variable = { dd_cw_rem = dd_cw_share }
+		}
+	}
+	if = {
+		limit = { RBL = { has_country_flag = dd_cw_released } }
+		set_temp_variable = { dd_cw_share = dd_pop_rbl }
+		if = {
+			limit = {
+				check_variable = { dd_cw_share > 0.0001 }
+				check_variable = { dd_cw_rem > 0.0001 }
+			}
+			set_temp_variable = { dd_cw_size = dd_cw_share }
+			divide_temp_variable = { dd_cw_size = dd_cw_rem }
+			if = { limit = { check_variable = { dd_cw_size > 1 } } set_temp_variable = { dd_cw_size = 1 } }
+			transfer_units_fraction = {
+				target = RBL
+				size = 0
+				army_ratio = var:dd_cw_size
+				air_ratio = var:dd_cw_size
+				stockpile_ratio = var:dd_cw_size
+				navy_ratio = 0
+			}
+			subtract_from_temp_variable = { dd_cw_rem = dd_cw_share }
+		}
+	}
+	if = {
+		limit = { ACA = { has_country_flag = dd_cw_released } }
+		set_temp_variable = { dd_cw_share = dd_pop_aca }
+		if = {
+			limit = {
+				check_variable = { dd_cw_share > 0.0001 }
+				check_variable = { dd_cw_rem > 0.0001 }
+			}
+			set_temp_variable = { dd_cw_size = dd_cw_share }
+			divide_temp_variable = { dd_cw_size = dd_cw_rem }
+			if = { limit = { check_variable = { dd_cw_size > 1 } } set_temp_variable = { dd_cw_size = 1 } }
+			transfer_units_fraction = {
+				target = ACA
+				size = 0
+				army_ratio = var:dd_cw_size
+				air_ratio = var:dd_cw_size
+				stockpile_ratio = var:dd_cw_size
+				navy_ratio = 0
+			}
+			subtract_from_temp_variable = { dd_cw_rem = dd_cw_share }
+		}
+	}
+
+	# Navy: 80% Alaska Command, 10% Pacific liberals, 10% Deep South.
+	if = {
+		limit = { FVA = { has_country_flag = dd_cw_released } }
+		transfer_units_fraction = {
+			target = FVA
+			size = 0
+			army_ratio = 0
+			air_ratio = 0
+			stockpile_ratio = 0
+			navy_ratio = 0.8
+		}
+	}
+	if = {
+		limit = { WCL = { has_country_flag = dd_cw_released } }
+		# After Alaska took 80%, 10% of original is half of what remains on USA.
+		# If Alaska is missing, 10% of original is size 0.1 of the full fleet.
+		if = {
+			limit = { FVA = { has_country_flag = dd_cw_released } }
+			transfer_units_fraction = {
+				target = WCL
+				size = 0
+				army_ratio = 0
+				air_ratio = 0
+				stockpile_ratio = 0
+				navy_ratio = 0.5
+			}
+		}
+		else = {
+			transfer_units_fraction = {
+				target = WCL
+				size = 0
+				army_ratio = 0
+				air_ratio = 0
+				stockpile_ratio = 0
+				navy_ratio = 0.1
+			}
+		}
+	}
+	if = {
+		limit = { FDS = { has_country_flag = dd_cw_released } }
+		# Take 10% of the original fleet from whatever still sits on USA.
+		if = {
+			limit = {
+				FVA = { has_country_flag = dd_cw_released }
+				WCL = { has_country_flag = dd_cw_released }
+			}
+			transfer_units_fraction = {
+				target = FDS
+				size = 0
+				army_ratio = 0
+				air_ratio = 0
+				stockpile_ratio = 0
+				navy_ratio = 1
+			}
+		}
+		else_if = {
+			limit = { FVA = { has_country_flag = dd_cw_released } }
+			transfer_units_fraction = {
+				target = FDS
+				size = 0
+				army_ratio = 0
+				air_ratio = 0
+				stockpile_ratio = 0
+				navy_ratio = 0.5
+			}
+		}
+		else_if = {
+			limit = { WCL = { has_country_flag = dd_cw_released } }
+			transfer_units_fraction = {
+				target = FDS
+				size = 0
+				army_ratio = 0
+				air_ratio = 0
+				stockpile_ratio = 0
+				navy_ratio = 0.111111
+			}
+		}
+		else = {
+			transfer_units_fraction = {
+				target = FDS
+				size = 0
+				army_ratio = 0
+				air_ratio = 0
+				stockpile_ratio = 0
+				navy_ratio = 0.1
+			}
+		}
+	}
+
+	# Capitals + National Guard for Pacific liberals, Rubio, Vance, AOC.
 	if = {
 		limit = { EAS = { has_country_flag = dd_cw_released } }
 		EAS = {
 			set_capital = { state = 361 }
-			set_variable = { dd_cw_spawn = dd_share_eas_t }
-			dd_usa_spawn_army = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = EAS count = 10 }
+			set_variable = { dd_cw_spawn = 4 }
+			dd_usa_cw_spawn_ng_n = yes
+			set_variable = { dd_cw_spawn = 12 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
-	else = {
-		add_to_temp_variable = { dd_share_usa_t = dd_share_eas_t }
-	}
-	# Pacific Republic, Newsom. Social liberalism.
 	if = {
 		limit = { WCL = { has_country_flag = dd_cw_released } }
 		WCL = {
 			set_capital = { state = 385 }
-			set_variable = { dd_cw_spawn = dd_share_wcl_t }
-			dd_usa_spawn_army = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = WCL count = 10 }
+			set_variable = { dd_cw_spawn = 4 }
+			dd_usa_cw_spawn_ng_n = yes
+			set_variable = { dd_cw_spawn = 12 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
-	else = {
-		add_to_temp_variable = { dd_share_usa_t = dd_share_wcl_t }
-	}
-	# Heartland, Rubio. Liberal conservatism. Plains, Montana, northern New Mexico.
 	if = {
 		limit = { RBM = { has_country_flag = dd_cw_released } }
 		RBM = {
 			set_capital = { state = 383 }
-			set_variable = { dd_cw_spawn = dd_share_rbm_t }
-			dd_usa_spawn_army = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = RBM count = 10 }
+			set_variable = { dd_cw_spawn = 4 }
+			dd_usa_cw_spawn_ng_n = yes
+			set_variable = { dd_cw_spawn = 12 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
-	else = {
-		add_to_temp_variable = { dd_share_usa_t = dd_share_rbm_t }
-	}
-	# American Mandate, Vance. National populism. Heartland, Dakotas, Indiana, south Ohio.
 	if = {
 		limit = { VNM = { has_country_flag = dd_cw_released } }
 		VNM = {
 			set_capital = { state = 373 }
-			set_variable = { dd_cw_spawn = dd_share_vnm_t }
-			dd_usa_spawn_army = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = VNM count = 10 }
+			set_variable = { dd_cw_spawn = 4 }
+			dd_usa_cw_spawn_ng_n = yes
+			set_variable = { dd_cw_spawn = 12 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
-	else = {
-		add_to_temp_variable = { dd_share_usa_t = dd_share_vnm_t }
-	}
-	# Deep South. Fascism.
 	if = {
 		limit = { FDS = { has_country_flag = dd_cw_released } }
 		FDS = {
 			set_capital = { state = 367 }
-			set_variable = { dd_cw_spawn = dd_share_fds_t }
-			dd_usa_spawn_army = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = FDS count = 10 }
+			set_variable = { dd_cw_spawn = 12 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
-	else = {
-		add_to_temp_variable = { dd_share_usa_t = dd_share_fds_t }
-	}
-	# Rust Belt / CSA. Communism. Northern Ohio stays here. Indiana does not.
 	if = {
 		limit = { RBL = { has_country_flag = dd_cw_released } }
 		RBL = {
 			set_capital = { state = 393 }
-			set_variable = { dd_cw_spawn = dd_share_rbl_t }
-			dd_usa_spawn_army = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = RBL count = 10 }
+			set_variable = { dd_cw_spawn = 12 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
-	else = {
-		add_to_temp_variable = { dd_share_usa_t = dd_share_rbl_t }
-	}
-	# Anarchist communes.
 	if = {
 		limit = { ACA = { has_country_flag = dd_cw_released } }
 		ACA = {
 			set_capital = { state = 378 }
-			set_variable = { dd_cw_spawn = dd_share_aca_t }
-			dd_usa_spawn_army = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = ACA count = 10 }
+			set_variable = { dd_cw_spawn = 12 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
-	else = {
-		add_to_temp_variable = { dd_share_usa_t = dd_share_aca_t }
-	}
-	set_variable = { dd_cw_spawn = dd_share_usa_t }
-	dd_usa_spawn_army_home = yes
-	clear_variable = dd_cw_spawn
+	# USA keeping a major still gets that major's militia package.
 	if = {
 		limit = {
 			OR = {
@@ -801,155 +1145,280 @@ dd_usa_civil_war_fights = {
 				has_country_flag = dd_usa_keep_wcl
 				has_country_flag = dd_usa_keep_rbm
 				has_country_flag = dd_usa_keep_vnm
+			}
+		}
+		set_variable = { dd_cw_spawn = 4 }
+		dd_usa_cw_spawn_ng_n = yes
+		set_variable = { dd_cw_spawn = 12 }
+		dd_usa_cw_spawn_militia_n = yes
+	}
+	else_if = {
+		limit = {
+			OR = {
 				has_country_flag = dd_usa_keep_fds
 				has_country_flag = dd_usa_keep_rbl
 				has_country_flag = dd_usa_keep_aca
 			}
 		}
-		division_template = {
-			name = "Militia"
-			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 0 y = 2 }
-				infantry = { x = 1 y = 0 }
-				infantry = { x = 1 y = 1 }
-				infantry = { x = 1 y = 2 }
-			}
-		}
-		add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-		create_unit = {
-			division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45"
-			owner = USA
-			count = 10
-		}
+		set_variable = { dd_cw_spawn = 12 }
+		dd_usa_cw_spawn_militia_n = yes
 	}
+
 	if = {
 		limit = { FLO = { has_country_flag = dd_cw_released } }
 		FLO = {
 			set_capital = { state = 366 }
-			division_template = {
-				name = "Florida State Guard"
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 0 y = 2 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-					infantry = { x = 1 y = 2 }
-				}
-			}
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Florida State Guard\" division_template = \"Florida State Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.7" owner = FLO count = 6 }
+			set_variable = { dd_cw_spawn = 4 }
+			dd_usa_cw_spawn_ng_n = yes
+			set_variable = { dd_cw_spawn = 2 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
 	if = {
 		limit = { TXG = { has_country_flag = dd_cw_released } }
 		TXG = {
 			set_capital = { state = 375 }
-			division_template = {
-				name = "Texas Guard"
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 0 y = 2 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-					infantry = { x = 1 y = 2 }
-					infantry = { x = 2 y = 0 }
-					infantry = { x = 2 y = 1 }
-					infantry = { x = 2 y = 2 }
-				}
-			}
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 6000 }
-			create_unit = { division = "name = \"Texas Guard\" division_template = \"Texas Guard\" start_experience_factor = 0.35 start_equipment_factor = 0.7" owner = TXG count = 8 }
+			set_variable = { dd_cw_spawn = 6 }
+			dd_usa_cw_spawn_ng_n = yes
+			set_variable = { dd_cw_spawn = 4 }
+			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
+	# Utah: 6 militia 2x6, 2 infantry 2x6 with eng/arty/recon/hospital, 1 mountaineer same supports.
 	if = {
 		limit = { DES = { has_country_flag = dd_cw_released } }
 		DES = {
 			set_capital = { state = 380 }
+			set_variable = { dd_cw_spawn = 6 }
+			dd_usa_cw_spawn_militia_n = yes
 			division_template = {
 				name = "Nauvoo Legion"
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 0 y = 2 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-					infantry = { x = 1 y = 2 }
-					infantry = { x = 2 y = 0 }
-					infantry = { x = 2 y = 1 }
-				}
-			}
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
-			create_unit = { division = "name = \"Nauvoo Legion\" division_template = \"Nauvoo Legion\" start_experience_factor = 0.25 start_equipment_factor = 0.65" owner = DES count = 6 }
-		}
-	}
-	if = {
-		limit = { AOG = { has_country_flag = dd_cw_released } }
-		AOG = {
-			set_capital = { state = 387 }
-			division_template = {
-				name = "Faithful Band"
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-				}
-			}
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 2000 }
-			create_unit = { division = "name = \"Faithful Band\" division_template = \"Faithful Band\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = AOG count = 4 }
-		}
-	}
-	if = {
-		limit = { SCN = { has_country_flag = dd_cw_released } }
-		SCN = {
-			set_capital = { state = 368 }
-			division_template = {
-				name = "Covenant Host"
+				is_locked = yes
 				regiments = {
 					infantry = { x = 0 y = 0 }
 					infantry = { x = 0 y = 1 }
 					infantry = { x = 0 y = 2 }
 					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+					infantry = { x = 0 y = 5 }
 					infantry = { x = 1 y = 0 }
 					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+					infantry = { x = 1 y = 5 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					artillery = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
+					field_hospital = { x = 0 y = 3 }
 				}
 			}
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 2500 }
-			create_unit = { division = "name = \"Covenant Host\" division_template = \"Covenant Host\" start_experience_factor = 0.25 start_equipment_factor = 0.6" owner = SCN count = 5 }
+			division_template = {
+				name = "Deseret Mountaineers"
+				is_locked = yes
+				regiments = {
+					mountaineers = { x = 0 y = 0 }
+					mountaineers = { x = 0 y = 1 }
+					mountaineers = { x = 0 y = 2 }
+					mountaineers = { x = 0 y = 3 }
+					mountaineers = { x = 0 y = 4 }
+					mountaineers = { x = 0 y = 5 }
+					mountaineers = { x = 1 y = 0 }
+					mountaineers = { x = 1 y = 1 }
+					mountaineers = { x = 1 y = 2 }
+					mountaineers = { x = 1 y = 3 }
+					mountaineers = { x = 1 y = 4 }
+					mountaineers = { x = 1 y = 5 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					artillery = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
+					field_hospital = { x = 0 y = 3 }
+				}
+			}
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 6000 }
+			add_equipment_to_stockpile = { type = support_equipment amount = 400 }
+			add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 400 }
+			set_variable = { dd_cw_spawn = 2 }
+			while_loop_effect = {
+				limit = { check_variable = { dd_cw_spawn > 0 } }
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Nauvoo Legion\" division_template = \"Nauvoo Legion\" start_experience_factor = 0.3 start_equipment_factor = 0.7"
+						owner = PREV
+						count = 1
+					}
+				}
+				subtract_from_variable = { dd_cw_spawn = 1 }
+			}
+			clear_variable = dd_cw_spawn
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Deseret Mountaineers\" division_template = \"Deseret Mountaineers\" start_experience_factor = 0.35 start_equipment_factor = 0.7"
+					owner = PREV
+					count = 1
+				}
+			}
 		}
 	}
+	# Idaho Christians: 4 militia 2x6
+	if = {
+		limit = { AOG = { has_country_flag = dd_cw_released } }
+		AOG = {
+			set_capital = { state = 387 }
+			set_variable = { dd_cw_spawn = 4 }
+			dd_usa_cw_spawn_militia_n = yes
+		}
+	}
+	# Covenant Army: 8 militia 2x6
+	if = {
+		limit = { SCN = { has_country_flag = dd_cw_released } }
+		SCN = {
+			set_capital = { state = 368 }
+			set_variable = { dd_cw_spawn = 8 }
+			dd_usa_cw_spawn_militia_n = yes
+		}
+	}
+	# Alaska Federal Command: 2 infantry at each base + 1 extra in Alaska.
 	if = {
 		limit = { FVA = { has_country_flag = dd_cw_released } }
 		FVA = {
 			set_capital = { state = 463 }
+			dd_usa_cw_tpl_infantry_3x6_eng = yes
 			division_template = {
 				name = "Federal Garrison"
+				is_locked = yes
 				regiments = {
 					infantry = { x = 0 y = 0 }
 					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+					infantry = { x = 0 y = 5 }
 					infantry = { x = 1 y = 0 }
 					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+					infantry = { x = 1 y = 5 }
 					infantry = { x = 2 y = 0 }
 					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					infantry = { x = 2 y = 3 }
+					infantry = { x = 2 y = 4 }
+					infantry = { x = 2 y = 5 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					artillery = { x = 0 y = 1 }
+					recon = { x = 0 y = 2 }
+					field_hospital = { x = 0 y = 3 }
 				}
 			}
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 }
-			create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 6 }
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 20000 }
+			add_equipment_to_stockpile = { type = support_equipment amount = 800 }
+			add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 800 }
+			# Owned bases spawn immediately. Mainland holds wait until after wars + province control.
+			1112 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 7590 } }
+			463 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 3 prioritize_location = 13091 } }
 		}
 	}
-	SFT = { set_capital = { state = 1124 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = SFT count = 4 } }
-	ABR = { set_capital = { state = 1132 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = ABR count = 6 } }
-	PTF = { set_capital = { state = 1136 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 2000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = PTF count = 3 } }
-	NYF = { set_capital = { state = 1125 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = NYF count = 4 } }
-	TXO = { set_capital = { state = 1126 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = TXO count = 4 } }
-	TXR = { set_capital = { state = 1127 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = TXR count = 4 } }
-	ETX = { set_capital = { state = 1128 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = ETX count = 4 } }
-	EBC = { set_capital = { state = 1129 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = EBC count = 4 } }
-	VIR = { set_capital = { state = 1090 } add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 2000 } create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6" owner = VIR count = 2 } }
+
+	# Minors
+	SFT = {
+		set_capital = { state = 1124 }
+		set_variable = { dd_cw_spawn = 2 }
+		dd_usa_cw_spawn_inf_eng_n = yes
+	}
+	NYF = {
+		set_capital = { state = 1125 }
+		set_variable = { dd_cw_spawn = 2 }
+		dd_usa_cw_spawn_inf_eng_n = yes
+	}
+	VIR = {
+		set_capital = { state = 1090 }
+		set_variable = { dd_cw_spawn = 2 }
+		dd_usa_cw_spawn_inf_eng_n = yes
+	}
+	TXO = {
+		set_capital = { state = 1126 }
+		set_variable = { dd_cw_spawn = 4 }
+		dd_usa_cw_spawn_inf_eng_n = yes
+	}
+	TXR = {
+		set_capital = { state = 1127 }
+		set_variable = { dd_cw_spawn = 2 }
+		dd_usa_cw_spawn_militia_3x6_n = yes
+		division_template = {
+			name = "Red Armor"
+			is_locked = yes
+			regiments = {
+				mechanized = { x = 0 y = 0 }
+				mechanized = { x = 0 y = 1 }
+				mechanized = { x = 0 y = 2 }
+				mechanized = { x = 0 y = 3 }
+				modern_armor = { x = 1 y = 0 }
+				modern_armor = { x = 1 y = 1 }
+				modern_armor = { x = 1 y = 2 }
+				modern_armor = { x = 1 y = 3 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+			}
+		}
+		add_equipment_to_stockpile = { type = mechanized_equipment_4 amount = 400 }
+		add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 200 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 100 }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Red Armor\" division_template = \"Red Armor\" start_experience_factor = 0.35 start_equipment_factor = 0.7"
+				owner = PREV
+				count = 1
+			}
+		}
+	}
+	ETX = {
+		set_capital = { state = 1128 }
+		set_variable = { dd_cw_spawn = 8 }
+		dd_usa_cw_spawn_militia_n = yes
+	}
+	EBC = {
+		set_capital = { state = 1129 }
+		dd_usa_cw_tpl_militia_2x6 = yes
+		add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 12000 }
+		set_variable = { dd_cw_spawn = 6 }
+		while_loop_effect = {
+			limit = { check_variable = { dd_cw_spawn > 0 } }
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.25 start_equipment_factor = 0.6"
+					owner = PREV
+					count = 1
+				}
+			}
+			subtract_from_variable = { dd_cw_spawn = 1 }
+		}
+		clear_variable = dd_cw_spawn
+		# Miami holds spawn after wars + province control (see dd_usa_cw_spawn_held_bases).
+	}
+	ABR = {
+		set_capital = { state = 1132 }
+		set_variable = { dd_cw_spawn = 12 }
+		dd_usa_cw_spawn_militia_n = yes
+	}
+	PTF = {
+		set_capital = { state = 1136 }
+		set_variable = { dd_cw_spawn = 8 }
+		dd_usa_cw_spawn_militia_n = yes
+	}
+	ASK = {
+		set_capital = { state = 1137 }
+		set_variable = { dd_cw_spawn = 4 }
+		dd_usa_cw_spawn_militia_n = yes
+	}
 
 	# Anarchists are a puppet of the communists. set_autonomy clears the leader.
 	if = {
@@ -1075,6 +1544,7 @@ dd_usa_civil_war_fights = {
 	VIR = { set_country_flag = dd_cw_general }
 	ABR = { set_country_flag = dd_cw_general }
 	PTF = { set_country_flag = dd_cw_general }
+	ASK = { set_country_flag = dd_cw_general }
 	every_country = {
 		limit = { has_country_flag = dd_cw_general }
 		every_other_country = {
@@ -1117,4 +1587,26 @@ dd_usa_civil_war_fights = {
 		EBC = { declare_war_on = { target = USA type = dd_annex } }
 	}
 	dd_usa_province_control = yes
+	dd_usa_cw_spawn_held_bases = yes
+}
+
+# After wars + province control so enemy-province spawns are legal.
+dd_usa_cw_spawn_held_bases = {
+	if = {
+		limit = { FVA = { has_country_flag = dd_cw_released } }
+		363 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 10051 allow_spawning_on_enemy_provs = yes } }
+		362 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 788 allow_spawning_on_enemy_provs = yes } }
+		386 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 7255 allow_spawning_on_enemy_provs = yes } }
+		375 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 12341 allow_spawning_on_enemy_provs = yes } }
+		368 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 12670 allow_spawning_on_enemy_provs = yes } }
+	}
+	366 = {
+		create_unit = {
+			division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.25 start_equipment_factor = 0.6"
+			owner = EBC
+			count = 2
+			prioritize_location = 1843
+			allow_spawning_on_enemy_provs = yes
+		}
+	}
 }

@@ -309,10 +309,12 @@ dd_usa_cw_spawn_militia = {
 	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 6000 }
 	while_loop_effect = {
 		limit = { check_variable = { dd_usa_militia_count > 0 } }
-		create_unit = {
-			division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
-			owner = ROOT
-			count = 1
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+			}
 		}
 		subtract_from_variable = { dd_usa_militia_count = 1 }
 	}
@@ -1125,6 +1127,12 @@ dd_usa_start_civil_war = {
 				set_capital = { state = 373 }
 				set_country_flag = dd_cw_released
 			}
+		}
+		ASK = {
+			transfer_state = 1137
+			add_state_core = 1137
+			set_capital = { state = 1137 }
+			set_country_flag = dd_cw_released
 		}
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_rbl } }
