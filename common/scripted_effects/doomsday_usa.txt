@@ -1274,6 +1274,22 @@ dd_usa_start_civil_war = {
 		}
 		dd_usa_civil_war_fights = yes
 		dd_usa_apply_disorganized_frontline = yes
+		# Majors share the USA focus tree; CW branches need this flag.
+		every_country = {
+			limit = {
+				OR = {
+					tag = EAS
+					tag = WCL
+					tag = RBM
+					tag = VNM
+					tag = FDS
+					tag = RBL
+					tag = ACA
+				}
+				has_country_flag = dd_cw_released
+			}
+			set_country_flag = dd_usa_civil_war
+		}
 		news_event = { id = dd_usa_news.10 }
 		if = {
 			limit = { is_ai = no }
