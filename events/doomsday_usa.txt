@@ -592,6 +592,94 @@ country_event = {
 	}
 }
 
+# Human player picks one of the six majors. Anarchists break off later (dd_usa_cw.1).
+country_event = {
+	id = dd_usa_cw.2
+	title = dd_usa_cw.2.t
+	desc = dd_usa_cw.2.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = dd_usa_cw.2.eas
+		trigger = {
+			OR = {
+				has_country_flag = dd_usa_keep_eas
+				EAS = { has_country_flag = dd_cw_released }
+			}
+		}
+		if = {
+			limit = { EAS = { has_country_flag = dd_cw_released } }
+			EAS = { change_tag_from = ROOT }
+		}
+	}
+	option = {
+		name = dd_usa_cw.2.wcl
+		trigger = {
+			OR = {
+				has_country_flag = dd_usa_keep_wcl
+				WCL = { has_country_flag = dd_cw_released }
+			}
+		}
+		if = {
+			limit = { WCL = { has_country_flag = dd_cw_released } }
+			WCL = { change_tag_from = ROOT }
+		}
+	}
+	option = {
+		name = dd_usa_cw.2.rbm
+		trigger = {
+			OR = {
+				has_country_flag = dd_usa_keep_rbm
+				RBM = { has_country_flag = dd_cw_released }
+			}
+		}
+		if = {
+			limit = { RBM = { has_country_flag = dd_cw_released } }
+			RBM = { change_tag_from = ROOT }
+		}
+	}
+	option = {
+		name = dd_usa_cw.2.vnm
+		trigger = {
+			OR = {
+				has_country_flag = dd_usa_keep_vnm
+				VNM = { has_country_flag = dd_cw_released }
+			}
+		}
+		if = {
+			limit = { VNM = { has_country_flag = dd_cw_released } }
+			VNM = { change_tag_from = ROOT }
+		}
+	}
+	option = {
+		name = dd_usa_cw.2.fds
+		trigger = {
+			OR = {
+				has_country_flag = dd_usa_keep_fds
+				FDS = { has_country_flag = dd_cw_released }
+			}
+		}
+		if = {
+			limit = { FDS = { has_country_flag = dd_cw_released } }
+			FDS = { change_tag_from = ROOT }
+		}
+	}
+	option = {
+		name = dd_usa_cw.2.rbl
+		trigger = {
+			OR = {
+				has_country_flag = dd_usa_keep_rbl
+				RBL = { has_country_flag = dd_cw_released }
+			}
+		}
+		if = {
+			limit = { RBL = { has_country_flag = dd_cw_released } }
+			RBL = { change_tag_from = ROOT }
+		}
+	}
+}
+
 country_event = {
 	id = dd_usa_recon.1
 	title = dd_usa_recon.1.t

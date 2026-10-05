@@ -1275,5 +1275,9 @@ dd_usa_start_civil_war = {
 		dd_usa_civil_war_fights = yes
 		dd_usa_apply_disorganized_frontline = yes
 		news_event = { id = dd_usa_news.10 }
+		if = {
+			limit = { is_ai = no }
+			country_event = { id = dd_usa_cw.2 }
+		}
 	}
 }
