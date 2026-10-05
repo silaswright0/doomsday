@@ -1,0 +1,112 @@
+# Country-scoped. No random.
+
+defined_text = {
+	name = GetDdUsaActiveBill
+	text = {
+		trigger = { check_variable = { dd_usa_bill_active < 1 } }
+		localization_key = DD_USA_LEG_BILL_NONE
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_id = 1 } }
+		localization_key = DD_USA_LEG_BILL_CARE_ACT
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_id = 2 } }
+		localization_key = DD_USA_LEG_BILL_BIG_BEAUTIFUL
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_id = 3 } }
+		localization_key = DD_USA_LEG_BILL_SECURE_AMERICA
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_id = 4 } }
+		localization_key = DD_USA_LEG_BILL_WATER
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_id = 11 } }
+		localization_key = DD_USA_LEG_BILL_MEDICARE
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_id = 12 } }
+		localization_key = DD_USA_LEG_BILL_BAN_ARMS
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_id = 13 } }
+		localization_key = DD_USA_LEG_BILL_HOMEOWNERSHIP
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_id = 14 } }
+		localization_key = DD_USA_LEG_BILL_TELEHEALTH
+	}
+	text = {
+		localization_key = DD_USA_LEG_BILL_UNKNOWN
+	}
+}
+
+defined_text = {
+	name = GetDdUsaBillChamber
+	text = {
+		trigger = { check_variable = { dd_usa_bill_active < 1 } }
+		localization_key = DD_USA_LEG_CHAMBER_NONE
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_chamber < 1 } }
+		localization_key = DD_USA_LEG_CHAMBER_HOUSE
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_chamber = 1 } }
+		localization_key = DD_USA_LEG_CHAMBER_SENATE
+	}
+	text = {
+		localization_key = DD_USA_LEG_CHAMBER_NONE
+	}
+}
+
+defined_text = {
+	name = GetDdUsaBillProgress
+	text = {
+		trigger = { check_variable = { dd_usa_bill_active < 1 } }
+		localization_key = DD_USA_LEG_PROGRESS_IDLE
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_advancing > 0 } }
+		localization_key = DD_USA_LEG_PROGRESS_MOVING
+	}
+	text = {
+		localization_key = DD_USA_LEG_PROGRESS_STALLED
+	}
+}
+
+defined_text = {
+	name = GetDdUsaFilibusterLine
+	text = {
+		trigger = { check_variable = { dd_usa_bill_active < 1 } }
+		localization_key = DD_USA_LEG_FILIBUSTER_NA
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_chamber < 1 } }
+		localization_key = DD_USA_LEG_FILIBUSTER_HOUSE
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_bill_filibuster_cleared > 0 } }
+		localization_key = DD_USA_LEG_FILIBUSTER_CLEARED
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					check_variable = { dd_usa_bill_party < 1 }
+					check_variable = { dd_usa_senate_dem > 59.999 }
+				}
+				AND = {
+					check_variable = { dd_usa_bill_party > 0 }
+					check_variable = { dd_usa_senate_rep > 59.999 }
+				}
+			}
+		}
+		localization_key = DD_USA_LEG_FILIBUSTER_CLOTURE
+	}
+	text = {
+		localization_key = DD_USA_LEG_FILIBUSTER_BLOCKED
+	}
+}

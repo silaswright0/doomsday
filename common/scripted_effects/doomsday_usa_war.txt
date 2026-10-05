@@ -17,7 +17,7 @@ dd_usa_disband_army = {
 	delete_units = { division_template = "Militia Brigade" disband = yes }
 }
 
-# Splinters have no US template. One division per loop so the count can be a variable.
+# Splinters have no US template. Variable count in one create_unit (no while_loop — scope-safe).
 dd_usa_spawn_army = {
 	if = {
 		limit = { check_variable = { dd_cw_spawn > 0 } }
@@ -35,16 +35,15 @@ dd_usa_spawn_army = {
 				infantry = { x = 2 y = 2 }
 			}
 		}
-		while_loop_effect = {
-			limit = { check_variable = { dd_cw_spawn > 0 } }
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1000 }
-			create_unit = {
-				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.4 start_equipment_factor = 0.7"
-				owner = THIS
-				count = 1
-			}
-			subtract_from_variable = { dd_cw_spawn = 1 }
+		set_temp_variable = { dd_cw_eq = dd_cw_spawn }
+		multiply_temp_variable = { dd_cw_eq = 1000 }
+		add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = dd_cw_eq }
+		create_unit = {
+			division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.4 start_equipment_factor = 0.7"
+			owner = THIS
+			count = dd_cw_spawn
 		}
+		set_variable = { dd_cw_spawn = 0 }
 	}
 }
 
@@ -52,15 +51,12 @@ dd_usa_spawn_army = {
 dd_usa_spawn_army_home = {
 	if = {
 		limit = { check_variable = { dd_cw_spawn > 0 } }
-		while_loop_effect = {
-			limit = { check_variable = { dd_cw_spawn > 0 } }
-			create_unit = {
-				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.4 start_equipment_factor = 0.7"
-				owner = THIS
-				count = 1
-			}
-			subtract_from_variable = { dd_cw_spawn = 1 }
+		create_unit = {
+			division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.4 start_equipment_factor = 0.7"
+			owner = THIS
+			count = dd_cw_spawn
 		}
+		set_variable = { dd_cw_spawn = 0 }
 	}
 }
 
@@ -648,154 +644,156 @@ dd_usa_province_control = {
 }
 
 dd_usa_civil_war_fights = {
-	set_variable = { dd_army_total = num_divisions }
-	set_variable = { dd_share_eas = party_popularity@social_democracy }
-	add_to_variable = { dd_share_eas = party_popularity@progressive_populism }
-	multiply_variable = { dd_share_eas = dd_army_total }
-	round_variable = dd_share_eas
-	set_variable = { dd_share_wcl = party_popularity@social_liberalism }
-	multiply_variable = { dd_share_wcl = dd_army_total }
-	round_variable = dd_share_wcl
-	set_variable = { dd_share_rbm = party_popularity@liberal_conservatism }
-	multiply_variable = { dd_share_rbm = dd_army_total }
-	round_variable = dd_share_rbm
-	set_variable = { dd_share_vnm = party_popularity@national_populism }
-	multiply_variable = { dd_share_vnm = dd_army_total }
-	round_variable = dd_share_vnm
-	set_variable = { dd_share_fds = party_popularity@fascism }
-	multiply_variable = { dd_share_fds = dd_army_total }
-	round_variable = dd_share_fds
-	set_variable = { dd_share_rbl = party_popularity@communism }
-	multiply_variable = { dd_share_rbl = dd_army_total }
-	round_variable = dd_share_rbl
-	set_variable = { dd_share_aca = party_popularity@anarcho_communism }
-	multiply_variable = { dd_share_aca = dd_army_total }
-	round_variable = dd_share_aca
-	set_variable = { dd_share_sum = dd_share_eas }
-	add_to_variable = { dd_share_sum = dd_share_wcl }
-	add_to_variable = { dd_share_sum = dd_share_rbm }
-	add_to_variable = { dd_share_sum = dd_share_vnm }
-	add_to_variable = { dd_share_sum = dd_share_fds }
-	add_to_variable = { dd_share_sum = dd_share_rbl }
-	add_to_variable = { dd_share_sum = dd_share_aca }
-	set_variable = { dd_share_usa = dd_army_total }
-	subtract_from_variable = { dd_share_usa = dd_share_sum }
+	# Capture army size and party shares on ROOT (USA) before any country scopes.
+	# Temp vars are unscoped so nested TAG = { } blocks cannot lose PREV.
+	set_temp_variable = { dd_army_total_t = num_divisions }
+
+	set_temp_variable = { dd_share_eas_t = party_popularity@social_democracy }
+	add_to_temp_variable = { dd_share_eas_t = party_popularity@progressive_populism }
+	multiply_temp_variable = { dd_share_eas_t = dd_army_total_t }
+	round_temp_variable = dd_share_eas_t
+
+	set_temp_variable = { dd_share_wcl_t = party_popularity@social_liberalism }
+	multiply_temp_variable = { dd_share_wcl_t = dd_army_total_t }
+	round_temp_variable = dd_share_wcl_t
+
+	set_temp_variable = { dd_share_rbm_t = party_popularity@liberal_conservatism }
+	multiply_temp_variable = { dd_share_rbm_t = dd_army_total_t }
+	round_temp_variable = dd_share_rbm_t
+
+	set_temp_variable = { dd_share_vnm_t = party_popularity@national_populism }
+	multiply_temp_variable = { dd_share_vnm_t = dd_army_total_t }
+	round_temp_variable = dd_share_vnm_t
+
+	set_temp_variable = { dd_share_fds_t = party_popularity@fascism }
+	multiply_temp_variable = { dd_share_fds_t = dd_army_total_t }
+	round_temp_variable = dd_share_fds_t
+
+	set_temp_variable = { dd_share_rbl_t = party_popularity@communism }
+	multiply_temp_variable = { dd_share_rbl_t = dd_army_total_t }
+	round_temp_variable = dd_share_rbl_t
+
+	set_temp_variable = { dd_share_aca_t = party_popularity@anarcho_communism }
+	multiply_temp_variable = { dd_share_aca_t = dd_army_total_t }
+	round_temp_variable = dd_share_aca_t
+
+	set_temp_variable = { dd_share_sum_t = dd_share_eas_t }
+	add_to_temp_variable = { dd_share_sum_t = dd_share_wcl_t }
+	add_to_temp_variable = { dd_share_sum_t = dd_share_rbm_t }
+	add_to_temp_variable = { dd_share_sum_t = dd_share_vnm_t }
+	add_to_temp_variable = { dd_share_sum_t = dd_share_fds_t }
+	add_to_temp_variable = { dd_share_sum_t = dd_share_rbl_t }
+	add_to_temp_variable = { dd_share_sum_t = dd_share_aca_t }
+
+	set_temp_variable = { dd_share_usa_t = dd_army_total_t }
+	subtract_from_temp_variable = { dd_share_usa_t = dd_share_sum_t }
 	if = {
-		limit = { check_variable = { dd_share_usa < 0 } }
-		set_variable = { dd_share_usa = 0 }
+		limit = { check_variable = { dd_share_usa_t < 0 } }
+		set_temp_variable = { dd_share_usa_t = 0 }
 	}
+
 	dd_usa_disband_army = yes
 	# Eastern Compact, AOC. Democratic socialism plus progressive populism.
 	if = {
 		limit = { EAS = { has_country_flag = dd_cw_released } }
 		EAS = {
 			set_capital = { state = 361 }
-			set_variable = { dd_cw_spawn = PREV.dd_share_eas }
+			set_variable = { dd_cw_spawn = dd_share_eas_t }
 			dd_usa_spawn_army = yes
 			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
 			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = EAS count = 10 }
 		}
 	}
 	else = {
-		add_to_variable = { dd_share_usa = dd_share_eas }
+		add_to_temp_variable = { dd_share_usa_t = dd_share_eas_t }
 	}
 	# Pacific Republic, Newsom. Social liberalism.
 	if = {
 		limit = { WCL = { has_country_flag = dd_cw_released } }
 		WCL = {
 			set_capital = { state = 385 }
-			set_variable = { dd_cw_spawn = PREV.dd_share_wcl }
+			set_variable = { dd_cw_spawn = dd_share_wcl_t }
 			dd_usa_spawn_army = yes
 			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
 			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = WCL count = 10 }
 		}
 	}
 	else = {
-		add_to_variable = { dd_share_usa = dd_share_wcl }
+		add_to_temp_variable = { dd_share_usa_t = dd_share_wcl_t }
 	}
 	# Heartland, Rubio. Liberal conservatism. Plains, Montana, northern New Mexico.
 	if = {
 		limit = { RBM = { has_country_flag = dd_cw_released } }
 		RBM = {
 			set_capital = { state = 383 }
-			set_variable = { dd_cw_spawn = PREV.dd_share_rbm }
+			set_variable = { dd_cw_spawn = dd_share_rbm_t }
 			dd_usa_spawn_army = yes
 			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
 			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = RBM count = 10 }
 		}
 	}
 	else = {
-		add_to_variable = { dd_share_usa = dd_share_rbm }
+		add_to_temp_variable = { dd_share_usa_t = dd_share_rbm_t }
 	}
 	# American Mandate, Vance. National populism. Heartland, Dakotas, Indiana, south Ohio.
 	if = {
 		limit = { VNM = { has_country_flag = dd_cw_released } }
 		VNM = {
 			set_capital = { state = 373 }
-			set_variable = { dd_cw_spawn = PREV.dd_share_vnm }
+			set_variable = { dd_cw_spawn = dd_share_vnm_t }
 			dd_usa_spawn_army = yes
 			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
 			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = VNM count = 10 }
 		}
 	}
 	else = {
-		add_to_variable = { dd_share_usa = dd_share_vnm }
+		add_to_temp_variable = { dd_share_usa_t = dd_share_vnm_t }
 	}
 	# Deep South. Fascism.
 	if = {
 		limit = { FDS = { has_country_flag = dd_cw_released } }
 		FDS = {
 			set_capital = { state = 367 }
-			set_variable = { dd_cw_spawn = PREV.dd_share_fds }
+			set_variable = { dd_cw_spawn = dd_share_fds_t }
 			dd_usa_spawn_army = yes
 			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
 			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = FDS count = 10 }
 		}
 	}
 	else = {
-		add_to_variable = { dd_share_usa = dd_share_fds }
+		add_to_temp_variable = { dd_share_usa_t = dd_share_fds_t }
 	}
-	# Rust Belt. Communism. Northern Ohio stays here. Indiana does not.
+	# Rust Belt / CSA. Communism. Northern Ohio stays here. Indiana does not.
 	if = {
 		limit = { RBL = { has_country_flag = dd_cw_released } }
 		RBL = {
 			set_capital = { state = 393 }
-			set_variable = { dd_cw_spawn = PREV.dd_share_rbl }
+			set_variable = { dd_cw_spawn = dd_share_rbl_t }
 			dd_usa_spawn_army = yes
 			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
 			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = RBL count = 10 }
 		}
 	}
 	else = {
-		add_to_variable = { dd_share_usa = dd_share_rbl }
+		add_to_temp_variable = { dd_share_usa_t = dd_share_rbl_t }
 	}
 	# Anarchist communes.
 	if = {
 		limit = { ACA = { has_country_flag = dd_cw_released } }
 		ACA = {
 			set_capital = { state = 378 }
-			set_variable = { dd_cw_spawn = PREV.dd_share_aca }
+			set_variable = { dd_cw_spawn = dd_share_aca_t }
 			dd_usa_spawn_army = yes
 			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 4000 }
 			create_unit = { division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.45" owner = ACA count = 10 }
 		}
 	}
 	else = {
-		add_to_variable = { dd_share_usa = dd_share_aca }
+		add_to_temp_variable = { dd_share_usa_t = dd_share_aca_t }
 	}
-	set_variable = { dd_cw_spawn = dd_share_usa }
+	set_variable = { dd_cw_spawn = dd_share_usa_t }
 	dd_usa_spawn_army_home = yes
 	clear_variable = dd_cw_spawn
-	clear_variable = dd_army_total
-	clear_variable = dd_share_sum
-	clear_variable = dd_share_usa
-	clear_variable = dd_share_eas
-	clear_variable = dd_share_wcl
-	clear_variable = dd_share_rbm
-	clear_variable = dd_share_vnm
-	clear_variable = dd_share_fds
-	clear_variable = dd_share_rbl
-	clear_variable = dd_share_aca
 	if = {
 		limit = {
 			OR = {
@@ -1016,7 +1014,7 @@ dd_usa_civil_war_fights = {
 			ideology = anarcho_communist
 		}
 	}
-	# Army of God stands with Rubio. The Covenant stands with the fascists.
+	# CREC (AOG) stands with Rubio. The Covenant stands with the fascists.
 	if = {
 		limit = { AOG = { has_country_flag = dd_cw_released } }
 		if = {

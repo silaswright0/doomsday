@@ -185,6 +185,208 @@ dd_usa_apply_tariffs = {
 	}
 }
 
+dd_usa_clear_tariffs = {
+	remove_ideas = dd_usa_global_tariff_plan
+	remove_ideas = dd_usa_protectionism_doubled
+	remove_ideas = dd_usa_protectionism_home
+	every_other_country = {
+		remove_opinion_modifier = {
+			target = ROOT
+			modifier = dd_usa_tariff_opinion
+		}
+	}
+}
+
+dd_usa_double_protectionism = {
+	remove_ideas = dd_usa_global_tariff_plan
+	remove_ideas = dd_usa_protectionism_home
+	add_ideas = dd_usa_protectionism_doubled
+}
+
+dd_usa_invest_infrastructure = {
+	# Eight fixed mid-infra American states. Only upgrades what ROOT owns.
+	if = { limit = { 374 = { is_owned_by = ROOT } } 374 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+	if = { limit = { 375 = { is_owned_by = ROOT } } 375 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+	if = { limit = { 382 = { is_owned_by = ROOT } } 382 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+	if = { limit = { 383 = { is_owned_by = ROOT } } 383 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+	if = { limit = { 384 = { is_owned_by = ROOT } } 384 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+	if = { limit = { 388 = { is_owned_by = ROOT } } 388 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+	if = { limit = { 391 = { is_owned_by = ROOT } } 391 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+	if = { limit = { 392 = { is_owned_by = ROOT } } 392 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+}
+
+dd_usa_invest_manufacturing = {
+	if = { limit = { 383 = { is_owned_by = ROOT } } 383 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } }
+	if = { limit = { 373 = { is_owned_by = ROOT } } 373 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } }
+	if = { limit = { 395 = { is_owned_by = ROOT } } 395 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } }
+	if = { limit = { 261 = { is_owned_by = ROOT } } 261 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } }
+}
+
+dd_usa_invest_refining = {
+	if = {
+		limit = { 375 = { is_owned_by = ROOT } }
+		375 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = { type = fuel_silo level = 2 instant_build = yes }
+			add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { 1126 = { is_owned_by = ROOT } }
+		1126 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = fuel_silo level = 1 instant_build = yes }
+			add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { 1129 = { is_owned_by = ROOT } }
+		1129 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = fuel_silo level = 1 instant_build = yes }
+		}
+	}
+}
+
+dd_usa_invest_defence = {
+	if = { limit = { 357 = { is_owned_by = ROOT } } 357 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } } }
+	if = { limit = { 358 = { is_owned_by = ROOT } } 358 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } } }
+	if = { limit = { 361 = { is_owned_by = ROOT } } 361 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } } }
+	if = { limit = { 378 = { is_owned_by = ROOT } } 378 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } } }
+	if = { limit = { 385 = { is_owned_by = ROOT } } 385 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } } }
+	if = { limit = { 386 = { is_owned_by = ROOT } } 386 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } } }
+	if = { limit = { 366 = { is_owned_by = ROOT } } 366 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 1843 } } }
+	if = { limit = { 362 = { is_owned_by = ROOT } } 362 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 788 } } }
+	if = { limit = { 378 = { is_owned_by = ROOT } } 378 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 9671 } } }
+	if = { limit = { 358 = { is_owned_by = ROOT } } 358 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 3878 } } }
+}
+
+dd_usa_invest_mil_production = {
+	if = { limit = { 357 = { is_owned_by = ROOT } } 357 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } }
+	if = { limit = { 358 = { is_owned_by = ROOT } } 358 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } }
+	if = { limit = { 361 = { is_owned_by = ROOT } } 361 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } }
+	if = { limit = { 378 = { is_owned_by = ROOT } } 378 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } }
+	if = { limit = { 385 = { is_owned_by = ROOT } } 385 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } }
+	if = { limit = { 386 = { is_owned_by = ROOT } } 386 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } }
+}
+
+dd_usa_expand_shipbuilding = {
+	if = { limit = { 378 = { is_owned_by = ROOT } } 378 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = dockyard level = 2 instant_build = yes } } }
+	if = { limit = { 385 = { is_owned_by = ROOT } } 385 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = dockyard level = 2 instant_build = yes } } }
+	if = { limit = { 386 = { is_owned_by = ROOT } } 386 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = dockyard level = 2 instant_build = yes } } }
+}
+
+dd_usa_cw_ensure_militia_template = {
+	division_template = {
+		name = "Militia"
+		is_locked = yes
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+		}
+	}
+}
+
+dd_usa_cw_spawn_militia = {
+	dd_usa_cw_ensure_militia_template = yes
+	set_variable = { dd_usa_militia_count = 6 }
+	if = {
+		limit = { has_government = anarcho_communism }
+		set_variable = { dd_usa_militia_count = 12 }
+	}
+	else_if = {
+		limit = { has_government = communism }
+		set_variable = { dd_usa_militia_count = 10 }
+	}
+	else_if = {
+		limit = { has_government = fascism }
+		set_variable = { dd_usa_militia_count = 8 }
+	}
+	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 6000 }
+	while_loop_effect = {
+		limit = { check_variable = { dd_usa_militia_count > 0 } }
+		create_unit = {
+			division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+			owner = ROOT
+			count = 1
+		}
+		subtract_from_variable = { dd_usa_militia_count = 1 }
+	}
+	clear_variable = dd_usa_militia_count
+}
+
+dd_usa_cw_emergency_mils = {
+	set_variable = { dd_usa_mils_left = 2 }
+	every_owned_state = {
+		limit = {
+			is_core_of = ROOT
+			check_variable = { ROOT.dd_usa_mils_left > 0 }
+		}
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		subtract_from_variable = { ROOT.dd_usa_mils_left = 1 }
+	}
+	clear_variable = dd_usa_mils_left
+}
+
+dd_usa_apply_disorganized_frontline = {
+	add_timed_idea = { idea = dd_usa_disorganized_frontline days = 20 }
+	every_country = {
+		limit = {
+			OR = {
+				tag = EAS
+				tag = WCL
+				tag = RBM
+				tag = VNM
+				tag = FDS
+				tag = RBL
+				tag = ACA
+			}
+			has_country_flag = dd_cw_released
+		}
+		add_timed_idea = { idea = dd_usa_disorganized_frontline days = 20 }
+	}
+}
+
+dd_usa_check_civil_war_over = {
+	if = {
+		limit = {
+			has_country_flag = dd_usa_civil_war
+			NOT = { has_country_flag = dd_usa_civil_war_over }
+			NOT = { has_war_with = EAS }
+			NOT = { has_war_with = WCL }
+			NOT = { has_war_with = RBM }
+			NOT = { has_war_with = VNM }
+			NOT = { has_war_with = FDS }
+			NOT = { has_war_with = RBL }
+			NOT = { has_war_with = ACA }
+			NOT = { has_war_with = FLO }
+			NOT = { has_war_with = TXG }
+			NOT = { has_war_with = DES }
+			NOT = { has_war_with = AOG }
+			NOT = { has_war_with = SCN }
+		}
+		clr_country_flag = dd_usa_civil_war
+		set_country_flag = dd_usa_civil_war_over
+		add_ideas = dd_usa_nation_in_ruins
+		country_event = { id = dd_usa_recon.1 }
+	}
+}
+
+dd_usa_check_globalists_spirit = {
+	if = {
+		limit = {
+			has_idea = dd_usa_globalists_have_their_way
+			any_enemy_country = { is_major = yes }
+		}
+		remove_ideas = dd_usa_globalists_have_their_way
+	}
+}
+
 dd_usa_student_visas = {
 	add_ideas = dd_immigration_2
 }
@@ -484,6 +686,282 @@ dd_usa_provoke_blob = {
 	}
 }
 
+# Legislature — country-scoped, no random.
+dd_usa_init_legislature = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_usa_legislature_inited } }
+		set_country_flag = dd_usa_legislature_inited
+		set_variable = { dd_usa_house_dem = 215 }
+		set_variable = { dd_usa_house_rep = 220 }
+		set_variable = { dd_usa_senate_dem = 47 }
+		set_variable = { dd_usa_senate_rep = 53 }
+		set_variable = { dd_usa_dem_support = 42 }
+		set_variable = { dd_usa_rep_support = 55 }
+		set_variable = { dd_usa_bill_active = 0 }
+		set_variable = { dd_usa_bill_id = 0 }
+		set_variable = { dd_usa_bill_party = 0 }
+		set_variable = { dd_usa_bill_extreme = 0 }
+		set_variable = { dd_usa_bill_support_need = 0 }
+		set_variable = { dd_usa_bill_chamber = 0 }
+		set_variable = { dd_usa_bill_days_left = 0 }
+		set_variable = { dd_usa_bill_filibuster_cleared = 0 }
+		set_variable = { dd_usa_bill_advancing = 0 }
+		set_country_flag = dd_usa_filibuster_bypass_available
+	}
+}
+
+dd_usa_clamp_caucus_support = {
+	if = {
+		limit = { check_variable = { dd_usa_dem_support > 100 } }
+		set_variable = { dd_usa_dem_support = 100 }
+	}
+	if = {
+		limit = { check_variable = { dd_usa_dem_support < 0 } }
+		set_variable = { dd_usa_dem_support = 0 }
+	}
+	if = {
+		limit = { check_variable = { dd_usa_rep_support > 100 } }
+		set_variable = { dd_usa_rep_support = 100 }
+	}
+	if = {
+		limit = { check_variable = { dd_usa_rep_support < 0 } }
+		set_variable = { dd_usa_rep_support = 0 }
+	}
+}
+
+dd_usa_lobby_democrats = {
+	add_to_variable = { dd_usa_dem_support = 8 }
+	dd_usa_clamp_caucus_support = yes
+}
+
+dd_usa_lobby_republicans = {
+	add_to_variable = { dd_usa_rep_support = 8 }
+	dd_usa_clamp_caucus_support = yes
+}
+
+dd_usa_bypass_filibuster = {
+	clr_country_flag = dd_usa_filibuster_bypass_available
+	if = {
+		limit = {
+			check_variable = { dd_usa_bill_active > 0 }
+			check_variable = { dd_usa_bill_chamber = 1 }
+		}
+		set_variable = { dd_usa_bill_filibuster_cleared = 1 }
+	}
+	else = {
+		# Applies when the next/current bill reaches the Senate.
+		set_country_flag = dd_usa_filibuster_bypass_armed
+	}
+}
+
+dd_usa_set_bill_timing = {
+	if = {
+		limit = { check_variable = { dd_usa_bill_extreme = 1 } }
+		set_variable = { dd_usa_bill_support_need = 85 }
+		set_variable = { dd_usa_bill_days_left = 90 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_extreme = 2 } }
+		set_variable = { dd_usa_bill_support_need = 70 }
+		set_variable = { dd_usa_bill_days_left = 70 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_extreme = 3 } }
+		set_variable = { dd_usa_bill_support_need = 55 }
+		set_variable = { dd_usa_bill_days_left = 50 }
+	}
+	else = {
+		set_variable = { dd_usa_bill_support_need = 40 }
+		set_variable = { dd_usa_bill_days_left = 35 }
+	}
+}
+
+dd_usa_begin_bill = {
+	set_variable = { dd_usa_bill_active = 1 }
+	set_variable = { dd_usa_bill_chamber = 0 }
+	set_variable = { dd_usa_bill_filibuster_cleared = 0 }
+	set_variable = { dd_usa_bill_advancing = 0 }
+	dd_usa_set_bill_timing = yes
+}
+
+dd_usa_introduce_bill_care_act = {
+	set_country_flag = dd_usa_bill_care_act_introduced
+	set_variable = { dd_usa_bill_id = 1 }
+	set_variable = { dd_usa_bill_party = 1 }
+	set_variable = { dd_usa_bill_extreme = 1 }
+	dd_usa_begin_bill = yes
+}
+
+dd_usa_introduce_bill_big_beautiful_bill = {
+	set_country_flag = dd_usa_bill_big_beautiful_bill_introduced
+	set_variable = { dd_usa_bill_id = 2 }
+	set_variable = { dd_usa_bill_party = 1 }
+	set_variable = { dd_usa_bill_extreme = 2 }
+	dd_usa_begin_bill = yes
+}
+
+dd_usa_introduce_bill_secure_america_act = {
+	set_country_flag = dd_usa_bill_secure_america_act_introduced
+	set_variable = { dd_usa_bill_id = 3 }
+	set_variable = { dd_usa_bill_party = 1 }
+	set_variable = { dd_usa_bill_extreme = 3 }
+	dd_usa_begin_bill = yes
+}
+
+dd_usa_introduce_bill_water_resource_management = {
+	set_country_flag = dd_usa_bill_water_resource_management_introduced
+	set_variable = { dd_usa_bill_id = 4 }
+	set_variable = { dd_usa_bill_party = 1 }
+	set_variable = { dd_usa_bill_extreme = 4 }
+	dd_usa_begin_bill = yes
+}
+
+dd_usa_introduce_bill_expand_medicare = {
+	set_country_flag = dd_usa_bill_expand_medicare_introduced
+	set_variable = { dd_usa_bill_id = 11 }
+	set_variable = { dd_usa_bill_party = 0 }
+	set_variable = { dd_usa_bill_extreme = 1 }
+	dd_usa_begin_bill = yes
+}
+
+dd_usa_introduce_bill_ban_arms_to_israel = {
+	set_country_flag = dd_usa_bill_ban_arms_to_israel_introduced
+	set_variable = { dd_usa_bill_id = 12 }
+	set_variable = { dd_usa_bill_party = 0 }
+	set_variable = { dd_usa_bill_extreme = 2 }
+	dd_usa_begin_bill = yes
+}
+
+dd_usa_introduce_bill_american_homeownership_act = {
+	set_country_flag = dd_usa_bill_american_homeownership_act_introduced
+	set_variable = { dd_usa_bill_id = 13 }
+	set_variable = { dd_usa_bill_party = 0 }
+	set_variable = { dd_usa_bill_extreme = 3 }
+	dd_usa_begin_bill = yes
+}
+
+dd_usa_introduce_bill_rural_telehealth = {
+	set_country_flag = dd_usa_bill_rural_telehealth_introduced
+	set_variable = { dd_usa_bill_id = 14 }
+	set_variable = { dd_usa_bill_party = 0 }
+	set_variable = { dd_usa_bill_extreme = 4 }
+	dd_usa_begin_bill = yes
+}
+
+dd_usa_enact_active_bill = {
+	if = {
+		limit = { check_variable = { dd_usa_bill_id = 1 } }
+		set_country_flag = dd_usa_bill_care_act_passed
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_id = 2 } }
+		set_country_flag = dd_usa_bill_big_beautiful_bill_passed
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_id = 3 } }
+		set_country_flag = dd_usa_bill_secure_america_act_passed
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_id = 4 } }
+		set_country_flag = dd_usa_bill_water_resource_management_passed
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_id = 11 } }
+		set_country_flag = dd_usa_bill_expand_medicare_passed
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_id = 12 } }
+		set_country_flag = dd_usa_bill_ban_arms_to_israel_passed
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_id = 13 } }
+		set_country_flag = dd_usa_bill_american_homeownership_act_passed
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_bill_id = 14 } }
+		set_country_flag = dd_usa_bill_rural_telehealth_passed
+	}
+	set_variable = { dd_usa_bill_active = 0 }
+	set_variable = { dd_usa_bill_id = 0 }
+	set_variable = { dd_usa_bill_party = 0 }
+	set_variable = { dd_usa_bill_extreme = 0 }
+	set_variable = { dd_usa_bill_support_need = 0 }
+	set_variable = { dd_usa_bill_chamber = 0 }
+	set_variable = { dd_usa_bill_days_left = 0 }
+	set_variable = { dd_usa_bill_filibuster_cleared = 0 }
+	set_variable = { dd_usa_bill_advancing = 0 }
+	# Placeholder reward hook — fill later.
+}
+
+dd_usa_advance_bill_chamber = {
+	if = {
+		limit = { check_variable = { dd_usa_bill_chamber < 1 } }
+		set_variable = { dd_usa_bill_chamber = 1 }
+		dd_usa_set_bill_timing = yes
+		if = {
+			limit = { has_country_flag = dd_usa_filibuster_bypass_armed }
+			clr_country_flag = dd_usa_filibuster_bypass_armed
+			set_variable = { dd_usa_bill_filibuster_cleared = 1 }
+		}
+	}
+	else = {
+		dd_usa_enact_active_bill = yes
+	}
+}
+
+# Daily: if caucus support + chamber majority (+ filibuster in Senate), tick days.
+dd_usa_legislature_daily = {
+	set_variable = { dd_usa_bill_advancing = 0 }
+	if = {
+		limit = {
+			check_variable = { dd_usa_bill_active > 0 }
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		if = {
+			limit = { check_variable = { dd_usa_bill_party < 1 } }
+			set_temp_variable = { dd_usa_tmp_support = dd_usa_dem_support }
+			set_temp_variable = { dd_usa_tmp_house = dd_usa_house_dem }
+			set_temp_variable = { dd_usa_tmp_senate = dd_usa_senate_dem }
+		}
+		else = {
+			set_temp_variable = { dd_usa_tmp_support = dd_usa_rep_support }
+			set_temp_variable = { dd_usa_tmp_house = dd_usa_house_rep }
+			set_temp_variable = { dd_usa_tmp_senate = dd_usa_senate_rep }
+		}
+		if = {
+			limit = { check_variable = { dd_usa_tmp_support < dd_usa_bill_support_need } }
+		}
+		else_if = {
+			limit = {
+				check_variable = { dd_usa_bill_chamber < 1 }
+				check_variable = { dd_usa_tmp_house > 217.999 }
+			}
+			set_variable = { dd_usa_bill_advancing = 1 }
+			subtract_from_variable = { dd_usa_bill_days_left = 1 }
+			if = {
+				limit = { check_variable = { dd_usa_bill_days_left < 1 } }
+				dd_usa_advance_bill_chamber = yes
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { dd_usa_bill_chamber = 1 }
+				check_variable = { dd_usa_tmp_senate > 50.999 }
+				OR = {
+					check_variable = { dd_usa_tmp_senate > 59.999 }
+					check_variable = { dd_usa_bill_filibuster_cleared > 0 }
+				}
+			}
+			set_variable = { dd_usa_bill_advancing = 1 }
+			subtract_from_variable = { dd_usa_bill_days_left = 1 }
+			if = {
+				limit = { check_variable = { dd_usa_bill_days_left < 1 } }
+				dd_usa_advance_bill_chamber = yes
+			}
+		}
+	}
+}
+
 dd_usa_start_civil_war = {
 	if = {
 		limit = { NOT = { has_country_flag = dd_usa_civil_war } }
@@ -538,6 +1016,23 @@ dd_usa_start_civil_war = {
 		}
 		else = {
 			set_country_flag = dd_usa_keep_fed
+		}
+		# Federal / Mandate remnant: Trump steps aside, Vance leads as MAGA.
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = dd_usa_keep_fed
+					has_country_flag = dd_usa_keep_vnm
+				}
+			}
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "JD Vance"
+				picture = GFX_portrait_unknown
+				expire = "2065.1.1"
+				ideology = national_populist
+			}
+			set_cosmetic_tag = USA_MAGA
 		}
 		if = {
 			limit = { has_war_with = PER }
@@ -770,6 +1265,7 @@ dd_usa_start_civil_war = {
 			}
 		}
 		dd_usa_civil_war_fights = yes
+		dd_usa_apply_disorganized_frontline = yes
 		news_event = { id = dd_usa_news.10 }
 	}
 }

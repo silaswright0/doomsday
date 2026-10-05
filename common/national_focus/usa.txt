@@ -10,7 +10,8 @@ focus_tree = {
 	default = no
 	reset_on_civilwar = no
 	initial_show_position = { focus = USA_take_out_maduro }
-	continuous_focus_position = { x = 70 y = 0 }
+	# Below CW paths (y0-6 left) and political finals (~y47).
+	continuous_focus_position = { x = 24 y = 50 }
 	focus = {
 		id = USA_take_out_maduro
 		icon = GFX_goal_generic_political_pressure
@@ -1139,7 +1140,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 0
 		y = 33
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_election_demsoc }
@@ -1154,7 +1155,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 2
 		y = 33
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_election_demsoc }
@@ -1169,7 +1170,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 4
 		y = 33
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_election_demsoc }
@@ -1184,7 +1185,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 12
 		y = 33
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_election_liberal }
@@ -1197,7 +1198,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 8
 		y = 34
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_emerge_caucus focus = USA_mug_caucus focus = USA_socialist_majority focus = USA_appoint_loyalists }
@@ -1211,7 +1212,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 8
 		y = 35
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_expose_maga }
@@ -1224,7 +1225,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 8
 		y = 36
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_unleash_subpoenas }
@@ -1237,7 +1238,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 2
 		y = 37
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_crush_maga }
@@ -1253,7 +1254,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 6
 		y = 37
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_crush_maga }
@@ -1270,7 +1271,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 0
 		y = 38
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_degrowth focus = USA_green_new_deal }
@@ -1284,7 +1285,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 3
 		y = 38
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_degrowth focus = USA_green_new_deal }
@@ -1298,7 +1299,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 6
 		y = 38
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_degrowth focus = USA_green_new_deal }
@@ -1312,7 +1313,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 3
 		y = 39
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_liberal_socialist_campus focus = USA_red_star focus = USA_groundwork }
@@ -1325,7 +1326,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 0
 		y = 40
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_develop_foreign_policy }
@@ -1339,7 +1340,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 3
 		y = 40
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_develop_foreign_policy }
@@ -1353,7 +1354,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 6
 		y = 40
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_develop_foreign_policy }
@@ -1367,7 +1368,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 3
 		y = 41
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_communist_caucus focus = USA_reform_and_revolution focus = USA_bread_and_roses }
@@ -1380,7 +1381,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 3
 		y = 42
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_increase_taxes }
@@ -1393,7 +1394,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 3
 		y = 43
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_adjust_policies }
@@ -1406,7 +1407,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 1
 		y = 44
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_peace_out_iran }
@@ -1422,7 +1423,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 5
 		y = 44
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_peace_out_iran }
@@ -1436,7 +1437,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 1
 		y = 45
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_jobs_as_a_right }
@@ -1450,7 +1451,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 1
 		y = 46
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_big_industries }
@@ -1465,7 +1466,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 1
 		y = 47
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_pacify_radicals }
@@ -1478,7 +1479,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 12
 		y = 37
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_crush_maga }
@@ -1492,7 +1493,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 12
 		y = 38
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_liberal_set_policies }
@@ -1506,7 +1507,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 22
 		y = 33
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_election_conservative }
@@ -1522,7 +1523,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 22
 		y = 34
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_far_right_scapegoat }
@@ -1538,7 +1539,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 22
 		y = 35
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_challenge_far_left }
@@ -1552,7 +1553,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 22
 		y = 36
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_court_centre_left }
@@ -1565,7 +1566,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 22
 		y = 37
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_face_of_the_right }
@@ -1578,7 +1579,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 22
 		y = 38
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_conservative_policy }
@@ -1592,7 +1593,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 18
 		y = 39
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_liberal_set_policies focus = USA_conservative_policy }
@@ -1606,7 +1607,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 18
 		y = 40
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_consolidate_control }
@@ -1621,7 +1622,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 18
 		y = 41
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_combat_extremism }
@@ -1640,7 +1641,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 18
 		y = 42
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_point_of_no_return }
@@ -1653,7 +1654,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 32
 		y = 33
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_election_natpop }
@@ -1669,7 +1670,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 28
 		y = 34
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_bring_in_little_tech }
@@ -1683,7 +1684,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 36
 		y = 34
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_bring_in_little_tech }
@@ -1699,7 +1700,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 28
 		y = 35
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_divide_the_left }
@@ -1714,7 +1715,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 28
 		y = 36
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_new_culture_war }
@@ -1729,7 +1730,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 36
 		y = 35
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_prepare_for_agi }
@@ -1744,7 +1745,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 36
 		y = 36
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_final_stretch }
@@ -1759,7 +1760,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 32
 		y = 37
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_unite_moderates }
@@ -1774,7 +1775,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 32
 		y = 38
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_against_communists }
@@ -1787,7 +1788,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 32
 		y = 39
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_expand_oversight }
@@ -1801,7 +1802,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 32
 		y = 40
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_outlaw_dsa }
@@ -1820,7 +1821,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 32
 		y = 41
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_capitalisms_final_form }
@@ -1833,7 +1834,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 40
 		y = 22
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 0 }
 		allow_branch = { has_country_flag = dd_usa_bide_time }
@@ -1850,7 +1851,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 40
 		y = 23
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_shoot_for_32 }
@@ -1864,7 +1865,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 40
 		y = 24
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_highlight_racial_divide }
@@ -1878,7 +1879,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 40
 		y = 25
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_return_to_christ }
@@ -1892,7 +1893,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 40
 		y = 26
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_reassure_capitalists }
@@ -1906,7 +1907,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 40
 		y = 27
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_expose_corruption }
@@ -1920,7 +1921,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 40
 		y = 28
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_american_glory }
@@ -1937,7 +1938,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = 40
 		y = 29
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_absorb_maga }
@@ -1949,7 +1950,7 @@ focus_tree = {
 	focus = {
 		id = USA_intro_anarchist
 		icon = GFX_goal_generic_political_pressure
-		x = 52
+		x = -48
 		y = 0
 		cost = 5.14
 		available_if_capitulated = yes
@@ -1965,8 +1966,8 @@ focus_tree = {
 	focus = {
 		id = USA_intro_communist
 		icon = GFX_goal_generic_political_pressure
-		x = 52
-		y = 2
+		x = -56
+		y = 0
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 0 }
@@ -1981,8 +1982,8 @@ focus_tree = {
 	focus = {
 		id = USA_intro_fascist
 		icon = GFX_goal_generic_political_pressure
-		x = 52
-		y = 4
+		x = -8
+		y = 0
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 0 }
@@ -1992,6 +1993,1447 @@ focus_tree = {
 		}
 		completion_reward = {
 			dd_usa_start_civil_war = yes
+		}
+	}
+	focus = {
+		id = USA_double_down_protectionism
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		mutually_exclusive = { focus = USA_reverse_course }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_double_protectionism = yes
+		}
+	}
+	focus = {
+		id = USA_reverse_course
+		icon = GFX_goal_generic_political_pressure
+		x = 64
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		mutually_exclusive = { focus = USA_double_down_protectionism }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_clear_tariffs = yes
+		}
+	}
+	focus = {
+		id = USA_industry_comes_home
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_double_down_protectionism }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			country_event = { id = dd_usa_econ.1 days = 365 }
+		}
+	}
+	focus = {
+		id = USA_seek_cheap_labour
+		icon = GFX_goal_generic_political_pressure
+		x = 64
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_reverse_course }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			add_ideas = dd_usa_globalists_have_their_way
+		}
+	}
+	focus = {
+		id = USA_investments_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 62
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_industry_comes_home focus = USA_seek_cheap_labour }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_invest_infrastructure = yes
+		}
+	}
+	focus = {
+		id = USA_investments_manufacturing
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_investments_infrastructure }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_invest_manufacturing = yes
+		}
+	}
+	focus = {
+		id = USA_investments_refining
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_investments_manufacturing }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_invest_refining = yes
+		}
+	}
+	focus = {
+		id = USA_investments_defence
+		icon = GFX_goal_generic_political_pressure
+		x = 64
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_investments_infrastructure }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_invest_defence = yes
+		}
+	}
+	focus = {
+		id = USA_investments_military_production
+		icon = GFX_goal_generic_political_pressure
+		x = 64
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_investments_defence }
+		available = {
+			date > 2029.1.1
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_invest_mil_production = yes
+		}
+	}
+	focus = {
+		id = USA_us_armed_forces
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			add_ideas = dd_usa_armed_forces
+		}
+	}
+	focus = {
+		id = USA_invest_health_readiness
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_armed_forces }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_armed_forces
+			add_ideas = dd_usa_armed_forces_ready
+		}
+	}
+	focus = {
+		id = USA_integrating_drone_warfare
+		icon = GFX_goal_generic_political_pressure
+		x = 62
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_armed_forces }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_armed_forces
+			remove_ideas = dd_usa_armed_forces_ready
+			add_ideas = dd_usa_armed_forces_drone
+		}
+	}
+	focus = {
+		id = USA_autonomous_targeting
+		icon = GFX_goal_generic_political_pressure
+		x = 62
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_integrating_drone_warfare }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_armed_forces_drone
+			add_ideas = dd_usa_armed_forces_arty
+		}
+	}
+	focus = {
+		id = USA_drone_countermeasures
+		icon = GFX_goal_generic_political_pressure
+		x = 62
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_autonomous_targeting }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_armed_forces_arty
+			add_ideas = dd_usa_armed_forces_aa
+		}
+	}
+	focus = {
+		id = USA_next_generation_squad_weapons
+		icon = GFX_goal_generic_political_pressure
+		x = 64
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_armed_forces }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			add_tech_bonus = { name = USA_ngsw bonus = 0.5 uses = 3 category = infantry_weapons }
+		}
+	}
+	focus = {
+		id = USA_us_cavalry
+		icon = GFX_goal_generic_political_pressure
+		x = 64
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_next_generation_squad_weapons }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_armed_forces
+			remove_ideas = dd_usa_armed_forces_ready
+			add_ideas = dd_usa_armed_forces_cavalry
+		}
+	}
+	focus = {
+		id = USA_us_airforce
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			add_ideas = dd_usa_airforce
+		}
+	}
+	focus = {
+		id = USA_plug_supply_hole
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_airforce }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { check_variable = { treasury < 15 } }
+		}
+		completion_reward = {
+			subtract_from_variable = { treasury = 15 }
+			remove_ideas = dd_usa_supply_hole
+		}
+	}
+	focus = {
+		id = USA_ramp_up_air_production
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_plug_supply_hole }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_airforce
+			add_ideas = dd_usa_airforce_prod
+		}
+	}
+	focus = {
+		id = USA_paratrooper_drills
+		icon = GFX_goal_generic_political_pressure
+		x = 62
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_airforce }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_airforce
+			remove_ideas = dd_usa_airforce_prod
+			add_ideas = dd_usa_airforce_para
+		}
+	}
+	focus = {
+		id = USA_kickstart_drone_production
+		icon = GFX_goal_generic_political_pressure
+		x = 64
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_airforce }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_airforce
+			remove_ideas = dd_usa_airforce_prod
+			remove_ideas = dd_usa_airforce_para
+			add_ideas = dd_usa_airforce_drone
+		}
+	}
+	focus = {
+		id = USA_fund_cca
+		icon = GFX_goal_generic_political_pressure
+		x = 62
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_airforce }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_airforce
+			remove_ideas = dd_usa_airforce_prod
+			remove_ideas = dd_usa_airforce_para
+			remove_ideas = dd_usa_airforce_drone
+			add_ideas = dd_usa_airforce_cca
+		}
+	}
+	focus = {
+		id = USA_ngad
+		icon = GFX_goal_generic_political_pressure
+		x = 64
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_airforce }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			add_tech_bonus = { name = USA_ngad bonus = 0.5 uses = 3 category = air_equipment }
+		}
+	}
+	focus = {
+		id = USA_us_navy
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 15
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			add_ideas = dd_usa_navy
+		}
+	}
+	focus = {
+		id = USA_new_sailor_beds
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 16
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_navy }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_navy
+			add_ideas = dd_usa_navy_beds
+		}
+	}
+	focus = {
+		id = USA_invest_navy_morale
+		icon = GFX_goal_generic_political_pressure
+		x = 60
+		y = 17
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_new_sailor_beds }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			remove_ideas = dd_usa_navy_beds
+			add_ideas = dd_usa_navy_morale
+		}
+	}
+	focus = {
+		id = USA_blackbeard_contracts
+		icon = GFX_goal_generic_political_pressure
+		x = 62
+		y = 16
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_navy }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			add_tech_bonus = { name = USA_blackbeard bonus = 0.5 uses = 1 category = naval_equipment }
+			add_tech_bonus = { name = USA_blackbeard_hyper bonus = 0.5 uses = 1 category = rocketry }
+		}
+	}
+	focus = {
+		id = USA_expand_shipbuilding
+		icon = GFX_goal_generic_political_pressure
+		x = 62
+		y = 17
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_us_navy }
+		available = {
+			date > 2026.1.27
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			dd_usa_expand_shipbuilding = yes
+			remove_ideas = dd_usa_navy
+			remove_ideas = dd_usa_navy_beds
+			remove_ideas = dd_usa_navy_morale
+			add_ideas = dd_usa_navy_yards
+		}
+	}
+	focus = {
+		id = USA_cw_commie_root
+		icon = GFX_goal_generic_political_pressure
+		x = -56
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = communism
+		}
+		completion_reward = {
+			add_ideas = dd_usa_workers_liberation
+			if = { limit = { ACA = { exists = yes } } ACA = { add_ideas = dd_usa_workers_liberation } }
+		}
+	}
+	focus = {
+		id = USA_cw_anarchist_demand_autonomy
+		icon = GFX_goal_generic_political_pressure
+		x = -56
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_commie_root }
+		mutually_exclusive = { focus = USA_cw_priority_is_victory }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = communism
+		}
+		completion_reward = {
+			if = { limit = { ACA = { is_subject_of = ROOT } } end_puppet = ACA }
+			ACA = { declare_war_on = { target = ROOT type = dd_annex } }
+			country_event = { id = dd_usa_cw.1 }
+		}
+	}
+	focus = {
+		id = USA_cw_priority_is_victory
+		icon = GFX_goal_generic_political_pressure
+		x = -54
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_commie_root }
+		mutually_exclusive = { focus = USA_cw_anarchist_demand_autonomy }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = communism
+		}
+		completion_reward = {
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = USA_cw_commie_militia_1
+		icon = GFX_goal_generic_army_doctrines
+		x = -56
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_anarchist_demand_autonomy focus = USA_cw_priority_is_victory }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = communism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_commie_mils_1
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -54
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_anarchist_demand_autonomy focus = USA_cw_priority_is_victory }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = communism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_commie_militia_2
+		icon = GFX_goal_generic_political_pressure
+		x = -56
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_commie_militia_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = communism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_commie_mils_2
+		icon = GFX_goal_generic_political_pressure
+		x = -54
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_commie_mils_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = communism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_commie_late
+		icon = GFX_goal_generic_political_pressure
+		x = -55
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_commie_militia_2 }
+		prerequisite = { focus = USA_cw_commie_mils_2 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = communism
+		}
+		completion_reward = {
+			add_ideas = dd_usa_cw_late_commie
+		}
+	}
+	focus = {
+		id = USA_cw_anarchist_root
+		icon = GFX_goal_generic_political_pressure
+		x = -48
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = anarcho_communism
+		}
+		completion_reward = {
+			add_ideas = dd_usa_workers_liberation
+		}
+	}
+	focus = {
+		id = USA_cw_anarchist_militia_1
+		icon = GFX_goal_generic_political_pressure
+		x = -48
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_anarchist_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = anarcho_communism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_anarchist_mils_1
+		icon = GFX_goal_generic_political_pressure
+		x = -46
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_anarchist_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = anarcho_communism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_anarchist_militia_2
+		icon = GFX_goal_generic_political_pressure
+		x = -48
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_anarchist_militia_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = anarcho_communism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_anarchist_mils_2
+		icon = GFX_goal_generic_political_pressure
+		x = -46
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_anarchist_mils_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = anarcho_communism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_anarchist_late
+		icon = GFX_goal_generic_political_pressure
+		x = -47
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_anarchist_militia_2 }
+		prerequisite = { focus = USA_cw_anarchist_mils_2 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = anarcho_communism
+		}
+		completion_reward = {
+			add_ideas = dd_usa_cw_late_anarchist
+		}
+	}
+	focus = {
+		id = USA_cw_demsoc_root
+		icon = GFX_goal_generic_political_pressure
+		x = -40
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			OR = { has_government = social_democracy has_government = progressive_populism }
+		}
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = USA_cw_demsoc_militia_1
+		icon = GFX_goal_generic_political_pressure
+		x = -40
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_demsoc_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			OR = { has_government = social_democracy has_government = progressive_populism }
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_demsoc_mils_1
+		icon = GFX_goal_generic_political_pressure
+		x = -38
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_demsoc_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			OR = { has_government = social_democracy has_government = progressive_populism }
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_demsoc_militia_2
+		icon = GFX_goal_generic_political_pressure
+		x = -40
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_demsoc_militia_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			OR = { has_government = social_democracy has_government = progressive_populism }
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_demsoc_mils_2
+		icon = GFX_goal_generic_political_pressure
+		x = -38
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_demsoc_mils_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			OR = { has_government = social_democracy has_government = progressive_populism }
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_demsoc_late
+		icon = GFX_goal_generic_political_pressure
+		x = -39
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_demsoc_militia_2 }
+		prerequisite = { focus = USA_cw_demsoc_mils_2 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			OR = { has_government = social_democracy has_government = progressive_populism }
+		}
+		completion_reward = {
+			add_ideas = dd_usa_cw_late_demsoc
+		}
+	}
+	focus = {
+		id = USA_cw_lib_root
+		icon = GFX_goal_generic_political_pressure
+		x = -32
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = social_liberalism
+		}
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = USA_cw_lib_militia_1
+		icon = GFX_goal_generic_political_pressure
+		x = -32
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_lib_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = social_liberalism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_lib_mils_1
+		icon = GFX_goal_generic_political_pressure
+		x = -30
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_lib_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = social_liberalism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_lib_militia_2
+		icon = GFX_goal_generic_political_pressure
+		x = -32
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_lib_militia_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = social_liberalism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_lib_mils_2
+		icon = GFX_goal_generic_political_pressure
+		x = -30
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_lib_mils_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = social_liberalism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_lib_late
+		icon = GFX_goal_generic_political_pressure
+		x = -31
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_lib_militia_2 }
+		prerequisite = { focus = USA_cw_lib_mils_2 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = social_liberalism
+		}
+		completion_reward = {
+			add_ideas = dd_usa_cw_late_lib
+		}
+	}
+	focus = {
+		id = USA_cw_cons_root
+		icon = GFX_goal_generic_political_pressure
+		x = -24
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = liberal_conservatism
+		}
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = USA_cw_cons_militia_1
+		icon = GFX_goal_generic_political_pressure
+		x = -24
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_cons_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = liberal_conservatism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_cons_mils_1
+		icon = GFX_goal_generic_political_pressure
+		x = -22
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_cons_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = liberal_conservatism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_cons_militia_2
+		icon = GFX_goal_generic_political_pressure
+		x = -24
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_cons_militia_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = liberal_conservatism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_cons_mils_2
+		icon = GFX_goal_generic_political_pressure
+		x = -22
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_cons_mils_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = liberal_conservatism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_cons_late
+		icon = GFX_goal_generic_political_pressure
+		x = -23
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_cons_militia_2 }
+		prerequisite = { focus = USA_cw_cons_mils_2 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = liberal_conservatism
+		}
+		completion_reward = {
+			add_ideas = dd_usa_cw_late_cons
+		}
+	}
+	focus = {
+		id = USA_cw_natpop_root
+		icon = GFX_goal_generic_political_pressure
+		x = -16
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = national_populism
+		}
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = USA_cw_natpop_militia_1
+		icon = GFX_goal_generic_political_pressure
+		x = -16
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_natpop_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = national_populism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_natpop_mils_1
+		icon = GFX_goal_generic_political_pressure
+		x = -14
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_natpop_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = national_populism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_natpop_militia_2
+		icon = GFX_goal_generic_political_pressure
+		x = -16
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_natpop_militia_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = national_populism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_natpop_mils_2
+		icon = GFX_goal_generic_political_pressure
+		x = -14
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_natpop_mils_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = national_populism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_natpop_late
+		icon = GFX_goal_generic_political_pressure
+		x = -15
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_natpop_militia_2 }
+		prerequisite = { focus = USA_cw_natpop_mils_2 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = national_populism
+		}
+		completion_reward = {
+			add_ideas = dd_usa_cw_late_natpop
+		}
+	}
+	focus = {
+		id = USA_cw_fascist_root
+		icon = GFX_goal_generic_political_pressure
+		x = -8
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = fascism
+		}
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = USA_cw_fascist_militia_1
+		icon = GFX_goal_generic_political_pressure
+		x = -8
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_fascist_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = fascism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_fascist_mils_1
+		icon = GFX_goal_generic_political_pressure
+		x = -6
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_fascist_root }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = fascism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_fascist_militia_2
+		icon = GFX_goal_generic_political_pressure
+		x = -8
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_fascist_militia_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = fascism
+		}
+		completion_reward = {
+			dd_usa_cw_spawn_militia = yes
+		}
+	}
+	focus = {
+		id = USA_cw_fascist_mils_2
+		icon = GFX_goal_generic_political_pressure
+		x = -6
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_fascist_mils_1 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = fascism
+		}
+		completion_reward = {
+			dd_usa_cw_emergency_mils = yes
+		}
+	}
+	focus = {
+		id = USA_cw_fascist_late
+		icon = GFX_goal_generic_political_pressure
+		x = -7
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_fascist_militia_2 }
+		prerequisite = { focus = USA_cw_fascist_mils_2 }
+		available = {
+			has_country_flag = dd_usa_civil_war
+			has_government = fascism
+		}
+		completion_reward = {
+			add_ideas = dd_usa_cw_late_fascist
+		}
+	}
+	focus = {
+		id = USA_recover
+		icon = GFX_goal_generic_construct_civilian
+		x = 62
+		y = 20
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			has_idea = dd_usa_nation_in_ruins
+		}
+		completion_reward = {
+		}
+	}
+
+	### Legislature ###
+	focus = {
+		id = USA_legislative_agenda
+		icon = GFX_goal_generic_national_unity
+		x = 68
+		y = 0
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		completion_reward = {
+			set_country_flag = dd_usa_legislature_open
+			dd_usa_init_legislature = yes
+		}
+	}
+	focus = {
+		id = USA_leg_care_act
+		icon = GFX_goal_generic_improve_relations
+		x = 66
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_legislative_agenda }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_bill_care_act_introduced }
+			check_variable = { dd_usa_bill_active < 1 }
+			check_variable = { dd_usa_rep_support > 84.999 }
+		}
+		completion_reward = {
+			dd_usa_introduce_bill_care_act = yes
+		}
+	}
+	focus = {
+		id = USA_leg_big_beautiful_bill
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 66
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_legislative_agenda }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_bill_big_beautiful_bill_introduced }
+			check_variable = { dd_usa_bill_active < 1 }
+			check_variable = { dd_usa_rep_support > 69.999 }
+		}
+		completion_reward = {
+			dd_usa_introduce_bill_big_beautiful_bill = yes
+		}
+	}
+	focus = {
+		id = USA_leg_secure_america_act
+		icon = GFX_goal_generic_fortify_city
+		x = 66
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_legislative_agenda }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_bill_secure_america_act_introduced }
+			check_variable = { dd_usa_bill_active < 1 }
+			check_variable = { dd_usa_rep_support > 54.999 }
+		}
+		completion_reward = {
+			dd_usa_introduce_bill_secure_america_act = yes
+		}
+	}
+	focus = {
+		id = USA_leg_water_resource_management
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 66
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_legislative_agenda }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_bill_water_resource_management_introduced }
+			check_variable = { dd_usa_bill_active < 1 }
+			check_variable = { dd_usa_rep_support > 39.999 }
+		}
+		completion_reward = {
+			dd_usa_introduce_bill_water_resource_management = yes
+		}
+	}
+	focus = {
+		id = USA_leg_expand_medicare
+		icon = GFX_goal_generic_improve_relations
+		x = 70
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_legislative_agenda }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_bill_expand_medicare_introduced }
+			check_variable = { dd_usa_bill_active < 1 }
+			check_variable = { dd_usa_dem_support > 84.999 }
+		}
+		completion_reward = {
+			dd_usa_introduce_bill_expand_medicare = yes
+		}
+	}
+	focus = {
+		id = USA_leg_ban_arms_to_israel
+		icon = GFX_goal_generic_dangerous_deal
+		x = 70
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_legislative_agenda }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_bill_ban_arms_to_israel_introduced }
+			check_variable = { dd_usa_bill_active < 1 }
+			check_variable = { dd_usa_dem_support > 69.999 }
+		}
+		completion_reward = {
+			dd_usa_introduce_bill_ban_arms_to_israel = yes
+		}
+	}
+	focus = {
+		id = USA_leg_american_homeownership_act
+		icon = GFX_goal_generic_construct_civilian
+		x = 70
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_legislative_agenda }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_bill_american_homeownership_act_introduced }
+			check_variable = { dd_usa_bill_active < 1 }
+			check_variable = { dd_usa_dem_support > 54.999 }
+		}
+		completion_reward = {
+			dd_usa_introduce_bill_american_homeownership_act = yes
+		}
+	}
+	focus = {
+		id = USA_leg_rural_telehealth
+		icon = GFX_goal_generic_radar
+		x = 70
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_legislative_agenda }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_bill_rural_telehealth_introduced }
+			check_variable = { dd_usa_bill_active < 1 }
+			check_variable = { dd_usa_dem_support > 39.999 }
+		}
+		completion_reward = {
+			dd_usa_introduce_bill_rural_telehealth = yes
 		}
 	}
 }

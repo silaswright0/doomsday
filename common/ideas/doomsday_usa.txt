@@ -227,5 +227,364 @@ ideas = {
 				stability_factor = -2.0
 			}
 		}
+
+		dd_usa_protectionism_doubled = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.10
+				consumer_goods_factor = 0.10
+				production_speed_buildings_factor = 0.40
+				trade_opinion_factor = -0.50
+			}
+		}
+		dd_usa_protectionism_home = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.40
+				trade_opinion_factor = -0.50
+			}
+		}
+		dd_usa_globalists_have_their_way = {
+			picture = generic_flexible_workforce
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.10
+			}
+			on_add = {
+				add_offsite_building = { type = industrial_complex level = 10 }
+			}
+			on_remove = {
+				add_offsite_building = { type = industrial_complex level = -10 }
+			}
+		}
+		dd_usa_supply_hole = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.08
+				experience_gain_air_factor = -0.15
+			}
+		}
+		dd_usa_armed_forces = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				civilian_intel_to_others = -0.25
+				army_intel_to_others = -0.25
+				enemy_army_bonus_air_superiority_factor = -0.05
+			}
+		}
+		dd_usa_armed_forces_ready = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				civilian_intel_to_others = -0.25
+				army_intel_to_others = -0.25
+				enemy_army_bonus_air_superiority_factor = -0.05
+				army_org_factor = 0.08
+				army_morale_factor = 0.05
+			}
+		}
+		dd_usa_armed_forces_drone = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				civilian_intel_to_others = -0.25
+				army_intel_to_others = -0.25
+				enemy_army_bonus_air_superiority_factor = -0.05
+				army_org_factor = 0.08
+				army_morale_factor = 0.05
+				army_infantry_attack_factor = 0.08
+				army_armor_attack_factor = 0.05
+			}
+		}
+		dd_usa_armed_forces_arty = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				civilian_intel_to_others = -0.25
+				army_intel_to_others = -0.25
+				enemy_army_bonus_air_superiority_factor = -0.05
+				army_org_factor = 0.08
+				army_morale_factor = 0.05
+				army_infantry_attack_factor = 0.08
+				army_armor_attack_factor = 0.05
+				army_artillery_attack_factor = 0.12
+				army_artillery_defence_factor = 0.08
+			}
+		}
+		dd_usa_armed_forces_aa = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				civilian_intel_to_others = -0.25
+				army_intel_to_others = -0.25
+				enemy_army_bonus_air_superiority_factor = -0.05
+				army_org_factor = 0.08
+				army_morale_factor = 0.05
+				army_infantry_attack_factor = 0.08
+				army_armor_attack_factor = 0.05
+				army_artillery_attack_factor = 0.12
+				army_artillery_defence_factor = 0.08
+				static_anti_air_hit_chance_factor = 0.15
+			}
+		}
+		dd_usa_armed_forces_cavalry = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				civilian_intel_to_others = -0.25
+				army_intel_to_others = -0.25
+				enemy_army_bonus_air_superiority_factor = -0.05
+				army_org_factor = 0.08
+				army_morale_factor = 0.05
+				army_armor_attack_factor = 0.12
+				mechanized_attack_factor = 0.10
+				breakthrough_factor = 0.08
+			}
+		}
+		dd_usa_airforce = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				air_superiority_efficiency = 0.10
+				air_cas_efficiency = 0.10
+				air_strategic_bomber_bombing_factor = 0.10
+			}
+		}
+		dd_usa_airforce_prod = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				air_superiority_efficiency = 0.10
+				air_cas_efficiency = 0.10
+				air_strategic_bomber_bombing_factor = 0.10
+				industrial_capacity_factory = 0.08
+			}
+		}
+		dd_usa_airforce_para = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				air_superiority_efficiency = 0.10
+				air_cas_efficiency = 0.10
+				air_strategic_bomber_bombing_factor = 0.10
+				paradrop_organization_factor = 0.15
+				extra_paratrooper_supply_grace = 48
+			}
+		}
+		dd_usa_airforce_drone = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				air_superiority_efficiency = 0.10
+				air_cas_efficiency = 0.10
+				air_strategic_bomber_bombing_factor = 0.10
+				industrial_capacity_factory = 0.05
+			}
+		}
+		dd_usa_airforce_cca = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				air_superiority_efficiency = 0.18
+				air_cas_efficiency = 0.10
+				air_strategic_bomber_bombing_factor = 0.10
+			}
+		}
+		dd_usa_navy = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				navy_max_range_factor = 0.20
+				sortie_efficiency = 0.15
+				naval_coordination = 0.05
+			}
+		}
+		dd_usa_navy_beds = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				navy_max_range_factor = 0.20
+				sortie_efficiency = 0.15
+				naval_coordination = 0.05
+				navy_org_factor = 0.08
+				navy_morale_factor = 0.06
+			}
+		}
+		dd_usa_navy_morale = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				navy_max_range_factor = 0.20
+				sortie_efficiency = 0.15
+				naval_coordination = 0.05
+				navy_org_factor = 0.14
+				navy_morale_factor = 0.12
+			}
+		}
+		dd_usa_navy_yards = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				navy_max_range_factor = 0.20
+				sortie_efficiency = 0.15
+				naval_coordination = 0.05
+				navy_org_factor = 0.14
+				navy_morale_factor = 0.12
+				production_speed_dockyard_factor = 0.10
+			}
+		}
+		dd_usa_disorganized_frontline = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.10
+				army_attack_factor = -0.10
+			}
+		}
+		dd_usa_workers_liberation = {
+			picture = generic_communism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.08
+				army_defence_factor = 0.08
+				army_morale_factor = 0.10
+				breakthrough_factor = 0.08
+			}
+		}
+		dd_usa_cw_late_commie = {
+			picture = generic_communism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.08
+				army_attack_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		dd_usa_cw_late_anarchist = {
+			picture = generic_communism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.08
+				army_attack_factor = 0.08
+				breakthrough_factor = 0.05
+			}
+		}
+		dd_usa_cw_late_demsoc = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.08
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		dd_usa_cw_late_lib = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				army_org_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		dd_usa_cw_late_cons = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.08
+				army_org_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		dd_usa_cw_late_natpop = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.08
+				war_support_factor = 0.08
+				army_morale_factor = 0.05
+			}
+		}
+		dd_usa_cw_late_fascist = {
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.10
+				breakthrough_factor = 0.08
+				war_support_factor = 0.05
+			}
+		}
+		dd_usa_nation_in_ruins = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.25
+				industrial_capacity_factory = -0.25
+				consumer_goods_factor = 0.30
+				stability_factor = -0.15
+			}
+		}
 	}
 }

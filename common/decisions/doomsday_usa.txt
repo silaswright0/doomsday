@@ -1,3 +1,51 @@
+dd_usa_legislature_category = {
+	dd_usa_lobby_democratic_caucus = {
+		icon = generic_political_discourse
+		allowed = { tag = USA }
+		cost = 50
+		days_re_enable = 30
+		ai_will_do = { factor = 0 }
+		visible = {
+			has_country_flag = dd_usa_legislature_open
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		complete_effect = {
+			dd_usa_lobby_democrats = yes
+		}
+	}
+
+	dd_usa_lobby_republican_caucus = {
+		icon = generic_political_discourse
+		allowed = { tag = USA }
+		cost = 50
+		days_re_enable = 30
+		ai_will_do = { factor = 0 }
+		visible = {
+			has_country_flag = dd_usa_legislature_open
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		complete_effect = {
+			dd_usa_lobby_republicans = yes
+		}
+	}
+
+	dd_usa_use_filibuster_bypass = {
+		icon = generic_decision
+		allowed = { tag = USA }
+		cost = 100
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			has_country_flag = dd_usa_legislature_open
+			has_country_flag = dd_usa_filibuster_bypass_available
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		complete_effect = {
+			dd_usa_bypass_filibuster = yes
+		}
+	}
+}
+
 dd_usa_tariff_category = {
 	dd_usa_review_tariff_schedule = {
 		icon = generic_trade

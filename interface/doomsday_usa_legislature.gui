@@ -1,0 +1,74 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "doomsday_usa_legislature_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 220 }
+		clipping = no
+
+		instantTextboxType = {
+			name = "dd_usa_leg_header"
+			position = { x = 12 y = 4 }
+			font = "hoi_20b"
+			text = "DD_USA_LEG_HEADER"
+			maxWidth = 500
+			maxHeight = 22
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_usa_leg_house"
+			position = { x = 12 y = 32 }
+			font = "hoi_18mbs"
+			text = "DD_USA_LEG_HOUSE"
+			maxWidth = 720
+			maxHeight = 22
+			format = left
+			pdx_tooltip = "DD_USA_LEG_HOUSE_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_usa_leg_senate"
+			position = { x = 12 y = 56 }
+			font = "hoi_18mbs"
+			text = "DD_USA_LEG_SENATE"
+			maxWidth = 720
+			maxHeight = 22
+			format = left
+			pdx_tooltip = "DD_USA_LEG_SENATE_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_usa_leg_support"
+			position = { x = 12 y = 80 }
+			font = "hoi_18mbs"
+			text = "DD_USA_LEG_SUPPORT"
+			maxWidth = 720
+			maxHeight = 22
+			format = left
+			pdx_tooltip = "DD_USA_LEG_SUPPORT_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_usa_leg_bill"
+			position = { x = 12 y = 112 }
+			font = "hoi_18mbs"
+			text = "DD_USA_LEG_BILL"
+			maxWidth = 720
+			maxHeight = 44
+			format = left
+			pdx_tooltip = "DD_USA_LEG_BILL_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_usa_leg_status"
+			position = { x = 12 y = 160 }
+			font = "hoi_16mbs"
+			text = "DD_USA_LEG_STATUS"
+			maxWidth = 720
+			maxHeight = 40
+			format = left
+			pdx_tooltip = "DD_USA_LEG_STATUS_TT"
+		}
+	}
+}

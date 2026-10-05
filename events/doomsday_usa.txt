@@ -8,6 +8,9 @@ add_namespace = dd_usa_tariff
 add_namespace = dd_usa_foreign
 add_namespace = dd_usa_dsa
 add_namespace = dd_usa_news
+add_namespace = dd_usa_econ
+add_namespace = dd_usa_cw
+add_namespace = dd_usa_recon
 
 country_event = {
 	id = dd_usa_greenland.1
@@ -85,7 +88,9 @@ country_event = {
 
 country_event = {
 	id = dd_usa_nato.1
-	hidden = yes
+	title = dd_usa_nato.1.t
+	desc = dd_usa_nato.1.d
+	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	immediate = {
 		set_variable = { dd_nato_failed = 0 }
@@ -107,12 +112,22 @@ country_event = {
 		multiply_temp_variable = { dd_nato_half = 0.5 }
 		if = {
 			limit = { check_variable = { dd_nato_failed > dd_nato_half } }
+			set_country_flag = dd_nato_usa_left
 			dd_usa_hand_nato_to_france = yes
 			news_event = { id = dd_usa_news.2 }
 		}
 		else = {
+			clr_country_flag = dd_nato_usa_left
 			news_event = { id = dd_usa_news.1 }
 		}
+	}
+	option = {
+		name = dd_usa_nato.1.a
+		trigger = { NOT = { has_country_flag = dd_nato_usa_left } }
+	}
+	option = {
+		name = dd_usa_nato.1.b
+		trigger = { has_country_flag = dd_nato_usa_left }
 	}
 }
 
@@ -544,4 +559,46 @@ country_event = {
 	hidden = yes
 	is_triggered_only = yes
 	immediate = { news_event = { id = dd_usa_news.4 } }
+}
+
+country_event = {
+	id = dd_usa_econ.1
+	title = dd_usa_econ.1.t
+	desc = dd_usa_econ.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = dd_usa_econ.1.a
+		remove_ideas = dd_usa_protectionism_doubled
+		add_ideas = dd_usa_protectionism_home
+	}
+}
+
+country_event = {
+	id = dd_usa_cw.1
+	title = dd_usa_cw.1.t
+	desc = dd_usa_cw.1.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_cw.1.a
+		trigger = { ACA = { exists = yes has_war_with = ROOT } }
+		ACA = { change_tag_from = ROOT }
+	}
+	option = {
+		name = dd_usa_cw.1.b
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = {
+	id = dd_usa_recon.1
+	title = dd_usa_recon.1.t
+	desc = dd_usa_recon.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_recon.1.a
+	}
 }

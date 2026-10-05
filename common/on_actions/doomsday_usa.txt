@@ -8,6 +8,7 @@ on_actions = {
 					country_event = { id = dd_usa_election.1 days = 796 }
 					country_event = { id = dd_usa_election.2 days = 1041 }
 				}
+				dd_usa_init_legislature = yes
 			}
 		}
 	}
@@ -26,6 +27,8 @@ on_actions = {
 					dd_usa_blob_tick = yes
 				}
 			}
+			dd_usa_check_globalists_spirit = yes
+			dd_usa_check_civil_war_over = yes
 		}
 	}
 
@@ -38,6 +41,7 @@ on_actions = {
 				}
 				dd_usa_start_civil_war = yes
 			}
+			dd_usa_legislature_daily = yes
 		}
 	}
 

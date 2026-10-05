@@ -1,3 +1,14 @@
+dd_usa_legislature_category = {
+	icon = generic_political_discourse
+	scripted_gui = doomsday_usa_legislature_ui
+	priority = 90
+	visible = {
+		tag = USA
+		has_country_flag = dd_usa_legislature_open
+		NOT = { has_country_flag = dd_usa_civil_war }
+	}
+}
+
 dd_usa_tariff_category = {
 	icon = generic_trade
 	priority = 80

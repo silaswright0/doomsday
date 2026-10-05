@@ -593,6 +593,7 @@ add_ideas = dd_civil_military_1
 add_ideas = volunteer_only
 add_ideas = export_focus
 add_ideas = civilian_economy
+add_ideas = dd_usa_supply_hole
 set_politics = {
 	ruling_party = national_populism
 	last_election = "2024.11.5"
@@ -612,6 +613,14 @@ set_popularities = {
 set_variable = { debt = 37539.0340 }
 set_variable = { treasury = 615.3940 }
 set_variable = { dd_prod = 14.6049 }
+set_variable = { dd_usa_house_dem = 215 }
+set_variable = { dd_usa_house_rep = 220 }
+set_variable = { dd_usa_senate_dem = 47 }
+set_variable = { dd_usa_senate_rep = 53 }
+set_variable = { dd_usa_dem_support = 42 }
+set_variable = { dd_usa_rep_support = 55 }
+set_variable = { dd_usa_bill_active = 0 }
+set_country_flag = dd_usa_filibuster_bypass_available
 create_country_leader = {
 	name = "Donald Trump"
 	desc = USA_LEADER_DESC
