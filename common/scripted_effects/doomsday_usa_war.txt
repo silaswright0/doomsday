@@ -1,11 +1,11 @@
 # Wars for the shatter. Everyone fights everyone.
-# Alaska Command does not declare on the free states.
+# Federal Command does not declare on the free states.
 # Texas, the Texas minors, and the oil enclave only fight the rest of Texas.
 # Border Command only fights the Texas minors, Florida, and the fascists.
 # The anarchists are a communist puppet. Army of God is allied with Rubio.
 # The Covenant Army is allied with the fascists.
 # Standing army/air/equipment split by party popularity via transfer_units_fraction.
-# Navy is hardcoded 80% Alaska / 10% Newsom / 10% Deep South.
+# Navy is hardcoded 80% Federal Command / 10% Newsom / 10% Deep South.
 # Extra NG/militia/minor loadouts are spawned with while_loop count = 1.
 # AOC is democratic socialism plus progressive populism.
 
@@ -119,23 +119,673 @@ dd_usa_cw_tpl_national_guard = {
 }
 
 # Country-scoped. Caller sets dd_cw_spawn. create_unit is state-scoped only.
+# Spreads across owned states, then pocket provinces, then capital (MP-safe, no random).
 dd_usa_cw_spawn_militia_n = {
 	dd_usa_cw_tpl_militia_2x6 = yes
 	set_temp_variable = { dd_cw_eq = dd_cw_spawn }
 	multiply_temp_variable = { dd_cw_eq = 1500 }
 	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = dd_cw_eq }
+	# Reserve ~1/3 of the force for pocket provinces when any exist.
+	set_variable = { dd_cw_pocket_budget = dd_cw_spawn }
+	multiply_variable = { dd_cw_pocket_budget = 0.34 }
+	round_variable = dd_cw_pocket_budget
+	subtract_from_variable = { dd_cw_spawn = dd_cw_pocket_budget }
 	while_loop_effect = {
 		limit = { check_variable = { dd_cw_spawn > 0 } }
-		capital_scope = {
+		set_temp_variable = { dd_cw_pass = 0 }
+		every_owned_state = {
+			limit = {
+				is_owned_and_controlled_by = PREV
+				check_variable = { PREV.dd_cw_spawn > 0 }
+			}
 			create_unit = {
 				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
 				owner = PREV
 				count = 1
 			}
+			PREV = { subtract_from_variable = { dd_cw_spawn = 1 } }
+			add_to_temp_variable = { dd_cw_pass = 1 }
+		}
+		every_controlled_state = {
+			limit = {
+				NOT = { is_owned_by = PREV }
+				is_controlled_by = PREV
+				check_variable = { PREV.dd_cw_spawn > 0 }
+			}
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				allow_spawning_on_enemy_provs = yes
+			}
+			PREV = { subtract_from_variable = { dd_cw_spawn = 1 } }
+			add_to_temp_variable = { dd_cw_pass = 1 }
+		}
+		if = {
+			limit = { check_variable = { dd_cw_pass < 1 } }
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+					owner = PREV
+					count = 1
+				}
+			}
+			subtract_from_variable = { dd_cw_spawn = 1 }
+		}
+	}
+	# Pocket pass
+	set_variable = { dd_cw_spawn = dd_cw_pocket_budget }
+	clear_variable = dd_cw_pocket_budget
+	dd_usa_cw_spawn_militia_pockets = yes
+	# Any unused pocket budget dumps to capital.
+	if = {
+		limit = { check_variable = { dd_cw_spawn > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = dd_cw_spawn
+			}
+		}
+	}
+	clear_variable = dd_cw_spawn
+}
+
+# Pocket province spawns for militia (only where the spawning country controls the province).
+dd_usa_cw_spawn_militia_pockets = {
+	# Country-scoped. Province is_controlled_by PREV = spawning country.
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6855 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 6855
+				allow_spawning_on_enemy_provs = yes
+			}
 		}
 		subtract_from_variable = { dd_cw_spawn = 1 }
 	}
-	clear_variable = dd_cw_spawn
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			9775 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 9775
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6890 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 6890
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6874 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 6874
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			9808 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 9808
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			954 = { is_controlled_by = PREV }
+		}
+		395 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 954
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1527 = { is_controlled_by = PREV }
+		}
+		395 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 1527
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			12365 = { is_controlled_by = PREV }
+		}
+		395 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 12365
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			9814 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 9814
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6681 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 6681
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1562 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 1562
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			9713 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 9713
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6665 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 6665
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			823 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 823
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			853 = { is_controlled_by = PREV }
+		}
+		377 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 853
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			3834 = { is_controlled_by = PREV }
+		}
+		377 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 3834
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			4975 = { is_controlled_by = PREV }
+		}
+		376 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 4975
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			2102 = { is_controlled_by = PREV }
+		}
+		376 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 2102
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			4799 = { is_controlled_by = PREV }
+		}
+		379 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 4799
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			12399 = { is_controlled_by = PREV }
+		}
+		379 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 12399
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			4816 = { is_controlled_by = PREV }
+		}
+		379 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 4816
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1827 = { is_controlled_by = PREV }
+		}
+		382 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 1827
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			868 = { is_controlled_by = PREV }
+		}
+		382 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 868
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1843 = { is_controlled_by = PREV }
+		}
+		366 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 1843
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			10352 = { is_controlled_by = PREV }
+		}
+		366 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 10352
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1572 = { is_controlled_by = PREV }
+		}
+		366 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 1572
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			10051 = { is_controlled_by = PREV }
+		}
+		363 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 10051
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			7138 = { is_controlled_by = PREV }
+		}
+		363 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 7138
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			10081 = { is_controlled_by = PREV }
+		}
+		363 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 10081
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			788 = { is_controlled_by = PREV }
+		}
+		362 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 788
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			12341 = { is_controlled_by = PREV }
+		}
+		375 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 12341
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			12670 = { is_controlled_by = PREV }
+		}
+		368 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 12670
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1690 = { is_controlled_by = PREV }
+		}
+		386 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 1690
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			7255 = { is_controlled_by = PREV }
+		}
+		386 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 7255
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			10305 = { is_controlled_by = PREV }
+		}
+		385 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 10305
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			4347 = { is_controlled_by = PREV }
+		}
+		385 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 4347
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			859 = { is_controlled_by = PREV }
+		}
+		358 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = 1
+				prioritize_location = 859
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
 }
 
 dd_usa_cw_spawn_militia_3x6_n = {
@@ -143,16 +793,50 @@ dd_usa_cw_spawn_militia_3x6_n = {
 	set_temp_variable = { dd_cw_eq = dd_cw_spawn }
 	multiply_temp_variable = { dd_cw_eq = 2000 }
 	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = dd_cw_eq }
+	set_variable = { dd_cw_pocket_budget = dd_cw_spawn }
+	multiply_variable = { dd_cw_pocket_budget = 0.34 }
+	round_variable = dd_cw_pocket_budget
+	subtract_from_variable = { dd_cw_spawn = dd_cw_pocket_budget }
 	while_loop_effect = {
 		limit = { check_variable = { dd_cw_spawn > 0 } }
-		capital_scope = {
+		set_temp_variable = { dd_cw_pass = 0 }
+		every_owned_state = {
+			limit = {
+				is_owned_and_controlled_by = PREV
+				check_variable = { PREV.dd_cw_spawn > 0 }
+			}
 			create_unit = {
 				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
 				owner = PREV
 				count = 1
 			}
+			PREV = { subtract_from_variable = { dd_cw_spawn = 1 } }
+			add_to_temp_variable = { dd_cw_pass = 1 }
 		}
-		subtract_from_variable = { dd_cw_spawn = 1 }
+		if = {
+			limit = { check_variable = { dd_cw_pass < 1 } }
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+					owner = PREV
+					count = 1
+				}
+			}
+			subtract_from_variable = { dd_cw_spawn = 1 }
+		}
+	}
+	set_variable = { dd_cw_spawn = dd_cw_pocket_budget }
+	clear_variable = dd_cw_pocket_budget
+	dd_usa_cw_spawn_militia_pockets = yes
+	if = {
+		limit = { check_variable = { dd_cw_spawn > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = PREV
+				count = dd_cw_spawn
+			}
+		}
 	}
 	clear_variable = dd_cw_spawn
 }
@@ -169,18 +853,664 @@ dd_usa_cw_spawn_ng_n = {
 	multiply_temp_variable = { dd_cw_eq_arty = 120 }
 	add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = dd_cw_eq_arty }
 	add_equipment_to_stockpile = { type = support_equipment amount = 200 }
+	set_variable = { dd_cw_pocket_budget = dd_cw_spawn }
+	multiply_variable = { dd_cw_pocket_budget = 0.34 }
+	round_variable = dd_cw_pocket_budget
+	subtract_from_variable = { dd_cw_spawn = dd_cw_pocket_budget }
 	while_loop_effect = {
 		limit = { check_variable = { dd_cw_spawn > 0 } }
-		capital_scope = {
+		set_temp_variable = { dd_cw_pass = 0 }
+		every_owned_state = {
+			limit = {
+				is_owned_and_controlled_by = PREV
+				check_variable = { PREV.dd_cw_spawn > 0 }
+			}
 			create_unit = {
 				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
 				owner = PREV
 				count = 1
 			}
+			PREV = { subtract_from_variable = { dd_cw_spawn = 1 } }
+			add_to_temp_variable = { dd_cw_pass = 1 }
+		}
+		every_controlled_state = {
+			limit = {
+				NOT = { is_owned_by = PREV }
+				is_controlled_by = PREV
+				check_variable = { PREV.dd_cw_spawn > 0 }
+			}
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				allow_spawning_on_enemy_provs = yes
+			}
+			PREV = { subtract_from_variable = { dd_cw_spawn = 1 } }
+			add_to_temp_variable = { dd_cw_pass = 1 }
+		}
+		if = {
+			limit = { check_variable = { dd_cw_pass < 1 } }
+			capital_scope = {
+				create_unit = {
+					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+					owner = PREV
+					count = 1
+				}
+			}
+			subtract_from_variable = { dd_cw_spawn = 1 }
+		}
+	}
+	# NG pocket pass (reuse militia pocket helper structure with NG template)
+	set_variable = { dd_cw_spawn = dd_cw_pocket_budget }
+	clear_variable = dd_cw_pocket_budget
+	dd_usa_cw_spawn_ng_pockets = yes
+	if = {
+		limit = { check_variable = { dd_cw_spawn > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = dd_cw_spawn
+			}
+		}
+	}
+	clear_variable = dd_cw_spawn
+}
+
+dd_usa_cw_spawn_ng_pockets = {
+	# Country-scoped. Province is_controlled_by PREV = spawning country.
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6855 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 6855
+				allow_spawning_on_enemy_provs = yes
+			}
 		}
 		subtract_from_variable = { dd_cw_spawn = 1 }
 	}
-	clear_variable = dd_cw_spawn
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			9775 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 9775
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6890 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 6890
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6874 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 6874
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			9808 = { is_controlled_by = PREV }
+		}
+		261 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 9808
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			954 = { is_controlled_by = PREV }
+		}
+		395 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 954
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1527 = { is_controlled_by = PREV }
+		}
+		395 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 1527
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			12365 = { is_controlled_by = PREV }
+		}
+		395 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 12365
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			9814 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 9814
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6681 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 6681
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1562 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 1562
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			9713 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 9713
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			6665 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 6665
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			823 = { is_controlled_by = PREV }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 823
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			853 = { is_controlled_by = PREV }
+		}
+		377 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 853
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			3834 = { is_controlled_by = PREV }
+		}
+		377 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 3834
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			4975 = { is_controlled_by = PREV }
+		}
+		376 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 4975
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			2102 = { is_controlled_by = PREV }
+		}
+		376 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 2102
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			4799 = { is_controlled_by = PREV }
+		}
+		379 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 4799
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			12399 = { is_controlled_by = PREV }
+		}
+		379 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 12399
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			4816 = { is_controlled_by = PREV }
+		}
+		379 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 4816
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1827 = { is_controlled_by = PREV }
+		}
+		382 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 1827
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			868 = { is_controlled_by = PREV }
+		}
+		382 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 868
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1843 = { is_controlled_by = PREV }
+		}
+		366 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 1843
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			10352 = { is_controlled_by = PREV }
+		}
+		366 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 10352
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1572 = { is_controlled_by = PREV }
+		}
+		366 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 1572
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			10051 = { is_controlled_by = PREV }
+		}
+		363 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 10051
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			7138 = { is_controlled_by = PREV }
+		}
+		363 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 7138
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			10081 = { is_controlled_by = PREV }
+		}
+		363 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 10081
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			788 = { is_controlled_by = PREV }
+		}
+		362 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 788
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			12341 = { is_controlled_by = PREV }
+		}
+		375 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 12341
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			12670 = { is_controlled_by = PREV }
+		}
+		368 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 12670
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			1690 = { is_controlled_by = PREV }
+		}
+		386 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 1690
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			7255 = { is_controlled_by = PREV }
+		}
+		386 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 7255
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			10305 = { is_controlled_by = PREV }
+		}
+		385 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 10305
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			4347 = { is_controlled_by = PREV }
+		}
+		385 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 4347
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_cw_spawn > 0 }
+			859 = { is_controlled_by = PREV }
+		}
+		358 = {
+			create_unit = {
+				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
+				owner = PREV
+				count = 1
+				prioritize_location = 859
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+		subtract_from_variable = { dd_cw_spawn = 1 }
+	}
 }
 
 dd_usa_cw_spawn_inf_eng_n = {
@@ -191,27 +1521,55 @@ dd_usa_cw_spawn_inf_eng_n = {
 	add_equipment_to_stockpile = { type = support_equipment amount = 200 }
 	while_loop_effect = {
 		limit = { check_variable = { dd_cw_spawn > 0 } }
-		capital_scope = {
+		set_temp_variable = { dd_cw_pass = 0 }
+		every_owned_state = {
+			limit = {
+				is_owned_and_controlled_by = PREV
+				check_variable = { PREV.dd_cw_spawn > 0 }
+			}
 			create_unit = {
 				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.35 start_equipment_factor = 0.7"
 				owner = PREV
 				count = 1
 			}
+			PREV = { subtract_from_variable = { dd_cw_spawn = 1 } }
+			add_to_temp_variable = { dd_cw_pass = 1 }
 		}
-		subtract_from_variable = { dd_cw_spawn = 1 }
+		if = {
+			limit = { check_variable = { dd_cw_pass < 1 } }
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.35 start_equipment_factor = 0.7"
+					owner = PREV
+					count = 1
+				}
+			}
+			subtract_from_variable = { dd_cw_spawn = 1 }
+		}
 	}
 	clear_variable = dd_cw_spawn
 }
 
 
 dd_usa_control_east_washington = {
-	set_province_controller = 1690
-	set_province_controller = 4747
-	set_province_controller = 10198
-	set_province_controller = 10327
-	set_province_controller = 10687
 	set_province_controller = 10693
+	set_province_controller = 1690
 	set_province_controller = 12673
+	set_province_controller = 10327
+	set_province_controller = 4747
+	set_province_controller = 10687
+	set_province_controller = 7865
+}
+
+# Eastern Oregon held by the Idaho Christians.
+dd_usa_control_aog_oregon = {
+	set_province_controller = 4347
+	set_province_controller = 1414
+	set_province_controller = 4826
+	set_province_controller = 10305
+	set_province_controller = 7721
+	set_province_controller = 10625
+	set_province_controller = 12553
 }
 
 dd_usa_control_north_new_mexico = {
@@ -249,19 +1607,94 @@ dd_usa_control_south_ohio = {
 	set_province_controller = 11890
 }
 
+dd_usa_control_ne_ohio = {
+	set_province_controller = 6890
+	set_province_controller = 6874
+	set_province_controller = 9808
+	set_province_controller = 9825
+	set_province_controller = 882
+	set_province_controller = 4442
+}
+
+# Demsoc keeps northern Ohio 689, 11791, 659 (and the rest of non-south Ohio) by ownership.
+
+dd_usa_control_vnm_illinois = {
+	set_province_controller = 1604
+	set_province_controller = 954
+	set_province_controller = 720
+	set_province_controller = 1655
+	set_province_controller = 10393
+	set_province_controller = 12365
+	set_province_controller = 10339
+	set_province_controller = 1527
+	set_province_controller = 12697
+}
+
+dd_usa_control_vegas = {
+	set_province_controller = 4799
+}
+
+dd_usa_control_rbm_california = {
+	set_province_controller = 6665
+	set_province_controller = 3588
+	set_province_controller = 10159
+	set_province_controller = 4331
+	set_province_controller = 11698
+	set_province_controller = 766
+	set_province_controller = 710
+	set_province_controller = 1601
+}
+
+dd_usa_control_wcl_california = {
+	set_province_controller = 4657
+	set_province_controller = 12303
+	set_province_controller = 4727
+	set_province_controller = 7986
+	set_province_controller = 823
+}
+
+dd_usa_control_abr_south = {
+	set_province_controller = 10449
+	set_province_controller = 10410
+	set_province_controller = 12498
+	set_province_controller = 4756
+	set_province_controller = 492
+}
+
+dd_usa_control_eme_socal = {
+	set_province_controller = 9814
+	set_province_controller = 9855
+	set_province_controller = 9911
+	set_province_controller = 11859
+}
+
+dd_usa_control_nfa_norcal = {
+	set_province_controller = 6681
+	set_province_controller = 6694
+	set_province_controller = 6745
+	set_province_controller = 9637
+}
+
 dd_usa_province_control = {
+	# Idaho Christians take eastern Washington / Oregon border provinces.
 	if = {
-		limit = { 386 = { NOT = { is_owned_by = AOG } } }
+		limit = { AOG = { has_country_flag = dd_cw_released } }
 		if = {
 			limit = {
-				386 = { is_owned_by = WCL }
-				NOT = { AOG = { has_war_with = WCL } }
+				OR = {
+					386 = { is_owned_by = ACA }
+					385 = { is_owned_by = ACA }
+				}
+				NOT = { AOG = { has_war_with = ACA } }
 			}
-			AOG = { declare_war_on = { target = WCL type = dd_annex } }
+			AOG = { declare_war_on = { target = ACA type = dd_annex } }
 		}
 		if = {
 			limit = {
-				386 = { is_owned_by = USA }
+				OR = {
+					386 = { is_owned_by = USA }
+					385 = { is_owned_by = USA }
+				}
 				NOT = { AOG = { is_subject_of = USA } }
 				NOT = { AOG = { is_in_faction_with = USA } }
 				NOT = { AOG = { has_war_with = USA } }
@@ -277,10 +1710,10 @@ dd_usa_province_control = {
 		}
 		if = {
 			limit = {
-				376 = { is_owned_by = ACA }
-				NOT = { RBM = { has_war_with = ACA } }
+				376 = { is_owned_by = WCL }
+				NOT = { RBM = { has_war_with = WCL } }
 			}
-			RBM = { declare_war_on = { target = ACA type = dd_annex } }
+			RBM = { declare_war_on = { target = WCL type = dd_annex } }
 		}
 		if = {
 			limit = {
@@ -295,10 +1728,10 @@ dd_usa_province_control = {
 		limit = { 376 = { NOT = { is_owned_by = USA } } }
 		if = {
 			limit = {
-				376 = { is_owned_by = ACA }
-				NOT = { has_war_with = ACA }
+				376 = { is_owned_by = WCL }
+				NOT = { has_war_with = WCL }
 			}
-			declare_war_on = { target = ACA type = dd_annex }
+			declare_war_on = { target = WCL type = dd_annex }
 		}
 		dd_usa_control_north_new_mexico = yes
 	}
@@ -309,10 +1742,10 @@ dd_usa_province_control = {
 		}
 		if = {
 			limit = {
-				261 = { is_owned_by = RBL }
-				NOT = { VNM = { has_war_with = RBL } }
+				261 = { is_owned_by = EAS }
+				NOT = { VNM = { has_war_with = EAS } }
 			}
-			VNM = { declare_war_on = { target = RBL type = dd_annex } }
+			VNM = { declare_war_on = { target = EAS type = dd_annex } }
 		}
 		if = {
 			limit = {
@@ -327,14 +1760,14 @@ dd_usa_province_control = {
 		limit = { 261 = { NOT = { is_owned_by = USA } } }
 		if = {
 			limit = {
-				261 = { is_owned_by = RBL }
-				NOT = { has_war_with = RBL }
+				261 = { is_owned_by = EAS }
+				NOT = { has_war_with = EAS }
 			}
-			declare_war_on = { target = RBL type = dd_annex }
+			declare_war_on = { target = EAS type = dd_annex }
 		}
 		dd_usa_control_south_ohio = yes
 	}
-	# National populists hold the two southernmost Illinois provinces.
+	# MAGA occupies most of rural Illinois. Chicago metro stays demsoc.
 	if = {
 		limit = {
 			VNM = { has_country_flag = dd_cw_released }
@@ -342,10 +1775,10 @@ dd_usa_province_control = {
 		}
 		if = {
 			limit = {
-				395 = { is_owned_by = RBL }
-				NOT = { VNM = { has_war_with = RBL } }
+				395 = { is_owned_by = EAS }
+				NOT = { VNM = { has_war_with = EAS } }
 			}
-			VNM = { declare_war_on = { target = RBL type = dd_annex } }
+			VNM = { declare_war_on = { target = EAS type = dd_annex } }
 		}
 		if = {
 			limit = {
@@ -354,151 +1787,66 @@ dd_usa_province_control = {
 			}
 			VNM = { declare_war_on = { target = USA type = dd_annex } }
 		}
-		VNM = {
-			set_province_controller = 7831
-			set_province_controller = 954
-		}
+		VNM = { dd_usa_control_vnm_illinois = yes }
 	}
 	else_if = {
 		limit = { 395 = { NOT = { is_owned_by = USA } } }
 		if = {
 			limit = {
-				395 = { is_owned_by = RBL }
-				NOT = { has_war_with = RBL }
+				395 = { is_owned_by = EAS }
+				NOT = { has_war_with = EAS }
 			}
-			declare_war_on = { target = RBL type = dd_annex }
+			declare_war_on = { target = EAS type = dd_annex }
 		}
-		set_province_controller = 7831
-		set_province_controller = 954
+		dd_usa_control_vnm_illinois = yes
 	}
-	# Democratic socialists hold the southernmost Pennsylvania provinces.
+	# Communists hold the far northeast of demsoc Ohio (Cleveland corridor).
+	# Skipped while demsoc and communists start at peace — holds need a war.
+	# Cascadia communes hold the Bay Area inside liberal California.
 	if = {
 		limit = {
-			EAS = { has_country_flag = dd_cw_released }
-			360 = { NOT = { is_owned_by = EAS } }
+			ACA = { has_country_flag = dd_cw_released }
+			378 = { NOT = { is_owned_by = ACA } }
 		}
 		if = {
 			limit = {
-				360 = { is_owned_by = RBL }
-				NOT = { EAS = { has_war_with = RBL } }
-			}
-			EAS = { declare_war_on = { target = RBL type = dd_annex } }
-		}
-		if = {
-			limit = {
-				360 = { is_owned_by = USA }
-				NOT = { EAS = { has_war_with = USA } }
-			}
-			EAS = { declare_war_on = { target = USA type = dd_annex } }
-		}
-		EAS = {
-			set_province_controller = 822
-			set_province_controller = 9789
-			set_province_controller = 11758
-			set_province_controller = 11769
-			set_province_controller = 3824
-			set_province_controller = 3847
-			set_province_controller = 6845
-			set_province_controller = 3802
-		}
-	}
-	else_if = {
-		limit = { 360 = { NOT = { is_owned_by = USA } } }
-		if = {
-			limit = {
-				360 = { is_owned_by = RBL }
-				NOT = { has_war_with = RBL }
-			}
-			declare_war_on = { target = RBL type = dd_annex }
-		}
-		set_province_controller = 822
-		set_province_controller = 9789
-		set_province_controller = 11758
-		set_province_controller = 11769
-		set_province_controller = 3824
-		set_province_controller = 3847
-		set_province_controller = 6845
-		set_province_controller = 3802
-	}
-	# Anarchists hold Portland, Seattle, and two Arizona provinces.
-	if = {
-		limit = { ACA = { has_country_flag = dd_cw_released } }
-		if = {
-			limit = {
-				385 = { is_owned_by = WCL }
+				378 = { is_owned_by = WCL }
 				NOT = { ACA = { has_war_with = WCL } }
 			}
 			ACA = { declare_war_on = { target = WCL type = dd_annex } }
 		}
 		if = {
 			limit = {
-				377 = { is_owned_by = WCL }
-				NOT = { ACA = { has_war_with = WCL } }
-			}
-			ACA = { declare_war_on = { target = WCL type = dd_annex } }
-		}
-		if = {
-			limit = {
-				OR = {
-					385 = { is_owned_by = USA }
-					386 = { is_owned_by = USA }
-					377 = { is_owned_by = USA }
-				}
+				378 = { is_owned_by = USA }
 				NOT = { ACA = { has_war_with = USA } }
 			}
 			ACA = { declare_war_on = { target = USA type = dd_annex } }
 		}
-		if = {
-			limit = { 385 = { NOT = { is_owned_by = ACA } } }
-			ACA = { set_province_controller = 3513 }
-		}
-		if = {
-			limit = { 386 = { NOT = { is_owned_by = ACA } } }
-			ACA = { set_province_controller = 7315 }
-		}
-		if = {
-			limit = { 377 = { NOT = { is_owned_by = ACA } } }
-			ACA = {
-				set_province_controller = 8115
-				set_province_controller = 10783
-			}
+		ACA = {
+			set_province_controller = 1562
+			set_province_controller = 9713
+			set_province_controller = 677
+			set_province_controller = 3677
+			set_province_controller = 768
 		}
 	}
 	else_if = {
-		if = {
-			limit = { 385 = { NOT = { is_owned_by = USA } } }
-			if = {
-				limit = {
-					385 = { is_owned_by = WCL }
-					NOT = { has_war_with = WCL }
-				}
-				declare_war_on = { target = WCL type = dd_annex }
-			}
-			set_province_controller = 3513
+		limit = {
+			has_country_flag = dd_usa_keep_aca
+			378 = { NOT = { is_owned_by = USA } }
 		}
 		if = {
-			limit = { 386 = { NOT = { is_owned_by = USA } } }
-			if = {
-				limit = {
-					386 = { is_owned_by = WCL }
-					NOT = { has_war_with = WCL }
-				}
-				declare_war_on = { target = WCL type = dd_annex }
+			limit = {
+				378 = { is_owned_by = WCL }
+				NOT = { has_war_with = WCL }
 			}
-			set_province_controller = 7315
+			declare_war_on = { target = WCL type = dd_annex }
 		}
-		if = {
-			limit = { 377 = { NOT = { is_owned_by = USA } } }
-			if = {
-				limit = {
-					377 = { is_owned_by = WCL }
-					NOT = { has_war_with = WCL }
-				}
-				declare_war_on = { target = WCL type = dd_annex }
-			}
-			set_province_controller = 8115
-			set_province_controller = 10783
-		}
+		set_province_controller = 1562
+		set_province_controller = 9713
+		set_province_controller = 677
+		set_province_controller = 3677
+		set_province_controller = 768
 	}
 	# Rubio holds northern and central Arizona. The rest stays with the Pacific liberals.
 	if = {
@@ -545,16 +1893,9 @@ dd_usa_province_control = {
 		set_province_controller = 7920
 		set_province_controller = 3834
 	}
-	# Pacific liberals hold two northern New Mexico provinces and four in Colorado.
+	# Pacific liberals hold four Front Range provinces in Rubio Colorado.
 	if = {
 		limit = { WCL = { has_country_flag = dd_cw_released } }
-		if = {
-			limit = {
-				376 = { is_owned_by = ACA }
-				NOT = { WCL = { has_war_with = ACA } }
-			}
-			WCL = { declare_war_on = { target = ACA type = dd_annex } }
-		}
 		if = {
 			limit = {
 				382 = { is_owned_by = RBM }
@@ -564,20 +1905,10 @@ dd_usa_province_control = {
 		}
 		if = {
 			limit = {
-				OR = {
-					376 = { is_owned_by = USA }
-					382 = { is_owned_by = USA }
-				}
+				382 = { is_owned_by = USA }
 				NOT = { WCL = { has_war_with = USA } }
 			}
 			WCL = { declare_war_on = { target = USA type = dd_annex } }
-		}
-		if = {
-			limit = { 376 = { NOT = { is_owned_by = WCL } } }
-			WCL = {
-				set_province_controller = 10645
-				set_province_controller = 1972
-			}
 		}
 		if = {
 			limit = { 382 = { NOT = { is_owned_by = WCL } } }
@@ -590,34 +1921,23 @@ dd_usa_province_control = {
 		}
 	}
 	else_if = {
-		if = {
-			limit = { 376 = { NOT = { is_owned_by = USA } } }
-			if = {
-				limit = {
-					376 = { is_owned_by = ACA }
-					NOT = { has_war_with = ACA }
-				}
-				declare_war_on = { target = ACA type = dd_annex }
-			}
-			set_province_controller = 10645
-			set_province_controller = 1972
+		limit = {
+			has_country_flag = dd_usa_keep_wcl
+			382 = { NOT = { is_owned_by = USA } }
 		}
 		if = {
-			limit = { 382 = { NOT = { is_owned_by = USA } } }
-			if = {
-				limit = {
-					382 = { is_owned_by = RBM }
-					NOT = { has_war_with = RBM }
-				}
-				declare_war_on = { target = RBM type = dd_annex }
+			limit = {
+				382 = { is_owned_by = RBM }
+				NOT = { has_war_with = RBM }
 			}
-			set_province_controller = 9792
-			set_province_controller = 868
-			set_province_controller = 10588
-			set_province_controller = 1827
+			declare_war_on = { target = RBM type = dd_annex }
 		}
+		set_province_controller = 9792
+		set_province_controller = 868
+		set_province_controller = 10588
+		set_province_controller = 1827
 	}
-	# National populists hold the west of Virginia. The democratic socialists own the rest.
+	# National populists hold the west of Virginia. Great Lakes socialists own the rest.
 	if = {
 		limit = {
 			VNM = { has_country_flag = dd_cw_released }
@@ -658,7 +1978,7 @@ dd_usa_province_control = {
 		set_province_controller = 10439
 		set_province_controller = 1506
 	}
-	# Democratic socialists hold inland northern North Carolina. Fascists own the south and the coast.
+	# Great Lakes socialists hold inland northern North Carolina. Fascists own the south and the coast.
 	if = {
 		limit = {
 			EAS = { has_country_flag = dd_cw_released }
@@ -709,7 +2029,7 @@ dd_usa_province_control = {
 		set_province_controller = 7045
 		set_province_controller = 12054
 	}
-	# Alaska Command holds the mainland bases. Guantanamo is already owned as state 1112.
+	# Federal Command holds the mainland bases. Guantanamo is already owned as state 1112.
 	# Wars are only against whoever owns those bases so the holds stick.
 	if = {
 		limit = {
@@ -734,10 +2054,10 @@ dd_usa_province_control = {
 	}
 	if = {
 		limit = {
-			386 = { is_owned_by = WCL }
-			NOT = { FVA = { has_war_with = WCL } }
+			386 = { is_owned_by = ACA }
+			NOT = { FVA = { has_war_with = ACA } }
 		}
-		FVA = { declare_war_on = { target = WCL type = dd_annex } }
+		FVA = { declare_war_on = { target = ACA type = dd_annex } }
 	}
 	if = {
 		limit = {
@@ -748,12 +2068,20 @@ dd_usa_province_control = {
 	}
 	if = {
 		limit = {
+			379 = { is_owned_by = RBM }
+			NOT = { FVA = { has_war_with = RBM } }
+		}
+		FVA = { declare_war_on = { target = RBM type = dd_annex } }
+	}
+	if = {
+		limit = {
 			OR = {
 				368 = { is_owned_by = USA }
 				362 = { is_owned_by = USA }
 				363 = { is_owned_by = USA }
 				386 = { is_owned_by = USA }
 				375 = { is_owned_by = USA }
+				379 = { is_owned_by = USA }
 			}
 			NOT = { FVA = { has_war_with = USA } }
 		}
@@ -765,6 +2093,8 @@ dd_usa_province_control = {
 		set_province_controller = 7255
 		set_province_controller = 12341
 		set_province_controller = 12670
+		set_province_controller = 12399
+		set_province_controller = 4816
 	}
 	if = {
 		limit = {
@@ -777,11 +2107,151 @@ dd_usa_province_control = {
 	# Fascists hold the northern half of Florida. Miami stays with Border Command.
 	if = {
 		limit = { FDS = { has_country_flag = dd_cw_released } }
+		if = {
+			limit = {
+				366 = { is_owned_by = FLO }
+				NOT = { FDS = { has_war_with = FLO } }
+			}
+			FDS = { declare_war_on = { target = FLO type = dd_annex } }
+		}
+		if = {
+			limit = {
+				366 = { is_owned_by = USA }
+				NOT = { FDS = { has_war_with = USA } }
+			}
+			FDS = { declare_war_on = { target = USA type = dd_annex } }
+		}
 		FDS = { dd_usa_control_north_florida = yes }
 	}
 	else_if = {
 		limit = { has_country_flag = dd_usa_keep_fds }
+		if = {
+			limit = {
+				366 = { is_owned_by = FLO }
+				NOT = { has_war_with = FLO }
+			}
+			declare_war_on = { target = FLO type = dd_annex }
+		}
 		dd_usa_control_north_florida = yes
+	}
+	# Liberals keep Las Vegas; Rubio owns the rest of Nevada.
+	if = {
+		limit = {
+			WCL = { has_country_flag = dd_cw_released }
+			379 = { NOT = { is_owned_by = WCL } }
+		}
+		if = {
+			limit = {
+				379 = { is_owned_by = RBM }
+				NOT = { WCL = { has_war_with = RBM } }
+			}
+			WCL = { declare_war_on = { target = RBM type = dd_annex } }
+		}
+		if = {
+			limit = {
+				379 = { is_owned_by = USA }
+				NOT = { WCL = { has_war_with = USA } }
+			}
+			WCL = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		WCL = { dd_usa_control_vegas = yes }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = dd_usa_keep_wcl
+			379 = { NOT = { is_owned_by = USA } }
+		}
+		if = {
+			limit = {
+				379 = { is_owned_by = RBM }
+				NOT = { has_war_with = RBM }
+			}
+			declare_war_on = { target = RBM type = dd_annex }
+		}
+		dd_usa_control_vegas = yes
+	}
+	# Rubio takes inland California provinces from the Pacific liberals.
+	if = {
+		limit = {
+			RBM = { has_country_flag = dd_cw_released }
+			378 = { NOT = { is_owned_by = RBM } }
+		}
+		if = {
+			limit = {
+				378 = { is_owned_by = WCL }
+				NOT = { RBM = { has_war_with = WCL } }
+			}
+			RBM = { declare_war_on = { target = WCL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				378 = { is_owned_by = USA }
+				NOT = { RBM = { has_war_with = USA } }
+			}
+			RBM = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		RBM = { dd_usa_control_rbm_california = yes }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = dd_usa_keep_rbm
+			378 = { NOT = { is_owned_by = USA } }
+		}
+		if = {
+			limit = {
+				378 = { is_owned_by = WCL }
+				NOT = { has_war_with = WCL }
+			}
+			declare_war_on = { target = WCL type = dd_annex }
+		}
+		dd_usa_control_rbm_california = yes
+	}
+	# Black Revolt holds in Alabama, Mississippi, and Georgia.
+	if = {
+		limit = { ABR = { has_country_flag = dd_cw_released } }
+		if = {
+			limit = {
+				FDS = { has_country_flag = dd_cw_released }
+				NOT = { ABR = { has_war_with = FDS } }
+			}
+			ABR = { declare_war_on = { target = FDS type = dd_annex } }
+		}
+		if = {
+			limit = {
+				has_country_flag = dd_usa_keep_fds
+				NOT = { ABR = { has_war_with = USA } }
+			}
+			ABR = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		ABR = { dd_usa_control_abr_south = yes }
+	}
+	# Prison gangs take city blocks. They fight everyone via dd_cw_general.
+	if = {
+		limit = { EME = { has_country_flag = dd_cw_released } }
+		EME = { dd_usa_control_eme_socal = yes }
+	}
+	if = {
+		limit = { NFA = { has_country_flag = dd_cw_released } }
+		NFA = { dd_usa_control_nfa_norcal = yes }
+	}
+	# Wall Street holds upstate/adjacent New York province 859.
+	if = {
+		limit = { NYF = { has_country_flag = dd_cw_released } }
+		if = {
+			limit = {
+				358 = { is_owned_by = RBL }
+				NOT = { NYF = { has_war_with = RBL } }
+			}
+			NYF = { declare_war_on = { target = RBL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				358 = { is_owned_by = USA }
+				NOT = { NYF = { has_war_with = USA } }
+			}
+			NYF = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		NYF = { set_province_controller = 859 }
 	}
 }
 
@@ -983,7 +2453,7 @@ dd_usa_civil_war_fights = {
 		}
 	}
 
-	# Navy: 80% Alaska Command, 10% Pacific liberals, 10% Deep South.
+	# Navy: 80% Federal Command, 10% Pacific liberals, 10% Deep South.
 	if = {
 		limit = { FVA = { has_country_flag = dd_cw_released } }
 		transfer_units_fraction = {
@@ -997,8 +2467,8 @@ dd_usa_civil_war_fights = {
 	}
 	if = {
 		limit = { WCL = { has_country_flag = dd_cw_released } }
-		# After Alaska took 80%, 10% of original is half of what remains on USA.
-		# If Alaska is missing, 10% of original is size 0.1 of the full fleet.
+		# After Federal Command took 80%, 10% of original is half of what remains on USA.
+		# If Federal Command is missing, 10% of original is size 0.1 of the full fleet.
 		if = {
 			limit = { FVA = { has_country_flag = dd_cw_released } }
 			transfer_units_fraction = {
@@ -1072,11 +2542,11 @@ dd_usa_civil_war_fights = {
 		}
 	}
 
-	# Capitals + National Guard for Pacific liberals, Rubio, Vance, AOC.
+	# Capitals + National Guard for Great Lakes demsoc, Pacific liberals, Rubio, Vance.
 	if = {
 		limit = { EAS = { has_country_flag = dd_cw_released } }
 		EAS = {
-			set_capital = { state = 361 }
+			set_capital = { state = 395 }
 			set_variable = { dd_cw_spawn = 4 }
 			dd_usa_cw_spawn_ng_n = yes
 			set_variable = { dd_cw_spawn = 12 }
@@ -1086,7 +2556,7 @@ dd_usa_civil_war_fights = {
 	if = {
 		limit = { WCL = { has_country_flag = dd_cw_released } }
 		WCL = {
-			set_capital = { state = 385 }
+			set_capital = { state = 378 }
 			set_variable = { dd_cw_spawn = 4 }
 			dd_usa_cw_spawn_ng_n = yes
 			set_variable = { dd_cw_spawn = 12 }
@@ -1124,7 +2594,7 @@ dd_usa_civil_war_fights = {
 	if = {
 		limit = { RBL = { has_country_flag = dd_cw_released } }
 		RBL = {
-			set_capital = { state = 393 }
+			set_capital = { state = 358 }
 			set_variable = { dd_cw_spawn = 12 }
 			dd_usa_cw_spawn_militia_n = yes
 		}
@@ -1132,7 +2602,7 @@ dd_usa_civil_war_fights = {
 	if = {
 		limit = { ACA = { has_country_flag = dd_cw_released } }
 		ACA = {
-			set_capital = { state = 378 }
+			set_capital = { state = 386 }
 			set_variable = { dd_cw_spawn = 12 }
 			dd_usa_cw_spawn_militia_n = yes
 		}
@@ -1282,7 +2752,7 @@ dd_usa_civil_war_fights = {
 			dd_usa_cw_spawn_militia_n = yes
 		}
 	}
-	# Alaska Federal Command: 2 infantry at each base + 1 extra in Alaska.
+	# Federal Command: 2 infantry at each base + 1 extra in Alaska.
 	if = {
 		limit = { FVA = { has_country_flag = dd_cw_released } }
 		FVA = {
@@ -1344,7 +2814,7 @@ dd_usa_civil_war_fights = {
 		dd_usa_cw_spawn_inf_eng_n = yes
 	}
 	TXO = {
-		set_capital = { state = 1126 }
+		set_capital = { state = 1133 }
 		set_variable = { dd_cw_spawn = 4 }
 		dd_usa_cw_spawn_inf_eng_n = yes
 	}
@@ -1387,21 +2857,8 @@ dd_usa_civil_war_fights = {
 	}
 	EBC = {
 		set_capital = { state = 1129 }
-		dd_usa_cw_tpl_militia_2x6 = yes
-		add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 12000 }
 		set_variable = { dd_cw_spawn = 6 }
-		while_loop_effect = {
-			limit = { check_variable = { dd_cw_spawn > 0 } }
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.25 start_equipment_factor = 0.6"
-					owner = PREV
-					count = 1
-				}
-			}
-			subtract_from_variable = { dd_cw_spawn = 1 }
-		}
-		clear_variable = dd_cw_spawn
+		dd_usa_cw_spawn_militia_n = yes
 		# Miami holds spawn after wars + province control (see dd_usa_cw_spawn_held_bases).
 	}
 	ABR = {
@@ -1545,6 +3002,8 @@ dd_usa_civil_war_fights = {
 	ABR = { set_country_flag = dd_cw_general }
 	PTF = { set_country_flag = dd_cw_general }
 	ASK = { set_country_flag = dd_cw_general }
+	EME = { set_country_flag = dd_cw_general }
+	NFA = { set_country_flag = dd_cw_general }
 	every_country = {
 		limit = { has_country_flag = dd_cw_general }
 		every_other_country = {
@@ -1552,6 +3011,36 @@ dd_usa_civil_war_fights = {
 				has_country_flag = dd_cw_general
 				NOT = { has_war_with = PREV }
 				NOT = { is_in_faction_with = PREV }
+				# Rubio and Vance start at peace.
+				NOT = {
+					OR = {
+						AND = {
+							OR = { tag = RBM PREV = { has_country_flag = dd_usa_keep_rbm } }
+							OR = { tag = VNM PREV = { has_country_flag = dd_usa_keep_vnm } }
+						}
+						AND = {
+							OR = { tag = VNM PREV = { has_country_flag = dd_usa_keep_vnm } }
+							OR = { tag = RBM PREV = { has_country_flag = dd_usa_keep_rbm } }
+						}
+						AND = { tag = RBM PREV = { tag = VNM } }
+						AND = { tag = VNM PREV = { tag = RBM } }
+						AND = { tag = RBM PREV = { has_country_flag = dd_usa_keep_vnm } }
+						AND = { tag = VNM PREV = { has_country_flag = dd_usa_keep_rbm } }
+						AND = { has_country_flag = dd_usa_keep_rbm PREV = { tag = VNM } }
+						AND = { has_country_flag = dd_usa_keep_vnm PREV = { tag = RBM } }
+					}
+				}
+				# Demsoc and communists start at peace.
+				NOT = {
+					OR = {
+						AND = { tag = EAS PREV = { tag = RBL } }
+						AND = { tag = RBL PREV = { tag = EAS } }
+						AND = { tag = EAS PREV = { has_country_flag = dd_usa_keep_rbl } }
+						AND = { tag = RBL PREV = { has_country_flag = dd_usa_keep_eas } }
+						AND = { has_country_flag = dd_usa_keep_eas PREV = { tag = RBL } }
+						AND = { has_country_flag = dd_usa_keep_rbl PREV = { tag = EAS } }
+					}
+				}
 			}
 			declare_war_on = { target = PREV type = dd_annex }
 		}
@@ -1560,7 +3049,98 @@ dd_usa_civil_war_fights = {
 		limit = { has_country_flag = dd_cw_general }
 		clr_country_flag = dd_cw_general
 	}
+	# Enforce opening peaces if anything else declared.
+	if = {
+		limit = {
+			RBM = { has_country_flag = dd_cw_released }
+			VNM = { has_country_flag = dd_cw_released }
+			RBM = { has_war_with = VNM }
+		}
+		RBM = { white_peace = VNM }
+	}
+	if = {
+		limit = {
+			has_country_flag = dd_usa_keep_rbm
+			VNM = { has_country_flag = dd_cw_released }
+			has_war_with = VNM
+		}
+		white_peace = VNM
+	}
+	if = {
+		limit = {
+			has_country_flag = dd_usa_keep_vnm
+			RBM = { has_country_flag = dd_cw_released }
+			has_war_with = RBM
+		}
+		white_peace = RBM
+	}
+	if = {
+		limit = {
+			EAS = { has_country_flag = dd_cw_released }
+			RBL = { has_country_flag = dd_cw_released }
+			EAS = { has_war_with = RBL }
+		}
+		EAS = { white_peace = RBL }
+	}
+	if = {
+		limit = {
+			has_country_flag = dd_usa_keep_eas
+			RBL = { has_country_flag = dd_cw_released }
+			has_war_with = RBL
+		}
+		white_peace = RBL
+	}
+	if = {
+		limit = {
+			has_country_flag = dd_usa_keep_rbl
+			EAS = { has_country_flag = dd_cw_released }
+			has_war_with = EAS
+		}
+		white_peace = EAS
+	}
+	# Every American CW tag: fight longer, no normal diplomacy (focuses only).
+	every_country = {
+		limit = {
+			OR = {
+				has_country_flag = dd_cw_released
+				has_country_flag = dd_usa_civil_war
+			}
+		}
+		add_ideas = dd_usa_civil_war_cause
+	}
+	# California prison gangs fight every CW participant, including Texas/Federal enclaves.
+	if = {
+		limit = { EME = { has_country_flag = dd_cw_released } }
+		EME = {
+			every_other_country = {
+				limit = {
+					OR = {
+						has_country_flag = dd_cw_released
+						tag = USA
+					}
+					NOT = { has_war_with = PREV }
+				}
+				PREV = { declare_war_on = { target = THIS type = dd_annex } }
+			}
+		}
+	}
+	if = {
+		limit = { NFA = { has_country_flag = dd_cw_released } }
+		NFA = {
+			every_other_country = {
+				limit = {
+					OR = {
+						has_country_flag = dd_cw_released
+						tag = USA
+					}
+					NOT = { has_war_with = PREV }
+				}
+				PREV = { declare_war_on = { target = THIS type = dd_annex } }
+			}
+		}
+	}
 	# Texas, the reds, the brethren, and the oil enclave only fight each other.
+	# Oil also fights the Black Revolt over New Orleans.
 	TXG = {
 		declare_war_on = { target = TXR type = dd_annex }
 		declare_war_on = { target = ETX type = dd_annex }
@@ -1571,6 +3151,7 @@ dd_usa_civil_war_fights = {
 		declare_war_on = { target = TXO type = dd_annex }
 	}
 	ETX = { declare_war_on = { target = TXO type = dd_annex } }
+	TXO = { declare_war_on = { target = ABR type = dd_annex } }
 	# Border Command fights the Texas minors, Florida, and the fascists.
 	EBC = {
 		declare_war_on = { target = TXR type = dd_annex }
@@ -1599,6 +3180,8 @@ dd_usa_cw_spawn_held_bases = {
 		386 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 7255 allow_spawning_on_enemy_provs = yes } }
 		375 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 12341 allow_spawning_on_enemy_provs = yes } }
 		368 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 12670 allow_spawning_on_enemy_provs = yes } }
+		379 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 12399 allow_spawning_on_enemy_provs = yes } }
+		379 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 4816 allow_spawning_on_enemy_provs = yes } }
 	}
 	366 = {
 		create_unit = {
@@ -1607,6 +3190,51 @@ dd_usa_cw_spawn_held_bases = {
 			count = 2
 			prioritize_location = 1843
 			allow_spawning_on_enemy_provs = yes
+		}
+	}
+	if = {
+		limit = { EME = { has_country_flag = dd_cw_released } }
+		EME = {
+			dd_usa_cw_tpl_militia_2x6 = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = EME
+				count = 2
+				prioritize_location = 9814
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+	}
+	if = {
+		limit = { NFA = { has_country_flag = dd_cw_released } }
+		NFA = {
+			dd_usa_cw_tpl_militia_2x6 = yes
+			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 }
+		}
+		378 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = NFA
+				count = 2
+				prioritize_location = 6681
+				allow_spawning_on_enemy_provs = yes
+			}
+		}
+	}
+	if = {
+		limit = { NYF = { has_country_flag = dd_cw_released } }
+		NYF = { dd_usa_cw_tpl_militia_2x6 = yes }
+		358 = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+				owner = NYF
+				count = 2
+				prioritize_location = 859
+				allow_spawning_on_enemy_provs = yes
+			}
 		}
 	}
 }

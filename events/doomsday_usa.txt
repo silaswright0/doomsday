@@ -592,14 +592,14 @@ country_event = {
 	}
 }
 
-# Human player picks one of the six majors. Anarchists break off later (dd_usa_cw.1).
+# Human player picks one of the six majors. Split across two events so options fit the GUI.
+# Anarchists break off later (dd_usa_cw.1).
 country_event = {
 	id = dd_usa_cw.2
 	title = dd_usa_cw.2.t
 	desc = dd_usa_cw.2.d
 	picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
-	fire_only_once = yes
 	option = {
 		name = dd_usa_cw.2.eas
 		trigger = {
@@ -640,6 +640,18 @@ country_event = {
 		}
 	}
 	option = {
+		name = dd_usa_cw.2.more
+		country_event = { id = dd_usa_cw.3 }
+	}
+}
+
+country_event = {
+	id = dd_usa_cw.3
+	title = dd_usa_cw.2.t
+	desc = dd_usa_cw.2.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
 		name = dd_usa_cw.2.vnm
 		trigger = {
 			OR = {
@@ -677,6 +689,10 @@ country_event = {
 			limit = { RBL = { has_country_flag = dd_cw_released } }
 			RBL = { change_tag_from = ROOT }
 		}
+	}
+	option = {
+		name = dd_usa_cw.3.back
+		country_event = { id = dd_usa_cw.2 }
 	}
 }
 

@@ -307,16 +307,34 @@ dd_usa_cw_spawn_militia = {
 		set_variable = { dd_usa_militia_count = 8 }
 	}
 	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 6000 }
+	# Spread across owned states (same pattern as CW war spawns).
 	while_loop_effect = {
 		limit = { check_variable = { dd_usa_militia_count > 0 } }
-		capital_scope = {
+		set_temp_variable = { dd_cw_pass = 0 }
+		every_owned_state = {
+			limit = {
+				is_owned_and_controlled_by = PREV
+				check_variable = { PREV.dd_usa_militia_count > 0 }
+			}
 			create_unit = {
 				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
 				owner = PREV
 				count = 1
 			}
+			PREV = { subtract_from_variable = { dd_usa_militia_count = 1 } }
+			add_to_temp_variable = { dd_cw_pass = 1 }
 		}
-		subtract_from_variable = { dd_usa_militia_count = 1 }
+		if = {
+			limit = { check_variable = { dd_cw_pass < 1 } }
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
+					owner = PREV
+					count = 1
+				}
+			}
+			subtract_from_variable = { dd_usa_militia_count = 1 }
+		}
 	}
 	clear_variable = dd_usa_militia_count
 }
@@ -985,11 +1003,12 @@ dd_usa_start_civil_war = {
 				}
 			}
 			set_country_flag = dd_usa_keep_eas
+			set_capital = { state = 395 }
 		}
 		else_if = {
 			limit = { has_government = social_liberalism }
 			set_country_flag = dd_usa_keep_wcl
-			set_capital = { state = 385 }
+			set_capital = { state = 378 }
 		}
 		else_if = {
 			limit = { has_government = liberal_conservatism }
@@ -1009,12 +1028,12 @@ dd_usa_start_civil_war = {
 		else_if = {
 			limit = { has_government = communism }
 			set_country_flag = dd_usa_keep_rbl
-			set_capital = { state = 393 }
+			set_capital = { state = 358 }
 		}
 		else_if = {
 			limit = { has_government = anarcho_communism }
 			set_country_flag = dd_usa_keep_aca
-			set_capital = { state = 378 }
+			set_capital = { state = 386 }
 		}
 		else = {
 			set_country_flag = dd_usa_keep_fed
@@ -1053,24 +1072,24 @@ dd_usa_start_civil_war = {
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_aca } }
 			ACA = {
-				transfer_state = 378
-				add_state_core = 378
-				transfer_state = 376
-				add_state_core = 376
+				transfer_state = 385
+				add_state_core = 385
+				transfer_state = 386
+				add_state_core = 386
+				set_capital = { state = 386 }
 				set_country_flag = dd_cw_released
 			}
 		}
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_wcl } }
 			WCL = {
-				transfer_state = 379
-				add_state_core = 379
-				transfer_state = 385
-				add_state_core = 385
-				transfer_state = 386
-				add_state_core = 386
+				transfer_state = 378
+				add_state_core = 378
 				transfer_state = 377
 				add_state_core = 377
+				transfer_state = 376
+				add_state_core = 376
+				set_capital = { state = 378 }
 				set_country_flag = dd_cw_released
 			}
 		}
@@ -1087,6 +1106,8 @@ dd_usa_start_civil_war = {
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_rbm } }
 			RBM = {
+				transfer_state = 379
+				add_state_core = 379
 				transfer_state = 383
 				add_state_core = 383
 				transfer_state = 374
@@ -1134,17 +1155,22 @@ dd_usa_start_civil_war = {
 			set_capital = { state = 1137 }
 			set_country_flag = dd_cw_released
 		}
+		EME = { set_country_flag = dd_cw_released }
+		NFA = { set_country_flag = dd_cw_released }
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_rbl } }
 			RBL = {
-				transfer_state = 393
-				add_state_core = 393
-				transfer_state = 261
-				add_state_core = 261
+				transfer_state = 359
+				add_state_core = 359
+				transfer_state = 361
+				add_state_core = 361
+				transfer_state = 686
+				add_state_core = 686
+				transfer_state = 358
+				add_state_core = 358
 				transfer_state = 360
 				add_state_core = 360
-				transfer_state = 395
-				add_state_core = 395
+				set_capital = { state = 358 }
 				set_country_flag = dd_cw_released
 			}
 		}
@@ -1181,18 +1207,17 @@ dd_usa_start_civil_war = {
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_eas } }
 			EAS = {
+				transfer_state = 393
+				add_state_core = 393
+				transfer_state = 261
+				add_state_core = 261
+				transfer_state = 395
+				add_state_core = 395
 				transfer_state = 357
 				add_state_core = 357
-				transfer_state = 359
-				add_state_core = 359
-				transfer_state = 361
-				add_state_core = 361
-				transfer_state = 686
-				add_state_core = 686
-				transfer_state = 358
-				add_state_core = 358
 				transfer_state = 362
 				add_state_core = 362
+				set_capital = { state = 395 }
 				set_country_flag = dd_cw_released
 			}
 		}
@@ -1216,11 +1241,14 @@ dd_usa_start_civil_war = {
 		NYF = {
 			transfer_state = 1125
 			add_state_core = 1125
+			set_capital = { state = 1125 }
 			set_country_flag = dd_cw_released
 		}
 		TXO = {
 			transfer_state = 1126
 			add_state_core = 1126
+			transfer_state = 1133
+			add_state_core = 1133
 			set_country_flag = dd_cw_released
 		}
 		TXR = {
@@ -1250,8 +1278,6 @@ dd_usa_start_civil_war = {
 			add_state_core = 1131
 			transfer_state = 1132
 			add_state_core = 1132
-			transfer_state = 1133
-			add_state_core = 1133
 			transfer_state = 1134
 			add_state_core = 1134
 			transfer_state = 1135

@@ -7,6 +7,9 @@ state={
 		owner = USA
 		add_extra_state_shared_building_slots = 0
 		add_core_of = USA
+		victory_points = { # Minneapolis
+			1866 5
+		}
 		buildings = {
 			services_building = 1
 			arms_factory = 0
@@ -15,9 +18,6 @@ state={
 			1866 = {
 				supply_node = 1
 			}
-		}
-		victory_points = {
-			1866 5
 		}
 	}
 	provinces={

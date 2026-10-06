@@ -12,7 +12,18 @@ state = {
 		owner = USA
 		add_extra_state_shared_building_slots = 2
 		add_core_of = USA
-
+		victory_points = { # Seattle
+			7315 12
+		}
+		victory_points = { # Spokane
+			1690 2
+		}
+		victory_points = { # Tacoma
+			7255 2
+		}
+		victory_points = { # Vancouver
+			12214 2
+		}
 		buildings = {
 			renewable_park = 1
 			services_building = 2
@@ -31,14 +42,6 @@ state = {
 				naval_supply_hub = 1
 				naval_base = 8
 			}
-		}
-		
-		victory_points = {
-			1690 1 # Spokane
-		}
-
-		victory_points = {
-			7315 10 # Seattle
 		}
 
 	}

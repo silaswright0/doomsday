@@ -586,5 +586,33 @@ ideas = {
 				stability_factor = -0.15
 			}
 		}
+		# Every Second American Civil War tag. Diplomacy with other American tags is focus-only.
+		dd_usa_civil_war_cause = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				surrender_limit = 0.35
+				war_support_factor = 0.10
+				ai_get_ally_desire_factor = -1000
+				ai_join_ally_desire_factor = -1000
+				ai_call_ally_desire_factor = -1000
+				join_faction_tension = 2.0
+				guarantee_tension = 2.0
+				send_volunteers_tension = 2.0
+				lend_lease_tension = 2.0
+				embargo_threshold_factor = 2.0
+				improve_relations_maintain_cost_factor = 10
+			}
+			rule = {
+				can_join_factions = no
+				can_create_factions = no
+				can_send_volunteers = no
+				can_puppet = no
+				can_guarantee_other_ideologies = no
+				can_force_government = no
+			}
+		}
 	}
 }
