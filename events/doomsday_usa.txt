@@ -274,6 +274,7 @@ country_event = {
 		if = {
 			limit = {
 				has_country_flag = dd_usa_post_election
+				NOT = { has_global_flag = dd_usa_civil_war_started }
 				NOT = { has_country_flag = dd_usa_civil_war }
 				NOT = { has_country_flag = dd_usa_elections_closed }
 			}
@@ -310,28 +311,29 @@ country_event = {
 			if = {
 				limit = { check_variable = { dd_which = 1 } }
 				set_politics = { ruling_party = social_democracy elections_allowed = yes }
-				create_country_leader = { name = "Alexandria Ocasio-Cortez" picture = GFX_portrait_unknown ideology = social_democrat }
+				create_country_leader = { name = "Alexandria Ocasio-Cortez" picture = GFX_portrait_EAS_leader ideology = social_democrat }
 			}
 			if = {
 				limit = { check_variable = { dd_which = 2 } }
 				set_politics = { ruling_party = social_liberalism elections_allowed = yes }
-				create_country_leader = { name = "Gavin Newsom" picture = GFX_portrait_unknown ideology = social_liberal }
+				create_country_leader = { name = "Gavin Newsom" picture = GFX_portrait_WCL_leader ideology = social_liberal }
 			}
 			if = {
 				limit = { check_variable = { dd_which = 3 } }
 				set_politics = { ruling_party = liberal_conservatism elections_allowed = yes }
-				create_country_leader = { name = "Marco Rubio" picture = GFX_portrait_unknown ideology = liberal_conservative }
+				create_country_leader = { name = "Marco Rubio" picture = GFX_portrait_RBM_leader ideology = liberal_conservative }
 			}
 			if = {
 				limit = { check_variable = { dd_which = 4 } }
 				set_politics = { ruling_party = national_populism elections_allowed = yes }
-				create_country_leader = { name = "JD Vance" picture = GFX_portrait_unknown ideology = national_populist }
+				create_country_leader = { name = "JD Vance" picture = GFX_portrait_VNM_leader ideology = national_populist }
 			}
 			if = {
 				limit = { check_variable = { dd_which = 5 } }
 				set_politics = { ruling_party = fascism elections_allowed = yes }
 				create_country_leader = { name = "Alt-Right Nominee" picture = GFX_portrait_unknown ideology = fascism_ideology }
 			}
+			dd_usa_sync_caucus_from_ruling = yes
 		}
 	}
 }
@@ -388,7 +390,13 @@ country_event = {
 	hidden = yes
 	is_triggered_only = yes
 	immediate = {
-		dd_usa_start_civil_war = yes
+		if = {
+			limit = {
+				NOT = { has_global_flag = dd_usa_civil_war_started }
+				NOT = { has_country_flag = dd_usa_civil_war }
+			}
+			dd_usa_start_civil_war = yes
+		}
 	}
 }
 

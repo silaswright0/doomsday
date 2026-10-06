@@ -7,6 +7,7 @@ dd_usa_legislature_category = {
 		ai_will_do = { factor = 0 }
 		visible = {
 			has_country_flag = dd_usa_legislature_open
+			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		complete_effect = {
@@ -22,6 +23,7 @@ dd_usa_legislature_category = {
 		ai_will_do = { factor = 0 }
 		visible = {
 			has_country_flag = dd_usa_legislature_open
+			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		complete_effect = {
@@ -38,6 +40,7 @@ dd_usa_legislature_category = {
 		visible = {
 			has_country_flag = dd_usa_legislature_open
 			has_country_flag = dd_usa_filibuster_bypass_available
+			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		complete_effect = {
@@ -94,6 +97,7 @@ dd_usa_debug_category = {
 		ai_will_do = { factor = 0 }
 		visible = {
 			tag = USA
+			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		complete_effect = {

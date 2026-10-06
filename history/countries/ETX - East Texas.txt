@@ -364,21 +364,21 @@ add_ideas = volunteer_only
 add_ideas = free_trade
 add_ideas = civilian_economy
 set_politics = {
-	ruling_party = theocratic_absolutism
+	ruling_party = national_populism
 	last_election = "2024.11.5"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	theocratic_absolutism = 70
-	national_populism = 15
-	liberal_conservatism = 10
+	national_populism = 70
+	liberal_conservatism = 15
+	theocratic_absolutism = 10
 	social_liberalism = 5
 }
 set_variable = { debt = 0 }
 set_variable = { treasury = 5 }
 create_country_leader = {
-	name = "East Texas Brethren"
-	picture = GFX_portrait_unknown
-	ideology = theocrat
+	name = "Matt Schaefer"
+	picture = GFX_portrait_ETX_leader
+	ideology = national_populist
 }

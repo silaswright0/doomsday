@@ -1,14 +1,12 @@
 characters = {
-	AOG_pete_hegseth = {
-		name = "Pete Hegseth"
+	AOG_doug_wilson = {
+		name = "Doug Wilson"
 		portraits = {
-			civilian = { large = GFX_portrait_unknown }
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_AOG_leader }
+			army = { large = GFX_portrait_AOG_leader small = GFX_portrait_AOG_leader }
 		}
-		country_leader = {
-			ideology = theocrat
-			expire = "1965.1.1"
-		}
+		# Country leader is created in history (create_country_leader).
+		# Keep this character as the Idaho general only.
 		corps_commander = {
 			skill = 1
 			attack_skill = 1

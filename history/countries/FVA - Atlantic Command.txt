@@ -1,5 +1,5 @@
 # Federal Command - landless until the Second American Civil War
-capital = 463
+capital = 1140
 oob = "FVA_2026"
 set_research_slots = 2
 set_stability = 0.50
@@ -364,21 +364,21 @@ add_ideas = volunteer_only
 add_ideas = free_trade
 add_ideas = civilian_economy
 set_politics = {
-	ruling_party = national_populism
+	ruling_party = military_junta
 	last_election = "2024.11.5"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	national_populism = 70
-	social_liberalism = 10
+	military_junta = 70
+	national_populism = 15
 	liberal_conservatism = 10
-	social_democracy = 10
+	social_liberalism = 5
 }
 set_variable = { debt = 0 }
 set_variable = { treasury = 5 }
 create_country_leader = {
 	name = "Federal Command"
-	picture = GFX_portrait_unknown
-	ideology = national_populist
+	picture = GFX_portrait_FVA_leader
+	ideology = junta
 }

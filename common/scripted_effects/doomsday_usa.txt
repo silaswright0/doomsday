@@ -258,7 +258,7 @@ dd_usa_invest_defence = {
 	if = { limit = { 366 = { is_owned_by = ROOT } } 366 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 1843 } } }
 	if = { limit = { 362 = { is_owned_by = ROOT } } 362 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 788 } } }
 	if = { limit = { 378 = { is_owned_by = ROOT } } 378 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 9671 } } }
-	if = { limit = { 358 = { is_owned_by = ROOT } } 358 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 3878 } } }
+	if = { limit = { 1125 = { is_owned_by = ROOT } } 1125 = { add_building_construction = { type = coastal_bunker level = 2 instant_build = yes province = 3878 } } }
 }
 
 dd_usa_invest_mil_production = {
@@ -277,16 +277,17 @@ dd_usa_expand_shipbuilding = {
 }
 
 dd_usa_cw_ensure_militia_template = {
+	set_technology = { militia_tech = 1 }
 	division_template = {
 		name = "Militia"
 		is_locked = yes
 		regiments = {
-			infantry = { x = 0 y = 0 }
-			infantry = { x = 0 y = 1 }
-			infantry = { x = 0 y = 2 }
-			infantry = { x = 1 y = 0 }
-			infantry = { x = 1 y = 1 }
-			infantry = { x = 1 y = 2 }
+			militia = { x = 0 y = 0 }
+			militia = { x = 0 y = 1 }
+			militia = { x = 0 y = 2 }
+			militia = { x = 1 y = 0 }
+			militia = { x = 1 y = 1 }
+			militia = { x = 1 y = 2 }
 		}
 	}
 }
@@ -706,7 +707,146 @@ dd_usa_provoke_blob = {
 	}
 }
 
+# Army / air / navy: one dynamic spirit each; focuses add modifiers.
+dd_usa_af_ensure = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_armed_forces_dyn } } }
+		add_dynamic_modifier = { modifier = dd_usa_armed_forces_dyn }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+dd_usa_af_base = {
+	set_variable = { dd_usa_af_civ_intel = -0.25 }
+	set_variable = { dd_usa_af_army_intel = -0.25 }
+	set_variable = { dd_usa_af_enemy_air = -0.05 }
+	dd_usa_af_ensure = yes
+}
+
+dd_usa_af_ready = {
+	add_to_variable = { dd_usa_af_org = 0.08 }
+	add_to_variable = { dd_usa_af_morale = 0.05 }
+	dd_usa_af_ensure = yes
+}
+
+dd_usa_af_drone = {
+	add_to_variable = { dd_usa_af_inf_atk = 0.08 }
+	add_to_variable = { dd_usa_af_arm_atk = 0.05 }
+	dd_usa_af_ensure = yes
+}
+
+dd_usa_af_arty = {
+	add_to_variable = { dd_usa_af_arty_atk = 0.12 }
+	add_to_variable = { dd_usa_af_arty_def = 0.08 }
+	dd_usa_af_ensure = yes
+}
+
+dd_usa_af_add_aa = {
+	add_to_variable = { dd_usa_af_aa = 0.15 }
+	dd_usa_af_ensure = yes
+}
+
+dd_usa_af_cavalry = {
+	add_to_variable = { dd_usa_af_arm_atk = 0.12 }
+	add_to_variable = { dd_usa_af_mech = 0.10 }
+	add_to_variable = { dd_usa_af_brk = 0.08 }
+	dd_usa_af_ensure = yes
+}
+
+dd_usa_air_ensure = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_airforce_dyn } } }
+		add_dynamic_modifier = { modifier = dd_usa_airforce_dyn }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+dd_usa_air_base = {
+	set_variable = { dd_usa_air_sup = 0.10 }
+	set_variable = { dd_usa_air_cas = 0.10 }
+	set_variable = { dd_usa_air_strat = 0.10 }
+	dd_usa_air_ensure = yes
+}
+
+dd_usa_air_prod = {
+	add_to_variable = { dd_usa_air_ic = 0.08 }
+	dd_usa_air_ensure = yes
+}
+
+dd_usa_air_add_para = {
+	add_to_variable = { dd_usa_air_para = 0.15 }
+	add_to_variable = { dd_usa_air_para_grace = 48 }
+	dd_usa_air_ensure = yes
+}
+
+dd_usa_air_drone = {
+	add_to_variable = { dd_usa_air_ic = 0.05 }
+	dd_usa_air_ensure = yes
+}
+
+dd_usa_air_cca = {
+	add_to_variable = { dd_usa_air_sup = 0.08 }
+	dd_usa_air_ensure = yes
+}
+
+dd_usa_nav_ensure = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_navy_dyn } } }
+		add_dynamic_modifier = { modifier = dd_usa_navy_dyn }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+dd_usa_nav_base = {
+	set_variable = { dd_usa_nav_range = 0.20 }
+	set_variable = { dd_usa_nav_sortie = 0.15 }
+	set_variable = { dd_usa_nav_coord = 0.05 }
+	dd_usa_nav_ensure = yes
+}
+
+dd_usa_nav_beds = {
+	add_to_variable = { dd_usa_nav_org = 0.08 }
+	add_to_variable = { dd_usa_nav_morale = 0.06 }
+	dd_usa_nav_ensure = yes
+}
+
+dd_usa_nav_add_morale = {
+	add_to_variable = { dd_usa_nav_org = 0.06 }
+	add_to_variable = { dd_usa_nav_morale = 0.06 }
+	dd_usa_nav_ensure = yes
+}
+
+dd_usa_nav_yards = {
+	add_to_variable = { dd_usa_nav_dock = 0.10 }
+	dd_usa_nav_ensure = yes
+}
+
 # Legislature — country-scoped, no random.
+# D = left/liberal bloc. R = conservative/populist/right bloc.
+dd_usa_sync_caucus_from_ruling = {
+	if = {
+		limit = {
+			OR = {
+				has_government = liberal_conservatism
+				has_government = national_populism
+				has_government = fascism
+				has_government = theocratic_absolutism
+				has_government = military_junta
+				has_government = sovereign_democracy
+				has_government = technocracy
+				has_government = absolute_monarchy
+				has_government = islamic_democracy
+			}
+		}
+		set_variable = { dd_usa_rep_support = 100 }
+		set_variable = { dd_usa_dem_support = 0 }
+	}
+	else = {
+		set_variable = { dd_usa_dem_support = 100 }
+		set_variable = { dd_usa_rep_support = 0 }
+	}
+}
+
 dd_usa_init_legislature = {
 	if = {
 		limit = { NOT = { has_country_flag = dd_usa_legislature_inited } }
@@ -715,8 +855,7 @@ dd_usa_init_legislature = {
 		set_variable = { dd_usa_house_rep = 220 }
 		set_variable = { dd_usa_senate_dem = 47 }
 		set_variable = { dd_usa_senate_rep = 53 }
-		set_variable = { dd_usa_dem_support = 42 }
-		set_variable = { dd_usa_rep_support = 55 }
+		dd_usa_sync_caucus_from_ruling = yes
 		set_variable = { dd_usa_bill_active = 0 }
 		set_variable = { dd_usa_bill_id = 0 }
 		set_variable = { dd_usa_bill_party = 0 }
@@ -929,7 +1068,7 @@ dd_usa_advance_bill_chamber = {
 	}
 }
 
-# Daily: if caucus support + chamber majority (+ filibuster in Senate), tick days.
+# Daily: caucus support (50% normal / 60% under filibuster) + chamber majority.
 dd_usa_legislature_daily = {
 	set_variable = { dd_usa_bill_advancing = 0 }
 	if = {
@@ -948,8 +1087,19 @@ dd_usa_legislature_daily = {
 			set_temp_variable = { dd_usa_tmp_house = dd_usa_house_rep }
 			set_temp_variable = { dd_usa_tmp_senate = dd_usa_senate_rep }
 		}
+		# House and filibuster-cleared Senate: 50%. Active filibuster: 60%.
+		set_temp_variable = { dd_usa_need = 50 }
 		if = {
-			limit = { check_variable = { dd_usa_tmp_support < dd_usa_bill_support_need } }
+			limit = {
+				check_variable = { dd_usa_bill_chamber = 1 }
+				check_variable = { dd_usa_bill_filibuster_cleared < 1 }
+				NOT = { check_variable = { dd_usa_tmp_senate > 59.999 } }
+			}
+			set_temp_variable = { dd_usa_need = 60 }
+		}
+		set_variable = { dd_usa_bill_support_need = dd_usa_need }
+		if = {
+			limit = { check_variable = { dd_usa_tmp_support < dd_usa_need } }
 		}
 		else_if = {
 			limit = {
@@ -970,6 +1120,7 @@ dd_usa_legislature_daily = {
 				OR = {
 					check_variable = { dd_usa_tmp_senate > 59.999 }
 					check_variable = { dd_usa_bill_filibuster_cleared > 0 }
+					check_variable = { dd_usa_tmp_support > 59.999 }
 				}
 			}
 			set_variable = { dd_usa_bill_advancing = 1 }
@@ -982,10 +1133,223 @@ dd_usa_legislature_daily = {
 	}
 }
 
+# Every CW participant claims every USA core so losers can be fully annexed.
+dd_usa_cw_grant_all_us_claims = {
+	every_country = {
+		limit = {
+			OR = {
+				tag = USA
+				has_country_flag = dd_cw_released
+				has_country_flag = dd_usa_civil_war
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = USA
+				NOT = { is_claimed_by = PREV }
+				NOT = { is_core_of = PREV }
+			}
+			PREV = { add_state_claim = PREV }
+		}
+	}
+}
+
+# Shared cores: west coast for anarchists; right-wing bloc; demsoc↔commie + NYC + RI.
+# MAGA / federal remnant drops cores outside the right-wing set.
+dd_usa_cw_adjust_cores = {
+	# Anarchists core the West Coast (CA, LA, OR, WA, SF).
+	if = {
+		limit = { ACA = { has_country_flag = dd_cw_released } }
+		ACA = {
+			add_state_core = 378
+			add_state_core = 1138
+			add_state_core = 385
+			add_state_core = 386
+			add_state_core = 1124
+		}
+	}
+	else_if = {
+		limit = { has_country_flag = dd_usa_keep_aca }
+		add_state_core = 378
+		add_state_core = 1138
+		add_state_core = 385
+		add_state_core = 386
+		add_state_core = 1124
+	}
+
+	# Right-wing states: Heartland + Mandate + Deep South + CREC/Deseret/Covenant/Florida/Texas/PF.
+	if = {
+		limit = {
+			OR = {
+				RBM = { has_country_flag = dd_cw_released }
+				has_country_flag = dd_usa_keep_rbm
+			}
+		}
+		if = { limit = { RBM = { has_country_flag = dd_cw_released } } RBM = { dd_usa_cw_add_right_wing_cores = yes } }
+		else = { dd_usa_cw_add_right_wing_cores = yes }
+	}
+	if = {
+		limit = {
+			OR = {
+				VNM = { has_country_flag = dd_cw_released }
+				has_country_flag = dd_usa_keep_vnm
+			}
+		}
+		if = { limit = { VNM = { has_country_flag = dd_cw_released } } VNM = { dd_usa_cw_add_right_wing_cores = yes } }
+		else = { dd_usa_cw_add_right_wing_cores = yes }
+	}
+	if = {
+		limit = {
+			OR = {
+				FDS = { has_country_flag = dd_cw_released }
+				has_country_flag = dd_usa_keep_fds
+			}
+		}
+		if = { limit = { FDS = { has_country_flag = dd_cw_released } } FDS = { dd_usa_cw_add_right_wing_cores = yes } }
+		else = { dd_usa_cw_add_right_wing_cores = yes }
+	}
+
+	# Strip MAGA / Federal remnant cores that are not right-wing.
+	if = {
+		limit = { VNM = { has_country_flag = dd_cw_released } }
+		VNM = { dd_usa_cw_strip_non_right_wing_cores = yes }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_keep_vnm
+				has_country_flag = dd_usa_keep_fed
+			}
+		}
+		dd_usa_cw_strip_non_right_wing_cores = yes
+	}
+
+	# Demsoc + communists core each other's states, plus NYC and Rhode Island.
+	if = {
+		limit = {
+			OR = {
+				EAS = { has_country_flag = dd_cw_released }
+				has_country_flag = dd_usa_keep_eas
+			}
+		}
+		if = { limit = { EAS = { has_country_flag = dd_cw_released } } EAS = { dd_usa_cw_add_left_shared_cores = yes } }
+		else = { dd_usa_cw_add_left_shared_cores = yes }
+	}
+	if = {
+		limit = {
+			OR = {
+				RBL = { has_country_flag = dd_cw_released }
+				has_country_flag = dd_usa_keep_rbl
+			}
+		}
+		if = { limit = { RBL = { has_country_flag = dd_cw_released } } RBL = { dd_usa_cw_add_left_shared_cores = yes } }
+		else = { dd_usa_cw_add_left_shared_cores = yes }
+	}
+}
+
+dd_usa_cw_add_right_wing_cores = {
+	add_state_core = 379
+	add_state_core = 383
+	add_state_core = 374
+	add_state_core = 381
+	add_state_core = 382
+	add_state_core = 388
+	add_state_core = 384
+	add_state_core = 391
+	add_state_core = 394
+	add_state_core = 373
+	add_state_core = 392
+	add_state_core = 369
+	add_state_core = 389
+	add_state_core = 390
+	add_state_core = 396
+	add_state_core = 816
+	add_state_core = 367
+	add_state_core = 370
+	add_state_core = 365
+	add_state_core = 364
+	add_state_core = 371
+	add_state_core = 372
+	add_state_core = 363
+	add_state_core = 387
+	add_state_core = 380
+	add_state_core = 368
+	add_state_core = 366
+	add_state_core = 375
+	add_state_core = 1136
+	add_state_core = 1128
+}
+
+dd_usa_cw_strip_non_right_wing_cores = {
+	every_state = {
+		limit = {
+			is_core_of = ROOT
+			NOT = {
+				OR = {
+					state = 379
+					state = 383
+					state = 374
+					state = 381
+					state = 382
+					state = 388
+					state = 384
+					state = 391
+					state = 394
+					state = 373
+					state = 392
+					state = 369
+					state = 389
+					state = 390
+					state = 396
+					state = 816
+					state = 367
+					state = 370
+					state = 365
+					state = 364
+					state = 371
+					state = 372
+					state = 363
+					state = 387
+					state = 380
+					state = 368
+					state = 366
+					state = 375
+					state = 1136
+					state = 1128
+				}
+			}
+		}
+		remove_core_of = ROOT
+	}
+}
+
+dd_usa_cw_add_left_shared_cores = {
+	# Demsoc Eastern Compact
+	add_state_core = 393
+	add_state_core = 261
+	add_state_core = 395
+	add_state_core = 357
+	add_state_core = 362
+	# Communist Rust Belt
+	add_state_core = 359
+	add_state_core = 361
+	add_state_core = 686
+	add_state_core = 358
+	add_state_core = 360
+	# New York City + Rhode Island
+	add_state_core = 1125
+	add_state_core = 1136
+}
+
 dd_usa_start_civil_war = {
 	if = {
-		limit = { NOT = { has_country_flag = dd_usa_civil_war } }
+		limit = {
+			NOT = { has_global_flag = dd_usa_civil_war_started }
+			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		set_global_flag = dd_usa_civil_war_started
 		set_country_flag = dd_usa_civil_war
+		cancel_national_focus = yes
 		remove_ideas = dd_usa_youll_have_to_kill_us
 		clr_country_flag = dd_usa_keep_eas
 		clr_country_flag = dd_usa_keep_wcl
@@ -1028,7 +1392,7 @@ dd_usa_start_civil_war = {
 		else_if = {
 			limit = { has_government = communism }
 			set_country_flag = dd_usa_keep_rbl
-			set_capital = { state = 358 }
+			set_capital = { state = 360 }
 		}
 		else_if = {
 			limit = { has_government = anarcho_communism }
@@ -1049,7 +1413,7 @@ dd_usa_start_civil_war = {
 			retire_country_leader = yes
 			create_country_leader = {
 				name = "JD Vance"
-				picture = GFX_portrait_unknown
+				picture = GFX_portrait_VNM_leader
 				expire = "2065.1.1"
 				ideology = national_populist
 			}
@@ -1085,6 +1449,8 @@ dd_usa_start_civil_war = {
 			WCL = {
 				transfer_state = 378
 				add_state_core = 378
+				transfer_state = 1138
+				add_state_core = 1138
 				transfer_state = 377
 				add_state_core = 377
 				transfer_state = 376
@@ -1155,8 +1521,6 @@ dd_usa_start_civil_war = {
 			set_capital = { state = 1137 }
 			set_country_flag = dd_cw_released
 		}
-		EME = { set_country_flag = dd_cw_released }
-		NFA = { set_country_flag = dd_cw_released }
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_rbl } }
 			RBL = {
@@ -1170,7 +1534,7 @@ dd_usa_start_civil_war = {
 				add_state_core = 358
 				transfer_state = 360
 				add_state_core = 360
-				set_capital = { state = 358 }
+				set_capital = { state = 360 }
 				set_country_flag = dd_cw_released
 			}
 		}
@@ -1224,6 +1588,11 @@ dd_usa_start_civil_war = {
 		TXG = {
 			transfer_state = 375
 			add_state_core = 375
+			add_state_core = 1126
+			add_state_core = 1127
+			add_state_core = 1128
+			add_state_core = 1129
+			add_state_core = 1139
 			set_country_flag = dd_cw_released
 		}
 		FVA = {
@@ -1231,7 +1600,36 @@ dd_usa_start_civil_war = {
 			add_state_core = 463
 			transfer_state = 1112
 			add_state_core = 1112
+			transfer_state = 629
+			add_state_core = 629
+			transfer_state = 638
+			add_state_core = 638
+			transfer_state = 631
+			add_state_core = 631
+			transfer_state = 632
+			add_state_core = 632
+			transfer_state = 646
+			add_state_core = 646
+			transfer_state = 650
+			add_state_core = 650
+			transfer_state = 1072
+			add_state_core = 1072
 			set_country_flag = dd_cw_released
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_usa_keep_fed } }
+			FVA = {
+				transfer_state = 1140
+				add_state_core = 1140
+				set_capital = { state = 1140 }
+			}
+		}
+		else = {
+			add_state_core = 1140
+			set_capital = { state = 1140 }
+			FVA = {
+				set_capital = { state = 463 }
+			}
 		}
 		SFT = {
 			transfer_state = 1124
@@ -1247,6 +1645,8 @@ dd_usa_start_civil_war = {
 		TXO = {
 			transfer_state = 1126
 			add_state_core = 1126
+			transfer_state = 1139
+			add_state_core = 1139
 			transfer_state = 1133
 			add_state_core = 1133
 			set_country_flag = dd_cw_released
@@ -1293,11 +1693,13 @@ dd_usa_start_civil_war = {
 			set_politics = { ruling_party = theocratic_absolutism elections_allowed = no }
 			set_popularities = { theocratic_absolutism = 70 social_liberalism = 10 liberal_conservatism = 10 national_populism = 10 }
 			create_country_leader = {
-				name = "Pete Hegseth"
-				picture = GFX_portrait_unknown
+				name = "Doug Wilson"
+				picture = GFX_portrait_AOG_leader
+				expire = "2065.1.1"
 				ideology = theocrat
 			}
 		}
+		dd_usa_cw_adjust_cores = yes
 		dd_usa_civil_war_fights = yes
 		dd_usa_apply_disorganized_frontline = yes
 		# Majors share the USA focus tree; CW branches need this flag.
@@ -1316,6 +1718,8 @@ dd_usa_start_civil_war = {
 			}
 			set_country_flag = dd_usa_civil_war
 		}
+		# Claims so peace conferences can fully annex (war score / takeover of cores).
+		dd_usa_cw_grant_all_us_claims = yes
 		news_event = { id = dd_usa_news.10 }
 		if = {
 			limit = { is_ai = no }

@@ -775,7 +775,7 @@ dd_usa_cw_spawn_militia_pockets = {
 			check_variable = { dd_cw_spawn > 0 }
 			859 = { is_controlled_by = PREV }
 		}
-		358 = {
+		1125 = {
 			create_unit = {
 				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
 				owner = PREV
@@ -1500,7 +1500,7 @@ dd_usa_cw_spawn_ng_pockets = {
 			check_variable = { dd_cw_spawn > 0 }
 			859 = { is_controlled_by = PREV }
 		}
-		358 = {
+		1125 = {
 			create_unit = {
 				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
 				owner = PREV
@@ -1701,7 +1701,10 @@ dd_usa_province_control = {
 			}
 			AOG = { declare_war_on = { target = USA type = dd_annex } }
 		}
-		AOG = { dd_usa_control_east_washington = yes }
+		AOG = {
+			dd_usa_control_east_washington = yes
+			dd_usa_control_aog_oregon = yes
+		}
 	}
 	if = {
 		limit = {
@@ -1828,6 +1831,7 @@ dd_usa_province_control = {
 			set_province_controller = 677
 			set_province_controller = 3677
 			set_province_controller = 768
+			set_province_controller = 3840
 		}
 	}
 	else_if = {
@@ -1847,6 +1851,43 @@ dd_usa_province_control = {
 		set_province_controller = 677
 		set_province_controller = 3677
 		set_province_controller = 768
+		set_province_controller = 3840
+	}
+	# Anarchists hold one Los Angeles metro province inside liberal LA.
+	if = {
+		limit = {
+			ACA = { has_country_flag = dd_cw_released }
+			1138 = { NOT = { is_owned_by = ACA } }
+		}
+		if = {
+			limit = {
+				1138 = { is_owned_by = WCL }
+				NOT = { ACA = { has_war_with = WCL } }
+			}
+			ACA = { declare_war_on = { target = WCL type = dd_annex } }
+		}
+		if = {
+			limit = {
+				1138 = { is_owned_by = USA }
+				NOT = { ACA = { has_war_with = USA } }
+			}
+			ACA = { declare_war_on = { target = USA type = dd_annex } }
+		}
+		ACA = { set_province_controller = 13424 }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = dd_usa_keep_aca
+			1138 = { NOT = { is_owned_by = USA } }
+		}
+		if = {
+			limit = {
+				1138 = { is_owned_by = WCL }
+				NOT = { has_war_with = WCL }
+			}
+			declare_war_on = { target = WCL type = dd_annex }
+		}
+		set_province_controller = 13424
 	}
 	# Rubio holds northern and central Arizona. The rest stays with the Pacific liberals.
 	if = {
@@ -2234,7 +2275,7 @@ dd_usa_province_control = {
 		limit = { NFA = { has_country_flag = dd_cw_released } }
 		NFA = { dd_usa_control_nfa_norcal = yes }
 	}
-	# Wall Street holds upstate/adjacent New York province 859.
+	# Wall Street owns New York City (state 1125); no extra province seizes.
 	if = {
 		limit = { NYF = { has_country_flag = dd_cw_released } }
 		if = {
@@ -2594,7 +2635,7 @@ dd_usa_civil_war_fights = {
 	if = {
 		limit = { RBL = { has_country_flag = dd_cw_released } }
 		RBL = {
-			set_capital = { state = 358 }
+			set_capital = { state = 360 }
 			set_variable = { dd_cw_spawn = 12 }
 			dd_usa_cw_spawn_militia_n = yes
 		}
@@ -2756,7 +2797,13 @@ dd_usa_civil_war_fights = {
 	if = {
 		limit = { FVA = { has_country_flag = dd_cw_released } }
 		FVA = {
-			set_capital = { state = 463 }
+			if = {
+				limit = { owns_state = 1140 }
+				set_capital = { state = 1140 }
+			}
+			else = {
+				set_capital = { state = 463 }
+			}
 			dd_usa_cw_tpl_infantry_3x6_eng = yes
 			division_template = {
 				name = "Federal Garrison"
@@ -2794,6 +2841,10 @@ dd_usa_civil_war_fights = {
 			# Owned bases spawn immediately. Mainland holds wait until after wars + province control.
 			1112 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 7590 } }
 			463 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 3 prioritize_location = 13091 } }
+			if = {
+				limit = { owns_state = 1140 }
+				1140 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 4 prioritize_location = 3957 } }
+			}
 		}
 	}
 
@@ -2908,8 +2959,8 @@ dd_usa_civil_war_fights = {
 			}
 			create_country_leader = {
 				name = "Commune Council"
-				picture = GFX_portrait_unknown
-				expire = "1965.1.1"
+				picture = GFX_portrait_ACA_leader
+				expire = "2065.1.1"
 				ideology = anarcho_communist
 			}
 		}
@@ -2935,8 +2986,8 @@ dd_usa_civil_war_fights = {
 		}
 		create_country_leader = {
 			name = "Commune Council"
-			picture = GFX_portrait_unknown
-			expire = "1965.1.1"
+			picture = GFX_portrait_ACA_leader
+			expire = "2065.1.1"
 			ideology = anarcho_communist
 		}
 	}

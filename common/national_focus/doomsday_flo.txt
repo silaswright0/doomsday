@@ -1,0 +1,35 @@
+focus_tree = {
+	id = dd_flo_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FLO
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = FLO_mission_to_rubio
+		icon = GFX_goal_generic_alliance
+		x = 5
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = dd_cw_released
+			NOT = { is_in_faction = yes }
+			RBM = {
+				exists = yes
+				is_faction_leader = yes
+			}
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			set_rule = { can_join_factions = yes }
+			RBM = { add_to_faction = ROOT }
+		}
+	}
+}

@@ -1,4 +1,4 @@
-# Covenant Army - landless until the Second American Civil War
+# Covenant - landless until the Second American Civil War
 capital = 368
 oob = "SCN_2026"
 set_research_slots = 2
@@ -378,7 +378,7 @@ set_popularities = {
 set_variable = { debt = 0 }
 set_variable = { treasury = 5 }
 create_country_leader = {
-	name = "Covenant Council"
-	picture = GFX_portrait_unknown
+	name = "Greg Locke"
+	picture = GFX_portrait_SCN_leader
 	ideology = theocrat
 }

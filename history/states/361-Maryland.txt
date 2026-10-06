@@ -2,8 +2,8 @@
 state={
 	id=361
 	name="STATE_361"
-	manpower = 7104359
-	
+	manpower = 4600000
+
 	state_category = city
 
 
@@ -26,26 +26,16 @@ state={
 6984 = {
 				naval_base = 1
 			}
-
-3957 = {
-				supply_node = 1
-				naval_base = 1
-				# United States Naval Research Laboratory (NRL)
-				naval_facility = 1
-			}
 		}
 		add_core_of = USA
-		victory_points = { # Washington
-			3957 20
-		}
 		victory_points = { # Baltimore
 			6984 12
 		}
 	}
 
 	provinces={
-		3957 6823 6892 6929 6984 9758 9786 11892 
+		6823 6929 6984 9786
 	}
 
-	local_supplies=0.0 
+	local_supplies=0.0
 }

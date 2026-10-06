@@ -1,0 +1,79 @@
+focus_tree = {
+	id = dd_txg_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = TXG
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = TXG_kill_south_command
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 6
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = dd_cw_released
+			country_exists = EBC
+			NOT = { country_exists = ETX }
+			NOT = { country_exists = TXR }
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			create_wargoal = {
+				type = dd_annex
+				target = EBC
+			}
+		}
+	}
+
+	focus = {
+		id = TXG_stand_alone
+		icon = GFX_goal_generic_military_sphere
+		x = 4
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = TXG_kill_south_command }
+		mutually_exclusive = { focus = TXG_with_the_republic }
+		available = {
+			has_country_flag = dd_cw_released
+			has_war = no
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = dd_txg_lone_star
+		}
+	}
+
+	focus = {
+		id = TXG_with_the_republic
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = TXG_kill_south_command }
+		mutually_exclusive = { focus = TXG_stand_alone }
+		available = {
+			has_country_flag = dd_cw_released
+			has_war = no
+			NOT = { is_in_faction = yes }
+			RBM = {
+				exists = yes
+				is_faction_leader = yes
+			}
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			set_rule = { can_join_factions = yes }
+			RBM = { add_to_faction = ROOT }
+		}
+	}
+}

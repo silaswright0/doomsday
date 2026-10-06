@@ -1,0 +1,31 @@
+focus_tree = {
+	id = dd_nyf_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = NYF
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = NYF_american_business_coalition
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 5
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			NOT = { is_in_faction = yes }
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = FACTION_AMERICAN_BUSINESS_COALITION
+		}
+	}
+}

@@ -1,0 +1,26 @@
+state={
+	id=1139
+	name="STATE_1139"
+	manpower = 4500000
+	state_category = metropolis
+	history={
+		owner = USA
+		add_extra_state_shared_building_slots = 6
+		add_core_of = USA
+		victory_points = { # Houston
+			10337 25
+		}
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 4
+			arms_factory = 1
+			air_base = 1
+			services_building = 2
+			10337 = { naval_base = 1 }
+		}
+	}
+	provinces={
+		10337 13425 13426
+	}
+	local_supplies=0.0
+}

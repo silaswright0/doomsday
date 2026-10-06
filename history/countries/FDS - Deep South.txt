@@ -1,4 +1,4 @@
-# Deep South - landless until the Second American Civil War
+# League of the South - landless until the Second American Civil War
 capital = 367
 oob = "FDS_2026"
 set_research_slots = 2
@@ -378,7 +378,7 @@ set_popularities = {
 set_variable = { debt = 0 }
 set_variable = { treasury = 5 }
 create_country_leader = {
-	name = "Southern Command"
-	picture = GFX_portrait_unknown
+	name = "Michael Hill"
+	picture = GFX_portrait_FDS_leader
 	ideology = fascism_ideology
 }

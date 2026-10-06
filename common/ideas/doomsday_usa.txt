@@ -586,6 +586,16 @@ ideas = {
 				stability_factor = -0.15
 			}
 		}
+		dd_txg_lone_star = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_core_attack_factor = 0.20
+				army_core_defence_factor = 0.20
+			}
+		}
 		# Every Second American Civil War tag. Diplomacy with other American tags is focus-only.
 		dd_usa_civil_war_cause = {
 			picture = generic_morale_bonus

@@ -377,4 +377,10 @@ set_popularities = {
 }
 set_variable = { debt = 0 }
 set_variable = { treasury = 5 }
-recruit_character = AOG_pete_hegseth
+create_country_leader = {
+	name = "Doug Wilson"
+	picture = GFX_portrait_AOG_leader
+	expire = "2065.1.1"
+	ideology = theocrat
+}
+recruit_character = AOG_doug_wilson

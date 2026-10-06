@@ -1,0 +1,43 @@
+focus_tree = {
+	id = dd_oligarch_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SFT
+		}
+		modifier = {
+			add = 10
+			tag = TXO
+		}
+		modifier = {
+			add = 10
+			tag = VIR
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = DD_OLIG_petition_business_coalition
+		icon = GFX_goal_generic_improve_relations
+		x = 5
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = dd_cw_released
+			NOT = { is_in_faction = yes }
+			NYF = {
+				exists = yes
+				is_faction_leader = yes
+			}
+		}
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			set_rule = { can_join_factions = yes }
+			NYF = { add_to_faction = ROOT }
+		}
+	}
+}

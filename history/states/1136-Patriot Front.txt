@@ -1,23 +1,26 @@
 state={
 	id=1136
 	name="STATE_1136"
-	manpower = 400000
+	manpower = 550000
 	state_category = town
 	history={
 		owner = USA
 		add_extra_state_shared_building_slots = 2
 		add_core_of = USA
+		victory_points = { # Providence
+			3906 2
+		}
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 1
 			air_base = 1
-			9832 = {
+			3906 = {
 				naval_base = 1
 			}
 		}
 	}
 	provinces={
-		6909 9832
+		11830 3906
 	}
 	local_supplies=0.0
 }
