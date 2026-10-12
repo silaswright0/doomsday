@@ -36,12 +36,15 @@ focus_tree = {
 	focus = {
 		id = TXG_stand_alone
 		icon = GFX_goal_generic_military_sphere
-		x = 4
+		x = 3
 		y = 1
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = { focus = TXG_kill_south_command }
-		mutually_exclusive = { focus = TXG_with_the_republic }
+		mutually_exclusive = {
+			focus = TXG_with_the_republic
+			focus = TXG_with_maga
+		}
 		available = {
 			has_country_flag = dd_cw_released
 			has_war = no
@@ -55,25 +58,94 @@ focus_tree = {
 	focus = {
 		id = TXG_with_the_republic
 		icon = GFX_goal_generic_alliance
-		x = 8
+		x = 6
 		y = 1
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		prerequisite = { focus = TXG_kill_south_command }
-		mutually_exclusive = { focus = TXG_stand_alone }
+		mutually_exclusive = {
+			focus = TXG_stand_alone
+			focus = TXG_with_maga
+		}
 		available = {
 			has_country_flag = dd_cw_released
 			has_war = no
 			NOT = { is_in_faction = yes }
-			RBM = {
-				exists = yes
-				is_faction_leader = yes
+			OR = {
+				RBM = {
+					exists = yes
+					is_faction_leader = yes
+				}
+				USA = {
+					exists = yes
+					is_faction_leader = yes
+					has_country_flag = dd_usa_keep_rbm
+				}
 			}
 		}
 		ai_will_do = { factor = 10 }
 		completion_reward = {
 			set_rule = { can_join_factions = yes }
-			RBM = { add_to_faction = ROOT }
+			if = {
+				limit = {
+					RBM = {
+						exists = yes
+						is_faction_leader = yes
+					}
+				}
+				RBM = { add_to_faction = ROOT }
+			}
+			else = {
+				USA = { add_to_faction = ROOT }
+			}
+		}
+	}
+
+	focus = {
+		id = TXG_with_maga
+		icon = GFX_goal_generic_major_alliance
+		x = 9
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = TXG_kill_south_command }
+		mutually_exclusive = {
+			focus = TXG_stand_alone
+			focus = TXG_with_the_republic
+		}
+		available = {
+			has_country_flag = dd_cw_released
+			has_war = no
+			NOT = { is_in_faction = yes }
+			OR = {
+				VNM = {
+					exists = yes
+					is_faction_leader = yes
+				}
+				AND = {
+					USA = {
+						exists = yes
+						is_faction_leader = yes
+						has_cosmetic_tag = USA_MAGA
+					}
+				}
+			}
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			set_rule = { can_join_factions = yes }
+			if = {
+				limit = {
+					VNM = {
+						exists = yes
+						is_faction_leader = yes
+					}
+				}
+				VNM = { add_to_faction = ROOT }
+			}
+			else = {
+				USA = { add_to_faction = ROOT }
+			}
 		}
 	}
 }

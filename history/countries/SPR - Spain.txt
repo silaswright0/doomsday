@@ -2,7 +2,7 @@
 capital = 41
 SLO = {
 	give_military_access = SPR
-	give_docking_rights = SPR
+	diplomatic_relation = { country = SPR relation = docking_rights active = yes }
 }
 oob = "SPR_2026"
 set_research_slots = 3

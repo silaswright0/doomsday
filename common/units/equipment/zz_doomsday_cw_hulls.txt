@@ -395,7 +395,7 @@ equipments = {
 
 	ship_hull_ssbn_1 = {
 		year = 1960
-		archetype = ship_hull_nuclear_submarine
+		archetype = ship_hull_submarine
 		parent = nuclear_submarine
 		priority = 2000
 		module_slots = inherit
@@ -413,7 +413,7 @@ equipments = {
 
 	ship_hull_ssbn_2 = {
 		year = 1981
-		archetype = ship_hull_nuclear_submarine
+		archetype = ship_hull_submarine
 		parent = ship_hull_ssbn_1
 		priority = 2000
 		module_slots = inherit
@@ -431,7 +431,7 @@ equipments = {
 
 	ship_hull_ssbn_3 = {
 		year = 1997
-		archetype = ship_hull_nuclear_submarine
+		archetype = ship_hull_submarine
 		parent = ship_hull_ssbn_2
 		priority = 2000
 		module_slots = inherit
@@ -451,7 +451,7 @@ equipments = {
 
 	ship_hull_ssbn_4 = {
 		year = 2031
-		archetype = ship_hull_nuclear_submarine
+		archetype = ship_hull_submarine
 		parent = ship_hull_ssbn_3
 		priority = 2000
 		module_slots = inherit

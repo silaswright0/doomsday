@@ -2,7 +2,7 @@
 capital = 282
 DJI = {
 	give_military_access = JAP
-	give_docking_rights = JAP
+	diplomatic_relation = { country = JAP relation = docking_rights active = yes }
 }
 oob = "JAP_2026"
 set_research_slots = 4

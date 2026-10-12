@@ -9,7 +9,7 @@ guiTypes = {
 		buttonType = {
 			name = "dd_arms_dismiss"
 			position = { x = 0 y = 0 }
-			size = { width = 100% height = 100% }
+			size = { x = 100% y = 100% }
 			quadTextureSprite = "GFX_tiled_window_transparent"
 			clicksound = click_close
 		}
@@ -87,7 +87,7 @@ guiTypes = {
 			name = "dd_tab_buy_on"
 			quadTextureSprite = "GFX_button_261x34"
 			position = { x = 14 y = 86 }
-			size = { width = 261 height = 34 }
+			size = { x = 261 y = 34 }
 			buttonText = "DD_MARKET_TAB_BUY_ON"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
@@ -96,7 +96,7 @@ guiTypes = {
 			name = "dd_tab_buy_off"
 			quadTextureSprite = "GFX_button_261x34"
 			position = { x = 14 y = 86 }
-			size = { width = 261 height = 34 }
+			size = { x = 261 y = 34 }
 			buttonText = "DD_MARKET_TAB_BUY_OFF"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
@@ -105,7 +105,7 @@ guiTypes = {
 			name = "dd_tab_sell_on"
 			quadTextureSprite = "GFX_button_261x34"
 			position = { x = 275 y = 86 }
-			size = { width = 261 height = 34 }
+			size = { x = 261 y = 34 }
 			buttonText = "DD_MARKET_TAB_SELL_ON"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
@@ -114,7 +114,7 @@ guiTypes = {
 			name = "dd_tab_sell_off"
 			quadTextureSprite = "GFX_button_261x34"
 			position = { x = 275 y = 86 }
-			size = { width = 261 height = 34 }
+			size = { x = 261 y = 34 }
 			buttonText = "DD_MARKET_TAB_SELL_OFF"
 			buttonFont = "hoi_18mbs"
 			clicksound = click_default
@@ -125,7 +125,7 @@ guiTypes = {
 			name = "dd_cat_land_on"
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 75 y = 126 }
-			size = { width = 123 height = 34 }
+			size = { x = 123 y = 34 }
 			buttonText = "DD_MARKET_CAT_LAND_ON"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -134,7 +134,7 @@ guiTypes = {
 			name = "dd_cat_land_off"
 			quadTextureSprite = "GFX_button_123x34_gray"
 			position = { x = 75 y = 126 }
-			size = { width = 123 height = 34 }
+			size = { x = 123 y = 34 }
 			buttonText = "DD_MARKET_CAT_LAND"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -143,7 +143,7 @@ guiTypes = {
 			name = "dd_cat_air_on"
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 214 y = 126 }
-			size = { width = 123 height = 34 }
+			size = { x = 123 y = 34 }
 			buttonText = "DD_MARKET_CAT_AIR_ON"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -152,7 +152,7 @@ guiTypes = {
 			name = "dd_cat_air_off"
 			quadTextureSprite = "GFX_button_123x34_gray"
 			position = { x = 214 y = 126 }
-			size = { width = 123 height = 34 }
+			size = { x = 123 y = 34 }
 			buttonText = "DD_MARKET_CAT_AIR"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -161,7 +161,7 @@ guiTypes = {
 			name = "dd_cat_navy_on"
 			quadTextureSprite = "GFX_button_123x34"
 			position = { x = 353 y = 126 }
-			size = { width = 123 height = 34 }
+			size = { x = 123 y = 34 }
 			buttonText = "DD_MARKET_CAT_NAVY_ON"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll
@@ -170,7 +170,7 @@ guiTypes = {
 			name = "dd_cat_navy_off"
 			quadTextureSprite = "GFX_button_123x34_gray"
 			position = { x = 353 y = 126 }
-			size = { width = 123 height = 34 }
+			size = { x = 123 y = 34 }
 			buttonText = "DD_MARKET_CAT_NAVY"
 			buttonFont = "hoi_16mbs"
 			clicksound = click_scroll

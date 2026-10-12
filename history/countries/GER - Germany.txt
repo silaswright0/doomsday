@@ -2,7 +2,7 @@
 capital = 64
 LIT = {
 	give_military_access = GER
-	give_docking_rights = GER
+	diplomatic_relation = { country = GER relation = docking_rights active = yes }
 }
 oob = "GER_2026"
 set_research_slots = 4

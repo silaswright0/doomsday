@@ -1,0 +1,153 @@
+dd_usa_fascist_bop_category = {
+	dd_usa_send_to_mass = {
+		icon = generic_civil_support
+		cost = 5
+		days_re_enable = 7
+		ai_will_do = { factor = 10 }
+		visible = {
+			has_country_flag = dd_usa_fascist_bop
+			has_power_balance = { id = USA_fascist_bop }
+		}
+		available = {
+			has_power_balance = { id = USA_fascist_bop }
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = USA_fascist_bop
+				value = -0.10
+				tooltip_side = USA_bop_christian
+			}
+			add_timed_idea = { idea = dd_usa_mass_org_hit days = 1 }
+		}
+	}
+
+	dd_usa_instill_malice = {
+		icon = generic_prepare_civil_war
+		cost = 5
+		days_re_enable = 7
+		ai_will_do = { factor = 10 }
+		visible = {
+			has_country_flag = dd_usa_fascist_bop
+			has_power_balance = { id = USA_fascist_bop }
+		}
+		available = {
+			has_power_balance = { id = USA_fascist_bop }
+			OR = {
+				1130 = { is_controlled_by = ROOT is_core_of = ABR state_population > 99 }
+				1131 = { is_controlled_by = ROOT is_core_of = ABR state_population > 99 }
+				1132 = { is_controlled_by = ROOT is_core_of = ABR state_population > 99 }
+				1134 = { is_controlled_by = ROOT is_core_of = ABR state_population > 99 }
+				1135 = { is_controlled_by = ROOT is_core_of = ABR state_population > 99 }
+			}
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = USA_fascist_bop
+				value = 0.10
+				tooltip_side = USA_bop_nazi
+			}
+			add_timed_idea = { idea = dd_usa_malice_attack days = 7 }
+			dd_usa_malice_hit = yes
+		}
+	}
+
+	dd_usa_glorify_christ = {
+		icon = generic_political_discourse
+		cost = 10
+		days_re_enable = 30
+		ai_will_do = { factor = 10 }
+		visible = {
+			has_country_flag = dd_usa_fascist_bop
+			has_power_balance = { id = USA_fascist_bop }
+		}
+		available = {
+			has_power_balance = { id = USA_fascist_bop }
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = USA_fascist_bop
+				value = -0.20
+				tooltip_side = USA_bop_christian
+			}
+		}
+	}
+
+	dd_usa_glorify_hitler = {
+		icon = generic_fascism
+		cost = 10
+		days_re_enable = 30
+		ai_will_do = { factor = 10 }
+		visible = {
+			has_country_flag = dd_usa_fascist_bop
+			has_power_balance = { id = USA_fascist_bop }
+		}
+		available = {
+			has_power_balance = { id = USA_fascist_bop }
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = USA_fascist_bop
+				value = 0.20
+				tooltip_side = USA_bop_nazi
+			}
+		}
+	}
+}
+
+dd_usa_abaddon_category = {
+	dd_usa_abaddon_decision = {
+		icon = generic_ignite_civil_war
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			has_country_flag = dd_usa_abaddon_unlocked
+		}
+		available = {
+			num_of_nukes > 999
+		}
+		complete_effect = {
+			dd_usa_abaddon_strike = yes
+		}
+	}
+}
+
+dd_usa_international_category = {
+	dd_usa_invite_left = {
+		icon = generic_political_discourse
+		cost = 10
+		fire_only_once = yes
+		ai_will_do = { factor = 5 }
+		targets_dynamic = yes
+		target_array = global.dd_left_invite
+		target_root_trigger = {
+			has_country_flag = dd_usa_liberated_planet
+			is_faction_leader = yes
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				NOT = { tag = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+				NOT = { is_in_faction = yes }
+				OR = {
+					has_government = progressive_populism
+					has_government = anarcho_communism
+					has_government = communism
+					has_government = social_democracy
+					has_government = left_wing_nationalism
+					has_government = democratic_confederalism
+				}
+			}
+		}
+		visible = {
+			has_country_flag = dd_usa_liberated_planet
+			FROM = {
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		complete_effect = {
+			add_to_faction = FROM
+		}
+	}
+}

@@ -2,35 +2,35 @@
 capital = 219
 ABK = {
 	give_military_access = SOV
-	give_docking_rights = SOV
+	diplomatic_relation = { country = SOV relation = docking_rights active = yes }
 }
 ARM = {
 	give_military_access = SOV
-	give_docking_rights = SOV
+	diplomatic_relation = { country = SOV relation = docking_rights active = yes }
 }
 BLR = {
 	give_military_access = SOV
-	give_docking_rights = SOV
+	diplomatic_relation = { country = SOV relation = docking_rights active = yes }
 }
 KYR = {
 	give_military_access = SOV
-	give_docking_rights = SOV
+	diplomatic_relation = { country = SOV relation = docking_rights active = yes }
 }
 PMR = {
 	give_military_access = SOV
-	give_docking_rights = SOV
+	diplomatic_relation = { country = SOV relation = docking_rights active = yes }
 }
 SOE = {
 	give_military_access = SOV
-	give_docking_rights = SOV
+	diplomatic_relation = { country = SOV relation = docking_rights active = yes }
 }
 SYR = {
 	give_military_access = SOV
-	give_docking_rights = SOV
+	diplomatic_relation = { country = SOV relation = docking_rights active = yes }
 }
 TAJ = {
 	give_military_access = SOV
-	give_docking_rights = SOV
+	diplomatic_relation = { country = SOV relation = docking_rights active = yes }
 }
 oob = "SOV_2026"
 set_research_slots = 4

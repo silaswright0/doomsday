@@ -2,31 +2,31 @@
 capital = 49
 IRQ = {
 	give_military_access = TUR
-	give_docking_rights = TUR
+	diplomatic_relation = { country = TUR relation = docking_rights active = yes }
 }
 LBA = {
 	give_military_access = TUR
-	give_docking_rights = TUR
+	diplomatic_relation = { country = TUR relation = docking_rights active = yes }
 }
 NCY = {
 	give_military_access = TUR
-	give_docking_rights = TUR
+	diplomatic_relation = { country = TUR relation = docking_rights active = yes }
 }
 QAT = {
 	give_military_access = TUR
-	give_docking_rights = TUR
+	diplomatic_relation = { country = TUR relation = docking_rights active = yes }
 }
 ROJ = {
 	give_military_access = TUR
-	give_docking_rights = TUR
+	diplomatic_relation = { country = TUR relation = docking_rights active = yes }
 }
 SOM = {
 	give_military_access = TUR
-	give_docking_rights = TUR
+	diplomatic_relation = { country = TUR relation = docking_rights active = yes }
 }
 SYR = {
 	give_military_access = TUR
-	give_docking_rights = TUR
+	diplomatic_relation = { country = TUR relation = docking_rights active = yes }
 }
 oob = "TUR_2026"
 set_research_slots = 3

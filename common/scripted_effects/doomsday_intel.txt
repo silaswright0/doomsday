@@ -1039,18 +1039,20 @@ dd_intel_coup_player_accept = {
 	add_stability = -0.10
 	add_war_support = 0.05
 	if = {
-		limit = {
-			has_variable = dd_intel_coup_sponsor
-			NOT = { tag = var:dd_intel_coup_sponsor }
-		}
-		add_opinion_modifier = {
-			target = var:dd_intel_coup_sponsor
-			modifier = dd_intel_sponsored
-		}
+		limit = { has_variable = dd_intel_coup_sponsor }
 		var:dd_intel_coup_sponsor = {
-			add_opinion_modifier = {
-				target = PREV
-				modifier = dd_intel_sponsored
+			if = {
+				limit = { NOT = { tag = PREV } }
+				PREV = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = dd_intel_sponsored
+					}
+				}
+				add_opinion_modifier = {
+					target = PREV
+					modifier = dd_intel_sponsored
+				}
 			}
 		}
 	}
@@ -1082,18 +1084,20 @@ dd_intel_coup_player_fight = {
 			set_variable = { dd_intel_coup_sponsor = PREV.dd_intel_coup_sponsor }
 		}
 		if = {
-			limit = {
-				has_variable = dd_intel_coup_sponsor
-				NOT = { tag = var:dd_intel_coup_sponsor }
-			}
-			add_opinion_modifier = {
-				target = var:dd_intel_coup_sponsor
-				modifier = dd_intel_sponsored
-			}
+			limit = { has_variable = dd_intel_coup_sponsor }
 			var:dd_intel_coup_sponsor = {
-				add_opinion_modifier = {
-					target = PREV
-					modifier = dd_intel_sponsored
+				if = {
+					limit = { NOT = { tag = PREV } }
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = dd_intel_sponsored
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = dd_intel_sponsored
+					}
 				}
 			}
 		}

@@ -2,23 +2,23 @@
 capital = 16
 DJI = {
 	give_military_access = FRA
-	give_docking_rights = FRA
+	diplomatic_relation = { country = FRA relation = docking_rights active = yes }
 }
 GER = {
 	give_military_access = FRA
-	give_docking_rights = FRA
+	diplomatic_relation = { country = FRA relation = docking_rights active = yes }
 }
 LEB = {
 	give_military_access = FRA
-	give_docking_rights = FRA
+	diplomatic_relation = { country = FRA relation = docking_rights active = yes }
 }
 ROM = {
 	give_military_access = FRA
-	give_docking_rights = FRA
+	diplomatic_relation = { country = FRA relation = docking_rights active = yes }
 }
 UAE = {
 	give_military_access = FRA
-	give_docking_rights = FRA
+	diplomatic_relation = { country = FRA relation = docking_rights active = yes }
 }
 oob = "FRA_2026"
 set_research_slots = 4

@@ -13,6 +13,12 @@ on_actions = {
 		}
 	}
 
+	on_monthly = {
+		effect = {
+			dd_usa_israel_arms_shipment = yes
+		}
+	}
+
 	on_monthly_USA = {
 		effect = {
 			if = {
@@ -32,6 +38,12 @@ on_actions = {
 		}
 	}
 
+	on_daily = {
+		effect = {
+			dd_usa_cw_strip_diplomacy = yes
+		}
+	}
+
 	on_daily_USA = {
 		effect = {
 			if = {
@@ -43,6 +55,8 @@ on_actions = {
 				dd_usa_start_civil_war = yes
 			}
 			dd_usa_legislature_daily = yes
+			dd_usa_me_blood_tick = yes
+			dd_usa_check_globalists_spirit = yes
 		}
 	}
 

@@ -2,91 +2,91 @@
 capital = 1140
 AST = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 BHR = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 DJI = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 ENG = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 GER = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 GRE = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 ICE = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 IRQ = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 ITA = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 JAP = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 JOR = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 KOR = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 KUW = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 PHI = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 POL = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 QAT = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 ROM = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 SAU = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 SNG = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 SPR = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 TUR = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 UAE = {
 	give_military_access = USA
-	give_docking_rights = USA
+	diplomatic_relation = { country = USA relation = docking_rights active = yes }
 }
 oob = "USA_2026"
 set_research_slots = 5
@@ -595,6 +595,9 @@ add_ideas = export_focus
 add_ideas = civilian_economy
 add_ideas = dd_usa_supply_hole
 add_ideas = dd_usa_supply_hole
+add_ideas = dd_usa_israel_arms
+add_ideas = dd_usa_half_century_war
+add_ideas = dd_usa_space_infrastructure
 set_politics = {
 	ruling_party = national_populism
 	last_election = "2024.11.5"

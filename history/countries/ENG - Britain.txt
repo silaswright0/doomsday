@@ -2,27 +2,27 @@
 capital = 126
 BRN = {
 	give_military_access = ENG
-	give_docking_rights = ENG
+	diplomatic_relation = { country = ENG relation = docking_rights active = yes }
 }
 CYP = {
 	give_military_access = ENG
-	give_docking_rights = ENG
+	diplomatic_relation = { country = ENG relation = docking_rights active = yes }
 }
 EST = {
 	give_military_access = ENG
-	give_docking_rights = ENG
+	diplomatic_relation = { country = ENG relation = docking_rights active = yes }
 }
 KEN = {
 	give_military_access = ENG
-	give_docking_rights = ENG
+	diplomatic_relation = { country = ENG relation = docking_rights active = yes }
 }
 OMA = {
 	give_military_access = ENG
-	give_docking_rights = ENG
+	diplomatic_relation = { country = ENG relation = docking_rights active = yes }
 }
 QAT = {
 	give_military_access = ENG
-	give_docking_rights = ENG
+	diplomatic_relation = { country = ENG relation = docking_rights active = yes }
 }
 oob = "ENG_2026"
 set_research_slots = 4

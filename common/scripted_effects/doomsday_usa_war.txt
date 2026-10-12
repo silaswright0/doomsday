@@ -2266,15 +2266,6 @@ dd_usa_province_control = {
 		}
 		ABR = { dd_usa_control_abr_south = yes }
 	}
-	# Prison gangs take city blocks. They fight everyone via dd_cw_general.
-	if = {
-		limit = { EME = { has_country_flag = dd_cw_released } }
-		EME = { dd_usa_control_eme_socal = yes }
-	}
-	if = {
-		limit = { NFA = { has_country_flag = dd_cw_released } }
-		NFA = { dd_usa_control_nfa_norcal = yes }
-	}
 	# Wall Street owns New York City (state 1125); no extra province seizes.
 	if = {
 		limit = { NYF = { has_country_flag = dd_cw_released } }
@@ -3009,6 +3000,47 @@ dd_usa_civil_war_fights = {
 			add_to_faction = AOG
 		}
 	}
+	# Heartland Compact always opens a pact when released (Texas/Florida can join later).
+	if = {
+		limit = {
+			RBM = { has_country_flag = dd_cw_released }
+			RBM = { NOT = { is_in_faction = yes } }
+		}
+		RBM = {
+			set_rule = { can_create_factions = yes }
+			create_faction = FACTION_HEARTLAND_PACT
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = dd_usa_keep_rbm
+			NOT = { is_in_faction = yes }
+		}
+		set_rule = { can_create_factions = yes }
+		create_faction = FACTION_HEARTLAND_PACT
+	}
+	# MAGA Mandate / federal MAGA remnant open a pact Texas can join.
+	if = {
+		limit = {
+			VNM = { has_country_flag = dd_cw_released }
+			VNM = { NOT = { is_in_faction = yes } }
+		}
+		VNM = {
+			set_rule = { can_create_factions = yes }
+			create_faction = FACTION_MAGA_PACT
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_keep_vnm
+				has_country_flag = dd_usa_keep_fed
+			}
+			NOT = { is_in_faction = yes }
+		}
+		set_rule = { can_create_factions = yes }
+		create_faction = FACTION_MAGA_PACT
+	}
 	if = {
 		limit = {
 			OR = {
@@ -3053,8 +3085,6 @@ dd_usa_civil_war_fights = {
 	ABR = { set_country_flag = dd_cw_general }
 	PTF = { set_country_flag = dd_cw_general }
 	ASK = { set_country_flag = dd_cw_general }
-	EME = { set_country_flag = dd_cw_general }
-	NFA = { set_country_flag = dd_cw_general }
 	every_country = {
 		limit = { has_country_flag = dd_cw_general }
 		every_other_country = {
@@ -3159,37 +3189,6 @@ dd_usa_civil_war_fights = {
 		}
 		add_ideas = dd_usa_civil_war_cause
 	}
-	# California prison gangs fight every CW participant, including Texas/Federal enclaves.
-	if = {
-		limit = { EME = { has_country_flag = dd_cw_released } }
-		EME = {
-			every_other_country = {
-				limit = {
-					OR = {
-						has_country_flag = dd_cw_released
-						tag = USA
-					}
-					NOT = { has_war_with = PREV }
-				}
-				PREV = { declare_war_on = { target = THIS type = dd_annex } }
-			}
-		}
-	}
-	if = {
-		limit = { NFA = { has_country_flag = dd_cw_released } }
-		NFA = {
-			every_other_country = {
-				limit = {
-					OR = {
-						has_country_flag = dd_cw_released
-						tag = USA
-					}
-					NOT = { has_war_with = PREV }
-				}
-				PREV = { declare_war_on = { target = THIS type = dd_annex } }
-			}
-		}
-	}
 	# Texas, the reds, the brethren, and the oil enclave only fight each other.
 	# Oil also fights the Black Revolt over New Orleans.
 	TXG = {
@@ -3241,38 +3240,6 @@ dd_usa_cw_spawn_held_bases = {
 			count = 2
 			prioritize_location = 1843
 			allow_spawning_on_enemy_provs = yes
-		}
-	}
-	if = {
-		limit = { EME = { has_country_flag = dd_cw_released } }
-		EME = {
-			dd_usa_cw_tpl_militia_2x6 = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 }
-		}
-		378 = {
-			create_unit = {
-				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
-				owner = EME
-				count = 2
-				prioritize_location = 9814
-				allow_spawning_on_enemy_provs = yes
-			}
-		}
-	}
-	if = {
-		limit = { NFA = { has_country_flag = dd_cw_released } }
-		NFA = {
-			dd_usa_cw_tpl_militia_2x6 = yes
-			add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 3000 }
-		}
-		378 = {
-			create_unit = {
-				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
-				owner = NFA
-				count = 2
-				prioritize_location = 6681
-				allow_spawning_on_enemy_provs = yes
-			}
 		}
 	}
 	if = {

@@ -2,7 +2,7 @@
 capital = 276
 LAT = {
 	give_military_access = CAN
-	give_docking_rights = CAN
+	diplomatic_relation = { country = CAN relation = docking_rights active = yes }
 }
 oob = "CAN_2026"
 set_research_slots = 3

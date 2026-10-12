@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ERRORS: list[str] = []
 
 # Off-map utility tags (intel insurgent pool). Skip start-setup floor checks.
-DORMANT_TAGS = {"IG1", "IG2", "IG3", "IG4"}
+DORMANT_TAGS = {"IG1", "IG2", "IG3", "IG4", "ABY"}
 
 
 def fail(msg: str) -> None:

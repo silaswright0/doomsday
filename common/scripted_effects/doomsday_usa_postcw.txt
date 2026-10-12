@@ -1,0 +1,485 @@
+# Post-civil-war fascist, communist, and anarchist effects. Country-scoped. No random.
+
+dd_usa_postcw_victory = {
+	remove_ideas = dd_usa_civil_war_cause
+	remove_ideas = dd_usa_nation_in_ruins
+	add_ideas = dd_usa_american_ruins
+	set_country_flag = dd_usa_civil_war_over
+}
+
+dd_usa_cancel_elections = {
+	if = {
+		limit = { has_government = fascism }
+		set_politics = { ruling_party = fascism elections_allowed = no }
+	}
+	else_if = {
+		limit = { has_government = communism }
+		set_politics = { ruling_party = communism elections_allowed = no }
+	}
+	else_if = {
+		limit = { has_government = anarcho_communism }
+		set_politics = { ruling_party = anarcho_communism elections_allowed = no }
+	}
+	else_if = {
+		limit = { has_government = democratic_confederalism }
+		set_politics = { ruling_party = democratic_confederalism elections_allowed = no }
+	}
+	else = {
+		set_politics = { ruling_party = national_populism elections_allowed = no }
+	}
+}
+
+dd_usa_zero_ideology = {
+	if = {
+		limit = { NOT = { has_government = social_democracy } }
+		add_popularity = { ideology = social_democracy popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = social_liberalism } }
+		add_popularity = { ideology = social_liberalism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = liberal_conservatism } }
+		add_popularity = { ideology = liberal_conservatism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = progressive_populism } }
+		add_popularity = { ideology = progressive_populism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = national_populism } }
+		add_popularity = { ideology = national_populism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = sovereign_democracy } }
+		add_popularity = { ideology = sovereign_democracy popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = military_junta } }
+		add_popularity = { ideology = military_junta popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = absolute_monarchy } }
+		add_popularity = { ideology = absolute_monarchy popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = state_socialism } }
+		add_popularity = { ideology = state_socialism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = left_wing_nationalism } }
+		add_popularity = { ideology = left_wing_nationalism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = islamic_democracy } }
+		add_popularity = { ideology = islamic_democracy popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = theocratic_absolutism } }
+		add_popularity = { ideology = theocratic_absolutism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = jihadist_fundamentalism } }
+		add_popularity = { ideology = jihadist_fundamentalism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = democratic_confederalism } }
+		add_popularity = { ideology = democratic_confederalism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = fascism } }
+		add_popularity = { ideology = fascism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = communism } }
+		add_popularity = { ideology = communism popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = technocracy } }
+		add_popularity = { ideology = technocracy popularity = -1 }
+	}
+	if = {
+		limit = { NOT = { has_government = anarcho_communism } }
+		add_popularity = { ideology = anarcho_communism popularity = -1 }
+	}
+}
+
+dd_usa_ban_opposition = {
+	set_country_flag = dd_usa_opposition_banned
+	dd_usa_cancel_elections = yes
+	dd_usa_zero_ideology = yes
+}
+
+dd_usa_set_women_law = {
+	remove_ideas = dd_women_1
+	remove_ideas = dd_women_2
+	remove_ideas = dd_women_3
+	remove_ideas = dd_women_4
+	remove_ideas = dd_women_5
+}
+
+dd_usa_suppress_women = {
+	dd_usa_set_women_law = yes
+	add_ideas = dd_women_1
+	dd_sync_fertility_to_women = yes
+}
+
+dd_usa_empower_women_minorities = {
+	remove_ideas = dd_immigration_1
+	remove_ideas = dd_immigration_2
+	remove_ideas = dd_immigration_3
+	remove_ideas = dd_immigration_4
+	remove_ideas = dd_immigration_5
+	add_ideas = dd_immigration_5
+	dd_usa_set_women_law = yes
+	add_ideas = dd_women_5
+	dd_sync_fertility_to_women = yes
+	remove_ideas = dd_minority_1
+	remove_ideas = dd_minority_2
+	remove_ideas = dd_minority_3
+	remove_ideas = dd_minority_4
+	remove_ideas = dd_minority_5
+	add_ideas = dd_minority_5
+}
+
+dd_usa_abolish_police = {
+	remove_ideas = dd_security_1
+	remove_ideas = dd_security_2
+	remove_ideas = dd_security_3
+	remove_ideas = dd_security_4
+	remove_ideas = dd_security_5
+	add_ideas = dd_security_1
+}
+
+dd_usa_cut_state_pop_percent = {
+	set_temp_variable = { dd_cut = state_population_k }
+	multiply_temp_variable = { dd_cut = 10 }
+	round_temp_variable = dd_cut
+	multiply_temp_variable = { dd_cut = -1 }
+	set_variable = { dd_pop_cut = dd_cut }
+	if = {
+		limit = { check_variable = { dd_pop_cut < 0 } }
+		add_manpower = var:dd_pop_cut
+	}
+	clear_variable = dd_pop_cut
+}
+
+dd_usa_cut_every_state_pop_percent = {
+	every_owned_state = {
+		dd_usa_cut_state_pop_percent = yes
+	}
+}
+
+dd_usa_kill_deep_south_10k = {
+	363 = { add_manpower = -10000 }
+	364 = { add_manpower = -10000 }
+	365 = { add_manpower = -10000 }
+	366 = { add_manpower = -10000 }
+	367 = { add_manpower = -10000 }
+	368 = { add_manpower = -10000 }
+	370 = { add_manpower = -10000 }
+	371 = { add_manpower = -10000 }
+	372 = { add_manpower = -10000 }
+	1130 = { add_manpower = -10000 }
+	1131 = { add_manpower = -10000 }
+	1132 = { add_manpower = -10000 }
+	1133 = { add_manpower = -10000 }
+	1134 = { add_manpower = -10000 }
+	1135 = { add_manpower = -10000 }
+}
+
+dd_usa_strip_finance = {
+	if = { limit = { finance_center > 0 } remove_building = { type = finance_center level = 1 } }
+	if = { limit = { finance_center > 0 } remove_building = { type = finance_center level = 1 } }
+	if = { limit = { finance_center > 0 } remove_building = { type = finance_center level = 1 } }
+	if = { limit = { finance_center > 0 } remove_building = { type = finance_center level = 1 } }
+	if = { limit = { finance_center > 0 } remove_building = { type = finance_center level = 1 } }
+	if = { limit = { finance_center > 0 } remove_building = { type = finance_center level = 1 } }
+}
+
+dd_usa_seize_jewish_wealth = {
+	add_to_variable = { treasury = 1000 }
+	if = {
+		limit = { 1125 = { is_owned_by = ROOT } }
+		1125 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { 359 = { is_owned_by = ROOT } }
+		359 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { 366 = { is_owned_by = ROOT } }
+		366 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+}
+
+dd_usa_seize_foreign_wealth = {
+	add_to_variable = { treasury = 1000 }
+	if = {
+		limit = { 378 = { is_owned_by = ROOT } }
+		378 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { 366 = { is_owned_by = ROOT } }
+		366 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { 375 = { is_owned_by = ROOT } }
+		375 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+}
+
+dd_usa_crush_degeneracy = {
+	dd_usa_suppress_women = yes
+	378 = { add_manpower = -10000 }
+	386 = { add_manpower = -10000 }
+	1125 = { add_manpower = -10000 }
+}
+
+dd_usa_start_mass_deportations = {
+	add_timed_idea = { idea = dd_usa_mass_deportations days = 365 }
+}
+
+dd_usa_abolish_wall_street = {
+	1125 = {
+		add_manpower = -1000
+		dd_usa_strip_finance = yes
+	}
+}
+
+dd_usa_march_silicon_valley = {
+	1124 = {
+		add_manpower = -1000
+		dd_usa_strip_finance = yes
+	}
+}
+
+dd_usa_start_five_year_plan = {
+	add_timed_idea = { idea = dd_usa_five_year_plan days = 1825 }
+}
+
+dd_usa_wargoal_every_tag = {
+	every_other_country = {
+		limit = {
+			exists = yes
+			NOT = { has_war_with = ROOT }
+			NOT = { is_in_faction_with = ROOT }
+		}
+		ROOT = {
+			create_wargoal = {
+				type = dd_annex
+				target = PREV
+			}
+		}
+	}
+}
+
+dd_usa_stop_the_maniacs = {
+	every_other_country = {
+		limit = {
+			exists = yes
+			NOT = { has_war_with = ROOT }
+		}
+		create_wargoal = {
+			type = dd_stop_maniacs
+			target = ROOT
+		}
+	}
+}
+
+dd_usa_expand_arsenal = {
+	if = {
+		limit = { NOT = { has_tech = nuclear_reactor } }
+		set_technology = { nuclear_reactor = 1 }
+	}
+	if = {
+		limit = { 379 = { is_owned_by = ROOT } }
+		379 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = { type = nuclear_reactor level = 4 instant_build = yes }
+		}
+	}
+	add_ideas = dd_usa_expanding_arsenal
+}
+
+dd_usa_malice_hit = {
+	if = {
+		limit = {
+			1130 = {
+				is_controlled_by = ROOT
+				is_core_of = ABR
+				state_population > 99
+			}
+		}
+		1130 = { add_manpower = -100 }
+	}
+	else_if = {
+		limit = {
+			1131 = {
+				is_controlled_by = ROOT
+				is_core_of = ABR
+				state_population > 99
+			}
+		}
+		1131 = { add_manpower = -100 }
+	}
+	else_if = {
+		limit = {
+			1132 = {
+				is_controlled_by = ROOT
+				is_core_of = ABR
+				state_population > 99
+			}
+		}
+		1132 = { add_manpower = -100 }
+	}
+	else_if = {
+		limit = {
+			1134 = {
+				is_controlled_by = ROOT
+				is_core_of = ABR
+				state_population > 99
+			}
+		}
+		1134 = { add_manpower = -100 }
+	}
+	else_if = {
+		limit = {
+			1135 = {
+				is_controlled_by = ROOT
+				is_core_of = ABR
+				state_population > 99
+			}
+		}
+		1135 = { add_manpower = -100 }
+	}
+}
+
+dd_usa_abaddon_strike = {
+	every_state = {
+		save_event_target_as = dd_abaddon_state
+		PREV = {
+			if = {
+				limit = { num_of_nukes > 0 }
+				launch_nuke = {
+					state = event_target:dd_abaddon_state
+					use_nuke = yes
+				}
+			}
+		}
+		damage_building = { type = infrastructure damage = 5 }
+		add_manpower = -500000
+	}
+	news_event = { id = dd_usa_abaddon.2 }
+	country_event = { id = dd_usa_abaddon.1 days = 7 }
+}
+
+dd_usa_abaddon_end = {
+	every_country = {
+		every_enemy_country = {
+			white_peace = PREV
+		}
+	}
+	every_state = {
+		limit = { NOT = { is_owned_by = ABY } }
+		ABY = { transfer_state = PREV }
+	}
+	every_country = {
+		limit = { NOT = { tag = ABY } }
+		add_manpower = -10000000
+	}
+	ABY = {
+		set_cosmetic_tag = ABY_WASTE
+		add_manpower = -10000000
+	}
+}
+
+dd_usa_export_revolution = {
+	if = {
+		limit = { is_faction_leader = yes }
+		dismantle_faction = yes
+	}
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	set_rule = { can_create_factions = yes can_join_factions = yes }
+	create_faction = FACTION_INTERNATIONAL_PROLETARIAT
+	set_country_flag = dd_usa_proletariat_faction
+}
+
+dd_usa_refresh_invite_targets = {
+	clear_array = global.dd_left_invite
+	every_country = {
+		limit = {
+			exists = yes
+			OR = {
+				has_government = progressive_populism
+				has_government = anarcho_communism
+				has_government = communism
+				has_government = social_democracy
+				has_government = left_wing_nationalism
+				has_government = democratic_confederalism
+			}
+		}
+		add_to_array = { global.dd_left_invite = THIS }
+	}
+}
+
+dd_usa_postcw_monthly = {
+	if = {
+		limit = { has_country_flag = dd_usa_opposition_banned }
+		dd_usa_zero_ideology = yes
+	}
+	if = {
+		limit = { has_idea = dd_usa_mass_deportations }
+		dd_usa_cut_every_state_pop_percent = yes
+	}
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_usa_gutting_middle_class
+				has_idea = dd_usa_gutting_middle_class_2
+			}
+		}
+		add_to_variable = { treasury = 100 }
+	}
+	if = {
+		limit = { has_country_flag = dd_usa_liberated_planet }
+		dd_usa_refresh_invite_targets = yes
+	}
+}
+
+dd_usa_cw_strip_diplomacy = {
+	if = {
+		limit = { has_idea = dd_usa_civil_war_cause }
+		every_other_country = {
+			limit = { exists = yes }
+			PREV = {
+				diplomatic_relation = { country = PREV relation = non_aggression_pact active = no }
+				diplomatic_relation = { country = PREV relation = military_access active = no }
+				diplomatic_relation = { country = PREV relation = docking_rights active = no }
+			}
+			diplomatic_relation = { country = PREV relation = military_access active = no }
+			diplomatic_relation = { country = PREV relation = docking_rights active = no }
+		}
+	}
+}

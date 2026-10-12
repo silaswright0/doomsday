@@ -1,0 +1,58 @@
+USA_fascist_bop = {
+	initial_value = 0
+	left_side = USA_bop_christian
+	right_side = USA_bop_nazi
+	decision_category = dd_usa_fascist_bop_category
+
+	range = {
+		id = USA_bop_contested
+		min = -0.15
+		max = 0.15
+		modifier = {
+		}
+	}
+
+	side = {
+		id = USA_bop_christian
+		icon = GFX_bop_ITA_grand_council_side
+		range = {
+			id = USA_bop_christian_rising
+			min = -0.60
+			max = -0.15
+			modifier = {
+				stability_factor = 0.05
+			}
+		}
+		range = {
+			id = USA_bop_christian_dominant
+			min = -1.0
+			max = -0.60
+			modifier = {
+				stability_factor = 0.10
+				war_support_factor = 0.05
+			}
+		}
+	}
+
+	side = {
+		id = USA_bop_nazi
+		icon = GFX_bop_ITA_mussolini_side
+		range = {
+			id = USA_bop_nazi_rising
+			min = 0.15
+			max = 0.60
+			modifier = {
+				army_attack_factor = 0.05
+			}
+		}
+		range = {
+			id = USA_bop_nazi_dominant
+			min = 0.60
+			max = 1.0
+			modifier = {
+				army_attack_factor = 0.10
+				war_support_factor = 0.05
+			}
+		}
+	}
+}

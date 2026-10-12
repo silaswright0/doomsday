@@ -11,6 +11,8 @@ add_namespace = dd_usa_news
 add_namespace = dd_usa_econ
 add_namespace = dd_usa_cw
 add_namespace = dd_usa_recon
+add_namespace = dd_usa_abaddon
+add_namespace = dd_usa_blood
 
 country_event = {
 	id = dd_usa_greenland.1
@@ -712,5 +714,42 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = dd_usa_recon.1.a
+	}
+}
+
+country_event = {
+	id = dd_usa_abaddon.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		dd_usa_abaddon_end = yes
+	}
+	option = {
+		name = dd_usa_abaddon.1.a
+	}
+}
+
+country_event = {
+	id = dd_usa_blood.1
+	title = dd_usa_blood.1.t
+	desc = dd_usa_blood.1.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_blood.1.a
+		add_stability = -0.10
+		add_war_support = -0.10
+	}
+}
+
+news_event = {
+	id = dd_usa_abaddon.2
+	title = dd_usa_abaddon.2.t
+	desc = dd_usa_abaddon.2.d
+	picture = GFX_news_event_nuke
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_abaddon.2.a
 	}
 }

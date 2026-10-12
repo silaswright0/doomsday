@@ -2,11 +2,11 @@
 capital = 608
 CAM = {
 	give_military_access = CHI
-	give_docking_rights = CHI
+	diplomatic_relation = { country = CHI relation = docking_rights active = yes }
 }
 DJI = {
 	give_military_access = CHI
-	give_docking_rights = CHI
+	diplomatic_relation = { country = CHI relation = docking_rights active = yes }
 }
 oob = "CHI_2026"
 set_research_slots = 5

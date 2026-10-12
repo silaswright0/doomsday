@@ -2,15 +2,15 @@
 capital = 2
 BUL = {
 	give_military_access = ITA
-	give_docking_rights = ITA
+	diplomatic_relation = { country = ITA relation = docking_rights active = yes }
 }
 DJI = {
 	give_military_access = ITA
-	give_docking_rights = ITA
+	diplomatic_relation = { country = ITA relation = docking_rights active = yes }
 }
 LEB = {
 	give_military_access = ITA
-	give_docking_rights = ITA
+	diplomatic_relation = { country = ITA relation = docking_rights active = yes }
 }
 oob = "ITA_2026"
 set_research_slots = 4

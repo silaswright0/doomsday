@@ -293,65 +293,21 @@ dd_usa_cw_ensure_militia_template = {
 }
 
 dd_usa_cw_spawn_militia = {
-	dd_usa_cw_ensure_militia_template = yes
-	set_variable = { dd_usa_militia_count = 6 }
-	if = {
-		limit = { has_government = anarcho_communism }
-		set_variable = { dd_usa_militia_count = 12 }
-	}
-	else_if = {
-		limit = { has_government = communism }
-		set_variable = { dd_usa_militia_count = 10 }
-	}
-	else_if = {
-		limit = { has_government = fascism }
-		set_variable = { dd_usa_militia_count = 8 }
-	}
-	add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 6000 }
-	# Spread across owned states (same pattern as CW war spawns).
-	while_loop_effect = {
-		limit = { check_variable = { dd_usa_militia_count > 0 } }
-		set_temp_variable = { dd_cw_pass = 0 }
-		every_owned_state = {
-			limit = {
-				is_owned_and_controlled_by = PREV
-				check_variable = { PREV.dd_usa_militia_count > 0 }
-			}
-			create_unit = {
-				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
-				owner = PREV
-				count = 1
-			}
-			PREV = { subtract_from_variable = { dd_usa_militia_count = 1 } }
-			add_to_temp_variable = { dd_cw_pass = 1 }
-		}
-		if = {
-			limit = { check_variable = { dd_cw_pass < 1 } }
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
-					owner = PREV
-					count = 1
-				}
-			}
-			subtract_from_variable = { dd_usa_militia_count = 1 }
+	dd_usa_cw_tpl_militia_2x6 = yes
+	capital_scope = {
+		create_unit = {
+			division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 1"
+			owner = PREV
+			count = 8
 		}
 	}
-	clear_variable = dd_usa_militia_count
 }
 
 dd_usa_cw_emergency_mils = {
-	set_variable = { dd_usa_mils_left = 2 }
-	every_owned_state = {
-		limit = {
-			is_core_of = ROOT
-			check_variable = { ROOT.dd_usa_mils_left > 0 }
-		}
-		add_extra_state_shared_building_slots = 1
-		add_building_construction = { type = arms_factory level = 1 instant_build = yes }
-		subtract_from_variable = { ROOT.dd_usa_mils_left = 1 }
+	capital_scope = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = { type = arms_factory level = 2 instant_build = yes }
 	}
-	clear_variable = dd_usa_mils_left
 }
 
 dd_usa_apply_disorganized_frontline = {
@@ -707,118 +663,65 @@ dd_usa_provoke_blob = {
 	}
 }
 
-# Army / air / navy: one dynamic spirit each; focuses add modifiers.
-dd_usa_af_ensure = {
-	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_armed_forces_dyn } } }
-		add_dynamic_modifier = { modifier = dd_usa_armed_forces_dyn }
-	}
-	force_update_dynamic_modifier = yes
-}
-
+# Army / air / navy: each focus adds its own spirit. Branches stack.
 dd_usa_af_base = {
-	set_variable = { dd_usa_af_civ_intel = -0.25 }
-	set_variable = { dd_usa_af_army_intel = -0.25 }
-	set_variable = { dd_usa_af_enemy_air = -0.05 }
-	dd_usa_af_ensure = yes
+	add_ideas = dd_usa_armed_forces
 }
 
 dd_usa_af_ready = {
-	add_to_variable = { dd_usa_af_org = 0.08 }
-	add_to_variable = { dd_usa_af_morale = 0.05 }
-	dd_usa_af_ensure = yes
+	add_ideas = dd_usa_armed_forces_ready
 }
 
 dd_usa_af_drone = {
-	add_to_variable = { dd_usa_af_inf_atk = 0.08 }
-	add_to_variable = { dd_usa_af_arm_atk = 0.05 }
-	dd_usa_af_ensure = yes
+	add_ideas = dd_usa_armed_forces_drone
 }
 
 dd_usa_af_arty = {
-	add_to_variable = { dd_usa_af_arty_atk = 0.12 }
-	add_to_variable = { dd_usa_af_arty_def = 0.08 }
-	dd_usa_af_ensure = yes
+	add_ideas = dd_usa_armed_forces_arty
 }
 
 dd_usa_af_add_aa = {
-	add_to_variable = { dd_usa_af_aa = 0.15 }
-	dd_usa_af_ensure = yes
+	add_ideas = dd_usa_armed_forces_aa
 }
 
 dd_usa_af_cavalry = {
-	add_to_variable = { dd_usa_af_arm_atk = 0.12 }
-	add_to_variable = { dd_usa_af_mech = 0.10 }
-	add_to_variable = { dd_usa_af_brk = 0.08 }
-	dd_usa_af_ensure = yes
-}
-
-dd_usa_air_ensure = {
-	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_airforce_dyn } } }
-		add_dynamic_modifier = { modifier = dd_usa_airforce_dyn }
-	}
-	force_update_dynamic_modifier = yes
+	add_ideas = dd_usa_armed_forces_cavalry
 }
 
 dd_usa_air_base = {
-	set_variable = { dd_usa_air_sup = 0.10 }
-	set_variable = { dd_usa_air_cas = 0.10 }
-	set_variable = { dd_usa_air_strat = 0.10 }
-	dd_usa_air_ensure = yes
+	add_ideas = dd_usa_airforce
 }
 
 dd_usa_air_prod = {
-	add_to_variable = { dd_usa_air_ic = 0.08 }
-	dd_usa_air_ensure = yes
+	add_ideas = dd_usa_airforce_prod
 }
 
 dd_usa_air_add_para = {
-	add_to_variable = { dd_usa_air_para = 0.15 }
-	add_to_variable = { dd_usa_air_para_grace = 48 }
-	dd_usa_air_ensure = yes
+	add_ideas = dd_usa_airforce_para
 }
 
 dd_usa_air_drone = {
-	add_to_variable = { dd_usa_air_ic = 0.05 }
-	dd_usa_air_ensure = yes
+	add_ideas = dd_usa_airforce_drone
 }
 
 dd_usa_air_cca = {
-	add_to_variable = { dd_usa_air_sup = 0.08 }
-	dd_usa_air_ensure = yes
-}
-
-dd_usa_nav_ensure = {
-	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_navy_dyn } } }
-		add_dynamic_modifier = { modifier = dd_usa_navy_dyn }
-	}
-	force_update_dynamic_modifier = yes
+	add_ideas = dd_usa_airforce_cca
 }
 
 dd_usa_nav_base = {
-	set_variable = { dd_usa_nav_range = 0.20 }
-	set_variable = { dd_usa_nav_sortie = 0.15 }
-	set_variable = { dd_usa_nav_coord = 0.05 }
-	dd_usa_nav_ensure = yes
+	add_ideas = dd_usa_navy
 }
 
 dd_usa_nav_beds = {
-	add_to_variable = { dd_usa_nav_org = 0.08 }
-	add_to_variable = { dd_usa_nav_morale = 0.06 }
-	dd_usa_nav_ensure = yes
+	add_ideas = dd_usa_navy_beds
 }
 
 dd_usa_nav_add_morale = {
-	add_to_variable = { dd_usa_nav_org = 0.06 }
-	add_to_variable = { dd_usa_nav_morale = 0.06 }
-	dd_usa_nav_ensure = yes
+	add_ideas = dd_usa_navy_morale
 }
 
 dd_usa_nav_yards = {
-	add_to_variable = { dd_usa_nav_dock = 0.10 }
-	dd_usa_nav_ensure = yes
+	add_ideas = dd_usa_navy_yards
 }
 
 # Legislature — country-scoped, no random.
@@ -1341,6 +1244,58 @@ dd_usa_cw_add_left_shared_cores = {
 	add_state_core = 1136
 }
 
+# One popup per 100,000 combat casualties while the Middle East war spirit is held.
+dd_usa_me_blood_tick = {
+	if = {
+		limit = {
+			has_idea = dd_usa_half_century_war
+			NOT = { has_variable = dd_usa_me_blood_mark }
+		}
+		set_variable = { dd_usa_me_blood_mark = 0 }
+	}
+	if = {
+		limit = { has_idea = dd_usa_half_century_war }
+		set_temp_variable = { dd_gap = casualties_k }
+		subtract_from_temp_variable = { dd_gap = dd_usa_me_blood_mark }
+		while = {
+			limit = { check_variable = { dd_gap > 99.999 } }
+			add_to_variable = { dd_usa_me_blood_mark = 100 }
+			subtract_from_temp_variable = { dd_gap = 100 }
+			country_event = { id = dd_usa_blood.1 }
+		}
+	}
+}
+
+# Holder is USA at start, Federal Command after the civil war. Stockpile only.
+dd_usa_israel_arms_shipment = {
+	if = {
+		limit = {
+			has_idea = dd_usa_israel_arms
+			ISR = { exists = yes }
+		}
+		send_equipment = {
+			equipment = infantry_equipment_cw6
+			amount = 350
+			target = ISR
+		}
+		send_equipment = {
+			equipment = artillery_equipment
+			amount = 35
+			target = ISR
+		}
+		send_equipment = {
+			equipment = sam_missile_equipment_2
+			amount = 10
+			target = ISR
+		}
+		send_equipment = {
+			equipment = mbt_equipment_4
+			amount = 5
+			target = ISR
+		}
+	}
+}
+
 dd_usa_start_civil_war = {
 	if = {
 		limit = {
@@ -1349,8 +1304,8 @@ dd_usa_start_civil_war = {
 		}
 		set_global_flag = dd_usa_civil_war_started
 		set_country_flag = dd_usa_civil_war
-		cancel_national_focus = yes
 		remove_ideas = dd_usa_youll_have_to_kill_us
+		remove_ideas = dd_usa_half_century_war
 		clr_country_flag = dd_usa_keep_eas
 		clr_country_flag = dd_usa_keep_wcl
 		clr_country_flag = dd_usa_keep_rbm
@@ -1630,6 +1585,11 @@ dd_usa_start_civil_war = {
 			FVA = {
 				set_capital = { state = 463 }
 			}
+		}
+		if = {
+			limit = { has_idea = dd_usa_israel_arms }
+			remove_ideas = dd_usa_israel_arms
+			FVA = { add_ideas = dd_usa_israel_arms }
 		}
 		SFT = {
 			transfer_state = 1124

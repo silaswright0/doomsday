@@ -23,6 +23,31 @@ dd_usa_tariff_category = {
 	}
 }
 
+dd_usa_fascist_bop_category = {
+	icon = generic_fascism
+	priority = 120
+	visible = {
+		has_country_flag = dd_usa_fascist_bop
+	}
+}
+
+dd_usa_abaddon_category = {
+	icon = generic_political_actions
+	priority = 130
+	visible = {
+		has_country_flag = dd_usa_abaddon_unlocked
+	}
+}
+
+dd_usa_international_category = {
+	icon = generic_political_discourse
+	priority = 110
+	visible = {
+		has_country_flag = dd_usa_liberated_planet
+		is_faction_leader = yes
+	}
+}
+
 dd_usa_debug_category = {
 	icon = generic_civil_support
 	priority = 1
