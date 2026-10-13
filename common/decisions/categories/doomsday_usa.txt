@@ -20,6 +20,7 @@ dd_usa_tariff_category = {
 			tag = MEX
 		}
 		has_global_flag = dd_usa_tariff_board
+		NOT = { has_global_flag = dd_usa_civil_war_started }
 	}
 }
 

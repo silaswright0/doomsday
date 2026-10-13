@@ -403,19 +403,218 @@ country_event = {
 }
 
 country_event = {
-	id = dd_usa_tariff.1
-	title = dd_usa_tariff.1.t
-	desc = dd_usa_tariff.1.d
+	id = dd_usa_tariff.11
+	title = dd_usa_tariff.11.t
+	desc = dd_usa_tariff.11.d
 	picture = GFX_report_event_generic_sign_treaty
 	is_triggered_only = yes
 	option = {
-		name = dd_usa_tariff.1.a
-		add_political_power = 25
+		name = dd_usa_tariff.11.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				check_variable = { dd_trade_war_points > 3 }
+			}
+		}
+		USA = { country_event = { id = dd_usa_tariff.12 } }
 	}
 	option = {
-		name = dd_usa_tariff.1.b
-		CAN = { add_opinion_modifier = { target = USA modifier = dd_usa_usmca_opinion } }
-		MEX = { add_opinion_modifier = { target = USA modifier = dd_usa_usmca_opinion } }
+		name = dd_usa_tariff.11.b
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 10
+				check_variable = { dd_trade_war_points > 3 }
+			}
+		}
+		USA = {
+			clr_country_flag = dd_tw_talking_can
+			country_event = { id = dd_usa_tariff.14 }
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.12
+	title = dd_usa_tariff.12.t
+	desc = dd_usa_tariff.12.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.12.a
+		ai_chance = { factor = 10 }
+		CAN = { country_event = { id = dd_usa_tariff.13 } }
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.13
+	title = dd_usa_tariff.13.t
+	desc = dd_usa_tariff.13.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.13.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				check_variable = { dd_trade_war_points > 3 }
+			}
+		}
+		USA = {
+			clr_country_flag = dd_tw_talking_can
+			set_country_flag = dd_tw_settled_can
+			dd_tw_clear_canada_pair = yes
+			country_event = { id = dd_usa_tariff.15 }
+		}
+	}
+	option = {
+		name = dd_usa_tariff.13.b
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 10
+				check_variable = { dd_trade_war_points > 3 }
+			}
+		}
+		USA = {
+			clr_country_flag = dd_tw_talking_can
+			country_event = { id = dd_usa_tariff.14 }
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.14
+	title = dd_usa_tariff.14.t
+	desc = dd_usa_tariff.14.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.14.a
+		ai_chance = { factor = 10 }
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.15
+	title = dd_usa_tariff.15.t
+	desc = dd_usa_tariff.15.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.15.a
+		ai_chance = { factor = 10 }
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.21
+	title = dd_usa_tariff.21.t
+	desc = dd_usa_tariff.21.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.21.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				check_variable = { dd_trade_war_points > 3 }
+			}
+		}
+		USA = { country_event = { id = dd_usa_tariff.22 } }
+	}
+	option = {
+		name = dd_usa_tariff.21.b
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 10
+				check_variable = { dd_trade_war_points > 3 }
+			}
+		}
+		USA = {
+			clr_country_flag = dd_tw_talking_mex
+			country_event = { id = dd_usa_tariff.24 }
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.22
+	title = dd_usa_tariff.22.t
+	desc = dd_usa_tariff.22.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.22.a
+		ai_chance = { factor = 10 }
+		MEX = { country_event = { id = dd_usa_tariff.23 } }
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.23
+	title = dd_usa_tariff.23.t
+	desc = dd_usa_tariff.23.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.23.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				check_variable = { dd_trade_war_points > 3 }
+			}
+		}
+		USA = {
+			clr_country_flag = dd_tw_talking_mex
+			set_country_flag = dd_tw_settled_mex
+			dd_tw_clear_mexico_pair = yes
+			country_event = { id = dd_usa_tariff.25 }
+		}
+	}
+	option = {
+		name = dd_usa_tariff.23.b
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 10
+				check_variable = { dd_trade_war_points > 3 }
+			}
+		}
+		USA = {
+			clr_country_flag = dd_tw_talking_mex
+			country_event = { id = dd_usa_tariff.24 }
+		}
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.24
+	title = dd_usa_tariff.24.t
+	desc = dd_usa_tariff.24.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.24.a
+		ai_chance = { factor = 10 }
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.25
+	title = dd_usa_tariff.25.t
+	desc = dd_usa_tariff.25.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.25.a
+		ai_chance = { factor = 10 }
 	}
 }
 

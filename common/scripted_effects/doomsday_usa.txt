@@ -197,6 +197,358 @@ dd_usa_clear_tariffs = {
 	}
 }
 
+# 100 political power, or 10 when any other board country is ahead on trade war points.
+dd_tw_refresh_costs = {
+	set_variable = { dd_tw_decision_cost = 100 }
+	if = {
+		limit = {
+			NOT = { tag = USA }
+			USA = { exists = yes has_variable = dd_trade_war_points }
+			check_variable = { dd_trade_war_points < USA.dd_trade_war_points }
+		}
+		set_variable = { dd_tw_decision_cost = 10 }
+	}
+	if = {
+		limit = {
+			NOT = { tag = CAN }
+			CAN = { exists = yes has_variable = dd_trade_war_points }
+			check_variable = { dd_trade_war_points < CAN.dd_trade_war_points }
+		}
+		set_variable = { dd_tw_decision_cost = 10 }
+	}
+	if = {
+		limit = {
+			NOT = { tag = MEX }
+			MEX = { exists = yes has_variable = dd_trade_war_points }
+			check_variable = { dd_trade_war_points < MEX.dd_trade_war_points }
+		}
+		set_variable = { dd_tw_decision_cost = 10 }
+	}
+}
+
+dd_tw_refresh_all_costs = {
+	USA = { dd_tw_refresh_costs = yes }
+	CAN = { dd_tw_refresh_costs = yes }
+	MEX = { dd_tw_refresh_costs = yes }
+}
+
+# Tariff board. Caller sets temp dd_tw_add_cg and dd_tw_add_fac, then notes which partner the hit belongs to.
+dd_tw_ensure_spirit = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_tariff_war } } }
+		if = { limit = { NOT = { has_variable = dd_tariff_cg } } set_variable = { dd_tariff_cg = 0 } }
+		if = { limit = { NOT = { has_variable = dd_tariff_fac } } set_variable = { dd_tariff_fac = 0 } }
+		if = { limit = { NOT = { has_variable = dd_trade_war_points } } set_variable = { dd_trade_war_points = 0 } }
+		add_dynamic_modifier = { modifier = dd_tariff_war }
+	}
+	add_to_variable = { dd_tariff_cg = dd_tw_add_cg }
+	add_to_variable = { dd_tariff_fac = dd_tw_add_fac }
+}
+
+dd_tw_note_usa = {
+	if = { limit = { NOT = { has_variable = dd_tw_cg_usa } } set_variable = { dd_tw_cg_usa = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_fac_usa } } set_variable = { dd_tw_fac_usa = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_pts_usa } } set_variable = { dd_tw_pts_usa = 0 } }
+	add_to_variable = { dd_tw_cg_usa = dd_tw_add_cg }
+	add_to_variable = { dd_tw_fac_usa = dd_tw_add_fac }
+	add_to_variable = { dd_tw_pts_usa = dd_tw_add_pts }
+	add_to_variable = { dd_trade_war_points = dd_tw_add_pts }
+	dd_tw_refresh_all_costs = yes
+}
+
+dd_tw_note_can = {
+	if = { limit = { NOT = { has_variable = dd_tw_cg_can } } set_variable = { dd_tw_cg_can = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_fac_can } } set_variable = { dd_tw_fac_can = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_pts_can } } set_variable = { dd_tw_pts_can = 0 } }
+	add_to_variable = { dd_tw_cg_can = dd_tw_add_cg }
+	add_to_variable = { dd_tw_fac_can = dd_tw_add_fac }
+	add_to_variable = { dd_tw_pts_can = dd_tw_add_pts }
+	add_to_variable = { dd_trade_war_points = dd_tw_add_pts }
+	dd_tw_refresh_all_costs = yes
+}
+
+dd_tw_note_mex = {
+	if = { limit = { NOT = { has_variable = dd_tw_cg_mex } } set_variable = { dd_tw_cg_mex = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_fac_mex } } set_variable = { dd_tw_fac_mex = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_pts_mex } } set_variable = { dd_tw_pts_mex = 0 } }
+	add_to_variable = { dd_tw_cg_mex = dd_tw_add_cg }
+	add_to_variable = { dd_tw_fac_mex = dd_tw_add_fac }
+	add_to_variable = { dd_tw_pts_mex = dd_tw_add_pts }
+	add_to_variable = { dd_trade_war_points = dd_tw_add_pts }
+	dd_tw_refresh_all_costs = yes
+}
+
+dd_tw_clamp_spirit = {
+	if = { limit = { NOT = { has_variable = dd_tariff_cg } } set_variable = { dd_tariff_cg = 0 } }
+	if = { limit = { check_variable = { dd_tariff_cg < 0.0001 } } set_variable = { dd_tariff_cg = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tariff_fac } } set_variable = { dd_tariff_fac = 0 } }
+	if = { limit = { check_variable = { dd_tariff_fac > -0.0001 } } set_variable = { dd_tariff_fac = 0 } }
+	if = { limit = { NOT = { has_variable = dd_trade_war_points } } set_variable = { dd_trade_war_points = 0 } }
+	if = { limit = { check_variable = { dd_trade_war_points < 0.0001 } } set_variable = { dd_trade_war_points = 0 } }
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = dd_tariff_war }
+			check_variable = { dd_tariff_cg = 0 }
+			check_variable = { dd_tariff_fac = 0 }
+		}
+		remove_dynamic_modifier = { modifier = dd_tariff_war }
+	}
+	dd_tw_refresh_all_costs = yes
+}
+
+dd_tw_strip_usa = {
+	if = { limit = { NOT = { has_variable = dd_tw_cg_usa } } set_variable = { dd_tw_cg_usa = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_fac_usa } } set_variable = { dd_tw_fac_usa = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_pts_usa } } set_variable = { dd_tw_pts_usa = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tariff_cg } } set_variable = { dd_tariff_cg = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tariff_fac } } set_variable = { dd_tariff_fac = 0 } }
+	if = { limit = { NOT = { has_variable = dd_trade_war_points } } set_variable = { dd_trade_war_points = 0 } }
+	subtract_from_variable = { dd_tariff_cg = dd_tw_cg_usa }
+	subtract_from_variable = { dd_tariff_fac = dd_tw_fac_usa }
+	subtract_from_variable = { dd_trade_war_points = dd_tw_pts_usa }
+	set_variable = { dd_tw_cg_usa = 0 }
+	set_variable = { dd_tw_fac_usa = 0 }
+	set_variable = { dd_tw_pts_usa = 0 }
+	dd_tw_clamp_spirit = yes
+}
+
+dd_tw_strip_can = {
+	if = { limit = { NOT = { has_variable = dd_tw_cg_can } } set_variable = { dd_tw_cg_can = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_fac_can } } set_variable = { dd_tw_fac_can = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_pts_can } } set_variable = { dd_tw_pts_can = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tariff_cg } } set_variable = { dd_tariff_cg = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tariff_fac } } set_variable = { dd_tariff_fac = 0 } }
+	if = { limit = { NOT = { has_variable = dd_trade_war_points } } set_variable = { dd_trade_war_points = 0 } }
+	subtract_from_variable = { dd_tariff_cg = dd_tw_cg_can }
+	subtract_from_variable = { dd_tariff_fac = dd_tw_fac_can }
+	subtract_from_variable = { dd_trade_war_points = dd_tw_pts_can }
+	set_variable = { dd_tw_cg_can = 0 }
+	set_variable = { dd_tw_fac_can = 0 }
+	set_variable = { dd_tw_pts_can = 0 }
+	dd_tw_clamp_spirit = yes
+}
+
+dd_tw_strip_mex = {
+	if = { limit = { NOT = { has_variable = dd_tw_cg_mex } } set_variable = { dd_tw_cg_mex = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_fac_mex } } set_variable = { dd_tw_fac_mex = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tw_pts_mex } } set_variable = { dd_tw_pts_mex = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tariff_cg } } set_variable = { dd_tariff_cg = 0 } }
+	if = { limit = { NOT = { has_variable = dd_tariff_fac } } set_variable = { dd_tariff_fac = 0 } }
+	if = { limit = { NOT = { has_variable = dd_trade_war_points } } set_variable = { dd_trade_war_points = 0 } }
+	subtract_from_variable = { dd_tariff_cg = dd_tw_cg_mex }
+	subtract_from_variable = { dd_tariff_fac = dd_tw_fac_mex }
+	subtract_from_variable = { dd_trade_war_points = dd_tw_pts_mex }
+	set_variable = { dd_tw_cg_mex = 0 }
+	set_variable = { dd_tw_fac_mex = 0 }
+	set_variable = { dd_tw_pts_mex = 0 }
+	dd_tw_clamp_spirit = yes
+}
+
+dd_tw_clear_canada_pair = {
+	dd_tw_strip_can = yes
+	CAN = { dd_tw_strip_usa = yes }
+}
+
+dd_tw_clear_mexico_pair = {
+	dd_tw_strip_mex = yes
+	MEX = { dd_tw_strip_usa = yes }
+}
+
+dd_tw_usa_dairy = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_can = yes
+	CAN = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_usa = yes
+	}
+}
+
+dd_tw_usa_lumber = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_can = yes
+	CAN = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_usa = yes
+	}
+}
+
+dd_tw_usa_steel_can = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_can = yes
+	CAN = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_usa = yes
+	}
+}
+
+dd_tw_usa_steel_mex = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_mex = yes
+	MEX = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_usa = yes
+	}
+}
+
+dd_tw_usa_autos_mex = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_mex = yes
+	MEX = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_usa = yes
+	}
+}
+
+dd_tw_usa_border_mex = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_mex = yes
+	MEX = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_usa = yes
+	}
+}
+
+dd_tw_usa_tomatoes = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_mex = yes
+	MEX = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_usa = yes
+	}
+}
+
+dd_tw_can_alcohol = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_usa = yes
+	USA = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_can = yes
+	}
+}
+
+dd_tw_can_retaliation = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_usa = yes
+	USA = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_can = yes
+	}
+}
+
+dd_tw_can_potash = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_usa = yes
+	USA = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_can = yes
+	}
+}
+
+dd_tw_mex_pork = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_usa = yes
+	USA = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_mex = yes
+	}
+}
+
+dd_tw_mex_steel = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_usa = yes
+	USA = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_mex = yes
+	}
+}
+
+dd_tw_mex_autos = {
+	set_temp_variable = { dd_tw_add_cg = 0.01 }
+	set_temp_variable = { dd_tw_add_fac = 0 }
+	set_temp_variable = { dd_tw_add_pts = 1 }
+	dd_tw_ensure_spirit = yes
+	dd_tw_note_usa = yes
+	USA = {
+		set_temp_variable = { dd_tw_add_cg = 0.02 }
+		set_temp_variable = { dd_tw_add_fac = 0 }
+		set_temp_variable = { dd_tw_add_pts = 0 }
+		dd_tw_ensure_spirit = yes
+		dd_tw_note_mex = yes
+	}
+}
+
 dd_usa_double_protectionism = {
 	remove_ideas = dd_usa_global_tariff_plan
 	remove_ideas = dd_usa_protectionism_home
@@ -293,13 +645,339 @@ dd_usa_cw_ensure_militia_template = {
 }
 
 dd_usa_cw_spawn_militia = {
+	if = {
+		limit = { NOT = { check_variable = { dd_cw_militia_count > 0 } } }
+		set_variable = { dd_cw_militia_count = 8 }
+	}
 	dd_usa_cw_tpl_militia_2x6 = yes
-	capital_scope = {
-		create_unit = {
-			division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 1"
-			owner = PREV
-			count = 8
+	while_loop_effect = {
+		limit = { check_variable = { dd_cw_militia_count > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 1"
+				owner = PREV
+				count = 1
+			}
 		}
+		subtract_from_variable = { dd_cw_militia_count = 1 }
+	}
+	clear_variable = dd_cw_militia_count
+}
+
+dd_usa_cw_invite_etx = {
+	if = {
+		limit = { has_war_with = ETX }
+		white_peace = ETX
+	}
+	if = {
+		limit = {
+			ETX = {
+				is_in_faction = yes
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		ETX = { leave_faction = yes }
+	}
+	if = {
+		limit = { is_in_faction = no }
+		remove_ideas = dd_usa_civil_war_cause
+		set_rule = { can_create_factions = yes }
+		create_faction = FACTION_SOUTHERN_PACT
+		add_ideas = dd_usa_civil_war_cause
+	}
+	ETX = {
+		remove_ideas = dd_usa_civil_war_cause
+		set_rule = { can_join_factions = yes }
+	}
+	add_to_faction = ETX
+	ETX = { add_ideas = dd_usa_civil_war_cause }
+}
+
+dd_usa_cw_invite_txo = {
+	if = {
+		limit = { has_war_with = TXO }
+		white_peace = TXO
+	}
+	if = {
+		limit = {
+			TXO = {
+				is_in_faction = yes
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		TXO = { leave_faction = yes }
+	}
+	if = {
+		limit = { is_in_faction = no }
+		remove_ideas = dd_usa_civil_war_cause
+		set_rule = { can_create_factions = yes }
+		create_faction = FACTION_SOUTHERN_PACT
+		add_ideas = dd_usa_civil_war_cause
+	}
+	TXO = {
+		remove_ideas = dd_usa_civil_war_cause
+		set_rule = { can_join_factions = yes }
+	}
+	add_to_faction = TXO
+	TXO = { add_ideas = dd_usa_civil_war_cause }
+}
+
+dd_usa_cw_wargoal_demsoc = {
+	if = {
+		limit = {
+			EAS = {
+				exists = yes
+				NOT = { tag = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = EAS }
+	}
+	if = {
+		limit = {
+			USA = {
+				exists = yes
+				has_country_flag = dd_usa_keep_eas
+				NOT = { tag = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = USA }
+	}
+}
+
+dd_usa_cw_wargoal_maga = {
+	if = {
+		limit = {
+			VNM = {
+				exists = yes
+				NOT = { tag = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = VNM }
+	}
+	if = {
+		limit = {
+			USA = {
+				exists = yes
+				OR = {
+					has_country_flag = dd_usa_keep_vnm
+					has_country_flag = dd_usa_keep_fed
+				}
+				NOT = { tag = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = USA }
+	}
+}
+
+dd_usa_cw_wargoal_radicals = {
+	if = {
+		limit = {
+			ACA = {
+				exists = yes
+				NOT = { tag = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = ACA }
+	}
+	if = {
+		limit = {
+			RBL = {
+				exists = yes
+				NOT = { tag = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = RBL }
+	}
+	if = {
+		limit = {
+			USA = {
+				exists = yes
+				OR = {
+					has_country_flag = dd_usa_keep_aca
+					has_country_flag = dd_usa_keep_rbl
+				}
+				NOT = { tag = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = USA }
+	}
+}
+
+dd_usa_cw_wargoal_heartland = {
+	if = {
+		limit = {
+			RBM = {
+				exists = yes
+				NOT = { tag = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = RBM }
+	}
+	if = {
+		limit = {
+			USA = {
+				exists = yes
+				has_country_flag = dd_usa_keep_rbm
+				NOT = { tag = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = USA }
+	}
+}
+
+dd_usa_cw_annex_coalition = {
+	every_other_country = {
+		limit = {
+			exists = yes
+			has_country_flag = dd_abc_member
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+		}
+		ROOT = { annex_country = { target = PREV transfer_troops = yes } }
+	}
+}
+
+dd_usa_cw_annex_minors = {
+	every_other_country = {
+		limit = {
+			exists = yes
+			OR = {
+				is_subject_of = ROOT
+				is_in_faction_with = ROOT
+			}
+			NOT = {
+				AND = {
+					ROOT = { dd_usa_cw_must_fight_abc = yes }
+					OR = {
+						tag = NYF
+						tag = SFT
+						tag = TXO
+						tag = VIR
+						has_country_flag = dd_abc_member
+					}
+				}
+			}
+		}
+		ROOT = { annex_country = { target = PREV transfer_troops = yes } }
+	}
+}
+
+dd_cw_prepare_join = {
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	remove_ideas = dd_usa_civil_war_cause
+	set_rule = { can_join_factions = yes }
+}
+
+dd_cw_join_aca = {
+	if = {
+		limit = { ACA = { exists = yes is_subject = no } }
+		if = { limit = { has_war_with = ACA } white_peace = ACA }
+		dd_cw_prepare_join = yes
+		ACA = {
+			remove_ideas = dd_usa_civil_war_cause
+			set_rule = { can_create_factions = yes }
+			if = {
+				limit = { is_in_faction = no }
+				create_faction = FACTION_ANARCHIST_COMMUNES
+			}
+			faction_leader = { add_to_faction = ROOT }
+			add_ideas = dd_usa_civil_war_cause
+		}
+		add_ideas = dd_usa_civil_war_cause
+	}
+	else_if = {
+		limit = { USA = { has_country_flag = dd_usa_keep_aca is_subject = no } }
+		if = { limit = { has_war_with = USA } white_peace = USA }
+		dd_cw_prepare_join = yes
+		USA = {
+			remove_ideas = dd_usa_civil_war_cause
+			set_rule = { can_create_factions = yes }
+			if = {
+				limit = { is_in_faction = no }
+				create_faction = FACTION_ANARCHIST_COMMUNES
+			}
+			faction_leader = { add_to_faction = ROOT }
+			add_ideas = dd_usa_civil_war_cause
+		}
+		add_ideas = dd_usa_civil_war_cause
+	}
+}
+
+dd_cw_join_rbl = {
+	if = {
+		limit = { RBL = { exists = yes } }
+		if = { limit = { has_war_with = RBL } white_peace = RBL }
+		dd_cw_prepare_join = yes
+		RBL = {
+			remove_ideas = dd_usa_civil_war_cause
+			set_rule = { can_create_factions = yes }
+			if = {
+				limit = { is_in_faction = no }
+				create_faction = FACTION_COMMUNIST_FRONT
+			}
+			faction_leader = { add_to_faction = ROOT }
+			add_ideas = dd_usa_civil_war_cause
+		}
+		add_ideas = dd_usa_civil_war_cause
+	}
+	else_if = {
+		limit = { USA = { has_country_flag = dd_usa_keep_rbl } }
+		if = { limit = { has_war_with = USA } white_peace = USA }
+		dd_cw_prepare_join = yes
+		USA = {
+			remove_ideas = dd_usa_civil_war_cause
+			set_rule = { can_create_factions = yes }
+			if = {
+				limit = { is_in_faction = no }
+				create_faction = FACTION_COMMUNIST_FRONT
+			}
+			faction_leader = { add_to_faction = ROOT }
+			add_ideas = dd_usa_civil_war_cause
+		}
+		add_ideas = dd_usa_civil_war_cause
+	}
+}
+
+dd_cw_join_eas = {
+	if = {
+		limit = { EAS = { exists = yes } }
+		if = { limit = { has_war_with = EAS } white_peace = EAS }
+		dd_cw_prepare_join = yes
+		EAS = {
+			remove_ideas = dd_usa_civil_war_cause
+			set_rule = { can_create_factions = yes }
+			if = {
+				limit = { is_in_faction = no }
+				create_faction = FACTION_POPULAR_FRONT
+			}
+			faction_leader = { add_to_faction = ROOT }
+			add_ideas = dd_usa_civil_war_cause
+		}
+		add_ideas = dd_usa_civil_war_cause
+	}
+	else_if = {
+		limit = { USA = { has_country_flag = dd_usa_keep_eas } }
+		if = { limit = { has_war_with = USA } white_peace = USA }
+		dd_cw_prepare_join = yes
+		USA = {
+			remove_ideas = dd_usa_civil_war_cause
+			set_rule = { can_create_factions = yes }
+			if = {
+				limit = { is_in_faction = no }
+				create_faction = FACTION_POPULAR_FRONT
+			}
+			faction_leader = { add_to_faction = ROOT }
+			add_ideas = dd_usa_civil_war_cause
+		}
+		add_ideas = dd_usa_civil_war_cause
 	}
 }
 
@@ -329,28 +1007,59 @@ dd_usa_apply_disorganized_frontline = {
 	}
 }
 
-dd_usa_check_civil_war_over = {
+# Called only from Absorb the Allies. The war does not end on its own.
+dd_usa_cw_end_by_focus = {
 	if = {
-		limit = {
-			has_country_flag = dd_usa_civil_war
-			NOT = { has_country_flag = dd_usa_civil_war_over }
-			NOT = { has_war_with = EAS }
-			NOT = { has_war_with = WCL }
-			NOT = { has_war_with = RBM }
-			NOT = { has_war_with = VNM }
-			NOT = { has_war_with = FDS }
-			NOT = { has_war_with = RBL }
-			NOT = { has_war_with = ACA }
-			NOT = { has_war_with = FLO }
-			NOT = { has_war_with = TXG }
-			NOT = { has_war_with = DES }
-			NOT = { has_war_with = AOG }
-			NOT = { has_war_with = SCN }
-		}
+		limit = { NOT = { has_country_flag = dd_usa_civil_war_over } }
 		clr_country_flag = dd_usa_civil_war
 		set_country_flag = dd_usa_civil_war_over
 		add_ideas = dd_usa_nation_in_ruins
+		if = {
+			limit = { NOT = { has_idea = dd_usa_space_infrastructure } }
+			add_ideas = dd_usa_space_infrastructure
+		}
 		country_event = { id = dd_usa_recon.1 }
+	}
+}
+
+# The seven major factions inherit the prewar supply-hole debuff.
+dd_usa_cw_inherit_supply_hole = {
+	if = {
+		limit = { NOT = { has_idea = dd_usa_supply_hole } }
+		add_ideas = dd_usa_supply_hole
+	}
+	every_country = {
+		limit = {
+			OR = {
+				tag = EAS
+				tag = WCL
+				tag = RBM
+				tag = VNM
+				tag = FDS
+				tag = RBL
+				tag = ACA
+			}
+			has_country_flag = dd_cw_released
+			NOT = { has_idea = dd_usa_supply_hole }
+		}
+		add_ideas = dd_usa_supply_hole
+	}
+}
+
+# MAGA starts the war with a surge of national-populist support.
+dd_usa_cw_boost_maga = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_keep_vnm
+				has_country_flag = dd_usa_keep_fed
+			}
+		}
+		add_popularity = { ideology = national_populism popularity = 0.50 }
+	}
+	if = {
+		limit = { VNM = { has_country_flag = dd_cw_released } }
+		VNM = { add_popularity = { ideology = national_populism popularity = 0.50 } }
 	}
 }
 
@@ -1245,6 +1954,8 @@ dd_usa_cw_add_left_shared_cores = {
 }
 
 # One popup per 100,000 combat casualties while the Middle East war spirit is held.
+# casualties_k is casualties in thousands, so 100 on that scale is 100,000 men.
+# while_loop_effect is required; the old while effect does not run.
 dd_usa_me_blood_tick = {
 	if = {
 		limit = {
@@ -1257,7 +1968,7 @@ dd_usa_me_blood_tick = {
 		limit = { has_idea = dd_usa_half_century_war }
 		set_temp_variable = { dd_gap = casualties_k }
 		subtract_from_temp_variable = { dd_gap = dd_usa_me_blood_mark }
-		while = {
+		while_loop_effect = {
 			limit = { check_variable = { dd_gap > 99.999 } }
 			add_to_variable = { dd_usa_me_blood_mark = 100 }
 			subtract_from_temp_variable = { dd_gap = 100 }
@@ -1678,6 +2389,8 @@ dd_usa_start_civil_war = {
 			}
 			set_country_flag = dd_usa_civil_war
 		}
+		dd_usa_cw_inherit_supply_hole = yes
+		dd_usa_cw_boost_maga = yes
 		# Claims so peace conferences can fully annex (war score / takeover of cores).
 		dd_usa_cw_grant_all_us_claims = yes
 		news_event = { id = dd_usa_news.10 }

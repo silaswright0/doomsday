@@ -50,41 +50,228 @@ dd_usa_legislature_category = {
 }
 
 dd_usa_tariff_category = {
-	dd_usa_review_tariff_schedule = {
+	dd_tw_usa_dairy = {
 		icon = generic_trade
-		allowed = { always = yes }
-		cost = 25
-		days_remove = 14
+		allowed = { tag = USA }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
 		ai_will_do = { factor = 0 }
-		visible = { has_global_flag = dd_usa_tariff_board }
-		complete_effect = {
-			add_political_power = 10
+		visible = {
+			tag = USA
+			CAN = { exists = yes }
+			NOT = { has_country_flag = dd_tw_settled_can }
 		}
+		complete_effect = { dd_tw_usa_dairy = yes }
 	}
 
-	dd_usa_file_section_338 = {
-		icon = generic_decision
-		allowed = { always = yes }
+	dd_tw_usa_lumber = {
+		icon = generic_trade
+		allowed = { tag = USA }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = USA
+			CAN = { exists = yes }
+			NOT = { has_country_flag = dd_tw_settled_can }
+		}
+		complete_effect = { dd_tw_usa_lumber = yes }
+	}
+
+	dd_tw_usa_steel_can = {
+		icon = generic_trade
+		allowed = { tag = USA }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = USA
+			CAN = { exists = yes }
+			NOT = { has_country_flag = dd_tw_settled_can }
+		}
+		complete_effect = { dd_tw_usa_steel_can = yes }
+	}
+
+	dd_tw_usa_steel_mex = {
+		icon = generic_trade
+		allowed = { tag = USA }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = USA
+			MEX = { exists = yes }
+			NOT = { has_country_flag = dd_tw_settled_mex }
+		}
+		complete_effect = { dd_tw_usa_steel_mex = yes }
+	}
+
+	dd_tw_usa_autos_mex = {
+		icon = generic_trade
+		allowed = { tag = USA }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = USA
+			MEX = { exists = yes }
+			NOT = { has_country_flag = dd_tw_settled_mex }
+		}
+		complete_effect = { dd_tw_usa_autos_mex = yes }
+	}
+
+	dd_tw_usa_border_mex = {
+		icon = generic_trade
+		allowed = { tag = USA }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = USA
+			MEX = { exists = yes }
+			NOT = { has_country_flag = dd_tw_settled_mex }
+		}
+		complete_effect = { dd_tw_usa_border_mex = yes }
+	}
+
+	dd_tw_usa_tomatoes = {
+		icon = generic_trade
+		allowed = { tag = USA }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = USA
+			MEX = { exists = yes }
+			NOT = { has_country_flag = dd_tw_settled_mex }
+		}
+		complete_effect = { dd_tw_usa_tomatoes = yes }
+	}
+
+	dd_tw_can_alcohol = {
+		icon = generic_trade
+		allowed = { tag = CAN }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = CAN
+			USA = { exists = yes }
+			NOT = { USA = { has_country_flag = dd_tw_settled_can } }
+		}
+		complete_effect = { dd_tw_can_alcohol = yes }
+	}
+
+	dd_tw_can_retaliation = {
+		icon = generic_trade
+		allowed = { tag = CAN }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = CAN
+			USA = { exists = yes }
+			NOT = { USA = { has_country_flag = dd_tw_settled_can } }
+		}
+		complete_effect = { dd_tw_can_retaliation = yes }
+	}
+
+	dd_tw_can_potash = {
+		icon = generic_trade
+		allowed = { tag = CAN }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = CAN
+			USA = { exists = yes }
+			NOT = { USA = { has_country_flag = dd_tw_settled_can } }
+		}
+		complete_effect = { dd_tw_can_potash = yes }
+	}
+
+	dd_tw_mex_pork = {
+		icon = generic_trade
+		allowed = { tag = MEX }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = MEX
+			USA = { exists = yes }
+			NOT = { USA = { has_country_flag = dd_tw_settled_mex } }
+		}
+		complete_effect = { dd_tw_mex_pork = yes }
+	}
+
+	dd_tw_mex_steel = {
+		icon = generic_trade
+		allowed = { tag = MEX }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = MEX
+			USA = { exists = yes }
+			NOT = { USA = { has_country_flag = dd_tw_settled_mex } }
+		}
+		complete_effect = { dd_tw_mex_steel = yes }
+	}
+
+	dd_tw_mex_autos = {
+		icon = generic_trade
+		allowed = { tag = MEX }
+		cost = var:dd_tw_decision_cost
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = MEX
+			USA = { exists = yes }
+			NOT = { USA = { has_country_flag = dd_tw_settled_mex } }
+		}
+		complete_effect = { dd_tw_mex_autos = yes }
+	}
+
+	dd_usa_renegotiate_neighbors = {
+		icon = generic_political_discourse
+		allowed = { tag = USA }
 		cost = 50
 		ai_will_do = { factor = 0 }
-		visible = { has_global_flag = dd_usa_tariff_board }
-		complete_effect = {
-			add_political_power = 25
-			if = {
-				limit = { tag = USA }
-				add_war_support = 0.01
+		visible = {
+			tag = USA
+			has_country_flag = dd_usa_tariff_renegotiate
+			OR = {
+				AND = {
+					CAN = { exists = yes }
+					NOT = { has_country_flag = dd_tw_settled_can }
+					NOT = { has_country_flag = dd_tw_talking_can }
+				}
+				AND = {
+					MEX = { exists = yes }
+					NOT = { has_country_flag = dd_tw_settled_mex }
+					NOT = { has_country_flag = dd_tw_talking_mex }
+				}
 			}
 		}
-	}
-
-	dd_usa_draft_new_deal = {
-		icon = generic_trade
-		allowed = { always = yes }
-		cost = 50
-		ai_will_do = { factor = 0 }
-		visible = { has_global_flag = dd_usa_tariff_draft }
 		complete_effect = {
-			country_event = { id = dd_usa_tariff.1 }
+			if = {
+				limit = {
+					CAN = { exists = yes }
+					NOT = { has_country_flag = dd_tw_settled_can }
+					NOT = { has_country_flag = dd_tw_talking_can }
+				}
+				set_country_flag = dd_tw_talking_can
+				CAN = { country_event = { id = dd_usa_tariff.11 } }
+			}
+			if = {
+				limit = {
+					MEX = { exists = yes }
+					NOT = { has_country_flag = dd_tw_settled_mex }
+					NOT = { has_country_flag = dd_tw_talking_mex }
+				}
+				set_country_flag = dd_tw_talking_mex
+				MEX = { country_event = { id = dd_usa_tariff.21 } }
+			}
 		}
 	}
 }

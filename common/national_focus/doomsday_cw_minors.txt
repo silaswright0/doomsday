@@ -1,0 +1,381 @@
+focus_tree = {
+	id = dd_ebc_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = EBC
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = EBC_mission_to_the_cartels
+		icon = GFX_goal_generic_trade
+		x = 6
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_ebc_cartel_smuggling
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_txr_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = TXR
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = TXR_join_anarchists
+		icon = GFX_goal_generic_alliance
+		x = 4
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		mutually_exclusive = { focus = TXR_join_communists }
+		available = {
+			has_country_flag = dd_cw_released
+			NOT = { country_exists = TXG }
+			NOT = { country_exists = ETX }
+			NOT = { country_exists = TXO }
+			OR = {
+				ACA = { exists = yes is_subject = no }
+				USA = { has_country_flag = dd_usa_keep_aca is_subject = no }
+			}
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			dd_cw_join_aca = yes
+		}
+	}
+	focus = {
+		id = TXR_join_communists
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		mutually_exclusive = { focus = TXR_join_anarchists }
+		available = {
+			has_country_flag = dd_cw_released
+			NOT = { country_exists = TXG }
+			NOT = { country_exists = ETX }
+			NOT = { country_exists = TXO }
+			OR = {
+				RBL = { exists = yes }
+				USA = { has_country_flag = dd_usa_keep_rbl }
+			}
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			dd_cw_join_rbl = yes
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_ask_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ASK
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = ASK_join_communists
+		icon = GFX_goal_generic_alliance
+		x = 4
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		mutually_exclusive = { focus = ASK_join_demsoc }
+		available = {
+			has_country_flag = dd_cw_released
+			OR = {
+				RBL = { exists = yes }
+				USA = { has_country_flag = dd_usa_keep_rbl }
+			}
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			dd_cw_join_rbl = yes
+		}
+	}
+	focus = {
+		id = ASK_join_demsoc
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		mutually_exclusive = { focus = ASK_join_communists }
+		available = {
+			has_country_flag = dd_cw_released
+			OR = {
+				EAS = { exists = yes }
+				USA = { has_country_flag = dd_usa_keep_eas }
+			}
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			dd_cw_join_eas = yes
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_abr_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ABR
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = ABR_join_communists
+		icon = GFX_goal_generic_alliance
+		x = 4
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		mutually_exclusive = { focus = ABR_join_demsoc }
+		available = {
+			has_country_flag = dd_cw_released
+			OR = {
+				RBL = { exists = yes }
+				USA = { has_country_flag = dd_usa_keep_rbl }
+			}
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			dd_cw_join_rbl = yes
+		}
+	}
+	focus = {
+		id = ABR_join_demsoc
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		mutually_exclusive = { focus = ABR_join_communists }
+		available = {
+			has_country_flag = dd_cw_released
+			OR = {
+				EAS = { exists = yes }
+				USA = { has_country_flag = dd_usa_keep_eas }
+			}
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			dd_cw_join_eas = yes
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_ptf_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PTF
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = PTF_spirit_of_1776
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_ptf_spirit_of_1776
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_scn_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SCN
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = SCN_defence_of_the_church
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_scn_defence_of_the_church
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_aog_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = AOG
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = AOG_supremacy_of_the_church
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_aog_supremacy_of_the_church
+		}
+	}
+	focus = {
+		id = AOG_march_on_the_anarchists
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 6
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = AOG_supremacy_of_the_church }
+		available = {
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_aog_march_anarchists
+			if = {
+				limit = {
+					USA = {
+						OR = {
+							has_government = anarcho_communism
+							has_country_flag = dd_usa_keep_aca
+						}
+					}
+				}
+				add_ideas = dd_aog_march_usa
+			}
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_des_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = DES
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = DES_a_mormon_state
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_des_mormon_state
+		}
+	}
+	focus = {
+		id = DES_legacy_of_joseph_smith
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = DES_a_mormon_state }
+		available = {
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_des_joseph_smith
+		}
+	}
+	focus = {
+		id = DES_expand_the_state
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 6
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = DES_legacy_of_joseph_smith }
+		available = {
+			has_country_flag = dd_cw_released
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_state_claim = 379
+			add_state_claim = 377
+			add_state_claim = 378
+		}
+	}
+}

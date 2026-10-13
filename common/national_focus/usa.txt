@@ -255,6 +255,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_global_flag = dd_usa_tariff_board
+			USA = {
+				set_variable = { dd_trade_war_points = 0 }
+				set_variable = { dd_tw_decision_cost = 100 }
+			}
+			CAN = {
+				set_variable = { dd_trade_war_points = 0 }
+				set_variable = { dd_tw_decision_cost = 100 }
+			}
+			MEX = {
+				set_variable = { dd_trade_war_points = 0 }
+				set_variable = { dd_tw_decision_cost = 100 }
+			}
 		}
 	}
 	focus = {
@@ -277,7 +289,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			set_global_flag = dd_usa_tariff_draft
+			USA = { set_country_flag = dd_usa_tariff_renegotiate }
 		}
 	}
 	focus = {
@@ -496,7 +508,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_popularity = { ideology = national_populism popularity = -0.03 }
 			add_political_power = 50
 		}
 	}
@@ -520,7 +532,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_popularity = { ideology = national_populism popularity = -0.03 }
 			add_political_power = 50
 		}
 	}
@@ -594,7 +606,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_popularity = { ideology = national_populism popularity = -0.03 }
 			add_political_power = 50
 		}
 	}
@@ -696,6 +708,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -719,6 +732,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -742,6 +756,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.04 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -766,6 +781,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.03 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -789,6 +805,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.03 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -812,6 +829,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.04 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -836,6 +854,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.03 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -859,6 +878,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.03 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -882,6 +902,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.04 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -894,7 +915,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_path_anarchist_3 }
-		mutually_exclusive = { focus = USA_break_the_parties focus = USA_dual_power focus = USA_open_the_armories }
+		mutually_exclusive = { focus = USA_break_the_parties focus = USA_dual_power focus = USA_open_the_armories focus = USA_contest_the_ballot }
 		available = {
 			NOT = { has_country_flag = dd_usa_civil_war }
 			NOT = { has_global_flag = dd_usa_civil_war_started }
@@ -906,6 +927,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -918,7 +940,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_path_anarchist_3 focus = USA_path_communist_3 }
-		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_break_the_parties focus = USA_open_the_armories }
+		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_break_the_parties focus = USA_open_the_armories focus = USA_contest_the_ballot }
 		available = {
 			NOT = { has_country_flag = dd_usa_civil_war }
 			NOT = { has_global_flag = dd_usa_civil_war_started }
@@ -930,6 +952,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
+			add_popularity = { ideology = communism popularity = 0.02 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -942,7 +966,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_path_communist_3 focus = USA_path_demsoc_3 }
-		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_open_the_armories }
+		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_open_the_armories focus = USA_contest_the_ballot }
 		available = {
 			NOT = { has_country_flag = dd_usa_civil_war }
 			NOT = { has_global_flag = dd_usa_civil_war_started }
@@ -954,11 +978,38 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.02 }
+			add_popularity = { ideology = social_democracy popularity = 0.02 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
 	focus = {
 		id = USA_open_the_armories
+		icon = GFX_goal_generic_political_pressure
+		x = -2
+		y = 18
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_path_anarchist_3 }
+		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_break_the_parties focus = USA_contest_the_ballot }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_global_flag = dd_usa_civil_war_started }
+		}
+		cancel = {
+			OR = {
+				has_country_flag = dd_usa_civil_war
+				has_global_flag = dd_usa_civil_war_started
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
+		id = USA_contest_the_ballot
 		icon = GFX_goal_generic_political_pressure
 		x = 6
 		y = 18
@@ -966,7 +1017,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_path_demsoc_3 }
-		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_break_the_parties }
+		mutually_exclusive = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_break_the_parties focus = USA_open_the_armories }
 		available = {
 			NOT = { has_country_flag = dd_usa_civil_war }
 			NOT = { has_global_flag = dd_usa_civil_war_started }
@@ -978,6 +1029,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.03 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 		}
 	}
@@ -989,7 +1041,7 @@ focus_tree = {
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_break_the_parties }
+		prerequisite = { focus = USA_streets_and_campuses focus = USA_dual_power focus = USA_break_the_parties focus = USA_open_the_armories }
 		available = {
 			NOT = { has_country_flag = dd_usa_civil_war }
 			NOT = { has_global_flag = dd_usa_civil_war_started }
@@ -1012,7 +1064,7 @@ focus_tree = {
 		cost = 5.14
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_break_the_parties focus = USA_open_the_armories }
+		prerequisite = { focus = USA_break_the_parties focus = USA_contest_the_ballot }
 		available = {
 			NOT = { has_country_flag = dd_usa_civil_war }
 			NOT = { has_global_flag = dd_usa_civil_war_started }
@@ -1047,7 +1099,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = social_liberalism popularity = 0.08 }
+			add_popularity = { ideology = social_liberalism popularity = 0.04 }
+			add_popularity = { ideology = social_democracy popularity = -0.04 }
+			add_popularity = { ideology = progressive_populism popularity = -0.04 }
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -1070,7 +1125,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+			add_popularity = { ideology = social_liberalism popularity = 0.02 }
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -1093,7 +1149,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+			add_popularity = { ideology = social_liberalism popularity = 0.02 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
 		}
 	}
 	focus = {
@@ -1116,7 +1173,9 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+			add_popularity = { ideology = social_liberalism popularity = 0.02 }
+			add_popularity = { ideology = liberal_conservatism popularity = -0.04 }
+			add_popularity = { ideology = national_populism popularity = -0.04 }
 		}
 	}
 	focus = {
@@ -1140,6 +1199,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+			add_popularity = { ideology = communism popularity = -0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = -0.01 }
 		}
 	}
 	focus = {
@@ -1162,7 +1223,9 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = national_populism popularity = -0.02 }
+			add_popularity = { ideology = social_liberalism popularity = 0.03 }
+			add_stability = 0.05
+			add_popularity = { ideology = national_populism popularity = -0.05 }
 		}
 	}
 	focus = {
@@ -1477,7 +1540,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_war_support = 0.05
-			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
+			add_popularity = { ideology = national_populism popularity = 0.02 }
 			add_political_power = 50
 		}
 	}
@@ -1502,7 +1566,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_war_support = 0.05
-			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
+			add_popularity = { ideology = national_populism popularity = 0.02 }
 			add_political_power = 50
 		}
 	}
@@ -1528,7 +1593,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
-			add_political_power = 50
+			add_political_power = 250
 			set_country_flag = dd_usa_zionist_advisors
 		}
 	}
@@ -1578,8 +1643,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = national_populism popularity = 0.05 }
-			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+			add_popularity = { ideology = national_populism popularity = 0.02 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
 			add_war_support = 0.05
 		}
 	}
@@ -2942,7 +3007,7 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 1 }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -2965,7 +3030,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_armed_forces }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -2988,7 +3053,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_armed_forces }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3011,7 +3076,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_integrating_drone_warfare }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3034,7 +3099,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_autonomous_targeting }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3057,7 +3122,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_armed_forces }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3080,7 +3145,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_next_generation_squad_weapons }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3102,7 +3167,7 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 1 }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3125,7 +3190,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_airforce }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 			NOT = { check_variable = { treasury < 15 } }
 		}
@@ -3150,7 +3215,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_plug_supply_hole }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3173,7 +3238,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_airforce }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3196,7 +3261,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_airforce }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3219,7 +3284,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_airforce }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3242,7 +3307,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_airforce }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3264,7 +3329,7 @@ focus_tree = {
 		}
 		ai_will_do = { factor = 1 }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3287,7 +3352,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_navy }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3310,7 +3375,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_new_sailor_beds }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3333,7 +3398,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_navy }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3357,7 +3422,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_us_navy }
 		available = {
-			date > 2026.1.27
+			date > 2026.12.31
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		completion_reward = {
@@ -3448,12 +3513,10 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_cw_anarchist_demand_autonomy }
 		available = {
-			OR = {
-				has_country_flag = dd_usa_civil_war
-				has_country_flag = dd_usa_anarchist_branch
-			}
+			has_country_flag = dd_usa_anarchist_branch
 		}
 		completion_reward = {
+			set_variable = { dd_cw_militia_count = 16 }
 			dd_usa_cw_spawn_militia = yes
 		}
 	}
@@ -3467,10 +3530,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_cw_anarchist_demand_autonomy }
 		available = {
-			OR = {
-				has_country_flag = dd_usa_civil_war
-				has_country_flag = dd_usa_anarchist_branch
-			}
+			has_country_flag = dd_usa_anarchist_branch
 		}
 		completion_reward = {
 			dd_usa_cw_emergency_mils = yes
@@ -3486,12 +3546,10 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_cw_commie_militia_1 }
 		available = {
-			OR = {
-				has_country_flag = dd_usa_civil_war
-				has_country_flag = dd_usa_anarchist_branch
-			}
+			has_country_flag = dd_usa_anarchist_branch
 		}
 		completion_reward = {
+			set_variable = { dd_cw_militia_count = 16 }
 			dd_usa_cw_spawn_militia = yes
 		}
 	}
@@ -3505,10 +3563,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_cw_commie_mils_1 }
 		available = {
-			OR = {
-				has_country_flag = dd_usa_civil_war
-				has_country_flag = dd_usa_anarchist_branch
-			}
+			has_country_flag = dd_usa_anarchist_branch
 		}
 		completion_reward = {
 			dd_usa_cw_emergency_mils = yes
@@ -3525,10 +3580,7 @@ focus_tree = {
 		prerequisite = { focus = USA_cw_commie_militia_2 }
 		prerequisite = { focus = USA_cw_commie_mils_2 }
 		available = {
-			OR = {
-				has_country_flag = dd_usa_civil_war
-				has_country_flag = dd_usa_anarchist_branch
-			}
+			has_country_flag = dd_usa_anarchist_branch
 		}
 		completion_reward = {
 			add_ideas = dd_usa_cw_late_anarchist
@@ -3542,12 +3594,13 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_cw_priority_is_victory }
+		prerequisite = { focus = USA_cw_priority_is_victory focus = USA_cw_anarchist_demand_autonomy }
 		available = {
 			has_country_flag = dd_usa_civil_war
 			has_government = communism
 		}
 		completion_reward = {
+			set_variable = { dd_cw_militia_count = 14 }
 			dd_usa_cw_spawn_militia = yes
 		}
 	}
@@ -3559,7 +3612,7 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		prerequisite = { focus = USA_cw_priority_is_victory }
+		prerequisite = { focus = USA_cw_priority_is_victory focus = USA_cw_anarchist_demand_autonomy }
 		available = {
 			has_country_flag = dd_usa_civil_war
 			has_government = communism
@@ -3582,6 +3635,7 @@ focus_tree = {
 			has_government = communism
 		}
 		completion_reward = {
+			set_variable = { dd_cw_militia_count = 14 }
 			dd_usa_cw_spawn_militia = yes
 		}
 	}
@@ -3650,6 +3704,7 @@ focus_tree = {
 			OR = { has_government = social_democracy has_government = progressive_populism }
 		}
 		completion_reward = {
+			set_variable = { dd_cw_militia_count = 10 }
 			dd_usa_cw_spawn_militia = yes
 		}
 	}
@@ -3684,6 +3739,7 @@ focus_tree = {
 			OR = { has_government = social_democracy has_government = progressive_populism }
 		}
 		completion_reward = {
+			set_variable = { dd_cw_militia_count = 10 }
 			dd_usa_cw_spawn_militia = yes
 		}
 	}
@@ -4058,6 +4114,7 @@ focus_tree = {
 			has_government = fascism
 		}
 		completion_reward = {
+			set_variable = { dd_cw_militia_count = 12 }
 			dd_usa_cw_spawn_militia = yes
 		}
 	}
@@ -4092,6 +4149,7 @@ focus_tree = {
 			has_government = fascism
 		}
 		completion_reward = {
+			set_variable = { dd_cw_militia_count = 12 }
 			dd_usa_cw_spawn_militia = yes
 		}
 	}
@@ -4131,16 +4189,164 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = USA_cw_backstab_radicals
+		icon = GFX_goal_generic_major_war
+		x = -19
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_demsoc_late }
+		completion_reward = {
+			dd_usa_cw_wargoal_radicals = yes
+		}
+	}
+	focus = {
+		id = USA_cw_go_all_the_way
+		icon = GFX_goal_generic_major_war
+		x = -26
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_commie_late focus = USA_cw_anarchist_late }
+		available = {
+			dd_usa_cw_south_maga_gone = yes
+		}
+		completion_reward = {
+			dd_usa_cw_wargoal_demsoc = yes
+		}
+	}
+	focus = {
+		id = USA_cw_eastern_rival
+		icon = GFX_goal_generic_major_war
+		x = -11
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_cons_late }
+		completion_reward = {
+			dd_usa_cw_wargoal_maga = yes
+		}
+	}
+	focus = {
+		id = USA_cw_western_rival
+		icon = GFX_goal_generic_major_war
+		x = -7
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_natpop_late }
+		completion_reward = {
+			dd_usa_cw_wargoal_heartland = yes
+		}
+	}
+	focus = {
+		id = USA_cw_fascist_invite_etx
+		icon = GFX_goal_generic_alliance
+		x = 2
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_fascist_militia_1 }
+		prerequisite = { focus = USA_cw_fascist_mils_1 }
+		mutually_exclusive = { focus = USA_cw_fascist_invite_txo }
+		available = {
+			ETX = { exists = yes }
+		}
+		completion_reward = {
+			dd_usa_cw_invite_etx = yes
+		}
+	}
+	focus = {
+		id = USA_cw_fascist_invite_txo
+		icon = GFX_goal_generic_trade
+		x = 0
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_fascist_militia_1 }
+		prerequisite = { focus = USA_cw_fascist_mils_1 }
+		mutually_exclusive = { focus = USA_cw_fascist_invite_etx }
+		available = {
+			TXO = { exists = yes }
+		}
+		completion_reward = {
+			dd_usa_cw_invite_txo = yes
+		}
+	}
+	focus = {
+		id = USA_cw_compromise_business
+		icon = GFX_goal_generic_positive_trade_relations
+		x = -4
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_lib_late focus = USA_cw_cons_late focus = USA_cw_natpop_late focus = USA_cw_fascist_late }
+		bypass = {
+			NOT = { dd_usa_cw_abc_standing = yes }
+		}
+		available = {
+			NOT = { dd_usa_cw_must_fight_abc = yes }
+			custom_trigger_tooltip = {
+				tooltip = USA_cw_field_won_tt
+				dd_usa_cw_field_won = yes
+			}
+			dd_usa_cw_abc_standing = yes
+		}
+		completion_reward = {
+			dd_usa_cw_annex_coalition = yes
+		}
+	}
+	focus = {
+		id = USA_cw_absorb_minors
+		icon = GFX_goal_generic_national_unity
+		x = -16
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = {
+			focus = USA_cw_commie_late
+			focus = USA_cw_anarchist_late
+			focus = USA_cw_demsoc_late
+			focus = USA_cw_lib_late
+			focus = USA_cw_cons_late
+			focus = USA_cw_natpop_late
+			focus = USA_cw_fascist_late
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = USA_cw_america_settled_tt
+				dd_usa_cw_america_settled = yes
+			}
+			OR = {
+				NOT = { dd_usa_cw_must_fight_abc = yes }
+				custom_trigger_tooltip = {
+					tooltip = USA_cw_abc_destroyed_tt
+					dd_usa_cw_abc_destroyed = yes
+				}
+			}
+		}
+		completion_reward = {
+			dd_usa_cw_annex_minors = yes
+			dd_usa_cw_end_by_focus = yes
+		}
+	}
+	focus = {
 		id = USA_recover
 		icon = GFX_goal_generic_construct_civilian
 		x = -16
-		y = 10
+		y = 14
 		cost = 10
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
-		available = {
-			has_idea = dd_usa_nation_in_ruins
-		}
+		prerequisite = { focus = USA_cw_absorb_minors }
 		completion_reward = {
 		}
 	}

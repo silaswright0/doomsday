@@ -3179,6 +3179,26 @@ dd_usa_civil_war_fights = {
 		}
 		white_peace = EAS
 	}
+	# Federal Command fights every American tag except the business coalition.
+	if = {
+		limit = { FVA = { exists = yes } }
+		FVA = {
+			every_other_country = {
+				limit = {
+					OR = {
+						has_country_flag = dd_cw_released
+						has_country_flag = dd_usa_civil_war
+					}
+					NOT = { tag = NYF }
+					NOT = { tag = SFT }
+					NOT = { tag = VIR }
+					NOT = { tag = TXO }
+					NOT = { has_war_with = FVA }
+				}
+				FVA = { declare_war_on = { target = PREV type = dd_annex } }
+			}
+		}
+	}
 	# Every American CW tag: fight longer, no normal diplomacy (focuses only).
 	every_country = {
 		limit = {

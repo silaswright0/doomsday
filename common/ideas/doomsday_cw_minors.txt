@@ -1,0 +1,86 @@
+ideas = {
+	country = {
+		dd_ptf_spirit_of_1776 = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_morale_factor = 0.20
+			}
+		}
+		dd_scn_defence_of_the_church = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_morale_factor = 0.10
+				conscription = 0.05
+				army_defence_factor = 0.10
+			}
+		}
+		dd_aog_supremacy_of_the_church = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_morale_factor = 0.10
+				conscription = 0.05
+			}
+		}
+		dd_aog_march_anarchists = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			targeted_modifier = {
+				tag = ACA
+				attack_bonus_against = 0.10
+			}
+		}
+		dd_aog_march_usa = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			targeted_modifier = {
+				tag = USA
+				attack_bonus_against = 0.10
+			}
+		}
+		dd_des_mormon_state = {
+			picture = generic_fortify_the_borders
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.20
+				special_forces_cap = 0.10
+				modifier_army_sub_unit_mountaineers_attack_factor = 0.10
+				modifier_army_sub_unit_mountaineers_defence_factor = 0.10
+			}
+		}
+		dd_ebc_cartel_smuggling = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.40
+				industrial_capacity_factory = 0.10
+				political_power_gain = 0.5
+			}
+		}
+		dd_des_joseph_smith = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_morale_factor = 0.10
+			}
+		}
+	}
+}

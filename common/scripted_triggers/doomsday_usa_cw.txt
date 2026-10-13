@@ -1,0 +1,102 @@
+# A civil-war tag is settled when it is gone, is us, or already fights for us.
+
+dd_usa_cw_america_settled = {
+	OR = { NOT = { country_exists = EAS } tag = EAS EAS = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = WCL } tag = WCL WCL = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = RBM } tag = RBM RBM = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = VNM } tag = VNM VNM = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = FDS } tag = FDS FDS = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = RBL } tag = RBL RBL = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ACA } tag = ACA ACA = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = USA } tag = USA USA = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = FVA } tag = FVA FVA = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = FLO } tag = FLO FLO = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = TXG } tag = TXG TXG = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = DES } tag = DES DES = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = AOG } tag = AOG AOG = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = SCN } tag = SCN SCN = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ABR } tag = ABR ABR = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = PTF } tag = PTF PTF = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ASK } tag = ASK ASK = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ETX } tag = ETX ETX = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = TXR } tag = TXR TXR = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = EBC } tag = EBC EBC = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ABY } tag = ABY ABY = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = NYF } tag = NYF NYF = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = SFT } tag = SFT SFT = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = TXO } tag = TXO TXO = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = VIR } tag = VIR VIR = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+}
+
+# DSA, communists, and anarchists cannot buy the coalition. They have to destroy it.
+dd_usa_cw_must_fight_abc = {
+	OR = {
+		has_government = social_democracy
+		has_government = progressive_populism
+		has_government = communism
+		has_government = anarcho_communism
+		tag = EAS
+		tag = RBL
+		tag = ACA
+		has_country_flag = dd_usa_keep_eas
+		has_country_flag = dd_usa_keep_rbl
+		has_country_flag = dd_usa_keep_aca
+	}
+}
+
+dd_usa_cw_abc_destroyed = {
+	NOT = { country_exists = NYF }
+	NOT = { country_exists = SFT }
+	NOT = { country_exists = TXO }
+	NOT = { country_exists = VIR }
+}
+
+# Same as the full board, but Wall Street's coalition may still be standing.
+dd_usa_cw_field_won = {
+	OR = { NOT = { country_exists = EAS } tag = EAS EAS = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = WCL } tag = WCL WCL = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = RBM } tag = RBM RBM = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = VNM } tag = VNM VNM = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = FDS } tag = FDS FDS = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = RBL } tag = RBL RBL = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ACA } tag = ACA ACA = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = USA } tag = USA USA = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = FVA } tag = FVA FVA = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = FLO } tag = FLO FLO = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = TXG } tag = TXG TXG = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = DES } tag = DES DES = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = AOG } tag = AOG AOG = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = SCN } tag = SCN SCN = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ABR } tag = ABR ABR = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = PTF } tag = PTF PTF = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ASK } tag = ASK ASK = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ETX } tag = ETX ETX = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = TXR } tag = TXR TXR = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = EBC } tag = EBC EBC = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+	OR = { NOT = { country_exists = ABY } tag = ABY ABY = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
+}
+
+dd_usa_cw_south_maga_gone = {
+	NOT = { country_exists = FDS }
+	NOT = { country_exists = VNM }
+	NOT = {
+		any_country = {
+			exists = yes
+			OR = {
+				has_country_flag = dd_usa_keep_fds
+				has_country_flag = dd_usa_keep_vnm
+				has_country_flag = dd_usa_keep_fed
+			}
+		}
+	}
+}
+
+dd_usa_cw_abc_standing = {
+	any_country = {
+		exists = yes
+		has_country_flag = dd_abc_member
+		NOT = { tag = ROOT }
+		NOT = { is_subject_of = ROOT }
+		NOT = { is_in_faction_with = ROOT }
+	}
+}
