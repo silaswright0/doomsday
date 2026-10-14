@@ -1007,18 +1007,98 @@ dd_usa_apply_disorganized_frontline = {
 	}
 }
 
-# Called only from Absorb the Allies. The war does not end on its own.
+# Called only from Absorb the Allies. That focus is the civil war victory.
 dd_usa_cw_end_by_focus = {
+	remove_ideas = dd_usa_civil_war_cause
 	if = {
 		limit = { NOT = { has_country_flag = dd_usa_civil_war_over } }
 		clr_country_flag = dd_usa_civil_war
 		set_country_flag = dd_usa_civil_war_over
-		add_ideas = dd_usa_nation_in_ruins
+		dd_usa_apply_nation_in_ruins = yes
 		if = {
 			limit = { NOT = { has_idea = dd_usa_space_infrastructure } }
 			add_ideas = dd_usa_space_infrastructure
 		}
 		country_event = { id = dd_usa_recon.1 }
+	}
+}
+
+dd_usa_apply_nation_in_ruins = {
+	set_variable = { dd_ruins_stability = -0.15 }
+	set_variable = { dd_ruins_war_support = -0.25 }
+	set_variable = { dd_ruins_factory = -0.25 }
+	set_variable = { dd_ruins_cg = 0.30 }
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } } }
+		add_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+	}
+}
+
+dd_usa_remove_nation_in_ruins = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } }
+		remove_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+	}
+}
+
+dd_usa_ruins_recover_stability = {
+	custom_effect_tooltip = dd_usa_ruins_stability_tt
+	hidden_effect = {
+		add_to_variable = { dd_ruins_stability = 0.10 }
+		add_to_variable = { dd_ruins_war_support = 0.10 }
+	}
+}
+
+dd_usa_ruins_repair_economy = {
+	custom_effect_tooltip = dd_usa_ruins_economy_tt
+	hidden_effect = {
+		add_to_variable = { dd_ruins_cg = -0.20 }
+		add_to_variable = { dd_ruins_factory = 0.10 }
+	}
+}
+
+dd_usa_mark_starting_states = {
+	if = {
+		limit = { NOT = { has_global_flag = dd_usa_starting_states_marked } }
+		set_global_flag = dd_usa_starting_states_marked
+		every_owned_state = {
+			set_state_flag = dd_usa_starting_state
+		}
+	}
+}
+
+dd_usa_core_starting_states = {
+	custom_effect_tooltip = dd_usa_core_starting_states_tt
+	hidden_effect = {
+		every_state = {
+			limit = { has_state_flag = dd_usa_starting_state }
+			add_core_of = ROOT
+		}
+	}
+}
+
+dd_usa_claim_north_america = {
+	custom_effect_tooltip = dd_usa_claim_north_america_tt
+	hidden_effect = {
+		every_state = {
+			limit = { is_on_continent = north_america }
+			add_claim_by = ROOT
+		}
+	}
+}
+
+dd_usa_claim_americas = {
+	custom_effect_tooltip = dd_usa_claim_americas_tt
+	hidden_effect = {
+		every_state = {
+			limit = {
+				OR = {
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+			}
+			add_claim_by = ROOT
+		}
 	}
 }
 
@@ -1073,141 +1153,408 @@ dd_usa_check_globalists_spirit = {
 	}
 }
 
+dd_usa_clear_women = {
+	if = { limit = { has_idea = dd_women_1 } remove_ideas = dd_women_1 }
+	if = { limit = { has_idea = dd_women_2 } remove_ideas = dd_women_2 }
+	if = { limit = { has_idea = dd_women_3 } remove_ideas = dd_women_3 }
+	if = { limit = { has_idea = dd_women_4 } remove_ideas = dd_women_4 }
+	if = { limit = { has_idea = dd_women_5 } remove_ideas = dd_women_5 }
+}
+dd_usa_clear_minority = {
+	if = { limit = { has_idea = dd_minority_1 } remove_ideas = dd_minority_1 }
+	if = { limit = { has_idea = dd_minority_2 } remove_ideas = dd_minority_2 }
+	if = { limit = { has_idea = dd_minority_3 } remove_ideas = dd_minority_3 }
+	if = { limit = { has_idea = dd_minority_4 } remove_ideas = dd_minority_4 }
+	if = { limit = { has_idea = dd_minority_5 } remove_ideas = dd_minority_5 }
+}
+dd_usa_clear_labor = {
+	if = { limit = { has_idea = dd_labor_1 } remove_ideas = dd_labor_1 }
+	if = { limit = { has_idea = dd_labor_2 } remove_ideas = dd_labor_2 }
+	if = { limit = { has_idea = dd_labor_3 } remove_ideas = dd_labor_3 }
+	if = { limit = { has_idea = dd_labor_4 } remove_ideas = dd_labor_4 }
+	if = { limit = { has_idea = dd_labor_5 } remove_ideas = dd_labor_5 }
+}
+dd_usa_clear_healthcare = {
+	if = { limit = { has_idea = dd_healthcare_1 } remove_ideas = dd_healthcare_1 }
+	if = { limit = { has_idea = dd_healthcare_2 } remove_ideas = dd_healthcare_2 }
+	if = { limit = { has_idea = dd_healthcare_3 } remove_ideas = dd_healthcare_3 }
+	if = { limit = { has_idea = dd_healthcare_4 } remove_ideas = dd_healthcare_4 }
+	if = { limit = { has_idea = dd_healthcare_5 } remove_ideas = dd_healthcare_5 }
+}
+dd_usa_clear_security = {
+	if = { limit = { has_idea = dd_security_1 } remove_ideas = dd_security_1 }
+	if = { limit = { has_idea = dd_security_2 } remove_ideas = dd_security_2 }
+	if = { limit = { has_idea = dd_security_3 } remove_ideas = dd_security_3 }
+	if = { limit = { has_idea = dd_security_4 } remove_ideas = dd_security_4 }
+	if = { limit = { has_idea = dd_security_5 } remove_ideas = dd_security_5 }
+}
+dd_usa_clear_religion = {
+	if = { limit = { has_idea = dd_religion_1 } remove_ideas = dd_religion_1 }
+	if = { limit = { has_idea = dd_religion_2 } remove_ideas = dd_religion_2 }
+	if = { limit = { has_idea = dd_religion_3 } remove_ideas = dd_religion_3 }
+	if = { limit = { has_idea = dd_religion_4 } remove_ideas = dd_religion_4 }
+	if = { limit = { has_idea = dd_religion_5 } remove_ideas = dd_religion_5 }
+}
+dd_usa_clear_media = {
+	if = { limit = { has_idea = dd_media_1 } remove_ideas = dd_media_1 }
+	if = { limit = { has_idea = dd_media_2 } remove_ideas = dd_media_2 }
+	if = { limit = { has_idea = dd_media_3 } remove_ideas = dd_media_3 }
+	if = { limit = { has_idea = dd_media_4 } remove_ideas = dd_media_4 }
+	if = { limit = { has_idea = dd_media_5 } remove_ideas = dd_media_5 }
+}
+dd_usa_clear_investment = {
+	if = { limit = { has_idea = dd_investment_1 } remove_ideas = dd_investment_1 }
+	if = { limit = { has_idea = dd_investment_2 } remove_ideas = dd_investment_2 }
+	if = { limit = { has_idea = dd_investment_3 } remove_ideas = dd_investment_3 }
+	if = { limit = { has_idea = dd_investment_4 } remove_ideas = dd_investment_4 }
+	if = { limit = { has_idea = dd_investment_5 } remove_ideas = dd_investment_5 }
+}
+dd_usa_clear_ai = {
+	if = { limit = { has_idea = dd_civil_military_1 } remove_ideas = dd_civil_military_1 }
+	if = { limit = { has_idea = dd_civil_military_2 } remove_ideas = dd_civil_military_2 }
+	if = { limit = { has_idea = dd_civil_military_3 } remove_ideas = dd_civil_military_3 }
+	if = { limit = { has_idea = dd_civil_military_4 } remove_ideas = dd_civil_military_4 }
+	if = { limit = { has_idea = dd_civil_military_5 } remove_ideas = dd_civil_military_5 }
+}
+dd_usa_clear_aid = {
+	if = { limit = { has_idea = dd_aid_1 } remove_ideas = dd_aid_1 }
+	if = { limit = { has_idea = dd_aid_2 } remove_ideas = dd_aid_2 }
+	if = { limit = { has_idea = dd_aid_3 } remove_ideas = dd_aid_3 }
+	if = { limit = { has_idea = dd_aid_4 } remove_ideas = dd_aid_4 }
+	if = { limit = { has_idea = dd_aid_5 } remove_ideas = dd_aid_5 }
+}
+
+dd_usa_force_immigration_2 = { if = { limit = { NOT = { has_idea = dd_immigration_2 } } hidden_effect = { dd_clear_immigration = yes add_ideas = dd_immigration_2 } } }
+dd_usa_force_immigration_5 = { if = { limit = { NOT = { has_idea = dd_immigration_5 } } hidden_effect = { dd_clear_immigration = yes add_ideas = dd_immigration_5 } } }
+dd_usa_force_taxes_2 = { if = { limit = { NOT = { has_idea = dd_taxes_2 } } hidden_effect = { dd_clear_taxes = yes add_ideas = dd_taxes_2 } } }
+dd_usa_force_taxes_4 = { if = { limit = { NOT = { has_idea = dd_taxes_4 } } hidden_effect = { dd_clear_taxes = yes add_ideas = dd_taxes_4 } } }
+dd_usa_force_taxes_5 = { if = { limit = { NOT = { has_idea = dd_taxes_5 } } hidden_effect = { dd_clear_taxes = yes add_ideas = dd_taxes_5 } } }
+dd_usa_force_women_1 = { if = { limit = { NOT = { has_idea = dd_women_1 } } hidden_effect = { dd_usa_clear_women = yes add_ideas = dd_women_1 dd_sync_fertility_to_women = yes } } }
+dd_usa_force_women_4 = { if = { limit = { NOT = { has_idea = dd_women_4 } } hidden_effect = { dd_usa_clear_women = yes add_ideas = dd_women_4 dd_sync_fertility_to_women = yes } } }
+dd_usa_force_women_5 = { if = { limit = { NOT = { has_idea = dd_women_5 } } hidden_effect = { dd_usa_clear_women = yes add_ideas = dd_women_5 dd_sync_fertility_to_women = yes } } }
+dd_usa_force_minority_2 = { if = { limit = { NOT = { has_idea = dd_minority_2 } } hidden_effect = { dd_usa_clear_minority = yes add_ideas = dd_minority_2 } } }
+dd_usa_force_minority_4 = { if = { limit = { NOT = { has_idea = dd_minority_4 } } hidden_effect = { dd_usa_clear_minority = yes add_ideas = dd_minority_4 } } }
+dd_usa_force_minority_5 = { if = { limit = { NOT = { has_idea = dd_minority_5 } } hidden_effect = { dd_usa_clear_minority = yes add_ideas = dd_minority_5 } } }
+dd_usa_force_labor_2 = { if = { limit = { NOT = { has_idea = dd_labor_2 } } hidden_effect = { dd_usa_clear_labor = yes add_ideas = dd_labor_2 } } }
+dd_usa_force_labor_4 = { if = { limit = { NOT = { has_idea = dd_labor_4 } } hidden_effect = { dd_usa_clear_labor = yes add_ideas = dd_labor_4 } } }
+dd_usa_force_labor_5 = { if = { limit = { NOT = { has_idea = dd_labor_5 } } hidden_effect = { dd_usa_clear_labor = yes add_ideas = dd_labor_5 } } }
+dd_usa_force_welfare_4 = { if = { limit = { NOT = { has_idea = dd_welfare_4 } } hidden_effect = { dd_clear_welfare = yes add_ideas = dd_welfare_4 } } }
+dd_usa_force_welfare_5 = { if = { limit = { NOT = { has_idea = dd_welfare_5 } } hidden_effect = { dd_clear_welfare = yes add_ideas = dd_welfare_5 } } }
+dd_usa_force_education_4 = { if = { limit = { NOT = { has_idea = dd_education_4 } } hidden_effect = { dd_clear_education = yes add_ideas = dd_education_4 } } }
+dd_usa_force_education_5 = { if = { limit = { NOT = { has_idea = dd_education_5 } } hidden_effect = { dd_clear_education = yes add_ideas = dd_education_5 } } }
+dd_usa_force_healthcare_4 = { if = { limit = { NOT = { has_idea = dd_healthcare_4 } } hidden_effect = { dd_usa_clear_healthcare = yes add_ideas = dd_healthcare_4 } } }
+dd_usa_force_healthcare_5 = { if = { limit = { NOT = { has_idea = dd_healthcare_5 } } hidden_effect = { dd_usa_clear_healthcare = yes add_ideas = dd_healthcare_5 } } }
+dd_usa_force_security_1 = { if = { limit = { NOT = { has_idea = dd_security_1 } } hidden_effect = { dd_usa_clear_security = yes add_ideas = dd_security_1 } } }
+dd_usa_force_security_2 = { if = { limit = { NOT = { has_idea = dd_security_2 } } hidden_effect = { dd_usa_clear_security = yes add_ideas = dd_security_2 } } }
+dd_usa_force_religion_5 = { if = { limit = { NOT = { has_idea = dd_religion_5 } } hidden_effect = { dd_usa_clear_religion = yes add_ideas = dd_religion_5 } } }
+dd_usa_force_media_2 = { if = { limit = { NOT = { has_idea = dd_media_2 } } hidden_effect = { dd_usa_clear_media = yes add_ideas = dd_media_2 } } }
+dd_usa_force_media_5 = { if = { limit = { NOT = { has_idea = dd_media_5 } } hidden_effect = { dd_usa_clear_media = yes add_ideas = dd_media_5 } } }
+dd_usa_force_investment_1 = { if = { limit = { NOT = { has_idea = dd_investment_1 } } hidden_effect = { dd_usa_clear_investment = yes add_ideas = dd_investment_1 } } }
+dd_usa_force_investment_5 = { if = { limit = { NOT = { has_idea = dd_investment_5 } } hidden_effect = { dd_usa_clear_investment = yes add_ideas = dd_investment_5 } } }
+dd_usa_force_ai_5 = { if = { limit = { NOT = { has_idea = dd_civil_military_5 } } hidden_effect = { dd_usa_clear_ai = yes add_ideas = dd_civil_military_5 } } }
+dd_usa_force_aid_1 = { if = { limit = { NOT = { has_idea = dd_aid_1 } } hidden_effect = { dd_usa_clear_aid = yes add_ideas = dd_aid_1 } } }
+
 dd_usa_student_visas = {
-	add_ideas = dd_immigration_2
+	custom_effect_tooltip = dd_usa_policy_visas_tt
+	if = {
+		limit = { has_idea = dd_immigration_2 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_immigration_2 = yes }
 }
-
 dd_usa_high_taxes = {
-	remove_ideas = dd_taxes_1
-	remove_ideas = dd_taxes_2
-	remove_ideas = dd_taxes_3
-	remove_ideas = dd_taxes_4
-	remove_ideas = dd_taxes_5
-	add_ideas = dd_taxes_4
+	custom_effect_tooltip = dd_usa_policy_taxes_4_tt
+	if = {
+		limit = { has_idea = dd_taxes_4 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_taxes_4 = yes }
 }
-
 dd_usa_most_liberal_policy = {
-	remove_ideas = dd_women_1
-	remove_ideas = dd_women_2
-	remove_ideas = dd_women_3
-	remove_ideas = dd_women_4
-	remove_ideas = dd_women_5
-	add_ideas = dd_women_5
-	remove_ideas = dd_minority_1
-	remove_ideas = dd_minority_2
-	remove_ideas = dd_minority_3
-	remove_ideas = dd_minority_4
-	remove_ideas = dd_minority_5
-	add_ideas = dd_minority_4
-	remove_ideas = dd_immigration_1
-	remove_ideas = dd_immigration_2
-	remove_ideas = dd_immigration_3
-	remove_ideas = dd_immigration_4
-	remove_ideas = dd_immigration_5
-	add_ideas = dd_immigration_5
-	remove_ideas = dd_minority_4
-	add_ideas = dd_minority_5
-	remove_ideas = dd_labor_1
-	remove_ideas = dd_labor_2
-	remove_ideas = dd_labor_3
-	remove_ideas = dd_labor_4
-	remove_ideas = dd_labor_5
-	add_ideas = dd_labor_4
-	remove_ideas = dd_welfare_1
-	remove_ideas = dd_welfare_2
-	remove_ideas = dd_welfare_3
-	remove_ideas = dd_welfare_4
-	remove_ideas = dd_welfare_5
-	add_ideas = dd_welfare_5
-	remove_ideas = dd_education_1
-	remove_ideas = dd_education_2
-	remove_ideas = dd_education_3
-	remove_ideas = dd_education_4
-	remove_ideas = dd_education_5
-	add_ideas = dd_education_5
-	remove_ideas = dd_healthcare_1
-	remove_ideas = dd_healthcare_2
-	remove_ideas = dd_healthcare_3
-	remove_ideas = dd_healthcare_4
-	remove_ideas = dd_healthcare_5
-	add_ideas = dd_healthcare_5
+	custom_effect_tooltip = dd_usa_policy_most_liberal_tt
+	if = {
+		limit = {
+			has_idea = dd_women_5
+			has_idea = dd_minority_5
+			has_idea = dd_immigration_5
+			has_idea = dd_labor_4
+			has_idea = dd_welfare_5
+			has_idea = dd_education_5
+			has_idea = dd_healthcare_5
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_women_5 = yes
+		dd_usa_force_minority_5 = yes
+		dd_usa_force_immigration_5 = yes
+		dd_usa_force_labor_4 = yes
+		dd_usa_force_welfare_5 = yes
+		dd_usa_force_education_5 = yes
+		dd_usa_force_healthcare_5 = yes
+	}
 }
-
 dd_usa_liberal_policy_set = {
-	dd_usa_high_taxes = yes
-	remove_ideas = dd_women_1
-	remove_ideas = dd_women_2
-	remove_ideas = dd_women_3
-	remove_ideas = dd_women_4
-	remove_ideas = dd_women_5
-	add_ideas = dd_women_4
-	remove_ideas = dd_minority_1
-	remove_ideas = dd_minority_2
-	remove_ideas = dd_minority_3
-	remove_ideas = dd_minority_4
-	remove_ideas = dd_minority_5
-	add_ideas = dd_minority_4
-	remove_ideas = dd_labor_1
-	remove_ideas = dd_labor_2
-	remove_ideas = dd_labor_3
-	remove_ideas = dd_labor_4
-	remove_ideas = dd_labor_5
-	add_ideas = dd_labor_4
+	custom_effect_tooltip = dd_usa_policy_liberal_tt
+	if = {
+		limit = {
+			has_idea = dd_taxes_4
+			has_idea = dd_women_4
+			has_idea = dd_minority_4
+			has_idea = dd_labor_4
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_taxes_4 = yes
+		dd_usa_force_women_4 = yes
+		dd_usa_force_minority_4 = yes
+		dd_usa_force_labor_4 = yes
+	}
 }
-
 dd_usa_conservative_policy_set = {
-	remove_ideas = dd_taxes_1
-	remove_ideas = dd_taxes_2
-	remove_ideas = dd_taxes_3
-	remove_ideas = dd_taxes_4
-	remove_ideas = dd_taxes_5
-	add_ideas = dd_taxes_2
-	remove_ideas = dd_immigration_1
-	remove_ideas = dd_immigration_2
-	remove_ideas = dd_immigration_3
-	remove_ideas = dd_immigration_4
-	remove_ideas = dd_immigration_5
-	add_ideas = dd_immigration_2
-	remove_ideas = dd_minority_1
-	remove_ideas = dd_minority_2
-	remove_ideas = dd_minority_3
-	remove_ideas = dd_minority_4
-	remove_ideas = dd_minority_5
-	add_ideas = dd_minority_2
-	remove_ideas = dd_labor_1
-	remove_ideas = dd_labor_2
-	remove_ideas = dd_labor_3
-	remove_ideas = dd_labor_4
-	remove_ideas = dd_labor_5
-	add_ideas = dd_labor_2
+	custom_effect_tooltip = dd_usa_policy_conservative_tt
+	if = {
+		limit = {
+			has_idea = dd_taxes_2
+			has_idea = dd_immigration_2
+			has_idea = dd_minority_2
+			has_idea = dd_labor_2
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_taxes_2 = yes
+		dd_usa_force_immigration_2 = yes
+		dd_usa_force_minority_2 = yes
+		dd_usa_force_labor_2 = yes
+	}
+}
+dd_usa_demsoc_policy_set = {
+	custom_effect_tooltip = dd_usa_policy_demsoc_tt
+	if = {
+		limit = {
+			has_idea = dd_taxes_4
+			has_idea = dd_welfare_5
+			has_idea = dd_labor_4
+			has_idea = dd_education_5
+			has_idea = dd_healthcare_5
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_taxes_4 = yes
+		dd_usa_force_welfare_5 = yes
+		dd_usa_force_labor_4 = yes
+		dd_usa_force_education_5 = yes
+		dd_usa_force_healthcare_5 = yes
+	}
+}
+dd_usa_anarchist_policy_1 = {
+	custom_effect_tooltip = dd_usa_policy_anarchist_1_tt
+	if = {
+		limit = { has_idea = dd_welfare_4 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_welfare_4 = yes }
+}
+dd_usa_anarchist_policy_2 = {
+	custom_effect_tooltip = dd_usa_policy_anarchist_2_tt
+	if = {
+		limit = { has_idea = dd_security_2 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_security_2 = yes }
+}
+dd_usa_anarchist_policy_3 = {
+	custom_effect_tooltip = dd_usa_policy_anarchist_3_tt
+	if = {
+		limit = { has_idea = dd_labor_4 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_labor_4 = yes }
+}
+dd_usa_policy_judiciary = {
+	custom_effect_tooltip = dd_usa_policy_judiciary_tt
+	if = {
+		limit = {
+			has_idea = dd_women_5
+			has_idea = dd_minority_5
+			has_idea = dd_religion_5
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_women_5 = yes
+		dd_usa_force_minority_5 = yes
+		dd_usa_force_religion_5 = yes
+	}
+}
+dd_usa_policy_executive = {
+	custom_effect_tooltip = dd_usa_policy_executive_tt
+	if = {
+		limit = {
+			has_idea = dd_media_5
+			has_idea = dd_investment_1
+			has_idea = dd_aid_1
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_media_5 = yes
+		dd_usa_force_investment_1 = yes
+		dd_usa_force_aid_1 = yes
+	}
+}
+dd_usa_policy_police_laws = {
+	custom_effect_tooltip = dd_usa_policy_police_tt
+	if = {
+		limit = {
+			has_idea = dd_labor_5
+			has_idea = dd_welfare_5
+			has_idea = dd_healthcare_5
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_labor_5 = yes
+		dd_usa_force_welfare_5 = yes
+		dd_usa_force_healthcare_5 = yes
+	}
+}
+dd_usa_communist_policy_1 = {
+	custom_effect_tooltip = dd_usa_policy_communist_1_tt
+	if = {
+		limit = { has_idea = dd_education_4 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_education_4 = yes }
+}
+dd_usa_communist_policy_2 = {
+	custom_effect_tooltip = dd_usa_policy_communist_2_tt
+	if = {
+		limit = { has_idea = dd_labor_4 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_labor_4 = yes }
+}
+dd_usa_communist_policy_3 = {
+	custom_effect_tooltip = dd_usa_policy_communist_3_tt
+	if = {
+		limit = { has_idea = dd_healthcare_4 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_healthcare_4 = yes }
+}
+dd_usa_policy_wall_street = {
+	custom_effect_tooltip = dd_usa_policy_wall_street_tt
+	if = {
+		limit = {
+			has_idea = dd_taxes_5
+			has_idea = dd_investment_5
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_taxes_5 = yes
+		dd_usa_force_investment_5 = yes
+	}
+}
+dd_usa_policy_silicon = {
+	custom_effect_tooltip = dd_usa_policy_silicon_tt
+	if = {
+		limit = {
+			has_idea = dd_civil_military_5
+			has_idea = dd_media_2
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_ai_5 = yes
+		dd_usa_force_media_2 = yes
+	}
+}
+dd_usa_empower_women_minorities = {
+	custom_effect_tooltip = dd_usa_policy_empower_tt
+	if = {
+		limit = {
+			has_idea = dd_immigration_5
+			has_idea = dd_women_5
+			has_idea = dd_minority_5
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_immigration_5 = yes
+		dd_usa_force_women_5 = yes
+		dd_usa_force_minority_5 = yes
+	}
+}
+dd_usa_suppress_women = {
+	custom_effect_tooltip = dd_usa_policy_suppress_women_tt
+	if = {
+		limit = { has_idea = dd_women_1 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_women_1 = yes }
+}
+dd_usa_abolish_police = {
+	custom_effect_tooltip = dd_usa_policy_abolish_police_tt
+	if = {
+		limit = { has_idea = dd_security_1 }
+		add_political_power = 100
+	}
+	else = { dd_usa_force_security_1 = yes }
 }
 
-dd_usa_demsoc_policy_set = {
-	dd_usa_high_taxes = yes
-	remove_ideas = dd_welfare_1
-	remove_ideas = dd_welfare_2
-	remove_ideas = dd_welfare_3
-	remove_ideas = dd_welfare_4
-	remove_ideas = dd_welfare_5
-	add_ideas = dd_welfare_5
-	remove_ideas = dd_labor_1
-	remove_ideas = dd_labor_2
-	remove_ideas = dd_labor_3
-	remove_ideas = dd_labor_4
-	remove_ideas = dd_labor_5
-	add_ideas = dd_labor_4
-	remove_ideas = dd_education_1
-	remove_ideas = dd_education_2
-	remove_ideas = dd_education_3
-	remove_ideas = dd_education_4
-	remove_ideas = dd_education_5
-	add_ideas = dd_education_5
-	remove_ideas = dd_healthcare_1
-	remove_ideas = dd_healthcare_2
-	remove_ideas = dd_healthcare_3
-	remove_ideas = dd_healthcare_4
-	remove_ideas = dd_healthcare_5
-	add_ideas = dd_healthcare_5
+# White peace every enemy except Iran. Iran loses gulf bases and docking, then the war ends.
+dd_usa_peace_out_before_civil_war = {
+	if = {
+		limit = { has_war_with = PER }
+		dd_usa_surrender_persian_gulf = yes
+	}
+	every_country = {
+		limit = {
+			has_war_with = ROOT
+			NOT = { tag = PER }
+		}
+		set_country_flag = dd_usa_cw_peace_target
+	}
+	every_country = {
+		limit = { has_country_flag = dd_usa_cw_peace_target }
+		clr_country_flag = dd_usa_cw_peace_target
+		white_peace = ROOT
+	}
+	if = {
+		limit = { has_war_with = PER }
+		white_peace = PER
+	}
+}
+
+# Host grants the United States docking rights and military access.
+dd_usa_grant_one_station = {
+	give_military_access = USA
+	diplomatic_relation = {
+		country = USA
+		relation = docking_rights
+		active = yes
+	}
+}
+
+# Ports the US Navy actually uses. Guam, Hawaii, Norfolk, San Diego, and Bremerton are American.
+dd_usa_grant_station_docking = {
+	BHR = { dd_usa_grant_one_station = yes } # NSA Bahrain, Fifth Fleet
+	ENG = { dd_usa_grant_one_station = yes } # Diego Garcia
+	DJI = { dd_usa_grant_one_station = yes } # Camp Lemonnier
+	JAP = { dd_usa_grant_one_station = yes } # Yokosuka and Sasebo
+	SNG = { dd_usa_grant_one_station = yes } # Singapore
+	GRE = { dd_usa_grant_one_station = yes } # Souda Bay
+	ITA = { dd_usa_grant_one_station = yes } # Naples
+	SPR = { dd_usa_grant_one_station = yes } # Rota
+	OMA = { dd_usa_grant_one_station = yes } # Duqm
+	AST = { dd_usa_grant_one_station = yes } # Darwin
+	PHI = { dd_usa_grant_one_station = yes } # Subic
+	KOR = { dd_usa_grant_one_station = yes } # Busan
 }
 
 dd_usa_pull_gulf_access = {
@@ -1434,28 +1781,23 @@ dd_usa_nav_yards = {
 }
 
 # Legislature — country-scoped, no random.
-# D = left/liberal bloc. R = conservative/populist/right bloc.
+# Social liberalism owns the Democratic caucus. Conservatives and national populists own the Republican caucus.
+# Every other ruling party starts both caucuses at 0. Lobbies add temporary seats, not support.
 dd_usa_sync_caucus_from_ruling = {
+	set_variable = { dd_usa_dem_support = 0 }
+	set_variable = { dd_usa_rep_support = 0 }
 	if = {
+		limit = { has_government = social_liberalism }
+		set_variable = { dd_usa_dem_support = 100 }
+	}
+	else_if = {
 		limit = {
 			OR = {
 				has_government = liberal_conservatism
 				has_government = national_populism
-				has_government = fascism
-				has_government = theocratic_absolutism
-				has_government = military_junta
-				has_government = sovereign_democracy
-				has_government = technocracy
-				has_government = absolute_monarchy
-				has_government = islamic_democracy
 			}
 		}
 		set_variable = { dd_usa_rep_support = 100 }
-		set_variable = { dd_usa_dem_support = 0 }
-	}
-	else = {
-		set_variable = { dd_usa_dem_support = 100 }
-		set_variable = { dd_usa_rep_support = 0 }
 	}
 }
 
@@ -1479,6 +1821,8 @@ dd_usa_init_legislature = {
 		set_variable = { dd_usa_bill_advancing = 0 }
 		set_country_flag = dd_usa_filibuster_bypass_available
 	}
+	dd_usa_sync_caucus_from_ruling = yes
+	dd_usa_refresh_lobby_seats = yes
 }
 
 dd_usa_clamp_caucus_support = {
@@ -1500,14 +1844,62 @@ dd_usa_clamp_caucus_support = {
 	}
 }
 
+# One stack: +3 House and +1 Senate for 180 days. Each click is its own timer.
 dd_usa_lobby_democrats = {
-	add_to_variable = { dd_usa_dem_support = 8 }
-	dd_usa_clamp_caucus_support = yes
+	add_to_array = { dd_usa_lobby_dem_days = 180 }
+	dd_usa_refresh_lobby_seats = yes
 }
 
 dd_usa_lobby_republicans = {
-	add_to_variable = { dd_usa_rep_support = 8 }
-	dd_usa_clamp_caucus_support = yes
+	add_to_array = { dd_usa_lobby_rep_days = 180 }
+	dd_usa_refresh_lobby_seats = yes
+}
+
+dd_usa_decay_lobby_dem = {
+	set_temp_variable = { dd_usa_lobby_i = 0 }
+	while = {
+		limit = { check_variable = { dd_usa_lobby_i < dd_usa_lobby_dem_days^num } }
+		subtract_from_variable = { dd_usa_lobby_dem_days^dd_usa_lobby_i = 1 }
+		if = {
+			limit = { check_variable = { dd_usa_lobby_dem_days^dd_usa_lobby_i < 1 } }
+			remove_from_array = { dd_usa_lobby_dem_days = dd_usa_lobby_i }
+		}
+		else = {
+			add_to_temp_variable = { dd_usa_lobby_i = 1 }
+		}
+	}
+}
+
+dd_usa_decay_lobby_rep = {
+	set_temp_variable = { dd_usa_lobby_i = 0 }
+	while = {
+		limit = { check_variable = { dd_usa_lobby_i < dd_usa_lobby_rep_days^num } }
+		subtract_from_variable = { dd_usa_lobby_rep_days^dd_usa_lobby_i = 1 }
+		if = {
+			limit = { check_variable = { dd_usa_lobby_rep_days^dd_usa_lobby_i < 1 } }
+			remove_from_array = { dd_usa_lobby_rep_days = dd_usa_lobby_i }
+		}
+		else = {
+			add_to_temp_variable = { dd_usa_lobby_i = 1 }
+		}
+	}
+}
+
+dd_usa_refresh_lobby_seats = {
+	set_variable = { dd_usa_house_dem_now = dd_usa_house_dem }
+	set_variable = { dd_usa_house_rep_now = dd_usa_house_rep }
+	set_variable = { dd_usa_senate_dem_now = dd_usa_senate_dem }
+	set_variable = { dd_usa_senate_rep_now = dd_usa_senate_rep }
+	set_temp_variable = { dd_usa_lobby_n = dd_usa_lobby_dem_days^num }
+	multiply_temp_variable = { dd_usa_lobby_n = 3 }
+	add_to_variable = { dd_usa_house_dem_now = dd_usa_lobby_n }
+	set_temp_variable = { dd_usa_lobby_n = dd_usa_lobby_dem_days^num }
+	add_to_variable = { dd_usa_senate_dem_now = dd_usa_lobby_n }
+	set_temp_variable = { dd_usa_lobby_n = dd_usa_lobby_rep_days^num }
+	multiply_temp_variable = { dd_usa_lobby_n = 3 }
+	add_to_variable = { dd_usa_house_rep_now = dd_usa_lobby_n }
+	set_temp_variable = { dd_usa_lobby_n = dd_usa_lobby_rep_days^num }
+	add_to_variable = { dd_usa_senate_rep_now = dd_usa_lobby_n }
 }
 
 dd_usa_bypass_filibuster = {
@@ -1623,34 +2015,62 @@ dd_usa_enact_active_bill = {
 	if = {
 		limit = { check_variable = { dd_usa_bill_id = 1 } }
 		set_country_flag = dd_usa_bill_care_act_passed
+		add_stability = 0.05
+		add_war_support = 0.10
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 2 } }
 		set_country_flag = dd_usa_bill_big_beautiful_bill_passed
+		add_to_variable = { treasury = 300 }
+		add_ideas = dd_usa_bill_beautiful
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 3 } }
 		set_country_flag = dd_usa_bill_secure_america_act_passed
+		add_ideas = dd_usa_bill_secure
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 4 } }
 		set_country_flag = dd_usa_bill_water_resource_management_passed
+		add_ideas = dd_usa_bill_water
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 11 } }
 		set_country_flag = dd_usa_bill_expand_medicare_passed
+		if = {
+			limit = {
+				OR = {
+					has_idea = dd_healthcare_4
+					has_idea = dd_healthcare_5
+				}
+			}
+			add_political_power = 100
+		}
+		else = {
+			custom_effect_tooltip = dd_usa_set_healthcare_4_tt
+			dd_usa_force_healthcare_4 = yes
+		}
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 12 } }
 		set_country_flag = dd_usa_bill_ban_arms_to_israel_passed
+		if = {
+			limit = { has_idea = dd_usa_israel_arms }
+			remove_ideas = dd_usa_israel_arms
+		}
+		else = {
+			add_political_power = 100
+		}
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 13 } }
 		set_country_flag = dd_usa_bill_american_homeownership_act_passed
+		add_ideas = dd_usa_bill_homes
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 14 } }
 		set_country_flag = dd_usa_bill_rural_telehealth_passed
+		add_ideas = dd_usa_bill_telehealth
 	}
 	set_variable = { dd_usa_bill_active = 0 }
 	set_variable = { dd_usa_bill_id = 0 }
@@ -1661,7 +2081,19 @@ dd_usa_enact_active_bill = {
 	set_variable = { dd_usa_bill_days_left = 0 }
 	set_variable = { dd_usa_bill_filibuster_cleared = 0 }
 	set_variable = { dd_usa_bill_advancing = 0 }
-	# Placeholder reward hook — fill later.
+}
+
+dd_usa_core_north_america = {
+	every_state = {
+		limit = { is_on_continent = north_america }
+		add_core_of = ROOT
+	}
+}
+
+dd_usa_core_world = {
+	every_state = {
+		add_core_of = ROOT
+	}
 }
 
 dd_usa_advance_bill_chamber = {
@@ -1680,9 +2112,14 @@ dd_usa_advance_bill_chamber = {
 	}
 }
 
-# Daily: caucus support (50% normal / 60% under filibuster) + chamber majority.
+# Daily: 60% caucus support to advance. Senate still needs 51 seats, and 60 seats or a filibuster bypass.
 dd_usa_legislature_daily = {
+	dd_usa_sync_caucus_from_ruling = yes
+	dd_usa_decay_lobby_dem = yes
+	dd_usa_decay_lobby_rep = yes
+	dd_usa_refresh_lobby_seats = yes
 	set_variable = { dd_usa_bill_advancing = 0 }
+	set_variable = { dd_usa_bill_support_need = 218 }
 	if = {
 		limit = {
 			check_variable = { dd_usa_bill_active > 0 }
@@ -1690,30 +2127,30 @@ dd_usa_legislature_daily = {
 		}
 		if = {
 			limit = { check_variable = { dd_usa_bill_party < 1 } }
-			set_temp_variable = { dd_usa_tmp_support = dd_usa_dem_support }
-			set_temp_variable = { dd_usa_tmp_house = dd_usa_house_dem }
-			set_temp_variable = { dd_usa_tmp_senate = dd_usa_senate_dem }
+			set_temp_variable = { dd_usa_tmp_house = dd_usa_house_dem_now }
+			set_temp_variable = { dd_usa_tmp_senate = dd_usa_senate_dem_now }
 		}
 		else = {
-			set_temp_variable = { dd_usa_tmp_support = dd_usa_rep_support }
-			set_temp_variable = { dd_usa_tmp_house = dd_usa_house_rep }
-			set_temp_variable = { dd_usa_tmp_senate = dd_usa_senate_rep }
+			set_temp_variable = { dd_usa_tmp_house = dd_usa_house_rep_now }
+			set_temp_variable = { dd_usa_tmp_senate = dd_usa_senate_rep_now }
 		}
-		# House and filibuster-cleared Senate: 50%. Active filibuster: 60%.
-		set_temp_variable = { dd_usa_need = 50 }
 		if = {
-			limit = {
-				check_variable = { dd_usa_bill_chamber = 1 }
-				check_variable = { dd_usa_bill_filibuster_cleared < 1 }
-				NOT = { check_variable = { dd_usa_tmp_senate > 59.999 } }
-			}
-			set_temp_variable = { dd_usa_need = 60 }
-		}
-		set_variable = { dd_usa_bill_support_need = dd_usa_need }
-		if = {
-			limit = { check_variable = { dd_usa_tmp_support < dd_usa_need } }
+			limit = { check_variable = { dd_usa_bill_chamber < 1 } }
+			set_variable = { dd_usa_bill_support_need = 218 }
 		}
 		else_if = {
+			limit = {
+				OR = {
+					check_variable = { dd_usa_tmp_senate > 59.999 }
+					check_variable = { dd_usa_bill_filibuster_cleared > 0 }
+				}
+			}
+			set_variable = { dd_usa_bill_support_need = 51 }
+		}
+		else = {
+			set_variable = { dd_usa_bill_support_need = 60 }
+		}
+		if = {
 			limit = {
 				check_variable = { dd_usa_bill_chamber < 1 }
 				check_variable = { dd_usa_tmp_house > 217.999 }
@@ -1732,7 +2169,6 @@ dd_usa_legislature_daily = {
 				OR = {
 					check_variable = { dd_usa_tmp_senate > 59.999 }
 					check_variable = { dd_usa_bill_filibuster_cleared > 0 }
-					check_variable = { dd_usa_tmp_support > 59.999 }
 				}
 			}
 			set_variable = { dd_usa_bill_advancing = 1 }
@@ -1955,23 +2391,24 @@ dd_usa_cw_add_left_shared_cores = {
 
 # One popup per 100,000 combat casualties while the Middle East war spirit is held.
 # casualties_k is casualties in thousands, so 100 on that scale is 100,000 men.
-# while_loop_effect is required; the old while effect does not run.
+# A while loop here fired once per thousand in a single day, which stacked the popup.
 dd_usa_me_blood_tick = {
 	if = {
-		limit = {
-			has_idea = dd_usa_half_century_war
-			NOT = { has_variable = dd_usa_me_blood_mark }
-		}
-		set_variable = { dd_usa_me_blood_mark = 0 }
-	}
-	if = {
 		limit = { has_idea = dd_usa_half_century_war }
+		if = {
+			limit = { NOT = { has_variable = dd_usa_me_blood_mark } }
+			set_variable = { dd_usa_me_blood_mark = 0 }
+		}
+		# Repair a save where the old loop pushed the mark far past real losses.
+		if = {
+			limit = { check_variable = { dd_usa_me_blood_mark > casualties_k } }
+			set_variable = { dd_usa_me_blood_mark = 0 }
+		}
 		set_temp_variable = { dd_gap = casualties_k }
 		subtract_from_temp_variable = { dd_gap = dd_usa_me_blood_mark }
-		while_loop_effect = {
+		if = {
 			limit = { check_variable = { dd_gap > 99.999 } }
 			add_to_variable = { dd_usa_me_blood_mark = 100 }
-			subtract_from_temp_variable = { dd_gap = 100 }
 			country_event = { id = dd_usa_blood.1 }
 		}
 	}
@@ -2007,6 +2444,19 @@ dd_usa_israel_arms_shipment = {
 	}
 }
 
+# The standing general staff and admirals leave with Federal Command. Advisors stay on the USA remnant.
+dd_usa_cw_generals_to_fva = {
+	USA_fm_randy_george = { set_nationality = FVA }
+	USA_fm_michael_kurilla = { set_nationality = FVA }
+	USA_fm_christopher_donahue = { set_nationality = FVA }
+	USA_gen_james_jarrard = { set_nationality = FVA }
+	USA_gen_andrew_poppas = { set_nationality = FVA }
+	USA_gen_eric_smith = { set_nationality = FVA }
+	USA_nav_lisa_franchetti = { set_nationality = FVA }
+	USA_nav_samuel_paparo = { set_nationality = FVA }
+	USA_nav_james_kilby = { set_nationality = FVA }
+}
+
 dd_usa_start_civil_war = {
 	if = {
 		limit = {
@@ -2015,7 +2465,8 @@ dd_usa_start_civil_war = {
 		}
 		set_global_flag = dd_usa_civil_war_started
 		set_country_flag = dd_usa_civil_war
-		remove_ideas = dd_usa_youll_have_to_kill_us
+		# End foreign wars before the country breaks up. Iran's peace is the gulf concessions.
+		dd_usa_peace_out_before_civil_war = yes
 		remove_ideas = dd_usa_half_century_war
 		clr_country_flag = dd_usa_keep_eas
 		clr_country_flag = dd_usa_keep_wcl
@@ -2084,14 +2535,6 @@ dd_usa_start_civil_war = {
 				ideology = national_populist
 			}
 			set_cosmetic_tag = USA_MAGA
-		}
-		if = {
-			limit = { has_war_with = PER }
-			dd_usa_surrender_persian_gulf = yes
-		}
-		every_country = {
-			limit = { has_war_with = PREV }
-			white_peace = PREV
 		}
 		dd_usa_hand_nato_to_france = yes
 		every_country = {
@@ -2302,6 +2745,7 @@ dd_usa_start_civil_war = {
 			remove_ideas = dd_usa_israel_arms
 			FVA = { add_ideas = dd_usa_israel_arms }
 		}
+		dd_usa_cw_generals_to_fva = yes
 		SFT = {
 			transfer_state = 1124
 			add_state_core = 1124
@@ -2391,6 +2835,27 @@ dd_usa_start_civil_war = {
 		}
 		dd_usa_cw_inherit_supply_hole = yes
 		dd_usa_cw_boost_maga = yes
+		if = {
+			limit = { has_country_flag = dd_usa_keep_eas }
+			set_variable = { dd_prod = 8 }
+		}
+		else = {
+			EAS = { set_variable = { dd_prod = 8 } }
+		}
+		if = {
+			limit = { has_country_flag = dd_usa_keep_rbl }
+			set_variable = { dd_prod = 6 }
+		}
+		else = {
+			RBL = { set_variable = { dd_prod = 6 } }
+		}
+		if = {
+			limit = { has_country_flag = dd_usa_keep_aca }
+			set_variable = { dd_prod = 5 }
+		}
+		else = {
+			ACA = { set_variable = { dd_prod = 5 } }
+		}
 		# Claims so peace conferences can fully annex (war score / takeover of cores).
 		dd_usa_cw_grant_all_us_claims = yes
 		news_event = { id = dd_usa_news.10 }

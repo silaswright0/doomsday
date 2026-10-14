@@ -3,7 +3,7 @@ dd_usa_legislature_category = {
 		icon = generic_political_discourse
 		allowed = { tag = USA }
 		cost = 50
-		days_re_enable = 30
+		days_re_enable = 7
 		ai_will_do = { factor = 0 }
 		visible = {
 			has_country_flag = dd_usa_legislature_open
@@ -19,7 +19,7 @@ dd_usa_legislature_category = {
 		icon = generic_political_discourse
 		allowed = { tag = USA }
 		cost = 50
-		days_re_enable = 30
+		days_re_enable = 7
 		ai_will_do = { factor = 0 }
 		visible = {
 			has_country_flag = dd_usa_legislature_open
@@ -42,6 +42,21 @@ dd_usa_legislature_category = {
 			has_country_flag = dd_usa_filibuster_bypass_available
 			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_civil_war }
+		}
+		available = {
+			OR = {
+				AND = {
+					has_government = social_liberalism
+					check_variable = { dd_usa_senate_dem_now > 50.999 }
+				}
+				AND = {
+					OR = {
+						has_government = liberal_conservatism
+						has_government = national_populism
+					}
+					check_variable = { dd_usa_senate_rep_now > 50.999 }
+				}
+			}
 		}
 		complete_effect = {
 			dd_usa_bypass_filibuster = yes

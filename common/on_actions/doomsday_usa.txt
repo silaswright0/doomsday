@@ -9,6 +9,8 @@ on_actions = {
 					country_event = { id = dd_usa_election.2 days = 1041 }
 				}
 				dd_usa_init_legislature = yes
+				dd_usa_grant_station_docking = yes
+				dd_usa_mark_starting_states = yes
 			}
 		}
 	}
@@ -56,17 +58,15 @@ on_actions = {
 			dd_usa_legislature_daily = yes
 			dd_usa_me_blood_tick = yes
 			dd_usa_check_globalists_spirit = yes
-		}
-	}
-
-	on_yearly = {
-		effect = {
-			USA = {
-				if = {
-					limit = { has_idea = dd_usa_tax_on_big_business }
-					add_to_variable = { treasury = 1000 }
+			if = {
+				limit = {
+					focus_progress = { focus = USA_break_the_republic progress > 0.88 }
+					NOT = { has_country_flag = dd_usa_executives_on_trial_news }
 				}
+				set_country_flag = dd_usa_executives_on_trial_news
+				news_event = { id = dd_usa_news.11 }
 			}
 		}
 	}
+
 }

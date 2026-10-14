@@ -352,13 +352,6 @@ country_event = {
 		custom_effect_tooltip = dd_usa_fascism_outlawed_tt
 	}
 	option = {
-		name = dd_usa_alt.1.b
-		set_country_flag = dd_usa_bide_time
-		set_country_flag = dd_usa_resolving_election
-		complete_national_focus = USA_shoot_for_32
-		clr_country_flag = dd_usa_resolving_election
-	}
-	option = {
 		name = dd_usa_alt.1.c
 		set_country_flag = dd_usa_light_the_fuse
 		country_event = { id = dd_usa_fuse.1 days = 45 }
@@ -950,5 +943,17 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = dd_usa_abaddon.2.a
+	}
+}
+
+news_event = {
+	id = dd_usa_news.11
+	title = dd_usa_news.11.t
+	desc = dd_usa_news.11.d
+	picture = GFX_news_event_generic_rally
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_news.11.a
 	}
 }

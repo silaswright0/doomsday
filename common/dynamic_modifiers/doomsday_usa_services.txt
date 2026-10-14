@@ -29,6 +29,16 @@ dd_usa_airforce_dyn = {
 	extra_paratrooper_supply_grace = dd_usa_air_para_grace
 }
 
+# A Nation in Ruins. Values live on the country so later focuses can edit them.
+dd_usa_nation_in_ruins = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_production_bonus
+	stability_factor = dd_ruins_stability
+	war_support_factor = dd_ruins_war_support
+	industrial_capacity_factory = dd_ruins_factory
+	consumer_goods_factor = dd_ruins_cg
+}
+
 dd_usa_navy_dyn = {
 	enable = { always = yes }
 	icon = GFX_idea_generic_navy_bonus

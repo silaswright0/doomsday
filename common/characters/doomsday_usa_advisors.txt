@@ -1,0 +1,417 @@
+characters = {
+	USA_gavin_newsom = {
+		name = "Gavin Newsom"
+		portraits = {
+			civilian = { large = GFX_portrait_WCL_leader small = GFX_portrait_WCL_leader }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_gavin_newsom
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_liberalism
+					has_government = sovereign_democracy
+				}
+				NOT = { has_country_leader = { name = "Gavin Newsom" ruling_only = yes } }
+			}
+			traits = { smooth_talking_charmer }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_jd_vance = {
+		name = "JD Vance"
+		portraits = {
+			civilian = { large = GFX_portrait_VNM_leader small = GFX_portrait_VNM_leader }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_jd_vance
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = technocracy
+				}
+				NOT = { has_country_leader = { name = "JD Vance" ruling_only = yes } }
+			}
+			traits = { ideological_crusader }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_marco_rubio = {
+		name = "Marco Rubio"
+		portraits = {
+			civilian = { large = GFX_portrait_RBM_leader small = GFX_portrait_RBM_leader }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_marco_rubio
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = liberal_conservatism
+					has_government = sovereign_democracy
+				}
+				NOT = { has_country_leader = { name = "Marco Rubio" ruling_only = yes } }
+			}
+			traits = { smooth_talking_charmer }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_alexandria_ocasio_cortez = {
+		name = "Alexandria Ocasio-Cortez"
+		portraits = {
+			civilian = { large = GFX_portrait_EAS_leader small = GFX_portrait_EAS_leader }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_alexandria_ocasio_cortez
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_democracy
+					has_government = progressive_populism
+				}
+				NOT = { has_country_leader = { name = "Alexandria Ocasio-Cortez" ruling_only = yes } }
+			}
+			traits = { ideological_crusader }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_bill_kristol = {
+		name = "Bill Kristol"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_bill_kristol small = GFX_portrait_USA_bill_kristol }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_bill_kristol
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = liberal_conservatism
+					has_government = social_liberalism
+				}
+			}
+			traits = { editor }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_gretchen_whitmer = {
+		name = "Gretchen Whitmer"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_gretchen_whitmer small = GFX_portrait_USA_gretchen_whitmer }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_gretchen_whitmer
+			allowed = { original_tag = USA }
+			available = { has_government = social_liberalism }
+			traits = { silent_workhorse }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_nikki_haley = {
+		name = "Nikki Haley"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_nikki_haley small = GFX_portrait_USA_nikki_haley }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_nikki_haley
+			allowed = { original_tag = USA }
+			available = { has_government = liberal_conservatism }
+			traits = { hawk }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_john_bolton = {
+		name = "John Bolton"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_john_bolton small = GFX_portrait_USA_john_bolton }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_john_bolton
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = liberal_conservatism
+					has_government = national_populism
+				}
+			}
+			traits = { hawk }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_ilhan_omar = {
+		name = "Ilhan Omar"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_ilhan_omar small = GFX_portrait_USA_ilhan_omar }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_ilhan_omar
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_democracy
+					has_government = progressive_populism
+				}
+			}
+			traits = { ideological_crusader }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_hakeem_jeffries = {
+		name = "Hakeem Jeffries"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_hakeem_jeffries small = GFX_portrait_USA_hakeem_jeffries }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_hakeem_jeffries
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_liberalism
+					has_government = social_democracy
+				}
+			}
+			traits = { silent_workhorse }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_rashida_tlaib = {
+		name = "Rashida Tlaib"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_rashida_tlaib small = GFX_portrait_USA_rashida_tlaib }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_rashida_tlaib
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_democracy
+					has_government = progressive_populism
+				}
+			}
+			traits = { ideological_crusader }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_liz_cheney = {
+		name = "Liz Cheney"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_liz_cheney small = GFX_portrait_USA_liz_cheney }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_liz_cheney
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = liberal_conservatism
+					has_government = social_liberalism
+				}
+			}
+			traits = { hawk }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_jared_kushner = {
+		name = "Jared Kushner"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_jared_kushner small = GFX_portrait_USA_jared_kushner }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_jared_kushner
+			allowed = { original_tag = USA }
+			available = { has_government = national_populism }
+			traits = { financial_expert }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_josh_shapiro = {
+		name = "Josh Shapiro"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_josh_shapiro small = GFX_portrait_USA_josh_shapiro }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_josh_shapiro
+			allowed = { original_tag = USA }
+			available = { has_government = social_liberalism }
+			traits = { silent_workhorse }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_chuck_schumer = {
+		name = "Chuck Schumer"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_chuck_schumer small = GFX_portrait_USA_chuck_schumer }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_chuck_schumer
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_liberalism
+					has_government = social_democracy
+				}
+			}
+			traits = { silent_workhorse }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_lindsey_graham = {
+		name = "Lindsey Graham"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_lindsey_graham small = GFX_portrait_USA_lindsey_graham }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_lindsey_graham
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = liberal_conservatism
+					has_government = national_populism
+				}
+			}
+			traits = { hawk }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_bernie_sanders = {
+		name = "Bernie Sanders"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_bernie_sanders small = GFX_portrait_USA_bernie_sanders }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_bernie_sanders
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_democracy
+					has_government = progressive_populism
+				}
+			}
+			traits = { ideological_crusader }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_howard_lutnick = {
+		name = "Howard Lutnick"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_howard_lutnick small = GFX_portrait_USA_howard_lutnick }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_howard_lutnick
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = technocracy
+				}
+			}
+			traits = { captain_of_industry }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_susie_wiles = {
+		name = "Susie Wiles"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_susie_wiles small = GFX_portrait_USA_susie_wiles }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_susie_wiles
+			allowed = { original_tag = USA }
+			available = { has_government = national_populism }
+			traits = { silent_workhorse }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_kamala_harris = {
+		name = "Kamala Harris"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_kamala_harris small = GFX_portrait_USA_kamala_harris }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_kamala_harris
+			allowed = { original_tag = USA }
+			available = { has_government = social_liberalism }
+			traits = { smooth_talking_charmer }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_peter_thiel = {
+		name = "Peter Thiel"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_peter_thiel small = GFX_portrait_USA_peter_thiel }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_peter_thiel
+			allowed = { original_tag = USA }
+			available = { has_government = technocracy }
+			traits = { technocrat }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_elon_musk = {
+		name = "Elon Musk"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_elon_musk small = GFX_portrait_USA_elon_musk }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_elon_musk
+			allowed = { original_tag = USA }
+			available = { has_government = technocracy }
+			traits = { captain_of_industry }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_david_sacks = {
+		name = "David Sacks"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_david_sacks small = GFX_portrait_USA_david_sacks }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_david_sacks
+			allowed = { original_tag = USA }
+			available = { has_government = technocracy }
+			traits = { financial_expert }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_stephen_miller = {
+		name = "Stephen Miller"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_stephen_miller small = GFX_portrait_USA_stephen_miller }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_stephen_miller
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+			}
+			traits = { ideological_crusader }
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

@@ -2327,6 +2327,19 @@ dd_recalc_accounts = {
 	}
 	add_to_variable = { dd_last_income = dd_income_oil }
 	add_to_variable = { dd_last_income = dd_income_checkpoint }
+	if = {
+		limit = { has_idea = dd_usa_tax_on_big_business }
+		add_to_variable = { dd_last_income = 83.333 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_usa_gutting_middle_class
+				has_idea = dd_usa_gutting_middle_class_2
+			}
+		}
+		add_to_variable = { dd_last_income = 100 }
+	}
 
 	set_variable = { expense_admin = dd_gdp }
 	multiply_variable = { expense_admin = dd_spend_base }

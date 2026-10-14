@@ -1,10 +1,67 @@
 # Post-civil-war fascist, communist, and anarchist effects. Country-scoped. No random.
 
 dd_usa_postcw_victory = {
-	remove_ideas = dd_usa_civil_war_cause
-	remove_ideas = dd_usa_nation_in_ruins
 	add_ideas = dd_usa_american_ruins
-	set_country_flag = dd_usa_civil_war_over
+}
+
+dd_usa_wargoal_oppressors = {
+	custom_effect_tooltip = dd_usa_wargoal_oppressors_tt
+	hidden_effect = {
+		every_other_country = {
+			limit = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+				NOT = { is_subject_of = ROOT }
+				OR = {
+					has_government = theocratic_absolutism
+					has_government = military_junta
+					has_government = social_liberalism
+					has_government = liberal_conservatism
+					has_government = fascism
+					has_government = sovereign_democracy
+					has_government = jihadist_fundamentalism
+				}
+			}
+			set_country_flag = dd_usa_oppressor_target
+		}
+		every_country = {
+			limit = { has_country_flag = dd_usa_oppressor_target }
+			clr_country_flag = dd_usa_oppressor_target
+			PREV = {
+				create_wargoal = {
+					type = dd_annex
+					target = PREV
+				}
+			}
+		}
+	}
+}
+
+dd_usa_wargoal_north_america = {
+	custom_effect_tooltip = dd_usa_wargoal_north_america_tt
+	hidden_effect = {
+		every_other_country = {
+			limit = {
+				exists = yes
+				capital_scope = { is_on_continent = north_america }
+				NOT = { has_war_with = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+				NOT = { is_subject_of = ROOT }
+			}
+			set_country_flag = dd_usa_west_dom_target
+		}
+		every_country = {
+			limit = { has_country_flag = dd_usa_west_dom_target }
+			clr_country_flag = dd_usa_west_dom_target
+			PREV = {
+				create_wargoal = {
+					type = dd_annex
+					target = PREV
+				}
+			}
+		}
+	}
 }
 
 dd_usa_cancel_elections = {
@@ -110,47 +167,6 @@ dd_usa_ban_opposition = {
 	dd_usa_zero_ideology = yes
 }
 
-dd_usa_set_women_law = {
-	remove_ideas = dd_women_1
-	remove_ideas = dd_women_2
-	remove_ideas = dd_women_3
-	remove_ideas = dd_women_4
-	remove_ideas = dd_women_5
-}
-
-dd_usa_suppress_women = {
-	dd_usa_set_women_law = yes
-	add_ideas = dd_women_1
-	dd_sync_fertility_to_women = yes
-}
-
-dd_usa_empower_women_minorities = {
-	remove_ideas = dd_immigration_1
-	remove_ideas = dd_immigration_2
-	remove_ideas = dd_immigration_3
-	remove_ideas = dd_immigration_4
-	remove_ideas = dd_immigration_5
-	add_ideas = dd_immigration_5
-	dd_usa_set_women_law = yes
-	add_ideas = dd_women_5
-	dd_sync_fertility_to_women = yes
-	remove_ideas = dd_minority_1
-	remove_ideas = dd_minority_2
-	remove_ideas = dd_minority_3
-	remove_ideas = dd_minority_4
-	remove_ideas = dd_minority_5
-	add_ideas = dd_minority_5
-}
-
-dd_usa_abolish_police = {
-	remove_ideas = dd_security_1
-	remove_ideas = dd_security_2
-	remove_ideas = dd_security_3
-	remove_ideas = dd_security_4
-	remove_ideas = dd_security_5
-	add_ideas = dd_security_1
-}
-
 dd_usa_cut_state_pop_percent = {
 	set_temp_variable = { dd_cut = state_population_k }
 	multiply_temp_variable = { dd_cut = 10 }
@@ -198,51 +214,51 @@ dd_usa_strip_finance = {
 }
 
 dd_usa_seize_jewish_wealth = {
-	add_to_variable = { treasury = 1000 }
+	add_to_variable = { treasury = 500 }
 	if = {
 		limit = { 1125 = { is_owned_by = ROOT } }
 		1125 = {
 			add_extra_state_shared_building_slots = 2
-			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			add_building_construction = { type = services_building level = 2 instant_build = yes }
 		}
 	}
 	if = {
 		limit = { 359 = { is_owned_by = ROOT } }
 		359 = {
 			add_extra_state_shared_building_slots = 1
-			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			add_building_construction = { type = services_building level = 1 instant_build = yes }
 		}
 	}
 	if = {
 		limit = { 366 = { is_owned_by = ROOT } }
 		366 = {
 			add_extra_state_shared_building_slots = 1
-			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			add_building_construction = { type = services_building level = 1 instant_build = yes }
 		}
 	}
 }
 
 dd_usa_seize_foreign_wealth = {
-	add_to_variable = { treasury = 1000 }
+	add_to_variable = { treasury = 500 }
 	if = {
 		limit = { 378 = { is_owned_by = ROOT } }
 		378 = {
 			add_extra_state_shared_building_slots = 2
-			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			add_building_construction = { type = services_building level = 2 instant_build = yes }
 		}
 	}
 	if = {
 		limit = { 366 = { is_owned_by = ROOT } }
 		366 = {
 			add_extra_state_shared_building_slots = 1
-			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			add_building_construction = { type = services_building level = 1 instant_build = yes }
 		}
 	}
 	if = {
 		limit = { 375 = { is_owned_by = ROOT } }
 		375 = {
 			add_extra_state_shared_building_slots = 1
-			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			add_building_construction = { type = services_building level = 1 instant_build = yes }
 		}
 	}
 }
@@ -252,6 +268,7 @@ dd_usa_crush_degeneracy = {
 	378 = { add_manpower = -10000 }
 	386 = { add_manpower = -10000 }
 	1125 = { add_manpower = -10000 }
+	1140 = { add_manpower = -1000 }
 }
 
 dd_usa_start_mass_deportations = {
@@ -282,8 +299,14 @@ dd_usa_wargoal_every_tag = {
 			exists = yes
 			NOT = { has_war_with = ROOT }
 			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
 		}
-		ROOT = {
+		set_country_flag = dd_usa_total_war_target
+	}
+	every_country = {
+		limit = { has_country_flag = dd_usa_total_war_target }
+		clr_country_flag = dd_usa_total_war_target
+		PREV = {
 			create_wargoal = {
 				type = dd_annex
 				target = PREV
@@ -297,10 +320,16 @@ dd_usa_stop_the_maniacs = {
 		limit = {
 			exists = yes
 			NOT = { has_war_with = ROOT }
+			NOT = { is_in_faction_with = ROOT }
 		}
+		set_country_flag = dd_usa_stop_maniacs_target
+	}
+	every_country = {
+		limit = { has_country_flag = dd_usa_stop_maniacs_target }
+		clr_country_flag = dd_usa_stop_maniacs_target
 		create_wargoal = {
 			type = dd_stop_maniacs
-			target = ROOT
+			target = PREV
 		}
 	}
 }
@@ -318,6 +347,7 @@ dd_usa_expand_arsenal = {
 		}
 	}
 	add_ideas = dd_usa_expanding_arsenal
+	dd_usa_stop_the_maniacs = yes
 }
 
 dd_usa_malice_hit = {
@@ -452,15 +482,6 @@ dd_usa_postcw_monthly = {
 	if = {
 		limit = { has_idea = dd_usa_mass_deportations }
 		dd_usa_cut_every_state_pop_percent = yes
-	}
-	if = {
-		limit = {
-			OR = {
-				has_idea = dd_usa_gutting_middle_class
-				has_idea = dd_usa_gutting_middle_class_2
-			}
-		}
-		add_to_variable = { treasury = 100 }
 	}
 	if = {
 		limit = { has_country_flag = dd_usa_liberated_planet }

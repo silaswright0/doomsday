@@ -1,5 +1,15 @@
 ideas = {
 	country = {
+		dd_usa_socialist_poster_child = {
+			picture = dd_usa_socialist_poster_child
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				social_democracy_drift = 0.01
+			}
+		}
+
 		dd_usa_global_tariff_plan = {
 			picture = generic_goods_red_bonus
 			allowed = { always = no }
@@ -155,6 +165,7 @@ ideas = {
 				production_factory_max_efficiency_factor = -0.10
 				industrial_capacity_factory = -0.05
 			}
+			custom_modifier_tooltip = dd_usa_tax_cash_tt
 		}
 
 		dd_usa_final_demsoc = {
@@ -163,8 +174,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_factor = 0.05
-				political_power_gain = 0.10
+				stability_factor = 0.20
+				war_support_factor = 0.20
+				monthly_population = 0.20
 			}
 		}
 		dd_usa_final_liberal = {
@@ -173,8 +185,8 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_factor = 0.05
-				research_speed_factor = 0.05
+				consumer_goods_factor = -0.10
+				industrial_capacity_factory = 0.15
 			}
 		}
 		dd_usa_final_conservative = {
@@ -183,8 +195,10 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_factor = 0.05
-				war_support_factor = 0.05
+				stability_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.10
+				production_factory_max_efficiency_factor = 0.10
+				consumer_goods_factor = -0.10
 			}
 		}
 		dd_usa_final_centre = {
@@ -203,8 +217,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				war_support_factor = 0.10
-				army_attack_factor = 0.05
+				industrial_capacity_factory = 0.20
+				production_factory_efficiency_gain_factor = 0.10
+				production_factory_max_efficiency_factor = 0.10
 			}
 		}
 		dd_usa_state_oversight = {
@@ -553,17 +568,15 @@ ideas = {
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			modifier = {
-				pocket_penalty = -0.25
-				supply_consumption_factor = -0.20
-				out_of_supply_factor = -0.25
-				army_core_attack_factor = 0.05
-				army_core_defence_factor = 0.05
-				modifier_army_sub_unit_irregular_infantry_attack_factor = 0.10
-				modifier_army_sub_unit_irregular_infantry_defence_factor = 0.10
-				army_morale_factor = 0.10
-				org_loss_when_moving = -0.20
-			}
+		modifier = {
+			army_core_attack_factor = 0.05
+			army_core_defence_factor = 0.05
+			war_support_factor = 0.20
+			surrender_limit = 0.20
+			army_morale_factor = 0.05
+			monthly_population = 0.05
+			stability_factor = -0.10
+		}
 		}
 		dd_usa_cw_late_demsoc = {
 			picture = generic_democratic_drift_bonus
@@ -624,16 +637,15 @@ ideas = {
 				pocket_penalty = -0.20
 			}
 		}
-		dd_usa_nation_in_ruins = {
-			picture = generic_production_bonus
+		dd_usa_what_doesnt_kill_you = {
+			picture = generic_morale_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				war_support_factor = -0.25
-				industrial_capacity_factory = -0.25
-				consumer_goods_factor = 0.30
-				stability_factor = -0.15
+				stability_factor = 0.10
+				war_support_factor = 0.10
+				surrender_limit = 0.10
 			}
 		}
 		dd_txg_lone_star = {
@@ -718,6 +730,89 @@ ideas = {
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
+			modifier = {
+				fascism_drift = 0.10
+				war_support_factor = 0.10
+				surrender_limit = 0.20
+				resistance_target = -0.30
+				compliance_gain = 0.10
+				required_garrison_factor = -0.25
+			}
+		}
+		dd_usa_the_fasces = {
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.20
+				war_support_factor = 0.20
+				justify_war_goal_time = -0.35
+			}
+		}
+		dd_usa_american_rebirth = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+				breakthrough_factor = 0.10
+			}
+		}
+		dd_usa_blood_and_soil = {
+			picture = generic_manpower_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.40
+				conscription = 0.05
+				war_support_factor = 0.20
+				army_org_factor = 0.10
+			}
+		}
+		dd_usa_fascist_new_order = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.20
+				industrial_capacity_factory = 0.20
+			}
+		}
+		dd_usa_solidarity_forever = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_morale_factor = 0.10
+				industrial_capacity_factory = 0.10
+				war_support_factor = 0.10
+			}
+		}
+		dd_usa_the_vanguard = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.10
+			}
+		}
+		dd_usa_the_spectre = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				justify_war_goal_time = -0.80
+				war_support_factor = 0.10
+			}
 		}
 		dd_usa_expanding_arsenal = {
 			picture = generic_research_bonus
@@ -725,9 +820,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				nuclear_production_factor = 0.50
-				thermonuclear_production_factor = 0.50
-				production_speed_nuclear_reactor_factor = 0.25
+				nuclear_production_factor = 2.00
+				thermonuclear_production_factor = 2.00
+				production_speed_nuclear_reactor_factor = 1.00
 			}
 		}
 		dd_usa_five_year_plan = {
@@ -750,12 +845,14 @@ ideas = {
 				war_support_factor = -0.20
 				monthly_population = -0.20
 			}
+			custom_modifier_tooltip = dd_usa_gut_cash_tt
 		}
 		dd_usa_gutting_middle_class_2 = {
 			picture = generic_goods_red_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
+			custom_modifier_tooltip = dd_usa_gut_cash_tt
 		}
 		dd_usa_abolished_judiciary = {
 			picture = generic_pp_unity_bonus
@@ -796,7 +893,7 @@ ideas = {
 			}
 		}
 		dd_usa_space_infrastructure = {
-			picture = generic_intel_bonus
+			picture = dd_usa_space_infrastructure
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
@@ -808,10 +905,72 @@ ideas = {
 			}
 		}
 		dd_usa_israel_arms = {
+			picture = dd_usa_israel_arms
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+		}
+		dd_usa_government_for_the_people = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.40
+				surrender_limit = 0.40
+				political_power_gain = 0.50
+				monthly_population = 0.10
+				stability_factor = 0.10
+			}
+		}
+		dd_usa_bill_beautiful = {
 			picture = generic_production_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.10
+				consumer_goods_factor = 0.05
+			}
+		}
+		dd_usa_bill_secure = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.10
+				war_support_factor = 0.10
+			}
+		}
+		dd_usa_bill_water = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.10
+			}
+		}
+		dd_usa_bill_homes = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				monthly_population = 0.05
+			}
+		}
+		dd_usa_bill_telehealth = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				stability_factor = 0.05
+			}
 		}
 	}
 }

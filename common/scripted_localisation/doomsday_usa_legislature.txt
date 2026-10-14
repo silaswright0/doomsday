@@ -96,11 +96,11 @@ defined_text = {
 			OR = {
 				AND = {
 					check_variable = { dd_usa_bill_party < 1 }
-					check_variable = { dd_usa_senate_dem > 59.999 }
+					check_variable = { dd_usa_senate_dem_now > 59.999 }
 				}
 				AND = {
 					check_variable = { dd_usa_bill_party > 0 }
-					check_variable = { dd_usa_senate_rep > 59.999 }
+					check_variable = { dd_usa_senate_rep_now > 59.999 }
 				}
 			}
 		}
