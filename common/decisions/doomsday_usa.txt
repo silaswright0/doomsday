@@ -46,7 +46,10 @@ dd_usa_legislature_category = {
 		available = {
 			OR = {
 				AND = {
-					has_government = social_liberalism
+					OR = {
+						has_government = social_liberalism
+						has_government = social_democracy
+					}
 					check_variable = { dd_usa_senate_dem_now > 50.999 }
 				}
 				AND = {

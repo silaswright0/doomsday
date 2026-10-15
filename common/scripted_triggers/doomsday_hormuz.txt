@@ -1,0 +1,121 @@
+# Target country is THIS. FROM is the country trying to call them.
+# While the Iran war spirit is up, the United States cannot call the faction.
+is_diplomatic_action_valid_call_allies = {
+	NOT = { FROM = { has_idea = dd_usa_iran_war } }
+}
+
+dd_hormuz_per_bombed_now = {
+	PER = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+}
+
+dd_hormuz_per_bombed_today = {
+	PER = { any_owned_state = { days_since_last_strategic_bombing < 2 } }
+}
+
+dd_hormuz_gulf_bombed_now = {
+	OR = {
+		SAU = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+		KUW = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+		QAT = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+		UAE = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+		BHR = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+		OMA = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+	}
+}
+
+# Iranian regime authority. Iran starts at 90% stability, so the war opens on Total Control.
+# PER.dd_hormuz_auth_shift moves the card left, toward Total Control, one step per point.
+dd_hormuz_auth_1 = {
+	OR = {
+		PER = { has_stability > 0.79 }
+		PER = {
+			check_variable = { dd_hormuz_auth_shift > 0 }
+			has_stability > 0.59
+		}
+		PER = {
+			check_variable = { dd_hormuz_auth_shift > 1 }
+			has_stability > 0.39
+		}
+		PER = {
+			check_variable = { dd_hormuz_auth_shift > 2 }
+			has_stability > 0.19
+		}
+		PER = { check_variable = { dd_hormuz_auth_shift > 3 } }
+	}
+}
+dd_hormuz_auth_2 = {
+	OR = {
+		PER = {
+			NOT = { check_variable = { dd_hormuz_auth_shift > 0 } }
+			has_stability > 0.59
+		}
+		PER = {
+			check_variable = { dd_hormuz_auth_shift = 1 }
+			has_stability > 0.39
+			NOT = { has_stability > 0.59 }
+		}
+		PER = {
+			check_variable = { dd_hormuz_auth_shift = 2 }
+			has_stability > 0.19
+			NOT = { has_stability > 0.39 }
+		}
+		PER = {
+			check_variable = { dd_hormuz_auth_shift = 3 }
+			NOT = { has_stability > 0.19 }
+		}
+	}
+	NOT = { dd_hormuz_auth_1 = yes }
+}
+dd_hormuz_auth_3 = {
+	OR = {
+		PER = {
+			NOT = { check_variable = { dd_hormuz_auth_shift > 0 } }
+			has_stability > 0.39
+			NOT = { has_stability > 0.59 }
+		}
+		PER = {
+			check_variable = { dd_hormuz_auth_shift = 1 }
+			has_stability > 0.19
+			NOT = { has_stability > 0.39 }
+		}
+		PER = {
+			check_variable = { dd_hormuz_auth_shift = 2 }
+			NOT = { has_stability > 0.19 }
+		}
+	}
+	NOT = { dd_hormuz_auth_1 = yes }
+	NOT = { dd_hormuz_auth_2 = yes }
+}
+dd_hormuz_auth_4 = {
+	OR = {
+		PER = {
+			NOT = { check_variable = { dd_hormuz_auth_shift > 0 } }
+			has_stability > 0.19
+			NOT = { has_stability > 0.39 }
+		}
+		PER = {
+			check_variable = { dd_hormuz_auth_shift = 1 }
+			NOT = { has_stability > 0.19 }
+		}
+	}
+	NOT = { dd_hormuz_auth_1 = yes }
+	NOT = { dd_hormuz_auth_2 = yes }
+	NOT = { dd_hormuz_auth_3 = yes }
+}
+dd_hormuz_auth_5 = {
+	NOT = { dd_hormuz_auth_1 = yes }
+	NOT = { dd_hormuz_auth_2 = yes }
+	NOT = { dd_hormuz_auth_3 = yes }
+	NOT = { dd_hormuz_auth_4 = yes }
+}
+
+dd_hormuz_gulf_bombed_today = {
+	OR = {
+		SAU = { any_owned_state = { days_since_last_strategic_bombing < 2 } }
+		KUW = { any_owned_state = { days_since_last_strategic_bombing < 2 } }
+		QAT = { any_owned_state = { days_since_last_strategic_bombing < 2 } }
+		UAE = { any_owned_state = { days_since_last_strategic_bombing < 2 } }
+		BHR = { any_owned_state = { days_since_last_strategic_bombing < 2 } }
+		OMA = { any_owned_state = { days_since_last_strategic_bombing < 2 } }
+	}
+}

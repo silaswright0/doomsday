@@ -1,0 +1,759 @@
+# Iran war, succession, and the Hormuz blockade. Country-scoped. No random.
+
+dd_per_puppet_proxies = {
+	if = {
+		limit = {
+			HAM = { exists = yes }
+			NOT = { HAM = { is_subject_of = PER } }
+		}
+		puppet = HAM
+	}
+	if = {
+		limit = {
+			HEZ = { exists = yes }
+			NOT = { HEZ = { is_subject_of = PER } }
+		}
+		puppet = HEZ
+	}
+	if = {
+		limit = {
+			HOU = { exists = yes }
+			NOT = { HOU = { is_subject_of = PER } }
+		}
+		puppet = HOU
+	}
+}
+
+dd_per_withdraw_proxy_support = {
+	if = {
+		limit = { HAM = { exists = yes } }
+		HAM = {
+			remove_ideas = dd_ham_fractured_support
+		}
+	}
+	if = {
+		limit = { HEZ = { exists = yes } }
+		HEZ = {
+			remove_ideas = dd_hez_hindered_support
+			remove_ideas = dd_hez_iranian_support
+		}
+	}
+	if = {
+		limit = { IRQ = { exists = yes } }
+		IRQ = {
+			remove_ideas = dd_irq_shiite_militias
+			remove_ideas = dd_irq_shiite_militias_active
+		}
+	}
+}
+
+dd_per_strip_reactors = {
+	every_owned_state = {
+		remove_building = { type = nuclear_reactor level = 5 }
+		remove_building = { type = commercial_nuclear_reactor level = 5 }
+		remove_building = { type = nuclear_reactor_heavy_water level = 5 }
+	}
+	add_ideas = dd_per_nuclear_ban
+}
+
+dd_per_irgc_revolt = {
+	custom_effect_tooltip = dd_per_irgc_revolt_tt
+	hidden_effect = {
+		dd_per_strip_reactors = yes
+		if = {
+			limit = { 413 = { is_owned_by = PER } }
+			start_civil_war = {
+				ideology = theocratic_absolutism
+				size = 0.35
+				capital = 413
+				states = { 413 411 410 414 }
+				set_country_flag = dd_irg_revolt
+				save_event_target_as = dd_irg_side
+			}
+		}
+		else_if = {
+			limit = { 411 = { is_owned_by = PER } }
+			start_civil_war = {
+				ideology = theocratic_absolutism
+				size = 0.35
+				capital = 411
+				states = { 413 411 410 414 }
+				set_country_flag = dd_irg_revolt
+				save_event_target_as = dd_irg_side
+			}
+		}
+		else_if = {
+			limit = { 410 = { is_owned_by = PER } }
+			start_civil_war = {
+				ideology = theocratic_absolutism
+				size = 0.35
+				capital = 410
+				states = { 413 411 410 414 }
+				set_country_flag = dd_irg_revolt
+				save_event_target_as = dd_irg_side
+			}
+		}
+		else_if = {
+			limit = { 414 = { is_owned_by = PER } }
+			start_civil_war = {
+				ideology = theocratic_absolutism
+				size = 0.35
+				capital = 414
+				states = { 413 411 410 414 }
+				set_country_flag = dd_irg_revolt
+				save_event_target_as = dd_irg_side
+			}
+		}
+		remove_ideas = dd_per_irgc_dominance
+		if = {
+			limit = { has_event_target = dd_irg_side }
+			event_target:dd_irg_side = {
+				set_cosmetic_tag = IRG_REVOLT
+				set_country_flag = dd_irg_revolt
+				if = {
+					limit = { NOT = { has_idea = dd_per_irgc_dominance } }
+					add_ideas = dd_per_irgc_dominance
+				}
+				add_ideas = dd_irg_no_faction
+				set_rule = { can_join_factions = no can_create_factions = no }
+				create_country_leader = {
+					name = "Mohammad Pakpour"
+					picture = GFX_portrait_PER_leader
+					ideology = theocrat
+				}
+			}
+		}
+		news_event = { id = dd_iran_news.3 }
+	}
+}
+
+dd_per_peace_except_irgc = {
+	every_country = {
+		limit = {
+			has_war_with = PER
+			NOT = { has_country_flag = dd_irg_revolt }
+			NOT = { tag = HOU }
+		}
+		white_peace = PER
+	}
+}
+
+dd_per_conditional_peace = {
+	custom_effect_tooltip = dd_per_conditional_peace_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				HAM = { exists = yes }
+				ISR = { exists = yes }
+			}
+			ISR = { annex_country = { target = HAM transfer_troops = yes } }
+		}
+		if = {
+			limit = {
+				HEZ = { exists = yes }
+				ISR = { exists = yes }
+			}
+			ISR = { annex_country = { target = HEZ transfer_troops = yes } }
+		}
+		if = {
+			limit = {
+				HOU = { exists = yes }
+				YEM = { exists = yes }
+			}
+			YEM = { annex_country = { target = HOU transfer_troops = yes } }
+		}
+		dd_per_peace_except_irgc = yes
+	}
+}
+
+dd_per_demand_peace = {
+	custom_effect_tooltip = dd_per_demand_peace_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				HAM = { exists = yes }
+				ISR = { exists = yes }
+			}
+			ISR = { annex_country = { target = HAM transfer_troops = yes } }
+		}
+		if = {
+			limit = { USA = { exists = yes has_war_with = PER } }
+			USA = { white_peace = PER }
+		}
+		if = {
+			limit = { ISR = { exists = yes has_war_with = PER } }
+			ISR = { white_peace = PER }
+		}
+		every_country = {
+			limit = {
+				has_war_with = PER
+				NOT = { has_country_flag = dd_irg_revolt }
+				NOT = { tag = HOU }
+				NOT = { tag = USA }
+				NOT = { tag = ISR }
+			}
+			white_peace = PER
+		}
+		set_country_flag = dd_per_usa_accepted
+		set_global_flag = dd_gulf_closed_usa
+		every_country = {
+			limit = {
+				OR = {
+					tag = SAU
+					tag = KUW
+					tag = QAT
+					tag = UAE
+					tag = BHR
+					tag = OMA
+				}
+			}
+			add_ideas = dd_gulf_closed_to_usa
+			diplomatic_relation = { country = USA relation = military_access active = no }
+			diplomatic_relation = { country = USA relation = docking_rights active = no }
+			USA = {
+				diplomatic_relation = { country = PREV relation = guarantee active = no }
+				diplomatic_relation = { country = PREV relation = military_access active = no }
+				diplomatic_relation = { country = PREV relation = docking_rights active = no }
+			}
+		}
+		dd_hormuz_clear_blockade = yes
+		if = {
+			limit = { has_global_flag = dd_hormuz_war }
+			dd_hormuz_end = yes
+		}
+	}
+}
+
+dd_gulf_strip_usa_access = {
+	every_country = {
+		limit = { has_idea = dd_gulf_closed_to_usa }
+		diplomatic_relation = { country = USA relation = military_access active = no }
+		diplomatic_relation = { country = USA relation = docking_rights active = no }
+		USA = {
+			diplomatic_relation = { country = PREV relation = guarantee active = no }
+			diplomatic_relation = { country = PREV relation = military_access active = no }
+			diplomatic_relation = { country = PREV relation = docking_rights active = no }
+		}
+	}
+}
+
+dd_hormuz_blockade_targets = {
+	every_country = {
+		limit = {
+			OR = {
+				tag = USA
+				tag = ENG
+				tag = FRA
+				tag = ITA
+				tag = SPR
+				tag = POR
+				tag = HOL
+				tag = BEL
+				tag = LUX
+				tag = GER
+				tag = AUS
+				tag = CZE
+				tag = POL
+				tag = SWI
+				tag = DEN
+				tag = SWE
+				tag = FIN
+				tag = IRE
+				tag = GRE
+				tag = HUN
+				tag = ROM
+				tag = BUL
+				tag = AST
+				tag = NZL
+				tag = JAP
+				tag = KOR
+				tag = CHI
+				tag = RAJ
+				tag = BRA
+				tag = MEX
+				tag = EGY
+				tag = ETH
+				tag = KEN
+				tag = TAN
+				tag = UGA
+				tag = ZAM
+				tag = ZIM
+				tag = MOZ
+				tag = MAD
+				tag = SEN
+				tag = MLI
+				tag = GHA
+				tag = CIV
+				tag = CMR
+				tag = SAF
+				tag = MOR
+				tag = TUN
+				tag = SUD
+			}
+			NOT = { has_idea = dd_hormuz_blockade_shock }
+		}
+		add_ideas = dd_hormuz_blockade_shock
+	}
+}
+
+dd_hormuz_seal_gulf_oil = {
+	every_country = {
+		limit = {
+			OR = {
+				tag = SAU
+				tag = KUW
+				tag = QAT
+				tag = UAE
+				tag = BHR
+				tag = OMA
+				tag = IRQ
+				tag = PER
+			}
+			NOT = { has_idea = dd_gulf_oil_sealed }
+		}
+		add_ideas = dd_gulf_oil_sealed
+	}
+}
+
+dd_hormuz_start_blockade = {
+	set_global_flag = dd_hormuz_blockade
+	dd_hormuz_blockade_targets = yes
+	dd_hormuz_seal_gulf_oil = yes
+	if = {
+		limit = {
+			USA = { exists = yes }
+			NOT = { USA = { has_idea = dd_hormuz_blockade_usa } }
+		}
+		USA = { add_ideas = dd_hormuz_blockade_usa }
+	}
+	news_event = { id = dd_iran_news.4 }
+}
+
+dd_hormuz_clear_blockade = {
+	clr_global_flag = dd_hormuz_blockade
+	every_country = {
+		limit = { has_idea = dd_hormuz_blockade_shock }
+		remove_ideas = dd_hormuz_blockade_shock
+	}
+	every_country = {
+		limit = { has_idea = dd_hormuz_blockade_usa }
+		remove_ideas = dd_hormuz_blockade_usa
+	}
+	every_country = {
+		limit = { has_idea = dd_gulf_oil_sealed }
+		remove_ideas = dd_gulf_oil_sealed
+	}
+	every_country = {
+		limit = { has_idea = dd_hormuz_saudi_shock }
+		remove_ideas = dd_hormuz_saudi_shock
+	}
+}
+
+dd_per_squeeze_saudis = {
+	if = {
+		limit = { SAU = { exists = yes } }
+		SAU = {
+			add_ideas = dd_sau_squeezed
+			set_variable = { dd_sau_hit = 0 }
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = dd_hormuz_war
+			USA = { exists = yes }
+			NOT = { USA = { has_idea = dd_hormuz_saudi_shock } }
+		}
+		USA = { add_ideas = dd_hormuz_saudi_shock }
+	}
+}
+
+dd_sau_squeeze_tick = {
+	add_to_variable = { dd_sau_hit = 1 }
+	if = {
+		limit = { check_variable = { dd_sau_hit > 5 } }
+		set_variable = { dd_sau_hit = 1 }
+	}
+	if = {
+		limit = { check_variable = { dd_sau_hit = 1 } }
+		292 = { damage_building = { type = infrastructure damage = 0.20 } }
+	}
+	if = {
+		limit = { check_variable = { dd_sau_hit = 2 } }
+		679 = { damage_building = { type = infrastructure damage = 0.20 } }
+	}
+	if = {
+		limit = { check_variable = { dd_sau_hit = 3 } }
+		856 = { damage_building = { type = infrastructure damage = 0.20 } }
+	}
+	if = {
+		limit = { check_variable = { dd_sau_hit = 4 } }
+		855 = { damage_building = { type = infrastructure damage = 0.20 } }
+	}
+	if = {
+		limit = { check_variable = { dd_sau_hit = 5 } }
+		859 = { damage_building = { type = industrial_complex damage = 0.25 } }
+	}
+}
+
+dd_per_rally_muslims = {
+	every_country = {
+		limit = {
+			NOT = { tag = PER }
+			OR = {
+				tag = AFG
+				tag = ALB
+				tag = ALG
+				tag = AZR
+				tag = BAN
+				tag = BHR
+				tag = BRU
+				tag = CHA
+				tag = DJI
+				tag = EGY
+				tag = GAM
+				tag = GNA
+				tag = HAM
+				tag = HEZ
+				tag = HOU
+				tag = INS
+				tag = IRQ
+				tag = JOR
+				tag = KAZ
+				tag = KUW
+				tag = KYR
+				tag = LBA
+				tag = LEB
+				tag = MAL
+				tag = MLI
+				tag = MOR
+				tag = MRT
+				tag = NGA
+				tag = OMA
+				tag = PAK
+				tag = QAT
+				tag = SAU
+				tag = SEN
+				tag = SOM
+				tag = SUD
+				tag = SYR
+				tag = TAJ
+				tag = TMS
+				tag = TUN
+				tag = TUR
+				tag = UAE
+				tag = UZB
+				tag = YEM
+			}
+		}
+		add_timed_idea = { idea = dd_per_muslim_rally days = 365 }
+		add_opinion_modifier = { target = PER modifier = dd_per_muslim_rally_opinion }
+	}
+}
+
+dd_per_spawn_brigades = {
+	division_template = {
+		name = "Zagros Foreign Brigade"
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+			infantry = { x = 2 y = 2 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+			artillery = { x = 0 y = 1 }
+		}
+		is_locked = yes
+	}
+	421 = {
+		create_unit = {
+			division = "name = \"1. Foreign Brigade\" division_template = \"Zagros Foreign Brigade\" start_experience_factor = 0.75 start_equipment_factor = 1"
+			owner = PER
+		}
+		create_unit = {
+			division = "name = \"2. Foreign Brigade\" division_template = \"Zagros Foreign Brigade\" start_experience_factor = 0.75 start_equipment_factor = 1"
+			owner = PER
+		}
+	}
+}
+
+dd_per_zagros_forts = {
+	421 = {
+		add_building_construction = {
+			type = bunker
+			level = 2
+			instant_build = yes
+			province = { all_provinces = yes limit_to_border = yes }
+		}
+	}
+	413 = {
+		add_building_construction = {
+			type = bunker
+			level = 2
+			instant_build = yes
+			province = { all_provinces = yes limit_to_border = yes }
+		}
+	}
+	419 = {
+		add_building_construction = {
+			type = bunker
+			level = 2
+			instant_build = yes
+			province = { all_provinces = yes limit_to_border = yes }
+		}
+	}
+	1000 = {
+		add_building_construction = {
+			type = bunker
+			level = 2
+			instant_build = yes
+			province = { all_provinces = yes limit_to_border = yes }
+		}
+	}
+}
+
+dd_per_apply_constitution = {
+	if = {
+		limit = { check_variable = { dd_per_c1 = 1 } }
+		set_politics = { ruling_party = theocratic_absolutism elections_allowed = yes }
+		create_country_leader = {
+			name = "Masoud Pezeshkian"
+			picture = GFX_portrait_PER_leader
+			ideology = theocrat
+		}
+		set_popularities = {
+			theocratic_absolutism = 55
+			islamic_democracy = 18
+			liberal_conservatism = 8
+			left_wing_nationalism = 8
+			national_populism = 5
+			communism = 3
+			sovereign_democracy = 3
+		}
+	}
+	else_if = {
+		limit = { check_variable = { dd_per_c1 = 2 } }
+		set_politics = { ruling_party = islamic_democracy elections_allowed = yes }
+		create_country_leader = {
+			name = "Masoud Pezeshkian"
+			picture = GFX_portrait_PER_leader
+			ideology = islamic_democrat
+		}
+		set_popularities = {
+			theocratic_absolutism = 22
+			islamic_democracy = 48
+			liberal_conservatism = 10
+			left_wing_nationalism = 8
+			national_populism = 5
+			communism = 4
+			sovereign_democracy = 3
+		}
+	}
+	else = {
+		set_politics = { ruling_party = social_liberalism elections_allowed = yes }
+		create_country_leader = {
+			name = "Masoud Pezeshkian"
+			picture = GFX_portrait_PER_leader
+			ideology = social_liberal
+		}
+		set_popularities = {
+			theocratic_absolutism = 18
+			islamic_democracy = 14
+			social_liberalism = 40
+			liberal_conservatism = 10
+			left_wing_nationalism = 8
+			national_populism = 5
+			communism = 3
+			sovereign_democracy = 2
+		}
+	}
+	if = {
+		limit = { check_variable = { dd_per_c2 = 3 } }
+		add_popularity = { ideology = left_wing_nationalism popularity = 0.12 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_per_c1 = 1 }
+			check_variable = { dd_per_c2 = 1 }
+		}
+		add_ideas = dd_per_const_11
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_per_c1 = 1 }
+			check_variable = { dd_per_c2 = 2 }
+		}
+		add_ideas = dd_per_const_12
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_per_c1 = 1 }
+			check_variable = { dd_per_c2 = 3 }
+		}
+		add_ideas = dd_per_const_13
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_per_c1 = 2 }
+			check_variable = { dd_per_c2 = 1 }
+		}
+		add_ideas = dd_per_const_21
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_per_c1 = 2 }
+			check_variable = { dd_per_c2 = 2 }
+		}
+		add_ideas = dd_per_const_22
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_per_c1 = 2 }
+			check_variable = { dd_per_c2 = 3 }
+		}
+		add_ideas = dd_per_const_23
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_per_c1 = 3 }
+			check_variable = { dd_per_c2 = 1 }
+		}
+		add_ideas = dd_per_const_31
+	}
+	else_if = {
+		limit = {
+			check_variable = { dd_per_c1 = 3 }
+			check_variable = { dd_per_c2 = 2 }
+		}
+		add_ideas = dd_per_const_32
+	}
+	else = {
+		add_ideas = dd_per_const_33
+	}
+}
+
+dd_per_activate_shiite = {
+	if = {
+		limit = { IRQ = { exists = yes has_idea = dd_irq_shiite_militias } }
+		IRQ = {
+			remove_ideas = dd_irq_shiite_militias
+			add_ideas = dd_irq_shiite_militias_active
+		}
+	}
+	else_if = {
+		limit = {
+			IRQ = { exists = yes }
+			NOT = { IRQ = { has_idea = dd_irq_shiite_militias_active } }
+		}
+		IRQ = { add_ideas = dd_irq_shiite_militias_active }
+	}
+}
+
+dd_per_rebuild_infra = {
+	if = {
+		limit = { 1002 = { is_owned_by = ROOT } }
+		1002 = {
+			add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { 414 = { is_owned_by = ROOT } }
+		414 = {
+			add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+		}
+	}
+}
+
+dd_per_rebuild_industry = {
+	capital_scope = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+	}
+}
+
+dd_per_race_for_the_bomb = {
+	set_technology = {
+		atomic_research = 1
+		nuclear_reactor = 1
+		nukes = 1
+		popup = no
+	}
+	if = {
+		limit = { 1002 = { is_owned_by = ROOT } }
+		1002 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = nuclear_reactor level = 1 instant_build = yes }
+		}
+	}
+	else = {
+		capital_scope = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = nuclear_reactor level = 1 instant_build = yes }
+		}
+	}
+	add_ideas = dd_per_racing_for_the_bomb
+}
+
+dd_per_shiite_popout = {
+	if = {
+		limit = {
+			IRQ = { exists = yes owns_state = 1011 owns_state = 675 }
+		}
+		IRQ = {
+			start_civil_war = {
+				ideology = theocratic_absolutism
+				size = 0.20
+				capital = 1011
+				states = { 1011 675 }
+				set_country_flag = dd_irq_shiite_state
+				save_event_target_as = dd_shiite_side
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			IRQ = { exists = yes owns_state = 1011 }
+		}
+		IRQ = {
+			start_civil_war = {
+				ideology = theocratic_absolutism
+				size = 0.20
+				capital = 1011
+				states = { 1011 }
+				set_country_flag = dd_irq_shiite_state
+				save_event_target_as = dd_shiite_side
+			}
+		}
+	}
+	if = {
+		limit = { has_event_target = dd_shiite_side }
+		event_target:dd_shiite_side = {
+			set_cosmetic_tag = IRQ_SHIA
+			add_state_core = 1011
+			if = {
+				limit = { 675 = { is_owned_by = event_target:dd_shiite_side } }
+				add_state_core = 675
+			}
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Hashd al-Shaabi"
+				picture = GFX_portrait_unknown
+				expire = "2065.1.1"
+				ideology = theocrat
+			}
+			set_technology = { militia_tech = 1 }
+			set_variable = { dd_cw_militia_count = 6 }
+			dd_per_cw_arm = yes
+		}
+		puppet = event_target:dd_shiite_side
+		add_to_war = {
+			targeted_alliance = event_target:dd_shiite_side
+			enemy = IRQ
+		}
+	}
+}

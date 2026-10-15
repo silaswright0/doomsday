@@ -1,0 +1,47 @@
+on_actions = {
+	on_call_allies = {
+		effect = {
+			if = {
+				limit = { ROOT = { has_idea = dd_usa_iran_war } }
+				every_country = {
+					limit = {
+						has_war_with = FROM
+						OR = {
+							tag = PER
+							tag = HOU
+							tag = HAM
+							tag = HEZ
+							is_subject_of = PER
+							has_country_flag = dd_irg_revolt
+						}
+					}
+					white_peace = FROM
+				}
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_global_flag = dd_hormuz_war }
+					date > 2026.2.27
+					USA = { exists = yes }
+					PER = { exists = yes }
+				}
+				USA = { country_event = { id = dd_hormuz.1 } }
+			}
+			if = {
+				limit = {
+					has_global_flag = dd_hormuz_war
+					NOT = { USA = { has_war_with = PER } }
+				}
+				dd_hormuz_end = yes
+			}
+			else_if = {
+				limit = { has_global_flag = dd_hormuz_war }
+				dd_hormuz_sync = yes
+			}
+		}
+	}
+}

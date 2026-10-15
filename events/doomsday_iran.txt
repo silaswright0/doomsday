@@ -1,0 +1,214 @@
+add_namespace = dd_iran
+add_namespace = dd_iran_news
+
+# Fired on Iran when the February war begins.
+country_event = {
+	id = dd_iran.1
+	title = dd_iran.1.t
+	desc = dd_iran.1.d
+	picture = GFX_report_event_generic_funeral
+	is_triggered_only = yes
+	option = {
+		name = dd_iran.1.a
+		ai_chance = { factor = 10 }
+		set_country_flag = dd_per_pezeshkian
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Masoud Pezeshkian"
+			picture = GFX_portrait_PER_leader
+			ideology = theocrat
+		}
+		news_event = { id = dd_iran_news.6 }
+	}
+	option = {
+		name = dd_iran.1.b
+		ai_chance = { factor = 0 }
+		set_country_flag = dd_per_mojtaba
+		add_ideas = dd_holy_war
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Mojtaba Khamenei"
+			picture = GFX_portrait_PER_leader
+			ideology = theocrat
+		}
+		news_event = { id = dd_iran_news.7 }
+	}
+}
+
+country_event = {
+	id = dd_iran.2
+	title = dd_iran.2.t
+	desc = dd_iran.2.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_iran.2.a
+		ai_chance = { factor = 10 }
+		set_variable = { dd_per_c1 = 1 }
+		country_event = { id = dd_iran.3 }
+	}
+	option = {
+		name = dd_iran.2.b
+		ai_chance = { factor = 0 }
+		set_variable = { dd_per_c1 = 2 }
+		country_event = { id = dd_iran.3 }
+	}
+	option = {
+		name = dd_iran.2.c
+		ai_chance = { factor = 0 }
+		set_variable = { dd_per_c1 = 3 }
+		country_event = { id = dd_iran.3 }
+	}
+}
+
+country_event = {
+	id = dd_iran.3
+	title = dd_iran.3.t
+	desc = dd_iran.3.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_iran.3.a
+		ai_chance = { factor = 10 }
+		set_variable = { dd_per_c2 = 1 }
+		dd_per_apply_constitution = yes
+	}
+	option = {
+		name = dd_iran.3.b
+		ai_chance = { factor = 0 }
+		set_variable = { dd_per_c2 = 2 }
+		dd_per_apply_constitution = yes
+	}
+	option = {
+		name = dd_iran.3.c
+		ai_chance = { factor = 0 }
+		set_variable = { dd_per_c2 = 3 }
+		dd_per_apply_constitution = yes
+	}
+}
+
+# United States answers Iran's surrender demand.
+country_event = {
+	id = dd_iran.10
+	title = dd_iran.10.t
+	desc = dd_iran.10.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_iran.10.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						has_stability < 0.20
+						has_war_support < 0.15
+					}
+				}
+			}
+		}
+		PER = { dd_per_demand_peace = yes }
+		news_event = { id = dd_iran_news.5 }
+	}
+	option = {
+		name = dd_iran.10.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_stability < 0.20
+					has_war_support < 0.15
+				}
+			}
+		}
+		add_war_support = 0.05
+	}
+}
+
+news_event = {
+	id = dd_iran_news.1
+	title = dd_iran_news.1.t
+	desc = dd_iran_news.1.d
+	picture = GFX_news_event_generic_funeral
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_iran_news.1.a }
+}
+
+news_event = {
+	id = dd_iran_news.2
+	title = dd_iran_news.2.t
+	desc = dd_iran_news.2.d
+	picture = GFX_news_event_generic_sign_treaty
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_iran_news.2.a }
+}
+
+news_event = {
+	id = dd_iran_news.3
+	title = dd_iran_news.3.t
+	desc = dd_iran_news.3.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_iran_news.3.a }
+}
+
+news_event = {
+	id = dd_iran_news.4
+	title = dd_iran_news.4.t
+	desc = dd_iran_news.4.d
+	picture = GFX_news_event_generic_naval_treaty
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_iran_news.4.a }
+}
+
+news_event = {
+	id = dd_iran_news.5
+	title = dd_iran_news.5.t
+	desc = dd_iran_news.5.d
+	picture = GFX_news_event_generic_sign_treaty
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_iran_news.5.a }
+}
+
+news_event = {
+	id = dd_iran_news.6
+	title = dd_iran_news.6.t
+	desc = dd_iran_news.6.d
+	picture = GFX_news_event_generic_sign_treaty
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_iran_news.6.a }
+}
+
+# Mid-January 2026. The state fires on the protests.
+country_event = {
+	id = dd_iran.20
+	title = dd_iran.20.t
+	desc = dd_iran.20.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = dd_iran.20.a
+		if = {
+			limit = { 266 = { is_owned_by = ROOT } }
+			266 = { add_manpower = -2500 }
+		}
+	}
+}
+
+news_event = {
+	id = dd_iran_news.7
+	title = dd_iran_news.7.t
+	desc = dd_iran_news.7.d
+	picture = GFX_news_event_generic_army
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_iran_news.7.a }
+}

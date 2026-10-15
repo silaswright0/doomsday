@@ -2682,7 +2682,7 @@ focus_tree = {
 		id = USA_western_dominance
 		icon = GFX_goal_generic_major_war
 		x = 41
-		y = 30
+		y = 31
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -4542,7 +4542,7 @@ focus_tree = {
 			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_bill_expand_medicare_introduced }
 			check_variable = { dd_usa_bill_active < 1 }
-			has_government = social_liberalism
+			OR = { has_government = social_liberalism has_government = social_democracy }
 		}
 		completion_reward = {
 			dd_usa_introduce_bill_expand_medicare = yes
@@ -4564,7 +4564,7 @@ focus_tree = {
 			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_bill_ban_arms_to_israel_introduced }
 			check_variable = { dd_usa_bill_active < 1 }
-			has_government = social_liberalism
+			OR = { has_government = social_liberalism has_government = social_democracy }
 		}
 		completion_reward = {
 			dd_usa_introduce_bill_ban_arms_to_israel = yes
@@ -4586,7 +4586,7 @@ focus_tree = {
 			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_bill_american_homeownership_act_introduced }
 			check_variable = { dd_usa_bill_active < 1 }
-			has_government = social_liberalism
+			OR = { has_government = social_liberalism has_government = social_democracy }
 		}
 		completion_reward = {
 			dd_usa_introduce_bill_american_homeownership_act = yes
@@ -4608,7 +4608,7 @@ focus_tree = {
 			NOT = { has_global_flag = dd_usa_civil_war_started }
 			NOT = { has_country_flag = dd_usa_bill_rural_telehealth_introduced }
 			check_variable = { dd_usa_bill_active < 1 }
-			has_government = social_liberalism
+			OR = { has_government = social_liberalism has_government = social_democracy }
 		}
 		completion_reward = {
 			dd_usa_introduce_bill_rural_telehealth = yes
@@ -4675,7 +4675,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_policy_judiciary
-		icon = GFX_goal_generic_position_armies
+		icon = GFX_goal_generic_forceful_treaty
 		x = -44
 		y = 24
 		cost = 5
@@ -4688,7 +4688,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_policy_executive
-		icon = GFX_goal_generic_position_armies
+		icon = GFX_goal_generic_consumer_goods
 		x = -36
 		y = 24
 		cost = 5
@@ -4701,7 +4701,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_policy_police
-		icon = GFX_goal_generic_position_armies
+		icon = GFX_goal_generic_national_unity
 		x = -28
 		y = 24
 		cost = 5
@@ -4771,7 +4771,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_restore_ph
-		icon = GFX_goal_generic_position_armies
+		icon = GFX_goal_support_democracy
 		x = -32
 		y = 27
 		cost = 10
@@ -4785,12 +4785,12 @@ focus_tree = {
 	focus = {
 		id = USA_free_north_america
 		icon = GFX_goal_generic_demand_territory
-		x = -29
+		x = -36
 		y = 28
 		cost = 10
 		available_if_capitulated = yes
 		ai_will_do = { factor = 5 }
-		prerequisite = { focus = USA_restore_ph focus = USA_cw_commie_late }
+		prerequisite = { focus = USA_restore_ph focus = USA_no_nations }
 		completion_reward = {
 			dd_usa_core_north_america = yes
 		}
@@ -4798,7 +4798,7 @@ focus_tree = {
 	focus = {
 		id = USA_free_the_world
 		icon = GFX_goal_generic_major_alliance
-		x = -29
+		x = -36
 		y = 29
 		cost = 10
 		available_if_capitulated = yes
@@ -4877,7 +4877,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_policy_wall_street
-		icon = GFX_goal_generic_position_armies
+		icon = GFX_goal_generic_consumer_goods
 		x = -18
 		y = 25
 		cost = 5
@@ -4890,7 +4890,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_policy_silicon
-		icon = GFX_goal_generic_position_armies
+		icon = GFX_goal_generic_secret_weapon
 		x = -10
 		y = 25
 		cost = 5
@@ -5205,7 +5205,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_fascist_consolidation
-		icon = GFX_goal_generic_position_armies
+		icon = GFX_goal_generic_national_unity
 		x = 50
 		y = 28
 		cost = 5

@@ -13,6 +13,7 @@ add_namespace = dd_usa_cw
 add_namespace = dd_usa_recon
 add_namespace = dd_usa_abaddon
 add_namespace = dd_usa_blood
+add_namespace = dd_usa_graham
 
 country_event = {
 	id = dd_usa_greenland.1
@@ -794,8 +795,7 @@ country_event = {
 	}
 }
 
-# Human player picks one of the six majors. Split across two events so options fit the GUI.
-# Anarchists break off later (dd_usa_cw.1).
+# Human player picks one of the six majors. Anarchists break off later (dd_usa_cw.1).
 country_event = {
 	id = dd_usa_cw.2
 	title = dd_usa_cw.2.t
@@ -842,18 +842,6 @@ country_event = {
 		}
 	}
 	option = {
-		name = dd_usa_cw.2.more
-		country_event = { id = dd_usa_cw.3 }
-	}
-}
-
-country_event = {
-	id = dd_usa_cw.3
-	title = dd_usa_cw.2.t
-	desc = dd_usa_cw.2.d
-	picture = GFX_report_event_generic_riot
-	is_triggered_only = yes
-	option = {
 		name = dd_usa_cw.2.vnm
 		trigger = {
 			OR = {
@@ -891,10 +879,6 @@ country_event = {
 			limit = { RBL = { has_country_flag = dd_cw_released } }
 			RBL = { change_tag_from = ROOT }
 		}
-	}
-	option = {
-		name = dd_usa_cw.3.back
-		country_event = { id = dd_usa_cw.2 }
 	}
 }
 
@@ -956,4 +940,27 @@ news_event = {
 	option = {
 		name = dd_usa_news.11.a
 	}
+}
+
+# July 11, 2026. He was in Kyiv on the 10th and died that evening after returning.
+country_event = {
+	id = dd_usa_graham.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		remove_ideas = USA_lindsey_graham
+		retire_character = USA_lindsey_graham
+		news_event = { id = dd_usa_news.12 }
+	}
+	option = { name = dd_usa_graham.1.a }
+}
+
+news_event = {
+	id = dd_usa_news.12
+	title = dd_usa_news.12.t
+	desc = dd_usa_news.12.d
+	picture = GFX_news_event_generic_rally
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_usa_news.12.a }
 }

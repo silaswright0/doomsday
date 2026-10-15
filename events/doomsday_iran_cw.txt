@@ -1,0 +1,56 @@
+add_namespace = dd_iran_cw
+add_namespace = dd_iran_cw_news
+
+# The human playing Iran picks the Guard, the monarchists, or the progressive populists.
+country_event = {
+	id = dd_iran_cw.1
+	title = dd_iran_cw.1.t
+	desc = dd_iran_cw.1.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+
+	option = {
+		name = dd_iran_cw.1.irg
+		ai_chance = { factor = 100 }
+		custom_effect_tooltip = dd_per_pakpour_tt
+		hidden_effect = {
+			PER = { dd_per_install_pakpour = yes }
+		}
+	}
+	option = {
+		name = dd_iran_cw.1.pah
+		trigger = { PAH = { has_country_flag = dd_per_cw_released } }
+		ai_chance = { factor = 0 }
+		custom_effect_tooltip = dd_pah_pahlavi_tt
+		hidden_effect = {
+			PAH = { dd_pah_install_pahlavi = yes }
+		}
+		PAH = {
+			load_focus_tree = { tree = dd_pah_focus keep_completed = yes }
+			change_tag_from = ROOT
+		}
+	}
+	option = {
+		name = dd_iran_cw.1.prp
+		trigger = { PRP = { has_country_flag = dd_per_cw_released } }
+		ai_chance = { factor = 0 }
+		custom_effect_tooltip = dd_prp_mousavi_tt
+		hidden_effect = {
+			PRP = { dd_prp_install_mousavi = yes }
+		}
+		PRP = {
+			load_focus_tree = { tree = dd_prp_focus keep_completed = yes }
+			change_tag_from = ROOT
+		}
+	}
+}
+
+news_event = {
+	id = dd_iran_cw_news.1
+	title = dd_iran_cw_news.1.t
+	desc = dd_iran_cw_news.1.d
+	picture = GFX_news_event_generic_riot
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_iran_cw_news.1.a }
+}

@@ -2,7 +2,7 @@
 state={
 	id=375
 	name="STATE_375"
-	manpower = 13483554
+	manpower = 11083554
 	
 	
 	state_category = metropolis
@@ -19,7 +19,7 @@ state={
 
 	history={
 		owner = USA
-		add_extra_state_shared_building_slots = 24
+		add_extra_state_shared_building_slots = 20
 		buildings = {
 			rocket_site = 1
 			renewable_park = 2
@@ -28,7 +28,7 @@ state={
 
 			arms_factory = 2
 			infrastructure = 4
-			industrial_complex = 3
+			industrial_complex = 2
 			air_base = 4
 
 			synthetic_refinery = 1
@@ -48,14 +48,8 @@ state={
 		victory_points = { # Fort Worth
 			7981 25
 		}
-		victory_points = { # El Paso
-			1998 12
-		}
-		victory_points = { # Corpus Christi
-			805 5
-		}
 		victory_points = { # Lubbock
-			2055 5
+			12301 5
 		}
 		victory_points = { # Amarillo
 			3972 2
@@ -64,12 +58,15 @@ state={
 			4955 2
 		}
 		victory_points = { # Waco
-			12341 2
+			10861 2
+		}
+		victory_points = { # Killeen
+			5022 2
 		}
 	}
 
 	provinces={
-		805 1915 1998 2055 2082 3875 3960 3972 4955 5022 5085 7836 7981 8064 9773 9908 9920 10861 12301 12341 12848 12875 12893 
+		805 1915 1998 2055 2082 3875 3960 3972 4955 5022 5085 7836 7981 8064 9773 9908 9920 10861 12301 12848 12875 12893 
 	}
 
 	local_supplies=9.0 

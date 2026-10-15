@@ -1,0 +1,328 @@
+# Hormuz map. Naval zones follow real naval control. Bombing follows recent strategic bombing.
+# Arabian Sea is strategic region 104. Persian Gulf is strategic region 203.
+# The strait follows whoever holds the Persian Gulf.
+
+# Saudi Arabia and Oman stay out of the war. The squeeze still damages Saudi buildings through the idea.
+dd_hormuz_join_gulf = {
+	every_country = {
+		limit = {
+			exists = yes
+			NOT = { has_war_with = PER }
+			OR = {
+				tag = KUW
+				tag = QAT
+				tag = UAE
+				tag = BHR
+			}
+		}
+		add_to_war = {
+			targeted_alliance = USA
+			enemy = PER
+		}
+	}
+}
+
+dd_hormuz_note_bomb_day = {
+	if = {
+		limit = { dd_hormuz_per_bombed_today = yes }
+		set_variable = { global.dd_hormuz_per_bomb_day = global.num_days }
+	}
+	if = {
+		limit = { dd_hormuz_gulf_bombed_today = yes }
+		set_variable = { global.dd_hormuz_gulf_bomb_day = global.num_days }
+	}
+	if = {
+		limit = { check_variable = { global.dd_hormuz_per_bomb_day > 0 } }
+		set_variable = { global.dd_hormuz_per_bomb_ago = global.num_days }
+		subtract_variable = { global.dd_hormuz_per_bomb_ago = global.dd_hormuz_per_bomb_day }
+	}
+	if = {
+		limit = { check_variable = { global.dd_hormuz_gulf_bomb_day > 0 } }
+		set_variable = { global.dd_hormuz_gulf_bomb_ago = global.num_days }
+		subtract_variable = { global.dd_hormuz_gulf_bomb_ago = global.dd_hormuz_gulf_bomb_day }
+	}
+}
+
+dd_hormuz_clear_ideas = {
+	USA = {
+		remove_ideas = dd_hormuz_usa_arabian
+		remove_ideas = dd_hormuz_usa_arabian_lost
+		remove_ideas = dd_hormuz_usa_gulf
+		remove_ideas = dd_hormuz_usa_gulf_lost
+		remove_ideas = dd_hormuz_usa_bombed
+		remove_ideas = dd_usa_iran_war
+		remove_ideas = dd_hormuz_usa_closed
+		remove_ideas = dd_hormuz_usa_contested
+		remove_ideas = dd_hormuz_usa_open
+		remove_ideas = dd_hormuz_usa_shipping_hit
+	}
+	PER = {
+		remove_ideas = dd_hormuz_per_arabian
+		remove_ideas = dd_hormuz_per_arabian_lost
+		remove_ideas = dd_hormuz_per_gulf
+		remove_ideas = dd_hormuz_per_gulf_lost
+		remove_ideas = dd_hormuz_per_bombed
+		remove_ideas = dd_hormuz_per_holds
+		remove_ideas = dd_hormuz_per_contested
+		remove_ideas = dd_hormuz_per_lost
+		remove_ideas = dd_hormuz_per_battered
+		remove_ideas = dd_hormuz_auth_1
+		remove_ideas = dd_hormuz_auth_2
+		remove_ideas = dd_hormuz_auth_3
+		remove_ideas = dd_hormuz_auth_4
+		remove_ideas = dd_hormuz_auth_5
+	}
+}
+
+dd_hormuz_apply_authority = {
+	if = {
+		limit = { dd_hormuz_auth_1 = yes }
+		if = {
+			limit = { NOT = { check_variable = { global.dd_hormuz_auth = 1 } } }
+			set_variable = { global.dd_hormuz_auth = 1 }
+			PER = {
+				remove_ideas = dd_hormuz_auth_2
+				remove_ideas = dd_hormuz_auth_3
+				remove_ideas = dd_hormuz_auth_4
+				remove_ideas = dd_hormuz_auth_5
+				add_ideas = dd_hormuz_auth_1
+			}
+		}
+	}
+	else_if = {
+		limit = { dd_hormuz_auth_2 = yes }
+		if = {
+			limit = { NOT = { check_variable = { global.dd_hormuz_auth = 2 } } }
+			set_variable = { global.dd_hormuz_auth = 2 }
+			PER = {
+				remove_ideas = dd_hormuz_auth_1
+				remove_ideas = dd_hormuz_auth_3
+				remove_ideas = dd_hormuz_auth_4
+				remove_ideas = dd_hormuz_auth_5
+				add_ideas = dd_hormuz_auth_2
+			}
+		}
+	}
+	else_if = {
+		limit = { dd_hormuz_auth_3 = yes }
+		if = {
+			limit = { NOT = { check_variable = { global.dd_hormuz_auth = 3 } } }
+			set_variable = { global.dd_hormuz_auth = 3 }
+			PER = {
+				remove_ideas = dd_hormuz_auth_1
+				remove_ideas = dd_hormuz_auth_2
+				remove_ideas = dd_hormuz_auth_4
+				remove_ideas = dd_hormuz_auth_5
+				add_ideas = dd_hormuz_auth_3
+			}
+		}
+	}
+	else_if = {
+		limit = { dd_hormuz_auth_4 = yes }
+		if = {
+			limit = { NOT = { check_variable = { global.dd_hormuz_auth = 4 } } }
+			set_variable = { global.dd_hormuz_auth = 4 }
+			PER = {
+				remove_ideas = dd_hormuz_auth_1
+				remove_ideas = dd_hormuz_auth_2
+				remove_ideas = dd_hormuz_auth_3
+				remove_ideas = dd_hormuz_auth_5
+				add_ideas = dd_hormuz_auth_4
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { NOT = { check_variable = { global.dd_hormuz_auth = 5 } } }
+			set_variable = { global.dd_hormuz_auth = 5 }
+			PER = {
+				remove_ideas = dd_hormuz_auth_1
+				remove_ideas = dd_hormuz_auth_2
+				remove_ideas = dd_hormuz_auth_3
+				remove_ideas = dd_hormuz_auth_4
+				add_ideas = dd_hormuz_auth_5
+			}
+		}
+		dd_per_state_collapse = yes
+	}
+}
+
+dd_hormuz_sync = {
+	if = {
+		limit = { USA = { has_naval_control = 104 } }
+		if = {
+			limit = { NOT = { has_global_flag = dd_hormuz_arabian_usa } }
+			set_global_flag = dd_hormuz_arabian_usa
+			clr_global_flag = dd_hormuz_arabian_per
+			USA = {
+				remove_ideas = dd_hormuz_usa_arabian_lost
+				add_ideas = dd_hormuz_usa_arabian
+			}
+			PER = {
+				remove_ideas = dd_hormuz_per_arabian
+				add_ideas = dd_hormuz_per_arabian_lost
+			}
+		}
+	}
+	else_if = {
+		limit = { PER = { has_naval_control = 104 } }
+		if = {
+			limit = { NOT = { has_global_flag = dd_hormuz_arabian_per } }
+			set_global_flag = dd_hormuz_arabian_per
+			clr_global_flag = dd_hormuz_arabian_usa
+			USA = {
+				remove_ideas = dd_hormuz_usa_arabian
+				add_ideas = dd_hormuz_usa_arabian_lost
+			}
+			PER = {
+				remove_ideas = dd_hormuz_per_arabian_lost
+				add_ideas = dd_hormuz_per_arabian
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = dd_hormuz_arabian_usa
+					has_global_flag = dd_hormuz_arabian_per
+				}
+			}
+			clr_global_flag = dd_hormuz_arabian_usa
+			clr_global_flag = dd_hormuz_arabian_per
+			USA = {
+				remove_ideas = dd_hormuz_usa_arabian
+				remove_ideas = dd_hormuz_usa_arabian_lost
+			}
+			PER = {
+				remove_ideas = dd_hormuz_per_arabian
+				remove_ideas = dd_hormuz_per_arabian_lost
+			}
+		}
+	}
+
+	if = {
+		limit = { USA = { has_naval_control = 203 } }
+		if = {
+			limit = { NOT = { has_global_flag = dd_hormuz_gulf_usa } }
+			set_global_flag = dd_hormuz_gulf_usa
+			clr_global_flag = dd_hormuz_gulf_per
+			USA = {
+				remove_ideas = dd_hormuz_usa_gulf_lost
+				add_ideas = dd_hormuz_usa_gulf
+			}
+			PER = {
+				remove_ideas = dd_hormuz_per_gulf
+				add_ideas = dd_hormuz_per_gulf_lost
+			}
+		}
+	}
+	else_if = {
+		limit = { PER = { has_naval_control = 203 } }
+		if = {
+			limit = { NOT = { has_global_flag = dd_hormuz_gulf_per } }
+			set_global_flag = dd_hormuz_gulf_per
+			clr_global_flag = dd_hormuz_gulf_usa
+			USA = {
+				remove_ideas = dd_hormuz_usa_gulf
+				add_ideas = dd_hormuz_usa_gulf_lost
+			}
+			PER = {
+				remove_ideas = dd_hormuz_per_gulf_lost
+				add_ideas = dd_hormuz_per_gulf
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = dd_hormuz_gulf_usa
+					has_global_flag = dd_hormuz_gulf_per
+				}
+			}
+			clr_global_flag = dd_hormuz_gulf_usa
+			clr_global_flag = dd_hormuz_gulf_per
+			USA = {
+				remove_ideas = dd_hormuz_usa_gulf
+				remove_ideas = dd_hormuz_usa_gulf_lost
+			}
+			PER = {
+				remove_ideas = dd_hormuz_per_gulf
+				remove_ideas = dd_hormuz_per_gulf_lost
+			}
+		}
+	}
+
+	if = {
+		limit = { dd_hormuz_per_bombed_now = yes }
+		if = {
+			limit = { NOT = { has_global_flag = dd_hormuz_per_bombed } }
+			set_global_flag = dd_hormuz_per_bombed
+			PER = { add_ideas = dd_hormuz_per_bombed }
+		}
+	}
+	else = {
+		if = {
+			limit = { has_global_flag = dd_hormuz_per_bombed }
+			clr_global_flag = dd_hormuz_per_bombed
+			PER = { remove_ideas = dd_hormuz_per_bombed }
+		}
+	}
+
+	every_country = {
+		limit = {
+			OR = {
+				tag = SAU
+				tag = KUW
+				tag = QAT
+				tag = UAE
+				tag = BHR
+				tag = OMA
+			}
+		}
+		if = {
+			limit = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+			if = {
+				limit = { NOT = { has_idea = dd_hormuz_gulf_bombed } }
+				add_ideas = dd_hormuz_gulf_bombed
+			}
+			set_global_flag = dd_hormuz_gulf_bombed
+		}
+		else_if = {
+			limit = { has_idea = dd_hormuz_gulf_bombed }
+			remove_ideas = dd_hormuz_gulf_bombed
+		}
+	}
+	if = {
+		limit = { NOT = { dd_hormuz_gulf_bombed_now = yes } }
+		clr_global_flag = dd_hormuz_gulf_bombed
+	}
+	dd_hormuz_note_bomb_day = yes
+	dd_hormuz_apply_authority = yes
+}
+
+dd_hormuz_end = {
+	dd_hormuz_clear_blockade = yes
+	clr_global_flag = dd_hormuz_war
+	clr_global_flag = dd_hormuz_arabian_usa
+	clr_global_flag = dd_hormuz_arabian_per
+	clr_global_flag = dd_hormuz_gulf_usa
+	clr_global_flag = dd_hormuz_gulf_per
+	clr_global_flag = dd_hormuz_per_bombed
+	clr_global_flag = dd_hormuz_usa_bombed
+	clr_global_flag = dd_hormuz_gulf_bombed
+	set_variable = { global.dd_hormuz_auth = 0 }
+	PER = { set_variable = { dd_hormuz_auth_shift = 0 } }
+	every_country = {
+		limit = { has_idea = dd_hormuz_gulf_bombed }
+		remove_ideas = dd_hormuz_gulf_bombed
+	}
+	dd_hormuz_clear_ideas = yes
+}
+
+# One step toward Total Control. The daily sync and this call both read the same triggers.
+dd_per_rally_authority = {
+	PER = { add_to_variable = { dd_hormuz_auth_shift = 1 } }
+	dd_hormuz_apply_authority = yes
+}

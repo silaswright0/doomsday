@@ -1787,7 +1787,12 @@ dd_usa_sync_caucus_from_ruling = {
 	set_variable = { dd_usa_dem_support = 0 }
 	set_variable = { dd_usa_rep_support = 0 }
 	if = {
-		limit = { has_government = social_liberalism }
+		limit = {
+			OR = {
+				has_government = social_liberalism
+				has_government = social_democracy
+			}
+		}
 		set_variable = { dd_usa_dem_support = 100 }
 	}
 	else_if = {

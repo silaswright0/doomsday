@@ -2320,6 +2320,14 @@ dd_recalc_accounts = {
 		}
 		set_variable = { dd_income_oil = dd_oil_units }
 		multiply_variable = { dd_income_oil = dd_oil_rent }
+		if = {
+			limit = { has_idea = dd_gulf_oil_sealed }
+			set_variable = { dd_income_oil = 0 }
+		}
+		else_if = {
+			limit = { has_idea = dd_sau_squeezed }
+			multiply_variable = { dd_income_oil = 0.3 }
+		}
 	}
 	if = {
 		limit = { has_idea = dd_checkpoint_revenue }
@@ -2453,7 +2461,7 @@ dd_clear_fertility = {
 }
 
 dd_sync_fertility_to_women = {
-	# Promote feminism floors abortion at "legal to 2 months".
+	# Promote feminism floors abortion at "legal to 3 months".
 	# Attack on the Patriarchy floors it at "legal to 9 months".
 	if = {
 		limit = { has_idea = dd_women_5 }

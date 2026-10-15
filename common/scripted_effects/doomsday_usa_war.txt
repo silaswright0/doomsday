@@ -677,14 +677,14 @@ dd_usa_cw_spawn_militia_pockets = {
 	if = {
 		limit = {
 			check_variable = { dd_cw_spawn > 0 }
-			12341 = { is_controlled_by = PREV }
+			5022 = { is_controlled_by = PREV }
 		}
 		375 = {
 			create_unit = {
 				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.55"
 				owner = PREV
 				count = 1
-				prioritize_location = 12341
+				prioritize_location = 5022
 				allow_spawning_on_enemy_provs = yes
 			}
 		}
@@ -1402,14 +1402,14 @@ dd_usa_cw_spawn_ng_pockets = {
 	if = {
 		limit = {
 			check_variable = { dd_cw_spawn > 0 }
-			12341 = { is_controlled_by = PREV }
+			5022 = { is_controlled_by = PREV }
 		}
 		375 = {
 			create_unit = {
 				division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.3 start_equipment_factor = 0.65"
 				owner = PREV
 				count = 1
-				prioritize_location = 12341
+				prioritize_location = 5022
 				allow_spawning_on_enemy_provs = yes
 			}
 		}
@@ -2071,6 +2071,7 @@ dd_usa_province_control = {
 		set_province_controller = 12054
 	}
 	# Federal Command holds the mainland bases. Guantanamo is already owned as state 1112.
+	# The Texas base is Killeen (5022, Fort Cavazos), inside state 375. Austin stays with the reds.
 	# Wars are only against whoever owns those bases so the holds stick.
 	if = {
 		limit = {
@@ -2132,7 +2133,7 @@ dd_usa_province_control = {
 		set_province_controller = 10051
 		set_province_controller = 788
 		set_province_controller = 7255
-		set_province_controller = 12341
+		set_province_controller = 5022
 		set_province_controller = 12670
 		set_province_controller = 12399
 		set_province_controller = 4816
@@ -3248,7 +3249,7 @@ dd_usa_cw_spawn_held_bases = {
 		363 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 10051 allow_spawning_on_enemy_provs = yes } }
 		362 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 788 allow_spawning_on_enemy_provs = yes } }
 		386 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 7255 allow_spawning_on_enemy_provs = yes } }
-		375 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 12341 allow_spawning_on_enemy_provs = yes } }
+		375 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 5022 allow_spawning_on_enemy_provs = yes } }
 		368 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 12670 allow_spawning_on_enemy_provs = yes } }
 		379 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 12399 allow_spawning_on_enemy_provs = yes } }
 		379 = { create_unit = { division = "name = \"Federal Garrison\" division_template = \"Federal Garrison\" start_experience_factor = 0.4 start_equipment_factor = 0.8" owner = FVA count = 2 prioritize_location = 4816 allow_spawning_on_enemy_provs = yes } }

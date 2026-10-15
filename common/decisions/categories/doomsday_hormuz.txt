@@ -1,0 +1,19 @@
+dd_hormuz_category = {
+	icon = generic_naval
+	scripted_gui = dd_hormuz_map_ui
+	priority = 260
+	visible_when_empty = yes
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = PER
+		}
+	}
+	visible = {
+		has_global_flag = dd_hormuz_war
+		OR = {
+			tag = USA
+			tag = PER
+		}
+	}
+}

@@ -1,0 +1,85 @@
+scripted_gui = {
+	dd_hormuz_map_ui = {
+		context_type = decision_category
+		window_name = "dd_hormuz_map_window"
+
+		triggers = {
+			dd_arabian_usa_visible = { USA = { has_naval_control = 104 } }
+			dd_arabian_usa_fx_visible = { USA = { has_naval_control = 104 } }
+			dd_arabian_per_visible = {
+				PER = { has_naval_control = 104 }
+				NOT = { USA = { has_naval_control = 104 } }
+			}
+			dd_arabian_per_fx_visible = {
+				PER = { has_naval_control = 104 }
+				NOT = { USA = { has_naval_control = 104 } }
+			}
+			dd_arabian_none_visible = {
+				NOT = { USA = { has_naval_control = 104 } }
+				NOT = { PER = { has_naval_control = 104 } }
+			}
+			dd_arabian_none_fx_visible = {
+				NOT = { USA = { has_naval_control = 104 } }
+				NOT = { PER = { has_naval_control = 104 } }
+			}
+
+			dd_gulf_usa_visible = { USA = { has_naval_control = 203 } }
+			dd_gulf_usa_fx_visible = { USA = { has_naval_control = 203 } }
+			dd_strait_usa_visible = { USA = { has_naval_control = 203 } }
+			dd_gulf_per_visible = {
+				PER = { has_naval_control = 203 }
+				NOT = { USA = { has_naval_control = 203 } }
+			}
+			dd_gulf_per_fx_visible = {
+				PER = { has_naval_control = 203 }
+				NOT = { USA = { has_naval_control = 203 } }
+			}
+			dd_strait_per_visible = {
+				PER = { has_naval_control = 203 }
+				NOT = { USA = { has_naval_control = 203 } }
+			}
+			dd_gulf_none_visible = {
+				NOT = { USA = { has_naval_control = 203 } }
+				NOT = { PER = { has_naval_control = 203 } }
+			}
+			dd_gulf_none_fx_visible = {
+				NOT = { USA = { has_naval_control = 203 } }
+				NOT = { PER = { has_naval_control = 203 } }
+			}
+			dd_strait_none_visible = {
+				NOT = { USA = { has_naval_control = 203 } }
+				NOT = { PER = { has_naval_control = 203 } }
+			}
+
+			dd_bomb_per_hit_visible = { dd_hormuz_per_bombed_now = yes }
+			dd_bomb_per_quiet_visible = {
+				NOT = { dd_hormuz_per_bombed_now = yes }
+				NOT = { check_variable = { global.dd_hormuz_per_bomb_day > 0 } }
+			}
+			dd_bomb_per_ago_visible = {
+				NOT = { dd_hormuz_per_bombed_now = yes }
+				check_variable = { global.dd_hormuz_per_bomb_day > 0 }
+			}
+			dd_bomb_gulf_hit_visible = { dd_hormuz_gulf_bombed_now = yes }
+			dd_bomb_gulf_quiet_visible = {
+				NOT = { dd_hormuz_gulf_bombed_now = yes }
+				NOT = { check_variable = { global.dd_hormuz_gulf_bomb_day > 0 } }
+			}
+			dd_bomb_gulf_ago_visible = {
+				NOT = { dd_hormuz_gulf_bombed_now = yes }
+				check_variable = { global.dd_hormuz_gulf_bomb_day > 0 }
+			}
+			dd_hormuz_blockade_line_visible = { has_global_flag = dd_hormuz_blockade }
+			dd_hormuz_squeeze_line_visible = {
+				has_global_flag = dd_hormuz_war
+				SAU = { has_idea = dd_sau_squeezed }
+			}
+
+			dd_auth_on_1_visible = { dd_hormuz_auth_1 = yes }
+			dd_auth_on_2_visible = { dd_hormuz_auth_2 = yes }
+			dd_auth_on_3_visible = { dd_hormuz_auth_3 = yes }
+			dd_auth_on_4_visible = { dd_hormuz_auth_4 = yes }
+			dd_auth_on_5_visible = { dd_hormuz_auth_5 = yes }
+		}
+	}
+}

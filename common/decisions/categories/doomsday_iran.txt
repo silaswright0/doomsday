@@ -1,0 +1,8 @@
+dd_per_proxy_category = {
+	icon = generic_political_actions
+	priority = 180
+	visible = {
+		tag = PER
+		has_country_flag = dd_per_proxy_network
+	}
+}

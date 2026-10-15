@@ -1,28 +1,8 @@
 characters = {
-	USA_gavin_newsom = {
-		name = "Gavin Newsom"
-		portraits = {
-			civilian = { large = GFX_portrait_WCL_leader small = GFX_portrait_WCL_leader }
-		}
-		advisor = {
-			slot = political_advisor
-			idea_token = USA_gavin_newsom
-			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = social_liberalism
-					has_government = sovereign_democracy
-				}
-				NOT = { has_country_leader = { name = "Gavin Newsom" ruling_only = yes } }
-			}
-			traits = { smooth_talking_charmer }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	USA_jd_vance = {
 		name = "JD Vance"
 		portraits = {
-			civilian = { large = GFX_portrait_VNM_leader small = GFX_portrait_VNM_leader }
+			civilian = { large = GFX_portrait_VNM_leader small = GFX_portrait_VNM_leader_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -42,7 +22,7 @@ characters = {
 	USA_marco_rubio = {
 		name = "Marco Rubio"
 		portraits = {
-			civilian = { large = GFX_portrait_RBM_leader small = GFX_portrait_RBM_leader }
+			civilian = { large = GFX_portrait_RBM_leader small = GFX_portrait_RBM_leader_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -50,6 +30,7 @@ characters = {
 			allowed = { original_tag = USA }
 			available = {
 				OR = {
+					has_government = national_populism
 					has_government = liberal_conservatism
 					has_government = sovereign_democracy
 				}
@@ -59,10 +40,82 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	USA_jared_kushner = {
+		name = "Jared Kushner"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_jared_kushner small = GFX_portrait_USA_jared_kushner_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_jared_kushner
+			allowed = { original_tag = USA }
+			available = { has_government = national_populism }
+			traits = { financial_expert }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_howard_lutnick = {
+		name = "Howard Lutnick"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_howard_lutnick small = GFX_portrait_USA_howard_lutnick_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_howard_lutnick
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = technocracy
+				}
+			}
+			traits = { captain_of_industry }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_lindsey_graham = {
+		name = "Lindsey Graham"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_lindsey_graham small = GFX_portrait_USA_lindsey_graham_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_lindsey_graham
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = liberal_conservatism
+					has_government = national_populism
+				}
+			}
+			traits = { hawk }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_gavin_newsom = {
+		name = "Gavin Newsom"
+		portraits = {
+			civilian = { large = GFX_portrait_WCL_leader small = GFX_portrait_WCL_leader_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_gavin_newsom
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_liberalism
+					has_government = sovereign_democracy
+				}
+				NOT = { has_country_leader = { name = "Gavin Newsom" ruling_only = yes } }
+			}
+			traits = { smooth_talking_charmer }
+			ai_will_do = { factor = 1 }
+		}
+	}
 	USA_alexandria_ocasio_cortez = {
 		name = "Alexandria Ocasio-Cortez"
 		portraits = {
-			civilian = { large = GFX_portrait_EAS_leader small = GFX_portrait_EAS_leader }
+			civilian = { large = GFX_portrait_EAS_leader small = GFX_portrait_EAS_leader_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -82,7 +135,7 @@ characters = {
 	USA_bill_kristol = {
 		name = "Bill Kristol"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_bill_kristol small = GFX_portrait_USA_bill_kristol }
+			civilian = { large = GFX_portrait_USA_bill_kristol small = GFX_portrait_USA_bill_kristol_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -101,7 +154,7 @@ characters = {
 	USA_gretchen_whitmer = {
 		name = "Gretchen Whitmer"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_gretchen_whitmer small = GFX_portrait_USA_gretchen_whitmer }
+			civilian = { large = GFX_portrait_USA_gretchen_whitmer small = GFX_portrait_USA_gretchen_whitmer_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -115,7 +168,7 @@ characters = {
 	USA_nikki_haley = {
 		name = "Nikki Haley"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_nikki_haley small = GFX_portrait_USA_nikki_haley }
+			civilian = { large = GFX_portrait_USA_nikki_haley small = GFX_portrait_USA_nikki_haley_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -129,7 +182,7 @@ characters = {
 	USA_john_bolton = {
 		name = "John Bolton"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_john_bolton small = GFX_portrait_USA_john_bolton }
+			civilian = { large = GFX_portrait_USA_john_bolton small = GFX_portrait_USA_john_bolton_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -148,7 +201,7 @@ characters = {
 	USA_ilhan_omar = {
 		name = "Ilhan Omar"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_ilhan_omar small = GFX_portrait_USA_ilhan_omar }
+			civilian = { large = GFX_portrait_USA_ilhan_omar small = GFX_portrait_USA_ilhan_omar_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -167,7 +220,7 @@ characters = {
 	USA_hakeem_jeffries = {
 		name = "Hakeem Jeffries"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_hakeem_jeffries small = GFX_portrait_USA_hakeem_jeffries }
+			civilian = { large = GFX_portrait_USA_hakeem_jeffries small = GFX_portrait_USA_hakeem_jeffries_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -186,7 +239,7 @@ characters = {
 	USA_rashida_tlaib = {
 		name = "Rashida Tlaib"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_rashida_tlaib small = GFX_portrait_USA_rashida_tlaib }
+			civilian = { large = GFX_portrait_USA_rashida_tlaib small = GFX_portrait_USA_rashida_tlaib_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -205,7 +258,7 @@ characters = {
 	USA_liz_cheney = {
 		name = "Liz Cheney"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_liz_cheney small = GFX_portrait_USA_liz_cheney }
+			civilian = { large = GFX_portrait_USA_liz_cheney small = GFX_portrait_USA_liz_cheney_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -221,24 +274,10 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	USA_jared_kushner = {
-		name = "Jared Kushner"
-		portraits = {
-			civilian = { large = GFX_portrait_USA_jared_kushner small = GFX_portrait_USA_jared_kushner }
-		}
-		advisor = {
-			slot = political_advisor
-			idea_token = USA_jared_kushner
-			allowed = { original_tag = USA }
-			available = { has_government = national_populism }
-			traits = { financial_expert }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	USA_josh_shapiro = {
 		name = "Josh Shapiro"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_josh_shapiro small = GFX_portrait_USA_josh_shapiro }
+			civilian = { large = GFX_portrait_USA_josh_shapiro small = GFX_portrait_USA_josh_shapiro_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -252,7 +291,7 @@ characters = {
 	USA_chuck_schumer = {
 		name = "Chuck Schumer"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_chuck_schumer small = GFX_portrait_USA_chuck_schumer }
+			civilian = { large = GFX_portrait_USA_chuck_schumer small = GFX_portrait_USA_chuck_schumer_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -268,29 +307,10 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	USA_lindsey_graham = {
-		name = "Lindsey Graham"
-		portraits = {
-			civilian = { large = GFX_portrait_USA_lindsey_graham small = GFX_portrait_USA_lindsey_graham }
-		}
-		advisor = {
-			slot = political_advisor
-			idea_token = USA_lindsey_graham
-			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = liberal_conservatism
-					has_government = national_populism
-				}
-			}
-			traits = { hawk }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	USA_bernie_sanders = {
 		name = "Bernie Sanders"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_bernie_sanders small = GFX_portrait_USA_bernie_sanders }
+			civilian = { large = GFX_portrait_USA_bernie_sanders small = GFX_portrait_USA_bernie_sanders_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -306,29 +326,10 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	USA_howard_lutnick = {
-		name = "Howard Lutnick"
-		portraits = {
-			civilian = { large = GFX_portrait_USA_howard_lutnick small = GFX_portrait_USA_howard_lutnick }
-		}
-		advisor = {
-			slot = political_advisor
-			idea_token = USA_howard_lutnick
-			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = national_populism
-					has_government = technocracy
-				}
-			}
-			traits = { captain_of_industry }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	USA_susie_wiles = {
 		name = "Susie Wiles"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_susie_wiles small = GFX_portrait_USA_susie_wiles }
+			civilian = { large = GFX_portrait_USA_susie_wiles small = GFX_portrait_USA_susie_wiles_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -342,7 +343,7 @@ characters = {
 	USA_kamala_harris = {
 		name = "Kamala Harris"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_kamala_harris small = GFX_portrait_USA_kamala_harris }
+			civilian = { large = GFX_portrait_USA_kamala_harris small = GFX_portrait_USA_kamala_harris_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -356,7 +357,7 @@ characters = {
 	USA_peter_thiel = {
 		name = "Peter Thiel"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_peter_thiel small = GFX_portrait_USA_peter_thiel }
+			civilian = { large = GFX_portrait_USA_peter_thiel small = GFX_portrait_USA_peter_thiel_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -370,7 +371,7 @@ characters = {
 	USA_elon_musk = {
 		name = "Elon Musk"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_elon_musk small = GFX_portrait_USA_elon_musk }
+			civilian = { large = GFX_portrait_USA_elon_musk small = GFX_portrait_USA_elon_musk_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -384,7 +385,7 @@ characters = {
 	USA_david_sacks = {
 		name = "David Sacks"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_david_sacks small = GFX_portrait_USA_david_sacks }
+			civilian = { large = GFX_portrait_USA_david_sacks small = GFX_portrait_USA_david_sacks_small }
 		}
 		advisor = {
 			slot = political_advisor
@@ -395,21 +396,35 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	USA_tucker_carlson = {
+		name = "Tucker Carlson"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_tucker_carlson small = GFX_portrait_USA_tucker_carlson_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_tucker_carlson
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = technocracy
+				}
+			}
+			traits = { dd_propagandist }
+			ai_will_do = { factor = 1 }
+		}
+	}
 	USA_stephen_miller = {
 		name = "Stephen Miller"
 		portraits = {
-			civilian = { large = GFX_portrait_USA_stephen_miller small = GFX_portrait_USA_stephen_miller }
+			civilian = { large = GFX_portrait_USA_stephen_miller small = GFX_portrait_USA_stephen_miller_small }
 		}
 		advisor = {
 			slot = political_advisor
 			idea_token = USA_stephen_miller
 			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = national_populism
-					has_government = fascism
-				}
-			}
+			available = { has_government = national_populism }
 			traits = { ideological_crusader }
 			ai_will_do = { factor = 1 }
 		}

@@ -1,0 +1,415 @@
+# Iranian state collapse. PER becomes the IRGC. The revolts take their regions.
+# IRGC, monarchists, and progressive populists fight every released faction.
+# Kurds, Balochs, Ahwazi, and Azeris fight only those three.
+# No random. The popup only chooses which tag the human keeps playing.
+
+dd_per_cw_arm = {
+	set_technology = { militia_tech = 1 }
+	division_template = {
+		name = "Militia"
+		is_locked = yes
+		regiments = {
+			militia = { x = 0 y = 0 }
+			militia = { x = 0 y = 1 }
+			militia = { x = 0 y = 2 }
+			militia = { x = 1 y = 0 }
+			militia = { x = 1 y = 1 }
+			militia = { x = 1 y = 2 }
+		}
+	}
+	while_loop_effect = {
+		limit = { check_variable = { dd_cw_militia_count > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 0.6"
+				owner = PREV
+				count = 1
+			}
+		}
+		subtract_variable = { dd_cw_militia_count = 1 }
+	}
+}
+
+dd_per_state_collapse = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = dd_per_collapse_war }
+			PER = { exists = yes }
+		}
+		set_global_flag = dd_per_collapse_war
+		PER = {
+			set_cosmetic_tag = IRG_REVOLT
+			set_country_flag = dd_per_is_irgc
+			set_politics = {
+				ruling_party = theocratic_absolutism
+				elections_allowed = no
+			}
+			set_popularities = {
+				theocratic_absolutism = 70
+				national_populism = 10
+				islamic_democracy = 10
+				left_wing_nationalism = 10
+			}
+			dd_per_install_pakpour = yes
+			if = {
+				limit = { NOT = { has_idea = dd_per_irgc_dominance } }
+				add_ideas = dd_per_irgc_dominance
+			}
+		}
+
+		if = {
+			limit = { 1001 = { is_owned_by = PER } }
+			KRD = {
+				transfer_state = 1001
+				add_state_core = 1001
+			}
+		}
+		if = {
+			limit = { 421 = { is_owned_by = PER } }
+			KRD = {
+				transfer_state = 421
+				add_state_core = 421
+			}
+		}
+		if = {
+			limit = { KRD = { owns_state = 1001 } }
+			KRD = { set_capital = { state = 1001 } }
+		}
+		else_if = {
+			limit = { KRD = { owns_state = 421 } }
+			KRD = { set_capital = { state = 421 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					KRD = { owns_state = 1001 }
+					KRD = { owns_state = 421 }
+				}
+			}
+			KRD = {
+				set_country_flag = dd_per_cw_released
+				set_variable = { dd_cw_militia_count = 6 }
+				dd_per_cw_arm = yes
+				declare_war_on = { target = PER type = annex_everything }
+				add_civil_war_target = PER
+			}
+			PER = { add_civil_war_target = KRD }
+		}
+
+		if = {
+			limit = { 410 = { is_owned_by = PER } }
+			BLS = {
+				transfer_state = 410
+				add_state_core = 410
+				set_capital = { state = 410 }
+				set_country_flag = dd_per_cw_released
+				set_variable = { dd_cw_militia_count = 4 }
+				dd_per_cw_arm = yes
+				declare_war_on = { target = PER type = annex_everything }
+				add_civil_war_target = PER
+			}
+			PER = { add_civil_war_target = BLS }
+		}
+
+		if = {
+			limit = { 413 = { is_owned_by = PER } }
+			AHZ = {
+				transfer_state = 413
+				add_state_core = 413
+				set_capital = { state = 413 }
+				set_country_flag = dd_per_cw_released
+				set_variable = { dd_cw_militia_count = 5 }
+				dd_per_cw_arm = yes
+				declare_war_on = { target = PER type = annex_everything }
+				add_civil_war_target = PER
+			}
+			PER = { add_civil_war_target = AHZ }
+		}
+
+		if = {
+			limit = { 1000 = { is_owned_by = PER } }
+			AZI = {
+				transfer_state = 1000
+				add_state_core = 1000
+			}
+		}
+		if = {
+			limit = { 419 = { is_owned_by = PER } }
+			AZI = {
+				transfer_state = 419
+				add_state_core = 419
+			}
+		}
+		if = {
+			limit = { AZI = { owns_state = 1000 } }
+			AZI = { set_capital = { state = 1000 } }
+		}
+		else_if = {
+			limit = { AZI = { owns_state = 419 } }
+			AZI = { set_capital = { state = 419 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					AZI = { owns_state = 1000 }
+					AZI = { owns_state = 419 }
+				}
+			}
+			AZI = {
+				set_country_flag = dd_per_cw_released
+				set_variable = { dd_cw_militia_count = 6 }
+				dd_per_cw_arm = yes
+				declare_war_on = { target = PER type = annex_everything }
+				add_civil_war_target = PER
+			}
+			PER = { add_civil_war_target = AZI }
+		}
+
+		if = {
+			limit = { 412 = { is_owned_by = PER } }
+			PAH = {
+				transfer_state = 412
+				add_state_core = 412
+			}
+		}
+		if = {
+			limit = { 411 = { is_owned_by = PER } }
+			PAH = {
+				transfer_state = 411
+				add_state_core = 411
+			}
+		}
+		if = {
+			limit = { PAH = { owns_state = 412 } }
+			PAH = { set_capital = { state = 412 } }
+		}
+		else_if = {
+			limit = { PAH = { owns_state = 411 } }
+			PAH = { set_capital = { state = 411 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					PAH = { owns_state = 412 }
+					PAH = { owns_state = 411 }
+				}
+			}
+			PAH = {
+				set_country_flag = dd_per_cw_released
+				set_variable = { dd_cw_militia_count = 6 }
+				dd_per_cw_arm = yes
+				dd_pah_install_pahlavi = yes
+				declare_war_on = { target = PER type = annex_everything }
+				add_civil_war_target = PER
+			}
+			PER = { add_civil_war_target = PAH }
+		}
+
+		if = {
+			limit = { 420 = { is_owned_by = PER } }
+			PRP = {
+				transfer_state = 420
+				add_state_core = 420
+				set_capital = { state = 420 }
+				set_country_flag = dd_per_cw_released
+				set_variable = { dd_cw_militia_count = 4 }
+				dd_per_cw_arm = yes
+				dd_prp_install_mousavi = yes
+				declare_war_on = { target = PER type = annex_everything }
+				add_civil_war_target = PER
+			}
+			PER = { add_civil_war_target = PRP }
+		}
+
+		if = {
+			limit = {
+				PAH = { has_country_flag = dd_per_cw_released }
+				PRP = { has_country_flag = dd_per_cw_released }
+			}
+			PAH = {
+				declare_war_on = { target = PRP type = annex_everything }
+				add_civil_war_target = PRP
+			}
+			PRP = { add_civil_war_target = PAH }
+		}
+		if = {
+			limit = {
+				PAH = { has_country_flag = dd_per_cw_released }
+				KRD = { has_country_flag = dd_per_cw_released }
+			}
+			PAH = {
+				declare_war_on = { target = KRD type = annex_everything }
+				add_civil_war_target = KRD
+			}
+			KRD = { add_civil_war_target = PAH }
+		}
+		if = {
+			limit = {
+				PAH = { has_country_flag = dd_per_cw_released }
+				BLS = { has_country_flag = dd_per_cw_released }
+			}
+			PAH = {
+				declare_war_on = { target = BLS type = annex_everything }
+				add_civil_war_target = BLS
+			}
+			BLS = { add_civil_war_target = PAH }
+		}
+		if = {
+			limit = {
+				PAH = { has_country_flag = dd_per_cw_released }
+				AHZ = { has_country_flag = dd_per_cw_released }
+			}
+			PAH = {
+				declare_war_on = { target = AHZ type = annex_everything }
+				add_civil_war_target = AHZ
+			}
+			AHZ = { add_civil_war_target = PAH }
+		}
+		if = {
+			limit = {
+				PAH = { has_country_flag = dd_per_cw_released }
+				AZI = { has_country_flag = dd_per_cw_released }
+			}
+			PAH = {
+				declare_war_on = { target = AZI type = annex_everything }
+				add_civil_war_target = AZI
+			}
+			AZI = { add_civil_war_target = PAH }
+		}
+		if = {
+			limit = {
+				PRP = { has_country_flag = dd_per_cw_released }
+				KRD = { has_country_flag = dd_per_cw_released }
+			}
+			PRP = {
+				declare_war_on = { target = KRD type = annex_everything }
+				add_civil_war_target = KRD
+			}
+			KRD = { add_civil_war_target = PRP }
+		}
+		if = {
+			limit = {
+				PRP = { has_country_flag = dd_per_cw_released }
+				BLS = { has_country_flag = dd_per_cw_released }
+			}
+			PRP = {
+				declare_war_on = { target = BLS type = annex_everything }
+				add_civil_war_target = BLS
+			}
+			BLS = { add_civil_war_target = PRP }
+		}
+		if = {
+			limit = {
+				PRP = { has_country_flag = dd_per_cw_released }
+				AHZ = { has_country_flag = dd_per_cw_released }
+			}
+			PRP = {
+				declare_war_on = { target = AHZ type = annex_everything }
+				add_civil_war_target = AHZ
+			}
+			AHZ = { add_civil_war_target = PRP }
+		}
+		if = {
+			limit = {
+				PRP = { has_country_flag = dd_per_cw_released }
+				AZI = { has_country_flag = dd_per_cw_released }
+			}
+			PRP = {
+				declare_war_on = { target = AZI type = annex_everything }
+				add_civil_war_target = AZI
+			}
+			AZI = { add_civil_war_target = PRP }
+		}
+
+		PER = {
+			country_event = { id = dd_iran_cw.1 }
+			news_event = { id = dd_iran_cw_news.1 }
+		}
+	}
+}
+
+dd_per_install_pakpour = {
+	if = {
+		limit = { NOT = { has_character = PER_pakpour_head } }
+		recruit_character = PER_pakpour_head
+	}
+	if = {
+		limit = { NOT = { has_country_leader = { name = "Mohammad Pakpour" ruling_only = yes } } }
+		retire_country_leader = yes
+		promote_character = PER_pakpour_head
+	}
+}
+
+dd_pah_install_pahlavi = {
+	set_politics = { ruling_party = absolute_monarchy elections_allowed = no }
+	if = {
+		limit = { NOT = { has_character = PAH_reza_pahlavi } }
+		recruit_character = PAH_reza_pahlavi
+	}
+	if = {
+		limit = { NOT = { has_country_leader = { name = "Reza Pahlavi" ruling_only = yes } } }
+		retire_country_leader = yes
+		promote_character = PAH_reza_pahlavi
+	}
+}
+
+dd_prp_install_mousavi = {
+	set_politics = { ruling_party = progressive_populism elections_allowed = no }
+	if = {
+		limit = { NOT = { has_character = PRP_mir_hossein_mousavi } }
+		recruit_character = PRP_mir_hossein_mousavi
+	}
+	if = {
+		limit = { NOT = { has_country_leader = { name = "Mir-Hossein Mousavi" ruling_only = yes } } }
+		retire_country_leader = yes
+		promote_character = PRP_mir_hossein_mousavi
+	}
+}
+
+dd_prp_spawn_militias = {
+	set_technology = { dd_irregulars = 1 }
+	division_template = {
+		name = "People's Militia"
+		regiments = {
+			irregular_infantry = { x = 0 y = 0 }
+			irregular_infantry = { x = 0 y = 1 }
+			irregular_infantry = { x = 0 y = 2 }
+			irregular_infantry = { x = 1 y = 0 }
+			irregular_infantry = { x = 1 y = 1 }
+			irregular_infantry = { x = 1 y = 2 }
+		}
+	}
+	set_variable = { dd_prp_militia_left = 8 }
+	while_loop_effect = {
+		limit = { check_variable = { dd_prp_militia_left > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"People's Militia\" division_template = \"People's Militia\" start_experience_factor = 0.15 start_equipment_factor = 0.7"
+				owner = PREV
+				count = 1
+			}
+		}
+		subtract_variable = { dd_prp_militia_left = 1 }
+	}
+}
+
+dd_prp_set_command_policies = {
+	if = { limit = { has_idea = dd_security_1 } remove_ideas = dd_security_1 }
+	if = { limit = { has_idea = dd_security_2 } remove_ideas = dd_security_2 }
+	if = { limit = { has_idea = dd_security_3 } remove_ideas = dd_security_3 }
+	if = { limit = { has_idea = dd_security_4 } remove_ideas = dd_security_4 }
+	if = { limit = { has_idea = dd_security_5 } remove_ideas = dd_security_5 }
+	add_ideas = dd_security_4
+	if = { limit = { has_idea = dd_labor_1 } remove_ideas = dd_labor_1 }
+	if = { limit = { has_idea = dd_labor_2 } remove_ideas = dd_labor_2 }
+	if = { limit = { has_idea = dd_labor_3 } remove_ideas = dd_labor_3 }
+	if = { limit = { has_idea = dd_labor_4 } remove_ideas = dd_labor_4 }
+	if = { limit = { has_idea = dd_labor_5 } remove_ideas = dd_labor_5 }
+	add_ideas = dd_labor_4
+	if = { limit = { has_idea = dd_religion_1 } remove_ideas = dd_religion_1 }
+	if = { limit = { has_idea = dd_religion_2 } remove_ideas = dd_religion_2 }
+	if = { limit = { has_idea = dd_religion_3 } remove_ideas = dd_religion_3 }
+	if = { limit = { has_idea = dd_religion_4 } remove_ideas = dd_religion_4 }
+	if = { limit = { has_idea = dd_religion_5 } remove_ideas = dd_religion_5 }
+	add_ideas = dd_religion_4
+}

@@ -1,0 +1,603 @@
+focus_tree = {
+	id = dd_per_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = PER
+			NOT = { has_country_flag = dd_irg_revolt }
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = PER_zagros_forts
+		icon = GFX_goal_generic_construct_military
+		x = 8
+		y = 0
+		cost = 2
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_zagros_forts = yes
+		}
+	}
+	focus = {
+		id = PER_rescue_brigades
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 8
+		y = 1
+		cost = 2
+		prerequisite = { focus = PER_zagros_forts }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_spawn_brigades = yes
+		}
+	}
+
+	focus = {
+		id = PER_islamabad
+		icon = GFX_goal_generic_positive_diplomacy
+		x = 2
+		y = 3
+		cost = 5
+		prerequisite = { focus = PER_rescue_brigades }
+		mutually_exclusive = { focus = PER_blockade_hormuz }
+		available = { has_country_flag = dd_per_pezeshkian }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_political_power = 100
+			news_event = { id = dd_iran_news.2 }
+		}
+	}
+	focus = {
+		id = PER_withdraw_proxies
+		icon = GFX_goal_generic_trade
+		x = 2
+		y = 4
+		cost = 5
+		prerequisite = { focus = PER_islamabad }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_withdraw_proxy_support = yes
+		}
+	}
+	focus = {
+		id = PER_give_up_centrifuges
+		icon = GFX_goal_generic_secret_weapon
+		x = 2
+		y = 5
+		cost = 5
+		prerequisite = { focus = PER_withdraw_proxies }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_political_power = 100
+			dd_per_irgc_revolt = yes
+		}
+	}
+	focus = {
+		id = PER_conditional_peace
+		icon = GFX_goal_generic_forceful_treaty
+		x = 2
+		y = 6
+		cost = 5
+		prerequisite = { focus = PER_give_up_centrifuges }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_conditional_peace = yes
+		}
+	}
+	focus = {
+		id = PER_lift_sanctions
+		icon = GFX_goal_generic_positive_diplomacy
+		x = 2
+		y = 7
+		cost = 5
+		prerequisite = { focus = PER_conditional_peace }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			remove_ideas = dd_per_crippling_sanctions
+		}
+	}
+	focus = {
+		id = PER_popular_reforms
+		icon = GFX_goal_generic_national_unity
+		x = 2
+		y = 8
+		cost = 5
+		prerequisite = { focus = PER_lift_sanctions }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			remove_ideas = dd_per_popular_unrest
+		}
+	}
+	focus = {
+		id = PER_open_the_bazaar
+		icon = GFX_goal_generic_consumer_goods
+		x = 0
+		y = 9
+		cost = 5
+		prerequisite = { focus = PER_popular_reforms }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_open_bazaar
+		}
+	}
+	focus = {
+		id = PER_release_the_prisoners
+		icon = GFX_goal_support_democracy
+		x = 4
+		y = 9
+		cost = 5
+		prerequisite = { focus = PER_popular_reforms }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_release_prisoners
+		}
+	}
+	focus = {
+		id = PER_develop_constitution
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 10
+		cost = 5
+		prerequisite = { focus = PER_open_the_bazaar }
+		prerequisite = { focus = PER_release_the_prisoners }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			country_event = { id = dd_iran.2 }
+		}
+	}
+	focus = {
+		id = PER_restore_military
+		icon = GFX_goal_generic_army_doctrines
+		x = 2
+		y = 11
+		cost = 5
+		prerequisite = { focus = PER_develop_constitution }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_new_military
+		}
+	}
+
+	focus = {
+		id = PER_blockade_hormuz
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 14
+		y = 3
+		cost = 5
+		prerequisite = { focus = PER_rescue_brigades }
+		mutually_exclusive = { focus = PER_islamabad }
+		available = { has_country_flag = dd_per_mojtaba }
+		search_filters = { FOCUS_FILTER_NAVY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_hormuz_start_blockade = yes
+		}
+	}
+	focus = {
+		id = PER_total_war
+		icon = GFX_goal_generic_major_war
+		x = 14
+		y = 4
+		cost = 5
+		prerequisite = { focus = PER_blockade_hormuz }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_total_war
+		}
+	}
+	focus = {
+		id = PER_empower_houthis
+		icon = GFX_goal_generic_occupy_start_war
+		x = 12
+		y = 5
+		cost = 5
+		prerequisite = { focus = PER_total_war }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			set_country_flag = dd_per_proxy_network
+		}
+	}
+	focus = {
+		id = PER_activate_shiite
+		icon = GFX_goal_generic_demand_territory
+		x = 16
+		y = 5
+		cost = 5
+		prerequisite = { focus = PER_total_war }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_activate_shiite = yes
+		}
+	}
+	focus = {
+		id = PER_squeeze_saudis
+		icon = GFX_goal_generic_oil_refinery
+		x = 14
+		y = 6
+		cost = 5
+		prerequisite = { focus = PER_empower_houthis }
+		prerequisite = { focus = PER_activate_shiite }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_squeeze_saudis = yes
+		}
+	}
+	focus = {
+		id = PER_ration_goods
+		icon = GFX_goal_generic_consumer_goods
+		x = 14
+		y = 7
+		cost = 5
+		prerequisite = { focus = PER_squeeze_saudis }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_ration_goods
+		}
+	}
+	focus = {
+		id = PER_diplomatic_stalling
+		icon = GFX_goal_generic_positive_diplomacy
+		x = 14
+		y = 8
+		cost = 5
+		prerequisite = { focus = PER_ration_goods }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_timed_idea = { idea = dd_per_diplomatic_stalling days = 60 }
+		}
+	}
+	focus = {
+		id = PER_rally_muslims
+		icon = GFX_goal_generic_propaganda
+		x = 14
+		y = 9
+		cost = 5
+		prerequisite = { focus = PER_diplomatic_stalling }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_rally_muslims = yes
+		}
+	}
+	focus = {
+		id = PER_press_demands
+		icon = GFX_goal_generic_forceful_treaty
+		x = 14
+		y = 10
+		cost = 5
+		prerequisite = { focus = PER_rally_muslims }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			set_country_flag = dd_per_demands_unlocked
+		}
+	}
+
+	# Visible while locked. Requires a war with Israel.
+	focus = {
+		id = PER_final_battle
+		icon = GFX_goal_generic_construct_military
+		x = 20
+		y = 0
+		cost = 5
+		available = { has_war_with = ISR }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_final_battle
+		}
+	}
+	focus = {
+		id = PER_rally_public_support
+		icon = GFX_goal_generic_propaganda
+		x = 18
+		y = 1
+		cost = 5
+		prerequisite = { focus = PER_final_battle }
+		available = { has_war_with = ISR }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			custom_effect_tooltip = dd_per_rally_unlock_tt
+			hidden_effect = {
+				set_country_flag = dd_per_rally_support_unlocked
+			}
+		}
+	}
+	focus = {
+		id = PER_iran_against_the_world
+		icon = GFX_goal_generic_major_war
+		x = 22
+		y = 1
+		cost = 5
+		prerequisite = { focus = PER_final_battle }
+		available = { has_war_with = ISR }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			remove_ideas = dd_per_final_battle
+			add_ideas = dd_per_final_battle_2
+		}
+	}
+
+	focus = {
+		id = PER_invest_artesh
+		icon = GFX_goal_generic_army_doctrines
+		x = 26
+		y = 0
+		cost = 5
+		available = {
+			has_war_with = ISR
+			custom_trigger_tooltip = {
+				tooltip = dd_per_treasury_50_tt
+				NOT = { check_variable = { treasury < 50 } }
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			subtract_from_variable = { treasury = 50 }
+			remove_ideas = dd_per_underfunded_artesh
+		}
+	}
+	focus = {
+		id = PER_secure_equipment
+		icon = GFX_goal_generic_army_artillery
+		x = 26
+		y = 1
+		cost = 5
+		prerequisite = { focus = PER_invest_artesh }
+		available = { has_war_with = ISR }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_per_small_arms_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = dd_per_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = PER_the_irgc
+		icon = GFX_goal_generic_special_forces
+		x = 28
+		y = 0
+		cost = 5
+		available = { has_war_with = ISR }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_the_irgc
+		}
+	}
+
+	focus = {
+		id = PER_artesh_navy
+		icon = GFX_goal_generic_navy_submarine
+		x = 32
+		y = 0
+		cost = 5
+		available = { has_war_with = ISR }
+		search_filters = { FOCUS_FILTER_NAVY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_artesh_navy
+		}
+	}
+	focus = {
+		id = PER_irgc_navy
+		icon = GFX_goal_generic_wolf_pack
+		x = 34
+		y = 0
+		cost = 5
+		available = { has_war_with = ISR }
+		search_filters = { FOCUS_FILTER_NAVY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_irgc_navy
+		}
+	}
+
+	# Reconstruction. Opens after the United States accepts Iran's demands.
+	focus = {
+		id = PER_restore_order
+		icon = GFX_goal_generic_national_unity
+		x = 14
+		y = 11
+		cost = 5
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_per_usa_accepted_tt
+				has_country_flag = dd_per_usa_accepted
+			}
+			NOT = { has_war_with = USA }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			remove_ideas = dd_per_popular_unrest
+		}
+	}
+	focus = {
+		id = PER_rebuild_infra
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 11
+		y = 12
+		cost = 5
+		prerequisite = { focus = PER_restore_order }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_rebuild_infra = yes
+		}
+	}
+	focus = {
+		id = PER_rebuild_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 14
+		y = 12
+		cost = 5
+		prerequisite = { focus = PER_restore_order }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_rebuild_industry = yes
+		}
+	}
+	focus = {
+		id = PER_rebuild_stockpile
+		icon = GFX_goal_generic_army_artillery
+		x = 17
+		y = 12
+		cost = 5
+		prerequisite = { focus = PER_restore_order }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_timed_idea = { idea = dd_per_rebuilding_stockpile days = 365 }
+		}
+	}
+
+	focus = {
+		id = PER_hefz
+		icon = GFX_goal_generic_secret_weapon
+		x = 22
+		y = 11
+		cost = 5
+		prerequisite = { focus = PER_press_demands }
+		available = { NOT = { has_war_with = USA } }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_hefz
+		}
+	}
+	focus = {
+		id = PER_race_for_the_bomb
+		icon = GFX_goal_generic_secret_weapon
+		x = 20
+		y = 12
+		cost = 5
+		prerequisite = { focus = PER_hefz }
+		prerequisite = { focus = PER_rebuild_stockpile }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_race_for_the_bomb = yes
+		}
+	}
+	focus = {
+		id = PER_play_for_iraq
+		icon = GFX_goal_generic_occupy_start_war
+		x = 24
+		y = 12
+		cost = 5
+		prerequisite = { focus = PER_hefz }
+		available = {
+			IRQ = {
+				exists = yes
+				owns_state = 1011
+				owns_state = 675
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_shiite_popout = yes
+		}
+	}
+	focus = {
+		id = PER_restore_hezbollah
+		icon = GFX_goal_generic_occupy_start_war
+		x = 22
+		y = 13
+		cost = 5
+		prerequisite = { focus = PER_play_for_iraq }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			if = {
+				limit = {
+					SYR = { exists = yes }
+					NOT = { has_wargoal_against = SYR }
+				}
+				create_wargoal = { type = dd_annex target = SYR }
+			}
+			if = {
+				limit = {
+					ROJ = { exists = yes }
+					NOT = { has_wargoal_against = ROJ }
+				}
+				create_wargoal = { type = dd_annex target = ROJ }
+			}
+		}
+	}
+	focus = {
+		id = PER_march_kuwait
+		icon = GFX_goal_generic_occupy_start_war
+		x = 26
+		y = 13
+		cost = 5
+		prerequisite = { focus = PER_restore_hezbollah }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			if = {
+				limit = {
+					KUW = { exists = yes }
+					NOT = { has_wargoal_against = KUW }
+				}
+				create_wargoal = { type = dd_annex target = KUW }
+			}
+		}
+	}
+	focus = {
+		id = PER_confront_israel
+		icon = GFX_goal_generic_major_war
+		x = 22
+		y = 14
+		cost = 5
+		prerequisite = { focus = PER_restore_hezbollah }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_confront_israel
+			if = {
+				limit = {
+					JOR = { exists = yes }
+					NOT = { has_wargoal_against = JOR }
+				}
+				create_wargoal = { type = dd_annex target = JOR }
+			}
+		}
+	}
+	focus = {
+		id = PER_iran_triumphant
+		icon = GFX_goal_generic_national_unity
+		x = 22
+		y = 15
+		cost = 5
+		prerequisite = { focus = PER_confront_israel }
+		available = {
+			NOT = { country_exists = ISR }
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_per_iran_triumphant
+		}
+	}
+}

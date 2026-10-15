@@ -1,0 +1,28 @@
+on_actions = {
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					tag = PER
+					NOT = { has_country_flag = dd_per_jan_crackdown }
+					date > 2026.1.9
+					date < 2026.2.1
+				}
+				set_country_flag = dd_per_jan_crackdown
+				country_event = { id = dd_iran.20 }
+			}
+			if = {
+				limit = { has_global_flag = dd_gulf_closed_usa }
+				dd_gulf_strip_usa_access = yes
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = { SAU = { has_idea = dd_sau_squeezed } }
+				SAU = { dd_sau_squeeze_tick = yes }
+			}
+		}
+	}
+}

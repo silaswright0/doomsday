@@ -1,0 +1,101 @@
+dd_per_proxy_category = {
+	dd_per_smuggle_rifles = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 30
+		cost = 25
+		visible = { tag = PER }
+		available = {
+			HOU = { exists = yes }
+			has_equipment = { infantry_equipment > 499 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 500
+				target = HOU
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	dd_per_smuggle_artillery = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 45
+		cost = 25
+		visible = { tag = PER }
+		available = {
+			HOU = { exists = yes }
+			has_equipment = { artillery_equipment > 23 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = artillery_equipment
+				amount = 24
+				target = HOU
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	dd_per_smuggle_support = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 45
+		cost = 25
+		visible = { tag = PER }
+		available = {
+			HOU = { exists = yes }
+			has_equipment = { support_equipment > 19 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = support_equipment
+				amount = 20
+				target = HOU
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+}
+
+dd_hormuz_category = {
+	dd_hormuz_demand_surrender = {
+		icon = generic_political_discourse
+		fire_only_once = yes
+		cost = 50
+		visible = {
+			tag = PER
+			has_country_flag = dd_per_demands_unlocked
+			has_global_flag = dd_hormuz_war
+		}
+		available = {
+			has_war_with = USA
+			NOT = { has_country_flag = dd_per_demands_sent }
+		}
+		complete_effect = {
+			set_country_flag = dd_per_demands_sent
+			USA = { country_event = { id = dd_iran.10 } }
+		}
+		ai_will_do = { factor = 50 }
+	}
+	dd_per_rally_citizens = {
+		icon = generic_propaganda
+		days_re_enable = 180
+		cost = 0
+		visible = {
+			tag = PER
+			has_country_flag = dd_per_rally_support_unlocked
+			has_global_flag = dd_hormuz_war
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_per_rally_not_total_tt
+				NOT = { dd_hormuz_auth_1 = yes }
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_per_rally_shift_tt
+			hidden_effect = {
+				dd_per_rally_authority = yes
+			}
+		}
+		ai_will_do = { factor = 40 }
+	}
+}

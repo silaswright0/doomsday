@@ -1,0 +1,499 @@
+ideas = {
+	country = {
+		dd_ham_fractured_support = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			on_add = {
+				add_offsite_building = { type = arms_factory level = 1 }
+			}
+			on_remove = {
+				add_offsite_building = { type = arms_factory level = -1 }
+			}
+		}
+		dd_hez_hindered_support = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			on_add = {
+				add_offsite_building = { type = arms_factory level = 3 }
+			}
+			on_remove = {
+				add_offsite_building = { type = arms_factory level = -3 }
+			}
+		}
+		dd_hez_iranian_support = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			on_add = {
+				add_offsite_building = { type = arms_factory level = 5 }
+			}
+			on_remove = {
+				add_offsite_building = { type = arms_factory level = -5 }
+			}
+			modifier = {
+				army_org_factor = 0.05
+			}
+		}
+		dd_fight_for_survival = {
+			picture = generic_wall_line
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_core_attack_factor = 0.30
+				army_core_defence_factor = 0.30
+				max_dig_in = 5
+				dig_in_speed_factor = 0.50
+				dont_lose_dig_in_on_attack = 1
+				war_support_factor = 0.50
+				surrender_limit = 0.20
+			}
+		}
+		dd_holy_war = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_morale_factor = 0.20
+				war_support_factor = 0.20
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+				breakthrough_factor = 0.10
+				surrender_limit = 0.20
+			}
+		}
+		dd_irq_shiite_militias = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			on_add = {
+				add_offsite_building = { type = arms_factory level = 1 }
+			}
+			on_remove = {
+				add_offsite_building = { type = arms_factory level = -1 }
+			}
+		}
+		dd_irq_shiite_militias_active = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			on_add = {
+				add_offsite_building = { type = arms_factory level = 1 }
+			}
+			on_remove = {
+				add_offsite_building = { type = arms_factory level = -1 }
+			}
+			modifier = {
+				theocratic_absolutism_drift = 0.10
+			}
+		}
+		dd_per_popular_unrest = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.20
+				political_power_gain = -0.10
+			}
+		}
+		dd_per_underfunded_artesh = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.10
+				army_attack_factor = -0.10
+				army_defence_factor = -0.10
+			}
+		}
+		dd_per_irgc_dominance = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.30
+				industrial_capacity_factory = 0.30
+				production_speed_arms_factory_factor = 0.20
+				production_speed_industrial_complex_factor = -0.50
+			}
+		}
+		dd_per_crippling_sanctions = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = -0.75
+				consumer_goods_factor = 0.20
+				production_speed_buildings_factor = -0.30
+				opinion_gain_monthly_factor = -0.50
+				improve_relations_maintain_cost_factor = 1.0
+			}
+		}
+		dd_per_nuclear_ban = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				production_speed_nuclear_reactor_factor = -10
+				production_speed_commercial_nuclear_reactor_factor = -10
+				production_speed_nuclear_reactor_heavy_water_factor = -10
+				nuclear_production_factor = -1
+			}
+		}
+		dd_irg_no_faction = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				ai_get_ally_desire_factor = -1000
+				ai_join_ally_desire_factor = -1000
+				join_faction_tension = 2
+			}
+			rule = {
+				can_join_factions = no
+				can_create_factions = no
+			}
+		}
+		dd_per_open_bazaar = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.20
+				consumer_goods_factor = -0.05
+				political_power_gain = 0.10
+			}
+		}
+		dd_per_release_prisoners = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				war_support_factor = -0.05
+				political_power_gain = 0.05
+			}
+		}
+		dd_per_new_military = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.10
+				industrial_capacity_factory = 0.15
+				production_speed_arms_factory_factor = 0.15
+			}
+		}
+		dd_per_total_war = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				surrender_limit = 0.20
+				army_morale_factor = 0.10
+				consumer_goods_factor = -0.20
+				war_support_factor = 0.20
+			}
+		}
+		dd_per_ration_goods = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
+		dd_per_diplomatic_stalling = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industry_repair_factor = 0.40
+				production_speed_buildings_factor = 0.15
+			}
+		}
+		dd_per_muslim_rally = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				theocratic_absolutism_drift = 0.01
+			}
+		}
+		dd_sau_squeezed = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.30
+			}
+		}
+		dd_hormuz_blockade_shock = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.10
+			}
+		}
+		dd_hormuz_blockade_usa = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_weekly = -0.005
+				national_populism_drift = 0.002
+			}
+		}
+		dd_hormuz_saudi_shock = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_weekly = -0.002
+			}
+		}
+		dd_gulf_oil_sealed = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = -0.80
+			}
+		}
+		dd_gulf_closed_to_usa = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				ai_get_ally_desire_factor = -100
+			}
+		}
+
+		dd_per_const_11 = { picture = generic_pp_unity_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { stability_factor = 0.08 war_support_factor = 0.05 consumer_goods_factor = -0.08 industrial_capacity_factory = 0.05 } }
+		dd_per_const_12 = { picture = generic_pp_unity_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { stability_factor = 0.08 war_support_factor = 0.05 trade_opinion_factor = 0.25 consumer_goods_factor = -0.05 } }
+		dd_per_const_13 = { picture = generic_pp_unity_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { stability_factor = 0.03 war_support_factor = 0.05 industrial_capacity_factory = 0.10 monthly_population = 0.05 } }
+		dd_per_const_21 = { picture = generic_democratic_drift_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { political_power_gain = 0.15 stability_factor = 0.05 consumer_goods_factor = -0.08 industrial_capacity_factory = 0.05 } }
+		dd_per_const_22 = { picture = generic_democratic_drift_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { political_power_gain = 0.15 stability_factor = 0.05 trade_opinion_factor = 0.25 consumer_goods_factor = -0.05 } }
+		dd_per_const_23 = { picture = generic_democratic_drift_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { political_power_gain = 0.15 industrial_capacity_factory = 0.10 monthly_population = 0.05 } }
+		dd_per_const_31 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.10 consumer_goods_factor = -0.08 } }
+		dd_per_const_32 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.05 trade_opinion_factor = 0.25 consumer_goods_factor = -0.05 } }
+		dd_per_const_33 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.15 monthly_population = 0.05 stability_factor = -0.05 } }
+		dd_per_final_battle = {
+			picture = generic_wall_line
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industry_repair_factor = 0.30
+			}
+		}
+		dd_per_final_battle_2 = {
+			picture = generic_wall_line
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industry_repair_factor = 0.30
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
+				industrial_capacity_factory = 0.10
+			}
+		}
+		dd_per_the_irgc = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			equipment_bonus = {
+				recon_uav_equipment = { build_cost_ic = -0.40 instant = yes }
+				strike_uav_equipment = { build_cost_ic = -0.40 instant = yes }
+				loitering_munition_equipment = { build_cost_ic = -0.40 instant = yes }
+				guided_missile_equipment = { build_cost_ic = -0.40 instant = yes }
+				ballistic_missile_equipment = { build_cost_ic = -0.40 instant = yes }
+			}
+		}
+		dd_per_artesh_navy = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			equipment_bonus = {
+				submarine = {
+					sub_attack = 0.15
+					surface_visibility = -0.20
+					instant = yes
+				}
+			}
+		}
+		dd_prp_opportunity = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				modifier_army_sub_unit_irregular_infantry_attack_factor = 0.20
+				modifier_army_sub_unit_irregular_infantry_defence_factor = 0.20
+				breakthrough_factor = 0.10
+			}
+		}
+		dd_prp_free_people = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.20
+				army_defence_factor = 0.20
+				breakthrough_factor = 0.10
+				supply_consumption_factor = -0.20
+			}
+		}
+		dd_prp_new_face = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_core_attack_factor = 0.20
+				army_core_defence_factor = 0.20
+			}
+		}
+		dd_pah_imperial_army = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.10
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+			}
+		}
+		dd_pah_crown_bazaar = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
+				trade_opinion_factor = 0.15
+				political_power_gain = 0.05
+			}
+		}
+		dd_pah_shahanshah = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				war_support_factor = 0.10
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
+			}
+		}
+		dd_per_rebuilding_stockpile = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.20
+				production_efficiency_gain_factor = 0.10
+			}
+		}
+		dd_per_hefz = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.10
+				stability_factor = 0.05
+			}
+		}
+		dd_per_racing_for_the_bomb = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				nuclear_production_factor = 0.50
+				thermonuclear_production_factor = 0.25
+				production_speed_nuclear_reactor_factor = 0.50
+			}
+		}
+		dd_per_confront_israel = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			targeted_modifier = {
+				tag = ISR
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			}
+		}
+		dd_per_iran_triumphant = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.20
+				war_support_factor = 0.20
+				justify_war_goal_time = -0.40
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+			}
+		}
+		dd_per_irgc_navy = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				naval_mines_damage_factor = 0.25
+			}
+			equipment_bonus = {
+				screen_ship = {
+					naval_speed = 0.25
+					torpedo_attack = 0.20
+					naval_torpedo_hit_chance_factor = 0.15
+					mines_planting = 0.30
+					instant = yes
+				}
+			}
+		}
+	}
+}
