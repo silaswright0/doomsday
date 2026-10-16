@@ -10,7 +10,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = dd_iran.1.a
-		ai_chance = { factor = 10 }
+		ai_chance = { factor = 0 }
 		set_country_flag = dd_per_pezeshkian
 		retire_country_leader = yes
 		create_country_leader = {
@@ -22,7 +22,7 @@ country_event = {
 	}
 	option = {
 		name = dd_iran.1.b
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 100 }
 		set_country_flag = dd_per_mojtaba
 		add_ideas = dd_holy_war
 		retire_country_leader = yes

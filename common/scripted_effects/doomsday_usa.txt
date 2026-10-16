@@ -1102,12 +1102,9 @@ dd_usa_claim_americas = {
 	}
 }
 
-# The seven major factions inherit the prewar supply-hole debuff.
+# The seven majors copy the service spirits the prewar United States still has.
+# A faction the player kept is still this country, so it already has them.
 dd_usa_cw_inherit_supply_hole = {
-	if = {
-		limit = { NOT = { has_idea = dd_usa_supply_hole } }
-		add_ideas = dd_usa_supply_hole
-	}
 	every_country = {
 		limit = {
 			OR = {
@@ -1120,9 +1117,119 @@ dd_usa_cw_inherit_supply_hole = {
 				tag = ACA
 			}
 			has_country_flag = dd_cw_released
-			NOT = { has_idea = dd_usa_supply_hole }
 		}
-		add_ideas = dd_usa_supply_hole
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_supply_hole }
+				NOT = { has_idea = dd_usa_supply_hole }
+			}
+			add_ideas = dd_usa_supply_hole
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_armed_forces }
+				NOT = { has_idea = dd_usa_armed_forces }
+			}
+			add_ideas = dd_usa_armed_forces
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_armed_forces_ready }
+				NOT = { has_idea = dd_usa_armed_forces_ready }
+			}
+			add_ideas = dd_usa_armed_forces_ready
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_armed_forces_drone }
+				NOT = { has_idea = dd_usa_armed_forces_drone }
+			}
+			add_ideas = dd_usa_armed_forces_drone
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_armed_forces_arty }
+				NOT = { has_idea = dd_usa_armed_forces_arty }
+			}
+			add_ideas = dd_usa_armed_forces_arty
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_armed_forces_aa }
+				NOT = { has_idea = dd_usa_armed_forces_aa }
+			}
+			add_ideas = dd_usa_armed_forces_aa
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_armed_forces_cavalry }
+				NOT = { has_idea = dd_usa_armed_forces_cavalry }
+			}
+			add_ideas = dd_usa_armed_forces_cavalry
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_airforce }
+				NOT = { has_idea = dd_usa_airforce }
+			}
+			add_ideas = dd_usa_airforce
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_airforce_prod }
+				NOT = { has_idea = dd_usa_airforce_prod }
+			}
+			add_ideas = dd_usa_airforce_prod
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_airforce_para }
+				NOT = { has_idea = dd_usa_airforce_para }
+			}
+			add_ideas = dd_usa_airforce_para
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_airforce_drone }
+				NOT = { has_idea = dd_usa_airforce_drone }
+			}
+			add_ideas = dd_usa_airforce_drone
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_airforce_cca }
+				NOT = { has_idea = dd_usa_airforce_cca }
+			}
+			add_ideas = dd_usa_airforce_cca
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_navy }
+				NOT = { has_idea = dd_usa_navy }
+			}
+			add_ideas = dd_usa_navy
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_navy_beds }
+				NOT = { has_idea = dd_usa_navy_beds }
+			}
+			add_ideas = dd_usa_navy_beds
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_navy_morale }
+				NOT = { has_idea = dd_usa_navy_morale }
+			}
+			add_ideas = dd_usa_navy_morale
+		}
+		if = {
+			limit = {
+				PREV = { has_idea = dd_usa_navy_yards }
+				NOT = { has_idea = dd_usa_navy_yards }
+			}
+			add_ideas = dd_usa_navy_yards
+		}
 	}
 }
 
