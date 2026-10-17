@@ -28,13 +28,21 @@ dd_usa_cw_america_settled = {
 	OR = { NOT = { country_exists = VIR } tag = VIR VIR = { OR = { is_subject_of = ROOT is_in_faction_with = ROOT } } }
 }
 
+# Anarcho-communism is a sub-ideology of communism. The leader type tells them apart.
+dd_is_anarchist_gov = {
+	has_government = communism
+	has_country_leader = {
+		ruling_only = yes
+		ideology = anarcho_communist
+	}
+}
+
 # DSA, communists, and anarchists cannot buy the coalition. They have to destroy it.
 dd_usa_cw_must_fight_abc = {
 	OR = {
 		has_government = social_democracy
 		has_government = progressive_populism
 		has_government = communism
-		has_government = anarcho_communism
 		tag = EAS
 		tag = RBL
 		tag = ACA

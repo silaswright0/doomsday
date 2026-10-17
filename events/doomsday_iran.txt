@@ -15,10 +15,10 @@ country_event = {
 		retire_country_leader = yes
 		create_country_leader = {
 			name = "Masoud Pezeshkian"
-			picture = GFX_portrait_PER_leader
+			picture = GFX_portrait_PER_pezeshkian
 			ideology = theocrat
 		}
-		news_event = { id = dd_iran_news.6 }
+		news_event = { id = dd_hormuz_news.1 }
 	}
 	option = {
 		name = dd_iran.1.b
@@ -28,10 +28,10 @@ country_event = {
 		retire_country_leader = yes
 		create_country_leader = {
 			name = "Mojtaba Khamenei"
-			picture = GFX_portrait_PER_leader
+			picture = GFX_portrait_PER_mojtaba
 			ideology = theocrat
 		}
-		news_event = { id = dd_iran_news.7 }
+		news_event = { id = dd_hormuz_news.1 }
 	}
 }
 

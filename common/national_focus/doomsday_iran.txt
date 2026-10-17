@@ -10,7 +10,18 @@ focus_tree = {
 	}
 	default = no
 	reset_on_civilwar = no
-	continuous_focus_position = { x = 50 y = 1200 }
+	continuous_focus_position = { x = 60 y = 2300 }
+
+	shared_focus = PRP_opportunity
+	shared_focus = PRP_secure_equipment
+	shared_focus = PRP_recruit_militias
+	shared_focus = PRP_free_people
+	shared_focus = PRP_central_command
+	shared_focus = PRP_new_face
+	shared_focus = PAH_return_of_the_shah
+	shared_focus = PAH_imperial_guard
+	shared_focus = PAH_crown_and_bazaar
+	shared_focus = PAH_shahanshah
 
 	focus = {
 		id = PER_zagros_forts
@@ -189,7 +200,11 @@ focus_tree = {
 		prerequisite = { focus = PER_blockade_hormuz }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
+			custom_effect_tooltip = dd_hormuz_auth_better_tt
 			add_ideas = dd_per_total_war
+			hidden_effect = {
+				dd_hormuz_auth_better = yes
+			}
 		}
 	}
 	focus = {
@@ -238,7 +253,11 @@ focus_tree = {
 		prerequisite = { focus = PER_squeeze_saudis }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
+			custom_effect_tooltip = dd_hormuz_auth_better_tt
 			add_ideas = dd_per_ration_goods
+			hidden_effect = {
+				dd_hormuz_auth_better = yes
+			}
 		}
 	}
 	focus = {
@@ -411,19 +430,16 @@ focus_tree = {
 		}
 	}
 
-	# Reconstruction. Opens after the United States accepts Iran's demands.
+	# Reconstruction. Either the peace reforms or the demands on Washington.
 	focus = {
 		id = PER_restore_order
 		icon = GFX_goal_generic_national_unity
-		x = 14
+		x = 8
 		y = 11
 		cost = 5
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = dd_per_usa_accepted_tt
-				has_country_flag = dd_per_usa_accepted
-			}
-			NOT = { has_war_with = USA }
+		prerequisite = {
+			focus = PER_popular_reforms
+			focus = PER_press_demands
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 20 }
@@ -434,7 +450,7 @@ focus_tree = {
 	focus = {
 		id = PER_rebuild_infra
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 11
+		x = 5
 		y = 12
 		cost = 5
 		prerequisite = { focus = PER_restore_order }
@@ -447,7 +463,7 @@ focus_tree = {
 	focus = {
 		id = PER_rebuild_industry
 		icon = GFX_goal_generic_construct_civ_factory
-		x = 14
+		x = 8
 		y = 12
 		cost = 5
 		prerequisite = { focus = PER_restore_order }
@@ -460,7 +476,7 @@ focus_tree = {
 	focus = {
 		id = PER_rebuild_stockpile
 		icon = GFX_goal_generic_army_artillery
-		x = 17
+		x = 11
 		y = 12
 		cost = 5
 		prerequisite = { focus = PER_restore_order }
@@ -474,7 +490,7 @@ focus_tree = {
 	focus = {
 		id = PER_hefz
 		icon = GFX_goal_generic_secret_weapon
-		x = 22
+		x = 14
 		y = 11
 		cost = 5
 		prerequisite = { focus = PER_press_demands }
@@ -488,8 +504,8 @@ focus_tree = {
 	focus = {
 		id = PER_race_for_the_bomb
 		icon = GFX_goal_generic_secret_weapon
-		x = 20
-		y = 12
+		x = 14
+		y = 13
 		cost = 5
 		prerequisite = { focus = PER_hefz }
 		prerequisite = { focus = PER_rebuild_stockpile }
@@ -502,10 +518,10 @@ focus_tree = {
 	focus = {
 		id = PER_play_for_iraq
 		icon = GFX_goal_generic_occupy_start_war
-		x = 24
-		y = 12
+		x = 18
+		y = 7
 		cost = 5
-		prerequisite = { focus = PER_hefz }
+		prerequisite = { focus = PER_squeeze_saudis }
 		available = {
 			IRQ = {
 				exists = yes
@@ -522,8 +538,8 @@ focus_tree = {
 	focus = {
 		id = PER_restore_hezbollah
 		icon = GFX_goal_generic_occupy_start_war
-		x = 22
-		y = 13
+		x = 18
+		y = 8
 		cost = 5
 		prerequisite = { focus = PER_play_for_iraq }
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -548,8 +564,8 @@ focus_tree = {
 	focus = {
 		id = PER_march_kuwait
 		icon = GFX_goal_generic_occupy_start_war
-		x = 26
-		y = 13
+		x = 16
+		y = 9
 		cost = 5
 		prerequisite = { focus = PER_restore_hezbollah }
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -567,8 +583,8 @@ focus_tree = {
 	focus = {
 		id = PER_confront_israel
 		icon = GFX_goal_generic_major_war
-		x = 22
-		y = 14
+		x = 20
+		y = 9
 		cost = 5
 		prerequisite = { focus = PER_restore_hezbollah }
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -587,8 +603,8 @@ focus_tree = {
 	focus = {
 		id = PER_iran_triumphant
 		icon = GFX_goal_generic_national_unity
-		x = 22
-		y = 15
+		x = 20
+		y = 10
 		cost = 5
 		prerequisite = { focus = PER_confront_israel }
 		available = {

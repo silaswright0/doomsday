@@ -1,0 +1,39 @@
+# Iran already sends air at Israel because that is the land front.
+# These weights also put bombers on the gulf states that joined the war
+# and on the two sea zones. A live front is worth about 35,000, so these
+# values share the air force instead of replacing the Israel missions.
+dd_per_hormuz_air = {
+	allowed = {
+		original_tag = PER
+	}
+	enable = {
+		has_global_flag = dd_hormuz_war
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 232 # Levant: Israel
+		value = 12000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 238 # East Arabia: Bahrain, Qatar, the UAE
+		value = 12000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 28 # Middle East: Kuwait
+		value = 12000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 203 # Persian Gulf
+		value = 12000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 104 # Arabian Sea
+		value = 12000
+	}
+}

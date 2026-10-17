@@ -266,8 +266,8 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_weekly = -0.005
-				national_populism_drift = 0.002
+				stability_weekly = -0.0019
+				national_populism_drift = -0.001
 			}
 		}
 		dd_hormuz_saudi_shock = {
@@ -276,8 +276,26 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
+				stability_weekly = -0.0019
+				national_populism_drift = -0.001
+			}
+		}
+		dd_hormuz_squeeze_world = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
 				consumer_goods_factor = 0.05
-				stability_weekly = -0.002
+			}
+		}
+		dd_hormuz_gulfbomb_world = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.05
 			}
 		}
 		dd_gulf_oil_sealed = {

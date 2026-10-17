@@ -165,13 +165,24 @@ country_event = {
 			set_temp_variable = { dd_left = party_popularity@progressive_populism }
 			set_temp_variable = { dd_left_best = 2 }
 		}
+		set_temp_variable = { dd_aca_slice = dd_usa_aca_pop }
 		if = {
-			limit = { check_variable = { party_popularity@communism > dd_left } }
-			set_temp_variable = { dd_left = party_popularity@communism }
+			limit = { check_variable = { dd_aca_slice < 0 } }
+			set_temp_variable = { dd_aca_slice = 0 }
+		}
+		if = {
+			limit = { check_variable = { dd_aca_slice > party_popularity@communism } }
+			set_temp_variable = { dd_aca_slice = party_popularity@communism }
+		}
+		set_temp_variable = { dd_com_slice = party_popularity@communism }
+		subtract_from_temp_variable = { dd_com_slice = dd_aca_slice }
+		if = {
+			limit = { check_variable = { dd_com_slice > dd_left } }
+			set_temp_variable = { dd_left = dd_com_slice }
 			set_temp_variable = { dd_left_best = 3 }
 		}
 		if = {
-			limit = { check_variable = { party_popularity@anarcho_communism > dd_left } }
+			limit = { check_variable = { dd_aca_slice > dd_left } }
 			set_temp_variable = { dd_left_best = 4 }
 		}
 		set_temp_variable = { dd_right = party_popularity@liberal_conservatism }
@@ -218,6 +229,16 @@ country_event = {
 		set_temp_variable = { dd_dem = party_popularity@social_democracy }
 		add_to_temp_variable = { dd_dem = party_popularity@progressive_populism }
 		add_to_temp_variable = { dd_dem = party_popularity@communism }
+		set_temp_variable = { dd_aca_slice = dd_usa_aca_pop }
+		if = {
+			limit = { check_variable = { dd_aca_slice < 0 } }
+			set_temp_variable = { dd_aca_slice = 0 }
+		}
+		if = {
+			limit = { check_variable = { dd_aca_slice > party_popularity@communism } }
+			set_temp_variable = { dd_aca_slice = party_popularity@communism }
+		}
+		subtract_from_temp_variable = { dd_dem = dd_aca_slice }
 		set_temp_variable = { dd_lib = party_popularity@social_liberalism }
 		set_temp_variable = { dd_con = party_popularity@liberal_conservatism }
 		set_temp_variable = { dd_nat = party_popularity@national_populism }
@@ -284,6 +305,16 @@ country_event = {
 			set_temp_variable = { dd_dem = party_popularity@social_democracy }
 			add_to_temp_variable = { dd_dem = party_popularity@progressive_populism }
 			add_to_temp_variable = { dd_dem = party_popularity@communism }
+			set_temp_variable = { dd_aca_slice = dd_usa_aca_pop }
+			if = {
+				limit = { check_variable = { dd_aca_slice < 0 } }
+				set_temp_variable = { dd_aca_slice = 0 }
+			}
+			if = {
+				limit = { check_variable = { dd_aca_slice > party_popularity@communism } }
+				set_temp_variable = { dd_aca_slice = party_popularity@communism }
+			}
+			subtract_from_temp_variable = { dd_dem = dd_aca_slice }
 			set_temp_variable = { dd_lib = party_popularity@social_liberalism }
 			set_temp_variable = { dd_con = party_popularity@liberal_conservatism }
 			set_temp_variable = { dd_nat = party_popularity@national_populism }
@@ -622,7 +653,8 @@ country_event = {
 		name = dd_usa_foreign.1.a
 		if = {
 			limit = { has_country_flag = dd_usa_caucus_anarchist }
-			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
+			add_to_variable = { dd_usa_aca_pop = 0.02 }
+			add_popularity = { ideology = communism popularity = 0.02 }
 		}
 		if = {
 			limit = { has_country_flag = dd_usa_caucus_communist }
@@ -637,7 +669,8 @@ country_event = {
 		name = dd_usa_foreign.1.b
 		if = {
 			limit = { has_country_flag = dd_usa_caucus_anarchist }
-			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
+			add_to_variable = { dd_usa_aca_pop = 0.03 }
+			add_popularity = { ideology = communism popularity = 0.03 }
 		}
 		if = {
 			limit = { has_country_flag = dd_usa_caucus_communist }

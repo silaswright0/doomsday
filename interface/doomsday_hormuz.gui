@@ -2,7 +2,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "dd_hormuz_map_window"
 		position = { x = 0 y = 0 }
-		size = { width = 100% height = 424 }
+		size = { width = 100% height = 408 }
 		clipping = no
 
 		instantTextboxType = {
@@ -16,366 +16,388 @@ guiTypes = {
 		}
 
 		instantTextboxType = {
-			name = "dd_arabian_title"
-			position = { x = 380 y = 32 }
-			font = "hoi_18mbs"
-			text = "DD_HORMUZ_ARABIAN"
-			maxWidth = 170
-			maxHeight = 22
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_arabian_usa"
-			position = { x = 380 y = 54 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_HELD_USA"
-			maxWidth = 170
-			maxHeight = 20
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_arabian_per"
-			position = { x = 380 y = 54 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_HELD_PER"
-			maxWidth = 170
-			maxHeight = 20
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_arabian_none"
-			position = { x = 380 y = 54 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_CONTESTED"
-			maxWidth = 170
-			maxHeight = 20
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_arabian_usa_fx"
-			position = { x = 380 y = 74 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_ARABIAN_USA_FX"
-			maxWidth = 170
-			maxHeight = 48
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_arabian_per_fx"
-			position = { x = 380 y = 74 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_ARABIAN_PER_FX"
-			maxWidth = 170
-			maxHeight = 48
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_arabian_none_fx"
-			position = { x = 380 y = 74 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_NO_EFFECT"
-			maxWidth = 170
-			maxHeight = 48
-			format = left
-		}
-
-		instantTextboxType = {
-			name = "dd_strait_title"
-			position = { x = 200 y = 32 }
-			font = "hoi_18mbs"
-			text = "DD_HORMUZ_STRAIT"
-			maxWidth = 160
-			maxHeight = 22
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_strait_usa"
-			position = { x = 200 y = 54 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_STRAIT_OPEN"
-			maxWidth = 160
-			maxHeight = 40
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_strait_per"
-			position = { x = 200 y = 54 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_STRAIT_SHUT"
-			maxWidth = 160
-			maxHeight = 40
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_strait_none"
-			position = { x = 200 y = 54 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_STRAIT_DISPUTED"
-			maxWidth = 160
-			maxHeight = 40
-			format = left
-		}
-
-		instantTextboxType = {
 			name = "dd_gulf_title"
-			position = { x = 12 y = 32 }
+			position = { x = 12 y = 28 }
 			font = "hoi_18mbs"
 			text = "DD_HORMUZ_GULF"
-			maxWidth = 170
+			maxWidth = 230
 			maxHeight = 22
 			format = left
 		}
 		instantTextboxType = {
 			name = "dd_gulf_usa"
-			position = { x = 12 y = 54 }
+			position = { x = 12 y = 50 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_HELD_USA"
-			maxWidth = 170
+			maxWidth = 230
 			maxHeight = 20
 			format = left
 		}
 		instantTextboxType = {
 			name = "dd_gulf_per"
-			position = { x = 12 y = 54 }
+			position = { x = 12 y = 50 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_HELD_PER"
-			maxWidth = 170
+			maxWidth = 230
 			maxHeight = 20
 			format = left
 		}
 		instantTextboxType = {
 			name = "dd_gulf_none"
-			position = { x = 12 y = 54 }
+			position = { x = 12 y = 50 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_CONTESTED"
-			maxWidth = 170
+			maxWidth = 230
 			maxHeight = 20
 			format = left
 		}
 		instantTextboxType = {
 			name = "dd_gulf_usa_fx"
-			position = { x = 12 y = 74 }
+			position = { x = 12 y = 70 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_GULF_USA_FX"
-			maxWidth = 170
-			maxHeight = 48
+			maxWidth = 230
+			maxHeight = 40
 			format = left
 		}
 		instantTextboxType = {
 			name = "dd_gulf_per_fx"
-			position = { x = 12 y = 74 }
+			position = { x = 12 y = 70 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_GULF_PER_FX"
-			maxWidth = 170
-			maxHeight = 48
+			maxWidth = 230
+			maxHeight = 40
 			format = left
 		}
 		instantTextboxType = {
 			name = "dd_gulf_none_fx"
-			position = { x = 12 y = 74 }
+			position = { x = 12 y = 70 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_NO_EFFECT"
-			maxWidth = 170
-			maxHeight = 48
+			maxWidth = 230
+			maxHeight = 40
 			format = left
 		}
 
 		instantTextboxType = {
-			name = "dd_bomb_header"
-			position = { x = 12 y = 132 }
+			name = "dd_arabian_title"
+			position = { x = 270 y = 28 }
 			font = "hoi_18mbs"
-			text = "DD_HORMUZ_BOMBING"
-			maxWidth = 520
+			text = "DD_HORMUZ_ARABIAN"
+			maxWidth = 230
 			maxHeight = 22
 			format = left
 		}
 		instantTextboxType = {
-			name = "dd_bomb_per_hit"
-			position = { x = 12 y = 156 }
+			name = "dd_arabian_usa"
+			position = { x = 270 y = 50 }
 			font = "hoi_16mbs"
-			text = "DD_HORMUZ_BOMB_PER_HIT"
-			maxWidth = 520
-			maxHeight = 36
+			text = "DD_HORMUZ_HELD_USA"
+			maxWidth = 230
+			maxHeight = 20
 			format = left
 		}
 		instantTextboxType = {
-			name = "dd_bomb_per_quiet"
-			position = { x = 12 y = 156 }
+			name = "dd_arabian_per"
+			position = { x = 270 y = 50 }
 			font = "hoi_16mbs"
-			text = "DD_HORMUZ_BOMB_PER_QUIET"
-			maxWidth = 520
-			maxHeight = 36
+			text = "DD_HORMUZ_HELD_PER"
+			maxWidth = 230
+			maxHeight = 20
 			format = left
 		}
 		instantTextboxType = {
-			name = "dd_bomb_per_ago"
-			position = { x = 12 y = 156 }
+			name = "dd_arabian_none"
+			position = { x = 270 y = 50 }
 			font = "hoi_16mbs"
-			text = "DD_HORMUZ_BOMB_PER_AGO"
-			maxWidth = 520
-			maxHeight = 36
+			text = "DD_HORMUZ_CONTESTED"
+			maxWidth = 230
+			maxHeight = 20
 			format = left
 		}
 		instantTextboxType = {
-			name = "dd_bomb_gulf_hit"
-			position = { x = 12 y = 194 }
+			name = "dd_arabian_usa_fx"
+			position = { x = 270 y = 70 }
 			font = "hoi_16mbs"
-			text = "DD_HORMUZ_BOMB_GULF_HIT"
-			maxWidth = 520
-			maxHeight = 36
+			text = "DD_HORMUZ_ARABIAN_USA_FX"
+			maxWidth = 230
+			maxHeight = 40
 			format = left
 		}
 		instantTextboxType = {
-			name = "dd_bomb_gulf_quiet"
-			position = { x = 12 y = 194 }
+			name = "dd_arabian_per_fx"
+			position = { x = 270 y = 70 }
 			font = "hoi_16mbs"
-			text = "DD_HORMUZ_BOMB_GULF_QUIET"
-			maxWidth = 520
-			maxHeight = 36
+			text = "DD_HORMUZ_ARABIAN_PER_FX"
+			maxWidth = 230
+			maxHeight = 40
 			format = left
 		}
 		instantTextboxType = {
-			name = "dd_bomb_gulf_ago"
-			position = { x = 12 y = 194 }
+			name = "dd_arabian_none_fx"
+			position = { x = 270 y = 70 }
 			font = "hoi_16mbs"
-			text = "DD_HORMUZ_BOMB_GULF_AGO"
-			maxWidth = 520
-			maxHeight = 36
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_hormuz_blockade_line"
-			position = { x = 12 y = 232 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_BLOCKADE"
-			maxWidth = 520
-			maxHeight = 36
-			format = left
-		}
-		instantTextboxType = {
-			name = "dd_hormuz_squeeze_line"
-			position = { x = 12 y = 268 }
-			font = "hoi_16mbs"
-			text = "DD_HORMUZ_SQUEEZE"
-			maxWidth = 520
-			maxHeight = 36
+			text = "DD_HORMUZ_NO_EFFECT"
+			maxWidth = 230
+			maxHeight = 40
 			format = left
 		}
 
 		instantTextboxType = {
+			name = "dd_econ_header"
+			position = { x = 12 y = 116 }
+			font = "hoi_18mbs"
+			text = "DD_HORMUZ_ECON_HEADER"
+			maxWidth = 500
+			maxHeight = 22
+			format = left
+		}
+		iconType = {
+			name = "dd_econ_oil_gray"
+			spriteType = "GFX_dd_econ_oil_gray"
+			position = { x = 12 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_HORMUZ_ECON_STRAIT_OFF"
+		}
+		iconType = {
+			name = "dd_econ_oil"
+			spriteType = "GFX_focus_generic_stockpile_fuel"
+			position = { x = 12 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_HORMUZ_ECON_STRAIT_ON"
+		}
+		iconType = {
+			name = "dd_econ_saudi_gray"
+			spriteType = "GFX_dd_econ_refinery_gray"
+			position = { x = 72 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_HORMUZ_ECON_SQUEEZE_OFF"
+		}
+		iconType = {
+			name = "dd_econ_saudi"
+			spriteType = "GFX_goal_generic_oil_refinery"
+			position = { x = 72 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_HORMUZ_ECON_SQUEEZE_ON"
+		}
+		iconType = {
+			name = "dd_econ_gulf_gray"
+			spriteType = "GFX_dd_econ_bomber_gray"
+			position = { x = 132 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_HORMUZ_ECON_GULF_OFF"
+		}
+		iconType = {
+			name = "dd_econ_gulf"
+			spriteType = "GFX_goal_generic_air_bomber"
+			position = { x = 132 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_HORMUZ_ECON_GULF_ON"
+		}
+
+		instantTextboxType = {
 			name = "dd_auth_header"
-			position = { x = 12 y = 284 }
+			position = { x = 12 y = 268 }
 			font = "hoi_18mbs"
 			text = "DD_HORMUZ_AUTH_HEADER"
-			maxWidth = 520
+			maxWidth = 500
 			maxHeight = 22
 			format = left
 		}
 
 		iconType = {
 			name = "dd_auth_bg_1"
-			spriteType = "GFX_tiled_window_small"
-			position = { x = 12 y = 312 }
+			spriteType = "GFX_dd_auth_card_idle"
+			position = { x = 11 y = 292 }
 		}
 		iconType = {
 			name = "dd_auth_on_1"
-			spriteType = "GFX_tiled_window_small_selectable"
-			frame = 2
-			position = { x = 12 y = 312 }
+			spriteType = "GFX_dd_auth_card_on"
+			position = { x = 11 y = 292 }
 		}
 		instantTextboxType = {
 			name = "dd_auth_title_1"
-			position = { x = 18 y = 344 }
+			position = { x = 19 y = 320 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_AUTH_1"
-			maxWidth = 84
-			maxHeight = 34
+			maxWidth = 80
+			maxHeight = 40
 			format = center
 			pdx_tooltip = "DD_HORMUZ_AUTH_1_TT"
 		}
 		iconType = {
 			name = "dd_auth_bg_2"
-			spriteType = "GFX_tiled_window_small"
-			position = { x = 116 y = 312 }
+			spriteType = "GFX_dd_auth_card_idle"
+			position = { x = 107 y = 292 }
 		}
 		iconType = {
 			name = "dd_auth_on_2"
-			spriteType = "GFX_tiled_window_small_selectable"
-			frame = 2
-			position = { x = 116 y = 312 }
+			spriteType = "GFX_dd_auth_card_on"
+			position = { x = 107 y = 292 }
 		}
 		instantTextboxType = {
 			name = "dd_auth_title_2"
-			position = { x = 122 y = 344 }
+			position = { x = 115 y = 320 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_AUTH_2"
-			maxWidth = 84
-			maxHeight = 34
+			maxWidth = 80
+			maxHeight = 40
 			format = center
 			pdx_tooltip = "DD_HORMUZ_AUTH_2_TT"
 		}
 		iconType = {
 			name = "dd_auth_bg_3"
-			spriteType = "GFX_tiled_window_small"
-			position = { x = 220 y = 312 }
+			spriteType = "GFX_dd_auth_card_idle"
+			position = { x = 203 y = 292 }
 		}
 		iconType = {
 			name = "dd_auth_on_3"
-			spriteType = "GFX_tiled_window_small_selectable"
-			frame = 2
-			position = { x = 220 y = 312 }
+			spriteType = "GFX_dd_auth_card_on"
+			position = { x = 203 y = 292 }
 		}
 		instantTextboxType = {
 			name = "dd_auth_title_3"
-			position = { x = 226 y = 344 }
+			position = { x = 211 y = 320 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_AUTH_3"
-			maxWidth = 84
-			maxHeight = 34
+			maxWidth = 80
+			maxHeight = 40
 			format = center
 			pdx_tooltip = "DD_HORMUZ_AUTH_3_TT"
 		}
 		iconType = {
 			name = "dd_auth_bg_4"
-			spriteType = "GFX_tiled_window_small"
-			position = { x = 324 y = 312 }
+			spriteType = "GFX_dd_auth_card_idle"
+			position = { x = 299 y = 292 }
 		}
 		iconType = {
 			name = "dd_auth_on_4"
-			spriteType = "GFX_tiled_window_small_selectable"
-			frame = 2
-			position = { x = 324 y = 312 }
+			spriteType = "GFX_dd_auth_card_on"
+			position = { x = 299 y = 292 }
 		}
 		instantTextboxType = {
 			name = "dd_auth_title_4"
-			position = { x = 330 y = 344 }
+			position = { x = 307 y = 320 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_AUTH_4"
-			maxWidth = 84
-			maxHeight = 34
+			maxWidth = 80
+			maxHeight = 40
 			format = center
 			pdx_tooltip = "DD_HORMUZ_AUTH_4_TT"
 		}
 		iconType = {
 			name = "dd_auth_bg_5"
-			spriteType = "GFX_tiled_window_small"
-			position = { x = 428 y = 312 }
+			spriteType = "GFX_dd_auth_card_idle"
+			position = { x = 395 y = 292 }
 		}
 		iconType = {
 			name = "dd_auth_on_5"
-			spriteType = "GFX_tiled_window_small_selectable"
-			frame = 2
-			position = { x = 428 y = 312 }
+			spriteType = "GFX_dd_auth_card_on"
+			position = { x = 395 y = 292 }
 		}
 		instantTextboxType = {
 			name = "dd_auth_title_5"
-			position = { x = 434 y = 344 }
+			position = { x = 403 y = 320 }
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_AUTH_5"
-			maxWidth = 84
-			maxHeight = 34
+			maxWidth = 80
+			maxHeight = 40
 			format = center
 			pdx_tooltip = "DD_HORMUZ_AUTH_5_TT"
+		}
+
+		iconType = {
+			name = "dd_bomb_dot_bg_1"
+			spriteType = "GFX_dd_bomb_circle_empty"
+			position = { x = 8 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_1"
+			spriteType = "GFX_dd_bomb_circle_full"
+			position = { x = 8 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_bg_2"
+			spriteType = "GFX_dd_bomb_circle_empty"
+			position = { x = 84 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_2"
+			spriteType = "GFX_dd_bomb_circle_full"
+			position = { x = 84 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_bg_3"
+			spriteType = "GFX_dd_bomb_circle_empty"
+			position = { x = 160 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_3"
+			spriteType = "GFX_dd_bomb_circle_full"
+			position = { x = 160 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_bg_4"
+			spriteType = "GFX_dd_bomb_circle_empty"
+			position = { x = 236 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_4"
+			spriteType = "GFX_dd_bomb_circle_full"
+			position = { x = 236 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_bg_5"
+			spriteType = "GFX_dd_bomb_circle_empty"
+			position = { x = 312 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_5"
+			spriteType = "GFX_dd_bomb_circle_full"
+			position = { x = 312 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_bg_6"
+			spriteType = "GFX_dd_bomb_circle_empty"
+			position = { x = 388 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_6"
+			spriteType = "GFX_dd_bomb_circle_full"
+			position = { x = 388 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_bg_7"
+			spriteType = "GFX_dd_bomb_circle_empty"
+			position = { x = 464 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		iconType = {
+			name = "dd_bomb_dot_7"
+			spriteType = "GFX_dd_bomb_circle_full"
+			position = { x = 464 y = 196 }
+			pdx_tooltip = "DD_HORMUZ_BOMB_QUARTER"
+		}
+		instantTextboxType = {
+			name = "dd_bomb_quarter"
+			position = { x = 12 y = 222 }
+			font = "hoi_16mbs"
+			text = "DD_HORMUZ_BOMB_QUARTER"
+			maxWidth = 500
+			maxHeight = 40
+			format = left
 		}
 	}
 }

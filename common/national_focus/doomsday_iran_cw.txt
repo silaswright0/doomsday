@@ -1,3 +1,179 @@
+# Shown on Iran's tree, and loaded on their own when the player takes that side.
+# Coordinates sit to the right of the Iranian tree so the branches do not cover it.
+
+shared_focus = {
+	id = PRP_opportunity
+	icon = GFX_goal_generic_major_war
+	x = 40
+	y = 0
+	cost = 5
+	available = { tag = PRP }
+	search_filters = { FOCUS_FILTER_ARMY }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		add_ideas = dd_prp_opportunity
+	}
+}
+shared_focus = {
+	id = PRP_secure_equipment
+	icon = GFX_goal_generic_army_artillery
+	x = 38
+	y = 1
+	cost = 5
+	prerequisite = { focus = PRP_opportunity }
+	available = { tag = PRP }
+	search_filters = { FOCUS_FILTER_RESEARCH }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 5000 }
+		add_equipment_to_stockpile = { type = artillery_equipment amount = 240 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 200 }
+		add_tech_bonus = {
+			name = dd_prp_small_arms_bonus
+			bonus = 1.0
+			uses = 4
+			category = infantry_weapons
+		}
+		add_tech_bonus = {
+			name = dd_prp_artillery_bonus
+			bonus = 1.0
+			uses = 3
+			category = artillery
+		}
+	}
+}
+shared_focus = {
+	id = PRP_recruit_militias
+	icon = GFX_goal_generic_allies_build_infantry
+	x = 42
+	y = 1
+	cost = 5
+	prerequisite = { focus = PRP_opportunity }
+	available = { tag = PRP }
+	search_filters = { FOCUS_FILTER_ARMY }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		custom_effect_tooltip = dd_prp_militia_tt
+		hidden_effect = {
+			dd_prp_spawn_militias = yes
+		}
+	}
+}
+shared_focus = {
+	id = PRP_free_people
+	icon = GFX_goal_generic_national_unity
+	x = 40
+	y = 2
+	cost = 10
+	prerequisite = { focus = PRP_secure_equipment }
+	prerequisite = { focus = PRP_recruit_militias }
+	available = {
+		tag = PRP
+		has_war = no
+	}
+	search_filters = { FOCUS_FILTER_ARMY }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		remove_ideas = dd_prp_opportunity
+		add_ideas = dd_prp_free_people
+	}
+}
+shared_focus = {
+	id = PRP_central_command
+	icon = GFX_goal_generic_army_doctrines
+	x = 40
+	y = 3
+	cost = 5
+	prerequisite = { focus = PRP_free_people }
+	available = { tag = PRP }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		add_stability = 0.40
+		custom_effect_tooltip = dd_prp_policy_tt
+		hidden_effect = {
+			dd_prp_set_command_policies = yes
+		}
+	}
+}
+shared_focus = {
+	id = PRP_new_face
+	icon = GFX_goal_generic_positive_diplomacy
+	x = 40
+	y = 4
+	cost = 10
+	prerequisite = { focus = PRP_central_command }
+	available = { tag = PRP }
+	search_filters = { FOCUS_FILTER_ARMY }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		add_ideas = dd_prp_new_face
+	}
+}
+
+shared_focus = {
+	id = PAH_return_of_the_shah
+	icon = GFX_goal_generic_political_pressure
+	x = 50
+	y = 0
+	cost = 5
+	available = { tag = PAH }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		custom_effect_tooltip = dd_pah_pahlavi_tt
+		add_political_power = 50
+		add_stability = 0.10
+		add_war_support = 0.10
+		hidden_effect = {
+			dd_pah_install_pahlavi = yes
+		}
+	}
+}
+shared_focus = {
+	id = PAH_imperial_guard
+	icon = GFX_goal_generic_army_doctrines
+	x = 48
+	y = 1
+	cost = 5
+	prerequisite = { focus = PAH_return_of_the_shah }
+	available = { tag = PAH }
+	search_filters = { FOCUS_FILTER_ARMY }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		add_ideas = dd_pah_imperial_army
+	}
+}
+shared_focus = {
+	id = PAH_crown_and_bazaar
+	icon = GFX_goal_generic_consumer_goods
+	x = 52
+	y = 1
+	cost = 5
+	prerequisite = { focus = PAH_return_of_the_shah }
+	available = { tag = PAH }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		add_ideas = dd_pah_crown_bazaar
+	}
+}
+shared_focus = {
+	id = PAH_shahanshah
+	icon = GFX_goal_generic_forceful_treaty
+	x = 50
+	y = 2
+	cost = 5
+	prerequisite = { focus = PAH_imperial_guard }
+	prerequisite = { focus = PAH_crown_and_bazaar }
+	available = { tag = PAH }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 20 }
+	completion_reward = {
+		add_ideas = dd_pah_shahanshah
+	}
+}
+
 focus_tree = {
 	id = dd_prp_focus
 	country = {
@@ -5,114 +181,18 @@ focus_tree = {
 		modifier = {
 			add = 50
 			tag = PRP
-			has_government = progressive_populism
 		}
 	}
 	default = no
 	reset_on_civilwar = no
 	continuous_focus_position = { x = 50 y = 1200 }
 
-	focus = {
-		id = PRP_opportunity
-		icon = GFX_goal_generic_major_war
-		x = 4
-		y = 0
-		cost = 5
-		search_filters = { FOCUS_FILTER_ARMY }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			add_ideas = dd_prp_opportunity
-		}
-	}
-	focus = {
-		id = PRP_secure_equipment
-		icon = GFX_goal_generic_army_artillery
-		x = 2
-		y = 1
-		cost = 5
-		prerequisite = { focus = PRP_opportunity }
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 5000 }
-			add_equipment_to_stockpile = { type = artillery_equipment amount = 240 }
-			add_equipment_to_stockpile = { type = support_equipment amount = 200 }
-			add_tech_bonus = {
-				name = dd_prp_small_arms_bonus
-				bonus = 1.0
-				uses = 4
-				category = infantry_weapons
-			}
-			add_tech_bonus = {
-				name = dd_prp_artillery_bonus
-				bonus = 1.0
-				uses = 3
-				category = artillery
-			}
-		}
-	}
-	focus = {
-		id = PRP_recruit_militias
-		icon = GFX_goal_generic_allies_build_infantry
-		x = 6
-		y = 1
-		cost = 5
-		prerequisite = { focus = PRP_opportunity }
-		search_filters = { FOCUS_FILTER_ARMY }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			custom_effect_tooltip = dd_prp_militia_tt
-			hidden_effect = {
-				dd_prp_spawn_militias = yes
-			}
-		}
-	}
-	focus = {
-		id = PRP_free_people
-		icon = GFX_goal_generic_national_unity
-		x = 4
-		y = 2
-		cost = 10
-		prerequisite = { focus = PRP_secure_equipment }
-		prerequisite = { focus = PRP_recruit_militias }
-		available = { has_war = no }
-		search_filters = { FOCUS_FILTER_ARMY }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			remove_ideas = dd_prp_opportunity
-			add_ideas = dd_prp_free_people
-		}
-	}
-	focus = {
-		id = PRP_central_command
-		icon = GFX_goal_generic_army_doctrines
-		x = 4
-		y = 3
-		cost = 5
-		prerequisite = { focus = PRP_free_people }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			add_stability = 0.40
-			custom_effect_tooltip = dd_prp_policy_tt
-			hidden_effect = {
-				dd_prp_set_command_policies = yes
-			}
-		}
-	}
-	focus = {
-		id = PRP_new_face
-		icon = GFX_goal_generic_positive_diplomacy
-		x = 4
-		y = 4
-		cost = 10
-		prerequisite = { focus = PRP_central_command }
-		search_filters = { FOCUS_FILTER_ARMY }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			add_ideas = dd_prp_new_face
-		}
-	}
+	shared_focus = PRP_opportunity
+	shared_focus = PRP_secure_equipment
+	shared_focus = PRP_recruit_militias
+	shared_focus = PRP_free_people
+	shared_focus = PRP_central_command
+	shared_focus = PRP_new_face
 }
 
 focus_tree = {
@@ -122,69 +202,14 @@ focus_tree = {
 		modifier = {
 			add = 50
 			tag = PAH
-			has_government = absolute_monarchy
 		}
 	}
 	default = no
 	reset_on_civilwar = no
 	continuous_focus_position = { x = 50 y = 1200 }
 
-	focus = {
-		id = PAH_return_of_the_shah
-		icon = GFX_goal_generic_political_pressure
-		x = 6
-		y = 0
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			custom_effect_tooltip = dd_pah_pahlavi_tt
-			add_political_power = 50
-			add_stability = 0.10
-			add_war_support = 0.10
-			hidden_effect = {
-				dd_pah_install_pahlavi = yes
-			}
-		}
-	}
-	focus = {
-		id = PAH_imperial_guard
-		icon = GFX_goal_generic_army_doctrines
-		x = 4
-		y = 1
-		cost = 5
-		prerequisite = { focus = PAH_return_of_the_shah }
-		search_filters = { FOCUS_FILTER_ARMY }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			add_ideas = dd_pah_imperial_army
-		}
-	}
-	focus = {
-		id = PAH_crown_and_bazaar
-		icon = GFX_goal_generic_consumer_goods
-		x = 8
-		y = 1
-		cost = 5
-		prerequisite = { focus = PAH_return_of_the_shah }
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			add_ideas = dd_pah_crown_bazaar
-		}
-	}
-	focus = {
-		id = PAH_shahanshah
-		icon = GFX_goal_generic_forceful_treaty
-		x = 6
-		y = 2
-		cost = 5
-		prerequisite = { focus = PAH_imperial_guard }
-		prerequisite = { focus = PAH_crown_and_bazaar }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			add_ideas = dd_pah_shahanshah
-		}
-	}
+	shared_focus = PAH_return_of_the_shah
+	shared_focus = PAH_imperial_guard
+	shared_focus = PAH_crown_and_bazaar
+	shared_focus = PAH_shahanshah
 }

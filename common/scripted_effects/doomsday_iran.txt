@@ -20,7 +20,55 @@ dd_per_puppet_proxies = {
 			HOU = { exists = yes }
 			NOT = { HOU = { is_subject_of = PER } }
 		}
+		# Puppeting white-peaces the new subject's other wars. Put the Houthis back
+		# at war with whoever they were already fighting. Hamas and Hezbollah are
+		# called in with the overlord and leave again.
+		HOU = {
+			every_enemy_country = {
+				set_country_flag = dd_hou_prewar_enemy
+			}
+		}
 		puppet = HOU
+		every_country = {
+			limit = { has_country_flag = dd_hou_prewar_enemy }
+			if = {
+				limit = { NOT = { has_war_with = HOU } }
+				PER = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+				HOU = {
+					if = {
+						limit = { NOT = { has_war_with = PREV } }
+						add_to_war = {
+							targeted_alliance = PER
+							enemy = PREV
+						}
+					}
+				}
+				if = {
+					limit = { HAM = { exists = yes } }
+					HAM = {
+						if = {
+							limit = { has_war_with = PREV }
+							white_peace = PREV
+						}
+					}
+				}
+				if = {
+					limit = { HEZ = { exists = yes } }
+					HEZ = {
+						if = {
+							limit = { has_war_with = PREV }
+							white_peace = PREV
+						}
+					}
+				}
+			}
+			clr_country_flag = dd_hou_prewar_enemy
+		}
 	}
 }
 
@@ -290,10 +338,115 @@ dd_hormuz_blockade_targets = {
 				tag = TUN
 				tag = SUD
 			}
-			NOT = { has_idea = dd_hormuz_blockade_shock }
 		}
-		add_ideas = dd_hormuz_blockade_shock
+		if = {
+			limit = {
+				has_global_flag = dd_hormuz_blockade
+				NOT = { has_idea = dd_hormuz_blockade_shock }
+			}
+			add_ideas = dd_hormuz_blockade_shock
+		}
+		else_if = {
+			limit = {
+				NOT = { has_global_flag = dd_hormuz_blockade }
+				has_idea = dd_hormuz_blockade_shock
+			}
+			remove_ideas = dd_hormuz_blockade_shock
+		}
+		if = {
+			limit = {
+				has_global_flag = dd_hormuz_squeeze_on
+				NOT = { has_idea = dd_hormuz_squeeze_world }
+			}
+			add_ideas = dd_hormuz_squeeze_world
+		}
+		else_if = {
+			limit = {
+				NOT = { has_global_flag = dd_hormuz_squeeze_on }
+				has_idea = dd_hormuz_squeeze_world
+			}
+			remove_ideas = dd_hormuz_squeeze_world
+		}
+		if = {
+			limit = {
+				has_global_flag = dd_hormuz_gulf_cities_bombed
+				NOT = { has_idea = dd_hormuz_gulfbomb_world }
+			}
+			add_ideas = dd_hormuz_gulfbomb_world
+		}
+		else_if = {
+			limit = {
+				NOT = { has_global_flag = dd_hormuz_gulf_cities_bombed }
+				has_idea = dd_hormuz_gulfbomb_world
+			}
+			remove_ideas = dd_hormuz_gulfbomb_world
+		}
 	}
+}
+
+# Strait, Saudi squeeze, and Gulf-city bombing. Each one ticks the United States.
+# Importers on the list above take the consumer-goods shock. Runs once a day from the USA.
+dd_hormuz_econ_sync = {
+	if = {
+		limit = { SAU = { has_idea = dd_sau_squeezed } }
+		set_global_flag = dd_hormuz_squeeze_on
+	}
+	else = {
+		clr_global_flag = dd_hormuz_squeeze_on
+	}
+	if = {
+		limit = { dd_hormuz_gulf_cities_bombed_now = yes }
+		set_global_flag = dd_hormuz_gulf_cities_bombed
+	}
+	else = {
+		clr_global_flag = dd_hormuz_gulf_cities_bombed
+	}
+	if = {
+		limit = {
+			has_global_flag = dd_hormuz_blockade
+			USA = { exists = yes }
+			NOT = { USA = { has_idea = dd_hormuz_blockade_usa } }
+		}
+		USA = { add_ideas = dd_hormuz_blockade_usa }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_global_flag = dd_hormuz_blockade }
+			USA = { has_idea = dd_hormuz_blockade_usa }
+		}
+		USA = { remove_ideas = dd_hormuz_blockade_usa }
+	}
+	if = {
+		limit = {
+			has_global_flag = dd_hormuz_squeeze_on
+			USA = { exists = yes }
+			NOT = { USA = { has_idea = dd_hormuz_saudi_shock } }
+		}
+		USA = { add_ideas = dd_hormuz_saudi_shock }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_global_flag = dd_hormuz_squeeze_on }
+			USA = { has_idea = dd_hormuz_saudi_shock }
+		}
+		USA = { remove_ideas = dd_hormuz_saudi_shock }
+	}
+	if = {
+		limit = {
+			has_global_flag = dd_hormuz_gulf_cities_bombed
+			USA = { exists = yes }
+			NOT = { USA = { has_idea = dd_hormuz_gulfbomb_usa } }
+		}
+		USA = { add_ideas = dd_hormuz_gulfbomb_usa }
+	}
+	else_if = {
+		limit = {
+			NOT = { has_global_flag = dd_hormuz_gulf_cities_bombed }
+			USA = { has_idea = dd_hormuz_gulfbomb_usa }
+		}
+		USA = { remove_ideas = dd_hormuz_gulfbomb_usa }
+	}
+	dd_hormuz_blockade_targets = yes
 }
 
 dd_hormuz_seal_gulf_oil = {
@@ -317,15 +470,8 @@ dd_hormuz_seal_gulf_oil = {
 
 dd_hormuz_start_blockade = {
 	set_global_flag = dd_hormuz_blockade
-	dd_hormuz_blockade_targets = yes
 	dd_hormuz_seal_gulf_oil = yes
-	if = {
-		limit = {
-			USA = { exists = yes }
-			NOT = { USA = { has_idea = dd_hormuz_blockade_usa } }
-		}
-		USA = { add_ideas = dd_hormuz_blockade_usa }
-	}
+	dd_hormuz_econ_sync = yes
 	news_event = { id = dd_iran_news.4 }
 }
 
@@ -347,6 +493,20 @@ dd_hormuz_clear_blockade = {
 		limit = { has_idea = dd_hormuz_saudi_shock }
 		remove_ideas = dd_hormuz_saudi_shock
 	}
+	every_country = {
+		limit = { has_idea = dd_hormuz_squeeze_world }
+		remove_ideas = dd_hormuz_squeeze_world
+	}
+	every_country = {
+		limit = { has_idea = dd_hormuz_gulfbomb_world }
+		remove_ideas = dd_hormuz_gulfbomb_world
+	}
+	every_country = {
+		limit = { has_idea = dd_hormuz_gulfbomb_usa }
+		remove_ideas = dd_hormuz_gulfbomb_usa
+	}
+	clr_global_flag = dd_hormuz_squeeze_on
+	clr_global_flag = dd_hormuz_gulf_cities_bombed
 }
 
 dd_per_squeeze_saudis = {
@@ -357,14 +517,7 @@ dd_per_squeeze_saudis = {
 			set_variable = { dd_sau_hit = 0 }
 		}
 	}
-	if = {
-		limit = {
-			has_global_flag = dd_hormuz_war
-			USA = { exists = yes }
-			NOT = { USA = { has_idea = dd_hormuz_saudi_shock } }
-		}
-		USA = { add_ideas = dd_hormuz_saudi_shock }
-	}
+	dd_hormuz_econ_sync = yes
 }
 
 dd_sau_squeeze_tick = {
@@ -523,7 +676,7 @@ dd_per_apply_constitution = {
 		set_politics = { ruling_party = theocratic_absolutism elections_allowed = yes }
 		create_country_leader = {
 			name = "Masoud Pezeshkian"
-			picture = GFX_portrait_PER_leader
+			picture = GFX_portrait_PER_pezeshkian
 			ideology = theocrat
 		}
 		set_popularities = {
@@ -541,7 +694,7 @@ dd_per_apply_constitution = {
 		set_politics = { ruling_party = islamic_democracy elections_allowed = yes }
 		create_country_leader = {
 			name = "Masoud Pezeshkian"
-			picture = GFX_portrait_PER_leader
+			picture = GFX_portrait_PER_pezeshkian
 			ideology = islamic_democrat
 		}
 		set_popularities = {
@@ -558,7 +711,7 @@ dd_per_apply_constitution = {
 		set_politics = { ruling_party = social_liberalism elections_allowed = yes }
 		create_country_leader = {
 			name = "Masoud Pezeshkian"
-			picture = GFX_portrait_PER_leader
+			picture = GFX_portrait_PER_pezeshkian
 			ideology = social_liberal
 		}
 		set_popularities = {

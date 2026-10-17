@@ -431,14 +431,13 @@ add_ideas = limited_conscription
 add_ideas = closed_economy
 add_ideas = partial_economic_mobilisation
 set_politics = {
-	ruling_party = state_socialism
+	ruling_party = communism
 	last_election = "2023.3.26"
 	election_frequency = 60
 	elections_allowed = no
 }
 set_popularities = {
-	state_socialism = 80
-	communism = 10
+	communism = 90
 	liberal_conservatism = 5
 	social_democracy = 5
 }

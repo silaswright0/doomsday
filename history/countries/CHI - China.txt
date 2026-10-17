@@ -515,17 +515,16 @@ add_ideas = limited_conscription
 add_ideas = limited_exports
 add_ideas = civilian_economy
 set_politics = {
-	ruling_party = state_socialism
+	ruling_party = communism
 	last_election = "2023.3.10"
 	election_frequency = 60
 	elections_allowed = no
 }
 set_popularities = {
-	state_socialism = 82
+	communism = 85
 	liberal_conservatism = 8
 	social_democracy = 4
 	national_populism = 3
-	communism = 3
 }
 set_variable = { debt = 16573.3000 }
 set_variable = { treasury = 389.9600 }

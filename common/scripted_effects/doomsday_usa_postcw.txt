@@ -74,10 +74,6 @@ dd_usa_cancel_elections = {
 		set_politics = { ruling_party = communism elections_allowed = no }
 	}
 	else_if = {
-		limit = { has_government = anarcho_communism }
-		set_politics = { ruling_party = anarcho_communism elections_allowed = no }
-	}
-	else_if = {
 		limit = { has_government = democratic_confederalism }
 		set_politics = { ruling_party = democratic_confederalism elections_allowed = no }
 	}
@@ -120,10 +116,6 @@ dd_usa_zero_ideology = {
 		add_popularity = { ideology = absolute_monarchy popularity = -1 }
 	}
 	if = {
-		limit = { NOT = { has_government = state_socialism } }
-		add_popularity = { ideology = state_socialism popularity = -1 }
-	}
-	if = {
 		limit = { NOT = { has_government = left_wing_nationalism } }
 		add_popularity = { ideology = left_wing_nationalism popularity = -1 }
 	}
@@ -154,10 +146,6 @@ dd_usa_zero_ideology = {
 	if = {
 		limit = { NOT = { has_government = technocracy } }
 		add_popularity = { ideology = technocracy popularity = -1 }
-	}
-	if = {
-		limit = { NOT = { has_government = anarcho_communism } }
-		add_popularity = { ideology = anarcho_communism popularity = -1 }
 	}
 }
 
@@ -463,7 +451,6 @@ dd_usa_refresh_invite_targets = {
 			exists = yes
 			OR = {
 				has_government = progressive_populism
-				has_government = anarcho_communism
 				has_government = communism
 				has_government = social_democracy
 				has_government = left_wing_nationalism

@@ -25,16 +25,11 @@ scripted_gui = {
 
 			dd_gulf_usa_visible = { USA = { has_naval_control = 203 } }
 			dd_gulf_usa_fx_visible = { USA = { has_naval_control = 203 } }
-			dd_strait_usa_visible = { USA = { has_naval_control = 203 } }
 			dd_gulf_per_visible = {
 				PER = { has_naval_control = 203 }
 				NOT = { USA = { has_naval_control = 203 } }
 			}
 			dd_gulf_per_fx_visible = {
-				PER = { has_naval_control = 203 }
-				NOT = { USA = { has_naval_control = 203 } }
-			}
-			dd_strait_per_visible = {
 				PER = { has_naval_control = 203 }
 				NOT = { USA = { has_naval_control = 203 } }
 			}
@@ -46,34 +41,18 @@ scripted_gui = {
 				NOT = { USA = { has_naval_control = 203 } }
 				NOT = { PER = { has_naval_control = 203 } }
 			}
-			dd_strait_none_visible = {
-				NOT = { USA = { has_naval_control = 203 } }
-				NOT = { PER = { has_naval_control = 203 } }
-			}
 
-			dd_bomb_per_hit_visible = { dd_hormuz_per_bombed_now = yes }
-			dd_bomb_per_quiet_visible = {
-				NOT = { dd_hormuz_per_bombed_now = yes }
-				NOT = { check_variable = { global.dd_hormuz_per_bomb_day > 0 } }
-			}
-			dd_bomb_per_ago_visible = {
-				NOT = { dd_hormuz_per_bombed_now = yes }
-				check_variable = { global.dd_hormuz_per_bomb_day > 0 }
-			}
-			dd_bomb_gulf_hit_visible = { dd_hormuz_gulf_bombed_now = yes }
-			dd_bomb_gulf_quiet_visible = {
-				NOT = { dd_hormuz_gulf_bombed_now = yes }
-				NOT = { check_variable = { global.dd_hormuz_gulf_bomb_day > 0 } }
-			}
-			dd_bomb_gulf_ago_visible = {
-				NOT = { dd_hormuz_gulf_bombed_now = yes }
-				check_variable = { global.dd_hormuz_gulf_bomb_day > 0 }
-			}
-			dd_hormuz_blockade_line_visible = { has_global_flag = dd_hormuz_blockade }
-			dd_hormuz_squeeze_line_visible = {
-				has_global_flag = dd_hormuz_war
-				SAU = { has_idea = dd_sau_squeezed }
-			}
+			dd_econ_oil_visible = { has_global_flag = dd_hormuz_blockade }
+			dd_econ_saudi_visible = { has_global_flag = dd_hormuz_squeeze_on }
+			dd_econ_gulf_visible = { has_global_flag = dd_hormuz_gulf_cities_bombed }
+
+			dd_bomb_dot_1_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 0 } }
+			dd_bomb_dot_2_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 1 } }
+			dd_bomb_dot_3_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 2 } }
+			dd_bomb_dot_4_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 3 } }
+			dd_bomb_dot_5_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 4 } }
+			dd_bomb_dot_6_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 5 } }
+			dd_bomb_dot_7_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 6 } }
 
 			dd_auth_on_1_visible = { dd_hormuz_auth_1 = yes }
 			dd_auth_on_2_visible = { dd_hormuz_auth_2 = yes }

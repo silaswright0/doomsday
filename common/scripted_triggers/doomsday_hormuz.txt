@@ -23,90 +23,32 @@ dd_hormuz_gulf_bombed_now = {
 	}
 }
 
-# Iranian regime authority. Iran starts at 90% stability, so the war opens on Total Control.
-# PER.dd_hormuz_auth_shift moves the card left, toward Total Control, one step per point.
+# Regime cards are a war-menu value, PER.dd_hormuz_auth. 1 is Total Control. 5 is collapse.
+# The war opens on 2, Firm Authority. Stability does not move the card.
 dd_hormuz_auth_1 = {
-	OR = {
-		PER = { has_stability > 0.79 }
-		PER = {
-			check_variable = { dd_hormuz_auth_shift > 0 }
-			has_stability > 0.59
-		}
-		PER = {
-			check_variable = { dd_hormuz_auth_shift > 1 }
-			has_stability > 0.39
-		}
-		PER = {
-			check_variable = { dd_hormuz_auth_shift > 2 }
-			has_stability > 0.19
-		}
-		PER = { check_variable = { dd_hormuz_auth_shift > 3 } }
-	}
+	PER = { check_variable = { dd_hormuz_auth = 1 } }
 }
 dd_hormuz_auth_2 = {
-	OR = {
-		PER = {
-			NOT = { check_variable = { dd_hormuz_auth_shift > 0 } }
-			has_stability > 0.59
-		}
-		PER = {
-			check_variable = { dd_hormuz_auth_shift = 1 }
-			has_stability > 0.39
-			NOT = { has_stability > 0.59 }
-		}
-		PER = {
-			check_variable = { dd_hormuz_auth_shift = 2 }
-			has_stability > 0.19
-			NOT = { has_stability > 0.39 }
-		}
-		PER = {
-			check_variable = { dd_hormuz_auth_shift = 3 }
-			NOT = { has_stability > 0.19 }
-		}
-	}
-	NOT = { dd_hormuz_auth_1 = yes }
+	PER = { check_variable = { dd_hormuz_auth = 2 } }
 }
 dd_hormuz_auth_3 = {
-	OR = {
-		PER = {
-			NOT = { check_variable = { dd_hormuz_auth_shift > 0 } }
-			has_stability > 0.39
-			NOT = { has_stability > 0.59 }
-		}
-		PER = {
-			check_variable = { dd_hormuz_auth_shift = 1 }
-			has_stability > 0.19
-			NOT = { has_stability > 0.39 }
-		}
-		PER = {
-			check_variable = { dd_hormuz_auth_shift = 2 }
-			NOT = { has_stability > 0.19 }
-		}
-	}
-	NOT = { dd_hormuz_auth_1 = yes }
-	NOT = { dd_hormuz_auth_2 = yes }
+	PER = { check_variable = { dd_hormuz_auth = 3 } }
 }
 dd_hormuz_auth_4 = {
-	OR = {
-		PER = {
-			NOT = { check_variable = { dd_hormuz_auth_shift > 0 } }
-			has_stability > 0.19
-			NOT = { has_stability > 0.39 }
-		}
-		PER = {
-			check_variable = { dd_hormuz_auth_shift = 1 }
-			NOT = { has_stability > 0.19 }
-		}
-	}
-	NOT = { dd_hormuz_auth_1 = yes }
-	NOT = { dd_hormuz_auth_2 = yes }
-	NOT = { dd_hormuz_auth_3 = yes }
+	PER = { check_variable = { dd_hormuz_auth = 4 } }
 }
 dd_hormuz_auth_5 = {
-	NOT = { dd_hormuz_auth_1 = yes }
-	NOT = { dd_hormuz_auth_2 = yes }
-	NOT = { dd_hormuz_auth_3 = yes }
-	NOT = { dd_hormuz_auth_4 = yes }
+	PER = { check_variable = { dd_hormuz_auth = 5 } }
+}
+
+# Kuwait, Bahrain, Qatar, and the UAE. Saudi Arabia and Oman are not this shock.
+dd_hormuz_gulf_cities_bombed_now = {
+	OR = {
+		KUW = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+		BHR = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+		QAT = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+		UAE = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
+	}
 }
 
 dd_hormuz_gulf_bombed_today = {

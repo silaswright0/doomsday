@@ -1,0 +1,27 @@
+dd_world_econ_category = {
+	dd_world_econ_affected = {
+		icon = generic_economy
+		on_map_mode = map_only
+		target_trigger = {
+			OR = {
+				has_idea = dd_hormuz_blockade_shock
+				has_idea = dd_hormuz_squeeze_world
+				has_idea = dd_hormuz_gulfbomb_world
+				has_idea = dd_hormuz_blockade_usa
+				has_idea = dd_hormuz_saudi_shock
+				has_idea = dd_hormuz_gulfbomb_usa
+			}
+		}
+		visible = { always = yes }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_world_econ_map_tt
+				always = no
+			}
+		}
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			custom_effect_tooltip = dd_world_econ_map_tt
+		}
+	}
+}

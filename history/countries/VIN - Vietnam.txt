@@ -447,16 +447,15 @@ add_ideas = limited_conscription
 add_ideas = export_focus
 add_ideas = civilian_economy
 set_politics = {
-	ruling_party = state_socialism
+	ruling_party = communism
 	last_election = "2021.5.23"
 	election_frequency = 60
 	elections_allowed = no
 }
 set_popularities = {
-	state_socialism = 78
+	communism = 83
 	liberal_conservatism = 8
 	social_democracy = 6
-	communism = 5
 	national_populism = 3
 }
 set_variable = { debt = 190.4390 }

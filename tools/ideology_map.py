@@ -13,7 +13,7 @@ IDEOLOGIES: list[tuple] = [
     ("sovereign_democracy", "oligarch", "Sovereign Democracy", "Oligarchy", "Sovereign Democrats", (90, 90, 100), "authoritarian", "neutrality"),
     ("military_junta", "junta", "Military Junta", "Military Junta", "Junta", (70, 90, 45), "authoritarian", "neutrality"),
     ("absolute_monarchy", "absolute_monarchist", "Absolute Monarchy", "Absolute Monarchy", "Monarchists", (150, 120, 40), "authoritarian", "neutrality"),
-    ("state_socialism", "vanguardist", "State Socialism", "Vanguardism", "Vanguardists", (170, 30, 30), "far_left", "communism"),
+    ("state_socialism", "vanguardist", "State Socialism", "State Socialism", "Vanguardists", (170, 30, 30), "far_left", "communism"),
     ("left_wing_nationalism", "left_nationalist", "Left-Wing Nationalism", "Left-Wing Nationalism", "Left Nationalists", (200, 80, 20), "far_left", "communism"),
     ("islamic_democracy", "islamic_democrat", "Islamic Democracy", "Islamic Democracy", "Islamic Democrats", (0, 120, 70), "elected", "democratic"),
     ("theocratic_absolutism", "theocrat", "Theocratic Absolutism", "Theocratic Absolutism", "Theocrats", (40, 80, 45), "authoritarian", "neutrality"),
@@ -25,9 +25,17 @@ IDEOLOGIES: list[tuple] = [
     ("anarcho_communism", "anarcho_communist", "Anarcho-Communism", "Anarcho-Communism", "Anarcho-Communists", (120, 0, 0), "far_left", "anarchism"),
 ]
 
-PARENTS = [row[0] for row in IDEOLOGIES]
+# State socialism and anarcho-communism are sub-ideologies of communism, not parent groups.
+COMMUNISM_SUBS = {
+    "state_socialism": "vanguardist",
+    "anarcho_communism": "anarcho_communist",
+}
+VANGUARD_TAGS = {"CHI", "DPK", "VIN", "LAO", "CUB"}
+ANARCHIST_TAGS = {"ACA"}
+
+PARENTS = [row[0] for row in IDEOLOGIES if row[0] not in COMMUNISM_SUBS]
 TYPE_OF = {row[0]: row[1] for row in IDEOLOGIES}
-KIND_OF = {row[0]: row[6] for row in IDEOLOGIES}
+KIND_OF = {row[0]: row[6] for row in IDEOLOGIES if row[0] not in COMMUNISM_SUBS}
 ELECTED_KINDS = {"elected", "illiberal"}
 
 ELECTED = [p for p, k in KIND_OF.items() if k in ELECTED_KINDS]
@@ -40,10 +48,10 @@ FALLBACK = {
     ("democratic", "liberalism"): "social_liberalism",
     ("democratic", "conservatism"): "liberal_conservatism",
     ("democratic", "populism"): "progressive_populism",
-    ("communism", "marxism"): "state_socialism",
-    ("communism", "stalinism"): "state_socialism",
-    ("communism", "leninism"): "state_socialism",
-    ("communism", "anarchist_communism"): "anarcho_communism",
+    ("communism", "marxism"): "communism",
+    ("communism", "stalinism"): "communism",
+    ("communism", "leninism"): "communism",
+    ("communism", "anarchist_communism"): "communism",
     ("fascism", "fascism_ideology"): "fascism",
     ("fascism", "nazism"): "fascism",
     ("neutrality", "oligarchism"): "sovereign_democracy",
@@ -55,7 +63,7 @@ FALLBACK = {
 # 2026 start. Overrides beat FALLBACK.
 TAG_IDEOLOGY = {
     "USA": "national_populism",
-    "CHI": "state_socialism",
+    "CHI": "communism",
     "SOV": "sovereign_democracy",
     "RAJ": "national_populism",
     "ENG": "social_democracy",
@@ -65,7 +73,7 @@ TAG_IDEOLOGY = {
     "ITA": "national_populism",
     "CAN": "social_liberalism",
     "KOR": "social_democracy",
-    "DPK": "state_socialism",
+    "DPK": "communism",
     "BRA": "social_democracy",
     "MEX": "progressive_populism",
     "INS": "liberal_conservatism",
@@ -112,11 +120,11 @@ TAG_IDEOLOGY = {
     "TAJ": "sovereign_democracy",
     "PAK": "islamic_democracy",
     "MAL": "islamic_democracy",
-    "VIN": "state_socialism",
+    "VIN": "communism",
     "SNG": "technocracy",
     "FOR": "social_liberalism",
     "CAM": "sovereign_democracy",
-    "LAO": "state_socialism",
+    "LAO": "communism",
     "NEP": "social_democracy",
     "SRL": "social_democracy",
     "AFG": "jihadist_fundamentalism",
@@ -159,7 +167,7 @@ TAG_IDEOLOGY = {
     "VEN": "left_wing_nationalism",
     "BOL": "left_wing_nationalism",
     "NIC": "left_wing_nationalism",
-    "CUB": "state_socialism",
+    "CUB": "communism",
     "UAE": "absolute_monarchy",
     "QAT": "absolute_monarchy",
     "KUW": "absolute_monarchy",
@@ -199,6 +207,21 @@ OPP_FAS = "fascism"
 OPP_NEU = "sovereign_democracy"
 
 
+def parent_party(token: str) -> str:
+    if token in COMMUNISM_SUBS or token == "communism":
+        return "communism"
+    return token
+
+
+def leader_sub(tag: str, ruling: str) -> str:
+    tag = (tag or "").upper()
+    if tag in VANGUARD_TAGS:
+        return "vanguardist"
+    if tag in ANARCHIST_TAGS:
+        return "anarcho_communist"
+    return TYPE_OF.get(ruling, "marxism")
+
+
 def resolve(tag: str, old_ideology: str = "", old_sub: str = "") -> str:
     tag = (tag or "").upper()
     if tag in TAG_IDEOLOGY:
@@ -211,13 +234,14 @@ def resolve(tag: str, old_ideology: str = "", old_sub: str = "") -> str:
     if old_ideology == "democratic":
         return "liberal_conservatism"
     if old_ideology == "communism":
-        return "state_socialism"
+        return "communism"
     if old_ideology == "fascism":
         return "fascism"
     return "sovereign_democracy"
 
 
 def popularities(ruling: str, dem: int, com: int, fas: int, neu: int) -> dict[str, int]:
+    ruling = parent_party(ruling)
     pops = {
         OPP_DEM: dem,
         OPP_COM: com,
@@ -231,12 +255,11 @@ def popularities(ruling: str, dem: int, com: int, fas: int, neu: int) -> dict[st
     if total != 100 and total > 0:
         gap = 100 - total
         pops[ruling] = pops.get(ruling, 0) + gap
-    if ruling == "state_socialism":
-        share = pops.get("state_socialism", 0)
-        if share >= 20:
-            remnant = max(5, share // 8)
-            pops["state_socialism"] = share - remnant
-            pops[OPP_COM] = pops.get(OPP_COM, 0) + remnant
+    folded = 0
+    for old in COMMUNISM_SUBS:
+        folded += pops.pop(old, 0)
+    if folded:
+        pops[OPP_COM] = pops.get(OPP_COM, 0) + folded
     pops = {k: v for k, v in pops.items() if v > 0}
     if ruling not in pops:
         pops[ruling] = 100

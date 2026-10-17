@@ -13,7 +13,10 @@ country_event = {
 	}
 	immediate = {
 		set_global_flag = dd_hormuz_war
-		PER = { set_variable = { dd_hormuz_auth_shift = 0 } }
+		PER = { set_variable = { dd_hormuz_auth = 2 } }
+		set_variable = { global.dd_hormuz_auth = 0 }
+		set_variable = { global.dd_hormuz_quarter_elapsed = 0 }
+		set_variable = { global.dd_hormuz_quarter_bomb_days = 0 }
 		if = {
 			limit = { NOT = { has_war_with = PER } }
 			declare_war_on = { target = PER type = annex_everything }
@@ -34,8 +37,6 @@ country_event = {
 			dd_per_puppet_proxies = yes
 			country_event = { id = dd_iran.1 }
 		}
-		news_event = { id = dd_hormuz_news.1 }
-		news_event = { id = dd_iran_news.1 }
 	}
 	option = { name = dd_hormuz.1.a }
 }
@@ -79,6 +80,14 @@ country_event = {
 news_event = {
 	id = dd_hormuz_news.1
 	title = dd_hormuz_news.1.t
+	desc = {
+		text = dd_hormuz_news.1.d_pez
+		trigger = { PER = { has_country_flag = dd_per_pezeshkian } }
+	}
+	desc = {
+		text = dd_hormuz_news.1.d_moj
+		trigger = { PER = { has_country_flag = dd_per_mojtaba } }
+	}
 	desc = dd_hormuz_news.1.d
 	picture = GFX_news_event_generic_army
 	major = yes

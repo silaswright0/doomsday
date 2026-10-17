@@ -519,13 +519,18 @@ def check_politics_slots() -> None:
     for token in (
         "social_democracy", "social_liberalism", "liberal_conservatism",
         "progressive_populism", "national_populism", "sovereign_democracy",
-        "military_junta", "absolute_monarchy", "state_socialism",
+        "military_junta", "absolute_monarchy",
         "left_wing_nationalism", "islamic_democracy", "theocratic_absolutism",
         "jihadist_fundamentalism", "democratic_confederalism", "fascism",
-        "communism", "technocracy", "anarcho_communism",
+        "communism", "technocracy",
     ):
         if f"{token} = {{" not in ideologies:
             fail(f"missing ideology {token}")
+    for token in ("marxism", "vanguardist", "anarcho_communist"):
+        if f"{token} = {{" not in ideologies:
+            fail(f"missing communism sub-ideology {token}")
+    if "state_socialism = {" in ideologies or "anarcho_communism = {" in ideologies:
+        fail("state socialism and anarcho-communism must be sub-ideologies of communism")
     if "color = { 80 0 8 }" not in ideologies:
         fail("communism must use dark red")
     if "ruling_party = democratic" in (ROOT / "history" / "countries" / "USA - USA.txt").read_text(encoding="utf-8"):

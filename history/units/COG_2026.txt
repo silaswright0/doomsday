@@ -1,20 +1,19 @@
-# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.
+# Doomsday 2026 OOB. Six 2x6 infantry divisions.
 division_template = {
 	name = "Infantry Division"
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
+		infantry = { x = 0 y = 5 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
-	}
-	support = {
-		engineer = { x = 0 y = 0 }
-		artillery = { x = 0 y = 1 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 1 y = 4 }
+		infantry = { x = 1 y = 5 }
 	}
 	is_locked = yes
 }
@@ -128,6 +127,27 @@ units = {
 	division = {
 		name = "3rd Infantry Division"
 		location = 12925
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "4th Infantry Division"
+		location = 191
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "5th Infantry Division"
+		location = 2024
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "6th Infantry Division"
+		location = 988
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0

@@ -364,17 +364,18 @@ add_ideas = volunteer_only
 add_ideas = free_trade
 add_ideas = civilian_economy
 set_politics = {
-	ruling_party = anarcho_communism
+	ruling_party = communism
 	last_election = "2024.11.5"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	anarcho_communism = 70
+	communism = 70
 	social_liberalism = 10
 	liberal_conservatism = 10
 	national_populism = 10
 }
+set_variable = { dd_usa_aca_pop = 0.70 }
 set_variable = { debt = 0 }
 set_variable = { treasury = 5 }
 create_country_leader = {

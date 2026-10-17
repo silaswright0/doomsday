@@ -1,0 +1,14 @@
+dd_world_econ_category = {
+	icon = generic_economy
+	scripted_gui = dd_world_econ_ui
+	priority = 90
+	visible_when_empty = yes
+	allowed = { always = yes }
+	visible = {
+		OR = {
+			has_global_flag = dd_hormuz_blockade
+			has_global_flag = dd_hormuz_squeeze_on
+			has_global_flag = dd_hormuz_gulf_cities_bombed
+		}
+	}
+}

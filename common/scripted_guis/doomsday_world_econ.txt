@@ -1,0 +1,12 @@
+scripted_gui = {
+	dd_world_econ_ui = {
+		context_type = decision_category
+		window_name = "dd_world_econ_window"
+
+		triggers = {
+			dd_world_oil_visible = { has_global_flag = dd_hormuz_blockade }
+			dd_world_saudi_visible = { has_global_flag = dd_hormuz_squeeze_on }
+			dd_world_gulf_visible = { has_global_flag = dd_hormuz_gulf_cities_bombed }
+		}
+	}
+}

@@ -415,6 +415,25 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	USA_pete_buttigieg = {
+		name = "Pete Buttigieg"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_pete_buttigieg small = GFX_portrait_USA_pete_buttigieg_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_pete_buttigieg
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_liberalism
+					has_government = social_democracy
+				}
+			}
+			traits = { dd_transport_secretary }
+			ai_will_do = { factor = 1 }
+		}
+	}
 	USA_stephen_miller = {
 		name = "Stephen Miller"
 		portraits = {

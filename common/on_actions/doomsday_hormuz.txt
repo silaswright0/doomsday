@@ -6,9 +6,9 @@ on_actions = {
 				every_country = {
 					limit = {
 						has_war_with = FROM
+						NOT = { tag = HOU }
 						OR = {
 							tag = PER
-							tag = HOU
 							tag = HAM
 							tag = HEZ
 							is_subject_of = PER
@@ -41,6 +41,14 @@ on_actions = {
 			else_if = {
 				limit = { has_global_flag = dd_hormuz_war }
 				dd_hormuz_sync = yes
+			}
+			if = {
+				limit = {
+					tag = USA
+					has_global_flag = dd_hormuz_war
+				}
+				dd_hormuz_auth_daily = yes
+				dd_hormuz_econ_sync = yes
 			}
 		}
 	}

@@ -130,8 +130,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				political_power_gain = 0.05
-				war_support_factor = 0.05
+				industrial_capacity_factory = -0.20
 			}
 		}
 		dd_hormuz_auth_3 = {
@@ -140,8 +139,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.05
-				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.40
 			}
 		}
 		dd_hormuz_auth_4 = {
@@ -150,9 +148,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.10
-				war_support_factor = -0.10
-				consumer_goods_factor = 0.08
+				industrial_capacity_factory = -0.60
 			}
 		}
 		dd_hormuz_auth_5 = {
@@ -161,10 +157,17 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.15
-				production_speed_buildings_factor = -0.15
-				war_support_factor = -0.15
-				surrender_limit = -0.20
+				industrial_capacity_factory = -0.80
+			}
+		}
+		dd_hormuz_gulfbomb_usa = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_weekly = -0.0019
+				national_populism_drift = -0.001
 			}
 		}
 	}

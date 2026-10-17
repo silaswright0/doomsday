@@ -167,6 +167,36 @@ division_template = {
 }
 '''
 
+# Congo line infantry is a 2-column, 6-row block. Other tags keep the 3x3.
+COG_INFANTRY_TEMPLATE = '''division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
+		infantry = { x = 0 y = 5 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 1 y = 4 }
+		infantry = { x = 1 y = 5 }
+	}
+	is_locked = yes
+}
+'''
+
+_DEFAULT_INFANTRY_TEMPLATE = TEMPLATES.split("division_template = {\n\tname = \"Garrison Brigade\"", 1)[0]
+
+
+def templates_for(tag: str) -> str:
+    if tag != "COG":
+        return TEMPLATES
+    return TEMPLATES.replace(_DEFAULT_INFANTRY_TEMPLATE, COG_INFANTRY_TEMPLATE, 1)
+
+
 NEED = {
     "Infantry Division": {"infantry_equipment": 900, "support_equipment": 30, "artillery_equipment": 12},
     "Garrison Brigade": {"infantry_equipment": 400, "support_equipment": 10},
@@ -342,6 +372,8 @@ def extra_techs(tag: str) -> list[str]:
         ids += ["dd_str_3", "dd_str_4"]
     elif tag == "CHI":
         ids += ["dd_str_3"]
+    elif tag == "PER":
+        ids += ["dd_uav_2", "dd_uav_4"]
     out = [t for t in ids if t not in MUST_NOT_START]
     seen = set()
     uniq = []
@@ -769,6 +801,11 @@ def write_land_units(tag: str, row: dict | None, force: tuple[int, ...]) -> tupl
         n += 1
         for k, v in NEED[tmpl].items():
             deployed[k] += v
+        if tag == "COG" and tmpl == "Infantry Division":
+            # 12 battalions, no support companies, against the 9-battalion default.
+            deployed["infantry_equipment"] += 300
+            deployed["support_equipment"] -= 30
+            deployed["artillery_equipment"] -= 12
 
     def take(tmpl: str) -> None:
         key = TMPL_KEY[tmpl]
@@ -851,6 +888,10 @@ def write_air(tag: str, row: dict | None, force: tuple[int, ...]) -> str:
     wing(home, ftr, ftr_left)
     wing(second, cas, cas_left)
     wing(third, heli, hel_left)
+    if tag == "PER":
+        # Fars and Khuzestan. Strike drones and one-way munitions reach the Gulf.
+        wing(412, "strike_uav_equipment_1", 96)
+        wing(413, "loitering_munition_equipment_1", 144)
     if c["ftr"] or c["cas"]:
         wing(home, "recon_uav_equipment_2", max(8, c["ftr"] * 2))
     if t >= 2:
@@ -1079,7 +1120,7 @@ def write_oob_files(tag: str, row: dict | None) -> tuple[str, str | None, list[s
     force = estimate_force(tag, row)
     land, deployed, ndiv = write_land_units(tag, row, force)
     air = write_air(tag, row, force)
-    text = "# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.\n" + TEMPLATES + land
+    text = "# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.\n" + templates_for(tag) + land
     if air:
         text += air
     UNITS_DIR.mkdir(parents=True, exist_ok=True)

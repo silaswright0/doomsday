@@ -40,6 +40,15 @@ on_actions = {
 		}
 	}
 
+	on_weekly_USA = {
+		effect = {
+			if = {
+				limit = { has_idea = dd_usa_radicalizing_white_america }
+				add_to_variable = { dd_usa_aca_pop = 0.02 }
+			}
+		}
+	}
+
 	on_daily = {
 		effect = {
 			dd_usa_cw_strip_diplomacy = yes

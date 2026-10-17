@@ -26,7 +26,7 @@ dd_per_cw_arm = {
 				count = 1
 			}
 		}
-		subtract_variable = { dd_cw_militia_count = 1 }
+		subtract_from_variable = { dd_cw_militia_count = 1 }
 	}
 }
 
@@ -321,9 +321,10 @@ dd_per_state_collapse = {
 			AZI = { add_civil_war_target = PRP }
 		}
 
-		PER = {
-			country_event = { id = dd_iran_cw.1 }
-			news_event = { id = dd_iran_cw_news.1 }
+		PER = { news_event = { id = dd_iran_cw_news.1 } }
+		if = {
+			limit = { PER = { is_ai = no } }
+			PER = { country_event = { id = dd_iran_cw.1 hours = 1 } }
 		}
 	}
 }
@@ -389,7 +390,7 @@ dd_prp_spawn_militias = {
 				count = 1
 			}
 		}
-		subtract_variable = { dd_prp_militia_left = 1 }
+		subtract_from_variable = { dd_prp_militia_left = 1 }
 	}
 }
 

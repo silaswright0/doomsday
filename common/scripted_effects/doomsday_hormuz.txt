@@ -34,12 +34,12 @@ dd_hormuz_note_bomb_day = {
 	if = {
 		limit = { check_variable = { global.dd_hormuz_per_bomb_day > 0 } }
 		set_variable = { global.dd_hormuz_per_bomb_ago = global.num_days }
-		subtract_variable = { global.dd_hormuz_per_bomb_ago = global.dd_hormuz_per_bomb_day }
+		subtract_from_variable = { global.dd_hormuz_per_bomb_ago = global.dd_hormuz_per_bomb_day }
 	}
 	if = {
 		limit = { check_variable = { global.dd_hormuz_gulf_bomb_day > 0 } }
 		set_variable = { global.dd_hormuz_gulf_bomb_ago = global.num_days }
-		subtract_variable = { global.dd_hormuz_gulf_bomb_ago = global.dd_hormuz_gulf_bomb_day }
+		subtract_from_variable = { global.dd_hormuz_gulf_bomb_ago = global.dd_hormuz_gulf_bomb_day }
 	}
 }
 
@@ -51,6 +51,9 @@ dd_hormuz_clear_ideas = {
 		remove_ideas = dd_hormuz_usa_gulf_lost
 		remove_ideas = dd_hormuz_usa_bombed
 		remove_ideas = dd_usa_iran_war
+		remove_ideas = dd_hormuz_blockade_usa
+		remove_ideas = dd_hormuz_saudi_shock
+		remove_ideas = dd_hormuz_gulfbomb_usa
 		remove_ideas = dd_hormuz_usa_closed
 		remove_ideas = dd_hormuz_usa_contested
 		remove_ideas = dd_hormuz_usa_open
@@ -131,7 +134,8 @@ dd_hormuz_apply_authority = {
 			}
 		}
 	}
-	else = {
+	else_if = {
+		limit = { dd_hormuz_auth_5 = yes }
 		if = {
 			limit = { NOT = { check_variable = { global.dd_hormuz_auth = 5 } } }
 			set_variable = { global.dd_hormuz_auth = 5 }
@@ -144,6 +148,45 @@ dd_hormuz_apply_authority = {
 			}
 		}
 		dd_per_state_collapse = yes
+	}
+}
+
+# One card toward collapse. Used when a quarter of bombing clears the 7-day bar.
+dd_hormuz_auth_worse = {
+	if = {
+		limit = { PER = { check_variable = { dd_hormuz_auth < 5 } } }
+		PER = { add_to_variable = { dd_hormuz_auth = 1 } }
+	}
+	dd_hormuz_apply_authority = yes
+}
+
+# One card toward Total Control. Rally, Total War, and Ration Basic Goods.
+dd_hormuz_auth_better = {
+	if = {
+		limit = {
+			has_global_flag = dd_hormuz_war
+			PER = { check_variable = { dd_hormuz_auth > 1 } }
+		}
+		PER = { subtract_from_variable = { dd_hormuz_auth = 1 } }
+		dd_hormuz_apply_authority = yes
+	}
+}
+
+# Runs once a day, from the United States, so the quarter cannot be counted per country.
+dd_hormuz_auth_daily = {
+	if = {
+		limit = { dd_hormuz_per_bombed_today = yes }
+		add_to_variable = { global.dd_hormuz_quarter_bomb_days = 1 }
+	}
+	add_to_variable = { global.dd_hormuz_quarter_elapsed = 1 }
+	if = {
+		limit = { check_variable = { global.dd_hormuz_quarter_elapsed > 89 } }
+		if = {
+			limit = { check_variable = { global.dd_hormuz_quarter_bomb_days > 6 } }
+			dd_hormuz_auth_worse = yes
+		}
+		set_variable = { global.dd_hormuz_quarter_elapsed = 0 }
+		set_variable = { global.dd_hormuz_quarter_bomb_days = 0 }
 	}
 }
 
@@ -313,7 +356,11 @@ dd_hormuz_end = {
 	clr_global_flag = dd_hormuz_usa_bombed
 	clr_global_flag = dd_hormuz_gulf_bombed
 	set_variable = { global.dd_hormuz_auth = 0 }
-	PER = { set_variable = { dd_hormuz_auth_shift = 0 } }
+	set_variable = { global.dd_hormuz_quarter_elapsed = 0 }
+	set_variable = { global.dd_hormuz_quarter_bomb_days = 0 }
+	clr_global_flag = dd_hormuz_squeeze_on
+	clr_global_flag = dd_hormuz_gulf_cities_bombed
+	PER = { set_variable = { dd_hormuz_auth = 0 } }
 	every_country = {
 		limit = { has_idea = dd_hormuz_gulf_bombed }
 		remove_ideas = dd_hormuz_gulf_bombed
@@ -321,8 +368,7 @@ dd_hormuz_end = {
 	dd_hormuz_clear_ideas = yes
 }
 
-# One step toward Total Control. The daily sync and this call both read the same triggers.
+# One card toward Total Control.
 dd_per_rally_authority = {
-	PER = { add_to_variable = { dd_hormuz_auth_shift = 1 } }
-	dd_hormuz_apply_authority = yes
+	dd_hormuz_auth_better = yes
 }

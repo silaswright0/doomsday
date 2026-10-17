@@ -8,12 +8,15 @@ from pathlib import Path
 
 from ideology_map import (
     AUTHORITARIAN,
+    COMMUNISM_SUBS,
     ELECTED,
     FAR_LEFT,
     FAR_RIGHT,
     IDEOLOGIES,
     PARENTS,
     TYPE_OF,
+    leader_sub,
+    parent_party,
     popularities,
     resolve,
 )
@@ -159,17 +162,22 @@ def write_ideologies() -> None:
         "",
     ]
     for token, typ, _name, _tname, _noun, color, kind, _icon in IDEOLOGIES:
+        if token in COMMUNISM_SUBS:
+            continue
         r, g, b = color
         fam = FACTION_NAMES[kind]
         count = 6 if fam == "DEMOCRATIC" else 5
         names = "\n".join(f'\t\t\t"FACTION_NAME_{fam}_{i}"' for i in range(1, count + 1))
-        extra = ""
-        if token == "anarcho_communism":
-            extra = "\n\t\t\t\tcan_be_randomly_selected = no"
         lines.append(f"\t{token} = {{")
         lines.append("\t\ttypes = {")
-        lines.append(f"\t\t\t{typ} = {{{extra}")
+        lines.append(f"\t\t\t{typ} = {{")
         lines.append("\t\t\t}")
+        if token == "communism":
+            lines.append("\t\t\tvanguardist = {")
+            lines.append("\t\t\t}")
+            lines.append("\t\t\tanarcho_communist = {")
+            lines.append("\t\t\t\tcan_be_randomly_selected = no")
+            lines.append("\t\t\t}")
         lines.append("\t\t}")
         lines.append("\t\tdynamic_faction_names = {")
         lines.append(names)
@@ -297,9 +305,9 @@ def patch_csv(rows: list[dict[str, str]]) -> dict[str, dict]:
     by_tag = {}
     for row in rows:
         tag = row["tag"]
-        new = resolve(tag, row.get("ideology") or "", row.get("subideology") or "")
+        new = parent_party(resolve(tag, row.get("ideology") or "", row.get("subideology") or ""))
         row["ideology"] = new
-        row["subideology"] = TYPE_OF[new]
+        row["subideology"] = leader_sub(tag, new)
         by_tag[tag] = row
     write_csv(rows)
     return by_tag
@@ -326,15 +334,14 @@ def patch_country_file(path: Path, row: dict | None) -> None:
     if m:
         old_sub = m.group(1)
     if row:
-        ruling = resolve(tag, row.get("ideology") or old_id, row.get("subideology") or old_sub)
-        # CSV already rewritten to new tokens; resolve still works via TAG_IDEOLOGY
-        ruling = row["ideology"] if row.get("ideology") in TYPE_OF else ruling
+        ruling = parent_party(resolve(tag, row.get("ideology") or old_id, row.get("subideology") or old_sub))
+        ruling = parent_party(row["ideology"]) if row.get("ideology") in TYPE_OF or row.get("ideology") in COMMUNISM_SUBS else ruling
         dem = int(float(row.get("dem") or 0))
         com = int(float(row.get("com") or 0))
         fas = int(float(row.get("fas") or 0))
         neu = int(float(row.get("neu") or 0))
     else:
-        ruling = resolve(tag, old_id, old_sub)
+        ruling = parent_party(resolve(tag, old_id, old_sub))
         buckets = {k: 0 for k in ("democratic", "communism", "fascism", "neutrality")}
         for name, val in re.findall(r"\t(democratic|communism|fascism|neutrality) = (\d+)", text):
             buckets[name] = int(val)
@@ -342,7 +349,7 @@ def patch_country_file(path: Path, row: dict | None) -> None:
             buckets["neutrality"] = 100
         dem, com, fas, neu = buckets["democratic"], buckets["communism"], buckets["fascism"], buckets["neutrality"]
     pops = popularities(ruling, dem, com, fas, neu)
-    sub = TYPE_OF[ruling]
+    sub = leader_sub(tag, ruling)
     text = re.sub(r"ruling_party = \w+", f"ruling_party = {ruling}", text, count=1)
     text = re.sub(
         r"set_popularities = \{.*?\n\}",
@@ -373,7 +380,7 @@ def patch_bookmarks() -> None:
     text = path.read_text(encoding="utf-8")
     mapping = {
         '"USA"': "national_populism",
-        '"CHI"': "state_socialism",
+        '"CHI"': "communism",
         '"SOV"': "sovereign_democracy",
         '"RAJ"': "national_populism",
         '"ENG"': "social_democracy",
