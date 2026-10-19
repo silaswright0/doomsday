@@ -1,0 +1,251 @@
+ideas = {
+	country = {
+		dd_isr_judicial_overhaul = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.10
+				political_power_gain = -0.10
+			}
+		}
+		dd_isr_torah_exemptions = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				conscription = -0.03
+			}
+		}
+		dd_isr_reined_military = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.05
+				political_power_gain = 0.15
+				command_power_gain = 0.15
+			}
+		}
+		dd_isr_expanded_budget = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.10
+				army_defence_factor = 0.05
+				consumer_goods_factor = 0.10
+				production_speed_arms_factory_factor = 0.15
+			}
+		}
+		dd_isr_extended_service = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.03
+				war_support_factor = 0.05
+			}
+		}
+		dd_isr_no_exemptions = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.02
+				stability_factor = -0.05
+			}
+		}
+		dd_isr_torah_study = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				conscription = -0.05
+				stability_factor = 0.05
+			}
+		}
+		dd_isr_disengagement = {
+			picture = generic_wall_line
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.10
+				stability_factor = 0.10
+				army_defence_factor = 0.05
+			}
+		}
+		dd_isr_arabic_national = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				non_core_manpower = 0.10
+				compliance_gain = 0.01
+			}
+		}
+		dd_isr_palestinian_citizenship = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				non_core_manpower = 0.25
+				stability_factor = -0.05
+			}
+		}
+		dd_isr_arab_service = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.02
+			}
+		}
+		dd_isr_redistribution = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.10
+				stability_factor = -0.05
+			}
+		}
+		dd_isr_shared_republic = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				industrial_capacity_factory = 0.10
+				conscription = 0.02
+				war_support_factor = 0.10
+				political_power_gain = 0.15
+			}
+		}
+		dd_isr_communist_influence = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			on_add = {
+				add_popularity = { ideology = communism popularity = 0.05 }
+			}
+		}
+		dd_isr_supreme_court = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.20
+				drift_defence_factor = 0.25
+			}
+		}
+		dd_isr_constitution = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				war_support_factor = 0.05
+				political_power_gain = 0.10
+			}
+		}
+		dd_isr_democratic_israel = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				industrial_capacity_factory = 0.10
+				research_speed_factor = 0.05
+				political_power_gain = 0.25
+			}
+		}
+		dd_isr_october_7 = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.10
+				army_org_factor = 0.05
+				army_attack_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+		dd_isr_coalition = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.20
+				war_support_factor = 0.05
+			}
+		}
+		dd_isr_dahiya = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.15
+				breakthrough_factor = 0.10
+				war_support_factor = 0.10
+				stability_factor = -0.10
+				justify_war_goal_time = -0.25
+			}
+		}
+		dd_isr_no_palestine = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.10
+				stability_factor = 0.05
+				resistance_target = 0.10
+			}
+		}
+		dd_isr_insurgent = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.10
+				war_support_factor = 0.15
+				army_core_defence_factor = 0.10
+			}
+		}
+		dd_isr_universal_service = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.05
+				war_support_factor = 0.05
+			}
+		}
+	}
+}

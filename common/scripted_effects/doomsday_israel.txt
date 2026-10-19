@@ -1,0 +1,235 @@
+dd_isr_hold_election = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_isr_election_done } }
+		set_country_flag = dd_isr_election_done
+		set_variable = { dd_isr_hadash = party_popularity@progressive_populism }
+		add_to_variable = { dd_isr_hadash = party_popularity@communism }
+		set_variable = { dd_isr_dem = party_popularity@social_democracy }
+		set_variable = { dd_isr_yashar = party_popularity@social_liberalism }
+		set_variable = { dd_isr_bibi = party_popularity@liberal_conservatism }
+		add_to_variable = { dd_isr_bibi = party_popularity@national_populism }
+		add_to_variable = { dd_isr_bibi = party_popularity@theocratic_absolutism }
+		add_to_variable = { dd_isr_bibi = party_popularity@fascism }
+		set_country_flag = dd_isr_resolving_election
+		if = {
+			limit = {
+				check_variable = { dd_isr_hadash > dd_isr_dem }
+				check_variable = { dd_isr_hadash > dd_isr_yashar }
+				check_variable = { dd_isr_hadash > dd_isr_bibi }
+			}
+			complete_national_focus = ISR_election_hadash
+			news_event = { id = dd_isr_news.1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { dd_isr_dem > dd_isr_yashar }
+				check_variable = { dd_isr_dem > dd_isr_bibi }
+			}
+			complete_national_focus = ISR_election_democrats
+			news_event = { id = dd_isr_news.2 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_isr_yashar > dd_isr_bibi } }
+			complete_national_focus = ISR_election_yashar
+			news_event = { id = dd_isr_news.3 }
+		}
+		else = {
+			complete_national_focus = ISR_election_netanyahu
+			news_event = { id = dd_isr_news.4 }
+		}
+		clr_country_flag = dd_isr_resolving_election
+	}
+}
+
+dd_isr_clear_torah = {
+	if = { limit = { has_idea = dd_isr_torah_exemptions } remove_ideas = dd_isr_torah_exemptions }
+	if = { limit = { has_idea = dd_isr_torah_study } remove_ideas = dd_isr_torah_study }
+}
+
+dd_isr_palestine_war = {
+	custom_effect_tooltip = dd_isr_palestine_war_tt
+	hidden_effect = {
+		set_cosmetic_tag = ISR_PALESTINE
+		set_country_flag = dd_isr_palestine_declared
+		if = {
+			limit = {
+				1120 = { is_owned_by = ROOT }
+				454 = { is_owned_by = ROOT }
+				1088 = { is_owned_by = ROOT }
+			}
+			set_capital = { state = 1120 }
+			start_civil_war = {
+				ideology = theocratic_absolutism
+				size = 0.35
+				capital = 454
+				states = { 454 1088 }
+				set_country_flag = dd_isr_revolt
+				save_event_target_as = dd_isr_rebels
+			}
+		}
+		else_if = {
+			limit = {
+				1120 = { is_owned_by = ROOT }
+				454 = { is_owned_by = ROOT }
+			}
+			set_capital = { state = 1120 }
+			start_civil_war = {
+				ideology = theocratic_absolutism
+				size = 0.35
+				capital = 454
+				states = { 454 }
+				set_country_flag = dd_isr_revolt
+				save_event_target_as = dd_isr_rebels
+			}
+		}
+		if = {
+			limit = { has_event_target = dd_isr_rebels }
+			event_target:dd_isr_rebels = {
+				set_cosmetic_tag = ISR_REVOLT
+				set_country_flag = dd_isr_revolt
+				set_politics = { ruling_party = theocratic_absolutism elections_allowed = no }
+				add_popularity = { ideology = theocratic_absolutism popularity = 0.45 }
+				add_popularity = { ideology = fascism popularity = 0.35 }
+				create_country_leader = {
+					name = "Itamar Ben-Gvir"
+					ideology = theocrat
+				}
+				add_ideas = dd_isr_insurgent
+			}
+		}
+		news_event = { id = dd_isr_news.5 }
+	}
+}
+
+dd_isr_hadash_policy = {
+	custom_effect_tooltip = dd_isr_hadash_policy_tt
+	if = {
+		limit = { has_idea = dd_minority_5 }
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_minority_5 = yes
+	}
+}
+
+dd_isr_democrat_policy = {
+	custom_effect_tooltip = dd_isr_democrat_policy_tt
+	if = {
+		limit = {
+			has_idea = dd_women_4
+			has_idea = dd_minority_4
+			has_idea = dd_labor_4
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_women_4 = yes
+		dd_usa_force_minority_4 = yes
+		dd_usa_force_labor_4 = yes
+	}
+}
+
+dd_isr_override_pal = {
+	add_war_support = 0.05
+	add_political_power = 50
+	if = {
+		limit = { PAL = { is_subject_of = ROOT } }
+		PAL = { add_autonomy_score = { value = -150 } }
+	}
+}
+
+dd_isr_border_claims = {
+	custom_effect_tooltip = dd_isr_border_claims_tt
+	hidden_effect = {
+		if = { limit = { 553 = { NOT = { is_owned_by = ROOT } } } 553 = { add_claim_by = ROOT } }
+		if = { limit = { 554 = { NOT = { is_owned_by = ROOT } } } 554 = { add_claim_by = ROOT } }
+		if = { limit = { 455 = { NOT = { is_owned_by = ROOT } } } 455 = { add_claim_by = ROOT } }
+		if = { limit = { 453 = { NOT = { is_owned_by = ROOT } } } 453 = { add_claim_by = ROOT } }
+		if = { limit = { 1085 = { NOT = { is_owned_by = ROOT } } } 1085 = { add_claim_by = ROOT } }
+		if = { limit = { 1086 = { NOT = { is_owned_by = ROOT } } } 1086 = { add_claim_by = ROOT } }
+	}
+}
+
+dd_isr_communist_wave = {
+	custom_effect_tooltip = dd_isr_communist_wave_tt
+	hidden_effect = {
+		every_country = {
+			limit = {
+				dd_isr_middle_east = yes
+				NOT = { has_idea = dd_isr_communist_influence }
+			}
+			add_ideas = dd_isr_communist_influence
+		}
+	}
+}
+
+dd_isr_puppet_middle_east = {
+	custom_effect_tooltip = dd_isr_puppet_me_tt
+	hidden_effect = {
+		every_country = {
+			limit = {
+				dd_isr_middle_east = yes
+				NOT = { is_subject_of = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+			save_event_target_as = dd_isr_puppet_target
+			ROOT = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = event_target:dd_isr_puppet_target
+				}
+			}
+		}
+	}
+}
+
+dd_isr_europe_opinion = {
+	add_political_power = 50
+	every_country = {
+		limit = {
+			OR = {
+				tag = ENG
+				tag = FRA
+				tag = GER
+				tag = ITA
+				tag = SPR
+				tag = POL
+			}
+		}
+		add_opinion_modifier = { target = ROOT modifier = dd_isr_europe }
+		ROOT = { add_opinion_modifier = { target = PREV modifier = dd_isr_europe } }
+	}
+}
+
+dd_isr_repair_usa = {
+	add_political_power = 75
+	add_opinion_modifier = { target = USA modifier = dd_isr_us_alliance }
+	USA = { add_opinion_modifier = { target = ROOT modifier = dd_isr_us_alliance } }
+}
+
+dd_isr_oppose_palestine = {
+	custom_effect_tooltip = dd_isr_oppose_palestine_tt
+	add_ideas = dd_isr_no_palestine
+	add_popularity = { ideology = national_populism popularity = 0.03 }
+	hidden_effect = {
+		if = {
+			limit = {
+				PAL = { exists = yes is_subject_of = ROOT }
+			}
+			annex_country = { target = PAL transfer_troops = yes }
+		}
+		if = { limit = { 1086 = { NOT = { is_owned_by = ROOT } } } 1086 = { add_claim_by = ROOT } }
+		if = { limit = { 1085 = { NOT = { is_owned_by = ROOT } } } 1085 = { add_claim_by = ROOT } }
+	}
+}
+
+dd_isr_expand_settlements = {
+	add_war_support = 0.05
+	add_stability = -0.05
+	if = { limit = { 1086 = { NOT = { is_owned_by = ROOT } } } 1086 = { add_claim_by = ROOT } }
+	if = { limit = { 1085 = { NOT = { is_owned_by = ROOT } } } 1085 = { add_claim_by = ROOT } }
+	if = {
+		limit = { PAL = { exists = yes } }
+		add_opinion_modifier = { target = PAL modifier = dd_isr_settlements }
+	}
+}

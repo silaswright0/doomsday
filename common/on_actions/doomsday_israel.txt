@@ -1,0 +1,13 @@
+on_actions = {
+	on_daily_ISR = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = dd_isr_election_done }
+					date > 2026.10.31
+				}
+				dd_isr_hold_election = yes
+			}
+		}
+	}
+}

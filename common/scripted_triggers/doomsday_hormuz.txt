@@ -1,7 +1,42 @@
-# Target country is THIS. FROM is the country trying to call them.
-# While the Iran war spirit is up, the United States cannot call the faction.
+# Target country is THIS. FROM is the country taking the action.
+# While the Iran war spirit is up, the United States cannot call NATO into the war,
+# and the countries already fighting that war cannot enter NATO.
 is_diplomatic_action_valid_call_allies = {
 	NOT = { FROM = { has_idea = dd_usa_iran_war } }
+}
+
+is_diplomatic_action_valid_offer_join_faction = {
+	custom_trigger_tooltip = {
+		tooltip = dd_usa_iran_war_no_nato_tt
+		NOT = {
+			USA = { has_idea = dd_usa_iran_war }
+			has_war_with = PER
+			has_war_together_with = USA
+			FROM = {
+				OR = {
+					tag = USA
+					is_in_faction_with = USA
+				}
+			}
+		}
+	}
+}
+
+is_diplomatic_action_valid_join_faction = {
+	custom_trigger_tooltip = {
+		tooltip = dd_usa_iran_war_no_nato_tt
+		NOT = {
+			USA = { has_idea = dd_usa_iran_war }
+			FROM = {
+				has_war_with = PER
+				has_war_together_with = USA
+			}
+			OR = {
+				tag = USA
+				is_in_faction_with = USA
+			}
+		}
+	}
 }
 
 dd_hormuz_per_bombed_now = {

@@ -1,0 +1,617 @@
+focus_tree = {
+	id = dd_isr_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ISR
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 60 y = 2300 }
+	initial_show_position = { focus = ISR_reign_military }
+
+	focus = {
+		id = ISR_reign_military
+		icon = GFX_goal_generic_army_doctrines
+		x = 6
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		mutually_exclusive = { focus = ISR_expand_budget }
+		completion_reward = {
+			add_ideas = dd_isr_reined_military
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = ISR_expand_budget
+		icon = GFX_goal_generic_construct_military
+		x = 10
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		mutually_exclusive = { focus = ISR_reign_military }
+		completion_reward = {
+			add_ideas = dd_isr_expanded_budget
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = ISR_judicial_committee
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_reign_military focus = ISR_expand_budget }
+		completion_reward = {
+			add_political_power = 75
+			add_stability = 0.03
+		}
+	}
+	focus = {
+		id = ISR_heritage_authority
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_reign_military focus = ISR_expand_budget }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+			add_popularity = { ideology = theocratic_absolutism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = ISR_broadcasting_reform
+		icon = GFX_goal_generic_propaganda
+		x = 6
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_judicial_committee }
+		prerequisite = { focus = ISR_heritage_authority }
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.03
+		}
+	}
+	focus = {
+		id = ISR_override_palestinian
+		icon = GFX_goal_generic_demand_territory
+		x = 10
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_judicial_committee }
+		prerequisite = { focus = ISR_heritage_authority }
+		completion_reward = {
+			dd_isr_override_pal = yes
+		}
+	}
+	focus = {
+		id = ISR_extend_service
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 8
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_broadcasting_reform }
+		prerequisite = { focus = ISR_override_palestinian }
+		completion_reward = {
+			add_ideas = dd_isr_extended_service
+		}
+	}
+	focus = {
+		id = ISR_no_exemptions
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 6
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = ISR_extend_service }
+		mutually_exclusive = { focus = ISR_protect_torah }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = { ideology = theocratic_absolutism popularity = -0.05 }
+			dd_isr_clear_torah = yes
+			add_ideas = dd_isr_no_exemptions
+		}
+	}
+	focus = {
+		id = ISR_protect_torah
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		prerequisite = { focus = ISR_extend_service }
+		mutually_exclusive = { focus = ISR_no_exemptions }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = { ideology = theocratic_absolutism popularity = 0.05 }
+			dd_isr_clear_torah = yes
+			add_ideas = dd_isr_torah_study
+		}
+	}
+	focus = {
+		id = ISR_disengagement_710
+		icon = GFX_goal_generic_forceful_treaty
+		x = 8
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_no_exemptions focus = ISR_protect_torah }
+		completion_reward = {
+			add_ideas = dd_isr_disengagement
+		}
+	}
+	focus = {
+		id = ISR_election_hadash
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = ISR_disengagement_710 }
+		mutually_exclusive = { focus = ISR_election_democrats focus = ISR_election_yashar focus = ISR_election_netanyahu }
+		available = {
+			has_country_flag = dd_isr_resolving_election
+		}
+		completion_reward = {
+			retire_country_leader = yes
+			if = {
+				limit = { check_variable = { party_popularity@communism > party_popularity@progressive_populism } }
+				set_politics = { ruling_party = communism elections_allowed = yes }
+				create_country_leader = { name = "Ayman Odeh" ideology = marxism }
+			}
+			else = {
+				set_politics = { ruling_party = progressive_populism elections_allowed = yes }
+				create_country_leader = { name = "Ayman Odeh" ideology = progressive_populist }
+			}
+		}
+	}
+	focus = {
+		id = ISR_election_democrats
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = ISR_disengagement_710 }
+		mutually_exclusive = { focus = ISR_election_hadash focus = ISR_election_yashar focus = ISR_election_netanyahu }
+		available = {
+			has_country_flag = dd_isr_resolving_election
+		}
+		completion_reward = {
+			retire_country_leader = yes
+			set_politics = { ruling_party = social_democracy elections_allowed = yes }
+			create_country_leader = { name = "Yair Golan" ideology = social_democrat }
+		}
+	}
+	focus = {
+		id = ISR_election_yashar
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = ISR_disengagement_710 }
+		mutually_exclusive = { focus = ISR_election_hadash focus = ISR_election_democrats focus = ISR_election_netanyahu }
+		available = {
+			has_country_flag = dd_isr_resolving_election
+		}
+		completion_reward = {
+			retire_country_leader = yes
+			set_politics = { ruling_party = social_liberalism elections_allowed = yes }
+			create_country_leader = { name = "Yair Lapid" ideology = social_liberal }
+		}
+	}
+	focus = {
+		id = ISR_election_netanyahu
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = ISR_disengagement_710 }
+		mutually_exclusive = { focus = ISR_election_hadash focus = ISR_election_democrats focus = ISR_election_yashar }
+		available = {
+			has_country_flag = dd_isr_resolving_election
+		}
+		completion_reward = {
+			retire_country_leader = yes
+			set_politics = { ruling_party = national_populism elections_allowed = yes }
+			create_country_leader = { name = "Benjamin Netanyahu" desc = ISR_LEADER_DESC picture = GFX_portrait_ISR_leader ideology = national_populist }
+		}
+	}
+	focus = {
+		id = ISR_arabic_national
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_election_hadash }
+		completion_reward = {
+			add_ideas = dd_isr_arabic_national
+			add_popularity = { ideology = progressive_populism popularity = 0.03 }
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = ISR_declare_palestine
+		icon = GFX_goal_generic_forceful_treaty
+		x = 2
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_arabic_national }
+		completion_reward = {
+			dd_isr_palestine_war = yes
+		}
+	}
+	focus = {
+		id = ISR_palestinian_citizenship
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_declare_palestine }
+		completion_reward = {
+			add_ideas = dd_isr_palestinian_citizenship
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = ISR_protect_minorities
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_palestinian_citizenship }
+		completion_reward = {
+			dd_isr_hadash_policy = yes
+		}
+	}
+	focus = {
+		id = ISR_idf_arabs
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 2
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_protect_minorities }
+		completion_reward = {
+			add_ideas = dd_isr_arab_service
+			add_stability = -0.05
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = ISR_arabic_education
+		icon = GFX_goal_generic_national_unity
+		x = 0
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_idf_arabs }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.03
+			add_popularity = { ideology = progressive_populism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = ISR_arrest_dodgers
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_idf_arabs }
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+			add_stability = -0.03
+		}
+	}
+	focus = {
+		id = ISR_redistribute_wealth
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 13
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_arabic_education }
+		prerequisite = { focus = ISR_arrest_dodgers }
+		completion_reward = {
+			add_ideas = dd_isr_redistribution
+			add_popularity = { ideology = communism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = ISR_dismantle_orthodox
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 13
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_arabic_education }
+		prerequisite = { focus = ISR_arrest_dodgers }
+		completion_reward = {
+			add_political_power = 75
+			add_stability = -0.05
+			add_popularity = { ideology = theocratic_absolutism popularity = -0.10 }
+			dd_isr_clear_torah = yes
+		}
+	}
+	focus = {
+		id = ISR_shared_republic
+		icon = GFX_goal_generic_national_unity
+		x = 2
+		y = 14
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_redistribute_wealth }
+		prerequisite = { focus = ISR_dismantle_orthodox }
+		completion_reward = {
+			add_ideas = dd_isr_shared_republic
+		}
+	}
+	focus = {
+		id = ISR_stir_workers
+		icon = GFX_goal_generic_demand_territory
+		x = 2
+		y = 15
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_shared_republic }
+		completion_reward = {
+			dd_isr_border_claims = yes
+			dd_isr_communist_wave = yes
+		}
+	}
+	focus = {
+		id = ISR_puppet_middle_east
+		icon = GFX_goal_generic_major_war
+		x = 2
+		y = 16
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_stir_workers }
+		completion_reward = {
+			dd_isr_puppet_middle_east = yes
+		}
+	}
+	focus = {
+		id = ISR_reverse_overhaul
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_election_democrats }
+		completion_reward = {
+			if = { limit = { has_idea = dd_isr_judicial_overhaul } remove_ideas = dd_isr_judicial_overhaul }
+			add_stability = 0.10
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = ISR_protect_court
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_reverse_overhaul }
+		completion_reward = {
+			add_ideas = dd_isr_supreme_court
+			add_popularity = { ideology = fascism popularity = -0.03 }
+			add_popularity = { ideology = theocratic_absolutism popularity = -0.03 }
+		}
+	}
+	focus = {
+		id = ISR_democrat_policy
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_protect_court }
+		completion_reward = {
+			dd_isr_democrat_policy = yes
+		}
+	}
+	focus = {
+		id = ISR_constitution
+		icon = GFX_goal_generic_national_unity
+		x = 8
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_democrat_policy }
+		completion_reward = {
+			add_ideas = dd_isr_constitution
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = ISR_cut_extremists
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_constitution }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = { ideology = national_populism popularity = -0.05 }
+			add_popularity = { ideology = fascism popularity = -0.03 }
+			add_popularity = { ideology = theocratic_absolutism popularity = -0.03 }
+		}
+	}
+	focus = {
+		id = ISR_reapproach_europe
+		icon = GFX_goal_generic_positive_diplomacy
+		x = 6
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_cut_extremists }
+		completion_reward = {
+			dd_isr_europe_opinion = yes
+		}
+	}
+	focus = {
+		id = ISR_repair_usa
+		icon = GFX_goal_generic_positive_diplomacy
+		x = 10
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_cut_extremists }
+		completion_reward = {
+			dd_isr_repair_usa = yes
+		}
+	}
+	focus = {
+		id = ISR_universal_service
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 8
+		y = 13
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_reapproach_europe }
+		prerequisite = { focus = ISR_repair_usa }
+		completion_reward = {
+			dd_isr_clear_torah = yes
+			if = { limit = { has_idea = dd_isr_no_exemptions } remove_ideas = dd_isr_no_exemptions }
+			add_ideas = dd_isr_universal_service
+			add_stability = -0.03
+		}
+	}
+	focus = {
+		id = ISR_democratic_israel
+		icon = GFX_goal_generic_national_unity
+		x = 8
+		y = 14
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_universal_service }
+		completion_reward = {
+			add_ideas = dd_isr_democratic_israel
+		}
+	}
+	focus = {
+		id = ISR_october_7
+		icon = GFX_goal_generic_army_doctrines
+		x = 14
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_election_yashar }
+		completion_reward = {
+			add_ideas = dd_isr_october_7
+			add_war_support = 0.10
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = ISR_coalition_survives
+		icon = GFX_goal_generic_political_pressure
+		x = 18
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_election_netanyahu }
+		completion_reward = {
+			add_ideas = dd_isr_coalition
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.03 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = ISR_expand_settlements
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 16
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_october_7 focus = ISR_coalition_survives }
+		completion_reward = {
+			dd_isr_expand_settlements = yes
+		}
+	}
+	focus = {
+		id = ISR_dahiya_doctrine
+		icon = GFX_goal_generic_army_doctrines
+		x = 16
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_expand_settlements }
+		completion_reward = {
+			add_ideas = dd_isr_dahiya
+		}
+	}
+	focus = {
+		id = ISR_oppose_palestine
+		icon = GFX_goal_generic_major_war
+		x = 16
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_dahiya_doctrine }
+		completion_reward = {
+			dd_isr_oppose_palestine = yes
+		}
+	}
+}
