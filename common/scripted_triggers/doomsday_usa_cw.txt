@@ -99,6 +99,101 @@ dd_usa_cw_south_maga_gone = {
 	}
 }
 
+# Opening pairs that stay at peace. Flags dd_cw_from and dd_cw_to are set by the caller.
+# Tag checks only. PREV inside every_other_country's limit is the country that started the effect, not the other splinter.
+dd_usa_cw_pair_spared = {
+	OR = {
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = EAS }
+			any_country = { has_country_flag = dd_cw_to tag = RBL }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = RBL }
+			any_country = { has_country_flag = dd_cw_to tag = EAS }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from has_country_flag = dd_usa_keep_eas }
+			any_country = { has_country_flag = dd_cw_to tag = RBL }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = RBL }
+			any_country = { has_country_flag = dd_cw_to has_country_flag = dd_usa_keep_eas }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from has_country_flag = dd_usa_keep_rbl }
+			any_country = { has_country_flag = dd_cw_to tag = EAS }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = EAS }
+			any_country = { has_country_flag = dd_cw_to has_country_flag = dd_usa_keep_rbl }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = RBM }
+			any_country = { has_country_flag = dd_cw_to tag = VNM }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = VNM }
+			any_country = { has_country_flag = dd_cw_to tag = RBM }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from has_country_flag = dd_usa_keep_rbm }
+			any_country = { has_country_flag = dd_cw_to tag = VNM }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = VNM }
+			any_country = { has_country_flag = dd_cw_to has_country_flag = dd_usa_keep_rbm }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from has_country_flag = dd_usa_keep_vnm }
+			any_country = { has_country_flag = dd_cw_to tag = RBM }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = RBM }
+			any_country = { has_country_flag = dd_cw_to has_country_flag = dd_usa_keep_vnm }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = RBM }
+			any_country = { has_country_flag = dd_cw_to tag = AOG }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = AOG }
+			any_country = { has_country_flag = dd_cw_to tag = RBM }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from has_country_flag = dd_usa_keep_rbm }
+			any_country = { has_country_flag = dd_cw_to tag = AOG }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = AOG }
+			any_country = { has_country_flag = dd_cw_to has_country_flag = dd_usa_keep_rbm }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = FDS }
+			any_country = { has_country_flag = dd_cw_to OR = { tag = SCN tag = PTF } }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from OR = { tag = SCN tag = PTF } }
+			any_country = { has_country_flag = dd_cw_to tag = FDS }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = SCN }
+			any_country = { has_country_flag = dd_cw_to tag = PTF }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from tag = PTF }
+			any_country = { has_country_flag = dd_cw_to tag = SCN }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from has_country_flag = dd_usa_keep_fds }
+			any_country = { has_country_flag = dd_cw_to OR = { tag = SCN tag = PTF } }
+		}
+		AND = {
+			any_country = { has_country_flag = dd_cw_from OR = { tag = SCN tag = PTF } }
+			any_country = { has_country_flag = dd_cw_to has_country_flag = dd_usa_keep_fds }
+		}
+	}
+}
+
 dd_usa_cw_abc_standing = {
 	any_country = {
 		exists = yes

@@ -1,4 +1,34 @@
 on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				if = {
+					limit = {
+						OR = {
+							has_completed_focus = ISR_the_idf
+							has_idea = dd_isr_idf
+							has_idea = dd_isr_idf_urban
+							has_idea = dd_isr_idf_arms
+							has_idea = dd_isr_idf_both
+						}
+						NOT = { has_dynamic_modifier = { modifier = dd_isr_idf_spirit } }
+					}
+					dd_isr_refresh_idf = yes
+				}
+				if = {
+					limit = {
+						OR = {
+							has_completed_focus = ISR_airforce
+							has_idea = dd_isr_airforce
+							has_idea = dd_isr_airforce_dominance
+						}
+						NOT = { has_dynamic_modifier = { modifier = dd_isr_air_spirit } }
+					}
+					dd_isr_refresh_air = yes
+				}
+			}
+		}
+	}
 	on_daily_ISR = {
 		effect = {
 			if = {
@@ -7,6 +37,10 @@ on_actions = {
 					date > 2026.10.31
 				}
 				dd_isr_hold_election = yes
+			}
+			if = {
+				limit = { has_country_flag = dd_isr_diaspora_open }
+				dd_isr_diaspora_purge = yes
 			}
 		}
 	}

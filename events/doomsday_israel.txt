@@ -1,4 +1,14 @@
+add_namespace = dd_isr
 add_namespace = dd_isr_news
+
+country_event = {
+	id = dd_isr.1
+	title = dd_isr.1.t
+	desc = dd_isr.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = { name = dd_isr.1.a }
+}
 
 news_event = {
 	id = dd_isr_news.1
@@ -48,4 +58,14 @@ news_event = {
 	major = yes
 	is_triggered_only = yes
 	option = { name = dd_isr_news.5.a }
+}
+
+news_event = {
+	id = dd_isr_news.6
+	title = dd_isr_news.6.t
+	desc = dd_isr_news.6.d
+	picture = GFX_news_event_generic_sign_treaty
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_isr_news.6.a }
 }

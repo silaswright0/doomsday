@@ -37,3 +37,36 @@ dd_per_hormuz_air = {
 		value = 12000
 	}
 }
+
+# IRGC Navy: fast boats and mines. Seek battle instead of sitting in port.
+dd_per_irgc_navy_aggressive = {
+	enable = {
+		has_idea = dd_per_irgc_navy
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = naval_dominance id = 203 value = 100 } # Persian Gulf
+	ai_strategy = { type = naval_dominance id = 104 value = 100 } # Arabian Sea
+	ai_strategy = { type = naval_dominance id = 100 value = 100 } # Red Sea
+
+	ai_strategy = { type = naval_convoy_raid_region id = 203 value = 400 }
+	ai_strategy = { type = naval_convoy_raid_region id = 104 value = 400 }
+	ai_strategy = { type = naval_convoy_raid_region id = 100 value = 400 }
+
+	ai_strategy = { type = strike_force_home_base id = 203 value = 400 }
+
+	ai_strategy = { type = naval_mission_threshold id = MISSION_STRIKE_FORCE value = -300 }
+	ai_strategy = { type = naval_mission_threshold id = MISSION_PATROL value = -200 }
+	ai_strategy = { type = naval_mission_threshold id = MISSION_CONVOY_RAIDING value = -300 }
+	ai_strategy = { type = naval_mission_threshold id = MISSION_MINES_PLANTING value = -300 }
+	ai_strategy = { type = naval_mission_threshold id = MISSION_CONVOY_ESCORT value = 200 }
+
+	ai_strategy = { type = convoy_raiding_target id = USA value = 100 }
+	ai_strategy = { type = convoy_raiding_target id = ISR value = 100 }
+	ai_strategy = { type = convoy_raiding_target id = SAU value = 100 }
+	ai_strategy = { type = convoy_raiding_target id = KUW value = 80 }
+	ai_strategy = { type = convoy_raiding_target id = QAT value = 80 }
+	ai_strategy = { type = convoy_raiding_target id = UAE value = 80 }
+	ai_strategy = { type = convoy_raiding_target id = BHR value = 80 }
+	ai_strategy = { type = convoy_raiding_target id = OMA value = 80 }
+}

@@ -24,6 +24,8 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = dd_isr_reined_military
 			add_stability = 0.05
+			add_popularity = { ideology = social_democracy popularity = 0.05 }
+			add_popularity = { ideology = communism popularity = 0.05 }
 		}
 	}
 	focus = {
@@ -51,7 +53,7 @@ focus_tree = {
 		prerequisite = { focus = ISR_reign_military focus = ISR_expand_budget }
 		completion_reward = {
 			add_political_power = 75
-			add_stability = 0.03
+			add_stability = -0.05
 		}
 	}
 	focus = {
@@ -81,7 +83,7 @@ focus_tree = {
 		prerequisite = { focus = ISR_heritage_authority }
 		completion_reward = {
 			add_political_power = 100
-			add_stability = -0.03
+			add_stability = -0.05
 		}
 	}
 	focus = {
@@ -125,6 +127,8 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.05
 			add_popularity = { ideology = theocratic_absolutism popularity = -0.05 }
+			add_popularity = { ideology = social_democracy popularity = 0.05 }
+			add_popularity = { ideology = communism popularity = 0.05 }
 			dd_isr_clear_torah = yes
 			add_ideas = dd_isr_no_exemptions
 		}
@@ -156,7 +160,10 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = ISR_no_exemptions focus = ISR_protect_torah }
 		completion_reward = {
-			add_ideas = dd_isr_disengagement
+			custom_effect_tooltip = dd_isr_expansion_open_tt
+			hidden_effect = {
+				set_country_flag = dd_isr_expansion_open
+			}
 		}
 	}
 	focus = {
@@ -526,8 +533,16 @@ focus_tree = {
 		prerequisite = { focus = ISR_repair_usa }
 		completion_reward = {
 			dd_isr_clear_torah = yes
-			if = { limit = { has_idea = dd_isr_no_exemptions } remove_ideas = dd_isr_no_exemptions }
-			add_ideas = dd_isr_universal_service
+			if = {
+				limit = { has_idea = dd_isr_no_exemptions }
+				swap_ideas = {
+					remove_idea = dd_isr_no_exemptions
+					add_idea = dd_isr_universal_service
+				}
+			}
+			else = {
+				add_ideas = dd_isr_universal_service
+			}
 			add_stability = -0.03
 		}
 	}
@@ -554,9 +569,8 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = ISR_election_yashar }
 		completion_reward = {
-			add_ideas = dd_isr_october_7
-			add_war_support = 0.10
 			add_political_power = 100
+			news_event = { id = dd_isr_news.6 }
 		}
 	}
 	focus = {
@@ -569,9 +583,6 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = ISR_election_netanyahu }
 		completion_reward = {
-			add_ideas = dd_isr_coalition
-			add_popularity = { ideology = national_populism popularity = 0.05 }
-			add_popularity = { ideology = liberal_conservatism popularity = 0.03 }
 			add_political_power = 100
 		}
 	}
@@ -598,7 +609,11 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = ISR_expand_settlements }
 		completion_reward = {
-			add_ideas = dd_isr_dahiya
+			custom_effect_tooltip = dd_isr_remove_attention_tt
+			if = {
+				limit = { has_idea = dd_international_attention }
+				remove_ideas = dd_international_attention
+			}
 		}
 	}
 	focus = {
@@ -612,6 +627,272 @@ focus_tree = {
 		prerequisite = { focus = ISR_dahiya_doctrine }
 		completion_reward = {
 			dd_isr_oppose_palestine = yes
+		}
+	}
+
+	focus = {
+		id = ISR_rebuild_infra
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 24
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		available = { has_war = no }
+		completion_reward = {
+			dd_isr_rebuild_infra = yes
+		}
+	}
+	focus = {
+		id = ISR_foreign_capital
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 22
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_rebuild_infra }
+		completion_reward = {
+			dd_isr_foreign_capital = yes
+		}
+	}
+	focus = {
+		id = ISR_defence_infra
+		icon = GFX_goal_generic_construct_military
+		x = 26
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_rebuild_infra }
+		completion_reward = {
+			dd_isr_defence_infra = yes
+		}
+	}
+	focus = {
+		id = ISR_expand_civ_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 22
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_foreign_capital }
+		completion_reward = {
+			dd_isr_expand_civ = yes
+		}
+	}
+	focus = {
+		id = ISR_expand_mil_production
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 26
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_defence_infra }
+		completion_reward = {
+			dd_isr_expand_mil = yes
+		}
+	}
+
+	focus = {
+		id = ISR_the_idf
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 32
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			custom_effect_tooltip = dd_isr_idf_desc
+			hidden_effect = {
+				dd_isr_refresh_idf = yes
+			}
+		}
+	}
+	focus = {
+		id = ISR_urban_fighting
+		icon = GFX_goal_generic_army_doctrines
+		x = 30
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_the_idf }
+		completion_reward = {
+			if = {
+				limit = { has_country_flag = dd_isr_idf_arms }
+				custom_effect_tooltip = dd_isr_idf_both_desc
+			}
+			else = {
+				custom_effect_tooltip = dd_isr_idf_urban_desc
+			}
+			hidden_effect = {
+				set_country_flag = dd_isr_idf_urban
+				dd_isr_refresh_idf = yes
+			}
+		}
+	}
+	focus = {
+		id = ISR_combined_arms
+		icon = GFX_goal_generic_army_tanks
+		x = 34
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_the_idf }
+		completion_reward = {
+			if = {
+				limit = { has_country_flag = dd_isr_idf_urban }
+				custom_effect_tooltip = dd_isr_idf_both_desc
+			}
+			else = {
+				custom_effect_tooltip = dd_isr_idf_arms_desc
+			}
+			hidden_effect = {
+				set_country_flag = dd_isr_idf_arms
+				dd_isr_refresh_idf = yes
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_airforce
+		icon = GFX_goal_generic_air_fighter
+		x = 40
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			custom_effect_tooltip = dd_isr_airforce_desc
+			hidden_effect = {
+				dd_isr_refresh_air = yes
+			}
+		}
+	}
+	focus = {
+		id = ISR_air_tech
+		icon = GFX_goal_generic_scientific_exchange
+		x = 38
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_airforce }
+		completion_reward = {
+			add_tech_bonus = {
+				name = ISR_air_tech_bonus
+				bonus = 1.0
+				uses = 3
+				category = air_equipment
+			}
+		}
+	}
+	focus = {
+		id = ISR_air_dominance
+		icon = GFX_goal_generic_air_doctrine
+		x = 42
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_airforce }
+		completion_reward = {
+			custom_effect_tooltip = dd_isr_airforce_dominance_desc
+			hidden_effect = {
+				set_country_flag = dd_isr_air_dominance
+				dd_isr_refresh_air = yes
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 48
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			dd_isr_refresh_navy = yes
+		}
+	}
+	focus = {
+		id = ISR_brownwater
+		icon = GFX_goal_generic_navy_cruiser
+		x = 46
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_navy }
+		completion_reward = {
+			hidden_effect = { set_country_flag = dd_isr_brownwater }
+			dd_isr_refresh_navy = yes
+		}
+	}
+	focus = {
+		id = ISR_expand_dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 50
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_navy }
+		completion_reward = {
+			dd_isr_tel_aviv_docks = yes
+		}
+	}
+
+	focus = {
+		id = ISR_the_diaspora
+		icon = GFX_goal_generic_national_unity
+		x = 56
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			custom_effect_tooltip = dd_isr_diaspora_open_tt
+			hidden_effect = {
+				set_country_flag = dd_isr_diaspora_open
+				set_variable = { dd_isr_inf_1 = 0 }
+				set_variable = { dd_isr_inf_2 = 0 }
+				set_variable = { dd_isr_inf_3 = 0 }
+				set_variable = { dd_isr_inf_4 = 0 }
+				set_variable = { dd_isr_inf_5 = 0 }
+			}
+		}
+	}
+	focus = {
+		id = ISR_fight_antisemitism
+		icon = GFX_goal_generic_propaganda
+		x = 56
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_the_diaspora }
+		completion_reward = {
+			dd_isr_fight_antisemitism = yes
+		}
+	}
+	focus = {
+		id = ISR_diaspora_leverage
+		icon = GFX_goal_generic_forceful_treaty
+		x = 56
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_fight_antisemitism }
+		completion_reward = {
+			custom_effect_tooltip = dd_isr_diaspora_leverage_tt
 		}
 	}
 }

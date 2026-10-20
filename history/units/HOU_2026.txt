@@ -126,13 +126,6 @@ units = {
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "1st Mountain Division"
-		location = 10840
-		division_template = "Mountain Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
 		name = "1st Militia Brigade"
 		location = 10840
 		division_template = "Militia Brigade"
@@ -168,10 +161,17 @@ units = {
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "1st Garrison Brigade"
+		name = "6th Militia Brigade"
 		location = 10840
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "7th Militia Brigade"
+		location = 10840
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
 		start_equipment_factor = 1.0
 	}
 }

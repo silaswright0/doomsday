@@ -1,3 +1,21 @@
+# Social democracy (not a social-democratic United States), market liberals, conservatives, or a national-populist United States.
+dd_isr_diaspora_eligible = {
+	exists = yes
+	NOT = { tag = ISR }
+	OR = {
+		AND = {
+			has_government = social_democracy
+			NOT = { tag = USA }
+		}
+		has_government = social_liberalism
+		has_government = liberal_conservatism
+		AND = {
+			tag = USA
+			has_government = national_populism
+		}
+	}
+}
+
 dd_isr_middle_east = {
 	OR = {
 		tag = TUR

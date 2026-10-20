@@ -1,0 +1,10 @@
+defined_text = {
+	name = dd_usa_gut_desc
+	text = {
+		trigger = { has_country_flag = dd_usa_gut_cleared }
+		localization_key = dd_usa_gutting_middle_class_2_desc
+	}
+	text = {
+		localization_key = dd_usa_gutting_middle_class_desc
+	}
+}

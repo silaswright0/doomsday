@@ -5,7 +5,7 @@ equipments = {
 
 		is_archetype = yes
 		type = convoy
-		picture = archetype_convoy		
+		picture = convoy
 		group_by = archetype
 		sprite = convoy
 		
@@ -45,6 +45,7 @@ equipments = {
 	}
 
 	convoy_1 = {
+		picture = convoy_1
 		year = 1910
 
 		archetype = convoy

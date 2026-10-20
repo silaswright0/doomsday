@@ -4,7 +4,7 @@ equipments = {
 		year = 1934
 
 		is_archetype = yes
-		picture = archetype_artillery_equipment		
+		picture = artillery_equipment
 		type = {
 			artillery
 			infantry #adding infantry type
@@ -40,6 +40,7 @@ equipments = {
 	}
 
 	artillery_equipment_1 = {
+		picture = artillery_equipment_1
 		year = 1934
 
 		archetype = artillery_equipment
@@ -48,6 +49,7 @@ equipments = {
 	}
 	
 	artillery_equipment_2 = {
+		picture = artillery_equipment_2
 		year = 1939
 
 		archetype = artillery_equipment
@@ -67,6 +69,7 @@ equipments = {
 	}
 	
 	artillery_equipment_3 = {
+		picture = artillery_equipment_3
 		year = 1942
 
 		archetype = artillery_equipment
@@ -90,7 +93,7 @@ equipments = {
 		year = 1940
 
 		is_archetype = yes
-		picture = archetype_rocket_artillery_equipment		
+		picture = rocket_artillery_equipment
 		type = { 
 			artillery
 			motorized
@@ -123,6 +126,7 @@ equipments = {
 	}
 	
 	rocket_artillery_equipment_1 = {
+		picture = rocket_artillery_equipment_1
 		year = 1940
 
 		archetype = rocket_artillery_equipment
@@ -131,6 +135,7 @@ equipments = {
 	}
 	
 	rocket_artillery_equipment_2 = {
+		picture = rocket_artillery_equipment_2
 		year = 1943
 
 		archetype = rocket_artillery_equipment
@@ -154,7 +159,7 @@ equipments = {
 		year = 1934
 
 		is_archetype = yes
-		picture = archetype_motorized_rocket_equipment			
+		picture = motorized_rocket_equipment
 		type = { 
 			artillery
 			motorized
@@ -191,6 +196,7 @@ equipments = {
 	}
 	
 	motorized_rocket_equipment_1 = {
+		picture = motorized_rocket_equipment_1
 		year = 1939
 
 		archetype = motorized_rocket_equipment
@@ -207,7 +213,7 @@ equipments = {
 		year = 1936
 
 		is_archetype = yes
-		picture = archetype_artillery_equipment		
+		picture = super_heavy_artillery_equipment
 		type = {
 			artillery
 			infantry #adding infantry type
@@ -249,6 +255,7 @@ equipments = {
 	}
 
 	super_heavy_artillery_equipment_1 = {
+		picture = super_heavy_artillery_equipment_1
 		year = 1936
 
 		archetype = super_heavy_artillery_equipment
@@ -261,7 +268,7 @@ equipments = {
 		year = 1936
 
 		is_archetype = yes
-		picture = archetype_artillery_equipment		
+		picture = self_propelled_super_heavy_artillery_equipment
 		type = {
 			artillery
 			infantry #adding infantry type
@@ -305,6 +312,7 @@ equipments = {
 	}
 
 	self_propelled_super_heavy_artillery_equipment_1 = {
+		picture = self_propelled_super_heavy_artillery_equipment_1
 		year = 1936
 
 		archetype = self_propelled_super_heavy_artillery_equipment

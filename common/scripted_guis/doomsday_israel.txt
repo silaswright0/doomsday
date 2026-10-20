@@ -1,0 +1,74 @@
+scripted_gui = {
+	dd_isr_diaspora_ui = {
+		context_type = decision_category
+		window_name = "dd_isr_diaspora_window"
+
+		effects = {
+			dd_isr_slot_1_click = {
+				set_variable = { dd_isr_diaspora_click = 1 }
+				dd_isr_diaspora_click_slot = yes
+			}
+			dd_isr_slot_2_click = {
+				set_variable = { dd_isr_diaspora_click = 2 }
+				dd_isr_diaspora_click_slot = yes
+			}
+			dd_isr_slot_3_click = {
+				set_variable = { dd_isr_diaspora_click = 3 }
+				dd_isr_diaspora_click_slot = yes
+			}
+			dd_isr_slot_4_click = {
+				set_variable = { dd_isr_diaspora_click = 4 }
+				dd_isr_diaspora_click_slot = yes
+			}
+			dd_isr_slot_5_click = {
+				set_variable = { dd_isr_diaspora_click = 5 }
+				dd_isr_diaspora_click_slot = yes
+			}
+
+			dd_isr_diaspora_expand_click = { dd_isr_diaspora_act_expand = yes }
+			dd_isr_diaspora_boost_click = { dd_isr_diaspora_act_boost = yes }
+			dd_isr_diaspora_arms_click = { dd_isr_diaspora_act_arms = yes }
+			dd_isr_diaspora_puppet_click = { dd_isr_diaspora_act_puppet = yes }
+		}
+
+		triggers = {
+			dd_isr_diaspora_expand_click_enabled = {
+				check_variable = { dd_isr_diaspora_selected_slot > 0 }
+				has_political_power > 199
+				any_country = {
+					has_country_flag = dd_isr_diaspora_member
+					check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_selected_slot }
+				}
+			}
+			dd_isr_diaspora_boost_click_enabled = {
+				check_variable = { dd_isr_diaspora_selected_slot > 0 }
+				any_country = {
+					has_country_flag = dd_isr_diaspora_member
+					check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_selected_slot }
+					check_variable = { dd_isr_diaspora_influence > 4 }
+				}
+			}
+			dd_isr_diaspora_arms_click_enabled = {
+				check_variable = { dd_isr_diaspora_selected_slot > 0 }
+				any_country = {
+					has_country_flag = dd_isr_diaspora_member
+					check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_selected_slot }
+					check_variable = { dd_isr_diaspora_influence > 9 }
+				}
+			}
+			dd_isr_diaspora_puppet_click_enabled = {
+				has_completed_focus = ISR_diaspora_leverage
+				check_variable = { dd_isr_diaspora_selected_slot > 0 }
+				any_country = {
+					has_country_flag = dd_isr_diaspora_member
+					check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_selected_slot }
+					check_variable = { dd_isr_diaspora_influence > 99 }
+					NOT = { is_subject_of = ROOT }
+				}
+			}
+			dd_isr_diaspora_puppet_visible = {
+				has_completed_focus = ISR_diaspora_leverage
+			}
+		}
+	}
+}

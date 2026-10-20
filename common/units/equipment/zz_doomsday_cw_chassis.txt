@@ -1,6 +1,7 @@
 # Complete designs. No module_slots inherit — empty NSB hulls have no gun.
 equipments = {
 	mbt_equipment_1 = {
+		picture = mbt_equipment_1
 		year = 1955
 		archetype = modern_tank_chassis
 		parent = modern_tank_chassis_1
@@ -24,6 +25,7 @@ equipments = {
 		}
 	}
 	mbt_equipment_2 = {
+		picture = mbt_equipment_2
 		year = 1965
 		archetype = modern_tank_chassis
 		parent = mbt_equipment_1
@@ -47,6 +49,7 @@ equipments = {
 		}
 	}
 	mbt_equipment_3 = {
+		picture = mbt_equipment_3
 		year = 1973
 		archetype = modern_tank_chassis
 		parent = mbt_equipment_2
@@ -70,6 +73,7 @@ equipments = {
 		}
 	}
 	mbt_equipment_4 = {
+		picture = mbt_equipment_4
 		year = 1980
 		archetype = modern_tank_chassis
 		parent = mbt_equipment_3
@@ -93,6 +97,7 @@ equipments = {
 		}
 	}
 	mbt_equipment_5 = {
+		picture = mbt_equipment_5
 		year = 1992
 		archetype = modern_tank_chassis
 		parent = mbt_equipment_4
@@ -118,6 +123,7 @@ equipments = {
 		}
 	}
 	mbt_equipment_6 = {
+		picture = mbt_equipment_6
 		year = 2005
 		archetype = modern_tank_chassis
 		parent = mbt_equipment_5
@@ -143,6 +149,7 @@ equipments = {
 		}
 	}
 	mbt_equipment_7 = {
+		picture = mbt_equipment_7
 		year = 2015
 		archetype = modern_tank_chassis
 		parent = mbt_equipment_6
@@ -170,6 +177,7 @@ equipments = {
 		}
 	}
 	mbt_equipment_8 = {
+		picture = mbt_equipment_8
 		year = 2026
 		archetype = modern_tank_chassis
 		parent = mbt_equipment_7
@@ -197,6 +205,7 @@ equipments = {
 		}
 	}
 	mbt_equipment_9 = {
+		picture = mbt_equipment_9
 		year = 2035
 		archetype = modern_tank_chassis
 		parent = mbt_equipment_8
@@ -224,6 +233,7 @@ equipments = {
 		}
 	}
 	light_tank_equipment_cw1 = {
+		picture = light_tank_equipment_cw1
 		year = 1955
 		archetype = light_tank_chassis
 		parent = light_tank_chassis_3
@@ -246,6 +256,7 @@ equipments = {
 		}
 	}
 	light_tank_equipment_cw2 = {
+		picture = light_tank_equipment_cw2
 		year = 1968
 		archetype = light_tank_chassis
 		parent = light_tank_equipment_cw1
@@ -268,6 +279,7 @@ equipments = {
 		}
 	}
 	light_tank_equipment_cw3 = {
+		picture = light_tank_equipment_cw3
 		year = 1981
 		archetype = light_tank_chassis
 		parent = light_tank_equipment_cw2
@@ -290,6 +302,7 @@ equipments = {
 		}
 	}
 	light_tank_equipment_cw4 = {
+		picture = light_tank_equipment_cw4
 		year = 2002
 		archetype = light_tank_chassis
 		parent = light_tank_equipment_cw3
@@ -312,6 +325,7 @@ equipments = {
 		}
 	}
 	light_tank_equipment_cw5 = {
+		picture = light_tank_equipment_cw5
 		year = 2016
 		archetype = light_tank_chassis
 		parent = light_tank_equipment_cw4
@@ -336,6 +350,7 @@ equipments = {
 		}
 	}
 	light_tank_equipment_cw6 = {
+		picture = light_tank_equipment_cw6
 		year = 2024
 		archetype = light_tank_chassis
 		parent = light_tank_equipment_cw5
@@ -360,6 +375,7 @@ equipments = {
 		}
 	}
 	light_tank_equipment_cw7 = {
+		picture = light_tank_equipment_cw7
 		year = 2034
 		archetype = light_tank_chassis
 		parent = light_tank_equipment_cw6

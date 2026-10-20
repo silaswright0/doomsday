@@ -188,13 +188,10 @@ COG_INFANTRY_TEMPLATE = '''division_template = {
 }
 '''
 
-_DEFAULT_INFANTRY_TEMPLATE = TEMPLATES.split("division_template = {\n\tname = \"Garrison Brigade\"", 1)[0]
-
-
 def templates_for(tag: str) -> str:
-    if tag != "COG":
-        return TEMPLATES
-    return TEMPLATES.replace(_DEFAULT_INFANTRY_TEMPLATE, COG_INFANTRY_TEMPLATE, 1)
+    if tag == "COG":
+        return COG_INFANTRY_TEMPLATE
+    return TEMPLATES
 
 
 NEED = {

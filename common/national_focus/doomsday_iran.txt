@@ -308,7 +308,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			add_ideas = dd_per_final_battle
+			custom_effect_tooltip = dd_per_final_battle_desc
+			hidden_effect = {
+				dd_per_apply_final_battle = yes
+			}
 		}
 	}
 	focus = {
@@ -339,8 +342,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			remove_ideas = dd_per_final_battle
-			add_ideas = dd_per_final_battle_2
+			custom_effect_tooltip = dd_per_final_battle_2_desc
+			hidden_effect = {
+				set_country_flag = dd_per_final_battle_world
+				dd_per_apply_final_battle = yes
+			}
 		}
 	}
 

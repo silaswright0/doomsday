@@ -1,5 +1,157 @@
 ideas = {
 	country = {
+		dd_isr_silent_mutiny = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				conscription = -0.01
+			}
+		}
+		dd_isr_shrinking_growth = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.10
+				production_speed_buildings_factor = 0.30
+			}
+		}
+		# Old tier cards. The live spirit is dd_isr_idf_spirit. A loaded save is moved across on startup.
+		dd_isr_idf = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				experience_gain_army_factor = 0.20
+				planning_speed = 0.20
+				army_org_factor = 0.10
+				army_morale_factor = 0.15
+				org_loss_when_moving = -0.20
+				ai_focus_aggressive_factor = 1
+			}
+		}
+		dd_isr_idf_urban = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				experience_gain_army_factor = 0.20
+				planning_speed = 0.20
+				army_org_factor = 0.15
+				army_morale_factor = 0.15
+				org_loss_when_moving = -0.20
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+				ai_focus_aggressive_factor = 1
+			}
+		}
+		dd_isr_idf_arms = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				experience_gain_army_factor = 0.20
+				planning_speed = 0.20
+				army_org_factor = 0.15
+				army_morale_factor = 0.15
+				org_loss_when_moving = -0.20
+				army_armor_speed_factor = 0.15
+				army_armor_attack_factor = 0.10
+				army_attack_factor = 0.10
+				breakthrough_factor = 0.10
+				ai_focus_aggressive_factor = 1
+			}
+		}
+		dd_isr_idf_both = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				experience_gain_army_factor = 0.20
+				planning_speed = 0.20
+				army_org_factor = 0.20
+				army_morale_factor = 0.15
+				org_loss_when_moving = -0.20
+				army_attack_factor = 0.20
+				army_defence_factor = 0.10
+				army_armor_speed_factor = 0.15
+				army_armor_attack_factor = 0.10
+				breakthrough_factor = 0.10
+				ai_focus_aggressive_factor = 1
+			}
+		}
+		dd_isr_airforce = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				air_mission_efficiency = 0.15
+				air_range_factor = 0.20
+			}
+		}
+		dd_isr_airforce_dominance = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				air_mission_efficiency = 0.15
+				air_range_factor = 0.20
+				fighter_sortie_efficiency = 0.15
+				sortie_efficiency = 0.10
+				air_night_penalty = -0.20
+				air_cas_efficiency = 0.15
+			}
+		}
+		dd_isr_navy = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				navy_max_range_factor = 0.40
+			}
+			equipment_bonus = {
+				ship_hull_submarine = {
+					instant = yes
+					sub_visibility = -0.40
+					naval_range = 0.50
+				}
+			}
+		}
+		dd_isr_navy_brown = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				navy_max_range_factor = 0.40
+			}
+			equipment_bonus = {
+				ship_hull_submarine = {
+					instant = yes
+					sub_visibility = -0.40
+					naval_range = 0.50
+				}
+				ship_hull_light = {
+					instant = yes
+					build_cost_ic = -0.20
+				}
+				ship_hull_cruiser_coastal_defense_ship = {
+					instant = yes
+					build_cost_ic = -0.20
+				}
+			}
+		}
 		dd_isr_judicial_overhaul = {
 			picture = generic_intel_bonus
 			allowed = { always = no }
@@ -25,9 +177,10 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_attack_factor = -0.05
 				political_power_gain = 0.15
 				command_power_gain = 0.15
+				communism_drift = 0.10
+				production_speed_arms_factory_factor = -0.20
 			}
 		}
 		dd_isr_expanded_budget = {
@@ -36,9 +189,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_attack_factor = 0.10
-				army_defence_factor = 0.05
-				consumer_goods_factor = 0.10
+				consumer_goods_factor = 0.05
 				production_speed_arms_factory_factor = 0.15
 			}
 		}

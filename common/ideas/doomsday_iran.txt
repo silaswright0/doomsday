@@ -257,6 +257,15 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
+				consumer_goods_factor = 0.20
+			}
+		}
+		dd_hormuz_blockade_shock_half = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
 				consumer_goods_factor = 0.10
 			}
 		}
@@ -266,8 +275,18 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_weekly = -0.0019
-				national_populism_drift = -0.001
+				stability_weekly = -0.002
+				national_populism_drift = -0.01
+			}
+		}
+		dd_hormuz_blockade_usa_half = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_weekly = -0.001
+				national_populism_drift = -0.005
 			}
 		}
 		dd_hormuz_saudi_shock = {
@@ -276,7 +295,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_weekly = -0.0019
+				stability_weekly = -0.002
 				national_populism_drift = -0.001
 			}
 		}
@@ -286,7 +305,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.10
 			}
 		}
 		dd_hormuz_gulfbomb_world = {
@@ -295,7 +314,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.10
 			}
 		}
 		dd_gulf_oil_sealed = {
@@ -326,6 +345,7 @@ ideas = {
 		dd_per_const_31 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.10 consumer_goods_factor = -0.08 } }
 		dd_per_const_32 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.05 trade_opinion_factor = 0.25 consumer_goods_factor = -0.05 } }
 		dd_per_const_33 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.15 monthly_population = 0.05 stability_factor = -0.05 } }
+		# Old cards. The live spirit is dd_per_final_battle_spirit. A loaded save is moved across on startup.
 		dd_per_final_battle = {
 			picture = generic_wall_line
 			allowed = { always = no }

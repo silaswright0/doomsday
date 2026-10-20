@@ -7,7 +7,7 @@ equipments = {
 
 		is_archetype = yes
 		is_buildable = no
-		picture = archetype_fighter_equipment
+		picture = recon_uav_equipment
 		type = scout_plane
 		group_by = archetype
 		sprite = light_plane
@@ -41,6 +41,7 @@ equipments = {
 	}
 
 	recon_uav_equipment_1 = {
+		picture = recon_uav_equipment_1
 		year = 1995
 		archetype = recon_uav_equipment
 		priority = 90
@@ -72,7 +73,7 @@ equipments = {
 
 		is_archetype = yes
 		is_buildable = no
-		picture = archetype_CAS_equipment
+		picture = strike_uav_equipment
 		type = tactical_bomber
 		group_by = archetype
 		sprite = light_plane
@@ -106,6 +107,7 @@ equipments = {
 	}
 
 	strike_uav_equipment_1 = {
+		picture = strike_uav_equipment_1
 		year = 2007
 		archetype = strike_uav_equipment
 		priority = 95
@@ -133,7 +135,7 @@ equipments = {
 
 		is_archetype = yes
 		is_buildable = no
-		picture = archetype_strat_bomber_equipment
+		picture = transport_heli_equipment
 		type = air_transport
 		group_by = archetype
 		sprite = medium_plane
@@ -161,6 +163,7 @@ equipments = {
 	}
 
 	transport_heli_equipment_1 = {
+		picture = transport_heli_equipment_1
 		year = 1960
 		archetype = transport_heli_equipment
 		priority = 80
@@ -182,7 +185,7 @@ equipments = {
 		is_archetype = yes
 		is_buildable = yes
 		can_license = no
-		picture = archetype_rocket_interceptor_equipment
+		picture = loitering_munition_equipment
 		type = tactical_bomber
 		group_by = type
 		sprite = missile_default
@@ -211,6 +214,7 @@ equipments = {
 	}
 
 	loitering_munition_equipment_1 = {
+		picture = loitering_munition_equipment_1
 		year = 2020
 		archetype = loitering_munition_equipment
 		is_buildable = yes

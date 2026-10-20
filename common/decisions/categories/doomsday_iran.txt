@@ -1,3 +1,12 @@
+dd_per_debug_category = {
+	icon = generic_civil_support
+	priority = 1
+	visible = {
+		tag = PER
+		NOT = { has_global_flag = dd_per_collapse_war }
+	}
+}
+
 dd_per_proxy_category = {
 	icon = generic_political_actions
 	priority = 180

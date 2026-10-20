@@ -6,7 +6,7 @@ equipments = {
 		is_archetype = yes
 		is_buildable = no
 		type = floating_harbor
-		picture = archetype_floating_harbor
+		picture = floating_harbor_equipment
 		group_by = archetype
 		sprite = floating_harbor
 
@@ -28,6 +28,7 @@ equipments = {
 	}
 
 	floating_harbor_equipment_1 = {
+		picture = floating_harbor_equipment_1
 		year = 1910
 
 		archetype = floating_harbor_equipment

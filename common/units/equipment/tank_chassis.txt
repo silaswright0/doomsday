@@ -25,7 +25,7 @@ equipments = {
 			}
 		}
 
-		picture = archetype_light_tank_equipment
+		picture = light_tank_chassis
 		type = armor
 		group_by = archetype
 		interface_category = interface_category_armor
@@ -183,6 +183,7 @@ equipments = {
 	}
 
 	light_tank_chassis_0 = { #also great war tank
+		picture = light_tank_chassis_0
 		abbreviation = "lt0"
 		derived_variant_name = light_tank_equipment_0
 		visual_level = 0
@@ -198,6 +199,7 @@ equipments = {
 	}
 
 	light_tank_chassis_1 = {
+		picture = light_tank_chassis_1
 		abbreviation = "lt1"
 		derived_variant_name = light_tank_equipment_1
 		visual_level = 0
@@ -213,6 +215,7 @@ equipments = {
 	}
 
 	light_tank_chassis_2 = {
+		picture = light_tank_chassis_2
 		abbreviation = "lt2"
 		derived_variant_name = light_tank_equipment_2
 		visual_level = 1
@@ -231,6 +234,7 @@ equipments = {
 	}
 
 	light_tank_chassis_3 = {
+		picture = light_tank_chassis_3
 		abbreviation = "lt3"
 		derived_variant_name = light_tank_equipment_3
 		visual_level = 2
@@ -269,7 +273,7 @@ equipments = {
 				}
 			}
 		}
-		picture = archetype_medium_tank_equipment
+		picture = medium_tank_chassis
 		type = armor
 		group_by = archetype
 		interface_category = interface_category_armor
@@ -423,6 +427,7 @@ equipments = {
 
 	}
 	medium_tank_chassis_0 = { #used for interwar tanks
+		picture = medium_tank_chassis_0
 		abbreviation = "mt0"
 		derived_variant_name = medium_tank_equipment_0
 		visual_level = 0
@@ -444,6 +449,7 @@ equipments = {
 	}
 
 	medium_tank_chassis_1 = {
+		picture = medium_tank_chassis_1
 		abbreviation = "mt1"
 		derived_variant_name = medium_tank_equipment_1
 		visual_level = 0
@@ -458,6 +464,7 @@ equipments = {
 		maximum_speed = 5
 	}
 	medium_tank_chassis_2 = {
+		picture = medium_tank_chassis_2
 		abbreviation = "mt2"
 		derived_variant_name = medium_tank_equipment_2
 		visual_level = 1
@@ -475,6 +482,7 @@ equipments = {
 		}
 	}
 	medium_tank_chassis_3 = {
+		picture = medium_tank_chassis_3
 		abbreviation = "mt3"
 		derived_variant_name = medium_tank_equipment_3
 		visual_level = 2
@@ -511,7 +519,7 @@ equipments = {
 				}
 			}
 		}
-		picture = archetype_heavy_tank_equipment
+		picture = heavy_tank_chassis
 		type = armor
 		group_by = archetype
 		interface_category = interface_category_armor
@@ -664,6 +672,7 @@ equipments = {
 	}
 
 	heavy_tank_chassis_0 = { #interwar heavy tanks
+		picture = heavy_tank_chassis_0
 		abbreviation = "hv0"
 		derived_variant_name = heavy_tank_equipment_0
 		visual_level = 0
@@ -682,6 +691,7 @@ equipments = {
 	}
 
 	heavy_tank_chassis_1 = {
+		picture = heavy_tank_chassis_1
 		abbreviation = "hv1"
 		derived_variant_name = heavy_tank_equipment_1
 		visual_level = 0
@@ -696,6 +706,7 @@ equipments = {
 	}
 
 	heavy_tank_chassis_2 = {
+		picture = heavy_tank_chassis_2
 		abbreviation = "hv2"
 		derived_variant_name = heavy_tank_equipment_2
 		visual_level = 1
@@ -715,6 +726,7 @@ equipments = {
 	}
 
 	heavy_tank_chassis_3 = {
+		picture = heavy_tank_chassis_3
 		abbreviation = "hv3"
 		derived_variant_name = heavy_tank_equipment_3
 		visual_level = 2
@@ -752,7 +764,7 @@ equipments = {
 				}
 			}
 		}
-		picture = archetype_modern_tank_equipment
+		picture = modern_tank_chassis
 		type = armor
 		group_by = archetype
 		interface_category = interface_category_armor
@@ -905,6 +917,7 @@ equipments = {
 	}
 
 	modern_tank_chassis_1 = {
+		picture = modern_tank_chassis_1
 		abbreviation = "mbt0"
 		derived_variant_name = modern_tank_equipment_1
 		visual_level = 0
@@ -938,7 +951,7 @@ equipments = {
 				}
 			}
 		}
-		picture = archetype_super_heavy_tank_equipment
+		picture = super_heavy_tank_chassis
 		type = armor
 		group_by = archetype
 		interface_category = interface_category_armor
@@ -1088,6 +1101,7 @@ equipments = {
 	}
 
 	super_heavy_tank_chassis_1 = {
+		picture = super_heavy_tank_chassis_1
 		abbreviation = "sh0"
 		derived_variant_name = super_heavy_tank_equipment_1
 		visual_level = 0
@@ -1120,7 +1134,7 @@ equipments = {
 				}
 			}
 		}
-		picture = archetype_amphibious_tank_equipment
+		picture = amphibious_tank_chassis
 		type = armor
 		group_by = archetype
 		interface_category = interface_category_armor
@@ -1268,6 +1282,7 @@ equipments = {
 	}
 
 	amphibious_tank_chassis_1 = {
+		picture = amphibious_tank_chassis_1
 		abbreviation = "am0"
 		derived_variant_name = amphibious_tank_equipment_1
 		visual_level = 0
@@ -1307,7 +1322,7 @@ equipments = {
 				}
 			}
 		}
-		picture = archetype_super_heavy_tank_equipment
+		picture = land_cruiser_chassis
 		type = armor
 		group_by = archetype
 		interface_category = interface_category_armor
@@ -1474,6 +1489,7 @@ equipments = {
 	}
 
 	land_cruiser_chassis_1 = {
+		picture = land_cruiser_chassis_1
 		abbreviation = "LCR"
 		derived_variant_name = land_cruiser_equipment_1
 		visual_level = 0

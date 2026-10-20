@@ -12,6 +12,32 @@ on_actions = {
 				dd_usa_init_legislature = yes
 				dd_usa_grant_station_docking = yes
 				dd_usa_mark_starting_states = yes
+				if = {
+					limit = {
+						OR = {
+							has_completed_focus = USA_little_tech
+							has_idea = dd_usa_little_tech
+							has_idea = dd_usa_little_tech_2
+							has_idea = dd_usa_little_tech_3
+							has_idea = dd_usa_little_tech_4
+							has_idea = dd_usa_little_tech_5
+							has_idea = dd_usa_little_tech_6
+						}
+						NOT = { has_dynamic_modifier = { modifier = dd_usa_little_tech_spirit } }
+					}
+					dd_usa_apply_little_tech = yes
+				}
+				if = {
+					limit = {
+						OR = {
+							has_completed_focus = USA_gut_middle_class
+							has_idea = dd_usa_gutting_middle_class
+							has_idea = dd_usa_gutting_middle_class_2
+						}
+						NOT = { has_dynamic_modifier = { modifier = dd_usa_gut_spirit } }
+					}
+					dd_usa_apply_gut = yes
+				}
 			}
 		}
 	}
@@ -45,6 +71,23 @@ on_actions = {
 			if = {
 				limit = { has_idea = dd_usa_radicalizing_white_america }
 				add_to_variable = { dd_usa_aca_pop = 0.02 }
+			}
+			# 2% a week, counted out: the 50th week Trump is still leading MAGA.
+			if = {
+				limit = {
+					has_global_flag = dd_usa_civil_war_started
+					NOT = { has_global_flag = dd_usa_trump_dead }
+					OR = {
+						has_country_leader = { name = "Donald Trump" ruling_only = yes }
+						VNM = { has_country_leader = { name = "Donald Trump" ruling_only = yes } }
+					}
+				}
+				add_to_variable = { global.dd_usa_trump_death_weeks = 1 }
+				if = {
+					limit = { check_variable = { global.dd_usa_trump_death_weeks > 49 } }
+					set_global_flag = dd_usa_trump_dead
+					news_event = { id = dd_usa_news.13 }
+				}
 			}
 		}
 	}

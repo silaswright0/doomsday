@@ -6,6 +6,7 @@ duplicate_archetypes = {
 	# light_tank
 
 	light_tank_aa_chassis = {
+		picture = light_tank_aa_chassis
 		archetype = light_tank_chassis
 		type = { armor anti_air }
 
@@ -19,6 +20,7 @@ duplicate_archetypes = {
 	}
 
 	light_tank_artillery_chassis = {
+		picture = light_tank_artillery_chassis
 		archetype = light_tank_chassis
 		type = { armor artillery }
 		for_each = {
@@ -28,6 +30,7 @@ duplicate_archetypes = {
 	}
 
 	light_tank_destroyer_chassis = {
+		picture = light_tank_destroyer_chassis
 		archetype = light_tank_chassis
 		type = { armor anti_tank }
 		for_each = {
@@ -36,6 +39,7 @@ duplicate_archetypes = {
 	}
 
 	light_tank_amphibious_chassis = {
+		picture = light_tank_amphibious_chassis
 		archetype = light_tank_chassis
 		type = { armor amphibious }
 		for_each = {
@@ -45,6 +49,7 @@ duplicate_archetypes = {
 	}
 
 	light_tank_flame_chassis = {
+		picture = light_tank_flame_chassis
 		archetype = light_tank_chassis
 		type = { armor flame }
 		for_each = {
@@ -55,6 +60,7 @@ duplicate_archetypes = {
 	# medium_tank
 
 	medium_tank_aa_chassis = {
+		picture = medium_tank_aa_chassis
 		archetype = medium_tank_chassis
 		type = { armor anti_air }
 		for_each = {
@@ -64,6 +70,7 @@ duplicate_archetypes = {
 	}
 
 	medium_tank_artillery_chassis = {
+		picture = medium_tank_artillery_chassis
 		archetype = medium_tank_chassis
 		type = { armor artillery }
 		for_each = {
@@ -73,6 +80,7 @@ duplicate_archetypes = {
 	}
 
 	medium_tank_destroyer_chassis = {
+		picture = medium_tank_destroyer_chassis
 		archetype = medium_tank_chassis
 		type = { armor anti_tank }
 		for_each = {
@@ -81,6 +89,7 @@ duplicate_archetypes = {
 	}
 
 	medium_tank_amphibious_chassis = {
+		picture = medium_tank_amphibious_chassis
 		archetype = medium_tank_chassis
 		type = { armor amphibious }
 		for_each = {
@@ -90,6 +99,7 @@ duplicate_archetypes = {
 	}
 
 	medium_tank_flame_chassis = {
+		picture = medium_tank_flame_chassis
 		archetype = medium_tank_chassis
 		type = { armor flame }
 		for_each = {
@@ -100,6 +110,7 @@ duplicate_archetypes = {
 	# heavy_tank
 
 	heavy_tank_aa_chassis = {
+		picture = heavy_tank_aa_chassis
 		archetype = heavy_tank_chassis
 		type = { armor anti_air }
 		for_each = {
@@ -109,6 +120,7 @@ duplicate_archetypes = {
 	}
 
 	heavy_tank_artillery_chassis = {
+		picture = heavy_tank_artillery_chassis
 		archetype = heavy_tank_chassis
 		type = { armor artillery }
 		for_each = {
@@ -118,6 +130,7 @@ duplicate_archetypes = {
 	}
 
 	heavy_tank_destroyer_chassis = {
+		picture = heavy_tank_destroyer_chassis
 		archetype = heavy_tank_chassis
 		type = { armor anti_tank }
 		for_each = {
@@ -126,6 +139,7 @@ duplicate_archetypes = {
 	}
 
 	heavy_tank_amphibious_chassis = {
+		picture = heavy_tank_amphibious_chassis
 		archetype = heavy_tank_chassis
 		type = { armor amphibious }
 		for_each = {
@@ -135,6 +149,7 @@ duplicate_archetypes = {
 	}
 
 	heavy_tank_flame_chassis = {
+		picture = heavy_tank_flame_chassis
 		archetype = heavy_tank_chassis
 		type = { armor flame }
 		for_each = {
@@ -145,6 +160,7 @@ duplicate_archetypes = {
 	# superheavy tank
 
 	super_heavy_tank_aa_chassis = {
+		picture = super_heavy_tank_aa_chassis
 		archetype = super_heavy_tank_chassis
 		type = { armor anti_air }
 		for_each = {
@@ -154,6 +170,7 @@ duplicate_archetypes = {
 	}
 
 	super_heavy_tank_artillery_chassis = {
+		picture = super_heavy_tank_artillery_chassis
 		archetype = super_heavy_tank_chassis
 		type = { armor artillery }
 		for_each = {
@@ -163,6 +180,7 @@ duplicate_archetypes = {
 	}
 
 	super_heavy_tank_destroyer_chassis = {
+		picture = super_heavy_tank_destroyer_chassis
 		archetype = super_heavy_tank_chassis
 		type = { armor anti_tank }
 		for_each = {
@@ -173,6 +191,7 @@ duplicate_archetypes = {
 	# modern tank
 
 	modern_tank_aa_chassis = {
+		picture = modern_tank_aa_chassis
 		archetype = modern_tank_chassis
 		type = { armor anti_air }
 		for_each = {
@@ -182,6 +201,7 @@ duplicate_archetypes = {
 	}
 
 	modern_tank_artillery_chassis = {
+		picture = modern_tank_artillery_chassis
 		archetype = modern_tank_chassis
 		type = { armor artillery }
 		for_each = {
@@ -191,6 +211,7 @@ duplicate_archetypes = {
 	}
 
 	modern_tank_destroyer_chassis = {
+		picture = modern_tank_destroyer_chassis
 		archetype = modern_tank_chassis
 		type = { armor anti_tank }
 		for_each = {
@@ -202,6 +223,7 @@ duplicate_archetypes = {
 equipments = {
 
 	gw_tank_equipment = {
+		picture = gw_tank_equipment
 		year = 1914
 	
 		archetype = light_tank_chassis
@@ -235,6 +257,7 @@ equipments = {
 	}
 
 	light_tank_equipment_1 = {
+		picture = light_tank_equipment_1
 		year = 1934
 		
 		archetype = light_tank_chassis
@@ -272,6 +295,7 @@ equipments = {
 	}
 
 	light_tank_equipment_2 = {
+		picture = light_tank_equipment_2
 		year = 1936
 		
 		archetype = light_tank_chassis
@@ -302,6 +326,7 @@ equipments = {
 	}
 
 	light_tank_equipment_3 = {
+		picture = light_tank_equipment_3
 		year = 1941
 	
 		archetype = light_tank_chassis
@@ -332,6 +357,7 @@ equipments = {
 	}
 
 	light_tank_artillery_equipment_1 = {
+		picture = light_tank_artillery_equipment_1
 		year = 1934
 
 		archetype = light_tank_artillery_chassis
@@ -375,6 +401,7 @@ equipments = {
 	}
 
 	light_tank_artillery_equipment_2 = {
+		picture = light_tank_artillery_equipment_2
 		year = 1936
 
 		archetype = light_tank_artillery_chassis
@@ -408,6 +435,7 @@ equipments = {
 	}
 
 	light_tank_artillery_equipment_3 = {
+		picture = light_tank_artillery_equipment_3
 		year = 1941
 
 		archetype = light_tank_artillery_chassis
@@ -441,6 +469,7 @@ equipments = {
 	}
 
 	light_tank_destroyer_equipment_1 = {
+		picture = light_tank_destroyer_equipment_1
 		year = 1934
 
 		archetype = light_tank_destroyer_chassis
@@ -482,6 +511,7 @@ equipments = {
 	}
 
 	light_tank_destroyer_equipment_2 = {
+		picture = light_tank_destroyer_equipment_2
 		year = 1936
 
 		archetype = light_tank_destroyer_chassis
@@ -517,6 +547,7 @@ equipments = {
 	}
 
 	light_tank_destroyer_equipment_3 = {
+		picture = light_tank_destroyer_equipment_3
 		year = 1941
 
 		archetype = light_tank_destroyer_chassis
@@ -551,6 +582,7 @@ equipments = {
 	}
 
 	light_tank_aa_equipment_1 = {
+		picture = light_tank_aa_equipment_1
 		year = 1934
 
 		archetype = light_tank_aa_chassis
@@ -591,6 +623,7 @@ equipments = {
 	}
 
 	light_tank_aa_equipment_2 = {
+		picture = light_tank_aa_equipment_2
 		year = 1936
 
 		archetype = light_tank_aa_chassis
@@ -625,6 +658,7 @@ equipments = {
 	}
 
 	light_tank_aa_equipment_3 = {
+		picture = light_tank_aa_equipment_3
 		year = 1941
 		reliability = 0.8
 		archetype = light_tank_aa_chassis
@@ -659,6 +693,7 @@ equipments = {
 	}
 
 	medium_tank_equipment_1 = {
+		picture = medium_tank_equipment_1
 		year = 1939
 
 		archetype = medium_tank_chassis
@@ -702,6 +737,7 @@ equipments = {
 
 	# 1941
 	medium_tank_equipment_2 = {
+		picture = medium_tank_equipment_2
 		year = 1941
 
 		archetype = medium_tank_chassis
@@ -735,6 +771,7 @@ equipments = {
 
 	# 1943
 	medium_tank_equipment_3 = {
+		picture = medium_tank_equipment_3
 		year = 1943
 
 		archetype = medium_tank_chassis
@@ -767,6 +804,7 @@ equipments = {
 	}
 
 	medium_tank_artillery_equipment_1 = {
+		picture = medium_tank_artillery_equipment_1
 		year = 1939
 
 		archetype = medium_tank_artillery_chassis
@@ -809,6 +847,7 @@ equipments = {
 	}
 
 	medium_tank_artillery_equipment_2 = {
+		picture = medium_tank_artillery_equipment_2
 		year = 1941
 
 		archetype = medium_tank_artillery_chassis
@@ -843,6 +882,7 @@ equipments = {
 	}
 
 	medium_tank_artillery_equipment_3 = {
+		picture = medium_tank_artillery_equipment_3
 		year = 1943
 
 		archetype = medium_tank_artillery_chassis
@@ -877,6 +917,7 @@ equipments = {
 	}
 
 	medium_tank_destroyer_equipment_1 = {
+		picture = medium_tank_destroyer_equipment_1
 		year = 1939
 
 		archetype = medium_tank_destroyer_chassis
@@ -920,6 +961,7 @@ equipments = {
 
 	# 1941
 	medium_tank_destroyer_equipment_2 = {
+		picture = medium_tank_destroyer_equipment_2
 		year = 1941
 
 		archetype = medium_tank_destroyer_chassis
@@ -957,6 +999,7 @@ equipments = {
 
 	# 1943
 	medium_tank_destroyer_equipment_3 = {
+		picture = medium_tank_destroyer_equipment_3
 		year = 1943
 
 		archetype = medium_tank_destroyer_chassis
@@ -993,6 +1036,7 @@ equipments = {
 	}
 
 	medium_tank_aa_equipment_1 = {
+		picture = medium_tank_aa_equipment_1
 		year = 1939
 
 		archetype = medium_tank_aa_chassis
@@ -1035,6 +1079,7 @@ equipments = {
 	}
 
 	medium_tank_aa_equipment_2 = {
+		picture = medium_tank_aa_equipment_2
 		year = 1941
 
 		archetype = medium_tank_aa_chassis
@@ -1071,6 +1116,7 @@ equipments = {
 	}
 
 	medium_tank_aa_equipment_3 = {
+		picture = medium_tank_aa_equipment_3
 		year = 1943
 
 		archetype = medium_tank_aa_chassis
@@ -1108,6 +1154,7 @@ equipments = {
 
 	# 1934
 	heavy_tank_equipment_1 = {
+		picture = heavy_tank_equipment_1
 		year = 1934
 
 		archetype = heavy_tank_chassis
@@ -1153,6 +1200,7 @@ equipments = {
 
 	# 1941
 	heavy_tank_equipment_2 = {
+		picture = heavy_tank_equipment_2
 		year = 1941
 
 		archetype = heavy_tank_chassis
@@ -1184,6 +1232,7 @@ equipments = {
 
 	# 1943
 	heavy_tank_equipment_3 = {
+		picture = heavy_tank_equipment_3
 		year = 1943
 
 		archetype = heavy_tank_chassis
@@ -1214,6 +1263,7 @@ equipments = {
 	}
 
 	heavy_tank_artillery_equipment_1 = {
+		picture = heavy_tank_artillery_equipment_1
 		year = 1934
 
 		archetype = heavy_tank_artillery_chassis
@@ -1255,6 +1305,7 @@ equipments = {
 	}
 
 	heavy_tank_artillery_equipment_2 = {
+		picture = heavy_tank_artillery_equipment_2
 		year = 1941
 
 		archetype = heavy_tank_artillery_chassis
@@ -1288,6 +1339,7 @@ equipments = {
 	}
 
 	heavy_tank_artillery_equipment_3 = {
+		picture = heavy_tank_artillery_equipment_3
 		year = 1943
 
 		archetype = heavy_tank_artillery_chassis
@@ -1320,6 +1372,7 @@ equipments = {
 		}
 	}
 	heavy_tank_destroyer_equipment_1 = {
+		picture = heavy_tank_destroyer_equipment_1
 		year = 1934
 
 		archetype = heavy_tank_destroyer_chassis
@@ -1361,6 +1414,7 @@ equipments = {
 	}
 
 	heavy_tank_destroyer_equipment_2 = {
+		picture = heavy_tank_destroyer_equipment_2
 		year = 1941
 
 		archetype = heavy_tank_destroyer_chassis
@@ -1396,6 +1450,7 @@ equipments = {
 	}
 
 	heavy_tank_destroyer_equipment_3 = {
+		picture = heavy_tank_destroyer_equipment_3
 		year = 1943
 
 		archetype = heavy_tank_destroyer_chassis
@@ -1431,6 +1486,7 @@ equipments = {
 	}
 
 	heavy_tank_aa_equipment_1 = {
+		picture = heavy_tank_aa_equipment_1
 		year = 1934
 
 		archetype = heavy_tank_aa_chassis
@@ -1472,6 +1528,7 @@ equipments = {
 	}
 
 	heavy_tank_aa_equipment_2 = {
+		picture = heavy_tank_aa_equipment_2
 		year = 1941
 
 		archetype = heavy_tank_aa_chassis
@@ -1507,6 +1564,7 @@ equipments = {
 	}
 
 	heavy_tank_aa_equipment_3 = {
+		picture = heavy_tank_aa_equipment_3
 		year = 1943
 
 		archetype = heavy_tank_aa_chassis
@@ -1545,6 +1603,7 @@ equipments = {
 	}
 
 	modern_tank_equipment_1 = {
+		picture = modern_tank_equipment_1
 		year = 1945
 
 		archetype = modern_tank_chassis
@@ -1587,6 +1646,7 @@ equipments = {
 	}
 
 	modern_tank_artillery_equipment_1 = {
+		picture = modern_tank_artillery_equipment_1
 		year = 1945
 
 		archetype = modern_tank_artillery_chassis
@@ -1628,6 +1688,7 @@ equipments = {
 	}
 
 	modern_tank_destroyer_equipment_1 = {
+		picture = modern_tank_destroyer_equipment_1
 		year = 1945
 
 		archetype = modern_tank_destroyer_chassis
@@ -1670,6 +1731,7 @@ equipments = {
 	}
 
 	modern_tank_aa_equipment_1 = {
+		picture = modern_tank_aa_equipment_1
 		year = 1945
 
 		archetype = modern_tank_aa_chassis
@@ -1711,6 +1773,7 @@ equipments = {
 	}
 
 	super_heavy_tank_equipment_1 = {
+		picture = super_heavy_tank_equipment_1
 		year = 1943
 
 		archetype = super_heavy_tank_chassis
@@ -1753,6 +1816,7 @@ equipments = {
 	}
 
 	super_heavy_tank_artillery_equipment_1 = {
+		picture = super_heavy_tank_artillery_equipment_1
 		year = 1943
 
 		archetype = super_heavy_tank_artillery_chassis
@@ -1793,6 +1857,7 @@ equipments = {
 	}
 
 	super_heavy_tank_destroyer_equipment_1 = {
+		picture = super_heavy_tank_destroyer_equipment_1
 		year = 1943
 
 		archetype = super_heavy_tank_destroyer_chassis
@@ -1833,6 +1898,7 @@ equipments = {
 	}
 
 	super_heavy_tank_aa_equipment_1 = {
+		picture = super_heavy_tank_aa_equipment_1
 		year = 1943
 
 		archetype = super_heavy_tank_aa_chassis
@@ -1873,6 +1939,7 @@ equipments = {
 	}
 
 	amphibious_tank_equipment_1 = {
+		picture = amphibious_tank_equipment_1
 		year = 1934
 		
 		archetype = amphibious_tank_chassis
@@ -1918,6 +1985,7 @@ equipments = {
 	}
 
 	amphibious_tank_equipment_2 = {
+		picture = amphibious_tank_equipment_2
 		year = 1939
 		
 		archetype = amphibious_tank_chassis
@@ -1956,6 +2024,7 @@ equipments = {
 
 	### LAND CRUISER (NO-NSB VERSION)
 	land_cruiser_equipment_1 = {
+		picture = land_cruiser_equipment_1
 		year = 1943
 
 		archetype = land_cruiser_chassis

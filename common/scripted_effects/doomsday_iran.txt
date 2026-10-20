@@ -1,5 +1,35 @@
 # Iran war, succession, and the Hormuz blockade. Country-scoped. No random.
 
+# The Final Battle stays. Iran Against the World adds the core and factory lines.
+dd_per_apply_final_battle = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_per_final_battle_2
+				has_completed_focus = PER_iran_against_the_world
+			}
+		}
+		set_country_flag = dd_per_final_battle_world
+	}
+	set_variable = { dd_fb_repair = 0.30 }
+	set_variable = { dd_fb_atk = 0 }
+	set_variable = { dd_fb_def = 0 }
+	set_variable = { dd_fb_factory = 0 }
+	if = {
+		limit = { has_country_flag = dd_per_final_battle_world }
+		set_variable = { dd_fb_atk = 0.10 }
+		set_variable = { dd_fb_def = 0.10 }
+		set_variable = { dd_fb_factory = 0.10 }
+	}
+	if = { limit = { has_idea = dd_per_final_battle } remove_ideas = dd_per_final_battle }
+	if = { limit = { has_idea = dd_per_final_battle_2 } remove_ideas = dd_per_final_battle_2 }
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_per_final_battle_spirit } } }
+		add_dynamic_modifier = { modifier = dd_per_final_battle_spirit }
+	}
+	force_update_dynamic_modifier = yes
+}
+
 dd_per_puppet_proxies = {
 	if = {
 		limit = {
@@ -342,16 +372,37 @@ dd_hormuz_blockade_targets = {
 		if = {
 			limit = {
 				has_global_flag = dd_hormuz_blockade
-				NOT = { has_idea = dd_hormuz_blockade_shock }
+				has_global_flag = dd_hormuz_escort_shipping
 			}
-			add_ideas = dd_hormuz_blockade_shock
+			if = {
+				limit = { has_idea = dd_hormuz_blockade_shock }
+				remove_ideas = dd_hormuz_blockade_shock
+			}
+			if = {
+				limit = { NOT = { has_idea = dd_hormuz_blockade_shock_half } }
+				add_ideas = dd_hormuz_blockade_shock_half
+			}
 		}
 		else_if = {
-			limit = {
-				NOT = { has_global_flag = dd_hormuz_blockade }
-				has_idea = dd_hormuz_blockade_shock
+			limit = { has_global_flag = dd_hormuz_blockade }
+			if = {
+				limit = { has_idea = dd_hormuz_blockade_shock_half }
+				remove_ideas = dd_hormuz_blockade_shock_half
 			}
-			remove_ideas = dd_hormuz_blockade_shock
+			if = {
+				limit = { NOT = { has_idea = dd_hormuz_blockade_shock } }
+				add_ideas = dd_hormuz_blockade_shock
+			}
+		}
+		else = {
+			if = {
+				limit = { has_idea = dd_hormuz_blockade_shock }
+				remove_ideas = dd_hormuz_blockade_shock
+			}
+			if = {
+				limit = { has_idea = dd_hormuz_blockade_shock_half }
+				remove_ideas = dd_hormuz_blockade_shock_half
+			}
 		}
 		if = {
 			limit = {
@@ -388,6 +439,17 @@ dd_hormuz_blockade_targets = {
 # Importers on the list above take the consumer-goods shock. Runs once a day from the USA.
 dd_hormuz_econ_sync = {
 	if = {
+		limit = {
+			has_global_flag = dd_hormuz_escort_shipping
+			OR = {
+				NOT = { USA = { has_naval_control = 104 } }
+				NOT = { USA = { has_naval_control = 203 } }
+				NOT = { has_global_flag = dd_hormuz_blockade }
+			}
+		}
+		clr_global_flag = dd_hormuz_escort_shipping
+	}
+	if = {
 		limit = { SAU = { has_idea = dd_sau_squeezed } }
 		set_global_flag = dd_hormuz_squeeze_on
 	}
@@ -404,17 +466,47 @@ dd_hormuz_econ_sync = {
 	if = {
 		limit = {
 			has_global_flag = dd_hormuz_blockade
+			has_global_flag = dd_hormuz_escort_shipping
 			USA = { exists = yes }
-			NOT = { USA = { has_idea = dd_hormuz_blockade_usa } }
 		}
-		USA = { add_ideas = dd_hormuz_blockade_usa }
+		USA = {
+			if = {
+				limit = { has_idea = dd_hormuz_blockade_usa }
+				remove_ideas = dd_hormuz_blockade_usa
+			}
+			if = {
+				limit = { NOT = { has_idea = dd_hormuz_blockade_usa_half } }
+				add_ideas = dd_hormuz_blockade_usa_half
+			}
+		}
 	}
 	else_if = {
 		limit = {
-			NOT = { has_global_flag = dd_hormuz_blockade }
-			USA = { has_idea = dd_hormuz_blockade_usa }
+			has_global_flag = dd_hormuz_blockade
+			USA = { exists = yes }
 		}
-		USA = { remove_ideas = dd_hormuz_blockade_usa }
+		USA = {
+			if = {
+				limit = { has_idea = dd_hormuz_blockade_usa_half }
+				remove_ideas = dd_hormuz_blockade_usa_half
+			}
+			if = {
+				limit = { NOT = { has_idea = dd_hormuz_blockade_usa } }
+				add_ideas = dd_hormuz_blockade_usa
+			}
+		}
+	}
+	else = {
+		USA = {
+			if = {
+				limit = { has_idea = dd_hormuz_blockade_usa }
+				remove_ideas = dd_hormuz_blockade_usa
+			}
+			if = {
+				limit = { has_idea = dd_hormuz_blockade_usa_half }
+				remove_ideas = dd_hormuz_blockade_usa_half
+			}
+		}
 	}
 	if = {
 		limit = {
@@ -482,9 +574,18 @@ dd_hormuz_clear_blockade = {
 		remove_ideas = dd_hormuz_blockade_shock
 	}
 	every_country = {
+		limit = { has_idea = dd_hormuz_blockade_shock_half }
+		remove_ideas = dd_hormuz_blockade_shock_half
+	}
+	every_country = {
 		limit = { has_idea = dd_hormuz_blockade_usa }
 		remove_ideas = dd_hormuz_blockade_usa
 	}
+	every_country = {
+		limit = { has_idea = dd_hormuz_blockade_usa_half }
+		remove_ideas = dd_hormuz_blockade_usa_half
+	}
+	clr_global_flag = dd_hormuz_escort_shipping
 	every_country = {
 		limit = { has_idea = dd_gulf_oil_sealed }
 		remove_ideas = dd_gulf_oil_sealed
@@ -904,9 +1005,29 @@ dd_per_shiite_popout = {
 			dd_per_cw_arm = yes
 		}
 		puppet = event_target:dd_shiite_side
-		add_to_war = {
-			targeted_alliance = event_target:dd_shiite_side
-			enemy = IRQ
+		# Puppeting can end the civil war the pop-out just started. Declare again, then join it.
+		event_target:dd_shiite_side = {
+			if = {
+				limit = {
+					IRQ = { exists = yes }
+					NOT = { has_war_with = IRQ }
+				}
+				declare_war_on = {
+					target = IRQ
+					type = dd_annex
+				}
+			}
+		}
+		if = {
+			limit = {
+				IRQ = { exists = yes }
+				NOT = { has_war_with = IRQ }
+				event_target:dd_shiite_side = { has_war_with = IRQ }
+			}
+			add_to_war = {
+				targeted_alliance = event_target:dd_shiite_side
+				enemy = IRQ
+			}
 		}
 	}
 }

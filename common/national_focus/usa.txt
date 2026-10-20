@@ -1154,7 +1154,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_popularity = { ideology = national_populism popularity = 0.02 }
-			add_ideas = dd_usa_little_tech
+			custom_effect_tooltip = dd_usa_little_tech_desc
+			hidden_effect = {
+				set_variable = { dd_usa_little_tech_level = 1 }
+				dd_usa_apply_little_tech = yes
+			}
 		}
 	}
 	focus = {
@@ -1986,7 +1990,7 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_adjust_policies }
 		completion_reward = {
-			dd_usa_pull_gulf_access = yes
+			dd_usa_iran_victory_peace = yes
 		}
 	}
 	focus = {
@@ -2253,10 +2257,12 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_election_natpop }
 		completion_reward = {
-			remove_ideas = dd_usa_little_tech
-			remove_ideas = dd_usa_little_tech_2
-			add_ideas = dd_usa_little_tech_2
+			custom_effect_tooltip = dd_usa_little_tech_2_desc
 			set_country_flag = dd_usa_little_tech_advisors
+			hidden_effect = {
+				set_variable = { dd_usa_little_tech_level = 2 }
+				dd_usa_apply_little_tech = yes
+			}
 		}
 	}
 	focus = {
@@ -2283,10 +2289,11 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_bring_in_little_tech }
 		completion_reward = {
-			remove_ideas = dd_usa_little_tech
-			remove_ideas = dd_usa_little_tech_2
-			remove_ideas = dd_usa_little_tech_3
-			add_ideas = dd_usa_little_tech_3
+			custom_effect_tooltip = dd_usa_little_tech_3_desc
+			hidden_effect = {
+				set_variable = { dd_usa_little_tech_level = 3 }
+				dd_usa_apply_little_tech = yes
+			}
 		}
 	}
 	focus = {
@@ -2329,9 +2336,11 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_prepare_for_agi }
 		completion_reward = {
-			remove_ideas = dd_usa_little_tech_3
-			remove_ideas = dd_usa_little_tech_4
-			add_ideas = dd_usa_little_tech_4
+			custom_effect_tooltip = dd_usa_little_tech_4_desc
+			hidden_effect = {
+				set_variable = { dd_usa_little_tech_level = 4 }
+				dd_usa_apply_little_tech = yes
+			}
 		}
 	}
 	focus = {
@@ -2344,9 +2353,11 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_final_stretch }
 		completion_reward = {
-			remove_ideas = dd_usa_little_tech_4
-			remove_ideas = dd_usa_little_tech_5
-			add_ideas = dd_usa_little_tech_5
+			custom_effect_tooltip = dd_usa_little_tech_5_desc
+			hidden_effect = {
+				set_variable = { dd_usa_little_tech_level = 5 }
+				dd_usa_apply_little_tech = yes
+			}
 		}
 	}
 	focus = {
@@ -2405,8 +2416,11 @@ focus_tree = {
 			set_politics = { ruling_party = technocracy elections_allowed = no }
 			add_popularity = { ideology = national_populism popularity = -1 }
 			add_popularity = { ideology = technocracy popularity = 0.40 }
-			remove_ideas = dd_usa_little_tech_5
-			add_ideas = dd_usa_little_tech_6
+			custom_effect_tooltip = dd_usa_little_tech_6_desc
+			hidden_effect = {
+				set_variable = { dd_usa_little_tech_level = 6 }
+				dd_usa_apply_little_tech = yes
+			}
 			create_country_leader = { name = "JD Vance" picture = GFX_portrait_VNM_leader ideology = technocrat }
 			dd_usa_claim_north_america = yes
 		}
@@ -4693,7 +4707,10 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = USA_five_year_plan }
 		completion_reward = {
-			add_ideas = dd_usa_gutting_middle_class
+			custom_effect_tooltip = dd_usa_gutting_middle_class_desc
+			hidden_effect = {
+				dd_usa_apply_gut = yes
+			}
 		}
 	}
 	focus = {
@@ -4707,9 +4724,12 @@ focus_tree = {
 		prerequisite = { focus = USA_empower_women }
 		prerequisite = { focus = USA_gut_middle_class }
 		completion_reward = {
-			remove_ideas = dd_usa_gutting_middle_class
-			add_ideas = dd_usa_gutting_middle_class_2
+			custom_effect_tooltip = dd_usa_gutting_middle_class_2_desc
 			add_stability = -0.10
+			hidden_effect = {
+				set_country_flag = dd_usa_gut_cleared
+				dd_usa_apply_gut = yes
+			}
 		}
 	}
 	focus = {

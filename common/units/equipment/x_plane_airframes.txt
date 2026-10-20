@@ -8,7 +8,7 @@ duplicate_archetypes = {
 	small_plane_cas_airframe = {
 		archetype = small_plane_airframe
 		type = cas
-		picture = archetype_CAS_equipment
+		picture = small_plane_cas_airframe
 		variant_name = {
 			small_plane_cas_airframe_1 = CAS_equipment_1
 			small_plane_cas_airframe_2 = CAS_equipment_2
@@ -22,7 +22,7 @@ duplicate_archetypes = {
 		archetype = cv_small_plane_airframe
 		type = cas
 		ai_type = cv_cas
-		picture = archetype_CAS_equipment
+		picture = cv_small_plane_cas_airframe
 		variant_name = {
 			cv_small_plane_cas_airframe_1 = cv_CAS_equipment_1
 			cv_small_plane_cas_airframe_2 = cv_CAS_equipment_2
@@ -35,7 +35,7 @@ duplicate_archetypes = {
 	small_plane_naval_bomber_airframe = {
 		archetype = small_plane_airframe
 		type = naval_bomber
-		picture = archetype_heavy_fighter_equipment
+		picture = small_plane_naval_bomber_airframe
 		variant_name = {
 			small_plane_naval_bomber_airframe_1 = nav_bomber_equipment_1
 			small_plane_naval_bomber_airframe_2 = nav_bomber_equipment_2
@@ -49,7 +49,7 @@ duplicate_archetypes = {
 		archetype = cv_small_plane_airframe
 		type = naval_bomber
 		ai_type = cv_naval_bomber
-		picture = archetype_heavy_fighter_equipment
+		picture = cv_small_plane_naval_bomber_airframe
 		variant_name = {
 			cv_small_plane_naval_bomber_airframe_1 = cv_nav_bomber_equipment_1
 			cv_small_plane_naval_bomber_airframe_2 = cv_nav_bomber_equipment_2
@@ -63,7 +63,7 @@ duplicate_archetypes = {
 	small_plane_suicide_airframe = {
 		archetype = small_plane_airframe
 		type = suicide
-		picture = archetype_rocket_interceptor_equipment
+		picture = small_plane_suicide_airframe
 		variant_name = {
 			small_plane_suicide_airframe_3 = rocket_suicide_equipment_1
 		}
@@ -76,7 +76,7 @@ duplicate_archetypes = {
 		archetype = cv_small_plane_airframe
 		type = suicide
 		ai_type = cv_suicide
-		picture = archetype_rocket_interceptor_equipment
+		picture = cv_small_plane_suicide_airframe
 		air_map_icon_frame = 19
 		interface_overview_category_index = -1 # Do not include these in the intel or airforce overview.
 		forbid_mission_type = training
@@ -85,6 +85,7 @@ duplicate_archetypes = {
 	# medium_plane
 
 	medium_plane_fighter_airframe = {
+		picture = medium_plane_fighter_airframe
 		archetype = medium_plane_airframe
 		type = heavy_fighter
 		ai_type = heavy_fighter
@@ -102,6 +103,7 @@ duplicate_archetypes = {
 	}
 
 	medium_plane_scout_plane_airframe = {
+		picture = medium_plane_scout_plane_airframe
 		archetype = medium_plane_airframe
 		type = scout_plane
 		sprite = scout_plane
@@ -132,6 +134,7 @@ duplicate_archetypes = {
 	# large_plane
 
 	large_plane_maritime_patrol_plane_airframe = {
+		picture = large_plane_maritime_patrol_plane_airframe
 		archetype = large_plane_airframe
 		type = maritime_patrol_plane
 		air_map_icon_frame = 14
@@ -141,6 +144,7 @@ duplicate_archetypes = {
 	# Non-BBA archetypes
 
 	jet_fighter_equipment = {
+		picture = jet_fighter_equipment
 		only_duplicate_archetype = yes
 		 #module_slots = none # Prevent this archetype from being identified as using the plane designer
 		archetype = small_plane_airframe
@@ -150,6 +154,7 @@ duplicate_archetypes = {
 	}
 
 	rocket_interceptor_equipment = {
+		picture = rocket_interceptor_equipment
 		only_duplicate_archetype = yes
 		module_slots = none
 		archetype = small_plane_airframe
@@ -159,6 +164,7 @@ duplicate_archetypes = {
 	}
 
 	jet_tac_bomber_equipment = {
+		picture = jet_tac_bomber_equipment
 		only_duplicate_archetype = yes
 		module_slots = none
 		archetype = medium_plane_airframe
@@ -167,6 +173,7 @@ duplicate_archetypes = {
 	}
 
 	jet_strat_bomber_equipment = {
+		picture = jet_strat_bomber_equipment
 		only_duplicate_archetype = yes
 		module_slots = none
 		archetype = large_plane_airframe
@@ -177,6 +184,7 @@ duplicate_archetypes = {
 
 equipments = {
 	fighter_equipment_0 = {
+		picture = fighter_equipment_0
 		year = 1933
 
 		archetype = small_plane_airframe
@@ -229,6 +237,7 @@ equipments = {
 
 	# Basic Fighter
 	fighter_equipment_1 = {
+		picture = fighter_equipment_1
 		year = 1936
 
 		archetype = small_plane_airframe
@@ -261,6 +270,7 @@ equipments = {
 
 	# Improved Fighter
 	fighter_equipment_2 = {
+		picture = fighter_equipment_2
 		year = 1940
 
 		archetype = small_plane_airframe
@@ -293,6 +303,7 @@ equipments = {
 
 	# Advanced Fighter
 	fighter_equipment_3 = {
+		picture = fighter_equipment_3
 		year = 1944
 
 		archetype = small_plane_airframe
@@ -325,6 +336,7 @@ equipments = {
 
 	# Basic Jet Fighter
 	jet_fighter_equipment_1 = {
+		picture = jet_fighter_equipment_1
 		year = 1945
 
 		archetype = jet_fighter_equipment
@@ -369,6 +381,7 @@ equipments = {
 
 	# Improved Jet Fighter
 	jet_fighter_equipment_2 = {
+		picture = jet_fighter_equipment_2
 		year = 1950
 
 		archetype = jet_fighter_equipment
@@ -399,6 +412,7 @@ equipments = {
 
 	# Improved Jet Fighter
 	supersonic_fighter_equipment_1 = {
+		picture = supersonic_fighter_equipment_1
 		year = 1950
 		sprite = supersonic_jet_plane
 		archetype = jet_fighter_equipment
@@ -435,6 +449,7 @@ equipments = {
 
 	# Early Carrier Fighter
 	cv_fighter_equipment_0 = {
+		picture = cv_fighter_equipment_0
 		year = 1933
 
 		archetype = cv_small_plane_airframe
@@ -484,6 +499,7 @@ equipments = {
 
 	# Basic Carrier Fighter
 	cv_fighter_equipment_1 = {
+		picture = cv_fighter_equipment_1
 		year = 1936
 
 		archetype = cv_small_plane_airframe
@@ -517,6 +533,7 @@ equipments = {
 
 	# Improved Carrier Fighter
 	cv_fighter_equipment_2 = {
+		picture = cv_fighter_equipment_2
 		year = 1940
 
 		archetype = cv_small_plane_airframe
@@ -549,6 +566,7 @@ equipments = {
 
 	# Advanced Carrier Fighter
 	cv_fighter_equipment_3 = {
+		picture = cv_fighter_equipment_3
 		year = 1944
 
 		archetype = cv_small_plane_airframe
@@ -588,6 +606,7 @@ equipments = {
 
 	# Basic CAS
 	CAS_equipment_1 = {
+		picture = CAS_equipment_1
 		year = 1936
 
 		archetype = small_plane_cas_airframe
@@ -633,6 +652,7 @@ equipments = {
 
 	# Improved CAS
 	CAS_equipment_2 = {
+		picture = CAS_equipment_2
 		year = 1940
 
 		archetype = small_plane_cas_airframe
@@ -665,6 +685,7 @@ equipments = {
 
 	# Advanced CAS
 	CAS_equipment_3 = {
+		picture = CAS_equipment_3
 		year = 1944
 
 		archetype = small_plane_cas_airframe
@@ -703,6 +724,7 @@ equipments = {
 
 	# Basic Carrier CAS
 	cv_CAS_equipment_1 = {
+		picture = cv_CAS_equipment_1
 		year = 1936
 
 		archetype = cv_small_plane_cas_airframe
@@ -751,6 +773,7 @@ equipments = {
 
 	# Improved Carrier CAS
 	cv_CAS_equipment_2 = {
+		picture = cv_CAS_equipment_2
 		year = 1940
 
 		archetype = cv_small_plane_cas_airframe
@@ -784,6 +807,7 @@ equipments = {
 
 	# Advanced Carrier CAS
 	cv_CAS_equipment_3 = {
+		picture = cv_CAS_equipment_3
 		year = 1944
 
 		archetype = cv_small_plane_cas_airframe
@@ -823,6 +847,7 @@ equipments = {
 
 	# Basic nav_bomber
 	nav_bomber_equipment_1 = {
+		picture = nav_bomber_equipment_1
 		year = 1936
 
 		archetype = small_plane_naval_bomber_airframe
@@ -869,6 +894,7 @@ equipments = {
 
 	# Improved nav_bomber
 	nav_bomber_equipment_2 = {
+		picture = nav_bomber_equipment_2
 		year = 1940
 
 		archetype = small_plane_naval_bomber_airframe
@@ -900,6 +926,7 @@ equipments = {
 
 	# Advanced nav_bomber
 	nav_bomber_equipment_3 = {
+		picture = nav_bomber_equipment_3
 		year = 1944
 
 		archetype = small_plane_naval_bomber_airframe
@@ -937,6 +964,7 @@ equipments = {
 
 	 # Basic Carrier nav_bomber
 	cv_nav_bomber_equipment_1 = {
+		picture = cv_nav_bomber_equipment_1
 		year = 1936
 
 		archetype = cv_small_plane_naval_bomber_airframe
@@ -986,6 +1014,7 @@ equipments = {
 
 	# Improved Carrier nav_bomber
 	cv_nav_bomber_equipment_2 = {
+		picture = cv_nav_bomber_equipment_2
 		year = 1940
 
 		archetype = cv_small_plane_naval_bomber_airframe
@@ -1016,6 +1045,7 @@ equipments = {
 
 	# Advanced Carrier nav_bomber
 	cv_nav_bomber_equipment_3 = {
+		picture = cv_nav_bomber_equipment_3
 		year = 1944
 
 		archetype = cv_small_plane_naval_bomber_airframe
@@ -1052,6 +1082,7 @@ equipments = {
 
 	# Basic Rocket Interceptor
 	rocket_interceptor_equipment_1 = {
+		picture = rocket_interceptor_equipment_1
 		year = 1944
 
 		archetype = rocket_interceptor_equipment
@@ -1089,6 +1120,7 @@ equipments = {
 
 	# Improved Rocket Interceptor
 	rocket_interceptor_equipment_2 = {
+		picture = rocket_interceptor_equipment_2
 		year = 1945
 
 		archetype = rocket_interceptor_equipment
@@ -1116,6 +1148,7 @@ equipments = {
 
 	# Advanced Rocket Interceptor
 	rocket_interceptor_equipment_3 = {
+		picture = rocket_interceptor_equipment_3
 		year = 1946
 
 		archetype = rocket_interceptor_equipment
@@ -1149,6 +1182,7 @@ equipments = {
 
 	# Rocket interceptor suicide craft!
 	rocket_suicide_equipment_1 = {
+		picture = rocket_suicide_equipment_1
 		year = 1944
 
 		archetype = small_plane_suicide_airframe
@@ -1190,6 +1224,7 @@ equipments = {
 
 	 # Early Bomber
 	tac_bomber_equipment_0 = {
+		picture = tac_bomber_equipment_0
 		year = 1933
 
 		archetype = medium_plane_airframe
@@ -1240,6 +1275,7 @@ equipments = {
 
 	# Basic tac_bomber
 	tac_bomber_equipment_1 = {
+		picture = tac_bomber_equipment_1
 		year = 1936
 
 		archetype = medium_plane_airframe
@@ -1273,6 +1309,7 @@ equipments = {
 
 	# Improved tac_bomber
 	tac_bomber_equipment_2 = {
+		picture = tac_bomber_equipment_2
 		year = 1940
 
 		archetype = medium_plane_airframe
@@ -1306,6 +1343,7 @@ equipments = {
 
 	# Advanced tac_bomber
 	tac_bomber_equipment_3 = {
+		picture = tac_bomber_equipment_3
 		year = 1944
 
 		archetype = medium_plane_airframe
@@ -1339,6 +1377,7 @@ equipments = {
 
 	# Basic Jet tac_bomber
 	jet_tac_bomber_equipment_1 = {
+		picture = jet_tac_bomber_equipment_1
 		year = 1945
 
 		archetype = jet_tac_bomber_equipment
@@ -1390,6 +1429,7 @@ equipments = {
 
 	# Improved Jet tac_bomber
 	jet_tac_bomber_equipment_2 = {
+		picture = jet_tac_bomber_equipment_2
 		year = 1950
 
 		archetype = jet_tac_bomber_equipment
@@ -1428,6 +1468,7 @@ equipments = {
 	#  # ### #  #   #     #       #   ###  ##  #  #  #  ### #  # 
 
 	heavy_fighter_equipment_1 = {
+		picture = heavy_fighter_equipment_1
 		year = 1936
 
 		archetype = medium_plane_fighter_airframe
@@ -1470,6 +1511,7 @@ equipments = {
 	}
 
 	heavy_fighter_equipment_2 = {
+		picture = heavy_fighter_equipment_2
 		year = 1940
 
 		archetype = medium_plane_fighter_airframe
@@ -1499,6 +1541,7 @@ equipments = {
 	}
 
 	heavy_fighter_equipment_3 = {
+		picture = heavy_fighter_equipment_3
 		year = 1944
 
 		archetype = medium_plane_fighter_airframe
@@ -1534,6 +1577,7 @@ equipments = {
 	##   ##   ##   ##   #      #    ### #  # #  # ### 
 
 	scout_plane_equipment_1 = {
+		picture = scout_plane_equipment_1
 		year = 1936
 
 		archetype = medium_plane_scout_plane_airframe
@@ -1568,6 +1612,7 @@ equipments = {
 	}
 
 	scout_plane_equipment_2 = {
+		picture = scout_plane_equipment_2
 		year = 1940
 
 		archetype = medium_plane_scout_plane_airframe
@@ -1608,6 +1653,7 @@ equipments = {
 
 	# Basic strat_bomber
 	strat_bomber_equipment_1 = {
+		picture = strat_bomber_equipment_1
 		year = 1936
 
 		archetype = large_plane_airframe
@@ -1653,6 +1699,7 @@ equipments = {
 
 	# Improved strat_bomber
 	strat_bomber_equipment_2 = {
+		picture = strat_bomber_equipment_2
 		year = 1940
 
 		archetype = large_plane_airframe
@@ -1684,6 +1731,7 @@ equipments = {
 
 	# Advanced strat_bomber
 	strat_bomber_equipment_3 = {
+		picture = strat_bomber_equipment_3
 		year = 1944
 
 		archetype = large_plane_airframe
@@ -1715,6 +1763,7 @@ equipments = {
 
 	# Basic Jet strat_bomber
 	jet_strat_bomber_equipment_1 = {
+		picture = jet_strat_bomber_equipment_1
 		year = 1950
 
 		archetype = jet_strat_bomber_equipment

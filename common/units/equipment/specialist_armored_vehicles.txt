@@ -24,7 +24,7 @@ equipments = {
 		is_archetype = yes
 		is_buildable = no
 		#is_convertable = yes
-		picture = archetype_specialist_armored_vehicles
+		picture = armored_support_vehicle
 		type = armor
 		group_by = archetype
 		
@@ -66,6 +66,7 @@ equipments = {
 	}
 
 	armored_support_vehicle_1 = {
+		picture = armored_support_vehicle_1
 		year = 1939
 
 		archetype = armored_support_vehicle

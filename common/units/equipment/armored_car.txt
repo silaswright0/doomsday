@@ -8,7 +8,7 @@ equipments = {
 		is_archetype = yes
 		is_buildable = no
 		is_convertable = yes
-		picture = archetype_armored_car_equipment			
+		picture = armored_car_equipment
 		type = motorized
 		group_by = archetype
 		
@@ -52,6 +52,7 @@ equipments = {
 
 	# WW1 Armored Car
 	gw_armored_car_equipment = {
+		picture = gw_armored_car_equipment
 		year = 1914
 	
 		archetype = armored_car_equipment
@@ -81,6 +82,7 @@ equipments = {
 	}
 
 	armored_car_equipment_1 = {
+		picture = armored_car_equipment_1
 		year = 1934
 		
 		archetype = armored_car_equipment
@@ -93,6 +95,7 @@ equipments = {
 	}
 
 	armored_car_equipment_2 = {
+		picture = armored_car_equipment_2
 		year = 1941
 		
 		archetype = armored_car_equipment
@@ -126,6 +129,7 @@ equipments = {
 	}
 
 	armored_car_at_equipment = {
+		picture = armored_car_at_equipment
 		#should be closer to a tank than an AT tank/SPG
 		year = 1941
 

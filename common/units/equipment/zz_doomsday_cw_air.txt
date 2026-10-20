@@ -2,6 +2,7 @@
 # Later fighter gens buy attack/defence (BVR + stealth stand-in), not WW2 agility.
 equipments = {
 	fighter_equipment_cw1 = {
+		picture = fighter_equipment_cw1
 		year = 1953
 		archetype = small_plane_airframe
 		parent = fighter_equipment_3
@@ -34,6 +35,7 @@ equipments = {
 		}
 	}
 	fighter_equipment_cw2 = {
+		picture = fighter_equipment_cw2
 		year = 1960
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw1
@@ -66,6 +68,7 @@ equipments = {
 		}
 	}
 	fighter_equipment_cw3 = {
+		picture = fighter_equipment_cw3
 		year = 1970
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw2
@@ -99,6 +102,7 @@ equipments = {
 		}
 	}
 	fighter_equipment_cw4 = {
+		picture = fighter_equipment_cw4
 		year = 1981
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw3
@@ -134,6 +138,7 @@ equipments = {
 		}
 	}
 	fighter_equipment_cw45 = {
+		picture = fighter_equipment_cw45
 		year = 1994
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw4
@@ -171,6 +176,7 @@ equipments = {
 		}
 	}
 	fighter_equipment_cw5a = {
+		picture = fighter_equipment_cw5a
 		year = 2005
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw45
@@ -208,6 +214,7 @@ equipments = {
 		}
 	}
 	fighter_equipment_cw5b = {
+		picture = fighter_equipment_cw5b
 		year = 2016
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw45
@@ -245,6 +252,7 @@ equipments = {
 		}
 	}
 	fighter_equipment_cw6 = {
+		picture = fighter_equipment_cw6
 		year = 2030
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw5a
@@ -282,6 +290,7 @@ equipments = {
 		}
 	}
 	cv_fighter_equipment_cw2 = {
+		picture = cv_fighter_equipment_cw2
 		year = 1960
 		archetype = cv_small_plane_airframe
 		parent = cv_fighter_equipment_3
@@ -315,6 +324,7 @@ equipments = {
 		}
 	}
 	cv_fighter_equipment_cw4 = {
+		picture = cv_fighter_equipment_cw4
 		year = 1983
 		archetype = cv_small_plane_airframe
 		parent = cv_fighter_equipment_cw2
@@ -351,6 +361,7 @@ equipments = {
 		}
 	}
 	cv_fighter_equipment_cw5 = {
+		picture = cv_fighter_equipment_cw5
 		year = 2018
 		archetype = cv_small_plane_airframe
 		parent = cv_fighter_equipment_cw4
@@ -389,6 +400,7 @@ equipments = {
 		}
 	}
 	cas_equipment_cw1 = {
+		picture = cas_equipment_cw1
 		year = 1960
 		archetype = small_plane_cas_airframe
 		parent = CAS_equipment_3
@@ -422,6 +434,7 @@ equipments = {
 		}
 	}
 	cas_equipment_cw2 = {
+		picture = cas_equipment_cw2
 		year = 1977
 		archetype = small_plane_cas_airframe
 		parent = cas_equipment_cw1
@@ -455,6 +468,7 @@ equipments = {
 		}
 	}
 	cas_equipment_cw3 = {
+		picture = cas_equipment_cw3
 		year = 1991
 		archetype = small_plane_cas_airframe
 		parent = cas_equipment_cw2
@@ -489,6 +503,7 @@ equipments = {
 		}
 	}
 	cas_equipment_cw4 = {
+		picture = cas_equipment_cw4
 		year = 2010
 		archetype = small_plane_cas_airframe
 		parent = cas_equipment_cw3
@@ -526,6 +541,7 @@ equipments = {
 		}
 	}
 	nav_bomber_equipment_cw1 = {
+		picture = nav_bomber_equipment_cw1
 		year = 1960
 		archetype = small_plane_naval_bomber_airframe
 		parent = nav_bomber_equipment_3
@@ -558,6 +574,7 @@ equipments = {
 		}
 	}
 	nav_bomber_equipment_cw2 = {
+		picture = nav_bomber_equipment_cw2
 		year = 1982
 		archetype = small_plane_naval_bomber_airframe
 		parent = nav_bomber_equipment_cw1
@@ -590,6 +607,7 @@ equipments = {
 		}
 	}
 	nav_bomber_equipment_cw3 = {
+		picture = nav_bomber_equipment_cw3
 		year = 2008
 		archetype = small_plane_naval_bomber_airframe
 		parent = nav_bomber_equipment_cw2
@@ -624,6 +642,7 @@ equipments = {
 		}
 	}
 	tac_bomber_equipment_cw1 = {
+		picture = tac_bomber_equipment_cw1
 		year = 1960
 		archetype = medium_plane_airframe
 		parent = tac_bomber_equipment_3
@@ -657,6 +676,7 @@ equipments = {
 		}
 	}
 	tac_bomber_equipment_cw2 = {
+		picture = tac_bomber_equipment_cw2
 		year = 1974
 		archetype = medium_plane_airframe
 		parent = tac_bomber_equipment_cw1
@@ -690,6 +710,7 @@ equipments = {
 		}
 	}
 	tac_bomber_equipment_cw3 = {
+		picture = tac_bomber_equipment_cw3
 		year = 1990
 		archetype = medium_plane_airframe
 		parent = tac_bomber_equipment_cw2
@@ -725,6 +746,7 @@ equipments = {
 		}
 	}
 	tac_bomber_equipment_cw4 = {
+		picture = tac_bomber_equipment_cw4
 		year = 2026
 		archetype = medium_plane_airframe
 		parent = tac_bomber_equipment_cw3
@@ -762,6 +784,7 @@ equipments = {
 		}
 	}
 	strat_bomber_equipment_cw1 = {
+		picture = strat_bomber_equipment_cw1
 		year = 1955
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_3
@@ -795,6 +818,7 @@ equipments = {
 		}
 	}
 	strat_bomber_equipment_cw2 = {
+		picture = strat_bomber_equipment_cw2
 		year = 1974
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw1
@@ -828,6 +852,7 @@ equipments = {
 		}
 	}
 	strat_bomber_equipment_cw3 = {
+		picture = strat_bomber_equipment_cw3
 		year = 1986
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw2
@@ -861,6 +886,7 @@ equipments = {
 		}
 	}
 	strat_bomber_equipment_cw4 = {
+		picture = strat_bomber_equipment_cw4
 		year = 1997
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw3
@@ -898,6 +924,7 @@ equipments = {
 		}
 	}
 	strat_bomber_equipment_cw5 = {
+		picture = strat_bomber_equipment_cw5
 		year = 2023
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw4
@@ -935,6 +962,7 @@ equipments = {
 		}
 	}
 	strat_bomber_equipment_cw6 = {
+		picture = strat_bomber_equipment_cw6
 		year = 2036
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw5
@@ -972,6 +1000,7 @@ equipments = {
 		}
 	}
 	scout_plane_equipment_cw1 = {
+		picture = scout_plane_equipment_cw1
 		year = 1960
 		archetype = medium_plane_scout_plane_airframe
 		parent = scout_plane_equipment_2
@@ -1004,6 +1033,7 @@ equipments = {
 		}
 	}
 	aew_equipment_1 = {
+		picture = aew_equipment_1
 		year = 1977
 		archetype = medium_plane_scout_plane_airframe
 		parent = scout_plane_equipment_2
@@ -1037,6 +1067,7 @@ equipments = {
 		}
 	}
 	aew_equipment_2 = {
+		picture = aew_equipment_2
 		year = 2012
 		archetype = medium_plane_scout_plane_airframe
 		parent = aew_equipment_1
@@ -1070,6 +1101,7 @@ equipments = {
 		}
 	}
 	aew_equipment_3 = {
+		picture = aew_equipment_3
 		year = 2032
 		archetype = medium_plane_scout_plane_airframe
 		parent = aew_equipment_2
@@ -1103,6 +1135,7 @@ equipments = {
 		}
 	}
 	mpa_equipment_cw1 = {
+		picture = mpa_equipment_cw1
 		year = 1962
 		archetype = large_plane_maritime_patrol_plane_airframe
 		parent = large_plane_airframe_4
@@ -1138,6 +1171,7 @@ equipments = {
 		}
 	}
 	mpa_equipment_cw2 = {
+		picture = mpa_equipment_cw2
 		year = 1985
 		archetype = large_plane_maritime_patrol_plane_airframe
 		parent = mpa_equipment_cw1
@@ -1173,6 +1207,7 @@ equipments = {
 		}
 	}
 	mpa_equipment_cw3 = {
+		picture = mpa_equipment_cw3
 		year = 2013
 		archetype = large_plane_maritime_patrol_plane_airframe
 		parent = mpa_equipment_cw2
@@ -1208,6 +1243,7 @@ equipments = {
 		}
 	}
 	cca_equipment_1 = {
+		picture = cca_equipment_1
 		year = 2026
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw45
@@ -1243,6 +1279,7 @@ equipments = {
 		}
 	}
 	cca_equipment_2 = {
+		picture = cca_equipment_2
 		year = 2034
 		archetype = small_plane_airframe
 		parent = cca_equipment_1
@@ -1278,6 +1315,7 @@ equipments = {
 		}
 	}
 	cca_strike_equipment_1 = {
+		picture = cca_strike_equipment_1
 		year = 2028
 		archetype = small_plane_cas_airframe
 		parent = CAS_equipment_3
@@ -1314,6 +1352,7 @@ equipments = {
 		}
 	}
 	hale_uav_equipment_1 = {
+		picture = hale_uav_equipment_1
 		year = 1998
 		archetype = recon_uav_equipment
 		parent = recon_uav_equipment_1
@@ -1348,6 +1387,7 @@ equipments = {
 		}
 	}
 	recon_uav_equipment_2 = {
+		picture = recon_uav_equipment_2
 		year = 2015
 		archetype = recon_uav_equipment
 		parent = recon_uav_equipment_1
@@ -1376,6 +1416,7 @@ equipments = {
 		}
 	}
 	transport_heli_equipment_2 = {
+		picture = transport_heli_equipment_2
 		year = 1975
 		archetype = transport_heli_equipment
 		parent = transport_heli_equipment_1
@@ -1393,6 +1434,7 @@ equipments = {
 		}
 	}
 	transport_heli_equipment_3 = {
+		picture = transport_heli_equipment_3
 		year = 2030
 		archetype = transport_heli_equipment
 		parent = transport_heli_equipment_2
@@ -1410,6 +1452,7 @@ equipments = {
 		}
 	}
 	guided_missile_equipment_cw = {
+		picture = guided_missile_equipment_cw
 		year = 2009
 		archetype = guided_missile_equipment
 		parent = guided_missile_equipment_4

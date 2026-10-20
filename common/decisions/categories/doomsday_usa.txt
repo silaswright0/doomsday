@@ -49,6 +49,17 @@ dd_usa_international_category = {
 	}
 }
 
+dd_usa_escort_category = {
+	icon = generic_naval
+	priority = 250
+	allowed = { tag = USA }
+	visible = {
+		tag = USA
+		has_global_flag = dd_hormuz_war
+		has_global_flag = dd_hormuz_blockade
+	}
+}
+
 dd_usa_debug_category = {
 	icon = generic_civil_support
 	priority = 1

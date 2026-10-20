@@ -74,8 +74,16 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_ARMY }
 	ai_will_do = { factor = 20 }
 	completion_reward = {
-		remove_ideas = dd_prp_opportunity
-		add_ideas = dd_prp_free_people
+		if = {
+			limit = { has_idea = dd_prp_opportunity }
+			swap_ideas = {
+				remove_idea = dd_prp_opportunity
+				add_idea = dd_prp_free_people
+			}
+		}
+		else = {
+			add_ideas = dd_prp_free_people
+		}
 	}
 }
 shared_focus = {

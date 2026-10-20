@@ -1,6 +1,7 @@
 equipments = {
 
 	ship_hull_heavy = {
+		picture = ship_hull_heavy
 		year = 1922
 
 		can_be_produced = {
@@ -149,6 +150,7 @@ equipments = {
 	###Special snowflake hull
 
 	ship_hull_pre_dreadnought = {
+		picture = ship_hull_pre_dreadnought
 		abbreviation = "hcb"
 		year = 1905
 		visual_tech_level_addition = 0
@@ -208,6 +210,7 @@ equipments = {
 		manpower = 3200
 	}
 	ship_hull_heavy_1 = {
+		picture = ship_hull_heavy_1
 		abbreviation = "hcc"
 		year = 1922
 		archetype = ship_hull_heavy
@@ -303,6 +306,7 @@ equipments = {
 	}
 
 	ship_hull_heavy_2 = {
+		picture = ship_hull_heavy_2
 		abbreviation = "hcd"
 		year = 1936
 
@@ -369,6 +373,7 @@ equipments = {
 	}
 
 	ship_hull_heavy_3 = {
+		picture = ship_hull_heavy_3
 		abbreviation = "hce"
 		year = 1940
 
@@ -435,6 +440,7 @@ equipments = {
 	}
 
 	ship_hull_heavy_4 = {
+		picture = ship_hull_heavy_4
 		abbreviation = "hcf"
 		year = 1944
 
@@ -501,6 +507,7 @@ equipments = {
 		manpower = 5000
 	}
 	ship_hull_heavy_modern = {
+		picture = ship_hull_heavy_modern
 		abbreviation = "hcf"
 		year = 1954
 		archetype = ship_hull_heavy
@@ -574,6 +581,7 @@ equipments = {
 	}
 
 	ship_hull_super_heavy_1 = {
+		picture = ship_hull_super_heavy_1
 		abbreviation = "hcg"
 		year = 1940
 
@@ -672,6 +680,7 @@ equipments = {
 	}
 
 	battleship_1 = { 
+		picture = battleship_1
 		year = 1922
 		archetype = ship_hull_heavy
 		priority = 1500
@@ -780,6 +789,7 @@ equipments = {
 	}
 	
 	battleship_2 = {
+		picture = battleship_2
 		year = 1936
 		visual_level = 1
 		archetype = ship_hull_heavy
@@ -834,6 +844,7 @@ equipments = {
 	}
 	
 	battleship_3 = {
+		picture = battleship_3
 		year = 1940
 		visual_level = 1
 		archetype = ship_hull_heavy
@@ -889,6 +900,7 @@ equipments = {
 	}
 	
 	battleship_4 = {
+		picture = battleship_4
 		year = 1944
 		visual_level = 1
 		archetype = ship_hull_heavy
@@ -945,6 +957,7 @@ equipments = {
 
 
 	SH_battleship_1 = {
+		picture = SH_battleship_1
 		year = 1936
 		visual_level = 0
 		archetype = ship_hull_heavy
@@ -1066,6 +1079,7 @@ equipments = {
 	}
 	
 	SH_battleship_2 = {
+		picture = SH_battleship_2
 		year = 1944
 		visual_level = 0
 		archetype = ship_hull_heavy
@@ -1189,6 +1203,7 @@ equipments = {
 		
 	}
 	battle_cruiser_1 = {
+		picture = battle_cruiser_1
 		year = 1922
 		visual_level = 0
 		archetype = ship_hull_heavy
@@ -1244,6 +1259,7 @@ equipments = {
 	}
 	
 	battle_cruiser_2 = {
+		picture = battle_cruiser_2
 		year = 1940
 		visual_level = 1
 		archetype = ship_hull_heavy
@@ -1298,6 +1314,7 @@ equipments = {
 	}
 
 	modern_battleship = {
+		picture = modern_battleship
 		year = 1954
 		visual_level = 1
 		archetype = ship_hull_heavy

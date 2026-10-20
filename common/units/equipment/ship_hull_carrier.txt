@@ -1,6 +1,7 @@
 equipments = {
 
 	ship_hull_carrier = {
+		picture = ship_hull_carrier
 		year = 1922
 
 		can_be_produced = {
@@ -149,6 +150,7 @@ equipments = {
 	}
 
 	ship_hull_carrier_1 = {
+		picture = ship_hull_carrier_1
 		abbreviation = "haa"
 		year = 1936
 		visual_level = 1
@@ -169,6 +171,7 @@ equipments = {
 	}
 
 	ship_hull_carrier_2 = {
+		picture = ship_hull_carrier_2
 		abbreviation = "hab"
 		year = 1940
 		visual_level = 1
@@ -232,6 +235,7 @@ equipments = {
 	}
 
 	ship_hull_carrier_3 = {
+		picture = ship_hull_carrier_3
 		abbreviation = "hac"
 		year = 1944
 		visual_level = 1
@@ -304,6 +308,7 @@ equipments = {
 
 	#MODERN CARRIER
 	ship_hull_carrier_modern = {
+		picture = ship_hull_carrier_modern
 		abbreviation = "hacm"
 		year = 1948
 		visual_level = 1
@@ -383,6 +388,7 @@ equipments = {
 	
 	#MEGA CARRIER - ICE CARRIER - HABAKKUK
 	ship_hull_mega_carrier = {
+		picture = ship_hull_mega_carrier
 		abbreviation = "hamc"
 		year = 1944
 		visual_level = 1
@@ -464,6 +470,7 @@ equipments = {
 	}
 
 	ship_hull_carrier_conversion_bb = {
+		picture = ship_hull_carrier_conversion_bb
 		abbreviation = "had"
 		year = 1922
 		visual_level = 0
@@ -511,6 +518,7 @@ equipments = {
 	}
 
 	ship_hull_carrier_conversion_ca = {
+		picture = ship_hull_carrier_conversion_ca
 		abbreviation = "hae"
 		year = 1922
 		visual_level = 0
@@ -554,6 +562,7 @@ equipments = {
 
 	#ESCORT CARRIER
 	ship_hull_escort_carrier = {
+		picture = ship_hull_escort_carrier
 		abbreviation = "hacve"
 		year = 1936
 		visual_level = 1
@@ -630,6 +639,7 @@ equipments = {
 ###Prescripted designs for people without MtG
 
 	carrier_1 = {
+		picture = carrier_1
 		year = 1922
 		visual_level = 1
 		archetype = ship_hull_carrier
@@ -724,6 +734,7 @@ equipments = {
 	}
 
 	carrier_2 = {
+		picture = carrier_2
 		year = 1936
 		visual_level = 1
 		archetype = ship_hull_carrier
@@ -813,6 +824,7 @@ equipments = {
 	}
 
 	carrier_3 = {
+		picture = carrier_3
 		year = 1940
 		visual_level = 1
 		archetype = ship_hull_carrier
@@ -860,6 +872,7 @@ equipments = {
 	}
 
 	carrier_4 = {
+		picture = carrier_4
 		year = 1944
 		visual_level = 1
 		archetype = ship_hull_carrier
@@ -907,6 +920,7 @@ equipments = {
 	}
 
 	modern_carrier = {
+		picture = modern_carrier
 		year = 1954
 		visual_level = 1
 		archetype = ship_hull_carrier
@@ -1031,6 +1045,7 @@ equipments = {
 	}
 
 	mega_carrier = {
+		picture = mega_carrier
 		abbreviation = "had"
 		year = 1944
 		visual_level = 1
@@ -1140,6 +1155,7 @@ equipments = {
 		manpower = 6000
 	}
 	escort_carrier = {
+		picture = escort_carrier
 		year = 1936
 		visual_level = 1
 		archetype = ship_hull_carrier

@@ -30,7 +30,7 @@ dd_usa_take_out_maduro = {
 		create_country_leader = {
 			name = "Delcy Rodríguez"
 			desc = VEN_DELCY_PUPPET_DESC
-			picture = GFX_portrait_unknown
+			picture = GFX_portrait_VEN_delcy
 			ideology = left_nationalist
 		}
 	}
@@ -60,7 +60,7 @@ dd_usa_restore_known_puppet = {
 		limit = { tag = VEN }
 		set_politics = { ruling_party = left_wing_nationalism elections_allowed = no }
 		set_popularities = { left_wing_nationalism = 48 liberal_conservatism = 22 social_democracy = 10 national_populism = 8 communism = 8 military_junta = 4 }
-		create_country_leader = { name = "Delcy Rodríguez" desc = VEN_DELCY_PUPPET_DESC picture = GFX_portrait_unknown ideology = left_nationalist }
+		create_country_leader = { name = "Delcy Rodríguez" desc = VEN_DELCY_PUPPET_DESC picture = GFX_portrait_VEN_delcy ideology = left_nationalist }
 	}
 }
 
@@ -1034,6 +1034,158 @@ dd_usa_apply_nation_in_ruins = {
 	}
 }
 
+# Little Tech stays on one card. The level variable is set by the focus before this runs.
+# A loaded save with an older tier idea is read here and then stripped.
+dd_usa_apply_little_tech = {
+	if = {
+		limit = { NOT = { check_variable = { dd_usa_little_tech_level > 0 } } }
+		if = {
+			limit = {
+				OR = {
+					has_idea = dd_usa_little_tech
+					has_completed_focus = USA_little_tech
+				}
+			}
+			set_variable = { dd_usa_little_tech_level = 1 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = dd_usa_little_tech_2
+					has_completed_focus = USA_bring_in_little_tech
+				}
+			}
+			set_variable = { dd_usa_little_tech_level = 2 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = dd_usa_little_tech_3
+					has_completed_focus = USA_prepare_for_agi
+				}
+			}
+			set_variable = { dd_usa_little_tech_level = 3 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = dd_usa_little_tech_4
+					has_completed_focus = USA_final_stretch
+				}
+			}
+			set_variable = { dd_usa_little_tech_level = 4 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = dd_usa_little_tech_5
+					has_completed_focus = USA_ai_administration
+				}
+			}
+			set_variable = { dd_usa_little_tech_level = 5 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = dd_usa_little_tech_6
+					has_completed_focus = USA_capitalisms_final_form
+				}
+			}
+			set_variable = { dd_usa_little_tech_level = 6 }
+		}
+	}
+	if = {
+		limit = { check_variable = { dd_usa_little_tech_level > 0 } }
+		set_variable = { dd_lt_pp = 0.05 }
+		set_variable = { dd_lt_research = 0.02 }
+		set_variable = { dd_lt_stab = -0.02 }
+		set_variable = { dd_lt_ws = 0.02 }
+		set_variable = { dd_lt_enc = 0 }
+		set_variable = { dd_lt_dec = 0 }
+		set_variable = { dd_lt_factory = 0 }
+		set_variable = { dd_lt_eff = 0 }
+		set_variable = { dd_lt_eff_gain = 0 }
+		if = {
+			limit = { check_variable = { dd_usa_little_tech_level = 2 } }
+			set_variable = { dd_lt_pp = 0.10 }
+			set_variable = { dd_lt_research = 0.04 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_usa_little_tech_level = 3 } }
+			set_variable = { dd_lt_pp = 0.10 }
+			set_variable = { dd_lt_research = 0.08 }
+			set_variable = { dd_lt_enc = 0.10 }
+			set_variable = { dd_lt_dec = 0.10 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_usa_little_tech_level = 4 } }
+			set_variable = { dd_lt_pp = 0.10 }
+			set_variable = { dd_lt_research = 0.12 }
+			set_variable = { dd_lt_enc = 0.10 }
+			set_variable = { dd_lt_dec = 0.10 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_usa_little_tech_level = 5 } }
+			set_variable = { dd_lt_pp = 0.20 }
+			set_variable = { dd_lt_research = 0.12 }
+			set_variable = { dd_lt_stab = 0.03 }
+			set_variable = { dd_lt_enc = 0.20 }
+			set_variable = { dd_lt_dec = 0.20 }
+			set_variable = { dd_lt_factory = 0.05 }
+			set_variable = { dd_lt_eff = 0.05 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_usa_little_tech_level > 5 } }
+			set_variable = { dd_lt_pp = 0.20 }
+			set_variable = { dd_lt_research = 0.12 }
+			set_variable = { dd_lt_stab = 0.03 }
+			set_variable = { dd_lt_enc = 0.20 }
+			set_variable = { dd_lt_dec = 0.20 }
+			set_variable = { dd_lt_factory = 0.10 }
+			set_variable = { dd_lt_eff = 0.10 }
+			set_variable = { dd_lt_eff_gain = 0.10 }
+		}
+		if = { limit = { has_idea = dd_usa_little_tech } remove_ideas = dd_usa_little_tech }
+		if = { limit = { has_idea = dd_usa_little_tech_2 } remove_ideas = dd_usa_little_tech_2 }
+		if = { limit = { has_idea = dd_usa_little_tech_3 } remove_ideas = dd_usa_little_tech_3 }
+		if = { limit = { has_idea = dd_usa_little_tech_4 } remove_ideas = dd_usa_little_tech_4 }
+		if = { limit = { has_idea = dd_usa_little_tech_5 } remove_ideas = dd_usa_little_tech_5 }
+		if = { limit = { has_idea = dd_usa_little_tech_6 } remove_ideas = dd_usa_little_tech_6 }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_little_tech_spirit } } }
+			add_dynamic_modifier = { modifier = dd_usa_little_tech_spirit }
+		}
+		force_update_dynamic_modifier = yes
+	}
+}
+
+# Gutting the Middle Class stays. Dismantle White America clears the penalties.
+dd_usa_apply_gut = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_usa_gutting_middle_class_2
+				has_completed_focus = USA_dismantle_white_america
+			}
+		}
+		set_country_flag = dd_usa_gut_cleared
+	}
+	set_variable = { dd_gut_ws = -0.20 }
+	set_variable = { dd_gut_pop = -0.20 }
+	if = {
+		limit = { has_country_flag = dd_usa_gut_cleared }
+		set_variable = { dd_gut_ws = 0 }
+		set_variable = { dd_gut_pop = 0 }
+	}
+	if = { limit = { has_idea = dd_usa_gutting_middle_class } remove_ideas = dd_usa_gutting_middle_class }
+	if = { limit = { has_idea = dd_usa_gutting_middle_class_2 } remove_ideas = dd_usa_gutting_middle_class_2 }
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_gut_spirit } } }
+		add_dynamic_modifier = { modifier = dd_usa_gut_spirit }
+	}
+	force_update_dynamic_modifier = yes
+}
+
 dd_usa_remove_nation_in_ruins = {
 	if = {
 		limit = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } }
@@ -1614,27 +1766,89 @@ dd_usa_abolish_police = {
 	else = { dd_usa_force_security_1 = yes }
 }
 
-# White peace every enemy except Iran. Iran loses gulf bases and docking, then the war ends.
-dd_usa_peace_out_before_civil_war = {
+# Iran's terms. Bases, docking, and guarantees come off every Gulf state.
+# The United States, those states, and the rest of NATO leave the war.
+# Israel is put back in if the faction peace dragged it out.
+dd_usa_iran_victory_peace = {
+	dd_usa_surrender_persian_gulf = yes
 	if = {
-		limit = { has_war_with = PER }
-		dd_usa_surrender_persian_gulf = yes
+		limit = { ISR = { has_war_with = PER } }
+		set_country_flag = dd_isr_keeps_iran_war
+	}
+	USA = { set_country_flag = dd_iran_win_exit }
+	BHR = { set_country_flag = dd_iran_win_exit }
+	IRQ = { set_country_flag = dd_iran_win_exit }
+	KUW = { set_country_flag = dd_iran_win_exit }
+	QAT = { set_country_flag = dd_iran_win_exit }
+	SAU = { set_country_flag = dd_iran_win_exit }
+	UAE = { set_country_flag = dd_iran_win_exit }
+	OMA = { set_country_flag = dd_iran_win_exit }
+	every_country = {
+		limit = {
+			exists = yes
+			is_in_faction_with = USA
+			NOT = { tag = ISR }
+		}
+		set_country_flag = dd_iran_win_exit
+	}
+	if = {
+		limit = { has_idea = dd_usa_iran_war }
+		remove_ideas = dd_usa_iran_war
 	}
 	every_country = {
 		limit = {
-			has_war_with = ROOT
-			NOT = { tag = PER }
+			has_country_flag = dd_iran_win_exit
+			has_war_with = PER
 		}
+		white_peace = PER
+	}
+	PER = {
+		every_enemy_country = {
+			limit = { has_country_flag = dd_iran_win_exit }
+			white_peace = PREV
+		}
+	}
+	every_country = {
+		limit = {
+			OR = {
+				tag = HAM
+				tag = HEZ
+				tag = HOU
+				is_subject_of = PER
+			}
+		}
+		every_enemy_country = {
+			limit = { has_country_flag = dd_iran_win_exit }
+			white_peace = PREV
+		}
+	}
+	every_country = {
+		limit = { has_country_flag = dd_iran_win_exit }
+		clr_country_flag = dd_iran_win_exit
+	}
+	if = {
+		limit = {
+			has_country_flag = dd_isr_keeps_iran_war
+			NOT = { ISR = { has_war_with = PER } }
+		}
+		ISR = { declare_war_on = { target = PER type = annex_everything call_allies = no } }
+	}
+	clr_country_flag = dd_isr_keeps_iran_war
+}
+
+# End foreign wars before the country breaks up. Iran is paid off first.
+dd_usa_peace_out_before_civil_war = {
+	dd_usa_iran_victory_peace = yes
+	every_enemy_country = {
 		set_country_flag = dd_usa_cw_peace_target
 	}
 	every_country = {
 		limit = { has_country_flag = dd_usa_cw_peace_target }
 		clr_country_flag = dd_usa_cw_peace_target
-		white_peace = ROOT
+		white_peace = USA
 	}
-	if = {
-		limit = { has_war_with = PER }
-		white_peace = PER
+	every_enemy_country = {
+		USA = { white_peace = PREV }
 	}
 }
 
@@ -2556,6 +2770,53 @@ dd_usa_israel_arms_shipment = {
 	}
 }
 
+# Civil war, week 50 with Trump still leading MAGA. Vance inherits that country. Heartland chooses whether to fight him.
+dd_usa_trump_found_dead = {
+	if = {
+		limit = { NOT = { has_global_flag = dd_usa_trump_death_resolved } }
+		set_global_flag = dd_usa_trump_death_resolved
+		if = {
+			limit = { USA = { has_country_leader = { name = "Donald Trump" ruling_only = yes } } }
+			USA = {
+				set_country_flag = dd_usa_maga_side
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "JD Vance"
+					picture = GFX_portrait_VNM_leader
+					expire = "2065.1.1"
+					ideology = national_populist
+				}
+			}
+		}
+		else_if = {
+			limit = { VNM = { has_country_leader = { name = "Donald Trump" ruling_only = yes } } }
+			VNM = {
+				set_country_flag = dd_usa_maga_side
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "JD Vance"
+					picture = GFX_portrait_VNM_leader
+					expire = "2065.1.1"
+					ideology = national_populist
+				}
+			}
+		}
+		if = {
+			limit = {
+				RBM = {
+					exists = yes
+					has_country_flag = dd_cw_released
+				}
+			}
+			RBM = { country_event = { id = dd_usa_cw.3 } }
+		}
+		else_if = {
+			limit = { USA = { has_country_flag = dd_usa_keep_rbm } }
+			USA = { country_event = { id = dd_usa_cw.3 } }
+		}
+	}
+}
+
 # The standing general staff and admirals leave with Federal Command. Advisors stay on the USA remnant.
 dd_usa_cw_generals_to_fva = {
 	USA_fm_randy_george = { set_nationality = FVA }
@@ -2576,6 +2837,7 @@ dd_usa_start_civil_war = {
 			NOT = { has_country_flag = dd_usa_civil_war }
 		}
 		set_global_flag = dd_usa_civil_war_started
+		set_variable = { global.dd_usa_trump_death_weeks = 0 }
 		set_country_flag = dd_usa_civil_war
 		# End foreign wars before the country breaks up. Iran's peace is the gulf concessions.
 		dd_usa_peace_out_before_civil_war = yes
@@ -2631,7 +2893,7 @@ dd_usa_start_civil_war = {
 		else = {
 			set_country_flag = dd_usa_keep_fed
 		}
-		# Federal / Mandate remnant: Trump steps aside, Vance leads as MAGA.
+		# Federal / Mandate remnant stays MAGA under Trump.
 		if = {
 			limit = {
 				OR = {
@@ -2639,12 +2901,19 @@ dd_usa_start_civil_war = {
 					has_country_flag = dd_usa_keep_vnm
 				}
 			}
-			retire_country_leader = yes
-			create_country_leader = {
-				name = "JD Vance"
-				picture = GFX_portrait_VNM_leader
-				expire = "2065.1.1"
-				ideology = national_populist
+			if = {
+				limit = {
+					has_government = national_populism
+					NOT = { has_country_leader = { name = "Donald Trump" ruling_only = yes } }
+				}
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Donald Trump"
+					desc = USA_LEADER_DESC
+					picture = GFX_portrait_USA_leader
+					expire = "2065.1.1"
+					ideology = national_populist
+				}
 			}
 			set_cosmetic_tag = USA_MAGA
 		}

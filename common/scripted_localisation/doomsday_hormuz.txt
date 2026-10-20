@@ -1,0 +1,10 @@
+defined_text = {
+	name = GetDDHormuzStraitTip
+	text = {
+		trigger = { has_global_flag = dd_hormuz_escort_shipping }
+		localization_key = DD_HORMUZ_ECON_STRAIT_ESCORT
+	}
+	text = {
+		localization_key = DD_HORMUZ_ECON_STRAIT_FULL
+	}
+}

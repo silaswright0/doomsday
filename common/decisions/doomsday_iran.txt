@@ -1,3 +1,19 @@
+dd_per_debug_category = {
+	dd_per_trigger_civil_war = {
+		icon = generic_civil_support
+		allowed = { tag = PER }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = {
+			tag = PER
+			NOT = { has_global_flag = dd_per_collapse_war }
+		}
+		complete_effect = {
+			dd_per_state_collapse = yes
+		}
+	}
+}
+
 dd_per_proxy_category = {
 	dd_per_smuggle_rifles = {
 		icon = generic_prepare_civil_war

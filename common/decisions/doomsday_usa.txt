@@ -294,6 +294,33 @@ dd_usa_tariff_category = {
 	}
 }
 
+dd_usa_escort_category = {
+	dd_usa_escort_shipping = {
+		icon = generic_naval
+		allowed = { tag = USA }
+		cost = 0
+		ai_will_do = { factor = 100 }
+		visible = {
+			tag = USA
+			has_global_flag = dd_hormuz_war
+			has_global_flag = dd_hormuz_blockade
+			NOT = { has_global_flag = dd_hormuz_escort_shipping }
+		}
+		available = {
+			tag = USA
+			USA = { has_naval_control = 104 }
+			USA = { has_naval_control = 203 }
+		}
+		complete_effect = {
+			if = {
+				limit = { tag = USA }
+				set_global_flag = dd_hormuz_escort_shipping
+				dd_hormuz_econ_sync = yes
+			}
+		}
+	}
+}
+
 dd_usa_debug_category = {
 	dd_usa_trigger_civil_war = {
 		icon = generic_civil_support

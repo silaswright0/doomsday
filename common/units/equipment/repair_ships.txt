@@ -1,6 +1,7 @@
 equipments = {
 
 	repair_ship_hull = {
+		picture = repair_ship_hull
 		year = 1936
 
 		can_be_produced = {
@@ -64,6 +65,7 @@ equipments = {
 	}
 
 	repair_ship_1 = {
+		picture = repair_ship_1
 		abbreviation = "ZZZ"
 		year = 1936
 		archetype = repair_ship_hull
@@ -81,6 +83,7 @@ equipments = {
 	}
 	
 	repair_ship_2 = {
+		picture = repair_ship_2
 		abbreviation = "ZZZ"
 		year = 1936
 		parent = repair_ship_1

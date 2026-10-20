@@ -41,6 +41,20 @@ country_event = {
 	option = { name = dd_hormuz.1.a }
 }
 
+# Iran has collapsed. The United States and Israel are out of the war.
+country_event = {
+	id = dd_hormuz.20
+	title = dd_hormuz.20.t
+	desc = dd_hormuz.20.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_hormuz.20.a
+		add_stability = 0.05
+		add_popularity = { ideology = national_populism popularity = 0.10 }
+	}
+}
+
 country_event = {
 	id = dd_hormuz.10
 	title = dd_hormuz.10.t

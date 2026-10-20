@@ -1,0 +1,79 @@
+dd_isr_expansion_category = {
+	dd_isr_increase_settlements = {
+		icon = generic_form_nation
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
+		available = {
+			PAL = {
+				exists = yes
+				is_subject_of = ROOT
+			}
+		}
+		complete_effect = {
+			dd_isr_illegal_settlements = yes
+		}
+	}
+}
+
+dd_isr_diaspora_category = {
+	# Keeps the category listed; real controls are the slot GUI above.
+	dd_isr_diaspora_howto = {
+		icon = generic_political_discourse
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
+		priority = 10
+		available = { always = no }
+		complete_effect = { }
+	}
+
+	dd_isr_diaspora_cancel_pick = {
+		icon = generic_decision
+		cost = 0
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
+		priority = 200
+		visible = {
+			check_variable = { dd_isr_diaspora_pick_slot > 0 }
+		}
+		complete_effect = {
+			clear_variable = dd_isr_diaspora_pick_slot
+		}
+	}
+
+	# Click an empty slot in the GUI, then click a capital on the map.
+	dd_isr_diaspora_map_assign = {
+		icon = generic_political_discourse
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 0 }
+		priority = 50
+		# pick_slot must stay in visible (every frame). target_root_trigger is daily.
+		visible = {
+			check_variable = { dd_isr_diaspora_pick_slot > 0 }
+		}
+		target_root_trigger = {
+			has_country_flag = dd_isr_diaspora_open
+		}
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				is_capital = yes
+				owner = {
+					dd_isr_diaspora_eligible = yes
+					NOT = { has_country_flag = dd_isr_diaspora_member }
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				owner = {
+					save_event_target_as = dd_isr_diaspora_pick
+				}
+			}
+			dd_isr_diaspora_assign_picked = yes
+		}
+	}
+}

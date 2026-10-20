@@ -1,4 +1,21 @@
 on_actions = {
+	on_startup = {
+		effect = {
+			PER = {
+				if = {
+					limit = {
+						OR = {
+							has_completed_focus = PER_final_battle
+							has_idea = dd_per_final_battle
+							has_idea = dd_per_final_battle_2
+						}
+						NOT = { has_dynamic_modifier = { modifier = dd_per_final_battle_spirit } }
+					}
+					dd_per_apply_final_battle = yes
+				}
+			}
+		}
+	}
 	on_daily = {
 		effect = {
 			if = {

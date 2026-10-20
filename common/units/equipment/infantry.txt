@@ -6,7 +6,7 @@ equipments = {
 		year = 1936
 	
 		is_archetype = yes
-		picture = archetype_infantry_equipment		
+		picture = infantry_equipment
 		is_buildable = no
 		type = infantry
 		group_by = archetype
@@ -44,6 +44,7 @@ equipments = {
 	}
 
 	infantry_equipment_0 = {
+		picture = infantry_equipment_0
 		year = 1918
 	
 		archetype = infantry_equipment
@@ -56,6 +57,7 @@ equipments = {
 
 	# Regular infantry  1936
 	infantry_equipment_1 = {
+		picture = infantry_equipment_1
 		year = 1936
 	
 		archetype = infantry_equipment
@@ -78,6 +80,7 @@ equipments = {
 
 	# Improved weapons  ~1939
 	infantry_equipment_2 = {
+		picture = infantry_equipment_2
 		year = 1939
 	
 		archetype = infantry_equipment
@@ -104,6 +107,7 @@ equipments = {
 	
 	# Advanced weapons  ~1942
 	infantry_equipment_3 = {
+		picture = infantry_equipment_3
 		year = 1942
 	
 		archetype = infantry_equipment

@@ -3100,46 +3100,31 @@ dd_usa_civil_war_fights = {
 	ABR = { set_country_flag = dd_cw_general }
 	PTF = { set_country_flag = dd_cw_general }
 	ASK = { set_country_flag = dd_cw_general }
+	# PREV inside this limit does not point at the other splinter, so the old peace
+	# exceptions never matched and the Great Lakes declared on the Rust Belt.
+	# call_allies is off so a faction mate is not dragged in and then stuck there.
 	every_country = {
 		limit = { has_country_flag = dd_cw_general }
+		set_country_flag = dd_cw_from
 		every_other_country = {
 			limit = {
 				has_country_flag = dd_cw_general
-				NOT = { has_war_with = PREV }
-				NOT = { is_in_faction_with = PREV }
-				# Rubio and Vance start at peace.
-				NOT = {
-					OR = {
-						AND = {
-							OR = { tag = RBM PREV = { has_country_flag = dd_usa_keep_rbm } }
-							OR = { tag = VNM PREV = { has_country_flag = dd_usa_keep_vnm } }
-						}
-						AND = {
-							OR = { tag = VNM PREV = { has_country_flag = dd_usa_keep_vnm } }
-							OR = { tag = RBM PREV = { has_country_flag = dd_usa_keep_rbm } }
-						}
-						AND = { tag = RBM PREV = { tag = VNM } }
-						AND = { tag = VNM PREV = { tag = RBM } }
-						AND = { tag = RBM PREV = { has_country_flag = dd_usa_keep_vnm } }
-						AND = { tag = VNM PREV = { has_country_flag = dd_usa_keep_rbm } }
-						AND = { has_country_flag = dd_usa_keep_rbm PREV = { tag = VNM } }
-						AND = { has_country_flag = dd_usa_keep_vnm PREV = { tag = RBM } }
-					}
-				}
-				# Demsoc and communists start at peace.
-				NOT = {
-					OR = {
-						AND = { tag = EAS PREV = { tag = RBL } }
-						AND = { tag = RBL PREV = { tag = EAS } }
-						AND = { tag = EAS PREV = { has_country_flag = dd_usa_keep_rbl } }
-						AND = { tag = RBL PREV = { has_country_flag = dd_usa_keep_eas } }
-						AND = { has_country_flag = dd_usa_keep_eas PREV = { tag = RBL } }
-						AND = { has_country_flag = dd_usa_keep_rbl PREV = { tag = EAS } }
+				NOT = { has_country_flag = dd_cw_from }
+			}
+			set_country_flag = dd_cw_to
+			if = {
+				limit = { NOT = { dd_usa_cw_pair_spared = yes } }
+				every_country = {
+					limit = { has_country_flag = dd_cw_from }
+					every_country = {
+						limit = { has_country_flag = dd_cw_to }
+						declare_war_on = { target = PREV type = dd_annex call_allies = no }
 					}
 				}
 			}
-			declare_war_on = { target = PREV type = dd_annex }
+			clr_country_flag = dd_cw_to
 		}
+		clr_country_flag = dd_cw_from
 	}
 	every_country = {
 		limit = { has_country_flag = dd_cw_general }
@@ -3210,7 +3195,7 @@ dd_usa_civil_war_fights = {
 					NOT = { tag = TXO }
 					NOT = { has_war_with = FVA }
 				}
-				FVA = { declare_war_on = { target = PREV type = dd_annex } }
+				FVA = { declare_war_on = { target = PREV type = dd_annex call_allies = no } }
 			}
 		}
 	}

@@ -997,3 +997,54 @@ news_event = {
 	is_triggered_only = yes
 	option = { name = dd_usa_news.12.a }
 }
+
+news_event = {
+	id = dd_usa_news.13
+	title = dd_usa_news.13.t
+	desc = dd_usa_news.13.d
+	picture = GFX_news_event_generic_funeral
+	major = yes
+	is_triggered_only = yes
+	immediate = { dd_usa_trump_found_dead = yes }
+	option = { name = dd_usa_news.13.a }
+}
+
+# Heartland Conservatives only. The news above already replaced Trump.
+country_event = {
+	id = dd_usa_cw.3
+	title = dd_usa_cw.3.t
+	desc = dd_usa_cw.3.d
+	picture = GFX_report_event_generic_funeral
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = dd_usa_cw.3.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				VNM = { has_country_flag = dd_usa_maga_side exists = yes }
+				NOT = { has_war_with = VNM }
+			}
+			if = {
+				limit = { is_in_faction_with = VNM }
+				remove_from_faction = yes
+			}
+			declare_war_on = { target = VNM type = dd_annex }
+		}
+		else_if = {
+			limit = {
+				USA = { has_country_flag = dd_usa_maga_side }
+				NOT = { has_war_with = USA }
+			}
+			if = {
+				limit = { is_in_faction_with = USA }
+				remove_from_faction = yes
+			}
+			declare_war_on = { target = USA type = dd_annex }
+		}
+	}
+	option = {
+		name = dd_usa_cw.3.b
+		ai_chance = { factor = 0 }
+	}
+}

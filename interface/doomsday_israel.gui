@@ -1,0 +1,170 @@
+guiTypes = {
+	containerWindowType = {
+		name = "dd_isr_diaspora_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 360 }
+		clipping = no
+
+		instantTextboxType = {
+			name = "dd_isr_diaspora_header"
+			position = { x = 12 y = 4 }
+			font = "hoi_18b"
+			text = "DD_ISR_DIASPORA_HEADER"
+			maxWidth = 700
+			maxHeight = 22
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_isr_diaspora_hint"
+			position = { x = 12 y = 28 }
+			font = "hoi_16mbs"
+			text = "DD_ISR_DIASPORA_HINT"
+			maxWidth = 700
+			maxHeight = 36
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_isr_slot_1"
+			position = { x = 12 y = 68 }
+			quadTextureSprite = "GFX_button_261x34"
+			buttonText = "DD_ISR_SLOT_BTN_1"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_SLOT_BTN_TT"
+		}
+		instantTextboxType = {
+			name = "dd_isr_slot_1_inf"
+			position = { x = 370 y = 74 }
+			font = "hoi_16mbs"
+			text = "DD_ISR_SLOT_INF_1"
+			maxWidth = 200
+			maxHeight = 22
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_isr_slot_2"
+			position = { x = 12 y = 108 }
+			quadTextureSprite = "GFX_button_261x34"
+			buttonText = "DD_ISR_SLOT_BTN_2"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_SLOT_BTN_TT"
+		}
+		instantTextboxType = {
+			name = "dd_isr_slot_2_inf"
+			position = { x = 370 y = 114 }
+			font = "hoi_16mbs"
+			text = "DD_ISR_SLOT_INF_2"
+			maxWidth = 200
+			maxHeight = 22
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_isr_slot_3"
+			position = { x = 12 y = 148 }
+			quadTextureSprite = "GFX_button_261x34"
+			buttonText = "DD_ISR_SLOT_BTN_3"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_SLOT_BTN_TT"
+		}
+		instantTextboxType = {
+			name = "dd_isr_slot_3_inf"
+			position = { x = 370 y = 154 }
+			font = "hoi_16mbs"
+			text = "DD_ISR_SLOT_INF_3"
+			maxWidth = 200
+			maxHeight = 22
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_isr_slot_4"
+			position = { x = 12 y = 188 }
+			quadTextureSprite = "GFX_button_261x34"
+			buttonText = "DD_ISR_SLOT_BTN_4"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_SLOT_BTN_TT"
+		}
+		instantTextboxType = {
+			name = "dd_isr_slot_4_inf"
+			position = { x = 370 y = 194 }
+			font = "hoi_16mbs"
+			text = "DD_ISR_SLOT_INF_4"
+			maxWidth = 200
+			maxHeight = 22
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_isr_slot_5"
+			position = { x = 12 y = 228 }
+			quadTextureSprite = "GFX_button_261x34"
+			buttonText = "DD_ISR_SLOT_BTN_5"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_SLOT_BTN_TT"
+		}
+		instantTextboxType = {
+			name = "dd_isr_slot_5_inf"
+			position = { x = 370 y = 234 }
+			font = "hoi_16mbs"
+			text = "DD_ISR_SLOT_INF_5"
+			maxWidth = 200
+			maxHeight = 22
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_isr_diaspora_status"
+			position = { x = 12 y = 268 }
+			font = "hoi_16mbs"
+			text = "DD_ISR_DIASPORA_STATUS"
+			maxWidth = 700
+			maxHeight = 22
+			format = left
+		}
+
+		buttonType = {
+			name = "dd_isr_diaspora_expand"
+			position = { x = 12 y = 296 }
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_ISR_ACT_EXPAND"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_ACT_EXPAND_TT"
+		}
+		buttonType = {
+			name = "dd_isr_diaspora_boost"
+			position = { x = 148 y = 296 }
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_ISR_ACT_BOOST"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_ACT_BOOST_TT"
+		}
+		buttonType = {
+			name = "dd_isr_diaspora_arms"
+			position = { x = 284 y = 296 }
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_ISR_ACT_ARMS"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_ACT_ARMS_TT"
+		}
+		buttonType = {
+			name = "dd_isr_diaspora_puppet"
+			position = { x = 420 y = 296 }
+			quadTextureSprite = "GFX_button_123x34"
+			buttonText = "DD_ISR_ACT_PUPPET"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			pdx_tooltip = "DD_ISR_ACT_PUPPET_TT"
+		}
+	}
+}

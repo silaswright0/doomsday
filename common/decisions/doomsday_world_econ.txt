@@ -5,9 +5,11 @@ dd_world_econ_category = {
 		target_trigger = {
 			OR = {
 				has_idea = dd_hormuz_blockade_shock
+				has_idea = dd_hormuz_blockade_shock_half
 				has_idea = dd_hormuz_squeeze_world
 				has_idea = dd_hormuz_gulfbomb_world
 				has_idea = dd_hormuz_blockade_usa
+				has_idea = dd_hormuz_blockade_usa_half
 				has_idea = dd_hormuz_saudi_shock
 				has_idea = dd_hormuz_gulfbomb_usa
 			}

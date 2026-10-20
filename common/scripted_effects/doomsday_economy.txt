@@ -2342,6 +2342,7 @@ dd_recalc_accounts = {
 	if = {
 		limit = {
 			OR = {
+				has_dynamic_modifier = { modifier = dd_usa_gut_spirit }
 				has_idea = dd_usa_gutting_middle_class
 				has_idea = dd_usa_gutting_middle_class_2
 			}

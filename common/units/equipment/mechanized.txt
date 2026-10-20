@@ -4,7 +4,7 @@ equipments = {
 		year = 1936
 
 		is_archetype = yes
-		picture = archetype_motorized_equipment
+		picture = mechanized_equipment
 		is_buildable = no
 		type = {
 			#infantry #Removing inf type
@@ -51,6 +51,7 @@ equipments = {
 
 	# ~1941
 	mechanized_equipment_1 = {
+		picture = mechanized_equipment_1
 		year = 1940
 
 		archetype = mechanized_equipment
@@ -60,6 +61,7 @@ equipments = {
 
 	# ~1943
 	mechanized_equipment_2 = {
+		picture = mechanized_equipment_2
 		year = 1942
 
 		archetype = mechanized_equipment
@@ -88,6 +90,7 @@ equipments = {
 
 	# ~1945
 	mechanized_equipment_3 = {
+		picture = mechanized_equipment_3
 		year = 1944
 
 		archetype = mechanized_equipment

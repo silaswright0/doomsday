@@ -4,7 +4,7 @@ equipments = {
 		year = 1936
 
 		is_archetype = yes
-		picture = archetype_helicopter_equipment 
+		picture = helicopter_equipment
 		is_buildable = no
 		type = {
 			infantry
@@ -44,6 +44,7 @@ equipments = {
 	}
 
 	helicopter_equipment_1 = {
+		picture = helicopter_equipment_1
 		year = 1936
 
 		archetype = helicopter_equipment

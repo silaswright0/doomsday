@@ -209,27 +209,405 @@ dd_isr_repair_usa = {
 
 dd_isr_oppose_palestine = {
 	custom_effect_tooltip = dd_isr_oppose_palestine_tt
-	add_ideas = dd_isr_no_palestine
-	add_popularity = { ideology = national_populism popularity = 0.03 }
-	hidden_effect = {
-		if = {
-			limit = {
-				PAL = { exists = yes is_subject_of = ROOT }
-			}
-			annex_country = { target = PAL transfer_troops = yes }
-		}
-		if = { limit = { 1086 = { NOT = { is_owned_by = ROOT } } } 1086 = { add_claim_by = ROOT } }
-		if = { limit = { 1085 = { NOT = { is_owned_by = ROOT } } } 1085 = { add_claim_by = ROOT } }
+	add_stability = 0.05
+	add_war_support = 0.05
+	if = {
+		limit = { PAL = { exists = yes is_subject_of = ROOT } }
+		PAL = { add_autonomy_score = { value = -500 } }
 	}
+	1086 = { add_core_of = ROOT }
 }
 
 dd_isr_expand_settlements = {
 	add_war_support = 0.05
 	add_stability = -0.05
+	custom_effect_tooltip = dd_isr_expand_settlements_tt
 	if = { limit = { 1086 = { NOT = { is_owned_by = ROOT } } } 1086 = { add_claim_by = ROOT } }
 	if = { limit = { 1085 = { NOT = { is_owned_by = ROOT } } } 1085 = { add_claim_by = ROOT } }
 	if = {
+		limit = { PAL = { exists = yes is_subject_of = ROOT } }
+		PAL = { add_autonomy_score = { value = -400 } }
+	}
+	if = {
 		limit = { PAL = { exists = yes } }
 		add_opinion_modifier = { target = PAL modifier = dd_isr_settlements }
+	}
+}
+
+dd_isr_illegal_settlements = {
+	custom_effect_tooltip = dd_isr_illegal_settlements_tt
+	if = {
+		limit = { PAL = { exists = yes is_subject_of = ROOT } }
+		PAL = { add_autonomy_score = { value = -200 } }
+	}
+}
+
+dd_isr_rebuild_infra = {
+	custom_effect_tooltip = dd_isr_rebuild_infra_tt
+	hidden_effect = {
+		every_owned_state = {
+			limit = { infrastructure < 5 }
+			add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+		}
+		if = {
+			limit = { has_idea = dd_isr_shrinking_growth }
+			remove_ideas = dd_isr_shrinking_growth
+		}
+	}
+}
+
+dd_isr_foreign_capital = {
+	add_offsite_building = { type = industrial_complex level = 4 }
+}
+
+dd_isr_defence_infra = {
+	custom_effect_tooltip = dd_isr_defence_infra_tt
+	hidden_effect = {
+		if = {
+			limit = { 454 = { is_owned_by = ROOT } }
+			454 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				add_building_construction = { type = anti_air_building level = 1 instant_build = yes }
+			}
+		}
+		if = {
+			limit = { 1120 = { is_owned_by = ROOT } }
+			1120 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				add_building_construction = { type = anti_air_building level = 1 instant_build = yes }
+			}
+		}
+		if = {
+			limit = { 1088 = { is_owned_by = ROOT } }
+			1088 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = anti_air_building level = 1 instant_build = yes }
+			}
+		}
+	}
+}
+
+dd_isr_expand_civ = {
+	custom_effect_tooltip = dd_isr_expand_civ_tt
+	hidden_effect = {
+		if = {
+			limit = { 454 = { is_owned_by = ROOT } }
+			454 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			}
+		}
+		if = {
+			limit = { 1120 = { is_owned_by = ROOT } }
+			1120 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		if = {
+			limit = { 1088 = { is_owned_by = ROOT } }
+			1088 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+}
+
+dd_isr_expand_mil = {
+	custom_effect_tooltip = dd_isr_expand_mil_tt
+	hidden_effect = {
+		if = {
+			limit = { 454 = { is_owned_by = ROOT } }
+			454 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+		if = {
+			limit = { 1120 = { is_owned_by = ROOT } }
+			1120 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+}
+
+# The IDF card stays. Urban fighting and combined arms rewrite its numbers.
+dd_isr_refresh_idf = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_isr_idf_urban
+				has_idea = dd_isr_idf_both
+			}
+		}
+		set_country_flag = dd_isr_idf_urban
+	}
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_isr_idf_arms
+				has_idea = dd_isr_idf_both
+			}
+		}
+		set_country_flag = dd_isr_idf_arms
+	}
+	set_variable = { dd_idf_xp = 0.20 }
+	set_variable = { dd_idf_plan = 0.20 }
+	set_variable = { dd_idf_morale = 0.15 }
+	set_variable = { dd_idf_move = -0.20 }
+	set_variable = { dd_idf_org = 0.10 }
+	set_variable = { dd_idf_atk = 0 }
+	set_variable = { dd_idf_def = 0 }
+	set_variable = { dd_idf_spd = 0 }
+	set_variable = { dd_idf_arm = 0 }
+	set_variable = { dd_idf_brk = 0 }
+	if = {
+		limit = { has_country_flag = dd_isr_idf_urban }
+		set_variable = { dd_idf_org = 0.15 }
+		set_variable = { dd_idf_atk = 0.10 }
+		set_variable = { dd_idf_def = 0.10 }
+	}
+	if = {
+		limit = { has_country_flag = dd_isr_idf_arms }
+		if = {
+			limit = { has_country_flag = dd_isr_idf_urban }
+			set_variable = { dd_idf_org = 0.20 }
+			set_variable = { dd_idf_atk = 0.20 }
+		}
+		else = {
+			set_variable = { dd_idf_org = 0.15 }
+			set_variable = { dd_idf_atk = 0.10 }
+		}
+		set_variable = { dd_idf_spd = 0.15 }
+		set_variable = { dd_idf_arm = 0.10 }
+		set_variable = { dd_idf_brk = 0.10 }
+	}
+	if = { limit = { has_idea = dd_isr_idf } remove_ideas = dd_isr_idf }
+	if = { limit = { has_idea = dd_isr_idf_urban } remove_ideas = dd_isr_idf_urban }
+	if = { limit = { has_idea = dd_isr_idf_arms } remove_ideas = dd_isr_idf_arms }
+	if = { limit = { has_idea = dd_isr_idf_both } remove_ideas = dd_isr_idf_both }
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_isr_idf_spirit } } }
+		add_dynamic_modifier = { modifier = dd_isr_idf_spirit }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+dd_isr_refresh_air = {
+	if = {
+		limit = { has_idea = dd_isr_airforce_dominance }
+		set_country_flag = dd_isr_air_dominance
+	}
+	set_variable = { dd_air_mission = 0.15 }
+	set_variable = { dd_air_range = 0.20 }
+	set_variable = { dd_air_fighter = 0 }
+	set_variable = { dd_air_sortie = 0 }
+	set_variable = { dd_air_night = 0 }
+	set_variable = { dd_air_cas = 0 }
+	if = {
+		limit = { has_country_flag = dd_isr_air_dominance }
+		set_variable = { dd_air_fighter = 0.15 }
+		set_variable = { dd_air_sortie = 0.10 }
+		set_variable = { dd_air_night = -0.20 }
+		set_variable = { dd_air_cas = 0.15 }
+	}
+	if = { limit = { has_idea = dd_isr_airforce } remove_ideas = dd_isr_airforce }
+	if = { limit = { has_idea = dd_isr_airforce_dominance } remove_ideas = dd_isr_airforce_dominance }
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_isr_air_spirit } } }
+		add_dynamic_modifier = { modifier = dd_isr_air_spirit }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+# Ship-cost bonuses cannot live on a dynamic modifier, so brown-water swaps the card once.
+dd_isr_refresh_navy = {
+	if = {
+		limit = { has_idea = dd_isr_navy_brown }
+		set_country_flag = dd_isr_brownwater
+	}
+	if = {
+		limit = { has_country_flag = dd_isr_brownwater }
+		if = {
+			limit = { has_idea = dd_isr_navy }
+			swap_ideas = {
+				remove_idea = dd_isr_navy
+				add_idea = dd_isr_navy_brown
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_idea = dd_isr_navy_brown } }
+			add_ideas = dd_isr_navy_brown
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_idea = dd_isr_navy } }
+		add_ideas = dd_isr_navy
+	}
+}
+
+dd_isr_tel_aviv_docks = {
+	custom_effect_tooltip = dd_isr_tel_aviv_docks_tt
+	hidden_effect = {
+		if = {
+			limit = { 1120 = { is_owned_by = ROOT } }
+			1120 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = dockyard level = 2 instant_build = yes }
+			}
+		}
+	}
+}
+
+dd_isr_diaspora_sync = {
+	set_variable = { dd_isr_inf_1 = 0 }
+	set_variable = { dd_isr_inf_2 = 0 }
+	set_variable = { dd_isr_inf_3 = 0 }
+	set_variable = { dd_isr_inf_4 = 0 }
+	set_variable = { dd_isr_inf_5 = 0 }
+	every_country = {
+		limit = { has_country_flag = dd_isr_diaspora_member }
+		if = {
+			limit = { check_variable = { dd_isr_diaspora_slot = 1 } }
+			set_variable = { ROOT.dd_isr_inf_1 = dd_isr_diaspora_influence }
+		}
+		else_if = {
+			limit = { check_variable = { dd_isr_diaspora_slot = 2 } }
+			set_variable = { ROOT.dd_isr_inf_2 = dd_isr_diaspora_influence }
+		}
+		else_if = {
+			limit = { check_variable = { dd_isr_diaspora_slot = 3 } }
+			set_variable = { ROOT.dd_isr_inf_3 = dd_isr_diaspora_influence }
+		}
+		else_if = {
+			limit = { check_variable = { dd_isr_diaspora_slot = 4 } }
+			set_variable = { ROOT.dd_isr_inf_4 = dd_isr_diaspora_influence }
+		}
+		else_if = {
+			limit = { check_variable = { dd_isr_diaspora_slot = 5 } }
+			set_variable = { ROOT.dd_isr_inf_5 = dd_isr_diaspora_influence }
+		}
+	}
+}
+
+dd_isr_diaspora_purge = {
+	every_country = {
+		limit = {
+			has_country_flag = dd_isr_diaspora_member
+			NOT = { is_subject_of = ROOT }
+			NOT = { dd_isr_diaspora_eligible = yes }
+		}
+		clr_country_flag = dd_isr_diaspora_member
+		clear_variable = dd_isr_diaspora_slot
+		clear_variable = dd_isr_diaspora_influence
+	}
+	dd_isr_diaspora_sync = yes
+}
+
+dd_isr_diaspora_click_slot = {
+	if = {
+		limit = {
+			any_country = {
+				has_country_flag = dd_isr_diaspora_member
+				check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_click }
+			}
+		}
+		set_variable = { dd_isr_diaspora_selected_slot = dd_isr_diaspora_click }
+		clear_variable = dd_isr_diaspora_pick_slot
+	}
+	else = {
+		set_variable = { dd_isr_diaspora_pick_slot = dd_isr_diaspora_click }
+		clear_variable = dd_isr_diaspora_selected_slot
+	}
+}
+
+dd_isr_diaspora_assign_picked = {
+	event_target:dd_isr_diaspora_pick = {
+		set_country_flag = dd_isr_diaspora_member
+		set_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_pick_slot }
+		set_variable = { dd_isr_diaspora_influence = 10 }
+	}
+	set_variable = { dd_isr_diaspora_selected_slot = dd_isr_diaspora_pick_slot }
+	clear_variable = dd_isr_diaspora_pick_slot
+	dd_isr_diaspora_sync = yes
+}
+
+dd_isr_diaspora_act_expand = {
+	add_political_power = -200
+	every_country = {
+		limit = {
+			has_country_flag = dd_isr_diaspora_member
+			check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_selected_slot }
+		}
+		add_to_variable = { dd_isr_diaspora_influence = 20 }
+	}
+	dd_isr_diaspora_sync = yes
+}
+
+dd_isr_diaspora_act_boost = {
+	every_country = {
+		limit = {
+			has_country_flag = dd_isr_diaspora_member
+			check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_selected_slot }
+			check_variable = { dd_isr_diaspora_influence > 4 }
+		}
+		add_to_variable = { dd_isr_diaspora_influence = -5 }
+		add_opinion_modifier = { target = ROOT modifier = dd_isr_diaspora_opinion }
+	}
+	dd_isr_diaspora_sync = yes
+}
+
+dd_isr_diaspora_act_arms = {
+	every_country = {
+		limit = {
+			has_country_flag = dd_isr_diaspora_member
+			check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_selected_slot }
+			check_variable = { dd_isr_diaspora_influence > 9 }
+		}
+		add_to_variable = { dd_isr_diaspora_influence = -10 }
+		add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 350 }
+		add_equipment_to_stockpile = { type = artillery_equipment amount = 35 }
+		add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 10 }
+		add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 5 }
+		send_equipment = { equipment = infantry_equipment_cw6 amount = 350 target = ROOT }
+		send_equipment = { equipment = artillery_equipment amount = 35 target = ROOT }
+		send_equipment = { equipment = sam_missile_equipment_2 amount = 10 target = ROOT }
+		send_equipment = { equipment = mbt_equipment_4 amount = 5 target = ROOT }
+	}
+	dd_isr_diaspora_sync = yes
+	country_event = { id = dd_isr.1 }
+}
+
+dd_isr_diaspora_act_puppet = {
+	every_country = {
+		limit = {
+			has_country_flag = dd_isr_diaspora_member
+			check_variable = { dd_isr_diaspora_slot = ROOT.dd_isr_diaspora_selected_slot }
+			check_variable = { dd_isr_diaspora_influence > 99 }
+			NOT = { is_subject_of = ROOT }
+		}
+		add_to_variable = { dd_isr_diaspora_influence = -100 }
+		save_event_target_as = dd_isr_diaspora_puppet_target
+	}
+	if = {
+		limit = { has_event_target = dd_isr_diaspora_puppet_target }
+		puppet = event_target:dd_isr_diaspora_puppet_target
+	}
+	dd_isr_diaspora_sync = yes
+}
+
+dd_isr_fight_antisemitism = {
+	custom_effect_tooltip = dd_isr_fight_antisemitism_tt
+	hidden_effect = {
+		every_country = {
+			limit = { has_country_flag = dd_isr_diaspora_member }
+			add_to_variable = { dd_isr_diaspora_influence = 10 }
+		}
+		dd_isr_diaspora_sync = yes
 	}
 }

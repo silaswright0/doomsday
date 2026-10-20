@@ -1,0 +1,15 @@
+dd_isr_diaspora_category = {
+	icon = generic_political_actions
+	scripted_gui = dd_isr_diaspora_ui
+	priority = 180
+	visible_when_empty = yes
+	allowed = { tag = ISR }
+	visible = { has_country_flag = dd_isr_diaspora_open }
+}
+
+dd_isr_expansion_category = {
+	icon = generic_political_actions
+	priority = 170
+	allowed = { tag = ISR }
+	visible = { has_country_flag = dd_isr_expansion_open }
+}

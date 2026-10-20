@@ -4,7 +4,7 @@ equipments = {
 		year = 1936
 
 		is_archetype = yes
-		picture = archetype_motorized_equipment		
+		picture = motorized_equipment
 		is_buildable = no
 		type = {
 			#infantry #Removing inf type 
@@ -35,6 +35,7 @@ equipments = {
 	}
 
 	motorized_equipment_0 = { # Introducing WW1 style trucks
+		picture = motorized_equipment_0
 		year = 1936
 
 		archetype = motorized_equipment
@@ -45,6 +46,7 @@ equipments = {
 	}
 
 	motorized_equipment_1 = {
+		picture = motorized_equipment_1
 		year = 1936
 
 		archetype = motorized_equipment
@@ -57,7 +59,7 @@ equipments = {
 		year = 1938
 
 		is_archetype = yes
-		picture = archetype_motorized_equipment
+		picture = motorbike_equipment
 		is_buildable = no
 		type = {
 			motorized
@@ -87,6 +89,7 @@ equipments = {
 	}
 
 	motorbike_equipment_1 = {
+		picture = motorbike_equipment_1
 
 		archetype = motorbike_equipment
 		priority = 1 #Very low

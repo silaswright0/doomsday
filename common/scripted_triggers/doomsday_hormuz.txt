@@ -39,6 +39,26 @@ is_diplomatic_action_valid_join_faction = {
 	}
 }
 
+# The Gulf states sit in strategic region 28 (Middle East). Regions 104 and 203 are
+# open water, so no airbase is stationed there. Friendly wings in that zone do not count.
+dd_hormuz_iran_planes_over_gulf = {
+	any_country = {
+		limit = {
+			OR = {
+				tag = PER
+				is_subject_of = PER
+				tag = HOU
+				tag = HAM
+				tag = HEZ
+			}
+			num_planes_stationed_in_regions = {
+				value > 0
+				regions = { 28 }
+			}
+		}
+	}
+}
+
 dd_hormuz_per_bombed_now = {
 	PER = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
 }
@@ -48,6 +68,7 @@ dd_hormuz_per_bombed_today = {
 }
 
 dd_hormuz_gulf_bombed_now = {
+	dd_hormuz_iran_planes_over_gulf = yes
 	OR = {
 		SAU = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
 		KUW = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
@@ -78,6 +99,7 @@ dd_hormuz_auth_5 = {
 
 # Kuwait, Bahrain, Qatar, and the UAE. Saudi Arabia and Oman are not this shock.
 dd_hormuz_gulf_cities_bombed_now = {
+	dd_hormuz_iran_planes_over_gulf = yes
 	OR = {
 		KUW = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
 		BHR = { any_owned_state = { days_since_last_strategic_bombing < 8 } }
@@ -87,6 +109,7 @@ dd_hormuz_gulf_cities_bombed_now = {
 }
 
 dd_hormuz_gulf_bombed_today = {
+	dd_hormuz_iran_planes_over_gulf = yes
 	OR = {
 		SAU = { any_owned_state = { days_since_last_strategic_bombing < 2 } }
 		KUW = { any_owned_state = { days_since_last_strategic_bombing < 2 } }

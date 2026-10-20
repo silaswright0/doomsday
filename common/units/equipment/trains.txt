@@ -7,7 +7,7 @@ equipments = {
 		is_buildable = no
 		active = no
 		type = train
-		picture = archetype_train
+		picture = train_equipment
 		group_by = archetype
 		sprite = train
 
@@ -24,6 +24,7 @@ equipments = {
 	}
 	# regular trains
 	train_equipment_1 = {
+		picture = train_equipment_1
 		year = 1910
 
 		archetype = train_equipment
@@ -38,6 +39,7 @@ equipments = {
 	}
 	# cheap trains
 	train_equipment_2 = {
+		picture = train_equipment_2
 		year = 1940
 
 		archetype = train_equipment
@@ -51,6 +53,7 @@ equipments = {
 	}
 	# armored trains
 	train_equipment_3 = {
+		picture = train_equipment_3
 		year = 1936
 
 		archetype = train_equipment

@@ -1,0 +1,59 @@
+# One spirit per chain. Focuses set the variables and force an update.
+# Country-scoped. No random. A zero line is a bonus that focus has not granted yet.
+
+dd_isr_idf_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_infantry_bonus
+	experience_gain_army_factor = dd_idf_xp
+	planning_speed = dd_idf_plan
+	army_org_factor = dd_idf_org
+	army_morale_factor = dd_idf_morale
+	org_loss_when_moving = dd_idf_move
+	army_attack_factor = dd_idf_atk
+	army_defence_factor = dd_idf_def
+	army_armor_speed_factor = dd_idf_spd
+	army_armor_attack_factor = dd_idf_arm
+	breakthrough_factor = dd_idf_brk
+	ai_focus_aggressive_factor = 1
+}
+
+dd_isr_air_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_air_bonus
+	air_mission_efficiency = dd_air_mission
+	air_range_factor = dd_air_range
+	fighter_sortie_efficiency = dd_air_fighter
+	sortie_efficiency = dd_air_sortie
+	air_night_penalty = dd_air_night
+	air_cas_efficiency = dd_air_cas
+}
+
+dd_usa_little_tech_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_research_bonus
+	political_power_gain = dd_lt_pp
+	research_speed_factor = dd_lt_research
+	stability_factor = dd_lt_stab
+	war_support_factor = dd_lt_ws
+	encryption_factor = dd_lt_enc
+	decryption_power_factor = dd_lt_dec
+	industrial_capacity_factory = dd_lt_factory
+	production_factory_max_efficiency_factor = dd_lt_eff
+	production_factory_efficiency_gain_factor = dd_lt_eff_gain
+}
+
+dd_usa_gut_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_goods_red_bonus
+	war_support_factor = dd_gut_ws
+	monthly_population = dd_gut_pop
+}
+
+dd_per_final_battle_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_wall_line
+	industry_repair_factor = dd_fb_repair
+	army_core_attack_factor = dd_fb_atk
+	army_core_defence_factor = dd_fb_def
+	industrial_capacity_factory = dd_fb_factory
+}
