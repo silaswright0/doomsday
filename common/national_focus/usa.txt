@@ -324,13 +324,10 @@ focus_tree = {
 		y = 7
 		cost = 5.14
 		available_if_capitulated = yes
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 0 }
 		prerequisite = { focus = USA_republican_convention }
 		mutually_exclusive = { focus = USA_republicans_cling_senate }
-		available = {
-			NOT = { has_country_flag = dd_usa_civil_war }
-			NOT = { has_global_flag = dd_usa_civil_war_started }
-		}
+		available = { has_country_flag = dd_usa_resolving_midterm }
 		cancel = {
 			OR = {
 				has_country_flag = dd_usa_civil_war
@@ -338,9 +335,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = progressive_populism popularity = 0.01 }
-			add_popularity = { ideology = social_democracy popularity = 0.01 }
-			add_popularity = { ideology = social_liberalism popularity = 0.01 }
+			dd_usa_congress_sweep = yes
 		}
 	}
 	focus = {
@@ -350,13 +345,10 @@ focus_tree = {
 		y = 7
 		cost = 5.14
 		available_if_capitulated = yes
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 0 }
 		prerequisite = { focus = USA_republican_convention }
 		mutually_exclusive = { focus = USA_democrat_sweep }
-		available = {
-			NOT = { has_country_flag = dd_usa_civil_war }
-			NOT = { has_global_flag = dd_usa_civil_war_started }
-		}
+		available = { has_country_flag = dd_usa_resolving_midterm }
 		cancel = {
 			OR = {
 				has_country_flag = dd_usa_civil_war
@@ -364,8 +356,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_popularity = { ideology = liberal_conservatism popularity = 0.01 }
-			add_popularity = { ideology = national_populism popularity = 0.01 }
+			dd_usa_congress_cling = yes
 		}
 	}
 	focus = {
@@ -485,7 +476,9 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			set_country_flag = dd_usa_alt_ballot
 			dd_usa_provoke_blob = yes
+			dd_usa_name_ballot = yes
 		}
 	}
 	focus = {
@@ -707,16 +700,67 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_to_variable = { dd_usa_aca_pop = 0.03 }
-			add_popularity = { ideology = communism popularity = 0.03 }
+			add_to_variable = { dd_usa_aca_pop = 0.02 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
 			dd_usa_anarchist_policy_1 = yes
 		}
 	}
 	focus = {
+		id = USA_path_communist
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 15
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_muster_volunteers }
+		mutually_exclusive = { focus = USA_path_anarchist focus = USA_path_demsoc_left }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_global_flag = dd_usa_civil_war_started }
+		}
+		cancel = {
+			OR = {
+				has_country_flag = dd_usa_civil_war
+				has_global_flag = dd_usa_civil_war_started
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.02 }
+			add_popularity = { ideology = fascism popularity = 0.01 }
+			dd_usa_communist_policy_1 = yes
+		}
+	}
+	focus = {
+		id = USA_path_demsoc_left
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 15
+		cost = 5.14
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_muster_volunteers }
+		mutually_exclusive = { focus = USA_path_anarchist focus = USA_path_communist }
+		available = {
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_global_flag = dd_usa_civil_war_started }
+		}
+		cancel = {
+			OR = {
+				has_country_flag = dd_usa_civil_war
+				has_global_flag = dd_usa_civil_war_started
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = social_democracy popularity = 0.02 }
+			add_popularity = { ideology = fascism popularity = 0.01 }
+		}
+	}
+	focus = {
 		id = USA_attack_on_capital
 		icon = GFX_goal_generic_political_pressure
-		x = 1
+		x = 0
 		y = 19
 		cost = 5.14
 		available_if_capitulated = yes
@@ -735,13 +779,13 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = communism popularity = 0.05 }
 			add_to_variable = { dd_usa_aca_pop = 0.05 }
-			add_popularity = { ideology = communism popularity = 0.05 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.05 }
 		}
 	}
 	focus = {
 		id = USA_attack_on_the_right
 		icon = GFX_goal_generic_political_pressure
-		x = 5
+		x = 4
 		y = 19
 		cost = 5.14
 		available_if_capitulated = yes
@@ -760,7 +804,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = communism popularity = 0.01 }
 			add_to_variable = { dd_usa_aca_pop = 0.01 }
-			add_popularity = { ideology = communism popularity = 0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.01 }
 			add_popularity = { ideology = social_democracy popularity = 0.03 }
 			add_popularity = { ideology = national_populism popularity = -0.05 }
 		}
@@ -887,7 +931,7 @@ focus_tree = {
 			add_popularity = { ideology = social_liberalism popularity = 0.01 }
 			add_popularity = { ideology = communism popularity = -0.01 }
 			add_to_variable = { dd_usa_aca_pop = -0.01 }
-			add_popularity = { ideology = communism popularity = -0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = -0.01 }
 		}
 	}
 	focus = {
@@ -1511,7 +1555,7 @@ focus_tree = {
 			add_popularity = { ideology = fascism popularity = 0.02 }
 			add_popularity = { ideology = communism popularity = 0.01 }
 			add_to_variable = { dd_usa_aca_pop = 0.01 }
-			add_popularity = { ideology = communism popularity = 0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.01 }
 			set_global_flag = dd_usa_christian_alliance
 		}
 	}
@@ -1561,7 +1605,7 @@ focus_tree = {
 			add_popularity = { ideology = fascism popularity = 0.02 }
 			add_popularity = { ideology = communism popularity = 0.01 }
 			add_to_variable = { dd_usa_aca_pop = 0.01 }
-			add_popularity = { ideology = communism popularity = 0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.01 }
 			add_political_power = 50
 		}
 	}
@@ -1588,7 +1632,7 @@ focus_tree = {
 			add_popularity = { ideology = fascism popularity = 0.02 }
 			add_popularity = { ideology = communism popularity = 0.01 }
 			add_to_variable = { dd_usa_aca_pop = 0.01 }
-			add_popularity = { ideology = communism popularity = 0.01 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.01 }
 			add_political_power = 50
 		}
 	}
@@ -1684,7 +1728,7 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_mug_caucus focus = USA_socialist_majority }
 		completion_reward = {
 			add_to_variable = { dd_usa_aca_pop = 0.02 }
-			add_popularity = { ideology = communism popularity = 0.02 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
 			set_country_flag = dd_usa_caucus_anarchist
 		}
 	}
@@ -1815,7 +1859,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_to_variable = { dd_usa_aca_pop = 0.03 }
-			add_popularity = { ideology = communism popularity = 0.03 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
 			add_popularity = { ideology = communism popularity = 0.02 }
 		}
 	}
@@ -1849,7 +1893,7 @@ focus_tree = {
 		id = USA_liberal_socialist_campus
 		icon = GFX_goal_generic_political_pressure
 		x = 0
-		y = 28
+		y = 23
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1857,14 +1901,14 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_red_star focus = USA_groundwork }
 		completion_reward = {
 			add_to_variable = { dd_usa_aca_pop = 0.02 }
-			add_popularity = { ideology = communism popularity = 0.02 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
 		}
 	}
 	focus = {
 		id = USA_red_star
 		icon = GFX_goal_generic_political_pressure
 		x = 3
-		y = 28
+		y = 23
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1878,7 +1922,7 @@ focus_tree = {
 		id = USA_groundwork
 		icon = GFX_goal_generic_political_pressure
 		x = 6
-		y = 28
+		y = 23
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1915,7 +1959,7 @@ focus_tree = {
 		id = USA_communist_caucus
 		icon = GFX_goal_generic_political_pressure
 		x = 0
-		y = 30
+		y = 25
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1923,14 +1967,14 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_reform_and_revolution focus = USA_bread_and_roses }
 		completion_reward = {
 			add_to_variable = { dd_usa_aca_pop = 0.02 }
-			add_popularity = { ideology = communism popularity = 0.02 }
+			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
 		}
 	}
 	focus = {
 		id = USA_reform_and_revolution
 		icon = GFX_goal_generic_political_pressure
 		x = 3
-		y = 30
+		y = 25
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1944,7 +1988,7 @@ focus_tree = {
 		id = USA_bread_and_roses
 		icon = GFX_goal_generic_political_pressure
 		x = 6
-		y = 30
+		y = 25
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1958,7 +2002,7 @@ focus_tree = {
 		id = USA_increase_taxes
 		icon = GFX_goal_generic_political_pressure
 		x = 3
-		y = 29
+		y = 24
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1971,7 +2015,7 @@ focus_tree = {
 		id = USA_adjust_policies
 		icon = GFX_goal_generic_political_pressure
 		x = 3
-		y = 31
+		y = 26
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1984,7 +2028,7 @@ focus_tree = {
 		id = USA_peace_out_iran
 		icon = GFX_goal_generic_political_pressure
 		x = 3
-		y = 32
+		y = 27
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -1997,7 +2041,7 @@ focus_tree = {
 		id = USA_jobs_as_a_right
 		icon = GFX_goal_generic_political_pressure
 		x = 1
-		y = 33
+		y = 28
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -2013,7 +2057,7 @@ focus_tree = {
 		id = USA_break_the_republic
 		icon = GFX_goal_generic_political_pressure
 		x = 5
-		y = 33
+		y = 28
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -2034,7 +2078,7 @@ focus_tree = {
 		id = USA_big_industries
 		icon = GFX_goal_generic_political_pressure
 		x = 1
-		y = 34
+		y = 29
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -2048,7 +2092,7 @@ focus_tree = {
 		id = USA_pacify_radicals
 		icon = GFX_goal_generic_political_pressure
 		x = 1
-		y = 35
+		y = 30
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -2056,7 +2100,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = communism popularity = -0.05 }
 			add_to_variable = { dd_usa_aca_pop = -0.05 }
-			add_popularity = { ideology = communism popularity = -0.05 }
+			add_popularity = { ideology = anarcho_communism popularity = -0.05 }
 			add_popularity = { ideology = social_democracy popularity = 0.10 }
 		}
 	}
@@ -2064,7 +2108,7 @@ focus_tree = {
 		id = USA_demsoc_final
 		icon = GFX_goal_generic_political_pressure
 		x = 1
-		y = 36
+		y = 31
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -2129,7 +2173,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = communism popularity = -0.05 }
 			add_to_variable = { dd_usa_aca_pop = -0.05 }
-			add_popularity = { ideology = communism popularity = -0.05 }
+			add_popularity = { ideology = anarcho_communism popularity = -0.05 }
 			add_stability = 0.05
 			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
 		}
@@ -2423,6 +2467,7 @@ focus_tree = {
 			}
 			create_country_leader = { name = "JD Vance" picture = GFX_portrait_VNM_leader ideology = technocrat }
 			dd_usa_claim_north_america = yes
+			dd_usa_sync_tucker = yes
 		}
 	}
 	focus = {

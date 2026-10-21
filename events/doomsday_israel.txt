@@ -10,6 +10,24 @@ country_event = {
 	option = { name = dd_isr.1.a }
 }
 
+country_event = {
+	id = dd_isr.2
+	title = dd_isr.2.t
+	desc = dd_isr.2.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = dd_isr.2.a
+		ai_chance = { factor = 0 }
+		ISR = { puppet = JOR }
+	}
+	option = {
+		name = dd_isr.2.b
+		ai_chance = { factor = 10 }
+		ISR = { declare_war_on = { target = JOR type = dd_puppet } }
+	}
+}
+
 news_event = {
 	id = dd_isr_news.1
 	title = dd_isr_news.1.t
@@ -68,4 +86,14 @@ news_event = {
 	major = yes
 	is_triggered_only = yes
 	option = { name = dd_isr_news.6.a }
+}
+
+news_event = {
+	id = dd_isr_news.7
+	title = dd_isr_news.7.t
+	desc = dd_isr_news.7.d
+	picture = GFX_news_event_generic_sign_treaty
+	major = yes
+	is_triggered_only = yes
+	option = { name = dd_isr_news.7.a }
 }

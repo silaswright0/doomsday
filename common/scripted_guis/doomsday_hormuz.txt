@@ -4,43 +4,19 @@ scripted_gui = {
 		window_name = "dd_hormuz_map_window"
 
 		triggers = {
-			dd_arabian_usa_visible = { USA = { has_naval_control = 104 } }
-			dd_arabian_usa_fx_visible = { USA = { has_naval_control = 104 } }
-			dd_arabian_per_visible = {
-				PER = { has_naval_control = 104 }
-				NOT = { USA = { has_naval_control = 104 } }
-			}
-			dd_arabian_per_fx_visible = {
-				PER = { has_naval_control = 104 }
-				NOT = { USA = { has_naval_control = 104 } }
-			}
-			dd_arabian_none_visible = {
-				NOT = { USA = { has_naval_control = 104 } }
-				NOT = { PER = { has_naval_control = 104 } }
-			}
-			dd_arabian_none_fx_visible = {
-				NOT = { USA = { has_naval_control = 104 } }
-				NOT = { PER = { has_naval_control = 104 } }
-			}
+			dd_arabian_usa_visible = { has_global_flag = dd_hormuz_arabian_usa }
+			dd_arabian_usa_fx_visible = { has_global_flag = dd_hormuz_arabian_usa }
+			dd_arabian_per_visible = { has_global_flag = dd_hormuz_arabian_per }
+			dd_arabian_per_fx_visible = { has_global_flag = dd_hormuz_arabian_per }
+			dd_arabian_none_visible = { has_global_flag = dd_hormuz_arabian_none }
+			dd_arabian_none_fx_visible = { has_global_flag = dd_hormuz_arabian_none }
 
-			dd_gulf_usa_visible = { USA = { has_naval_control = 203 } }
-			dd_gulf_usa_fx_visible = { USA = { has_naval_control = 203 } }
-			dd_gulf_per_visible = {
-				PER = { has_naval_control = 203 }
-				NOT = { USA = { has_naval_control = 203 } }
-			}
-			dd_gulf_per_fx_visible = {
-				PER = { has_naval_control = 203 }
-				NOT = { USA = { has_naval_control = 203 } }
-			}
-			dd_gulf_none_visible = {
-				NOT = { USA = { has_naval_control = 203 } }
-				NOT = { PER = { has_naval_control = 203 } }
-			}
-			dd_gulf_none_fx_visible = {
-				NOT = { USA = { has_naval_control = 203 } }
-				NOT = { PER = { has_naval_control = 203 } }
-			}
+			dd_gulf_usa_visible = { has_global_flag = dd_hormuz_gulf_usa }
+			dd_gulf_usa_fx_visible = { has_global_flag = dd_hormuz_gulf_usa }
+			dd_gulf_per_visible = { has_global_flag = dd_hormuz_gulf_per }
+			dd_gulf_per_fx_visible = { has_global_flag = dd_hormuz_gulf_per }
+			dd_gulf_none_visible = { has_global_flag = dd_hormuz_gulf_none }
+			dd_gulf_none_fx_visible = { has_global_flag = dd_hormuz_gulf_none }
 
 			dd_econ_oil_visible = { has_global_flag = dd_hormuz_blockade }
 			dd_econ_saudi_visible = { has_global_flag = dd_hormuz_squeeze_on }

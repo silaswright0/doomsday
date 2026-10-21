@@ -396,6 +396,28 @@ def draw_buzz(image):
     draw.ellipse((8, 18, 20, 28), fill=MID)
 
 
+def draw_armor(image):
+    draw = ImageDraw.Draw(image)
+    draw.polygon([(8, 28), (78, 10), (112, 18), (112, 34), (18, 36)], fill=INK)
+    for x in (28, 44, 60, 76):
+        draw.rectangle((x, 16, x + 12, 26), fill=DARK)
+        draw.rectangle((x + 2, 18, x + 10, 24), fill=MID)
+    draw.polygon([(86, 8), (104, 4), (108, 16), (90, 18)], fill=INK)
+    draw.ellipse((96, 6, 106, 14), fill=MID)
+    draw.rectangle((10, 32, 108, 36), fill=DARK)
+
+
+def draw_sight(image):
+    draw = ImageDraw.Draw(image)
+    draw.polygon([(8, 24), (96, 20), (100, 28), (8, 30)], fill=INK)
+    draw.rectangle((92, 18, 112, 30), fill=DARK)
+    draw.rounded_rectangle((28, 8, 62, 24), radius=3, fill=INK)
+    punch(image, ellipse=(36, 11, 54, 22))
+    draw.ellipse((40, 13, 50, 20), fill=MID)
+    draw.polygon([(62, 12), (108, 6), (108, 10), (64, 16)], fill=MID)
+    draw.rectangle((18, 26, 24, 34), fill=INK)
+
+
 def draw_shell(image):
     draw = ImageDraw.Draw(image)
     draw.polygon([(16, 16), (28, 6), (36, 16), (40, 50), (12, 50)], fill=INK)
@@ -430,6 +452,8 @@ DRAW_SIZE = {
     "tender": (220, 48),
     "buzz": (120, 36),
     "shell": (48, 64),
+    "armor": (120, 40),
+    "sight": (120, 36),
 }
 
 DRAWN = {
@@ -457,6 +481,14 @@ DRAWN = {
     "tender": draw_tender,
     "buzz": draw_buzz,
     "shell": draw_shell,
+    "armor": draw_armor,
+    "sight": draw_sight,
+}
+
+# Wide air weapons and attackers were covering the one-line title.
+ICON_LIMIT = {
+    "cas": (100, 30),
+    "guided": (100, 28),
 }
 
 VANILLA_FILE = {
@@ -560,8 +592,8 @@ TECH_FAMILY = [
     ("dd_sf", "sf"),
     ("dd_lt", "lighttank"),
     ("dd_mbt", "mbt"),
-    ("dd_prot", "apc"),
-    ("dd_fcs", "fcs"),
+    ("dd_prot", "armor"),
+    ("dd_fcs", "sight"),
     ("dd_td", "td"),
     ("dd_spaa", "spaa"),
     ("dd_tow", "gun"),
@@ -796,6 +828,17 @@ def family_for_equipment(name):
 _CACHE = {}
 
 
+def limit_icon(image, family):
+    cap = ICON_LIMIT.get(family)
+    if cap is None or (image.width <= cap[0] and image.height <= cap[1]):
+        return image
+    fitted = image.copy()
+    fitted.thumbnail(cap, Image.Resampling.LANCZOS)
+    canvas = Image.new("RGBA", cap, (0, 0, 0, 0))
+    canvas.alpha_composite(fitted, ((cap[0] - fitted.width) // 2, (cap[1] - fitted.height) // 2))
+    return canvas
+
+
 def render(family, tier):
     key = (family, tier)
     if key in _CACHE:
@@ -803,7 +846,8 @@ def render(family, tier):
     vanilla_name = VANILLA_FILE.get(family)
     src = load_dds(VANILLA / vanilla_name) if vanilla_name and (VANILLA / vanilla_name).exists() else None
     if src is not None:
-        image = fit_vanilla(src, tier)
+        image = limit_icon(src, family)
+        stamp_tier(image, tier)
     else:
         width, height = DRAW_SIZE.get(family, (64, 64))
         image = Image.new("RGBA", (width, height), (0, 0, 0, 0))

@@ -2297,8 +2297,7 @@ dd_usa_civil_war_fights = {
 	set_temp_variable = { dd_pop_vnm = party_popularity@national_populism }
 	set_temp_variable = { dd_pop_fds = party_popularity@fascism }
 	set_temp_variable = { dd_pop_rbl = party_popularity@communism }
-	subtract_from_temp_variable = { dd_pop_rbl = dd_usa_aca_pop }
-	set_temp_variable = { dd_pop_aca = dd_usa_aca_pop }
+	set_temp_variable = { dd_pop_aca = party_popularity@anarcho_communism }
 	if = {
 		limit = { check_variable = { dd_pop_rbl < 0 } }
 		set_temp_variable = { dd_pop_rbl = 0 }
@@ -2306,10 +2305,6 @@ dd_usa_civil_war_fights = {
 	if = {
 		limit = { check_variable = { dd_pop_aca < 0 } }
 		set_temp_variable = { dd_pop_aca = 0 }
-	}
-	if = {
-		limit = { check_variable = { dd_pop_aca > party_popularity@communism } }
-		set_temp_variable = { dd_pop_aca = party_popularity@communism }
 	}
 
 	# Shares for tags that stay with USA fold back into the remainder.
@@ -2955,9 +2950,9 @@ dd_usa_civil_war_fights = {
 			}
 		}
 		ACA = {
-			set_politics = { ruling_party = communism elections_allowed = no }
+			set_politics = { ruling_party = anarcho_communism elections_allowed = no }
 			set_popularities = {
-				communism = 70
+				anarcho_communism = 70
 				social_liberalism = 10
 				liberal_conservatism = 10
 				national_populism = 10
@@ -2983,9 +2978,9 @@ dd_usa_civil_war_fights = {
 				freedom_level = 0.4
 			}
 		}
-		set_politics = { ruling_party = communism elections_allowed = no }
+		set_politics = { ruling_party = anarcho_communism elections_allowed = no }
 		set_popularities = {
-			communism = 80
+			anarcho_communism = 80
 			social_liberalism = 10
 			social_democracy = 10
 		}

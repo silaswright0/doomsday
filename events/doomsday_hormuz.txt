@@ -41,6 +41,17 @@ country_event = {
 	option = { name = dd_hormuz.1.a }
 }
 
+# Southern Transitional Council starts overstretched. The spirit lasts 60 days.
+country_event = {
+	id = dd_hormuz.21
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		remove_ideas = dd_stc_overextended
+	}
+	option = { name = dd_hormuz.1.a }
+}
+
 # Iran has collapsed. The United States and Israel are out of the war.
 country_event = {
 	id = dd_hormuz.20

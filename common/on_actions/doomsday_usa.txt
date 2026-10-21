@@ -1,12 +1,11 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			dd_mark_river_states = yes
 			USA = {
 				if = {
 					limit = { NOT = { has_country_flag = dd_usa_calendar_set } }
 					set_country_flag = dd_usa_calendar_set
-					country_event = { id = dd_usa_election.1 days = 796 }
-					country_event = { id = dd_usa_election.2 days = 1041 }
 					country_event = { id = dd_usa_graham.1 days = 191 }
 				}
 				dd_usa_init_legislature = yes
@@ -71,6 +70,7 @@ on_actions = {
 			if = {
 				limit = { has_idea = dd_usa_radicalizing_white_america }
 				add_to_variable = { dd_usa_aca_pop = 0.02 }
+				add_popularity = { ideology = anarcho_communism popularity = 0.02 }
 			}
 			# 2% a week, counted out: the 50th week Trump is still leading MAGA.
 			if = {
@@ -100,6 +100,7 @@ on_actions = {
 
 	on_daily_USA = {
 		effect = {
+			dd_usa_sync_tucker = yes
 			if = {
 				limit = {
 					NOT = { has_global_flag = dd_usa_civil_war_started }
@@ -109,6 +110,7 @@ on_actions = {
 				dd_usa_start_civil_war = yes
 			}
 			dd_usa_legislature_daily = yes
+			dd_usa_election_calendar = yes
 			dd_usa_me_blood_tick = yes
 			dd_usa_check_globalists_spirit = yes
 			if = {

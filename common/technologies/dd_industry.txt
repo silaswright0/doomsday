@@ -187,6 +187,34 @@ technologies = {
 		}
 	}
 
+	# Hidden root so big plants and spread plants share one grid. The engine then
+	# draws the vanilla exclusive icon in the empty slot between them.
+	dd_ind_fork = {
+		allow = { always = no }
+		path = {
+			leads_to_tech = dd_con_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = dd_dis_1
+			research_cost_coeff = 1
+		}
+		research_cost = 1
+		start_year = 1955
+		# Above the scroll. Both lines share this grid, two slots apart, so the
+		# vanilla exclusive icon is drawn between Big plants and Spread plants.
+		folder = {
+			name = industry_folder
+			position = { x = 1 y = -2 }
+		}
+		categories = {
+			industry
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 	dd_con_1 = {
 		industrial_capacity_factory = 0.05
 		industrial_capacity_dockyard = 0.05
@@ -305,7 +333,7 @@ technologies = {
 		start_year = 1955
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 2 y = 0 }
 		}
 		categories = {
 			industry
@@ -326,7 +354,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 3 }
+			position = { x = 2 y = 3 }
 		}
 		categories = {
 			industry
@@ -347,7 +375,7 @@ technologies = {
 		start_year = 1985
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 6 }
+			position = { x = 2 y = 6 }
 		}
 		categories = {
 			industry
@@ -368,7 +396,7 @@ technologies = {
 		start_year = 2005
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 10 }
+			position = { x = 2 y = 10 }
 		}
 		categories = {
 			industry
@@ -385,7 +413,7 @@ technologies = {
 		start_year = 2025
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 14 }
+			position = { x = 2 y = 14 }
 		}
 		categories = {
 			industry

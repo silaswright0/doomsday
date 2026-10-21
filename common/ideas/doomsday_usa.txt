@@ -884,6 +884,24 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 		}
+		dd_usa_tucker_natpop = {
+			picture = generic_fascism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				national_populism_drift = 0.10
+			}
+		}
+		dd_usa_tucker_tech = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				technocracy_drift = 0.10
+			}
+		}
 		dd_usa_half_century_war = {
 			picture = generic_army_problems
 			allowed = { always = no }
@@ -931,7 +949,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				industrial_capacity_factory = 0.10
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = -0.05
 			}
 		}
 		dd_usa_bill_secure = {

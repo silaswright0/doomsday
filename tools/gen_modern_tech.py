@@ -440,7 +440,7 @@ def tech_block(tree_id: str, tree: dict, node: dict, col_x: dict[str, int], lead
         def band(y: int) -> int:
             return max(0, (int(y) - 1955) // 5)
 
-        px = 0
+        px = 2 if node["col"] == "disp" else 0
         py = band(node["year"]) - band(root_year if root_year is not None else node["year"])
         for folder in FOLDERS[tree_id]:
             folders.append(
@@ -499,6 +499,35 @@ def write_techs(trees: dict[str, dict]) -> None:
             "\n".join(macros),
             "\n",
         ]
+        if tid == "industry":
+            body.append(
+                """
+	# Hidden root so the two plant lines share one grid and the vanilla exclusive icon draws between them.
+	dd_ind_fork = {
+		allow = { always = no }
+		path = {
+			leads_to_tech = dd_con_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = dd_dis_1
+			research_cost_coeff = 1
+		}
+		research_cost = 1
+		start_year = 1955
+		folder = {
+			name = industry_folder
+			position = { x = 1 y = -2 }
+		}
+		categories = {
+			industry
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+"""
+            )
         for node in tree["nodes"]:
             ry = root_year_by_col.get(node["col"])
             body.append(tech_block(tid, tree, node, col_x, leads.get(node["id"], []), ry))
@@ -1273,13 +1302,19 @@ def generate_equipment(trees: dict[str, dict]) -> tuple[set[str], list[str], dic
 
 
 def write_loc(trees: dict[str, dict], created: set[str], wanted: dict[str, dict]) -> None:
+    from tech_plain_names import DESC_LEAD, PLAIN_NAMES
+
     lines = ["l_english:"]
     for tree in trees.values():
         for n in tree["nodes"]:
             desc = n["analogues"].replace('"', "'")
             extra = n["unlocks"].replace('"', "'")
-            lines.append(f' {n["id"]}:0 "{n["name"]}"')
-            lines.append(f' {n["id"]}_desc:0 "{desc}. {extra}"')
+            name = PLAIN_NAMES.get(n["id"], n["name"])
+            lead = DESC_LEAD.get(n["id"], "")
+            if not lead and name != n["name"] and n["name"] not in desc:
+                lead = n["name"] + ". "
+            lines.append(f' {n["id"]}:0 "{name}"')
+            lines.append(f' {n["id"]}_desc:0 "{lead}{desc}. {extra}"')
     for eq in sorted(created):
         node = wanted.get(eq)
         label = node["name"] if node else eq.replace("_", " ")
@@ -1342,7 +1377,7 @@ def write_gui(trees: dict[str, dict]) -> None:
         # One gridbox per column root (first visible tech). format=UP: x→right, y→down.
         seen_cols: set[str] = set()
         for n in sorted(tree["nodes"], key=lambda x: (x["year"], x["id"])):
-            if n["id"] in FLOOR_IDS or n["col"] in seen_cols:
+            if n["id"] in FLOOR_IDS or n["col"] in seen_cols or n["col"] == "disp":
                 continue
             seen_cols.add(n["col"])
             col_i = list(dict(tree["columns"]).keys()).index(n["col"]) if n["col"] in dict(tree["columns"]) else 0
@@ -1351,8 +1386,9 @@ def write_gui(trees: dict[str, dict]) -> None:
             col_i = col_ids.index(n["col"])
             px = 200 + col_i * 130
             py = 90 + ((n["year"] - 1955) // 5) * 100
+            grid_id = "dd_ind_fork" if n["col"] == "conc" else n["id"]
             box = (
-                f'\t\t\tgridboxtype = {{ name = "{n["id"]}_tree" '
+                f'\t\t\tgridboxtype = {{ name = "{grid_id}_tree" '
                 f"position = {{ x = {px} y = {py} }} "
                 f'slotsize = {{ width = 70 height = 100 }} format = "UP" }}'
             )

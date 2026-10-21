@@ -2149,6 +2149,7 @@ dd_usa_init_legislature = {
 	}
 	dd_usa_sync_caucus_from_ruling = yes
 	dd_usa_refresh_lobby_seats = yes
+	dd_usa_name_ballot = yes
 }
 
 dd_usa_clamp_caucus_support = {
@@ -2170,7 +2171,7 @@ dd_usa_clamp_caucus_support = {
 	}
 }
 
-# One stack: +3 House and +1 Senate for 180 days. Each click is its own timer.
+# One stack: steal 6 House and 2 Senate from the other caucus for 180 days. Each click is its own timer.
 dd_usa_lobby_democrats = {
 	add_to_array = { dd_usa_lobby_dem_days = 180 }
 	dd_usa_refresh_lobby_seats = yes
@@ -2212,20 +2213,40 @@ dd_usa_decay_lobby_rep = {
 }
 
 dd_usa_refresh_lobby_seats = {
+	set_temp_variable = { dd_usa_lobby_net = dd_usa_lobby_dem_days^num }
+	subtract_from_temp_variable = { dd_usa_lobby_net = dd_usa_lobby_rep_days^num }
+	set_temp_variable = { dd_usa_lobby_shift = dd_usa_lobby_net }
+	multiply_temp_variable = { dd_usa_lobby_shift = 6 }
 	set_variable = { dd_usa_house_dem_now = dd_usa_house_dem }
-	set_variable = { dd_usa_house_rep_now = dd_usa_house_rep }
+	add_to_variable = { dd_usa_house_dem_now = dd_usa_lobby_shift }
+	set_temp_variable = { dd_usa_lobby_total = dd_usa_house_dem }
+	add_to_temp_variable = { dd_usa_lobby_total = dd_usa_house_rep }
+	if = {
+		limit = { check_variable = { dd_usa_house_dem_now < 0 } }
+		set_variable = { dd_usa_house_dem_now = 0 }
+	}
+	if = {
+		limit = { check_variable = { dd_usa_house_dem_now > dd_usa_lobby_total } }
+		set_variable = { dd_usa_house_dem_now = dd_usa_lobby_total }
+	}
+	set_variable = { dd_usa_house_rep_now = dd_usa_lobby_total }
+	subtract_from_variable = { dd_usa_house_rep_now = dd_usa_house_dem_now }
+	set_temp_variable = { dd_usa_lobby_shift = dd_usa_lobby_net }
+	multiply_temp_variable = { dd_usa_lobby_shift = 2 }
 	set_variable = { dd_usa_senate_dem_now = dd_usa_senate_dem }
-	set_variable = { dd_usa_senate_rep_now = dd_usa_senate_rep }
-	set_temp_variable = { dd_usa_lobby_n = dd_usa_lobby_dem_days^num }
-	multiply_temp_variable = { dd_usa_lobby_n = 3 }
-	add_to_variable = { dd_usa_house_dem_now = dd_usa_lobby_n }
-	set_temp_variable = { dd_usa_lobby_n = dd_usa_lobby_dem_days^num }
-	add_to_variable = { dd_usa_senate_dem_now = dd_usa_lobby_n }
-	set_temp_variable = { dd_usa_lobby_n = dd_usa_lobby_rep_days^num }
-	multiply_temp_variable = { dd_usa_lobby_n = 3 }
-	add_to_variable = { dd_usa_house_rep_now = dd_usa_lobby_n }
-	set_temp_variable = { dd_usa_lobby_n = dd_usa_lobby_rep_days^num }
-	add_to_variable = { dd_usa_senate_rep_now = dd_usa_lobby_n }
+	add_to_variable = { dd_usa_senate_dem_now = dd_usa_lobby_shift }
+	set_temp_variable = { dd_usa_lobby_total = dd_usa_senate_dem }
+	add_to_temp_variable = { dd_usa_lobby_total = dd_usa_senate_rep }
+	if = {
+		limit = { check_variable = { dd_usa_senate_dem_now < 0 } }
+		set_variable = { dd_usa_senate_dem_now = 0 }
+	}
+	if = {
+		limit = { check_variable = { dd_usa_senate_dem_now > dd_usa_lobby_total } }
+		set_variable = { dd_usa_senate_dem_now = dd_usa_lobby_total }
+	}
+	set_variable = { dd_usa_senate_rep_now = dd_usa_lobby_total }
+	subtract_from_variable = { dd_usa_senate_rep_now = dd_usa_senate_dem_now }
 }
 
 dd_usa_bypass_filibuster = {
@@ -2337,12 +2358,131 @@ dd_usa_introduce_bill_rural_telehealth = {
 	dd_usa_begin_bill = yes
 }
 
+# +1 infrastructure in every owned core state a river crosses. Caps at 5.
+dd_usa_bill_water_infra = {
+	every_owned_state = {
+		limit = {
+			is_core_of = ROOT
+			has_state_flag = dd_has_river
+			infrastructure < 5
+		}
+		add_building_construction = {
+			type = infrastructure
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+# Three owned cores with the least development. A land border with another country ranks ahead of an inland state of the same kind.
+dd_usa_bill_rural_radar = {
+	every_owned_state = {
+		limit = { has_state_flag = dd_usa_tele_picked }
+		clr_state_flag = dd_usa_tele_picked
+	}
+	every_owned_state = {
+		limit = { is_core_of = ROOT }
+		set_variable = { dd_dev = 70 }
+		if = {
+			limit = { has_state_category = wasteland }
+			set_variable = { dd_dev = 0 }
+		}
+		else_if = {
+			limit = { has_state_category = enclave }
+			set_variable = { dd_dev = 5 }
+		}
+		else_if = {
+			limit = { has_state_category = tiny_island }
+			set_variable = { dd_dev = 8 }
+		}
+		else_if = {
+			limit = { has_state_category = pastoral }
+			set_variable = { dd_dev = 15 }
+		}
+		else_if = {
+			limit = { has_state_category = small_island }
+			set_variable = { dd_dev = 18 }
+		}
+		else_if = {
+			limit = { has_state_category = rural }
+			set_variable = { dd_dev = 30 }
+		}
+		else_if = {
+			limit = { has_state_category = town }
+			set_variable = { dd_dev = 45 }
+		}
+		else_if = {
+			limit = { has_state_category = large_town }
+			set_variable = { dd_dev = 55 }
+		}
+		else_if = {
+			limit = { has_state_category = city }
+			set_variable = { dd_dev = 70 }
+		}
+		else_if = {
+			limit = { has_state_category = large_city }
+			set_variable = { dd_dev = 85 }
+		}
+		else_if = {
+			limit = { has_state_category = metropolis }
+			set_variable = { dd_dev = 100 }
+		}
+		else_if = {
+			limit = { has_state_category = megalopolis }
+			set_variable = { dd_dev = 120 }
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_neighbor_state = {
+						NOT = { is_owned_by = ROOT }
+					}
+				}
+			}
+			add_to_variable = { dd_dev = 4 }
+		}
+	}
+	dd_usa_bill_pick_one_radar = yes
+	dd_usa_bill_pick_one_radar = yes
+	dd_usa_bill_pick_one_radar = yes
+}
+
+dd_usa_bill_pick_one_radar = {
+	set_variable = { dd_pick_score = 999 }
+	set_variable = { dd_picked = 0 }
+	every_owned_state = {
+		limit = {
+			is_core_of = ROOT
+			NOT = { has_state_flag = dd_usa_tele_picked }
+			NOT = { radar_station > 0 }
+			check_variable = { dd_dev < ROOT.dd_pick_score }
+		}
+		ROOT = { set_variable = { dd_pick_score = PREV.dd_dev } }
+	}
+	every_owned_state = {
+		limit = {
+			is_core_of = ROOT
+			NOT = { has_state_flag = dd_usa_tele_picked }
+			NOT = { radar_station > 0 }
+			check_variable = { dd_dev = ROOT.dd_pick_score }
+			NOT = { check_variable = { ROOT.dd_picked > 0 } }
+		}
+		set_state_flag = dd_usa_tele_picked
+		add_building_construction = {
+			type = radar_station
+			level = 1
+			instant_build = yes
+		}
+		ROOT = { set_variable = { dd_picked = 1 } }
+	}
+}
+
 dd_usa_enact_active_bill = {
 	if = {
 		limit = { check_variable = { dd_usa_bill_id = 1 } }
 		set_country_flag = dd_usa_bill_care_act_passed
 		add_stability = 0.05
-		add_war_support = 0.10
+		add_war_support = 0.05
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 2 } }
@@ -2353,12 +2493,12 @@ dd_usa_enact_active_bill = {
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 3 } }
 		set_country_flag = dd_usa_bill_secure_america_act_passed
-		add_ideas = dd_usa_bill_secure
+		add_popularity = { ideology = national_populism popularity = 0.10 }
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 4 } }
 		set_country_flag = dd_usa_bill_water_resource_management_passed
-		add_ideas = dd_usa_bill_water
+		country_event = { id = dd_usa_bill.1 }
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 11 } }
@@ -2396,7 +2536,7 @@ dd_usa_enact_active_bill = {
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 14 } }
 		set_country_flag = dd_usa_bill_rural_telehealth_passed
-		add_ideas = dd_usa_bill_telehealth
+		country_event = { id = dd_usa_bill.2 }
 	}
 	set_variable = { dd_usa_bill_active = 0 }
 	set_variable = { dd_usa_bill_id = 0 }
@@ -2813,6 +2953,44 @@ dd_usa_trump_found_dead = {
 		else_if = {
 			limit = { USA = { has_country_flag = dd_usa_keep_rbm } }
 			USA = { country_event = { id = dd_usa_cw.3 } }
+		}
+	}
+}
+
+# Tucker ticks national populism until Capitalism's Final Form, then technocracy.
+dd_usa_sync_tucker = {
+	if = {
+		limit = { has_idea = USA_tucker_carlson }
+		if = {
+			limit = { has_completed_focus = USA_capitalisms_final_form }
+			if = {
+				limit = { has_idea = dd_usa_tucker_natpop }
+				remove_ideas = dd_usa_tucker_natpop
+			}
+			if = {
+				limit = { NOT = { has_idea = dd_usa_tucker_tech } }
+				add_ideas = dd_usa_tucker_tech
+			}
+		}
+		else = {
+			if = {
+				limit = { has_idea = dd_usa_tucker_tech }
+				remove_ideas = dd_usa_tucker_tech
+			}
+			if = {
+				limit = { NOT = { has_idea = dd_usa_tucker_natpop } }
+				add_ideas = dd_usa_tucker_natpop
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { has_idea = dd_usa_tucker_natpop }
+			remove_ideas = dd_usa_tucker_natpop
+		}
+		if = {
+			limit = { has_idea = dd_usa_tucker_tech }
+			remove_ideas = dd_usa_tucker_tech
 		}
 	}
 }
@@ -3243,6 +3421,361 @@ dd_usa_start_civil_war = {
 		if = {
 			limit = { is_ai = no }
 			country_event = { id = dd_usa_cw.2 }
+		}
+	}
+}
+
+dd_usa_congress_sweep = {
+	custom_effect_tooltip = dd_usa_congress_sweep_tt
+	clear_array = dd_usa_lobby_dem_days
+	clear_array = dd_usa_lobby_rep_days
+	set_variable = { dd_usa_house_dem = 228 }
+	set_variable = { dd_usa_house_rep = 207 }
+	set_variable = { dd_usa_senate_dem = 52 }
+	set_variable = { dd_usa_senate_rep = 48 }
+	dd_usa_refresh_lobby_seats = yes
+}
+
+dd_usa_congress_cling = {
+	custom_effect_tooltip = dd_usa_congress_cling_tt
+	clear_array = dd_usa_lobby_dem_days
+	clear_array = dd_usa_lobby_rep_days
+	set_variable = { dd_usa_house_dem = 220 }
+	set_variable = { dd_usa_house_rep = 215 }
+	set_variable = { dd_usa_senate_dem = 49 }
+	set_variable = { dd_usa_senate_rep = 51 }
+	dd_usa_refresh_lobby_seats = yes
+}
+
+dd_usa_name_ballot = {
+	if = {
+		limit = { check_variable = { dd_usa_left_nominee = 2 } }
+		set_party_name = { ideology = social_democracy long_name = DD_USA_PIE_DEM_NEWSOM name = DD_USA_PIE_DEM_NEWSOM }
+		set_party_name = { ideology = progressive_populism long_name = DD_USA_PIE_PROG_NEWSOM name = DD_USA_PIE_PROG_NEWSOM }
+		set_party_name = { ideology = communism long_name = DD_USA_PIE_COM_NEWSOM name = DD_USA_PIE_COM_NEWSOM }
+		set_party_name = { ideology = anarcho_communism long_name = DD_USA_PIE_ANARCH_NEWSOM name = DD_USA_PIE_ANARCH_NEWSOM }
+		set_party_name = { ideology = social_liberalism long_name = DD_USA_PIE_LIB_NEWSOM name = DD_USA_PIE_LIB_NEWSOM }
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_left_nominee = 1 } }
+		set_party_name = { ideology = social_democracy long_name = DD_USA_PIE_DEM_AOC name = DD_USA_PIE_DEM_AOC }
+		set_party_name = { ideology = progressive_populism long_name = DD_USA_PIE_PROG_AOC name = DD_USA_PIE_PROG_AOC }
+		set_party_name = { ideology = communism long_name = DD_USA_PIE_COM_AOC name = DD_USA_PIE_COM_AOC }
+		set_party_name = { ideology = anarcho_communism long_name = DD_USA_PIE_ANARCH_AOC name = DD_USA_PIE_ANARCH_AOC }
+		set_party_name = { ideology = social_liberalism long_name = DD_USA_PIE_LIB_AOC name = DD_USA_PIE_LIB_AOC }
+	}
+	else = {
+		set_party_name = { ideology = social_democracy long_name = DD_USA_PIE_DEM_AOC name = DD_USA_PIE_DEM_AOC }
+		set_party_name = { ideology = progressive_populism long_name = DD_USA_PIE_PROG_AOC name = DD_USA_PIE_PROG_AOC }
+		set_party_name = { ideology = communism long_name = DD_USA_PIE_COM_AOC name = DD_USA_PIE_COM_AOC }
+		set_party_name = { ideology = anarcho_communism long_name = DD_USA_PIE_ANARCH_AOC name = DD_USA_PIE_ANARCH_AOC }
+		set_party_name = { ideology = social_liberalism long_name = DD_USA_PIE_LIB_NEWSOM name = DD_USA_PIE_LIB_NEWSOM }
+	}
+	if = {
+		limit = { check_variable = { dd_usa_right_nominee = 3 } }
+		set_party_name = { ideology = national_populism long_name = DD_USA_PIE_NAT_VANCE name = DD_USA_PIE_NAT_VANCE }
+		set_party_name = { ideology = fascism long_name = DD_USA_PIE_FAS_ALT name = DD_USA_PIE_FAS_ALT }
+		if = {
+			limit = { check_variable = { dd_usa_left_nominee = 2 } }
+			set_party_name = { ideology = liberal_conservatism long_name = DD_USA_PIE_CON_NEWSOM name = DD_USA_PIE_CON_NEWSOM }
+		}
+		else = {
+			set_party_name = { ideology = liberal_conservatism long_name = DD_USA_PIE_CON_AOC name = DD_USA_PIE_CON_AOC }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_right_nominee = 2 } }
+		set_party_name = { ideology = liberal_conservatism long_name = DD_USA_PIE_CON_VANCE name = DD_USA_PIE_CON_VANCE }
+		set_party_name = { ideology = national_populism long_name = DD_USA_PIE_NAT_VANCE name = DD_USA_PIE_NAT_VANCE }
+		set_party_name = { ideology = fascism long_name = DD_USA_PIE_FAS_HOME name = DD_USA_PIE_FAS_HOME }
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_right_nominee = 1 } }
+		set_party_name = { ideology = liberal_conservatism long_name = DD_USA_PIE_CON_RUBIO name = DD_USA_PIE_CON_RUBIO }
+		set_party_name = { ideology = national_populism long_name = DD_USA_PIE_NAT_RUBIO name = DD_USA_PIE_NAT_RUBIO }
+		set_party_name = { ideology = fascism long_name = DD_USA_PIE_FAS_HOME name = DD_USA_PIE_FAS_HOME }
+	}
+	else = {
+		set_party_name = { ideology = liberal_conservatism long_name = DD_USA_PIE_CON_RUBIO name = DD_USA_PIE_CON_RUBIO }
+		set_party_name = { ideology = national_populism long_name = DD_USA_PIE_NAT_VANCE name = DD_USA_PIE_NAT_VANCE }
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = USA_path_alt_right
+					has_country_flag = dd_usa_alt_ballot
+				}
+			}
+			set_party_name = { ideology = fascism long_name = DD_USA_PIE_FAS_ALT name = DD_USA_PIE_FAS_ALT }
+		}
+		else = {
+			set_party_name = { ideology = fascism long_name = DD_USA_PIE_FAS_HOME name = DD_USA_PIE_FAS_HOME }
+		}
+	}
+}
+
+dd_usa_run_primaries = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_usa_primaries_resolved } }
+		set_country_flag = dd_usa_primaries_resolved
+		set_temp_variable = { dd_coalition = party_popularity@social_democracy }
+		add_to_temp_variable = { dd_coalition = party_popularity@progressive_populism }
+		add_to_temp_variable = { dd_coalition = party_popularity@communism }
+		add_to_temp_variable = { dd_coalition = party_popularity@anarcho_communism }
+		set_temp_variable = { dd_lib = party_popularity@social_liberalism }
+		set_variable = { dd_usa_left_nominee = 1 }
+		if = {
+			limit = { check_variable = { dd_lib > dd_coalition } }
+			set_variable = { dd_usa_left_nominee = 2 }
+		}
+		set_temp_variable = { dd_con = party_popularity@liberal_conservatism }
+		set_temp_variable = { dd_nat = party_popularity@national_populism }
+		set_variable = { dd_usa_right_nominee = 1 }
+		if = {
+			limit = { check_variable = { dd_nat > dd_con } }
+			set_variable = { dd_usa_right_nominee = 2 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = USA_path_alt_right
+					has_country_flag = dd_usa_alt_ballot
+				}
+				check_variable = { party_popularity@fascism > dd_con }
+				OR = {
+					check_variable = { dd_usa_right_nominee = 1 }
+					check_variable = { party_popularity@fascism > dd_nat }
+				}
+			}
+			set_variable = { dd_usa_right_nominee = 3 }
+		}
+		dd_usa_name_ballot = yes
+		news_event = { id = dd_usa_news.14 }
+	}
+}
+
+dd_usa_seat_president = {
+	set_country_flag = dd_usa_post_election
+	if = {
+		limit = {
+			NOT = { has_completed_focus = USA_election_demsoc }
+			NOT = { has_completed_focus = USA_election_liberal }
+			NOT = { has_completed_focus = USA_election_conservative }
+			NOT = { has_completed_focus = USA_election_natpop }
+		}
+		set_country_flag = dd_usa_resolving_election
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 1 } }
+			complete_national_focus = USA_election_demsoc
+		}
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 2 } }
+			complete_national_focus = USA_election_liberal
+		}
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 3 } }
+			complete_national_focus = USA_election_conservative
+		}
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 4 } }
+			complete_national_focus = USA_election_natpop
+		}
+		clr_country_flag = dd_usa_resolving_election
+	}
+	else = {
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 1 } }
+			set_politics = { ruling_party = social_democracy elections_allowed = no }
+			create_country_leader = { name = "Alexandria Ocasio-Cortez" picture = GFX_portrait_EAS_leader ideology = social_democrat }
+		}
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 2 } }
+			set_politics = { ruling_party = social_liberalism elections_allowed = no }
+			set_country_flag = dd_usa_zionist_advisors
+			create_country_leader = { name = "Gavin Newsom" picture = GFX_portrait_WCL_leader ideology = social_liberal }
+		}
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 3 } }
+			set_politics = { ruling_party = liberal_conservatism elections_allowed = no }
+			set_country_flag = dd_usa_zionist_advisors
+			create_country_leader = { name = "Marco Rubio" picture = GFX_portrait_RBM_leader ideology = liberal_conservative }
+		}
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 4 } }
+			set_politics = { ruling_party = national_populism elections_allowed = no }
+			create_country_leader = { name = "JD Vance" picture = GFX_portrait_VNM_leader ideology = national_populist }
+		}
+		dd_usa_sync_caucus_from_ruling = yes
+	}
+	if = {
+		limit = {
+			has_completed_focus = USA_path_alt_right
+			NOT = { has_country_flag = dd_usa_alt_offered }
+			NOT = { has_country_flag = dd_usa_fascists_denied }
+		}
+		set_country_flag = dd_usa_alt_offered
+		country_event = { id = dd_usa_alt.1 days = 7 }
+	}
+}
+
+dd_usa_run_general = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_usa_general_resolved } }
+		set_country_flag = dd_usa_general_resolved
+		if = {
+			limit = { check_variable = { dd_usa_left_nominee < 1 } }
+			set_variable = { dd_usa_left_nominee = 1 }
+		}
+		if = {
+			limit = { check_variable = { dd_usa_right_nominee < 1 } }
+			set_variable = { dd_usa_right_nominee = 1 }
+		}
+		set_temp_variable = { dd_left = party_popularity@social_democracy }
+		add_to_temp_variable = { dd_left = party_popularity@progressive_populism }
+		add_to_temp_variable = { dd_left = party_popularity@communism }
+		add_to_temp_variable = { dd_left = party_popularity@anarcho_communism }
+		add_to_temp_variable = { dd_left = party_popularity@social_liberalism }
+		if = {
+			limit = { check_variable = { dd_usa_right_nominee = 3 } }
+			add_to_temp_variable = { dd_left = party_popularity@liberal_conservatism }
+			set_temp_variable = { dd_vance = party_popularity@national_populism }
+			set_temp_variable = { dd_fas = party_popularity@fascism }
+			set_variable = { dd_usa_general_winner = 5 }
+			if = {
+				limit = {
+					NOT = { check_variable = { dd_fas > dd_left } }
+				}
+				if = {
+					limit = { check_variable = { dd_vance > dd_left } }
+					set_variable = { dd_usa_general_winner = 4 }
+				}
+				else = {
+					set_variable = { dd_usa_general_winner = dd_usa_left_nominee }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { dd_fas > dd_left }
+					NOT = { check_variable = { dd_fas > dd_vance } }
+				}
+				if = {
+					limit = { check_variable = { dd_vance > dd_left } }
+					set_variable = { dd_usa_general_winner = 4 }
+				}
+				else = {
+					set_variable = { dd_usa_general_winner = dd_usa_left_nominee }
+				}
+			}
+		}
+		else = {
+			set_temp_variable = { dd_right = party_popularity@liberal_conservatism }
+			add_to_temp_variable = { dd_right = party_popularity@national_populism }
+			if = {
+				limit = { check_variable = { dd_right > dd_left } }
+				set_variable = { dd_usa_general_winner = 3 }
+				if = {
+					limit = { check_variable = { dd_usa_right_nominee = 2 } }
+					set_variable = { dd_usa_general_winner = 4 }
+				}
+			}
+			else = {
+				set_variable = { dd_usa_general_winner = dd_usa_left_nominee }
+			}
+		}
+		if = {
+			limit = { check_variable = { dd_usa_general_winner = 5 } }
+			set_country_flag = dd_usa_fascists_denied
+			set_country_flag = dd_usa_post_election
+			country_event = { id = dd_usa_election.4 }
+		}
+		else = {
+			dd_usa_seat_president = yes
+			news_event = { id = dd_usa_news.15 }
+		}
+	}
+}
+
+dd_usa_election_calendar = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = dd_usa_civil_war_started }
+			NOT = { has_country_flag = dd_usa_civil_war }
+			NOT = { has_country_flag = dd_usa_elections_closed }
+		}
+		if = {
+			limit = {
+				date > 2026.11.2
+				NOT = { has_country_flag = dd_usa_midterm_2026 }
+			}
+			set_country_flag = dd_usa_midterm_2026
+			country_event = { id = dd_usa_midterm.1 }
+		}
+		if = {
+			limit = {
+				date > 2028.3.6
+				NOT = { has_country_flag = dd_usa_primary_2028 }
+			}
+			set_country_flag = dd_usa_primary_2028
+			dd_usa_run_primaries = yes
+		}
+		if = {
+			limit = {
+				date > 2028.11.6
+				NOT = { has_country_flag = dd_usa_general_2028 }
+			}
+			set_country_flag = dd_usa_general_2028
+			dd_usa_run_general = yes
+		}
+		if = {
+			limit = {
+				date > 2030.11.2
+				NOT = { has_country_flag = dd_usa_midterm_2030 }
+			}
+			set_country_flag = dd_usa_midterm_2030
+			country_event = { id = dd_usa_midterm.1 }
+		}
+		if = {
+			limit = {
+				date > 2032.3.6
+				NOT = { has_country_flag = dd_usa_primary_2032 }
+			}
+			set_country_flag = dd_usa_primary_2032
+			clr_country_flag = dd_usa_primaries_resolved
+			dd_usa_run_primaries = yes
+		}
+		if = {
+			limit = {
+				date > 2032.11.6
+				NOT = { has_country_flag = dd_usa_general_2032 }
+			}
+			set_country_flag = dd_usa_general_2032
+			clr_country_flag = dd_usa_general_resolved
+			dd_usa_run_general = yes
+		}
+		if = {
+			limit = {
+				date > 2034.11.2
+				NOT = { has_country_flag = dd_usa_midterm_2034 }
+			}
+			set_country_flag = dd_usa_midterm_2034
+			country_event = { id = dd_usa_midterm.1 }
+		}
+		if = {
+			limit = {
+				date > 2036.3.6
+				NOT = { has_country_flag = dd_usa_primary_2036 }
+			}
+			set_country_flag = dd_usa_primary_2036
+			clr_country_flag = dd_usa_primaries_resolved
+			dd_usa_run_primaries = yes
+		}
+		if = {
+			limit = {
+				date > 2036.11.6
+				NOT = { has_country_flag = dd_usa_general_2036 }
+			}
+			set_country_flag = dd_usa_general_2036
+			clr_country_flag = dd_usa_general_resolved
+			dd_usa_run_general = yes
 		}
 	}
 }

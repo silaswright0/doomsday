@@ -38,15 +38,12 @@ on_actions = {
 				}
 				dd_hormuz_end = yes
 			}
-			else_if = {
-				limit = { has_global_flag = dd_hormuz_war }
-				dd_hormuz_sync = yes
-			}
 			if = {
 				limit = {
 					tag = USA
 					has_global_flag = dd_hormuz_war
 				}
+				dd_hormuz_sync = yes
 				dd_hormuz_auth_daily = yes
 				dd_hormuz_econ_sync = yes
 			}

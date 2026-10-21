@@ -17,7 +17,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				consumer_goods_factor = 0.10
-				production_speed_buildings_factor = 0.30
+				production_speed_buildings_factor = -0.30
 			}
 		}
 		# Old tier cards. The live spirit is dd_isr_idf_spirit. A loaded save is moved across on startup.
@@ -213,6 +213,15 @@ ideas = {
 				stability_factor = -0.05
 			}
 		}
+		dd_isr_yeshiva_traditions = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				conscription = -0.03
+			}
+		}
 		dd_isr_torah_study = {
 			picture = generic_morale_bonus
 			allowed = { always = no }
@@ -280,9 +289,8 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_factor = 0.10
-				industrial_capacity_factory = 0.10
 				conscription = 0.02
+				stability_factor = 0.20
 				war_support_factor = 0.10
 				political_power_gain = 0.15
 			}
@@ -324,10 +332,59 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_factor = 0.10
+				war_support_factor = 0.10
+				stability_factor = 0.20
 				industrial_capacity_factory = 0.10
-				research_speed_factor = 0.05
-				political_power_gain = 0.25
+				research_speed_factor = 0.10
+			}
+		}
+		dd_isr_strongman = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.20
+				stability_factor = 0.20
+				industrial_capacity_factory = 0.10
+				production_speed_arms_factory_factor = 0.20
+				army_org_factor = 0.05
+			}
+		}
+		dd_kurd_us_support = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.10
+				army_defence_factor = 0.10
+				max_dig_in = 5
+				max_dig_in_factor = 0.25
+			}
+			on_add = {
+				if = {
+					limit = { NOT = { has_country_flag = dd_kurd_us_mils } }
+					add_offsite_building = { type = arms_factory level = 2 }
+					set_country_flag = dd_kurd_us_mils
+				}
+			}
+		}
+		dd_isr_eternal_premiership = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.10
+				political_power_gain = 0.50
+				justify_war_goal_time = -0.50
+				generate_wargoal_tension = -0.75
+				resistance_target = -0.50
+				resistance_growth_on_our_occupied_states = -0.50
+				resistance_damage_to_garrison = -0.50
+				required_garrison_factor = -0.40
+				compliance_gain = 0.15
 			}
 		}
 		dd_isr_october_7 = {
@@ -364,6 +421,22 @@ ideas = {
 				war_support_factor = 0.10
 				stability_factor = -0.10
 				justify_war_goal_time = -0.25
+			}
+		}
+		dd_isr_greater = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.30
+				stability_factor = 0.20
+				army_morale_factor = 0.10
+				resistance_target = -0.35
+				resistance_growth_on_our_occupied_states = -0.35
+				resistance_damage_to_garrison = -0.35
+				required_garrison_factor = -0.30
+				compliance_gain = 0.10
 			}
 		}
 		dd_isr_no_palestine = {

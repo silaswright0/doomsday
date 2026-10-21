@@ -194,24 +194,6 @@ dd_hormuz_auth_daily = {
 }
 
 dd_hormuz_sync = {
-	USA = {
-		if = {
-			limit = { has_idea = dd_hormuz_usa_arabian }
-			remove_ideas = dd_hormuz_usa_arabian
-		}
-		if = {
-			limit = { has_idea = dd_hormuz_usa_arabian_lost }
-			remove_ideas = dd_hormuz_usa_arabian_lost
-		}
-		if = {
-			limit = { has_idea = dd_hormuz_usa_gulf }
-			remove_ideas = dd_hormuz_usa_gulf
-		}
-		if = {
-			limit = { has_idea = dd_hormuz_usa_gulf_lost }
-			remove_ideas = dd_hormuz_usa_gulf_lost
-		}
-	}
 	if = {
 		limit = { USA = { has_naval_control = 104 } }
 		if = {
@@ -219,6 +201,10 @@ dd_hormuz_sync = {
 			set_global_flag = dd_hormuz_arabian_usa
 			clr_global_flag = dd_hormuz_arabian_per
 			clr_global_flag = dd_hormuz_arabian_none
+			USA = {
+				remove_ideas = dd_hormuz_usa_arabian_lost
+				add_ideas = dd_hormuz_usa_arabian
+			}
 			PER = {
 				remove_ideas = dd_hormuz_per_arabian
 				remove_ideas = dd_hormuz_per_arabian_none
@@ -233,6 +219,10 @@ dd_hormuz_sync = {
 			set_global_flag = dd_hormuz_arabian_per
 			clr_global_flag = dd_hormuz_arabian_usa
 			clr_global_flag = dd_hormuz_arabian_none
+			USA = {
+				remove_ideas = dd_hormuz_usa_arabian
+				add_ideas = dd_hormuz_usa_arabian_lost
+			}
 			PER = {
 				remove_ideas = dd_hormuz_per_arabian_lost
 				remove_ideas = dd_hormuz_per_arabian_none
@@ -246,6 +236,10 @@ dd_hormuz_sync = {
 			set_global_flag = dd_hormuz_arabian_none
 			clr_global_flag = dd_hormuz_arabian_usa
 			clr_global_flag = dd_hormuz_arabian_per
+			USA = {
+				remove_ideas = dd_hormuz_usa_arabian
+				remove_ideas = dd_hormuz_usa_arabian_lost
+			}
 			PER = {
 				remove_ideas = dd_hormuz_per_arabian
 				remove_ideas = dd_hormuz_per_arabian_lost
@@ -261,6 +255,10 @@ dd_hormuz_sync = {
 			set_global_flag = dd_hormuz_gulf_usa
 			clr_global_flag = dd_hormuz_gulf_per
 			clr_global_flag = dd_hormuz_gulf_none
+			USA = {
+				remove_ideas = dd_hormuz_usa_gulf_lost
+				add_ideas = dd_hormuz_usa_gulf
+			}
 			PER = {
 				remove_ideas = dd_hormuz_per_gulf
 				remove_ideas = dd_hormuz_per_gulf_none
@@ -275,6 +273,10 @@ dd_hormuz_sync = {
 			set_global_flag = dd_hormuz_gulf_per
 			clr_global_flag = dd_hormuz_gulf_usa
 			clr_global_flag = dd_hormuz_gulf_none
+			USA = {
+				remove_ideas = dd_hormuz_usa_gulf
+				add_ideas = dd_hormuz_usa_gulf_lost
+			}
 			PER = {
 				remove_ideas = dd_hormuz_per_gulf_lost
 				remove_ideas = dd_hormuz_per_gulf_none
@@ -288,6 +290,10 @@ dd_hormuz_sync = {
 			set_global_flag = dd_hormuz_gulf_none
 			clr_global_flag = dd_hormuz_gulf_usa
 			clr_global_flag = dd_hormuz_gulf_per
+			USA = {
+				remove_ideas = dd_hormuz_usa_gulf
+				remove_ideas = dd_hormuz_usa_gulf_lost
+			}
 			PER = {
 				remove_ideas = dd_hormuz_per_gulf
 				remove_ideas = dd_hormuz_per_gulf_lost

@@ -23,7 +23,7 @@ guiTypes = {
 		}
 		iconType = {
 			name = "dd_world_oil"
-			spriteType = "GFX_focus_generic_stockpile_fuel"
+			spriteType = "GFX_goal_generic_oil_refinery"
 			position = { x = 12 y = 32 }
 			scale = 0.48
 			pdx_tooltip = "DD_HORMUZ_ECON_STRAIT_ON"
@@ -37,7 +37,7 @@ guiTypes = {
 		}
 		iconType = {
 			name = "dd_world_saudi"
-			spriteType = "GFX_goal_generic_oil_refinery"
+			spriteType = "GFX_goal_generic_small_arms"
 			position = { x = 72 y = 32 }
 			scale = 0.48
 			pdx_tooltip = "DD_HORMUZ_ECON_SQUEEZE_ON"

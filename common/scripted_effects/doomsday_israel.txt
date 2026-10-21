@@ -92,6 +92,7 @@ dd_isr_palestine_war = {
 				add_popularity = { ideology = fascism popularity = 0.35 }
 				create_country_leader = {
 					name = "Itamar Ben-Gvir"
+					picture = GFX_portrait_ISR_ben_gvir
 					ideology = theocrat
 				}
 				add_ideas = dd_isr_insurgent
@@ -142,6 +143,7 @@ dd_isr_border_claims = {
 	custom_effect_tooltip = dd_isr_border_claims_tt
 	hidden_effect = {
 		if = { limit = { 553 = { NOT = { is_owned_by = ROOT } } } 553 = { add_claim_by = ROOT } }
+		if = { limit = { 1089 = { NOT = { is_owned_by = ROOT } } } 1089 = { add_claim_by = ROOT } }
 		if = { limit = { 554 = { NOT = { is_owned_by = ROOT } } } 554 = { add_claim_by = ROOT } }
 		if = { limit = { 455 = { NOT = { is_owned_by = ROOT } } } 455 = { add_claim_by = ROOT } }
 		if = { limit = { 453 = { NOT = { is_owned_by = ROOT } } } 453 = { add_claim_by = ROOT } }
@@ -599,6 +601,180 @@ dd_isr_diaspora_act_puppet = {
 		puppet = event_target:dd_isr_diaspora_puppet_target
 	}
 	dd_isr_diaspora_sync = yes
+}
+
+dd_isr_restore_yeshiva = {
+	if = { limit = { has_idea = dd_isr_silent_mutiny } remove_ideas = dd_isr_silent_mutiny }
+	if = { limit = { has_idea = dd_isr_torah_study } remove_ideas = dd_isr_torah_study }
+	if = { limit = { NOT = { has_idea = dd_isr_yeshiva_traditions } } add_ideas = dd_isr_yeshiva_traditions }
+}
+
+dd_isr_ben_gvir = {
+	add_popularity = { ideology = theocratic_absolutism popularity = 0.20 }
+	retire_country_leader = yes
+	set_politics = { ruling_party = theocratic_absolutism elections_allowed = yes }
+	promote_character = ISR_itamar_ben_gvir
+}
+
+dd_isr_false_flag = {
+	add_war_support = 0.10
+	set_country_flag = dd_isr_election_done
+	set_country_flag = dd_isr_no_elections
+	if = {
+		limit = { has_government = theocratic_absolutism }
+		set_politics = { ruling_party = theocratic_absolutism elections_allowed = no }
+	}
+	else_if = {
+		limit = { has_government = national_populism }
+		set_politics = { ruling_party = national_populism elections_allowed = no }
+	}
+	else = {
+		set_politics = { ruling_party = national_populism elections_allowed = no }
+	}
+	news_event = { id = dd_isr_news.7 }
+}
+
+dd_isr_northern_frontier = {
+	custom_effect_tooltip = dd_isr_northern_frontier_tt
+	hidden_effect = {
+		if = {
+			limit = { 553 = { NOT = { is_owned_by = ROOT } } }
+			553 = { add_claim_by = ROOT }
+			553 = { owner = { save_event_target_as = dd_isr_lebanon_owner } }
+			create_wargoal = {
+				type = take_state
+				target = event_target:dd_isr_lebanon_owner
+				generator = { 553 }
+			}
+		}
+		if = {
+			limit = { 1089 = { NOT = { is_owned_by = ROOT } } }
+			1089 = { add_claim_by = ROOT }
+			1089 = { owner = { save_event_target_as = dd_isr_south_lebanon_owner } }
+			create_wargoal = {
+				type = take_state
+				target = event_target:dd_isr_south_lebanon_owner
+				generator = { 1089 }
+			}
+		}
+		if = {
+			limit = {
+				SYR = {
+					exists = yes
+					NOT = { is_subject_of = ROOT }
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			create_wargoal = { type = dd_annex target = SYR }
+		}
+		if = {
+			limit = {
+				ROJ = {
+					exists = yes
+					NOT = { is_subject_of = ROOT }
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			create_wargoal = { type = dd_annex target = ROJ }
+		}
+	}
+}
+
+dd_isr_protect_kurds = {
+	custom_effect_tooltip = dd_isr_protect_kurds_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				ROJ = {
+					exists = yes
+					NOT = { is_subject_of = ROOT }
+				}
+			}
+			puppet = ROJ
+		}
+		if = {
+			limit = {
+				SYR = {
+					exists = yes
+					NOT = { has_war_with = ROOT }
+					NOT = { is_subject_of = ROOT }
+				}
+			}
+			declare_war_on = { target = SYR type = dd_annex }
+		}
+	}
+}
+
+dd_isr_target_shiites = {
+	custom_effect_tooltip = dd_isr_target_shiites_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				IRQ = {
+					exists = yes
+					NOT = { is_subject_of = ROOT }
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			create_wargoal = { type = dd_annex target = IRQ }
+		}
+	}
+}
+
+dd_isr_demand_jordan = {
+	custom_effect_tooltip = dd_isr_demand_jordan_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				JOR = {
+					exists = yes
+					NOT = { is_subject_of = ROOT }
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			JOR = { country_event = { id = dd_isr.2 } }
+		}
+	}
+}
+
+dd_isr_greater_claims = {
+	custom_effect_tooltip = dd_isr_greater_claims_tt
+	hidden_effect = {
+		if = { limit = { 553 = { NOT = { is_owned_by = ROOT } } } 553 = { add_claim_by = ROOT } }
+		if = { limit = { 1089 = { NOT = { is_owned_by = ROOT } } } 1089 = { add_claim_by = ROOT } }
+		if = { limit = { 554 = { NOT = { is_owned_by = ROOT } } } 554 = { add_claim_by = ROOT } }
+		if = { limit = { 677 = { NOT = { is_owned_by = ROOT } } } 677 = { add_claim_by = ROOT } }
+		if = { limit = { 680 = { NOT = { is_owned_by = ROOT } } } 680 = { add_claim_by = ROOT } }
+		if = { limit = { 1100 = { NOT = { is_owned_by = ROOT } } } 1100 = { add_claim_by = ROOT } }
+		if = { limit = { 1103 = { NOT = { is_owned_by = ROOT } } } 1103 = { add_claim_by = ROOT } }
+		if = { limit = { 1104 = { NOT = { is_owned_by = ROOT } } } 1104 = { add_claim_by = ROOT } }
+		if = { limit = { 1088 = { NOT = { is_owned_by = ROOT } } } 1088 = { add_claim_by = ROOT } }
+		if = { limit = { 455 = { NOT = { is_owned_by = ROOT } } } 455 = { add_claim_by = ROOT } }
+		if = { limit = { 453 = { NOT = { is_owned_by = ROOT } } } 453 = { add_claim_by = ROOT } }
+		if = { limit = { 1085 = { NOT = { is_owned_by = ROOT } } } 1085 = { add_claim_by = ROOT } }
+		if = { limit = { 1086 = { NOT = { is_owned_by = ROOT } } } 1086 = { add_claim_by = ROOT } }
+	}
+}
+
+dd_isr_proclaim_greater = {
+	custom_effect_tooltip = dd_isr_proclaim_greater_tt
+	set_cosmetic_tag = ISR_GREATER
+	add_ideas = dd_isr_greater
+	hidden_effect = {
+		if = { limit = { 553 = { is_owned_by = ROOT } } 553 = { add_core_of = ROOT } }
+		if = { limit = { 1089 = { is_owned_by = ROOT } } 1089 = { add_core_of = ROOT } }
+		if = { limit = { 554 = { is_owned_by = ROOT } } 554 = { add_core_of = ROOT } }
+		if = { limit = { 677 = { is_owned_by = ROOT } } 677 = { add_core_of = ROOT } }
+		if = { limit = { 680 = { is_owned_by = ROOT } } 680 = { add_core_of = ROOT } }
+		if = { limit = { 1100 = { is_owned_by = ROOT } } 1100 = { add_core_of = ROOT } }
+		if = { limit = { 1103 = { is_owned_by = ROOT } } 1103 = { add_core_of = ROOT } }
+		if = { limit = { 1104 = { is_owned_by = ROOT } } 1104 = { add_core_of = ROOT } }
+		if = { limit = { 1088 = { is_owned_by = ROOT } } 1088 = { add_core_of = ROOT } }
+		if = { limit = { 455 = { is_owned_by = ROOT } } 455 = { add_core_of = ROOT } }
+		if = { limit = { 453 = { is_owned_by = ROOT } } 453 = { add_core_of = ROOT } }
+		if = { limit = { 1085 = { is_owned_by = ROOT } } 1085 = { add_core_of = ROOT } }
+		if = { limit = { 1086 = { is_owned_by = ROOT } } 1086 = { add_core_of = ROOT } }
+	}
 }
 
 dd_isr_fight_antisemitism = {

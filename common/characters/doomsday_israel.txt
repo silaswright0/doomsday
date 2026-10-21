@@ -1,0 +1,51 @@
+characters = {
+	ISR_itamar_ben_gvir = {
+		name = "Itamar Ben-Gvir"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_ISR_ben_gvir
+				small = GFX_portrait_ISR_ben_gvir_small
+			}
+		}
+		country_leader = {
+			ideology = theocrat
+			expire = "2065.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_itamar_ben_gvir
+			allowed = { original_tag = ISR }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = theocratic_absolutism
+				}
+				NOT = { has_country_leader = { name = "Itamar Ben-Gvir" ruling_only = yes } }
+			}
+			traits = { prince_of_terror }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ISR_bezalel_smotrich = {
+		name = "Bezalel Smotrich"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_ISR_smotrich
+				small = GFX_portrait_ISR_smotrich_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_bezalel_smotrich
+			allowed = { original_tag = ISR }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = theocratic_absolutism
+				}
+			}
+			traits = { financial_expert }
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

@@ -186,7 +186,7 @@ focus_tree = {
 		mutually_exclusive = { focus = PER_islamabad }
 		available = { has_country_flag = dd_per_mojtaba }
 		search_filters = { FOCUS_FILTER_NAVY }
-		ai_will_do = { factor = 20 }
+		ai_will_do = { factor = 200 }
 		completion_reward = {
 			dd_hormuz_start_blockade = yes
 		}

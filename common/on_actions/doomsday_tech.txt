@@ -1,0 +1,29 @@
+# Hidden industry fork. Granted so both plant lines are open, then the vanilla
+# exclusive icon locks the other line. Deterministic. No random.
+
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				if = {
+					limit = { NOT = { has_tech = dd_ind_fork } }
+					set_technology = {
+						dd_ind_fork = 1
+						popup = no
+					}
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = { NOT = { has_tech = dd_ind_fork } }
+				set_technology = {
+					dd_ind_fork = 1
+					popup = no
+				}
+			}
+		}
+	}
+}

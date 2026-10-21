@@ -1,0 +1,64 @@
+# Country-scoped. No random. News text only. Pie names are set directly.
+
+defined_text = {
+	name = GetDdUsaPrimaryNews
+	text = {
+		trigger = {
+			check_variable = { dd_usa_left_nominee = 2 }
+			check_variable = { dd_usa_right_nominee = 3 }
+		}
+		localization_key = DD_USA_PRIMARY_NEWS_L2_R3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_usa_left_nominee = 2 }
+			check_variable = { dd_usa_right_nominee = 2 }
+		}
+		localization_key = DD_USA_PRIMARY_NEWS_L2_R2
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_usa_left_nominee = 2 }
+			check_variable = { dd_usa_right_nominee = 1 }
+		}
+		localization_key = DD_USA_PRIMARY_NEWS_L2_R1
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_usa_left_nominee = 1 }
+			check_variable = { dd_usa_right_nominee = 3 }
+		}
+		localization_key = DD_USA_PRIMARY_NEWS_L1_R3
+	}
+	text = {
+		trigger = {
+			check_variable = { dd_usa_left_nominee = 1 }
+			check_variable = { dd_usa_right_nominee = 2 }
+		}
+		localization_key = DD_USA_PRIMARY_NEWS_L1_R2
+	}
+	text = {
+		trigger = { always = yes }
+		localization_key = DD_USA_PRIMARY_NEWS_L1_R1
+	}
+}
+
+defined_text = {
+	name = GetDdUsaGeneralNews
+	text = {
+		trigger = { check_variable = { dd_usa_general_winner = 2 } }
+		localization_key = DD_USA_GENERAL_NEWS_2
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_general_winner = 3 } }
+		localization_key = DD_USA_GENERAL_NEWS_3
+	}
+	text = {
+		trigger = { check_variable = { dd_usa_general_winner = 4 } }
+		localization_key = DD_USA_GENERAL_NEWS_4
+	}
+	text = {
+		trigger = { always = yes }
+		localization_key = DD_USA_GENERAL_NEWS_1
+	}
+}
