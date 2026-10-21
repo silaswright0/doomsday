@@ -15,7 +15,7 @@ characters = {
 				}
 				NOT = { has_country_leader = { name = "JD Vance" ruling_only = yes } }
 			}
-			traits = { ideological_crusader }
+			traits = { dd_movement_heir }
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -128,7 +128,7 @@ characters = {
 				}
 				NOT = { has_country_leader = { name = "Alexandria Ocasio-Cortez" ruling_only = yes } }
 			}
-			traits = { ideological_crusader }
+			traits = { dd_green_new_deal }
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -147,7 +147,7 @@ characters = {
 					has_government = social_liberalism
 				}
 			}
-			traits = { editor }
+			traits = { dd_opinion_page }
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -175,7 +175,7 @@ characters = {
 			idea_token = USA_nikki_haley
 			allowed = { original_tag = USA }
 			available = { has_government = liberal_conservatism }
-			traits = { hawk }
+			traits = { dd_un_ambassador }
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -213,7 +213,7 @@ characters = {
 					has_government = progressive_populism
 				}
 			}
-			traits = { ideological_crusader }
+			traits = { dd_global_solidarity }
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -270,7 +270,7 @@ characters = {
 					has_government = social_liberalism
 				}
 			}
-			traits = { hawk }
+			traits = { dd_armed_services }
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -322,7 +322,7 @@ characters = {
 					has_government = progressive_populism
 				}
 			}
-			traits = { ideological_crusader }
+			traits = { dd_political_revolution }
 			ai_will_do = { factor = 1 }
 		}
 	}
@@ -396,6 +396,25 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	USA_marc_andreessen = {
+		name = "Marc Andreessen"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_marc_andreessen small = GFX_portrait_USA_marc_andreessen_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_marc_andreessen
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_liberalism
+					has_government = technocracy
+				}
+			}
+			traits = { dd_tech_builder }
+			ai_will_do = { factor = 1 }
+		}
+	}
 	USA_tucker_carlson = {
 		name = "Tucker Carlson"
 		portraits = {
@@ -444,7 +463,7 @@ characters = {
 			idea_token = USA_stephen_miller
 			allowed = { original_tag = USA }
 			available = { has_government = national_populism }
-			traits = { ideological_crusader }
+			traits = { dd_hardline_counsel }
 			ai_will_do = { factor = 1 }
 		}
 	}
