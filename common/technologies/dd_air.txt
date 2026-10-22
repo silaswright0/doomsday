@@ -63,6 +63,10 @@ technologies = {
 		enable_equipments = {
 			cv_fighter_equipment_cw2
 		}
+		path = {
+			leads_to_tech = dd_cvf_4
+			research_cost_coeff = 1
+		}
 		research_cost = 1.0
 		start_year = 1960
 		folder = {
@@ -133,15 +137,19 @@ technologies = {
 		enable_equipments = {
 			cv_fighter_equipment_cw4
 		}
+		path = {
+			leads_to_tech = dd_cvf_5
+			research_cost_coeff = 1
+		}
 		research_cost = 1.0
 		start_year = 1983
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 0 }
+			position = { x = 0 y = 4 }
 		}
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = 0 y = 0 }
+			position = { x = 0 y = 4 }
 		}
 		categories = {
 			air_equipment
@@ -241,11 +249,11 @@ technologies = {
 		start_year = 2018
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 7 }
+			position = { x = 0 y = 11 }
 		}
 		folder = {
 			name = bba_air_techs_folder
-			position = { x = 0 y = 7 }
+			position = { x = 0 y = 11 }
 		}
 		categories = {
 			air_equipment

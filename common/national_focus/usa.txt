@@ -4979,8 +4979,7 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 		prerequisite = { focus = USA_seize_jewish_wealth }
 		completion_reward = {
-			custom_effect_tooltip = dd_usa_placeholder_tt
-			set_country_flag = dd_usa_ph_jewish
+			dd_usa_fascist_domestic_policy = yes
 		}
 	}
 	focus = {
@@ -4993,8 +4992,7 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 		prerequisite = { focus = USA_seize_foreign_wealth }
 		completion_reward = {
-			custom_effect_tooltip = dd_usa_placeholder_tt
-			set_country_flag = dd_usa_ph_foreign
+			dd_usa_fascist_border_policy = yes
 		}
 	}
 	focus = {

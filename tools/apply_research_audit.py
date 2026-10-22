@@ -57,6 +57,7 @@ BONUS_PREFIX = {
     "mat", "fuel", "bld", "ext", "slot", "tol", "syn", "con",
     "cpu", "cry", "ew", "rdr", "rad", "nrg",
     "eng", "rec", "hos", "log", "mp", "sig", "mnt", "sup", "nv", "fcs",
+    "prot", "ewc",
     "torp", "son", "neng", "nav", "ciws", "vls", "dc", "ngun",
 }
 # Not started, even when the year cap would reach them.
@@ -252,6 +253,10 @@ def bonus_seeds(tag: str, techs: dict) -> list[str]:
     for tid, data in techs.items():
         pre = prefix_of(tid)
         if pre not in BONUS_PREFIX or tid in BONUS_BLOCK:
+            continue
+        # ERA and ground jammers are already fielded by any real army, ahead of that tier's year cap.
+        if tid in {"dd_prot_1", "dd_prot_2", "dd_ewc_1", "dd_ewc_2"} and tier_of(tag) >= 1:
+            seeds.append(tid)
             continue
         if tid in {"dd_nrg_1", "dd_nrg_2"}:
             if tag not in NUCLEAR_POWER:

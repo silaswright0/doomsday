@@ -13,6 +13,22 @@ on_actions = {
 				dd_usa_sync_partner_air = yes
 				dd_usa_mark_starting_states = yes
 				if = {
+					limit = { NOT = { has_country_flag = dd_usa_election_cd_armed } }
+					set_country_flag = dd_usa_election_cd_armed
+					if = {
+						limit = {
+							NOT = { has_country_flag = dd_usa_midterm_2026 }
+							NOT = { has_global_flag = dd_usa_civil_war_started }
+							NOT = { has_country_flag = dd_usa_civil_war }
+							NOT = { has_country_flag = dd_usa_elections_closed }
+							date < 2026.1.8
+						}
+						activate_mission = dd_usa_midterm_countdown
+						activate_mission = dd_usa_primary_countdown
+						activate_mission = dd_usa_general_countdown
+					}
+				}
+				if = {
 					limit = {
 						OR = {
 							has_completed_focus = USA_little_tech

@@ -1483,17 +1483,21 @@ dd_usa_clear_aid = {
 	if = { limit = { has_idea = dd_aid_5 } remove_ideas = dd_aid_5 }
 }
 
+dd_usa_force_immigration_1 = { if = { limit = { NOT = { has_idea = dd_immigration_1 } } hidden_effect = { dd_clear_immigration = yes add_ideas = dd_immigration_1 } } }
 dd_usa_force_immigration_2 = { if = { limit = { NOT = { has_idea = dd_immigration_2 } } hidden_effect = { dd_clear_immigration = yes add_ideas = dd_immigration_2 } } }
 dd_usa_force_immigration_5 = { if = { limit = { NOT = { has_idea = dd_immigration_5 } } hidden_effect = { dd_clear_immigration = yes add_ideas = dd_immigration_5 } } }
+dd_usa_force_taxes_1 = { if = { limit = { NOT = { has_idea = dd_taxes_1 } } hidden_effect = { dd_clear_taxes = yes add_ideas = dd_taxes_1 } } }
 dd_usa_force_taxes_2 = { if = { limit = { NOT = { has_idea = dd_taxes_2 } } hidden_effect = { dd_clear_taxes = yes add_ideas = dd_taxes_2 } } }
 dd_usa_force_taxes_4 = { if = { limit = { NOT = { has_idea = dd_taxes_4 } } hidden_effect = { dd_clear_taxes = yes add_ideas = dd_taxes_4 } } }
 dd_usa_force_taxes_5 = { if = { limit = { NOT = { has_idea = dd_taxes_5 } } hidden_effect = { dd_clear_taxes = yes add_ideas = dd_taxes_5 } } }
 dd_usa_force_women_1 = { if = { limit = { NOT = { has_idea = dd_women_1 } } hidden_effect = { dd_usa_clear_women = yes add_ideas = dd_women_1 dd_sync_fertility_to_women = yes } } }
 dd_usa_force_women_4 = { if = { limit = { NOT = { has_idea = dd_women_4 } } hidden_effect = { dd_usa_clear_women = yes add_ideas = dd_women_4 dd_sync_fertility_to_women = yes } } }
 dd_usa_force_women_5 = { if = { limit = { NOT = { has_idea = dd_women_5 } } hidden_effect = { dd_usa_clear_women = yes add_ideas = dd_women_5 dd_sync_fertility_to_women = yes } } }
+dd_usa_force_minority_1 = { if = { limit = { NOT = { has_idea = dd_minority_1 } } hidden_effect = { dd_usa_clear_minority = yes add_ideas = dd_minority_1 } } }
 dd_usa_force_minority_2 = { if = { limit = { NOT = { has_idea = dd_minority_2 } } hidden_effect = { dd_usa_clear_minority = yes add_ideas = dd_minority_2 } } }
 dd_usa_force_minority_4 = { if = { limit = { NOT = { has_idea = dd_minority_4 } } hidden_effect = { dd_usa_clear_minority = yes add_ideas = dd_minority_4 } } }
 dd_usa_force_minority_5 = { if = { limit = { NOT = { has_idea = dd_minority_5 } } hidden_effect = { dd_usa_clear_minority = yes add_ideas = dd_minority_5 } } }
+dd_usa_force_labor_1 = { if = { limit = { NOT = { has_idea = dd_labor_1 } } hidden_effect = { dd_usa_clear_labor = yes add_ideas = dd_labor_1 } } }
 dd_usa_force_labor_2 = { if = { limit = { NOT = { has_idea = dd_labor_2 } } hidden_effect = { dd_usa_clear_labor = yes add_ideas = dd_labor_2 } } }
 dd_usa_force_labor_4 = { if = { limit = { NOT = { has_idea = dd_labor_4 } } hidden_effect = { dd_usa_clear_labor = yes add_ideas = dd_labor_4 } } }
 dd_usa_force_labor_5 = { if = { limit = { NOT = { has_idea = dd_labor_5 } } hidden_effect = { dd_usa_clear_labor = yes add_ideas = dd_labor_5 } } }
@@ -1512,6 +1516,35 @@ dd_usa_force_investment_1 = { if = { limit = { NOT = { has_idea = dd_investment_
 dd_usa_force_investment_5 = { if = { limit = { NOT = { has_idea = dd_investment_5 } } hidden_effect = { dd_usa_clear_investment = yes add_ideas = dd_investment_5 } } }
 dd_usa_force_ai_5 = { if = { limit = { NOT = { has_idea = dd_civil_military_5 } } hidden_effect = { dd_usa_clear_ai = yes add_ideas = dd_civil_military_5 } } }
 dd_usa_force_aid_1 = { if = { limit = { NOT = { has_idea = dd_aid_1 } } hidden_effect = { dd_usa_clear_aid = yes add_ideas = dd_aid_1 } } }
+
+dd_usa_fascist_domestic_policy = {
+	custom_effect_tooltip = dd_usa_policy_jewish_tt
+	if = {
+		limit = {
+			has_idea = dd_minority_1
+			has_idea = dd_labor_1
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_minority_1 = yes
+		dd_usa_force_labor_1 = yes
+	}
+}
+dd_usa_fascist_border_policy = {
+	custom_effect_tooltip = dd_usa_policy_foreign_tt
+	if = {
+		limit = {
+			has_idea = dd_immigration_1
+			has_idea = dd_taxes_1
+		}
+		add_political_power = 100
+	}
+	else = {
+		dd_usa_force_immigration_1 = yes
+		dd_usa_force_taxes_1 = yes
+	}
+}
 
 dd_usa_student_visas = {
 	custom_effect_tooltip = dd_usa_policy_visas_tt
@@ -3768,6 +3801,8 @@ dd_usa_election_calendar = {
 			NOT = { has_country_flag = dd_usa_civil_war }
 			NOT = { has_country_flag = dd_usa_elections_closed }
 		}
+		# The 2026 midterms, the 2028 primaries, and the 2028 general also have
+		# mission countdowns, armed on a new game. Later midterms are not played.
 		if = {
 			limit = {
 				date > 2026.11.2
@@ -3794,14 +3829,6 @@ dd_usa_election_calendar = {
 		}
 		if = {
 			limit = {
-				date > 2030.11.2
-				NOT = { has_country_flag = dd_usa_midterm_2030 }
-			}
-			set_country_flag = dd_usa_midterm_2030
-			country_event = { id = dd_usa_midterm.1 }
-		}
-		if = {
-			limit = {
 				date > 2032.3.6
 				NOT = { has_country_flag = dd_usa_primary_2032 }
 			}
@@ -3817,14 +3844,6 @@ dd_usa_election_calendar = {
 			set_country_flag = dd_usa_general_2032
 			clr_country_flag = dd_usa_general_resolved
 			dd_usa_run_general = yes
-		}
-		if = {
-			limit = {
-				date > 2034.11.2
-				NOT = { has_country_flag = dd_usa_midterm_2034 }
-			}
-			set_country_flag = dd_usa_midterm_2034
-			country_event = { id = dd_usa_midterm.1 }
 		}
 		if = {
 			limit = {

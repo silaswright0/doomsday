@@ -28,6 +28,104 @@ country_event = {
 	}
 }
 
+# Queued once at start. Each option moves one November bloc by 4%.
+# Dropped if the election has already been counted.
+country_event = {
+	id = dd_isr.10
+	title = dd_isr.10.t
+	desc = dd_isr.10.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_flag = dd_isr_election_done }
+	}
+
+	option = {
+		name = dd_isr.10.a
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = social_liberalism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.10.b
+		ai_chance = { factor = 100 }
+		add_popularity = { ideology = national_populism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.10.c
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = communism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.10.d
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = social_democracy popularity = 0.04 }
+	}
+}
+
+country_event = {
+	id = dd_isr.11
+	title = dd_isr.11.t
+	desc = dd_isr.11.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_flag = dd_isr_election_done }
+	}
+
+	option = {
+		name = dd_isr.11.a
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = social_liberalism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.11.b
+		ai_chance = { factor = 100 }
+		add_popularity = { ideology = national_populism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.11.c
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = communism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.11.d
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = social_democracy popularity = 0.04 }
+	}
+}
+
+country_event = {
+	id = dd_isr.12
+	title = dd_isr.12.t
+	desc = dd_isr.12.d
+	picture = GFX_news_event_generic_sign_treaty
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_flag = dd_isr_election_done }
+	}
+
+	option = {
+		name = dd_isr.12.a
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = social_liberalism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.12.b
+		ai_chance = { factor = 100 }
+		add_popularity = { ideology = national_populism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.12.c
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = communism popularity = 0.04 }
+	}
+	option = {
+		name = dd_isr.12.d
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = social_democracy popularity = 0.04 }
+	}
+}
+
 news_event = {
 	id = dd_isr_news.1
 	title = dd_isr_news.1.t

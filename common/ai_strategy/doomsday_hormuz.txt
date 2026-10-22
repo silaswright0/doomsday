@@ -70,3 +70,62 @@ dd_per_irgc_navy_aggressive = {
 	ai_strategy = { type = convoy_raiding_target id = BHR value = 80 }
 	ai_strategy = { type = convoy_raiding_target id = OMA value = 80 }
 }
+
+# Total War: bombers leave the land front and hit industry.
+# A live front is worth about 35,000, so these values outrank it.
+dd_per_total_war_air = {
+	allowed = {
+		original_tag = PER
+	}
+	enable = {
+		has_idea = dd_per_total_war
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 232 # Levant: Israel
+		value = 50000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 238 # East Arabia: Bahrain, Qatar, the UAE
+		value = 50000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 28 # Middle East: Kuwait
+		value = 50000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 203 # Persian Gulf
+		value = 40000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 104 # Arabian Sea
+		value = 40000
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = strategic_bomber
+		value = 40
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = tactical_bomber
+		value = 25
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = 40
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = 20
+	}
+}

@@ -287,7 +287,10 @@ types = {
 		}
 		# Raid Type is visible
 		visible = {
-			is_special_project_completed = sp:sp_nuclear_warheads
+			OR = {
+				is_special_project_completed = sp:sp_nuclear_warheads
+				has_country_flag = dd_starting_arsenal
+			}
 		}
 		# Specific Target is visible
 		show_target = {
@@ -459,7 +462,10 @@ types = {
 		}
 		# Raid Type is visible
 		visible = {
-			is_special_project_completed = sp:sp_nuclear_warheads
+			OR = {
+				is_special_project_completed = sp:sp_nuclear_warheads
+				has_country_flag = dd_starting_arsenal
+			}
 		}
 		# Specific Target is visible
 		show_target = {
@@ -887,7 +893,10 @@ types = {
 		}
 		# Raid Type is visible
 		visible = {
-			is_special_project_completed = sp:sp_nuclear_warheads
+			OR = {
+				is_special_project_completed = sp:sp_nuclear_warheads
+				has_country_flag = dd_starting_arsenal
+			}
 		}
 		# Specific Target is visible
 		show_target = {
@@ -1061,7 +1070,10 @@ types = {
 		}
 		# Raid Type is visible
 		visible = {
-			is_special_project_completed = sp:sp_nuclear_warheads
+			OR = {
+				is_special_project_completed = sp:sp_nuclear_warheads
+				has_country_flag = dd_starting_arsenal
+			}
 		}
 		# Specific Target is visible
 		show_target = {

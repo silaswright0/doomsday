@@ -970,6 +970,10 @@ dd_per_race_for_the_bomb = {
 	add_ideas = dd_per_racing_for_the_bomb
 }
 
+# The revolter flag is set inside start_civil_war, which runs in Iraq's scope.
+# A save_event_target there is stored on Iraq, so Iran's has_event_target never
+# sees it and the call-in below used to be skipped. The next-day event looks the
+# revolter up by flag and joins after the war exists.
 dd_per_shiite_popout = {
 	if = {
 		limit = {
@@ -982,7 +986,6 @@ dd_per_shiite_popout = {
 				capital = 1011
 				states = { 1011 675 }
 				set_country_flag = dd_irq_shiite_state
-				save_event_target_as = dd_shiite_side
 			}
 		}
 	}
@@ -997,44 +1000,48 @@ dd_per_shiite_popout = {
 				capital = 1011
 				states = { 1011 }
 				set_country_flag = dd_irq_shiite_state
-				save_event_target_as = dd_shiite_side
 			}
 		}
 	}
+	country_event = { id = dd_iran.30 days = 1 }
+}
+
+dd_per_join_shiite_war = {
+	every_country = {
+		limit = {
+			has_country_flag = dd_irq_shiite_state
+			NOT = { tag = IRQ }
+		}
+		save_global_event_target_as = dd_shiite_side
+	}
 	if = {
-		limit = { has_event_target = dd_shiite_side }
+		limit = { has_global_event_target = dd_shiite_side }
 		event_target:dd_shiite_side = {
-			set_cosmetic_tag = IRQ_SHIA
-			add_state_core = 1011
 			if = {
-				limit = { 675 = { is_owned_by = event_target:dd_shiite_side } }
-				add_state_core = 675
+				limit = { NOT = { has_country_flag = dd_shiite_ready } }
+				set_country_flag = dd_shiite_ready
+				set_cosmetic_tag = IRQ_SHIA
+				add_state_core = 1011
+				if = {
+					limit = { 675 = { is_owned_by = event_target:dd_shiite_side } }
+					add_state_core = 675
+				}
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Hashd al-Shaabi"
+					picture = GFX_portrait_unknown
+					expire = "2065.1.1"
+					ideology = theocrat
+				}
+				set_technology = { militia_tech = 1 }
+				set_variable = { dd_cw_militia_count = 6 }
+				dd_per_cw_arm = yes
 			}
-			retire_country_leader = yes
-			create_country_leader = {
-				name = "Hashd al-Shaabi"
-				picture = GFX_portrait_unknown
-				expire = "2065.1.1"
-				ideology = theocrat
-			}
-			set_technology = { militia_tech = 1 }
-			set_variable = { dd_cw_militia_count = 6 }
-			dd_per_cw_arm = yes
 		}
-		# Join the civil war before puppeting. Puppeting can end it.
 		if = {
-			limit = {
-				IRQ = { exists = yes }
-				event_target:dd_shiite_side = { has_war_with = IRQ }
-				NOT = { has_war_together_with = event_target:dd_shiite_side }
-			}
-			add_to_war = {
-				targeted_alliance = event_target:dd_shiite_side
-				enemy = IRQ
-			}
+			limit = { NOT = { event_target:dd_shiite_side = { is_subject_of = ROOT } } }
+			puppet = event_target:dd_shiite_side
 		}
-		puppet = event_target:dd_shiite_side
-		# If puppeting ended the war, start it again and join the puppet.
 		event_target:dd_shiite_side = {
 			if = {
 				limit = {

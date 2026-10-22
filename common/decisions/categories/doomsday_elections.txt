@@ -1,0 +1,10 @@
+dd_elections_category = {
+	icon = generic_political_discourse
+	priority = 100
+	visible = {
+		OR = {
+			tag = USA
+			tag = ISR
+		}
+	}
+}

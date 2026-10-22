@@ -1,0 +1,93 @@
+# Countdowns from 1 January 2026. Only the first of each vote is shown.
+# 306 days: 3 November 2026. 796 days: 7 March 2028. 1041 days: 7 November 2028.
+# 304 days: 1 November 2026.
+
+dd_elections_category = {
+	dd_usa_midterm_countdown = {
+		icon = generic_political_discourse
+		allowed = { tag = USA }
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 306
+		is_good = yes
+		activation = { always = no }
+		cancel_trigger = {
+			OR = {
+				has_global_flag = dd_usa_civil_war_started
+				has_country_flag = dd_usa_civil_war
+				has_country_flag = dd_usa_elections_closed
+			}
+		}
+		timeout_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = dd_usa_midterm_2026 } }
+				set_country_flag = dd_usa_midterm_2026
+				country_event = { id = dd_usa_midterm.1 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	dd_usa_primary_countdown = {
+		icon = generic_political_discourse
+		allowed = { tag = USA }
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 796
+		is_good = yes
+		activation = { always = no }
+		cancel_trigger = {
+			OR = {
+				has_global_flag = dd_usa_civil_war_started
+				has_country_flag = dd_usa_civil_war
+				has_country_flag = dd_usa_elections_closed
+			}
+		}
+		timeout_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = dd_usa_primary_2028 } }
+				set_country_flag = dd_usa_primary_2028
+				dd_usa_run_primaries = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	dd_usa_general_countdown = {
+		icon = generic_political_discourse
+		allowed = { tag = USA }
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 1041
+		is_good = yes
+		activation = { always = no }
+		cancel_trigger = {
+			OR = {
+				has_global_flag = dd_usa_civil_war_started
+				has_country_flag = dd_usa_civil_war
+				has_country_flag = dd_usa_elections_closed
+			}
+		}
+		timeout_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = dd_usa_general_2028 } }
+				set_country_flag = dd_usa_general_2028
+				dd_usa_run_general = yes
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	dd_isr_election_countdown = {
+		icon = generic_political_discourse
+		allowed = { tag = ISR }
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 304
+		is_good = yes
+		activation = { always = no }
+		cancel_trigger = {
+			has_country_flag = dd_isr_election_done
+		}
+		timeout_effect = {
+			dd_isr_hold_election = yes
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

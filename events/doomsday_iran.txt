@@ -192,6 +192,16 @@ country_event = {
 	}
 }
 
+# Next day after the Shiite pop-out. The civil war exists by then, so Iran can join it.
+country_event = {
+	id = dd_iran.30
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		dd_per_join_shiite_war = yes
+	}
+}
+
 news_event = {
 	id = dd_iran_news.7
 	title = dd_iran_news.7.t

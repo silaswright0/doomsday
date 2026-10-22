@@ -27,6 +27,24 @@ on_actions = {
 					dd_isr_refresh_air = yes
 				}
 			}
+			ISR = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = dd_isr_election_cd_armed }
+						NOT = { has_country_flag = dd_isr_election_done }
+						date < 2026.1.8
+					}
+					set_country_flag = dd_isr_election_cd_armed
+					activate_mission = dd_isr_election_countdown
+				}
+				if = {
+					limit = { NOT = { has_country_flag = dd_isr_pie_events } }
+					set_country_flag = dd_isr_pie_events
+					country_event = { id = dd_isr.10 days = 45 }
+					country_event = { id = dd_isr.11 days = 140 }
+					country_event = { id = dd_isr.12 days = 220 }
+				}
+			}
 		}
 	}
 	on_daily_ISR = {
