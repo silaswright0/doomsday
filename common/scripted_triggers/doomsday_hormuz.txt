@@ -63,9 +63,8 @@ dd_hormuz_auth_5 = {
 }
 
 # Iran's own oil spirit. The other Gulf producers stay sealed for the whole blockade.
-# Contested does not count. Only American naval control of either strait sea.
+# The strait does not have to be closed. Only American naval control of either sea.
 dd_hormuz_per_oil_blocked = {
-	has_global_flag = dd_hormuz_blockade
 	OR = {
 		has_global_flag = dd_hormuz_arabian_usa
 		has_global_flag = dd_hormuz_gulf_usa

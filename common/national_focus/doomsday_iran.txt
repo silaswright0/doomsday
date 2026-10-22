@@ -30,7 +30,14 @@ focus_tree = {
 		y = 0
 		cost = 2
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		ai_will_do = { factor = 20 }
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 50
+				has_country_flag = dd_per_mojtaba
+				NOT = { has_completed_focus = PER_blockade_hormuz }
+			}
+		}
 		completion_reward = {
 			dd_per_zagros_forts = yes
 		}
@@ -43,7 +50,14 @@ focus_tree = {
 		cost = 2
 		prerequisite = { focus = PER_zagros_forts }
 		search_filters = { FOCUS_FILTER_ARMY }
-		ai_will_do = { factor = 20 }
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 50
+				has_country_flag = dd_per_mojtaba
+				NOT = { has_completed_focus = PER_blockade_hormuz }
+			}
+		}
 		completion_reward = {
 			dd_per_spawn_brigades = yes
 		}
@@ -186,7 +200,7 @@ focus_tree = {
 		mutually_exclusive = { focus = PER_islamabad }
 		available = { has_country_flag = dd_per_mojtaba }
 		search_filters = { FOCUS_FILTER_NAVY }
-		ai_will_do = { factor = 200 }
+		ai_will_do = { factor = 1000 }
 		completion_reward = {
 			dd_hormuz_start_blockade = yes
 		}
