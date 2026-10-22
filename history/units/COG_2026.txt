@@ -1,4 +1,4 @@
-# Doomsday 2026 OOB. Six 2x6 infantry divisions.
+# Doomsday 2026 OOB. Five 2x6 infantry divisions.
 division_template = {
 	name = "Infantry Division"
 	regiments = {
@@ -49,13 +49,6 @@ units = {
 	division = {
 		name = "5th Infantry Division"
 		location = 2024
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "6th Infantry Division"
-		location = 988
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0

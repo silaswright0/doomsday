@@ -22,6 +22,39 @@ scripted_gui = {
 			dd_econ_saudi_visible = { has_global_flag = dd_hormuz_squeeze_on }
 			dd_econ_gulf_visible = { has_global_flag = dd_hormuz_gulf_cities_bombed }
 
+			dd_per_econ_header_visible = {
+				OR = {
+					tag = USA
+					tag = PER
+				}
+			}
+			dd_per_econ_oil_gray_visible = {
+				OR = {
+					tag = USA
+					tag = PER
+				}
+			}
+			dd_per_econ_oil_visible = {
+				OR = {
+					tag = USA
+					tag = PER
+				}
+				PER = { has_idea = dd_per_oil_blocked }
+			}
+			dd_per_econ_burn_gray_visible = {
+				OR = {
+					tag = USA
+					tag = PER
+				}
+			}
+			dd_per_econ_burn_visible = {
+				OR = {
+					tag = USA
+					tag = PER
+				}
+				has_global_flag = dd_hormuz_per_bombed
+			}
+
 			dd_bomb_dot_1_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 0 } }
 			dd_bomb_dot_2_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 1 } }
 			dd_bomb_dot_3_visible = { check_variable = { global.dd_hormuz_quarter_bomb_days > 2 } }

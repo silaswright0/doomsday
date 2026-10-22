@@ -1852,13 +1852,71 @@ dd_usa_peace_out_before_civil_war = {
 	}
 }
 
-# Host grants the United States docking rights and military access.
+# Host grants the United States docking rights, military access, and airfield use.
 dd_usa_grant_one_station = {
 	give_military_access = USA
 	diplomatic_relation = {
 		country = USA
 		relation = docking_rights
 		active = yes
+	}
+	dd_usa_grant_air_base = yes
+}
+
+# Called from the host. The United States may station planes on that country's airfields.
+dd_usa_grant_air_base = {
+	USA = {
+		diplomatic_relation = {
+			country = PREV
+			relation = air_base_access
+			active = yes
+		}
+	}
+}
+
+dd_usa_revoke_air_base = {
+	USA = {
+		diplomatic_relation = {
+			country = PREV
+			relation = air_base_access
+			active = no
+		}
+	}
+}
+
+# Al Udeid and Isa stay open unless Iran's terms close the Gulf bases.
+# Kuwait, the Emirates, and Israel open while they and America are both at war with Iran.
+dd_usa_sync_partner_air = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_usa_gulf_bases_closed } }
+		QAT = { dd_usa_grant_air_base = yes }
+		BHR = { dd_usa_grant_air_base = yes }
+		if = {
+			limit = { 765 = { is_owned_by = QAT NOT = { air_base > 5 } } }
+			765 = { add_building_construction = { type = air_base level = 5 instant_build = yes } }
+		}
+		if = {
+			limit = { 1014 = { is_owned_by = BHR NOT = { air_base > 3 } } }
+			1014 = { add_building_construction = { type = air_base level = 3 instant_build = yes } }
+		}
+		if = {
+			limit = { has_war_with = PER }
+			KUW = { dd_usa_grant_air_base = yes }
+			UAE = { dd_usa_grant_air_base = yes }
+			if = {
+				limit = {
+					ISR = {
+						exists = yes
+						has_war_with = PER
+					}
+				}
+				ISR = { dd_usa_grant_air_base = yes }
+				if = {
+					limit = { 454 = { is_owned_by = ISR NOT = { air_base > 0 } } }
+					454 = { add_building_construction = { type = air_base level = 6 instant_build = yes } }
+				}
+			}
+		}
 	}
 }
 
@@ -1890,7 +1948,16 @@ dd_usa_pull_gulf_access = {
 
 # Iran's terms: bases, docking, guarantees, and any gulf land Washington annexed.
 dd_usa_surrender_persian_gulf = {
+	set_country_flag = dd_usa_gulf_bases_closed
 	dd_usa_pull_gulf_access = yes
+	QAT = { dd_usa_revoke_air_base = yes }
+	BHR = { dd_usa_revoke_air_base = yes }
+	KUW = { dd_usa_revoke_air_base = yes }
+	UAE = { dd_usa_revoke_air_base = yes }
+	SAU = { dd_usa_revoke_air_base = yes }
+	OMA = { dd_usa_revoke_air_base = yes }
+	IRQ = { dd_usa_revoke_air_base = yes }
+	ISR = { dd_usa_revoke_air_base = yes }
 	BHR = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
 	IRQ = { diplomatic_relation = { country = USA relation = docking_rights active = no } }
 	KUW = { diplomatic_relation = { country = USA relation = docking_rights active = no } }

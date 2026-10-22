@@ -326,6 +326,15 @@ ideas = {
 				trade_opinion_factor = -0.80
 			}
 		}
+		dd_per_oil_blocked = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.20
+			}
+		}
 		dd_gulf_closed_to_usa = {
 			picture = generic_volunteer_expedition_bonus
 			allowed = { always = no }

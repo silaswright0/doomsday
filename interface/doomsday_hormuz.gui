@@ -148,7 +148,16 @@ guiTypes = {
 			position = { x = 12 y = 116 }
 			font = "hoi_18mbs"
 			text = "DD_HORMUZ_ECON_HEADER"
-			maxWidth = 500
+			maxWidth = 240
+			maxHeight = 22
+			format = left
+		}
+		instantTextboxType = {
+			name = "dd_per_econ_header"
+			position = { x = 270 y = 116 }
+			font = "hoi_18mbs"
+			text = "DD_PER_ECON_HEADER"
+			maxWidth = 230
 			maxHeight = 22
 			format = left
 		}
@@ -193,6 +202,34 @@ guiTypes = {
 			position = { x = 132 y = 140 }
 			scale = 0.48
 			pdx_tooltip = "DD_HORMUZ_ECON_GULF_ON"
+		}
+		iconType = {
+			name = "dd_per_econ_oil_gray"
+			spriteType = "GFX_dd_econ_oil_gray"
+			position = { x = 270 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_PER_ECON_OIL_OFF"
+		}
+		iconType = {
+			name = "dd_per_econ_oil"
+			spriteType = "GFX_goal_generic_oil_refinery"
+			position = { x = 270 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_PER_ECON_OIL_ON"
+		}
+		iconType = {
+			name = "dd_per_econ_burn_gray"
+			spriteType = "GFX_dd_econ_bomber_gray"
+			position = { x = 330 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_PER_ECON_BURN_OFF"
+		}
+		iconType = {
+			name = "dd_per_econ_burn"
+			spriteType = "GFX_goal_generic_air_bomber"
+			position = { x = 330 y = 140 }
+			scale = 0.48
+			pdx_tooltip = "DD_PER_ECON_BURN_ON"
 		}
 
 		instantTextboxType = {
@@ -396,7 +433,7 @@ guiTypes = {
 			font = "hoi_16mbs"
 			text = "DD_HORMUZ_BOMB_QUARTER"
 			maxWidth = 500
-			maxHeight = 40
+			maxHeight = 44
 			format = left
 		}
 	}

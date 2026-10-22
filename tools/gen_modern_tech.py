@@ -84,22 +84,18 @@ ICON_BY_TREE = {
 
 # Design: Cold War floor granted and hidden. Not granted: 4th-gen air, NGSW,
 # PrSM, area SAM, DEW, Link-16, cyber command, AI factories.
+# Bonus techs only. Equipment techs are completed per country, not granted here.
 FLOOR_IDS = {
-    "dd_truck_1", "dd_mech_1", "dd_sup_1", "dd_inf_1", "dd_at_1",
+    "dd_sup_1",
     "dd_nv_1", "dd_sf_1",
-    "dd_supkit_1", "dd_eng_1", "dd_rec_1", "dd_hos_1", "dd_log_1",
+    "dd_eng_1", "dd_rec_1", "dd_hos_1", "dd_log_1",
     "dd_mp_1", "dd_sig_1", "dd_mnt_1",
-    "dd_lt_1", "dd_mbt_1", "dd_mbt_2", "dd_td_1", "dd_fcs_1",
-    "dd_tow_1", "dd_mor_1", "dd_atg_1", "dd_shorad_1",
-    "dd_ftr_1", "dd_ftr_2", "dd_ftr_3", "dd_cas_1", "dd_str_1", "dd_hel_1",
+    "dd_fcs_1",
     "dd_wpn_1",
-    "dd_esc_1", "dd_ssn_1", "dd_amph_1",
-    "dd_ngun_1", "dd_torp_1", "dd_son_1", "dd_neng_1", "dd_nav_1", "dd_dc_1",
-    "dd_vls_1",
-    "dd_rad_1", "dd_rdr_1", "dd_cpu_1", "dd_cry_1", "dd_ew_1", "dd_nuke_1",
+    "dd_ngun_1", "dd_dc_1",
+    "dd_rad_1", "dd_rdr_1", "dd_cpu_1", "dd_cry_1", "dd_ew_1",
     "dd_tol_1", "dd_tol_2", "dd_fuel_1", "dd_mat_1", "dd_bld_1", "dd_ext_1",
     "dd_slot_1", "dd_slot_2",
-    "dd_manpad_1", "dd_uav_3",
 }
 
 MUST_NOT_START = {
@@ -1315,9 +1311,15 @@ def write_loc(trees: dict[str, dict], created: set[str], wanted: dict[str, dict]
                 lead = n["name"] + ". "
             lines.append(f' {n["id"]}:0 "{name}"')
             lines.append(f' {n["id"]}_desc:0 "{lead}{desc}. {extra}"')
+    unlock_name = {}
+    for tree in trees.values():
+        for n in tree["nodes"]:
+            for tok in n["unlocks"].replace(",", " ").split():
+                if tok in created and n["id"] in PLAIN_NAMES:
+                    unlock_name.setdefault(tok, PLAIN_NAMES[n["id"]])
     for eq in sorted(created):
         node = wanted.get(eq)
-        label = node["name"] if node else eq.replace("_", " ")
+        label = unlock_name.get(eq) or (node["name"] if node else eq.replace("_", " "))
         label = label.replace('"', "'")
         lines.append(f' {eq}:0 "{label}"')
         lines.append(f' {eq}_short:0 "{label}"')
@@ -1481,6 +1483,8 @@ def patch_history(trees: dict[str, dict]) -> None:
         new, n = re.subn(r"set_technology = \{.*?\n\}", block, text, count=1, flags=re.S)
         if n:
             path.write_text(new, encoding="utf-8")
+    from apply_research_audit import rewrite_history
+    rewrite_history()
 
 
 def patch_units() -> None:

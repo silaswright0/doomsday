@@ -74,7 +74,7 @@ dd_per_proxy_category = {
 dd_hormuz_category = {
 	dd_hormuz_demand_surrender = {
 		icon = generic_political_discourse
-		fire_only_once = yes
+		days_re_enable = 30
 		cost = 50
 		visible = {
 			tag = PER
@@ -83,10 +83,8 @@ dd_hormuz_category = {
 		}
 		available = {
 			has_war_with = USA
-			NOT = { has_country_flag = dd_per_demands_sent }
 		}
 		complete_effect = {
-			set_country_flag = dd_per_demands_sent
 			USA = { country_event = { id = dd_iran.10 } }
 		}
 		ai_will_do = { factor = 50 }

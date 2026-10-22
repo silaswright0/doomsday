@@ -1,0 +1,326 @@
+# Cold War hulls. icons_weight beats the empty archetype pool (5001),
+# so the side-view icon is used instead of the empty archetype slot.
+default = {
+
+	ship_hull_light_cw1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_light_cw1_medium }
+			models = { destroyer_entity }
+		}
+	}
+	ship_hull_light_cw2 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_light_cw2_medium }
+			models = { destroyer_entity }
+		}
+	}
+	ship_hull_light_cw3 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_light_cw3_medium }
+			models = { destroyer_entity }
+		}
+	}
+	ship_hull_light_cw4 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_light_cw4_medium }
+			models = { destroyer_entity }
+		}
+	}
+	ship_hull_light_cw5 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_light_cw5_medium }
+			models = { destroyer_entity }
+		}
+	}
+	ship_hull_light_cw6 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_light_cw6_medium }
+			models = { destroyer_entity }
+		}
+	}
+	ship_hull_light_cw7 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_light_cw7_medium }
+			models = { destroyer_entity }
+		}
+	}
+
+	ship_hull_cruiser_cw1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_cruiser_cw1_medium }
+			models = { light_cruiser_entity }
+		}
+	}
+	ship_hull_cruiser_cw2 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_cruiser_cw2_medium }
+			models = { light_cruiser_entity }
+		}
+	}
+	ship_hull_cruiser_cw3 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_cruiser_cw3_medium }
+			models = { light_cruiser_entity }
+		}
+	}
+
+	ship_hull_carrier_cw1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_carrier_cw1_medium }
+			models = { carrier_entity }
+		}
+	}
+	ship_hull_carrier_cw2 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_carrier_cw2_medium }
+			models = { carrier_entity }
+		}
+	}
+	ship_hull_carrier_cw3 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_carrier_cw3_medium }
+			models = { carrier_entity }
+		}
+	}
+	ship_hull_carrier_cw4 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_carrier_cw4_medium }
+			models = { ship_hull_super_carrier_entity }
+		}
+	}
+	ship_hull_carrier_cw5 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_carrier_cw5_medium }
+			models = { ship_hull_super_carrier_entity }
+		}
+	}
+	ship_hull_carrier_cw6 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_carrier_cw6_medium }
+			models = { ship_hull_super_carrier_entity }
+		}
+	}
+
+	ship_hull_submarine_cw1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_submarine_cw1_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+	ship_hull_submarine_cw2 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_submarine_cw2_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+	ship_hull_submarine_cw3 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_submarine_cw3_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+	ship_hull_submarine_cw4 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_submarine_cw4_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+	ship_hull_submarine_cw5 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_submarine_cw5_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+	ship_hull_submarine_cw6 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_submarine_cw6_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+
+	ship_hull_ssbn_1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_ssbn_1_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+	ship_hull_ssbn_2 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_ssbn_2_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+	ship_hull_ssbn_3 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_ssbn_3_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+	ship_hull_ssbn_4 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_ssbn_4_medium }
+			models = { ship_hull_nuclear_powered_submarine_entity }
+		}
+	}
+
+	ship_hull_amphib_1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_amphib_1_medium }
+			models = { transport_entity }
+		}
+	}
+	ship_hull_amphib_2 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_amphib_2_medium }
+			models = { transport_entity }
+		}
+	}
+	ship_hull_amphib_3 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_amphib_3_medium }
+			models = { transport_entity }
+		}
+	}
+	ship_hull_amphib_4 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_amphib_4_medium }
+			models = { transport_entity }
+		}
+	}
+	ship_hull_amphib_5 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_amphib_5_medium }
+			models = { transport_entity }
+		}
+	}
+
+	ship_hull_usv_1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_usv_1_medium }
+			models = { destroyer_entity }
+		}
+	}
+	ship_hull_usv_2 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_usv_2_medium }
+			models = { destroyer_entity }
+		}
+	}
+	ship_hull_uuv_1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_uuv_1_medium }
+			models = { submarine_entity }
+		}
+	}
+	ship_hull_submarine_diesel_1 = {
+		pool = {
+			weight = 5500
+			icons_weight = 6000
+			models_weight = 1
+			icons = { GFX_ship_hull_submarine_diesel_1_medium }
+			models = { submarine_entity }
+		}
+	}
+}

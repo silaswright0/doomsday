@@ -2321,7 +2321,12 @@ dd_recalc_accounts = {
 		set_variable = { dd_income_oil = dd_oil_units }
 		multiply_variable = { dd_income_oil = dd_oil_rent }
 		if = {
-			limit = { has_idea = dd_gulf_oil_sealed }
+			limit = {
+				OR = {
+					has_idea = dd_gulf_oil_sealed
+					has_idea = dd_per_oil_blocked
+				}
+			}
 			set_variable = { dd_income_oil = 0 }
 		}
 		else_if = {
@@ -2335,6 +2340,26 @@ dd_recalc_accounts = {
 	}
 	add_to_variable = { dd_last_income = dd_income_oil }
 	add_to_variable = { dd_last_income = dd_income_checkpoint }
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_per_oil_blocked
+				has_country_flag = dd_per_oil_cash_month
+			}
+		}
+		subtract_from_variable = { dd_last_income = 3.5 }
+		clr_country_flag = dd_per_oil_cash_month
+	}
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_hormuz_per_bombed
+				has_country_flag = dd_per_bomb_cash_month
+			}
+		}
+		subtract_from_variable = { dd_last_income = 1 }
+		clr_country_flag = dd_per_bomb_cash_month
+	}
 	if = {
 		limit = { has_idea = dd_usa_tax_on_big_business }
 		add_to_variable = { dd_last_income = 83.333 }

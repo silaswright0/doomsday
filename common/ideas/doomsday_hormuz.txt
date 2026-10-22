@@ -132,8 +132,10 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.10
-				production_speed_buildings_factor = -0.10
+				resistance_target = 0.20
+				resistance_growth = 0.20
+				stability_factor = -0.20
+				production_speed_buildings_factor = -0.40
 			}
 		}
 		dd_hormuz_auth_1 = {

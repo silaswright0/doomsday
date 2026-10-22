@@ -46,6 +46,20 @@ on_actions = {
 				dd_hormuz_sync = yes
 				dd_hormuz_auth_daily = yes
 				dd_hormuz_econ_sync = yes
+				dd_usa_sync_partner_air = yes
+			}
+		}
+	}
+	# Every country hits this, and the limit fails immediately unless the war is on and this is the United States.
+	on_hourly = {
+		effect = {
+			if = {
+				limit = {
+					has_global_flag = dd_hormuz_war
+					tag = USA
+				}
+				dd_hormuz_sync = yes
+				dd_usa_sync_partner_air = yes
 			}
 		}
 	}

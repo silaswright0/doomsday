@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Hide WWI/WWII combat techs from research folders without deleting IDs.
 
-Floor (identical start for every tag until national trees exist):
-  Cuba, Eritrea, North Korea, Taliban Afghanistan, Somalia, South Sudan.
-  Typical kit still in service: AK-pattern rifles, trucks/technicals, towed guns,
-  BM-21, APC/BMP, T-55/T-62 class MBT, MiG-21-class jets, cheap UAV, MANPADS.
+Floor bonuses (tools, radios, support companies) are still granted to every tag.
+Equipment techs are not. Each country completes the army steps of its tier
+plus the planes, ships, and missiles in its own 2026 order of battle.
+1936-1944 equipment stays researched. See tools/apply_research_audit.py.
 
 Do not hide Cold War nodes. Do not start 4th-gen air, 2020s infantry kits,
 strike UAV, cruise/SRBM/area SAM. Those stay visible and researchable.

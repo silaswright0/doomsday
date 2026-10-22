@@ -680,6 +680,9 @@ def hull_cv(tag: str) -> str:
 
 
 def hull_ss(tag: str) -> str:
+    # Operational nuclear boats in 2026. Everyone else gets a diesel hull.
+    if tag not in {"USA", "SOV", "CHI", "ENG", "FRA", "RAJ"}:
+        return "ship_hull_submarine_diesel_1"
     return "ship_hull_submarine_cw2" if tech_tier(tag) >= 3 else "ship_hull_submarine_cw1"
 
 
@@ -929,6 +932,7 @@ def ship_variant_name(eq: str) -> str:
         "ship_hull_carrier_cw2": "Fleet Carrier",
         "ship_hull_submarine_cw1": "Cold War Submarine",
         "ship_hull_submarine_cw2": "Attack Submarine",
+        "ship_hull_submarine_diesel_1": "Diesel Submarine",
     }.get(eq, "Doomsday Hull")
 
 

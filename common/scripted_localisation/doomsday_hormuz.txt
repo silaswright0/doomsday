@@ -1,4 +1,15 @@
 defined_text = {
+	name = GetDDHormuzIranBomb
+	text = {
+		trigger = { has_global_flag = dd_hormuz_per_bombed }
+		localization_key = DD_HORMUZ_IRAN_BOMB_ON
+	}
+	text = {
+		localization_key = DD_HORMUZ_IRAN_BOMB_OFF
+	}
+}
+
+defined_text = {
 	name = GetDDHormuzStraitTip
 	text = {
 		trigger = { has_global_flag = dd_hormuz_escort_shipping }

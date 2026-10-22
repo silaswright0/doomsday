@@ -435,7 +435,7 @@ dd_hormuz_blockade_targets = {
 	}
 }
 
-# Strait, Saudi squeeze, and Gulf-city bombing. Each one ticks the United States.
+# Strait and Saudi squeeze. Gulf-city bombing is owned by dd_hormuz_sync_bombs.
 # Importers on the list above take the consumer-goods shock. Runs once a day from the USA.
 dd_hormuz_econ_sync = {
 	if = {
@@ -455,13 +455,6 @@ dd_hormuz_econ_sync = {
 	}
 	else = {
 		clr_global_flag = dd_hormuz_squeeze_on
-	}
-	if = {
-		limit = { dd_hormuz_gulf_cities_bombed_now = yes }
-		set_global_flag = dd_hormuz_gulf_cities_bombed
-	}
-	else = {
-		clr_global_flag = dd_hormuz_gulf_cities_bombed
 	}
 	if = {
 		limit = {
@@ -552,7 +545,6 @@ dd_hormuz_seal_gulf_oil = {
 				tag = BHR
 				tag = OMA
 				tag = IRQ
-				tag = PER
 			}
 			NOT = { has_idea = dd_gulf_oil_sealed }
 		}
@@ -560,9 +552,30 @@ dd_hormuz_seal_gulf_oil = {
 	}
 }
 
+# Iran only. Called after the sea flags are current, and again when the blockade starts.
+dd_hormuz_sync_per_oil = {
+	if = {
+		limit = { PER = { has_idea = dd_gulf_oil_sealed } }
+		PER = { remove_ideas = dd_gulf_oil_sealed }
+	}
+	if = {
+		limit = { dd_hormuz_per_oil_blocked = yes }
+		if = {
+			limit = { PER = { NOT = { has_idea = dd_per_oil_blocked } } }
+			PER = { add_ideas = dd_per_oil_blocked }
+		}
+		PER = { set_country_flag = dd_per_oil_cash_month }
+	}
+	else_if = {
+		limit = { PER = { has_idea = dd_per_oil_blocked } }
+		PER = { remove_ideas = dd_per_oil_blocked }
+	}
+}
+
 dd_hormuz_start_blockade = {
 	set_global_flag = dd_hormuz_blockade
 	dd_hormuz_seal_gulf_oil = yes
+	dd_hormuz_sync_per_oil = yes
 	dd_hormuz_econ_sync = yes
 	news_event = { id = dd_iran_news.4 }
 }
@@ -589,6 +602,10 @@ dd_hormuz_clear_blockade = {
 	every_country = {
 		limit = { has_idea = dd_gulf_oil_sealed }
 		remove_ideas = dd_gulf_oil_sealed
+	}
+	every_country = {
+		limit = { has_idea = dd_per_oil_blocked }
+		remove_ideas = dd_per_oil_blocked
 	}
 	every_country = {
 		limit = { has_idea = dd_hormuz_saudi_shock }
@@ -726,11 +743,11 @@ dd_per_spawn_brigades = {
 	}
 	421 = {
 		create_unit = {
-			division = "name = \"1. Foreign Brigade\" division_template = \"Zagros Foreign Brigade\" start_experience_factor = 0.75 start_equipment_factor = 1"
+			division = "name = \"1. Foreign Brigade\" division_template = \"Zagros Foreign Brigade\" start_experience_factor = 0.9 start_equipment_factor = 1"
 			owner = PER
 		}
 		create_unit = {
-			division = "name = \"2. Foreign Brigade\" division_template = \"Zagros Foreign Brigade\" start_experience_factor = 0.75 start_equipment_factor = 1"
+			division = "name = \"2. Foreign Brigade\" division_template = \"Zagros Foreign Brigade\" start_experience_factor = 0.9 start_equipment_factor = 1"
 			owner = PER
 		}
 	}
@@ -1004,8 +1021,20 @@ dd_per_shiite_popout = {
 			set_variable = { dd_cw_militia_count = 6 }
 			dd_per_cw_arm = yes
 		}
+		# Join the civil war before puppeting. Puppeting can end it.
+		if = {
+			limit = {
+				IRQ = { exists = yes }
+				event_target:dd_shiite_side = { has_war_with = IRQ }
+				NOT = { has_war_together_with = event_target:dd_shiite_side }
+			}
+			add_to_war = {
+				targeted_alliance = event_target:dd_shiite_side
+				enemy = IRQ
+			}
+		}
 		puppet = event_target:dd_shiite_side
-		# Puppeting can end the civil war the pop-out just started. Declare again, then join it.
+		# If puppeting ended the war, start it again and join the puppet.
 		event_target:dd_shiite_side = {
 			if = {
 				limit = {
@@ -1021,8 +1050,8 @@ dd_per_shiite_popout = {
 		if = {
 			limit = {
 				IRQ = { exists = yes }
-				NOT = { has_war_with = IRQ }
 				event_target:dd_shiite_side = { has_war_with = IRQ }
+				NOT = { has_war_together_with = event_target:dd_shiite_side }
 			}
 			add_to_war = {
 				targeted_alliance = event_target:dd_shiite_side

@@ -321,7 +321,6 @@ focus_tree = {
 		y = 1
 		cost = 5
 		prerequisite = { focus = PER_final_battle }
-		available = { has_war_with = ISR }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
@@ -338,7 +337,6 @@ focus_tree = {
 		y = 1
 		cost = 5
 		prerequisite = { focus = PER_final_battle }
-		available = { has_war_with = ISR }
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
@@ -357,7 +355,6 @@ focus_tree = {
 		y = 0
 		cost = 5
 		available = {
-			has_war_with = ISR
 			custom_trigger_tooltip = {
 				tooltip = dd_per_treasury_50_tt
 				NOT = { check_variable = { treasury < 50 } }
@@ -377,7 +374,6 @@ focus_tree = {
 		y = 1
 		cost = 5
 		prerequisite = { focus = PER_invest_artesh }
-		available = { has_war_with = ISR }
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
@@ -401,7 +397,6 @@ focus_tree = {
 		x = 28
 		y = 0
 		cost = 5
-		available = { has_war_with = ISR }
 		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_INDUSTRY }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
@@ -415,7 +410,6 @@ focus_tree = {
 		x = 32
 		y = 0
 		cost = 5
-		available = { has_war_with = ISR }
 		search_filters = { FOCUS_FILTER_NAVY }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
@@ -428,7 +422,6 @@ focus_tree = {
 		x = 34
 		y = 0
 		cost = 5
-		available = { has_war_with = ISR }
 		search_filters = { FOCUS_FILTER_NAVY }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
@@ -446,6 +439,12 @@ focus_tree = {
 		prerequisite = {
 			focus = PER_popular_reforms
 			focus = PER_press_demands
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_per_peace_usa_tt
+				NOT = { has_war_with = USA }
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 20 }
@@ -556,14 +555,14 @@ focus_tree = {
 					SYR = { exists = yes }
 					NOT = { has_wargoal_against = SYR }
 				}
-				create_wargoal = { type = dd_annex target = SYR }
+				create_wargoal = { type = dd_puppet target = SYR }
 			}
 			if = {
 				limit = {
 					ROJ = { exists = yes }
 					NOT = { has_wargoal_against = ROJ }
 				}
-				create_wargoal = { type = dd_annex target = ROJ }
+				create_wargoal = { type = dd_puppet target = ROJ }
 			}
 		}
 	}
@@ -602,7 +601,7 @@ focus_tree = {
 					JOR = { exists = yes }
 					NOT = { has_wargoal_against = JOR }
 				}
-				create_wargoal = { type = dd_annex target = JOR }
+				create_wargoal = { type = dd_puppet target = JOR }
 			}
 		}
 	}
