@@ -16,6 +16,7 @@ add_namespace = dd_usa_abaddon
 add_namespace = dd_usa_blood
 add_namespace = dd_usa_bill
 add_namespace = dd_usa_graham
+add_namespace = dd_usa_noem
 
 country_event = {
 	id = dd_usa_greenland.1
@@ -882,6 +883,28 @@ country_event = {
 		news_event = { id = dd_usa_news.12 }
 	}
 	option = { name = dd_usa_graham.1.a }
+}
+
+# Homeland Security secretary, while the national-populist government is still in office.
+country_event = {
+	id = dd_usa_noem.1
+	title = dd_usa_noem.1.t
+	desc = dd_usa_noem.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	trigger = {
+		tag = USA
+		has_government = national_populism
+		NOT = { has_country_flag = dd_usa_civil_war }
+		NOT = { has_global_flag = dd_usa_civil_war_started }
+	}
+
+	option = {
+		name = dd_usa_noem.1.a
+		add_political_power = -25
+		add_stability = -0.02
+	}
 }
 
 news_event = {

@@ -248,9 +248,13 @@ dd_refresh_loan_preview = {
 }
 
 # Decision prices scale with yearly revenue. Subsidy 0.5%, PP buy 1%.
+# A month that booked no revenue must not wipe the last real year. Unset income compares as 0.
 dd_refresh_decision_costs = {
-	set_variable = { dd_year_rev = dd_last_income }
-	multiply_variable = { dd_year_rev = 12 }
+	if = {
+		limit = { check_variable = { dd_last_income > 0.009 } }
+		set_variable = { dd_year_rev = dd_last_income }
+		multiply_variable = { dd_year_rev = 12 }
+	}
 	set_variable = { dd_cost_subsidize = dd_year_rev }
 	multiply_variable = { dd_cost_subsidize = dd_rate_sub_cost }
 	set_variable = { dd_cost_pp = dd_year_rev }
@@ -263,6 +267,9 @@ dd_refresh_decision_costs = {
 
 # Debt / twelve months of revenue. One stack per full 100% (floor).
 # 50% → 0, 150% → 1, 280% → 2, 305% → 3. Each stack: −10% construction, −2% stability.
+# Income under 0.01 is a missing close, not infinite debt. Unset income compares as 0,
+# which a live script reload or an empty state scan can produce for one tick.
+# 50 stacks is −100% stability and trips the US civil war check. Use the last real year instead.
 dd_refresh_debt_burden = {
 	if = {
 		limit = { NOT = { has_country_flag = dd_econ_ledger_ready } }
@@ -272,9 +279,18 @@ dd_refresh_debt_burden = {
 	else_if = {
 		limit = { check_variable = { dd_last_income < 0.01 } }
 		if = {
-			limit = { check_variable = { debt > 0.01 } }
-			set_variable = { dd_debt_rev_ratio = 9999 }
-			set_variable = { dd_debt_burden_stacks = 50 }
+			limit = { check_variable = { dd_year_rev > 0.12 } }
+			set_variable = { dd_debt_rev_ratio = debt }
+			divide_variable = { dd_debt_rev_ratio = dd_year_rev }
+			multiply_variable = { dd_debt_rev_ratio = 100 }
+			set_variable = { dd_debt_burden_stacks = debt }
+			divide_variable = { dd_debt_burden_stacks = dd_year_rev }
+			subtract_from_variable = { dd_debt_burden_stacks = 0.499 }
+			round_variable = dd_debt_burden_stacks
+			if = {
+				limit = { check_variable = { dd_debt_burden_stacks < 0 } }
+				set_variable = { dd_debt_burden_stacks = 0 }
+			}
 		}
 		else = {
 			set_variable = { dd_debt_rev_ratio = 0 }

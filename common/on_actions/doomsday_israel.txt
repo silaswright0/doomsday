@@ -6,12 +6,15 @@ on_actions = {
 					limit = {
 						OR = {
 							has_completed_focus = ISR_the_idf
+							has_completed_focus = ISR_urban_fighting
+							has_completed_focus = ISR_combined_arms
 							has_idea = dd_isr_idf
 							has_idea = dd_isr_idf_urban
 							has_idea = dd_isr_idf_arms
 							has_idea = dd_isr_idf_both
+							has_dynamic_modifier = { modifier = dd_isr_idf_spirit }
 						}
-						NOT = { has_dynamic_modifier = { modifier = dd_isr_idf_spirit } }
+						NOT = { has_government = communism }
 					}
 					dd_isr_refresh_idf = yes
 				}
@@ -19,10 +22,11 @@ on_actions = {
 					limit = {
 						OR = {
 							has_completed_focus = ISR_airforce
+							has_completed_focus = ISR_air_dominance
 							has_idea = dd_isr_airforce
 							has_idea = dd_isr_airforce_dominance
+							has_dynamic_modifier = { modifier = dd_isr_air_spirit }
 						}
-						NOT = { has_dynamic_modifier = { modifier = dd_isr_air_spirit } }
 					}
 					dd_isr_refresh_air = yes
 				}
@@ -55,6 +59,21 @@ on_actions = {
 					date > 2026.10.31
 				}
 				dd_isr_hold_election = yes
+			}
+			if = {
+				limit = {
+					has_government = communism
+					OR = {
+						has_dynamic_modifier = { modifier = dd_isr_idf_spirit }
+						has_idea = dd_isr_idf
+						has_idea = dd_isr_idf_urban
+						has_idea = dd_isr_idf_arms
+						has_idea = dd_isr_idf_both
+						has_country_flag = dd_isr_idf_urban
+						has_country_flag = dd_isr_idf_arms
+					}
+				}
+				dd_isr_strip_idf = yes
 			}
 			if = {
 				limit = { has_country_flag = dd_isr_diaspora_open }

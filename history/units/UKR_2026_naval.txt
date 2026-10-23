@@ -1,27 +1,4 @@
-# Doomsday 2026 naval OOB. Generated.
+# Ukraine had no operational submarine or major surface ship on 1 Jan 2026.
+# Naval infantry is the 30th Marine Corps in UKR_2026.txt.
 units = {
-	fleet = {
-		name = "UKR Home Fleet"
-		naval_base = 3686
-		task_force = {
-			name = "UKR Home Fleet TF"
-			location = 3686
-			ship = {
-				name = "UKR SS-1"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_diesel_1 = { amount = 1 owner = UKR version_name = "Cold War Submarine" }
-				}
-			}
-			ship = {
-				name = "UKR SS-2"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_diesel_1 = { amount = 1 owner = UKR version_name = "Cold War Submarine" }
-				}
-			}
-		}
-	}
 }

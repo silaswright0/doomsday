@@ -1,0 +1,219 @@
+# Starting special projects. Country-scoped, flag-guarded, no random.
+# Called from on_startup before the arsenal, because the bomb project adds 1 warhead.
+# Nuclear facility goes in the capital. Rocket projects use the air
+# facility. Machine intelligence uses the electronics facility.
+# One facility group per state, so each of those is a different state.
+# Pakistan has no confirmed thermonuclear weapon, so that project stays open.
+
+dd_grant_starting_projects = {
+	USA = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = USA_dd_lab_lead
+			recruit_character = USA_dd_ai_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = USA_dd_lab_lead state = 361 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = USA_dd_lab_lead state = 361 }
+				complete_special_project = { project = sp:sp_dd_machine_intelligence scientist = USA_dd_ai_lead state = 1138 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = USA_dd_lab_lead state = 1140 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = USA_dd_lab_lead state = 1140 }
+				complete_special_project = { project = sp:sp_thermo_nuclear_bomb scientist = USA_dd_lab_lead state = 1140 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = USA_dd_lab_lead state = 1140 }
+			}
+		}
+	}
+	SOV = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = SOV_dd_lab_lead
+			recruit_character = SOV_dd_ai_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = SOV_dd_lab_lead state = 195 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = SOV_dd_lab_lead state = 195 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = SOV_dd_lab_lead state = 219 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = SOV_dd_lab_lead state = 219 }
+				complete_special_project = { project = sp:sp_thermo_nuclear_bomb scientist = SOV_dd_lab_lead state = 219 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = SOV_dd_lab_lead state = 219 }
+			}
+		}
+	}
+	CHI = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = CHI_dd_lab_lead
+			recruit_character = CHI_dd_ai_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = CHI_dd_lab_lead state = 613 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = CHI_dd_lab_lead state = 613 }
+				complete_special_project = { project = sp:sp_dd_machine_intelligence scientist = CHI_dd_ai_lead state = 609 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = CHI_dd_lab_lead state = 608 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = CHI_dd_lab_lead state = 608 }
+				complete_special_project = { project = sp:sp_thermo_nuclear_bomb scientist = CHI_dd_lab_lead state = 608 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = CHI_dd_lab_lead state = 608 }
+			}
+		}
+	}
+	FRA = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = FRA_dd_lab_lead
+			recruit_character = FRA_dd_ai_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = FRA_dd_lab_lead state = 23 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = FRA_dd_lab_lead state = 23 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = FRA_dd_lab_lead state = 16 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = FRA_dd_lab_lead state = 16 }
+				complete_special_project = { project = sp:sp_thermo_nuclear_bomb scientist = FRA_dd_lab_lead state = 16 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = FRA_dd_lab_lead state = 16 }
+			}
+		}
+	}
+	ENG = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = ENG_dd_lab_lead
+			recruit_character = ENG_dd_ai_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = ENG_dd_lab_lead state = 125 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = ENG_dd_lab_lead state = 125 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = ENG_dd_lab_lead state = 126 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = ENG_dd_lab_lead state = 126 }
+				complete_special_project = { project = sp:sp_thermo_nuclear_bomb scientist = ENG_dd_lab_lead state = 126 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = ENG_dd_lab_lead state = 126 }
+			}
+		}
+	}
+	RAJ = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = RAJ_dd_lab_lead
+			recruit_character = RAJ_dd_ai_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = RAJ_dd_lab_lead state = 438 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = RAJ_dd_lab_lead state = 438 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = RAJ_dd_lab_lead state = 439 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = RAJ_dd_lab_lead state = 439 }
+				complete_special_project = { project = sp:sp_thermo_nuclear_bomb scientist = RAJ_dd_lab_lead state = 439 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = RAJ_dd_lab_lead state = 439 }
+			}
+		}
+	}
+	PAK = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = PAK_dd_lab_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = PAK_dd_lab_lead state = 445 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = PAK_dd_lab_lead state = 445 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = PAK_dd_lab_lead state = 440 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = PAK_dd_lab_lead state = 440 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = PAK_dd_lab_lead state = 440 }
+			}
+		}
+	}
+	ISR = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = ISR_dd_lab_lead
+			recruit_character = ISR_dd_ai_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = ISR_dd_lab_lead state = 1088 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = ISR_dd_lab_lead state = 1088 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = ISR_dd_lab_lead state = 454 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = ISR_dd_lab_lead state = 454 }
+				complete_special_project = { project = sp:sp_thermo_nuclear_bomb scientist = ISR_dd_lab_lead state = 454 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = ISR_dd_lab_lead state = 454 }
+			}
+		}
+	}
+	DPK = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = DPK_dd_lab_lead
+			set_technology = { atomic_research = 1 experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = DPK_dd_lab_lead state = 1028 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = DPK_dd_lab_lead state = 1028 }
+				complete_special_project = { project = sp:sp_nuclear_reactor scientist = DPK_dd_lab_lead state = 527 }
+				complete_special_project = { project = sp:sp_nuclear_bomb scientist = DPK_dd_lab_lead state = 527 }
+				complete_special_project = { project = sp:sp_thermo_nuclear_bomb scientist = DPK_dd_lab_lead state = 527 }
+				complete_special_project = { project = sp:sp_nuclear_warheads scientist = DPK_dd_lab_lead state = 527 }
+			}
+		}
+	}
+	# Conventional missile forces. No nuclear projects.
+	PER = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = PER_dd_lab_lead
+			set_technology = { experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = PER_dd_lab_lead state = 266 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = PER_dd_lab_lead state = 266 }
+			}
+		}
+	}
+	GER = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_ai_lead_recruited } }
+			set_country_flag = dd_ai_lead_recruited
+			recruit_character = GER_dd_ai_lead
+		}
+	}
+	JAP = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_ai_lead_recruited } }
+			set_country_flag = dd_ai_lead_recruited
+			recruit_character = JAP_dd_ai_lead
+		}
+	}
+	KOR = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_ai_lead_recruited } }
+			set_country_flag = dd_ai_lead_recruited
+			recruit_character = KOR_dd_ai_lead
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_sp_granted } }
+			set_country_flag = dd_sp_granted
+			recruit_character = KOR_dd_lab_lead
+			set_technology = { experimental_rockets = 1 popup = no }
+			hidden_effect = {
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = KOR_dd_lab_lead state = 525 }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = KOR_dd_lab_lead state = 525 }
+			}
+		}
+	}
+	CAN = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_ai_lead_recruited } }
+			set_country_flag = dd_ai_lead_recruited
+			recruit_character = CAN_dd_ai_lead
+		}
+	}
+	SWE = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_ai_lead_recruited } }
+			set_country_flag = dd_ai_lead_recruited
+			recruit_character = SWE_dd_ai_lead
+		}
+	}
+}

@@ -1,4 +1,4 @@
-# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.
+# Doomsday 1 Jan 2026 OOB. Hand-placed. Locked templates match ai_templates.
 division_template = {
 	name = "Infantry Division"
 	regiments = {
@@ -112,267 +112,281 @@ division_template = {
 }
 units = {
 	division = {
-		name = "1st Infantry Division"
-		location = 525
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "2nd Infantry Division"
-		location = 3686
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "3rd Infantry Division"
-		location = 11670
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "4th Infantry Division"
-		location = 418
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "5th Infantry Division"
-		location = 11437
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "6th Infantry Division"
-		location = 6474
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "7th Infantry Division"
+		name = "Azov Corps"
 		location = 502
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "8th Infantry Division"
-		location = 488
+		name = "3rd Assault Brigade"
+		location = 418
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "9th Infantry Division"
-		location = 11700
+		name = "92nd Assault Brigade"
+		location = 418
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "10th Infantry Division"
-		location = 705
+		name = "81st Air Assault Brigade"
+		location = 502
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "11th Infantry Division"
-		location = 3568
+		name = "82nd Air Assault Brigade"
+		location = 502
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "12th Infantry Division"
+		name = "54th Mechanized Brigade"
+		location = 502
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "53rd Mechanized Brigade"
+		location = 418
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "95th Air Assault Brigade"
+		location = 3520
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "25th Airborne Brigade"
+		location = 3520
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "46th Airmobile Brigade"
+		location = 11437
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "80th Air Assault Brigade"
+		location = 11437
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "79th Air Assault Brigade"
 		location = 3755
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "13th Infantry Division"
+		name = "59th Motorized Brigade"
 		location = 11683
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "14th Infantry Division"
-		location = 476
+		name = "28th Mechanized Brigade"
+		location = 11670
 		division_template = "Infantry Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "1st Armored Division"
-		location = 3457
+		name = "72nd Mechanized Brigade"
+		location = 3568
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "41st Mechanized Brigade"
+		location = 488
+		division_template = "Infantry Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Tank Brigade"
+		location = 502
 		division_template = "Armored Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "2nd Armored Division"
-		location = 6593
+		name = "17th Heavy Mechanized Brigade"
+		location = 11437
 		division_template = "Armored Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "3rd Armored Division"
+		name = "93rd Mechanized Brigade"
+		location = 502
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "47th Mechanized Brigade"
+		location = 502
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "33rd Mechanized Brigade"
+		location = 418
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "30th Mechanized Brigade"
+		location = 11437
+		division_template = "Mechanized Brigade"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "21st Mechanized Brigade"
 		location = 3520
-		division_template = "Armored Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "4th Armored Division"
-		location = 11504
-		division_template = "Armored Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "1st Mechanized Brigade"
-		location = 11479
 		division_template = "Mechanized Brigade"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "2nd Mechanized Brigade"
-		location = 422
+		name = "117th Heavy Mechanized Brigade"
+		location = 3568
 		division_template = "Mechanized Brigade"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "3rd Mechanized Brigade"
-		location = 3757
-		division_template = "Mechanized Brigade"
+		name = "30th Marine Corps"
+		location = 11683
+		division_template = "Marine Division"
 		start_experience_factor = 0.40
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "4th Mechanized Brigade"
-		location = 737
-		division_template = "Mechanized Brigade"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "5th Mechanized Brigade"
-		location = 11691
-		division_template = "Mechanized Brigade"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "6th Mechanized Brigade"
-		location = 9680
-		division_template = "Mechanized Brigade"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "7th Mechanized Brigade"
-		location = 6704
-		division_template = "Mechanized Brigade"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "8th Mechanized Brigade"
-		location = 11405
-		division_template = "Mechanized Brigade"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "1st Militia Brigade"
-		location = 9566
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.15
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "2nd Militia Brigade"
-		location = 11561
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.15
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "3rd Militia Brigade"
-		location = 9461
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.15
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "4th Militia Brigade"
+		name = "128th Mountain Assault Brigade"
 		location = 3548
+		division_template = "Mountain Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "1st Presidential Brigade"
+		location = 3568
 		division_template = "Militia Brigade"
 		start_experience_factor = 0.15
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "1st Garrison Brigade"
-		location = 6571
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
+		name = "Kharkiv Territorial Defense"
+		location = 418
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "2nd Garrison Brigade"
-		location = 6727
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
+		name = "Dnipro Territorial Defense"
+		location = 11437
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "3rd Garrison Brigade"
-		location = 577
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
+		name = "Odesa Territorial Defense"
+		location = 11670
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "4th Garrison Brigade"
-		location = 11411
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
+		name = "Sumy Territorial Defense"
+		location = 3520
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "5th Garrison Brigade"
-		location = 6557
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
+		name = "Lviv Territorial Defense"
+		location = 11479
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "6th Garrison Brigade"
+		name = "Vinnytsia Territorial Defense"
+		location = 476
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Zhytomyr Territorial Defense"
+		location = 6593
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.15
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Kyiv Garrison"
 		location = 525
 		division_template = "Garrison Brigade"
 		start_experience_factor = 0.28
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "7th Garrison Brigade"
-		location = 3686
+		name = "Odesa Garrison"
+		location = 11670
 		division_template = "Garrison Brigade"
 		start_experience_factor = 0.28
 		start_equipment_factor = 1.0
 	}
 	division = {
-		name = "8th Garrison Brigade"
-		location = 11670
+		name = "Northern Border Guard"
+		location = 11405
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.28
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Bukovina Border Guard"
+		location = 577
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.28
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Kherson Garrison"
+		location = 3755
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.28
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Central Reserve Garrison"
+		location = 488
 		division_template = "Garrison Brigade"
 		start_experience_factor = 0.28
 		start_equipment_factor = 1.0
@@ -380,13 +394,18 @@ units = {
 }
 air_wings = {
 	202 = {
-		fighter_equipment_cw4 = { owner = "UKR" amount = 160 }
+		fighter_equipment_cw4 = { owner = "UKR" amount = 50 }
+		strike_uav_equipment_1 = { owner = "UKR" amount = 48 }
 		recon_uav_equipment_2 = { owner = "UKR" amount = 16 }
 	}
 	221 = {
-		cas_equipment_cw2 = { owner = "UKR" amount = 96 }
+		fighter_equipment_cw4 = { owner = "UKR" amount = 24 }
+		cas_equipment_cw2 = { owner = "UKR" amount = 20 }
+		transport_heli_equipment_1 = { owner = "UKR" amount = 24 }
 	}
 	226 = {
-		transport_heli_equipment_1 = { owner = "UKR" amount = 96 }
+		fighter_equipment_cw4 = { owner = "UKR" amount = 16 }
+		cas_equipment_cw2 = { owner = "UKR" amount = 16 }
+		transport_heli_equipment_1 = { owner = "UKR" amount = 24 }
 	}
 }

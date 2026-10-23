@@ -83,4 +83,10 @@ leader_traits = {
 		war_support_factor = 0.05
 		experience_gain_army = 0.05
 	}
+	dd_special_envoy = {
+		random = no
+		sprite = 13
+		trade_opinion_factor = 0.10
+		improve_relations_maintain_cost_factor = -0.15
+	}
 }

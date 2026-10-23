@@ -1,9 +1,11 @@
 """Put every Cold War equipment tech on its year row, and complete only what each tag fields.
 
 1936-1944 equipment stays researched for every country (those techs are hidden).
-Later equipment is researched only when that country's 2026 forces use it,
-plus the small-arms and vehicle steps of its tier. Earlier steps of a
-researched line are included, because each tech requires the one before it.
+Later equipment is researched when that country's 2026 forces use it, plus the
+small-arms and vehicle steps of its tier. Rocket trucks and silo cruise
+missiles are a hardcoded tier table: a missing battalion does not withhold them.
+Earlier steps of a researched line are included, because each tech requires the
+one before it.
 
 Industry, electronics, support, and ship-module lines are filled up to a year
 cap for the country's tier. Weapons past that stay researchable. Civilian
@@ -85,6 +87,25 @@ LAND = {
     1: ["dd_inf_2", "dd_truck_2", "dd_at_2", "dd_mor_1", "dd_supkit_1", "dd_mbt_2", "dd_tow_1", "dd_shorad_1"],
     2: ["dd_inf_4", "dd_truck_2", "dd_at_3", "dd_mor_2", "dd_supkit_2", "dd_mbt_3", "dd_mech_3", "dd_tow_2", "dd_shorad_2", "dd_fcs_2"],
     3: ["dd_inf_6", "dd_truck_3", "dd_at_4", "dd_mor_3", "dd_supkit_3", "dd_mbt_4", "dd_mech_5", "dd_tow_3", "dd_shorad_3", "dd_fcs_3"],
+}
+
+# Rocket trucks and silo cruise. Not read from orders of battle.
+# dd_rkt_5 (PrSM, 2023) and later stay off the 1 January list.
+# dd_wpn_5 is the 2009 cruise missile. Its parents are fighter-attack steps
+# and are not granted with it.
+ROCKET_BY_TIER = {
+    0: [],
+    1: ["dd_rkt_1"],
+    2: ["dd_rkt_1", "dd_rkt_2", "dd_rkt_3"],
+    3: ["dd_rkt_1", "dd_rkt_2", "dd_rkt_3", "dd_rkt_4", "dd_wpn_5"],
+}
+ROCKET_COUNTRY = {
+    "PER": ["dd_rkt_2", "dd_rkt_3", "dd_wpn_5"],
+    "KOR": ["dd_wpn_5"],
+    "ISR": ["dd_wpn_5"],
+    "DPK": ["dd_rkt_2", "dd_rkt_3", "dd_wpn_5"],
+    "PAK": ["dd_rkt_2", "dd_rkt_3", "dd_wpn_5"],
+    "RAJ": ["dd_wpn_5"],
 }
 
 BLOCK_RE = re.compile(r"\n\t([A-Za-z0-9_]+) = \{")
@@ -270,9 +291,23 @@ def bonus_seeds(tag: str, techs: dict) -> list[str]:
     return seeds
 
 
+def rocket_seeds(tag: str) -> list[str]:
+    ids = list(ROCKET_BY_TIER[tier_of(tag)])
+    ids += ROCKET_COUNTRY.get(tag, [])
+    seen = set()
+    out = []
+    for tid in ids:
+        if tid in seen or tid in {"dd_rkt_5", "dd_rkt_6", "dd_rkt_7"}:
+            continue
+        seen.add(tid)
+        out.append(tid)
+    return out
+
+
 def kit_for(tag: str, techs: dict, eq_to_tech: dict[str, str], parents: dict[str, list[str]]) -> list[str]:
     tier = tier_of(tag)
     seeds = [t for t in LAND[tier] if t in techs]
+    seeds += [t for t in rocket_seeds(tag) if t in techs]
     seeds += bonus_seeds(tag, techs)
     text = unit_text(tag)
     kinds = spawned_regiments(text)

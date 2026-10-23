@@ -1,6 +1,6 @@
 # Iran war, succession, and the Hormuz blockade. Country-scoped. No random.
 
-# The Final Battle stays. Iran Against the World adds the core and factory lines.
+# Repair +30% is on the idea. Iran Against the World swaps in the core and factory card.
 dd_per_apply_final_battle = {
 	if = {
 		limit = {
@@ -11,23 +11,19 @@ dd_per_apply_final_battle = {
 		}
 		set_country_flag = dd_per_final_battle_world
 	}
-	set_variable = { dd_fb_repair = 0.30 }
-	set_variable = { dd_fb_atk = 0 }
-	set_variable = { dd_fb_def = 0 }
-	set_variable = { dd_fb_factory = 0 }
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_per_final_battle_spirit } }
+		remove_dynamic_modifier = { modifier = dd_per_final_battle_spirit }
+	}
 	if = {
 		limit = { has_country_flag = dd_per_final_battle_world }
-		set_variable = { dd_fb_atk = 0.10 }
-		set_variable = { dd_fb_def = 0.10 }
-		set_variable = { dd_fb_factory = 0.10 }
+		if = { limit = { has_idea = dd_per_final_battle } remove_ideas = dd_per_final_battle }
+		if = { limit = { NOT = { has_idea = dd_per_final_battle_2 } } add_ideas = dd_per_final_battle_2 }
 	}
-	if = { limit = { has_idea = dd_per_final_battle } remove_ideas = dd_per_final_battle }
-	if = { limit = { has_idea = dd_per_final_battle_2 } remove_ideas = dd_per_final_battle_2 }
-	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_per_final_battle_spirit } } }
-		add_dynamic_modifier = { modifier = dd_per_final_battle_spirit }
+	else = {
+		if = { limit = { has_idea = dd_per_final_battle_2 } remove_ideas = dd_per_final_battle_2 }
+		if = { limit = { NOT = { has_idea = dd_per_final_battle } } add_ideas = dd_per_final_battle }
 	}
-	force_update_dynamic_modifier = yes
 }
 
 dd_per_puppet_proxies = {
@@ -115,6 +111,10 @@ dd_per_withdraw_proxy_support = {
 			remove_ideas = dd_hez_hindered_support
 			remove_ideas = dd_hez_iranian_support
 		}
+	}
+	if = {
+		limit = { HOU = { exists = yes } }
+		HOU = { remove_ideas = dd_hez_iranian_support }
 	}
 	if = {
 		limit = { IRQ = { exists = yes } }
@@ -1004,6 +1004,15 @@ dd_per_shiite_popout = {
 		}
 	}
 	country_event = { id = dd_iran.30 days = 1 }
+	IRQ = {
+		if = {
+			limit = {
+				has_civil_war = yes
+				NOT = { has_idea = dd_irq_taken_by_surprise }
+			}
+			add_timed_idea = { idea = dd_irq_taken_by_surprise days = 14 }
+		}
+	}
 }
 
 dd_per_join_shiite_war = {
@@ -1063,6 +1072,279 @@ dd_per_join_shiite_war = {
 			add_to_war = {
 				targeted_alliance = event_target:dd_shiite_side
 				enemy = IRQ
+			}
+		}
+	}
+}
+
+# The diplomacy volunteer button is closed while the sender is at war.
+# Iran, the United States, and Israel are already in the Gulf war, so they deploy
+# puppet-owned brigades, four at most. A country at peace uses the volunteer button.
+# The idea adds 4 to the volunteer cap and waives the division and tension gates.
+dd_per_open_iraq_volunteers = {
+	if = {
+		limit = { has_global_event_target = dd_shiite_side }
+		event_target:dd_shiite_side = {
+			if = {
+				limit = { NOT = { has_country_flag = dd_shiite_brigade_template } }
+				set_country_flag = dd_shiite_brigade_template
+				division_template = {
+					name = "Foreign Brigade"
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						artillery = { x = 0 y = 1 }
+					}
+					is_locked = yes
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = PER
+					tag = USA
+					tag = ISR
+					tag = FRA
+				}
+			}
+			set_country_flag = dd_irq_volunteer_window
+			set_variable = { dd_irq_brigades_sent = 0 }
+			if = {
+				limit = { NOT = { has_idea = dd_irq_volunteer_window } }
+				add_ideas = dd_irq_volunteer_window
+			}
+			add_ai_strategy = {
+				type = send_volunteers_desire
+				id = IRQ
+				value = -200
+			}
+			event_target:dd_shiite_side = {
+				PREV = {
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = PREV
+						value = 200
+					}
+				}
+			}
+		}
+	}
+}
+
+dd_irq_spawn_foreign_brigade = {
+	if = {
+		limit = {
+			has_global_event_target = dd_shiite_side
+			check_variable = { dd_irq_brigades_sent < 4 }
+			event_target:dd_shiite_side = { exists = yes has_war_with = IRQ }
+		}
+		add_to_variable = { dd_irq_brigades_sent = 1 }
+		event_target:dd_shiite_side = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Foreign Brigade\" division_template = \"Foreign Brigade\" start_experience_factor = 0.9 start_equipment_factor = 1"
+					owner = PREV
+				}
+			}
+		}
+	}
+}
+
+dd_per_anonymous_drones = {
+	set_country_flag = dd_per_proxy_shiite
+	if = {
+		limit = { has_global_event_target = dd_shiite_side }
+		event_target:dd_shiite_side = {
+			if = {
+				limit = { NOT = { has_idea = dd_shiite_iranian_support } }
+				add_ideas = dd_shiite_iranian_support
+			}
+		}
+	}
+	if = {
+		limit = {
+			IRQ = { exists = yes }
+			NOT = { IRQ = { has_idea = dd_irq_anonymous_drones } }
+		}
+		IRQ = { add_ideas = dd_irq_anonymous_drones }
+	}
+}
+
+# Seeds controlled Iranian cores, then walks states we or a puppet control.
+# South Lebanon counts once that walk touches it or a neighbor.
+dd_per_update_lebanon_link = {
+	every_state = {
+		limit = { has_state_flag = dd_per_reach }
+		clr_state_flag = dd_per_reach
+	}
+	every_controlled_state = {
+		limit = { is_core_of = ROOT }
+		set_state_flag = dd_per_reach
+	}
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	every_state = { limit = { NOT = { has_state_flag = dd_per_reach } any_neighbor_state = { has_state_flag = dd_per_reach } OR = { is_controlled_by = ROOT controller = { is_subject_of = ROOT } } } set_state_flag = dd_per_reach }
+	clr_country_flag = dd_per_lebanon_land_link
+	if = {
+		limit = {
+			1089 = {
+				OR = {
+					has_state_flag = dd_per_reach
+					any_neighbor_state = { has_state_flag = dd_per_reach }
+				}
+			}
+		}
+		set_country_flag = dd_per_lebanon_land_link
+	}
+}
+
+# Focus reward. Existing Hezbollah only receives the spirit. A dead tag is rebuilt off-map.
+dd_per_link_hezbollah = {
+	if = {
+		limit = { HEZ = { exists = yes } }
+		HEZ = {
+			if = {
+				limit = { NOT = { has_idea = dd_hez_hindered_support } }
+				add_ideas = dd_hez_hindered_support
+			}
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_per_hez_offmap } }
+		dd_per_spawn_offmap_hez = yes
+	}
+}
+
+dd_per_sync_hezbollah = {
+	dd_per_update_lebanon_link = yes
+	if = {
+		limit = {
+			has_country_flag = dd_per_hez_offmap
+			NOT = { has_country_flag = dd_per_hez_popped }
+			has_global_event_target = dd_hez_occupier
+			HEZ = { exists = yes }
+			1089 = {
+				is_owned_by = HEZ
+				is_controlled_by = HEZ
+			}
+		}
+		1089 = { set_state_controller_to = event_target:dd_hez_occupier }
+	}
+}
+
+# Hezbollah owns South Lebanon and is exiled in Tehran. The previous holder keeps control until the rebellion.
+dd_per_spawn_offmap_hez = {
+	1089 = {
+		owner = { save_global_event_target_as = dd_hez_occupier }
+	}
+	HEZ = { transfer_state = 1089 }
+	puppet = HEZ
+	HEZ = {
+		set_capital = { state = 1089 }
+		add_state_core = 1089
+		add_ideas = dd_hez_hindered_support
+		set_politics = {
+			ruling_party = theocratic_absolutism
+			elections_allowed = no
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Naim Qassem"
+			desc = HEZ_LEADER_DESC
+			picture = GFX_portrait_HEZ_leader
+			expire = "2065.1.1"
+			ideology = theocrat
+		}
+		become_exiled_in = {
+			target = PER
+			legitimacy = 100
+		}
+	}
+	if = {
+		limit = { has_global_event_target = dd_hez_occupier }
+		1089 = { set_state_controller_to = event_target:dd_hez_occupier }
+	}
+	set_country_flag = dd_per_hez_offmap
+}
+
+dd_per_hez_popout = {
+	if = {
+		limit = { HEZ = { exists = yes } }
+		if = {
+			limit = { NOT = { 1089 = { is_owned_by = HEZ } } }
+			HEZ = { transfer_state = 1089 }
+		}
+		1089 = { set_state_controller_to = HEZ }
+		HEZ = {
+			add_state_core = 1089
+			if = {
+				limit = { NOT = { has_idea = dd_hez_hindered_support } }
+				add_ideas = dd_hez_hindered_support
+			}
+			division_template = {
+				name = "Garrison Brigade"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+				}
+				is_locked = yes
+			}
+			1089 = {
+				create_unit = {
+					division = "name = \"1. Hezbollah Brigade\" division_template = \"Garrison Brigade\" start_experience_factor = 0.75 start_equipment_factor = 1"
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"2. Hezbollah Brigade\" division_template = \"Garrison Brigade\" start_experience_factor = 0.75 start_equipment_factor = 1"
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"3. Hezbollah Brigade\" division_template = \"Garrison Brigade\" start_experience_factor = 0.75 start_equipment_factor = 1"
+					owner = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_global_event_target = dd_hez_occupier
+				event_target:dd_hez_occupier = {
+					exists = yes
+					NOT = { tag = PER }
+					NOT = { tag = HEZ }
+					NOT = { is_subject_of = PER }
+				}
+				NOT = { HEZ = { has_war_with = event_target:dd_hez_occupier } }
+			}
+			HEZ = {
+				declare_war_on = {
+					target = event_target:dd_hez_occupier
+					type = dd_annex
+				}
 			}
 		}
 	}

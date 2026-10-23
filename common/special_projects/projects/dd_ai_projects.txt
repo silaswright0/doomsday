@@ -1,0 +1,224 @@
+# Machine intelligence. Own electronics facility, not the air lab.
+# The facility uses the existing special_project_facility_spawn pins.
+
+sp_dd_machine_intelligence = {
+	specialization = specialization_electronics
+	icon = GFX_sp_nuclear_radar
+
+	project_tags = sp_tag_ai
+
+	prototype_time = sp_time.prototype.long
+	complexity = sp_complexity.large
+
+	breakthrough_cost = {
+		specialization_electronics = 2
+	}
+
+	resource_cost = {
+		resources = {
+			steel = 4
+			aluminium = 8
+		}
+	}
+
+	ai_will_do = {
+		base = 1
+		modifier = {
+			factor = 4
+			ROOT = { is_major = yes }
+		}
+	}
+
+	project_output = {
+		country_effects = {
+			if = {
+				limit = { NOT = { has_idea = dd_ai_program } }
+				add_ideas = dd_ai_program
+			}
+		}
+	}
+
+	generic_prototype_rewards = {
+		sp_air_scientist_xp_generic_reward
+		sp_nuclear_generic_electronics_tech_reward
+	}
+}
+
+# Follow-ons. Each one is a single large advance, and each one needs the
+# base model program first. Nobody starts with these finished.
+
+sp_dd_ai_staff = {
+	specialization = specialization_electronics
+	icon = GFX_sp_nuclear_radar
+	project_tags = sp_tag_ai
+
+	special_project_parent = {
+		sp_dd_machine_intelligence
+	}
+
+	prototype_time = sp_time.prototype.very_long
+	complexity = sp_complexity.insane
+
+	breakthrough_cost = {
+		specialization_electronics = 1
+	}
+
+	resource_cost = {
+		resources = { steel = 6 aluminium = 10 }
+	}
+
+	ai_will_do = {
+		base = 2
+		modifier = {
+			factor = 3
+			ROOT = { is_major = yes }
+		}
+	}
+
+	project_output = {
+		country_effects = {
+			if = {
+				limit = { NOT = { has_idea = dd_ai_staff } }
+				add_ideas = dd_ai_staff
+			}
+		}
+	}
+
+	generic_prototype_rewards = {
+		sp_air_scientist_xp_generic_reward
+		sp_nuclear_generic_electronics_tech_reward
+	}
+}
+
+sp_dd_ai_logistics = {
+	specialization = specialization_electronics
+	icon = GFX_sp_nuclear_radar
+	project_tags = sp_tag_ai
+
+	special_project_parent = {
+		sp_dd_machine_intelligence
+	}
+
+	prototype_time = sp_time.prototype.very_long
+	complexity = sp_complexity.insane
+
+	breakthrough_cost = {
+		specialization_electronics = 1
+	}
+
+	resource_cost = {
+		resources = { steel = 8 aluminium = 8 }
+	}
+
+	ai_will_do = {
+		base = 2
+		modifier = {
+			factor = 3
+			ROOT = { is_major = yes }
+		}
+	}
+
+	project_output = {
+		country_effects = {
+			if = {
+				limit = { NOT = { has_idea = dd_ai_logistics } }
+				add_ideas = dd_ai_logistics
+			}
+		}
+	}
+
+	generic_prototype_rewards = {
+		sp_air_scientist_xp_generic_reward
+		sp_nuclear_generic_electronics_tech_reward
+	}
+}
+
+sp_dd_ai_industry = {
+	specialization = specialization_electronics
+	icon = GFX_sp_nuclear_radar
+	project_tags = sp_tag_ai
+
+	special_project_parent = {
+		sp_dd_machine_intelligence
+	}
+
+	prototype_time = sp_time.prototype.very_long
+	complexity = sp_complexity.insane
+
+	breakthrough_cost = {
+		specialization_electronics = 1
+	}
+
+	resource_cost = {
+		resources = { steel = 12 aluminium = 6 }
+	}
+
+	ai_will_do = {
+		base = 2
+		modifier = {
+			factor = 3
+			ROOT = { is_major = yes }
+		}
+	}
+
+	project_output = {
+		country_effects = {
+			if = {
+				limit = { NOT = { has_idea = dd_ai_industry } }
+				add_ideas = dd_ai_industry
+			}
+		}
+	}
+
+	generic_prototype_rewards = {
+		sp_air_scientist_xp_generic_reward
+		sp_nuclear_generic_electronics_tech_reward
+	}
+}
+
+sp_dd_ai_strike = {
+	specialization = specialization_electronics
+	icon = GFX_sp_nuclear_radar
+	project_tags = sp_tag_ai
+
+	special_project_parent = {
+		sp_dd_machine_intelligence
+	}
+
+	prototype_time = sp_time.prototype.very_long
+	complexity = sp_complexity.insane
+
+	breakthrough_cost = {
+		specialization_electronics = 1
+	}
+
+	resource_cost = {
+		resources = { steel = 6 aluminium = 12 tungsten = 4 }
+	}
+
+	ai_will_do = {
+		base = 2
+		modifier = {
+			factor = 4
+			ROOT = { is_major = yes }
+		}
+		modifier = {
+			factor = 2
+			ROOT = { has_war = yes }
+		}
+	}
+
+	project_output = {
+		country_effects = {
+			if = {
+				limit = { NOT = { has_idea = dd_ai_strike } }
+				add_ideas = dd_ai_strike
+			}
+		}
+	}
+
+	generic_prototype_rewards = {
+		sp_air_scientist_xp_generic_reward
+		sp_nuclear_generic_electronics_tech_reward
+	}
+}

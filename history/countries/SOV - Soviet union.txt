@@ -403,6 +403,9 @@ set_technology = {
 	dd_cg_1 = 1
 	dd_cg_2 = 1
 	dd_ssk_1 = 1
+	dd_ssbn_1 = 1
+	dd_ssbn_2 = 1
+	dd_ssbn_3 = 1
 	dd_ssn_2 = 1
 	dd_cv_1 = 1
 	dd_cv_2 = 1
@@ -581,6 +584,11 @@ set_technology = {
 	dd_prot_2 = 1
 	dd_prot_3 = 1
 	dd_prot_4 = 1
+	dd_rkt_1 = 1
+	dd_rkt_2 = 1
+	dd_rkt_3 = 1
+	dd_rkt_4 = 1
+	dd_wpn_5 = 1
 }
 
 
@@ -643,13 +651,33 @@ create_equipment_variant = {
 		rear_1_custom_slot = ship_torpedo_sub_2
 	}
 }
+create_equipment_variant = {
+	name = "Diesel Submarine"
+	type = ship_hull_submarine_diesel_1
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_2
+		fixed_ship_engine_slot = sub_ship_engine_2
+		rear_1_custom_slot = ship_torpedo_sub_2
+	}
+}
+create_equipment_variant = {
+	name = "Ballistic Missile Submarine"
+	type = ship_hull_ssbn_3
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_2
+		fixed_ship_engine_slot = sub_ship_engine_2
+		rear_1_custom_slot = ship_torpedo_sub_2
+	}
+}
 add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 45 producer = SOV }
-add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 5190 producer = SOV }
-add_equipment_to_stockpile = { type = support_equipment amount = 216 producer = SOV }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 76 producer = SOV }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 1800 producer = SOV }
-add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 180 producer = SOV }
-add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 96 producer = SOV }
+add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 5415 producer = SOV }
+add_equipment_to_stockpile = { type = support_equipment amount = 201 producer = SOV }
+add_equipment_to_stockpile = { type = artillery_equipment amount = 72 producer = SOV }
+add_equipment_to_stockpile = { type = mechanized_equipment amount = 1080 producer = SOV }
+add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 90 producer = SOV }
+add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 45 producer = SOV }
 add_ideas = dd_welfare_3
 add_ideas = dd_education_5
 add_ideas = dd_immigration_2
@@ -697,7 +725,6 @@ recruit_character = SOV_john_airforce
 recruit_character = SOV_john_navy
 recruit_character = SOV_fm_valery_gerasimov
 recruit_character = SOV_fm_andrey_mordvichev
-recruit_character = SOV_fm_oleg_salyukov
 recruit_character = SOV_gen_aleksandr_lapin
 recruit_character = SOV_nav_aleksandr_moiseev
 create_faction = CSTO

@@ -202,6 +202,18 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = dd_iran.40
+	title = dd_iran.40.t
+	desc = dd_iran.40.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	option = {
+		name = dd_iran.40.a
+		dd_per_open_iraq_volunteers = yes
+	}
+}
+
 news_event = {
 	id = dd_iran_news.7
 	title = dd_iran_news.7.t

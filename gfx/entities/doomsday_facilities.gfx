@@ -1,0 +1,61 @@
+objectTypes = {
+	pdxmesh = {
+		name = "building_electronics_facility"
+		file = "gfx/models/buildings/facility_air.mesh"
+		scale = 0.6
+		meshsettings = {
+			name = "facility_airShape"
+			index = 0
+			texture_diffuse = "facility_diffuse.dds"
+			texture_normal = "facility_normal.dds"
+			texture_specular = "facility_specular.dds"
+			shader = "PdxMeshAdvancedSnow"
+		}
+		meshsettings = {
+			name = "facility_airShape"
+			index = 1
+			texture_diffuse = "hangar_flight_diffuse.dds"
+			texture_normal = "hangar_flight_normal.dds"
+			texture_specular = "hangar_flight_specular.dds"
+			shader = "PdxMeshAdvancedSnow"
+		}
+		meshsettings = {
+			name = "facility_airShape"
+			index = 2
+			texture_diffuse = "v2_rocket_launchsite_diffuse.dds"
+			texture_normal = "v2_rocket_launchsite_normal.dds"
+			texture_specular = "v2_rocket_launchsite_specular.dds"
+			shader = "PdxMeshAdvancedSnow"
+		}
+	}
+
+	pdxmesh = {
+		name = "building_electronics_facility_destroyed"
+		file = "gfx/models/buildings/facility_air_destroyed.mesh"
+		scale = 0.6
+		meshsettings = {
+			name = "facility_air_destroyedShape"
+			index = 0
+			texture_diffuse = "facility_diffuse.dds"
+			texture_normal = "facility_normal.dds"
+			texture_specular = "facility_specular.dds"
+			shader = "PdxMeshAdvancedSnow"
+		}
+		meshsettings = {
+			name = "facility_air_destroyedShape"
+			index = 1
+			texture_diffuse = "hangar_flight_diffuse.dds"
+			texture_normal = "hangar_flight_normal.dds"
+			texture_specular = "hangar_flight_specular.dds"
+			shader = "PdxMeshAdvancedSnow"
+		}
+		meshsettings = {
+			name = "facility_air_destroyedShape"
+			index = 2
+			texture_diffuse = "v2_rocket_launchsite_diffuse.dds"
+			texture_normal = "v2_rocket_launchsite_normal.dds"
+			texture_specular = "v2_rocket_launchsite_specular.dds"
+			shader = "PdxMeshAdvancedSnow"
+		}
+	}
+}

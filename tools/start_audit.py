@@ -40,7 +40,7 @@ PIES: dict[str, dict[str, int]] = {
     "POR": {"liberal_conservatism": 32, "social_democracy": 30, "social_liberalism": 14, "national_populism": 12, "communism": 8, "progressive_populism": 4},
     "GRE": {"liberal_conservatism": 38, "social_democracy": 28, "communism": 10, "national_populism": 10, "social_liberalism": 8, "fascism": 6},
     "CZE": {"liberal_conservatism": 32, "national_populism": 26, "social_democracy": 18, "social_liberalism": 12, "communism": 8, "fascism": 4},
-    "ISR": {"national_populism": 38, "liberal_conservatism": 22, "social_liberalism": 16, "social_democracy": 12, "progressive_populism": 6, "fascism": 4, "communism": 2},
+    "ISR": {"national_populism": 28, "theocratic_absolutism": 22, "liberal_conservatism": 8, "fascism": 5, "social_liberalism": 22, "social_democracy": 9, "progressive_populism": 4, "communism": 2},
     "UKR": {"social_liberalism": 28, "national_populism": 24, "liberal_conservatism": 18, "social_democracy": 16, "sovereign_democracy": 8, "communism": 4, "fascism": 2},
     "PER": {"theocratic_absolutism": 52, "islamic_democracy": 18, "liberal_conservatism": 10, "left_wing_nationalism": 8, "national_populism": 6, "communism": 4, "sovereign_democracy": 2},
     "EGY": {"military_junta": 62, "islamic_democracy": 14, "liberal_conservatism": 8, "national_populism": 6, "social_democracy": 4, "left_wing_nationalism": 4, "communism": 2},
@@ -190,7 +190,8 @@ FORCES: dict[str, tuple[int, ...]] = {
     # Forward brigades are Mechanized Brigade or Garrison Brigade below.
     "USA": (8, 2, 2, 3, 1, 0, 14, 11, 48, 18, 55, 48, 12, 20),
     "CHI": (20, 8, 14, 2, 4, 0, 16, 3, 42, 22, 50, 55, 18, 16),
-    "SOV": (18, 8, 12, 1, 3, 0, 10, 1, 22, 14, 42, 32, 16, 14),
+    # Hand-placed 1 Jan 2026. Land is packed divisions. Navy is 0 carriers, 20 escorts, 2 cruisers, 49 submarines.
+    "SOV": (23, 4, 8, 3, 2, 2, 10, 0, 20, 2, 49, 15, 7, 8),
     "RAJ": (18, 4, 8, 1, 2, 0, 12, 2, 18, 8, 16, 22, 8, 10),
     # Garrisons include Cyprus, Estonia, Brunei, Kenya, and the Falklands.
     "ENG": (5, 1, 3, 1, 0, 0, 5, 2, 16, 6, 10, 14, 4, 8),
@@ -217,7 +218,8 @@ FORCES: dict[str, tuple[int, ...]] = {
     "DEN": (1, 0, 1, 0, 0, 0, 1, 0, 3, 0, 0, 3, 1, 2),
     "FIN": (3, 0, 1, 0, 1, 0, 3, 0, 0, 0, 0, 4, 1, 2),
     "ISR": (6, 3, 5, 0, 0, 2, 4, 0, 0, 0, 5, 18, 8, 8),
-    "UKR": (14, 4, 8, 0, 0, 4, 8, 0, 0, 0, 2, 8, 6, 8),
+    # Hand-placed 1 Jan 2026. No operational fleet. Air in the unit file is 90 fighters, 36 CAS, 48 helicopters.
+    "UKR": (16, 2, 6, 1, 1, 8, 6, 0, 0, 0, 0, 4, 2, 4),
     "PER": (6, 2, 3, 0, 1, 2, 4, 0, 4, 0, 6, 10, 6, 6),
     "EGY": (8, 3, 4, 1, 0, 0, 6, 0, 8, 2, 8, 12, 6, 6),
     "PAK": (12, 3, 5, 0, 2, 0, 8, 0, 6, 2, 8, 14, 6, 6),
@@ -372,7 +374,6 @@ OVERSEAS_LAND = [
     ("SOV", "Garrison Brigade", "4th Military Base", "SOE", 1101),
     ("SOV", "Garrison Brigade", "Operational Group Transnistria", "PMR", 834),
     ("SOV", "Garrison Brigade", "Union State Contingent", "BLR", 206),
-    ("SOV", "Garrison Brigade", "Hmeimim Support Group", "SYR", 677),
     ("CHI", "Garrison Brigade", "PLA Support Base Djibouti", "DJI", 268),
     ("JAP", "Garrison Brigade", "Deployment Support Djibouti", "DJI", 268),
 ]
@@ -406,7 +407,6 @@ OVERSEAS_AIR = [
     ("FRA", "DJI", 268, 8, 4, 4),
     ("SOV", "ARM", 230, 12, 0, 4),
     ("SOV", "BLR", 206, 12, 0, 4),
-    ("SOV", "SYR", 677, 8, 4, 4),
     ("SOV", "KYR", 732, 8, 0, 4),
     ("CHI", "DJI", 268, 0, 0, 4),
 ]
@@ -427,7 +427,6 @@ OVERSEAS_NAVY = [
     ("FRA", "DJI", 268, 0, 1, 0, 0),
     ("CHI", "DJI", 268, 0, 1, 0, 0),
     ("CHI", "CAM", 741, 0, 1, 0, 0),
-    ("SOV", "SYR", 677, 0, 1, 0, 0),
 ]
 
 # tag, state_id, cv, dd, cl, ss, title. Own-soil fleets, taken out of FORCES before the leftover home fleet.
@@ -436,6 +435,10 @@ HOME_NAVY = [
     ("USA", 378, 4, 6, 4, 10, "Pacific Fleet"),
     ("USA", 386, 0, 2, 2, 15, "Kitsap Submarine Group"),
     ("USA", 629, 1, 3, 0, 0, "Pearl Harbor"),
+    ("SOV", 213, 0, 6, 1, 28, "Northern Fleet"),
+    ("SOV", 408, 0, 6, 1, 17, "Pacific Fleet"),
+    ("SOV", 763, 0, 4, 0, 2, "Baltic Fleet"),
+    ("SOV", 234, 0, 4, 0, 2, "Black Sea Fleet"),
 ]
 
 DEBT_OVERRIDES: dict[str, dict[str, float]] = {
@@ -531,7 +534,6 @@ COMMANDERS: dict[str, list[tuple]] = {
     "SOV": [
         ("Valery Gerasimov", "fm", 4, 3, 4, 4, 4, "career_officer organizer"),
         ("Andrey Mordvichev", "fm", 4, 4, 3, 3, 3, "armor_officer offensive_doctrine"),
-        ("Oleg Salyukov", "fm", 3, 3, 3, 3, 4, "infantry_officer"),
         ("Aleksandr Lapin", "gen", 3, 3, 2, 3, 3, "career_officer"),
         ("Aleksandr Moiseev", "nav", 3, 3, 3, 3, 3, "seawolf"),
     ],
@@ -573,8 +575,9 @@ COMMANDERS: dict[str, list[tuple]] = {
     ],
     "UKR": [
         ("Oleksandr Syrskyi", "fm", 4, 3, 4, 4, 4, "infantry_officer organizer"),
-        ("Mykhailo Drapatyi", "gen", 4, 4, 3, 3, 3, "infantry_officer"),
-        ("Andrii Hnatov", "gen", 3, 3, 3, 3, 3, "career_officer"),
+        ("Mykhailo Drapatyi", "gen", 4, 4, 3, 3, 3, "infantry_officer organizer"),
+        ("Andrii Hnatov", "gen", 4, 3, 3, 4, 4, "organizer career_officer"),
+        ("Hennadii Shapovalov", "gen", 3, 3, 3, 3, 4, "infantry_officer organizer"),
         ("Oleksii Neizhpapa", "nav", 3, 2, 3, 3, 2, "spotter"),
     ],
     "DPK": [

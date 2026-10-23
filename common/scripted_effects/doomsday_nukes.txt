@@ -1,4 +1,6 @@
 # Starting arsenals. One warhead per missile.
+# The bomb special project adds 1 warhead when it completes, so these
+# counts are one below the intended stock. Grant projects first.
 # nuclear_missile_equipment_2 is the ICBM, launched from rocket sites.
 # nuclear_missile_equipment_1 is the submarine missile. Any submarine can fire it.
 # Britain has no land missiles, so the whole stock is on submarines.
@@ -10,7 +12,7 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 40
+			add_nuclear_bombs = 39
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 24 producer = USA }
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 16 producer = USA }
 		}
@@ -20,7 +22,7 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 36
+			add_nuclear_bombs = 35
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 20 producer = SOV }
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 16 producer = SOV }
 		}
@@ -30,7 +32,7 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 18
+			add_nuclear_bombs = 17
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 12 producer = CHI }
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 6 producer = CHI }
 		}
@@ -40,7 +42,7 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 12
+			add_nuclear_bombs = 11
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 4 producer = FRA }
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 8 producer = FRA }
 		}
@@ -50,7 +52,7 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 8
+			add_nuclear_bombs = 7
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 8 producer = ENG }
 		}
 	}
@@ -59,7 +61,7 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 8
+			add_nuclear_bombs = 7
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 4 producer = RAJ }
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 4 producer = RAJ }
 		}
@@ -69,7 +71,7 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 8
+			add_nuclear_bombs = 7
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 6 producer = PAK }
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 2 producer = PAK }
 		}
@@ -79,7 +81,7 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 6
+			add_nuclear_bombs = 5
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 2 producer = ISR }
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 4 producer = ISR }
 		}
@@ -89,9 +91,118 @@ dd_assign_starting_nukes = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
-			add_nuclear_bombs = 6
+			add_nuclear_bombs = 5
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 4 producer = DPK }
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 2 producer = DPK }
+		}
+	}
+}
+
+# Conventional missiles. Separate from the nuclear arsenal above.
+# ballistic_missile_equipment_1 is the short-range missile.
+# ballistic_missile_equipment_2 is the medium-range missile.
+# guided_missile_equipment_cw is the cruise missile from dd_wpn_5.
+# Flag-guarded: on_startup also runs when a save is loaded.
+
+dd_assign_starting_missiles = {
+	PER = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 24 producer = PER }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 12 producer = PER }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 8 producer = PER }
+		}
+	}
+	KOR = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 8 producer = KOR }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 4 producer = KOR }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 4 producer = KOR }
+		}
+	}
+	SOV = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 12 producer = SOV }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 8 producer = SOV }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 10 producer = SOV }
+		}
+	}
+	CHI = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 16 producer = CHI }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 12 producer = CHI }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 10 producer = CHI }
+		}
+	}
+	DPK = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 12 producer = DPK }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 6 producer = DPK }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 4 producer = DPK }
+		}
+	}
+	PAK = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 8 producer = PAK }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 4 producer = PAK }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 4 producer = PAK }
+		}
+	}
+	RAJ = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 6 producer = RAJ }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 4 producer = RAJ }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 4 producer = RAJ }
+		}
+	}
+	ISR = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 4 producer = ISR }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 2 producer = ISR }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 4 producer = ISR }
+		}
+	}
+	USA = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 12 producer = USA }
+		}
+	}
+	ENG = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 8 producer = ENG }
+		}
+	}
+	FRA = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 8 producer = FRA }
+		}
+	}
+	JAP = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_starting_missiles } }
+			set_country_flag = dd_starting_missiles
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 4 producer = JAP }
 		}
 	}
 }

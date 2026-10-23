@@ -1713,7 +1713,7 @@ characters = {
 			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
 		}
 		corps_commander = {
-			traits = { infantry_officer }
+			traits = { infantry_officer organizer }
 			skill = 4
 			attack_skill = 4
 			defense_skill = 3
@@ -1728,12 +1728,27 @@ characters = {
 			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
 		}
 		corps_commander = {
-			traits = { career_officer }
+			traits = { organizer career_officer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+			legacy_id = 0
+		}
+	}
+	UKR_gen_hennadii_shapovalov = {
+		name = "Hennadii Shapovalov"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		corps_commander = {
+			traits = { infantry_officer organizer }
 			skill = 3
 			attack_skill = 3
 			defense_skill = 3
 			planning_skill = 3
-			logistics_skill = 3
+			logistics_skill = 4
 			legacy_id = 0
 		}
 	}

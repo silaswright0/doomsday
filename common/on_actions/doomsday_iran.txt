@@ -6,10 +6,11 @@ on_actions = {
 					limit = {
 						OR = {
 							has_completed_focus = PER_final_battle
+							has_completed_focus = PER_iran_against_the_world
 							has_idea = dd_per_final_battle
 							has_idea = dd_per_final_battle_2
+							has_dynamic_modifier = { modifier = dd_per_final_battle_spirit }
 						}
-						NOT = { has_dynamic_modifier = { modifier = dd_per_final_battle_spirit } }
 					}
 					dd_per_apply_final_battle = yes
 				}
@@ -27,6 +28,10 @@ on_actions = {
 				}
 				set_country_flag = dd_per_jan_crackdown
 				country_event = { id = dd_iran.20 }
+			}
+			if = {
+				limit = { tag = PER }
+				dd_per_sync_hezbollah = yes
 			}
 			if = {
 				limit = { has_global_flag = dd_gulf_closed_usa }

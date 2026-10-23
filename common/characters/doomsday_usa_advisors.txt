@@ -467,4 +467,18 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	USA_steve_witkoff = {
+		name = "Steve Witkoff"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_steve_witkoff small = GFX_portrait_USA_steve_witkoff_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_steve_witkoff
+			allowed = { original_tag = USA }
+			available = { has_government = national_populism }
+			traits = { dd_special_envoy }
+			ai_will_do = { factor = 1 }
+		}
+	}
 }

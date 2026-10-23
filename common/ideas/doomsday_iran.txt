@@ -39,6 +39,58 @@ ideas = {
 				army_org_factor = 0.05
 			}
 		}
+		dd_shiite_iranian_support = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			on_add = {
+				add_offsite_building = { type = arms_factory level = 5 }
+			}
+			on_remove = {
+				add_offsite_building = { type = arms_factory level = -5 }
+			}
+			modifier = {
+				army_org_factor = 0.05
+			}
+		}
+		dd_irq_taken_by_surprise = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.20
+				army_defence_factor = -0.20
+			}
+		}
+		dd_irq_anonymous_drones = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.10
+				stability_factor = -0.20
+				supply_consumption_factor = 0.50
+				out_of_supply_factor = 0.30
+				attrition = 0.15
+			}
+		}
+		dd_irq_volunteer_window = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			rule = {
+				can_send_volunteers = yes
+			}
+			modifier = {
+				send_volunteer_size = 4
+				send_volunteer_divisions_required = -1
+				send_volunteers_tension = -1
+			}
+		}
 		dd_fight_for_survival = {
 			picture = generic_wall_line
 			allowed = { always = no }
@@ -354,7 +406,7 @@ ideas = {
 		dd_per_const_31 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.10 consumer_goods_factor = -0.08 } }
 		dd_per_const_32 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.05 trade_opinion_factor = 0.25 consumer_goods_factor = -0.05 } }
 		dd_per_const_33 = { picture = generic_research_bonus allowed = { always = no } allowed_civil_war = { always = yes } removal_cost = -1 modifier = { research_speed_factor = 0.08 industrial_capacity_factory = 0.15 monthly_population = 0.05 stability_factor = -0.05 } }
-		# Old cards. The live spirit is dd_per_final_battle_spirit. A loaded save is moved across on startup.
+		# The live Final Battle cards. Iran Against the World swaps in the second.
 		dd_per_final_battle = {
 			picture = generic_wall_line
 			allowed = { always = no }

@@ -1,0 +1,59 @@
+ideas = {
+	country = {
+		dd_ai_program = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+				special_project_speed_factor = 0.10
+			}
+		}
+		dd_ai_staff = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				planning_speed = 0.40
+				max_planning_factor = 0.20
+				command_power_gain_mult = 0.25
+			}
+		}
+		dd_ai_logistics = {
+			picture = generic_supply_line
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				supply_consumption_factor = -0.25
+				out_of_supply_factor = -0.30
+				fuel_consumption_factor = -0.20
+			}
+		}
+		dd_ai_industry = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				production_factory_efficiency_gain_factor = 1.0
+				production_factory_max_efficiency_factor = 0.15
+				line_change_production_efficiency_factor = 0.75
+			}
+		}
+		dd_ai_strike = {
+			picture = generic_air_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				breakthrough_factor = 0.15
+				air_superiority_efficiency = 0.15
+				ground_attack_factor = 0.20
+				naval_strike_attack_factor = 0.20
+			}
+		}
+	}
+}

@@ -28,18 +28,27 @@ on_actions = {
 						activate_mission = dd_usa_general_countdown
 					}
 				}
+				if = { limit = { NOT = { has_variable = dd_ruins_stability } } set_variable = { dd_ruins_stability = -0.15 } }
+				if = { limit = { NOT = { has_variable = dd_ruins_war_support } } set_variable = { dd_ruins_war_support = -0.25 } }
+				if = { limit = { NOT = { has_variable = dd_ruins_factory } } set_variable = { dd_ruins_factory = -0.25 } }
+				if = { limit = { NOT = { has_variable = dd_ruins_cg } } set_variable = { dd_ruins_cg = 0.30 } }
 				if = {
 					limit = {
 						OR = {
 							has_completed_focus = USA_little_tech
+							has_completed_focus = USA_bring_in_little_tech
+							has_completed_focus = USA_prepare_for_agi
+							has_completed_focus = USA_final_stretch
+							has_completed_focus = USA_ai_administration
+							has_completed_focus = USA_capitalisms_final_form
 							has_idea = dd_usa_little_tech
 							has_idea = dd_usa_little_tech_2
 							has_idea = dd_usa_little_tech_3
 							has_idea = dd_usa_little_tech_4
 							has_idea = dd_usa_little_tech_5
 							has_idea = dd_usa_little_tech_6
+							has_dynamic_modifier = { modifier = dd_usa_little_tech_spirit }
 						}
-						NOT = { has_dynamic_modifier = { modifier = dd_usa_little_tech_spirit } }
 					}
 					dd_usa_apply_little_tech = yes
 				}
@@ -47,10 +56,11 @@ on_actions = {
 					limit = {
 						OR = {
 							has_completed_focus = USA_gut_middle_class
+							has_completed_focus = USA_dismantle_white_america
 							has_idea = dd_usa_gutting_middle_class
 							has_idea = dd_usa_gutting_middle_class_2
+							has_dynamic_modifier = { modifier = dd_usa_gut_spirit }
 						}
-						NOT = { has_dynamic_modifier = { modifier = dd_usa_gut_spirit } }
 					}
 					dd_usa_apply_gut = yes
 				}
@@ -125,6 +135,17 @@ on_actions = {
 			dd_usa_election_calendar = yes
 			dd_usa_me_blood_tick = yes
 			dd_usa_check_globalists_spirit = yes
+			if = {
+				limit = {
+					date > 2026.3.15
+					NOT = { has_country_flag = dd_usa_noem_fired }
+					has_government = national_populism
+					NOT = { has_country_flag = dd_usa_civil_war }
+					NOT = { has_global_flag = dd_usa_civil_war_started }
+				}
+				set_country_flag = dd_usa_noem_fired
+				country_event = { id = dd_usa_noem.1 }
+			}
 			if = {
 				limit = {
 					focus_progress = { focus = USA_break_the_republic progress > 0.88 }

@@ -231,6 +231,13 @@ focus_tree = {
 		ai_will_do = { factor = 20 }
 		completion_reward = {
 			set_country_flag = dd_per_proxy_network
+			if = {
+				limit = {
+					HOU = { exists = yes }
+					NOT = { HOU = { has_idea = dd_hez_iranian_support } }
+				}
+				HOU = { add_ideas = dd_hez_iranian_support }
+			}
 		}
 	}
 	focus = {
@@ -555,12 +562,40 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = PER_deploy_brigades
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 16
+		y = 8
+		cost = 10
+		prerequisite = { focus = PER_play_for_iraq }
+		available = { has_global_event_target = dd_shiite_side }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			country_event = { id = dd_iran.40 }
+		}
+	}
+	focus = {
+		id = PER_anonymous_drones
+		icon = GFX_goal_generic_air_fighter
+		x = 20
+		y = 8
+		cost = 10
+		prerequisite = { focus = PER_play_for_iraq }
+		search_filters = { FOCUS_FILTER_AIR }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_anonymous_drones = yes
+		}
+	}
+	focus = {
 		id = PER_restore_hezbollah
 		icon = GFX_goal_generic_occupy_start_war
 		x = 18
-		y = 8
+		y = 9
 		cost = 5
-		prerequisite = { focus = PER_play_for_iraq }
+		prerequisite = { focus = PER_deploy_brigades }
+		prerequisite = { focus = PER_anonymous_drones }
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
@@ -584,7 +619,7 @@ focus_tree = {
 		id = PER_march_kuwait
 		icon = GFX_goal_generic_occupy_start_war
 		x = 16
-		y = 9
+		y = 10
 		cost = 5
 		prerequisite = { focus = PER_restore_hezbollah }
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -603,7 +638,7 @@ focus_tree = {
 		id = PER_confront_israel
 		icon = GFX_goal_generic_major_war
 		x = 20
-		y = 9
+		y = 10
 		cost = 5
 		prerequisite = { focus = PER_restore_hezbollah }
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -623,7 +658,7 @@ focus_tree = {
 		id = PER_iran_triumphant
 		icon = GFX_goal_generic_national_unity
 		x = 20
-		y = 10
+		y = 11
 		cost = 5
 		prerequisite = { focus = PER_confront_israel }
 		available = {
@@ -633,6 +668,27 @@ focus_tree = {
 		ai_will_do = { factor = 20 }
 		completion_reward = {
 			add_ideas = dd_per_iran_triumphant
+		}
+	}
+
+	# Side focus off Make a Play for Iraq. Nothing else requires this.
+	focus = {
+		id = PER_reconstitute_hezbollah
+		icon = GFX_goal_generic_special_forces
+		x = 24
+		y = 8
+		cost = 5
+		prerequisite = { focus = PER_play_for_iraq }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_per_hez_corridor_tt
+				has_country_flag = dd_per_lebanon_land_link
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_per_link_hezbollah = yes
 		}
 	}
 }

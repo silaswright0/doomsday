@@ -1,0 +1,186 @@
+characters = {
+	USA_dd_lab_lead = {
+		name = "Los Alamos Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 5 specialization_air = 4 }
+		}
+	}
+	USA_dd_ai_lead = {
+		name = "Frontier Lab Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist scientist_trait_gifted_engineer }
+			skills = { specialization_electronics = 5 }
+		}
+	}
+	SOV_dd_lab_lead = {
+		name = "Sarov Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 5 specialization_air = 4 }
+		}
+	}
+	CHI_dd_lab_lead = {
+		name = "Mianyang Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 5 specialization_air = 4 }
+		}
+	}
+	CHI_dd_ai_lead = {
+		name = "Model Lab Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist scientist_trait_gifted_engineer }
+			skills = { specialization_electronics = 4 }
+		}
+	}
+	FRA_dd_lab_lead = {
+		name = "CEA Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 4 specialization_air = 3 }
+		}
+	}
+	ENG_dd_lab_lead = {
+		name = "Aldermaston Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 4 specialization_air = 3 }
+		}
+	}
+	RAJ_dd_lab_lead = {
+		name = "BARC Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 4 specialization_air = 3 }
+		}
+	}
+	PAK_dd_lab_lead = {
+		name = "Khan Research Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 3 specialization_air = 3 }
+		}
+	}
+	ISR_dd_lab_lead = {
+		name = "Dimona Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 4 specialization_air = 3 }
+		}
+	}
+	DPK_dd_lab_lead = {
+		name = "Yongbyon Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_nuclear_warfare_expert scientist_trait_rocketry_specialist }
+			skills = { specialization_nuclear = 3 specialization_air = 2 }
+		}
+	}
+	SOV_dd_ai_lead = {
+		name = "Military AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 3 }
+		}
+	}
+	ENG_dd_ai_lead = {
+		name = "UK AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 3 }
+		}
+	}
+	FRA_dd_ai_lead = {
+		name = "French AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 3 }
+		}
+	}
+	GER_dd_ai_lead = {
+		name = "German AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 3 }
+		}
+	}
+	JAP_dd_ai_lead = {
+		name = "Japanese AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 3 }
+		}
+	}
+	KOR_dd_ai_lead = {
+		name = "Korean AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 3 }
+		}
+	}
+	CAN_dd_ai_lead = {
+		name = "Canadian AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 2 }
+		}
+	}
+	ISR_dd_ai_lead = {
+		name = "Israeli AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 3 }
+		}
+	}
+	SWE_dd_ai_lead = {
+		name = "Swedish AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 2 }
+		}
+	}
+	RAJ_dd_ai_lead = {
+		name = "Indian AI Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_ai_specialist }
+			skills = { specialization_electronics = 2 }
+		}
+	}
+	PER_dd_lab_lead = {
+		name = "Hemmat Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_rocketry_specialist }
+			skills = { specialization_air = 4 }
+		}
+	}
+	KOR_dd_lab_lead = {
+		name = "Daejeon Lead"
+		portraits = { army = { large = GFX_portrait_unknown } }
+		scientist = {
+			traits = { scientist_trait_rocketry_specialist }
+			skills = { specialization_air = 3 }
+		}
+	}
+}

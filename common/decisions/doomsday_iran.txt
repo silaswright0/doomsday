@@ -21,7 +21,7 @@ dd_per_proxy_category = {
 		cost = 25
 		visible = { tag = PER }
 		available = {
-			HOU = { exists = yes }
+			HOU = { exists = yes has_idea = dd_hez_iranian_support }
 			has_equipment = { infantry_equipment > 499 }
 		}
 		complete_effect = {
@@ -39,7 +39,7 @@ dd_per_proxy_category = {
 		cost = 25
 		visible = { tag = PER }
 		available = {
-			HOU = { exists = yes }
+			HOU = { exists = yes has_idea = dd_hez_iranian_support }
 			has_equipment = { artillery_equipment > 23 }
 		}
 		complete_effect = {
@@ -57,7 +57,7 @@ dd_per_proxy_category = {
 		cost = 25
 		visible = { tag = PER }
 		available = {
-			HOU = { exists = yes }
+			HOU = { exists = yes has_idea = dd_hez_iranian_support }
 			has_equipment = { support_equipment > 19 }
 		}
 		complete_effect = {
@@ -68,6 +68,177 @@ dd_per_proxy_category = {
 			}
 		}
 		ai_will_do = { factor = 10 }
+	}
+	dd_per_smuggle_rifles_shiite = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 30
+		cost = 25
+		visible = {
+			tag = PER
+			has_country_flag = dd_per_proxy_shiite
+		}
+		available = {
+			has_global_event_target = dd_shiite_side
+			event_target:dd_shiite_side = { exists = yes }
+			has_equipment = { infantry_equipment > 499 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 500
+				target = event_target:dd_shiite_side
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	dd_per_smuggle_artillery_shiite = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 45
+		cost = 25
+		visible = {
+			tag = PER
+			has_country_flag = dd_per_proxy_shiite
+		}
+		available = {
+			has_global_event_target = dd_shiite_side
+			event_target:dd_shiite_side = { exists = yes }
+			has_equipment = { artillery_equipment > 23 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = artillery_equipment
+				amount = 24
+				target = event_target:dd_shiite_side
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	dd_per_smuggle_support_shiite = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 45
+		cost = 25
+		visible = {
+			tag = PER
+			has_country_flag = dd_per_proxy_shiite
+		}
+		available = {
+			has_global_event_target = dd_shiite_side
+			event_target:dd_shiite_side = { exists = yes }
+			has_equipment = { support_equipment > 19 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = support_equipment
+				amount = 20
+				target = event_target:dd_shiite_side
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	dd_per_smuggle_rifles_hez = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 30
+		cost = 25
+		visible = { tag = PER }
+		available = {
+			HEZ = { exists = yes has_idea = dd_hez_hindered_support }
+			has_equipment = { infantry_equipment > 499 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 500
+				target = HEZ
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	dd_per_smuggle_artillery_hez = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 45
+		cost = 25
+		visible = { tag = PER }
+		available = {
+			HEZ = { exists = yes has_idea = dd_hez_hindered_support }
+			has_equipment = { artillery_equipment > 23 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = artillery_equipment
+				amount = 24
+				target = HEZ
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	dd_per_smuggle_support_hez = {
+		icon = generic_prepare_civil_war
+		days_re_enable = 45
+		cost = 25
+		visible = { tag = PER }
+		available = {
+			HEZ = { exists = yes has_idea = dd_hez_hindered_support }
+			has_equipment = { support_equipment > 19 }
+		}
+		complete_effect = {
+			send_equipment = {
+				equipment = support_equipment
+				amount = 20
+				target = HEZ
+			}
+		}
+		ai_will_do = { factor = 10 }
+	}
+	dd_per_hez_popout = {
+		icon = generic_ignite_civil_war
+		fire_only_once = yes
+		custom_cost_text = dd_per_hez_popout_cost
+		custom_cost_trigger = { command_power > 49 }
+		visible = {
+			tag = PER
+			has_country_flag = dd_per_hez_offmap
+			NOT = { has_country_flag = dd_per_hez_popped }
+		}
+		available = {
+			HEZ = { exists = yes }
+		}
+		complete_effect = {
+			add_command_power = -50
+			set_country_flag = dd_per_hez_popped
+			dd_per_hez_popout = yes
+		}
+		ai_will_do = { factor = 50 }
+	}
+}
+
+dd_irq_volunteer_category = {
+	dd_irq_deploy_brigade = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			OR = {
+				tag = PER
+				tag = USA
+				tag = ISR
+				tag = FRA
+			}
+		}
+		cost = 0
+		visible = {
+			has_country_flag = dd_irq_volunteer_window
+			has_war = yes
+			check_variable = { dd_irq_brigades_sent < 4 }
+			has_global_event_target = dd_shiite_side
+		}
+		available = {
+			event_target:dd_shiite_side = {
+				exists = yes
+				has_war_with = IRQ
+			}
+		}
+		complete_effect = {
+			dd_irq_spawn_foreign_brigade = yes
+		}
+		ai_will_do = { factor = 100 }
 	}
 }
 

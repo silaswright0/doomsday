@@ -2405,6 +2405,38 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = USA_electronics_breakthrough
+		icon = GFX_goal_generic_scientific_exchange
+		x = 36
+		y = 27
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = USA_ai_administration }
+		completion_reward = {
+			add_breakthrough_points = {
+				specialization = specialization_electronics
+				value = 1
+			}
+		}
+	}
+	focus = {
+		id = USA_electronics_breakthrough_2
+		icon = GFX_goal_generic_scientific_exchange
+		x = 36
+		y = 28
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = USA_electronics_breakthrough }
+		completion_reward = {
+			add_breakthrough_points = {
+				specialization = specialization_electronics
+				value = 1
+			}
+		}
+	}
+	focus = {
 		id = USA_against_communists
 		icon = GFX_goal_generic_political_pressure
 		x = 32

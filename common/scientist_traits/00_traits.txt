@@ -198,3 +198,10 @@ scientist_trait_nuclear_power_expert = {
 		sp_tag_nuclear_power_speed_factor = 0.1
 	}
 }
+
+scientist_trait_ai_specialist = {
+	specialization = { specialization_electronics }
+	modifier = {
+		sp_tag_ai_speed_factor = 0.1
+	}
+}

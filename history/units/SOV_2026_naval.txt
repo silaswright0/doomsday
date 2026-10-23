@@ -1,205 +1,302 @@
-# Doomsday 2026 naval OOB. Generated.
+# Doomsday 1 Jan 2026 naval OOB. Kuznetsov is laid up and not spawned.
+# Tartus was empty after December 2024. Black Sea combatants are at Novorossiysk.
 units = {
 	fleet = {
-		name = "SOV SYR Station"
-		naval_base = 1088
+		name = "Northern Fleet"
+		naval_base = 3134
 		task_force = {
-			name = "SOV SYR Station TF"
-			location = 1088
+			name = "Northern Fleet"
+			location = 3134
 			ship = {
-				name = "SOV DD-1"
+				name = "Pyotr Velikiy"
+				definition = light_cruiser
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
+				}
+			}
+			ship = {
+				name = "Admiral Gorshkov"
 				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
 					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "Admiral Kasatonov"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "Admiral Golovko"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "Admiral Levchenko"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "Vice-Admiral Kulakov"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "Severomorsk"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
+				}
+			}
+			ship = {
+				name = "Severodvinsk"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Kazan"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Arkhangelsk"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Vepr"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Gepard"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Pantera"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Leopard"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Volk"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Tigr"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Nizhny Novgorod"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Pskov"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Obninsk"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Orel"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Smolensk"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+				}
+			}
+			ship = {
+				name = "Vladikavkaz"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
+				}
+			}
+			ship = {
+				name = "Kaluga"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
+				}
+			}
+			ship = {
+				name = "Mozhaysk"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
+				}
+			}
+			ship = {
+				name = "Ufa"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
+				}
+			}
+			ship = {
+				name = "Kronstadt"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
+				}
+			}
+			ship = {
+				name = "Velikiye Luki"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
+				}
+			}
+			ship = {
+				name = "Yury Dolgorukiy"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
+				}
+			}
+			ship = {
+				name = "Knyaz Vladimir"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
+				}
+			}
+			ship = {
+				name = "Knyaz Pozharsky"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
+				}
+			}
+			ship = {
+				name = "Verkhoturye"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
+				}
+			}
+			ship = {
+				name = "Tula"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
+				}
+			}
+			ship = {
+				name = "Bryansk"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
+				}
+			}
+			ship = {
+				name = "Karelia"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
+				}
+			}
+			ship = {
+				name = "Novomoskovsk"
+				definition = submarine
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
 				}
 			}
 		}
 	}
 	fleet = {
-		name = "SOV Home Fleet"
-		naval_base = 3151
+		name = "Pacific Fleet"
+		naval_base = 957
 		task_force = {
-			name = "SOV Home Fleet TF"
-			location = 3151
+			name = "Pacific Fleet"
+			location = 957
 			ship = {
-				name = "SOV CV-1"
-				definition = carrier
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_carrier_cw2 = { amount = 1 owner = SOV version_name = "Fleet Carrier" }
-				}
-			}
-			ship = {
-				name = "SOV DD-2"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-3"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-4"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-5"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-6"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-7"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-8"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-9"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-10"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-11"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-12"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-13"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-14"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-15"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-16"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-17"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-18"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-19"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-20"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-21"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV DD-22"
-				definition = destroyer
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
-				}
-			}
-			ship = {
-				name = "SOV CL-1"
+				name = "Varyag"
 				definition = light_cruiser
 				start_experience_factor = 0.25
 				equipment = {
@@ -207,111 +304,55 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV CL-2"
-				definition = light_cruiser
+				name = "Marshal Shaposhnikov"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV CL-3"
-				definition = light_cruiser
+				name = "Admiral Tributs"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV CL-4"
-				definition = light_cruiser
+				name = "Admiral Panteleyev"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV CL-5"
-				definition = light_cruiser
+				name = "Admiral Vinogradov"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV CL-6"
-				definition = light_cruiser
+				name = "Aldar Tsydenzhapov"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV CL-7"
-				definition = light_cruiser
+				name = "Gremyashchiy"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV CL-8"
-				definition = light_cruiser
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
-				}
-			}
-			ship = {
-				name = "SOV CL-9"
-				definition = light_cruiser
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
-				}
-			}
-			ship = {
-				name = "SOV CL-10"
-				definition = light_cruiser
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
-				}
-			}
-			ship = {
-				name = "SOV CL-11"
-				definition = light_cruiser
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
-				}
-			}
-			ship = {
-				name = "SOV CL-12"
-				definition = light_cruiser
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
-				}
-			}
-			ship = {
-				name = "SOV CL-13"
-				definition = light_cruiser
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
-				}
-			}
-			ship = {
-				name = "SOV CL-14"
-				definition = light_cruiser
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_cruiser_cw2 = { amount = 1 owner = SOV version_name = "Missile Cruiser" }
-				}
-			}
-			ship = {
-				name = "SOV SS-1"
+				name = "Novosibirsk"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
@@ -319,7 +360,7 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV SS-2"
+				name = "Krasnoyarsk"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
@@ -327,7 +368,7 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV SS-3"
+				name = "Kuzbass"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
@@ -335,7 +376,7 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV SS-4"
+				name = "Bratsk"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
@@ -343,7 +384,7 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV SS-5"
+				name = "Samara"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
@@ -351,7 +392,7 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV SS-6"
+				name = "Nerpa"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
@@ -359,7 +400,7 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV SS-7"
+				name = "Tomsk"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
@@ -367,7 +408,7 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV SS-8"
+				name = "Omsk"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
@@ -375,275 +416,187 @@ units = {
 				}
 			}
 			ship = {
-				name = "SOV SS-9"
+				name = "Petropavlovsk-Kamchatsky"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-10"
+				name = "Volkhov"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-11"
+				name = "Magadan"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-12"
+				name = "Yakutsk"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-13"
+				name = "Alexander Nevsky"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-14"
+				name = "Vladimir Monomakh"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-15"
+				name = "Knyaz Oleg"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-16"
+				name = "Generalissimus Suvorov"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-17"
+				name = "Imperator Alexander III"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_ssbn_3 = { amount = 1 owner = SOV version_name = "Ballistic Missile Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "Baltic Fleet"
+		naval_base = 6332
+		task_force = {
+			name = "Baltic Fleet"
+			location = 6332
+			ship = {
+				name = "Neustrashimy"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV SS-18"
-				definition = submarine
+				name = "Yaroslav Mudry"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV SS-19"
-				definition = submarine
+				name = "Soobrazitelny"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV SS-20"
-				definition = submarine
+				name = "Stoikiy"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV SS-21"
+				name = "Dmitrov"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-22"
+				name = "Vyborg"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
+				}
+			}
+		}
+	}
+	fleet = {
+		name = "Black Sea Fleet"
+		naval_base = 719
+		task_force = {
+			name = "Black Sea Fleet"
+			location = 719
+			ship = {
+				name = "Admiral Makarov"
+				definition = destroyer
+				start_experience_factor = 0.25
+				equipment = {
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV SS-23"
-				definition = submarine
+				name = "Admiral Essen"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV SS-24"
-				definition = submarine
+				name = "Ladny"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV SS-25"
-				definition = submarine
+				name = "Pytlivy"
+				definition = destroyer
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_light_cw4 = { amount = 1 owner = SOV version_name = "Modern Destroyer" }
 				}
 			}
 			ship = {
-				name = "SOV SS-26"
+				name = "Veliky Novgorod"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
 				}
 			}
 			ship = {
-				name = "SOV SS-27"
+				name = "Kolpino"
 				definition = submarine
 				start_experience_factor = 0.25
 				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-28"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-29"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-30"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-31"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-32"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-33"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-34"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-35"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-36"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-37"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-38"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-39"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-40"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-41"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
-				}
-			}
-			ship = {
-				name = "SOV SS-42"
-				definition = submarine
-				start_experience_factor = 0.25
-				equipment = {
-					ship_hull_submarine_cw2 = { amount = 1 owner = SOV version_name = "Attack Submarine" }
+					ship_hull_submarine_diesel_1 = { amount = 1 owner = SOV version_name = "Diesel Submarine" }
 				}
 			}
 		}

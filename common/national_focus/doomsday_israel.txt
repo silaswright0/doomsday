@@ -25,7 +25,7 @@ focus_tree = {
 			add_ideas = dd_isr_reined_military
 			add_stability = 0.05
 			add_popularity = { ideology = social_democracy popularity = 0.05 }
-			add_popularity = { ideology = communism popularity = 0.05 }
+			add_popularity = { ideology = communism popularity = 0.02 }
 		}
 	}
 	focus = {
@@ -181,6 +181,7 @@ focus_tree = {
 				limit = { check_variable = { party_popularity@communism > party_popularity@progressive_populism } }
 				set_politics = { ruling_party = communism elections_allowed = yes }
 				create_country_leader = { name = "Ayman Odeh" ideology = marxism }
+				dd_isr_strip_idf = yes
 			}
 			else = {
 				set_politics = { ruling_party = progressive_populism elections_allowed = yes }
@@ -481,6 +482,10 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = dd_isr_constitution
 			add_political_power = 100
+			custom_effect_tooltip = dd_isr_grant_gaza_tt
+			hidden_effect = {
+				dd_isr_grant_gaza = yes
+			}
 		}
 	}
 	focus = {
@@ -709,6 +714,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = national_populism popularity = 0.20 }
 			add_political_power = 100
+			add_ideas = dd_isr_netanyahu_invincible
 		}
 	}
 	focus = {
@@ -722,6 +728,7 @@ focus_tree = {
 		prerequisite = { focus = ISR_restore_yeshiva }
 		completion_reward = {
 			dd_isr_ben_gvir = yes
+			add_ideas = dd_isr_extremists_reins
 		}
 	}
 	focus = {
@@ -904,6 +911,9 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
+		available = {
+			NOT = { has_government = communism }
+		}
 		completion_reward = {
 			custom_effect_tooltip = dd_isr_idf_desc
 			hidden_effect = {
@@ -920,6 +930,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = ISR_the_idf }
+		available = {
+			NOT = { has_government = communism }
+		}
 		completion_reward = {
 			if = {
 				limit = { has_country_flag = dd_isr_idf_arms }
@@ -943,6 +956,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = ISR_the_idf }
+		available = {
+			NOT = { has_government = communism }
+		}
 		completion_reward = {
 			if = {
 				limit = { has_country_flag = dd_isr_idf_urban }

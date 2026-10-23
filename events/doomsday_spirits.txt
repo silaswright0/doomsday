@@ -1,0 +1,11 @@
+add_namespace = dd_spirit
+
+# Next day after a Nation in Ruins change. The numbers already exist, so this tick can see them.
+country_event = {
+	id = dd_spirit.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		force_update_dynamic_modifier = yes
+	}
+}

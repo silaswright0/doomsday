@@ -130,6 +130,33 @@ dd_isr_democrat_policy = {
 	}
 }
 
+dd_isr_grant_gaza = {
+	if = {
+		limit = {
+			PAL = { exists = yes is_subject_of = ROOT }
+			1085 = { is_owned_by = PAL }
+		}
+		add_political_power = 100
+	}
+	else_if = {
+		limit = { PAL = { exists = yes is_subject_of = ROOT } }
+		PAL = { transfer_state = 1085 }
+	}
+}
+
+dd_isr_strip_idf = {
+	custom_effect_tooltip = dd_isr_strip_idf_tt
+	hidden_effect = {
+		if = { limit = { has_dynamic_modifier = { modifier = dd_isr_idf_spirit } } remove_dynamic_modifier = { modifier = dd_isr_idf_spirit } }
+		if = { limit = { has_idea = dd_isr_idf } remove_ideas = dd_isr_idf }
+		if = { limit = { has_idea = dd_isr_idf_urban } remove_ideas = dd_isr_idf_urban }
+		if = { limit = { has_idea = dd_isr_idf_arms } remove_ideas = dd_isr_idf_arms }
+		if = { limit = { has_idea = dd_isr_idf_both } remove_ideas = dd_isr_idf_both }
+		clr_country_flag = dd_isr_idf_urban
+		clr_country_flag = dd_isr_idf_arms
+	}
+}
+
 dd_isr_override_pal = {
 	add_war_support = 0.05
 	add_political_power = 50
@@ -201,12 +228,36 @@ dd_isr_europe_opinion = {
 		add_opinion_modifier = { target = ROOT modifier = dd_isr_europe }
 		ROOT = { add_opinion_modifier = { target = PREV modifier = dd_isr_europe } }
 	}
+	custom_effect_tooltip = dd_isr_europe_inf_tt
+	hidden_effect = {
+		every_country = {
+			limit = {
+				has_country_flag = dd_isr_diaspora_member
+				capital_scope = { is_on_continent = europe }
+			}
+			add_to_variable = { dd_isr_diaspora_influence = 10 }
+		}
+		dd_isr_diaspora_sync = yes
+	}
 }
 
 dd_isr_repair_usa = {
 	add_political_power = 75
 	add_opinion_modifier = { target = USA modifier = dd_isr_us_alliance }
 	USA = { add_opinion_modifier = { target = ROOT modifier = dd_isr_us_alliance } }
+	custom_effect_tooltip = dd_isr_repair_usa_inf_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				USA = {
+					has_country_flag = dd_isr_diaspora_member
+					check_variable = { dd_isr_diaspora_slot > 0 }
+				}
+			}
+			USA = { add_to_variable = { dd_isr_diaspora_influence = 20 } }
+			dd_isr_diaspora_sync = yes
+		}
+	}
 }
 
 dd_isr_oppose_palestine = {
@@ -338,93 +389,88 @@ dd_isr_expand_mil = {
 	}
 }
 
-# The IDF card stays. Urban fighting and combined arms rewrite its numbers.
+# One IDF card. The bonuses are on the idea, not a variable spirit.
+# A variable spirit created in the same effect as its numbers applies as an empty card.
 dd_isr_refresh_idf = {
 	if = {
-		limit = {
-			OR = {
-				has_idea = dd_isr_idf_urban
-				has_idea = dd_isr_idf_both
-			}
-		}
-		set_country_flag = dd_isr_idf_urban
+		limit = { has_government = communism }
+		dd_isr_strip_idf = yes
 	}
-	if = {
-		limit = {
-			OR = {
-				has_idea = dd_isr_idf_arms
-				has_idea = dd_isr_idf_both
-			}
-		}
-		set_country_flag = dd_isr_idf_arms
-	}
-	set_variable = { dd_idf_xp = 0.20 }
-	set_variable = { dd_idf_plan = 0.20 }
-	set_variable = { dd_idf_morale = 0.15 }
-	set_variable = { dd_idf_move = -0.20 }
-	set_variable = { dd_idf_org = 0.10 }
-	set_variable = { dd_idf_atk = 0 }
-	set_variable = { dd_idf_def = 0 }
-	set_variable = { dd_idf_spd = 0 }
-	set_variable = { dd_idf_arm = 0 }
-	set_variable = { dd_idf_brk = 0 }
-	if = {
-		limit = { has_country_flag = dd_isr_idf_urban }
-		set_variable = { dd_idf_org = 0.15 }
-		set_variable = { dd_idf_atk = 0.10 }
-		set_variable = { dd_idf_def = 0.10 }
-	}
-	if = {
-		limit = { has_country_flag = dd_isr_idf_arms }
+	else = {
 		if = {
+			limit = {
+				OR = {
+					has_idea = dd_isr_idf_urban
+					has_idea = dd_isr_idf_both
+				}
+			}
+			set_country_flag = dd_isr_idf_urban
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = dd_isr_idf_arms
+					has_idea = dd_isr_idf_both
+				}
+			}
+			set_country_flag = dd_isr_idf_arms
+		}
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_isr_idf_spirit } }
+			remove_dynamic_modifier = { modifier = dd_isr_idf_spirit }
+		}
+		if = {
+			limit = {
+				has_country_flag = dd_isr_idf_urban
+				has_country_flag = dd_isr_idf_arms
+			}
+			if = { limit = { has_idea = dd_isr_idf } remove_ideas = dd_isr_idf }
+			if = { limit = { has_idea = dd_isr_idf_urban } remove_ideas = dd_isr_idf_urban }
+			if = { limit = { has_idea = dd_isr_idf_arms } remove_ideas = dd_isr_idf_arms }
+			if = { limit = { NOT = { has_idea = dd_isr_idf_both } } add_ideas = dd_isr_idf_both }
+		}
+		else_if = {
 			limit = { has_country_flag = dd_isr_idf_urban }
-			set_variable = { dd_idf_org = 0.20 }
-			set_variable = { dd_idf_atk = 0.20 }
+			if = { limit = { has_idea = dd_isr_idf } remove_ideas = dd_isr_idf }
+			if = { limit = { has_idea = dd_isr_idf_arms } remove_ideas = dd_isr_idf_arms }
+			if = { limit = { has_idea = dd_isr_idf_both } remove_ideas = dd_isr_idf_both }
+			if = { limit = { NOT = { has_idea = dd_isr_idf_urban } } add_ideas = dd_isr_idf_urban }
+		}
+		else_if = {
+			limit = { has_country_flag = dd_isr_idf_arms }
+			if = { limit = { has_idea = dd_isr_idf } remove_ideas = dd_isr_idf }
+			if = { limit = { has_idea = dd_isr_idf_urban } remove_ideas = dd_isr_idf_urban }
+			if = { limit = { has_idea = dd_isr_idf_both } remove_ideas = dd_isr_idf_both }
+			if = { limit = { NOT = { has_idea = dd_isr_idf_arms } } add_ideas = dd_isr_idf_arms }
 		}
 		else = {
-			set_variable = { dd_idf_org = 0.15 }
-			set_variable = { dd_idf_atk = 0.10 }
+			if = { limit = { has_idea = dd_isr_idf_urban } remove_ideas = dd_isr_idf_urban }
+			if = { limit = { has_idea = dd_isr_idf_arms } remove_ideas = dd_isr_idf_arms }
+			if = { limit = { has_idea = dd_isr_idf_both } remove_ideas = dd_isr_idf_both }
+			if = { limit = { NOT = { has_idea = dd_isr_idf } } add_ideas = dd_isr_idf }
 		}
-		set_variable = { dd_idf_spd = 0.15 }
-		set_variable = { dd_idf_arm = 0.10 }
-		set_variable = { dd_idf_brk = 0.10 }
 	}
-	if = { limit = { has_idea = dd_isr_idf } remove_ideas = dd_isr_idf }
-	if = { limit = { has_idea = dd_isr_idf_urban } remove_ideas = dd_isr_idf_urban }
-	if = { limit = { has_idea = dd_isr_idf_arms } remove_ideas = dd_isr_idf_arms }
-	if = { limit = { has_idea = dd_isr_idf_both } remove_ideas = dd_isr_idf_both }
-	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_isr_idf_spirit } } }
-		add_dynamic_modifier = { modifier = dd_isr_idf_spirit }
-	}
-	force_update_dynamic_modifier = yes
 }
 
+# Air mission +15% and range +20% are on the idea. Dominance swaps that card.
 dd_isr_refresh_air = {
 	if = {
 		limit = { has_idea = dd_isr_airforce_dominance }
 		set_country_flag = dd_isr_air_dominance
 	}
-	set_variable = { dd_air_mission = 0.15 }
-	set_variable = { dd_air_range = 0.20 }
-	set_variable = { dd_air_fighter = 0 }
-	set_variable = { dd_air_sortie = 0 }
-	set_variable = { dd_air_night = 0 }
-	set_variable = { dd_air_cas = 0 }
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_isr_air_spirit } }
+		remove_dynamic_modifier = { modifier = dd_isr_air_spirit }
+	}
 	if = {
 		limit = { has_country_flag = dd_isr_air_dominance }
-		set_variable = { dd_air_fighter = 0.15 }
-		set_variable = { dd_air_sortie = 0.10 }
-		set_variable = { dd_air_night = -0.20 }
-		set_variable = { dd_air_cas = 0.15 }
+		if = { limit = { has_idea = dd_isr_airforce } remove_ideas = dd_isr_airforce }
+		if = { limit = { NOT = { has_idea = dd_isr_airforce_dominance } } add_ideas = dd_isr_airforce_dominance }
 	}
-	if = { limit = { has_idea = dd_isr_airforce } remove_ideas = dd_isr_airforce }
-	if = { limit = { has_idea = dd_isr_airforce_dominance } remove_ideas = dd_isr_airforce_dominance }
-	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_isr_air_spirit } } }
-		add_dynamic_modifier = { modifier = dd_isr_air_spirit }
+	else = {
+		if = { limit = { has_idea = dd_isr_airforce_dominance } remove_ideas = dd_isr_airforce_dominance }
+		if = { limit = { NOT = { has_idea = dd_isr_airforce } } add_ideas = dd_isr_airforce }
 	}
-	force_update_dynamic_modifier = yes
 }
 
 # Ship-cost bonuses cannot live on a dynamic modifier, so brown-water swaps the card once.

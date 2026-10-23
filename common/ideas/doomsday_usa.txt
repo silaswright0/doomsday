@@ -45,7 +45,7 @@ ideas = {
 			}
 		}
 
-		# Old tier cards. The live spirit is dd_usa_little_tech_spirit. A loaded save is moved across on startup.
+		# The live Little Tech cards. Each focus swaps in the next tier.
 		dd_usa_little_tech = {
 			picture = generic_research_bonus
 			allowed = { always = no }
@@ -837,7 +837,7 @@ ideas = {
 				political_power_gain = 0.50
 			}
 		}
-		# Old cards. The live spirit is dd_usa_gut_spirit. A loaded save is moved across on startup.
+		# The live Gutting the Middle Class cards. Dismantle White America swaps to the cleared one.
 		dd_usa_gutting_middle_class = {
 			picture = generic_goods_red_bonus
 			allowed = { always = no }

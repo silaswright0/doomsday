@@ -1024,18 +1024,21 @@ dd_usa_cw_end_by_focus = {
 }
 
 dd_usa_apply_nation_in_ruins = {
-	set_variable = { dd_ruins_stability = -0.15 }
-	set_variable = { dd_ruins_war_support = -0.25 }
-	set_variable = { dd_ruins_factory = -0.25 }
-	set_variable = { dd_ruins_cg = 0.30 }
+	if = { limit = { NOT = { has_variable = dd_ruins_stability } } set_variable = { dd_ruins_stability = -0.15 } }
+	if = { limit = { NOT = { has_variable = dd_ruins_war_support } } set_variable = { dd_ruins_war_support = -0.25 } }
+	if = { limit = { NOT = { has_variable = dd_ruins_factory } } set_variable = { dd_ruins_factory = -0.25 } }
+	if = { limit = { NOT = { has_variable = dd_ruins_cg } } set_variable = { dd_ruins_cg = 0.30 } }
 	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } } }
-		add_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+		limit = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } }
+		remove_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
 	}
+	add_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+	force_update_dynamic_modifier = yes
+	country_event = { id = dd_spirit.1 days = 1 }
 }
 
-# Little Tech stays on one card. The level variable is set by the focus before this runs.
-# A loaded save with an older tier idea is read here and then stripped.
+# Little Tech swaps one idea card per tier. The level is set by the focus before this runs.
+# A loaded save with an older tier, or the empty variable spirit, is moved onto the matching card.
 dd_usa_apply_little_tech = {
 	if = {
 		limit = { NOT = { check_variable = { dd_usa_little_tech_level > 0 } } }
@@ -1096,70 +1099,61 @@ dd_usa_apply_little_tech = {
 	}
 	if = {
 		limit = { check_variable = { dd_usa_little_tech_level > 0 } }
-		set_variable = { dd_lt_pp = 0.05 }
-		set_variable = { dd_lt_research = 0.02 }
-		set_variable = { dd_lt_stab = -0.02 }
-		set_variable = { dd_lt_ws = 0.02 }
-		set_variable = { dd_lt_enc = 0 }
-		set_variable = { dd_lt_dec = 0 }
-		set_variable = { dd_lt_factory = 0 }
-		set_variable = { dd_lt_eff = 0 }
-		set_variable = { dd_lt_eff_gain = 0 }
 		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_usa_little_tech_spirit } }
+			remove_dynamic_modifier = { modifier = dd_usa_little_tech_spirit }
+		}
+		if = {
+			limit = { NOT = { check_variable = { dd_usa_little_tech_level = 1 } } }
+			if = { limit = { has_idea = dd_usa_little_tech } remove_ideas = dd_usa_little_tech }
+		}
+		if = {
+			limit = { NOT = { check_variable = { dd_usa_little_tech_level = 2 } } }
+			if = { limit = { has_idea = dd_usa_little_tech_2 } remove_ideas = dd_usa_little_tech_2 }
+		}
+		if = {
+			limit = { NOT = { check_variable = { dd_usa_little_tech_level = 3 } } }
+			if = { limit = { has_idea = dd_usa_little_tech_3 } remove_ideas = dd_usa_little_tech_3 }
+		}
+		if = {
+			limit = { NOT = { check_variable = { dd_usa_little_tech_level = 4 } } }
+			if = { limit = { has_idea = dd_usa_little_tech_4 } remove_ideas = dd_usa_little_tech_4 }
+		}
+		if = {
+			limit = { NOT = { check_variable = { dd_usa_little_tech_level = 5 } } }
+			if = { limit = { has_idea = dd_usa_little_tech_5 } remove_ideas = dd_usa_little_tech_5 }
+		}
+		if = {
+			limit = { NOT = { check_variable = { dd_usa_little_tech_level > 5 } } }
+			if = { limit = { has_idea = dd_usa_little_tech_6 } remove_ideas = dd_usa_little_tech_6 }
+		}
+		if = {
+			limit = { check_variable = { dd_usa_little_tech_level = 1 } }
+			if = { limit = { NOT = { has_idea = dd_usa_little_tech } } add_ideas = dd_usa_little_tech }
+		}
+		else_if = {
 			limit = { check_variable = { dd_usa_little_tech_level = 2 } }
-			set_variable = { dd_lt_pp = 0.10 }
-			set_variable = { dd_lt_research = 0.04 }
+			if = { limit = { NOT = { has_idea = dd_usa_little_tech_2 } } add_ideas = dd_usa_little_tech_2 }
 		}
 		else_if = {
 			limit = { check_variable = { dd_usa_little_tech_level = 3 } }
-			set_variable = { dd_lt_pp = 0.10 }
-			set_variable = { dd_lt_research = 0.08 }
-			set_variable = { dd_lt_enc = 0.10 }
-			set_variable = { dd_lt_dec = 0.10 }
+			if = { limit = { NOT = { has_idea = dd_usa_little_tech_3 } } add_ideas = dd_usa_little_tech_3 }
 		}
 		else_if = {
 			limit = { check_variable = { dd_usa_little_tech_level = 4 } }
-			set_variable = { dd_lt_pp = 0.10 }
-			set_variable = { dd_lt_research = 0.12 }
-			set_variable = { dd_lt_enc = 0.10 }
-			set_variable = { dd_lt_dec = 0.10 }
+			if = { limit = { NOT = { has_idea = dd_usa_little_tech_4 } } add_ideas = dd_usa_little_tech_4 }
 		}
 		else_if = {
 			limit = { check_variable = { dd_usa_little_tech_level = 5 } }
-			set_variable = { dd_lt_pp = 0.20 }
-			set_variable = { dd_lt_research = 0.12 }
-			set_variable = { dd_lt_stab = 0.03 }
-			set_variable = { dd_lt_enc = 0.20 }
-			set_variable = { dd_lt_dec = 0.20 }
-			set_variable = { dd_lt_factory = 0.05 }
-			set_variable = { dd_lt_eff = 0.05 }
+			if = { limit = { NOT = { has_idea = dd_usa_little_tech_5 } } add_ideas = dd_usa_little_tech_5 }
 		}
-		else_if = {
-			limit = { check_variable = { dd_usa_little_tech_level > 5 } }
-			set_variable = { dd_lt_pp = 0.20 }
-			set_variable = { dd_lt_research = 0.12 }
-			set_variable = { dd_lt_stab = 0.03 }
-			set_variable = { dd_lt_enc = 0.20 }
-			set_variable = { dd_lt_dec = 0.20 }
-			set_variable = { dd_lt_factory = 0.10 }
-			set_variable = { dd_lt_eff = 0.10 }
-			set_variable = { dd_lt_eff_gain = 0.10 }
+		else = {
+			if = { limit = { NOT = { has_idea = dd_usa_little_tech_6 } } add_ideas = dd_usa_little_tech_6 }
 		}
-		if = { limit = { has_idea = dd_usa_little_tech } remove_ideas = dd_usa_little_tech }
-		if = { limit = { has_idea = dd_usa_little_tech_2 } remove_ideas = dd_usa_little_tech_2 }
-		if = { limit = { has_idea = dd_usa_little_tech_3 } remove_ideas = dd_usa_little_tech_3 }
-		if = { limit = { has_idea = dd_usa_little_tech_4 } remove_ideas = dd_usa_little_tech_4 }
-		if = { limit = { has_idea = dd_usa_little_tech_5 } remove_ideas = dd_usa_little_tech_5 }
-		if = { limit = { has_idea = dd_usa_little_tech_6 } remove_ideas = dd_usa_little_tech_6 }
-		if = {
-			limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_little_tech_spirit } } }
-			add_dynamic_modifier = { modifier = dd_usa_little_tech_spirit }
-		}
-		force_update_dynamic_modifier = yes
 	}
 }
 
-# Gutting the Middle Class stays. Dismantle White America clears the penalties.
+# Gutting the Middle Class is an idea. Dismantle White America swaps to the cleared card.
 dd_usa_apply_gut = {
 	if = {
 		limit = {
@@ -1170,20 +1164,19 @@ dd_usa_apply_gut = {
 		}
 		set_country_flag = dd_usa_gut_cleared
 	}
-	set_variable = { dd_gut_ws = -0.20 }
-	set_variable = { dd_gut_pop = -0.20 }
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_usa_gut_spirit } }
+		remove_dynamic_modifier = { modifier = dd_usa_gut_spirit }
+	}
 	if = {
 		limit = { has_country_flag = dd_usa_gut_cleared }
-		set_variable = { dd_gut_ws = 0 }
-		set_variable = { dd_gut_pop = 0 }
+		if = { limit = { has_idea = dd_usa_gutting_middle_class } remove_ideas = dd_usa_gutting_middle_class }
+		if = { limit = { NOT = { has_idea = dd_usa_gutting_middle_class_2 } } add_ideas = dd_usa_gutting_middle_class_2 }
 	}
-	if = { limit = { has_idea = dd_usa_gutting_middle_class } remove_ideas = dd_usa_gutting_middle_class }
-	if = { limit = { has_idea = dd_usa_gutting_middle_class_2 } remove_ideas = dd_usa_gutting_middle_class_2 }
-	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_usa_gut_spirit } } }
-		add_dynamic_modifier = { modifier = dd_usa_gut_spirit }
+	else = {
+		if = { limit = { has_idea = dd_usa_gutting_middle_class_2 } remove_ideas = dd_usa_gutting_middle_class_2 }
+		if = { limit = { NOT = { has_idea = dd_usa_gutting_middle_class } } add_ideas = dd_usa_gutting_middle_class }
 	}
-	force_update_dynamic_modifier = yes
 }
 
 dd_usa_remove_nation_in_ruins = {
@@ -1198,6 +1191,13 @@ dd_usa_ruins_recover_stability = {
 	hidden_effect = {
 		add_to_variable = { dd_ruins_stability = 0.10 }
 		add_to_variable = { dd_ruins_war_support = 0.10 }
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } }
+			remove_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+		}
+		add_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+		force_update_dynamic_modifier = yes
+		country_event = { id = dd_spirit.1 days = 1 }
 	}
 }
 
@@ -1206,6 +1206,13 @@ dd_usa_ruins_repair_economy = {
 	hidden_effect = {
 		add_to_variable = { dd_ruins_cg = -0.20 }
 		add_to_variable = { dd_ruins_factory = 0.10 }
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } }
+			remove_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+		}
+		add_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+		force_update_dynamic_modifier = yes
+		country_event = { id = dd_spirit.1 days = 1 }
 	}
 }
 

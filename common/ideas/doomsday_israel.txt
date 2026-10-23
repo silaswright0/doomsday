@@ -20,7 +20,22 @@ ideas = {
 				production_speed_buildings_factor = -0.30
 			}
 		}
-		# Old tier cards. The live spirit is dd_isr_idf_spirit. A loaded save is moved across on startup.
+		dd_isr_commodities = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = dd_isr_commodities_tt
+			}
+			on_add = {
+				add_offsite_building = { type = industrial_complex level = 12 }
+			}
+			on_remove = {
+				add_offsite_building = { type = industrial_complex level = -12 }
+			}
+		}
+		# The live IDF cards. Urban fighting and combined arms swap which one is on the country.
 		dd_isr_idf = {
 			picture = generic_infantry_bonus
 			allowed = { always = no }
@@ -291,8 +306,14 @@ ideas = {
 			modifier = {
 				conscription = 0.02
 				stability_factor = 0.20
-				war_support_factor = 0.10
+				war_support_factor = 0.20
 				political_power_gain = 0.15
+				compliance_gain = 0.75
+				non_core_manpower = 0.15
+				supply_consumption_factor = -0.20
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				surrender_limit = 0.40
 			}
 		}
 		dd_isr_communist_influence = {
@@ -336,6 +357,29 @@ ideas = {
 				stability_factor = 0.20
 				industrial_capacity_factory = 0.10
 				research_speed_factor = 0.10
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+			}
+		}
+		dd_isr_netanyahu_invincible = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.20
+				research_speed_factor = 0.06
+				stability_factor = 0.10
+			}
+		}
+		dd_isr_extremists_reins = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.20
+				breakthrough_factor = 0.20
 			}
 		}
 		dd_isr_strongman = {

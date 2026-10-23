@@ -421,13 +421,13 @@ set_technology = {
 	dd_ewc_2 = 1
 	dd_prot_1 = 1
 	dd_prot_2 = 1
+	dd_rkt_1 = 1
 }
 
 
 
 
 
-set_naval_oob = "UKR_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Frigate"
 	type = ship_hull_light_cw2
@@ -484,12 +484,12 @@ create_equipment_variant = {
 	}
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 19 producer = UKR }
-add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 3810 producer = UKR }
-add_equipment_to_stockpile = { type = support_equipment amount = 135 producer = UKR }
+add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 4140 producer = UKR }
+add_equipment_to_stockpile = { type = support_equipment amount = 129 producer = UKR }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 47 producer = UKR }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 1080 producer = UKR }
-add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 90 producer = UKR }
-add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 24 producer = UKR }
+add_equipment_to_stockpile = { type = mechanized_equipment amount = 720 producer = UKR }
+add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 45 producer = UKR }
+add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 14 producer = UKR }
 add_ideas = dd_welfare_3
 add_ideas = dd_education_4
 add_ideas = dd_immigration_2
@@ -539,4 +539,5 @@ recruit_character = UKR_john_navy
 recruit_character = UKR_fm_oleksandr_syrskyi
 recruit_character = UKR_gen_mykhailo_drapatyi
 recruit_character = UKR_gen_andrii_hnatov
+recruit_character = UKR_gen_hennadii_shapovalov
 recruit_character = UKR_nav_oleksii_neizhpapa
