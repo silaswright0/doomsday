@@ -2337,18 +2337,19 @@ dd_recalc_accounts = {
 		set_variable = { dd_income_oil = dd_oil_units }
 		multiply_variable = { dd_income_oil = dd_oil_rent }
 		if = {
-			limit = {
-				OR = {
-					has_idea = dd_gulf_oil_sealed
-					has_idea = dd_per_oil_blocked
-				}
-			}
-			set_variable = { dd_income_oil = 0 }
-		}
-		else_if = {
 			limit = { has_idea = dd_sau_squeezed }
 			multiply_variable = { dd_income_oil = 0.3 }
 		}
+	}
+	# Gulf Oil Cannot Clear the Strait. No oil-rent payment while either spirit is on.
+	if = {
+		limit = {
+			OR = {
+				has_idea = dd_gulf_oil_sealed
+				has_idea = dd_per_oil_blocked
+			}
+		}
+		set_variable = { dd_income_oil = 0 }
 	}
 	if = {
 		limit = { has_idea = dd_checkpoint_revenue }
@@ -2417,6 +2418,7 @@ dd_economy_monthly_tick = {
 	dd_usa_postcw_monthly = yes
 	dd_init_economy = yes
 	clr_country_flag = dd_pp_bought
+	dd_hormuz_suspend_oil_revenue = yes
 	dd_recalc_accounts = yes
 	# Do not book a month that was calculated before factories existed.
 	if = {

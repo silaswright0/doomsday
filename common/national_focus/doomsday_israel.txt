@@ -305,6 +305,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = ISR_old_left_purse }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ISR_old_left_freeze_tt
+				social_democracy > 0.299
+			}
+		}
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = -0.05

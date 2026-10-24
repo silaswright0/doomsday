@@ -534,6 +534,33 @@ dd_hormuz_econ_sync = {
 	dd_hormuz_blockade_targets = yes
 }
 
+# Oil Revenue pays nothing while either strait spirit is on. The idea comes back when both are gone.
+dd_hormuz_suspend_oil_revenue = {
+	if = {
+		limit = {
+			has_idea = dd_oil_revenue
+			OR = {
+				has_idea = dd_gulf_oil_sealed
+				has_idea = dd_per_oil_blocked
+			}
+		}
+		set_country_flag = dd_oil_revenue_suspended
+		remove_ideas = dd_oil_revenue
+	}
+}
+
+dd_hormuz_restore_oil_revenue = {
+	if = {
+		limit = {
+			has_country_flag = dd_oil_revenue_suspended
+			NOT = { has_idea = dd_gulf_oil_sealed }
+			NOT = { has_idea = dd_per_oil_blocked }
+		}
+		clr_country_flag = dd_oil_revenue_suspended
+		add_ideas = dd_oil_revenue
+	}
+}
+
 dd_hormuz_seal_gulf_oil = {
 	every_country = {
 		limit = {
@@ -549,6 +576,7 @@ dd_hormuz_seal_gulf_oil = {
 			NOT = { has_idea = dd_gulf_oil_sealed }
 		}
 		add_ideas = dd_gulf_oil_sealed
+		dd_hormuz_suspend_oil_revenue = yes
 	}
 }
 
@@ -564,11 +592,20 @@ dd_hormuz_sync_per_oil = {
 			limit = { PER = { NOT = { has_idea = dd_per_oil_blocked } } }
 			PER = { add_ideas = dd_per_oil_blocked }
 		}
-		PER = { set_country_flag = dd_per_oil_cash_month }
+		PER = {
+			set_country_flag = dd_per_oil_cash_month
+			dd_hormuz_suspend_oil_revenue = yes
+		}
 	}
 	else_if = {
 		limit = { PER = { has_idea = dd_per_oil_blocked } }
-		PER = { remove_ideas = dd_per_oil_blocked }
+		PER = {
+			remove_ideas = dd_per_oil_blocked
+			dd_hormuz_restore_oil_revenue = yes
+		}
+	}
+	else = {
+		PER = { dd_hormuz_restore_oil_revenue = yes }
 	}
 }
 
@@ -606,6 +643,10 @@ dd_hormuz_clear_blockade = {
 	every_country = {
 		limit = { has_idea = dd_per_oil_blocked }
 		remove_ideas = dd_per_oil_blocked
+	}
+	every_country = {
+		limit = { has_country_flag = dd_oil_revenue_suspended }
+		dd_hormuz_restore_oil_revenue = yes
 	}
 	every_country = {
 		limit = { has_idea = dd_hormuz_saudi_shock }
