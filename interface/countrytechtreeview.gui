@@ -75,7 +75,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = { x = 0 y = 0}
-					text = "INFANTRY_TITLE_WEAPONS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -88,7 +88,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = { x = 0 y = 0}
-					text = "INFANTRY_TITLE_SPECIAL"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -101,7 +101,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = { x = 0 y = 0}
-					text = "INFANTRY_TITLE_MOTORISED"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -554,7 +554,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = { x = 0 y = 0}
-					text = "SUPPORT_TITLE_TRAINS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -892,7 +892,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_HEAVY"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -905,7 +905,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_MEDIUM"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -918,7 +918,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_LIGHT"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -930,7 +930,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_AMPH"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -1235,7 +1235,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_HEAVY"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -1248,7 +1248,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_MEDIUM"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -1261,7 +1261,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_LIGHT"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -1273,7 +1273,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARMOUR_TITLE_AMPH"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -1395,7 +1395,7 @@ guiTypes = {
 						textureFile = ""
 						font = "hoi_33"
 						borderSize = { x = 0 y = 4 }
-						text = "ARTILLERY_TITLE_ROCKET"
+						text = ""
 						maxWidth = 210
 						maxHeight = 22
 						format = center
@@ -1408,7 +1408,7 @@ guiTypes = {
 						textureFile = ""
 						font = "hoi_33"
 						borderSize = { x = 0 y = 4 }
-						text = "ARTILLERY_TITLE_AT"
+						text = ""
 						maxWidth = 290
 						maxHeight = 62
 						format = center
@@ -1421,7 +1421,7 @@ guiTypes = {
 						textureFile = ""
 						font = "hoi_33"
 						borderSize = { x = 0 y = 4 }
-						text = "ARTILLERY_TITLE"
+						text = ""
 						maxWidth = 400
 						maxHeight = 62
 						format = center
@@ -1434,7 +1434,7 @@ guiTypes = {
 						textureFile = ""
 						font = "hoi_33"
 						borderSize = { x = 0 y = 4 }
-						text = "ARTILLERT_TITLE_AA"
+						text = ""
 						maxWidth = 200
 						maxHeight = 62
 						format = center
@@ -1723,14 +1723,14 @@ guiTypes = {
 			instantTextBoxType = { name = "dd_yr_artillery_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_artillery_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			instantTextBoxType = { name = "dd_yr_artillery_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_tow_1_tree" position = { x = 860 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_spg_1_tree" position = { x = 1090 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mor_1_tree" position = { x = 1320 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_rkt_1_tree" position = { x = 1550 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_atg_1_tree" position = { x = 1780 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_shorad_1_tree" position = { x = 2010 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_sam_1_tree" position = { x = 2240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_dew_1_tree" position = { x = 2470 y = 1190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_tow_1_tree" position = { x = 240 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_spg_1_tree" position = { x = 445 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_mor_1_tree" position = { x = 650 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_rkt_1_tree" position = { x = 855 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_atg_1_tree" position = { x = 1060 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_shorad_1_tree" position = { x = 1265 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_sam_1_tree" position = { x = 1470 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			gridboxtype = { name = "dd_dew_1_tree" position = { x = 1675 y = 1190 } slotsize = { width = 70 height = 100 } format = "UP" }
 			# DD_TECH_GRID_END
 			gridboxtype = {
 				name = "artillery2_tree"
@@ -1845,7 +1845,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_DESTROYERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1859,7 +1859,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_CRUISERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1873,7 +1873,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_BATTLECRUISERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1887,7 +1887,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_BATTLESHIPS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1901,7 +1901,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_CARRIERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1915,7 +1915,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_SUBMARINES"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -1929,7 +1929,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_TRANSPORTS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2184,7 +2184,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_DESTROYERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2198,7 +2198,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_CRUISERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2212,7 +2212,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_ARMOR"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2226,7 +2226,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_BATTLESHIPS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2240,7 +2240,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_CARRIERS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2254,7 +2254,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_SUBMARINES"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2446,7 +2446,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_ARMAMENT"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2459,7 +2459,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_TORPEDOES"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2472,7 +2472,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_DAMAGE_CONTROL"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2484,7 +2484,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_FIRE_CONTROL"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2496,7 +2496,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_TRANSPORTS"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2509,7 +2509,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_MINES"
+					text = ""
 					maxWidth = 600
 					maxHeight = 62
 					format = left
@@ -2846,7 +2846,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_FIGHTER"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -2860,7 +2860,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_CAS"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -2874,7 +2874,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_NAV"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -2888,7 +2888,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_HEAVY_FIGHTER"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -2902,7 +2902,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_MEDIUM_BOMBER"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -2916,7 +2916,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_STRAT_BOMBER"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -2930,7 +2930,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_SCOUT_PLANE"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -2944,7 +2944,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_TRANSPORT"
+				text = ""
 				maxWidth = 200
 				maxHeight = 62
 				format = center
@@ -3305,7 +3305,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_AIRFRAME"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -3319,7 +3319,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_TRANSPORT"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -3333,7 +3333,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4} 
-				text = "AIR_TITLE_WEAPONS"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -3347,7 +3347,7 @@ guiTypes = {
 				textureFile = ""
 				font = "hoi_33"
 				borderSize = {x = 0 y = 4}
-				text = "AIR_TITLE_ENGINES"
+				text = ""
 				maxWidth = 300
 				maxHeight = 62
 				format = center
@@ -3755,7 +3755,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "INDUSTRY_TITLE"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -3768,7 +3768,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "INDUSTRY_TITLE_PRODUCTION"
+					text = ""
 					maxWidth = 200
 					maxHeight = 62
 					format = center
@@ -3781,7 +3781,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "INDUSTRY_TITLE_OIL"
+					text = ""
 					maxWidth = 150
 					maxHeight = 62
 					format = center
@@ -3794,7 +3794,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "INDUSTRY_TITLE_CONSTRUCTION"
+					text = ""
 					maxWidth = 250
 					maxHeight = 62
 					format = center
@@ -4216,7 +4216,7 @@ guiTypes = {
 					position = { x = 190 y = 100 }
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "TITLE_ELECTRONIC_SUBTITLE"
+					text = ""
 					maxWidth = 200
 					maxHeight = 122
 					format = center
@@ -4228,7 +4228,7 @@ guiTypes = {
 					position = { x = 670 y = 100 }
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "TITLE_FORTIFICATION_SUBTITLE"
+					text = ""
 					maxWidth = 250
 					maxHeight = 122
 					format = center
@@ -4240,7 +4240,7 @@ guiTypes = {
 					position = { x = 1200 y = 230 }
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "TITLE_EXP_ROCKETS_SUBTITLE"
+					text = ""
 					maxWidth = 200
 					maxHeight = 122
 					format = center
@@ -4252,7 +4252,7 @@ guiTypes = {
 					position = { x = 1000 y = 100 }
 					font = "hoi_22tech"
 					borderSize = {x = 0 y = 4}
-					text = "TITLE_ATOMIC_RESEARCH_SUBTITLE"
+					text = ""
 					maxWidth = 200
 					maxHeight = 122
 					format = center

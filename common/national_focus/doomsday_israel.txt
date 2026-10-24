@@ -144,7 +144,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ISR_no_exemptions }
 		completion_reward = {
 			add_stability = -0.05
-			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+			add_popularity = { ideology = national_populism popularity = 0.02 }
 			add_popularity = { ideology = theocratic_absolutism popularity = 0.05 }
 		}
 	}
@@ -667,7 +667,7 @@ focus_tree = {
 		id = ISR_october_7
 		icon = GFX_goal_generic_army_doctrines
 		x = 14
-		y = 7
+		y = 7.5
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -814,25 +814,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		ai_will_do = { factor = 0 }
 		prerequisite = { focus = ISR_restore_yeshiva }
-		mutually_exclusive = { focus = ISR_deri_camp }
 		completion_reward = {
 			dd_isr_ben_gvir = yes
 			add_ideas = dd_isr_extremists_reins
-		}
-	}
-	focus = {
-		id = ISR_deri_camp
-		icon = GFX_goal_generic_national_unity
-		x = 28
-		y = 13
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_restore_yeshiva }
-		mutually_exclusive = { focus = ISR_extremists_reins }
-		completion_reward = {
-			dd_isr_deri = yes
-			add_ideas = dd_isr_religious_camp
 		}
 	}
 	focus = {
@@ -843,7 +827,7 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_netanyahu_invincible focus = ISR_extremists_reins focus = ISR_deri_camp }
+		prerequisite = { focus = ISR_netanyahu_invincible focus = ISR_extremists_reins }
 		completion_reward = {
 			dd_isr_false_flag = yes
 		}

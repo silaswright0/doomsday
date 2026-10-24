@@ -361,9 +361,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				war_support_factor = 0.10
-				army_defence_factor = 0.10
-				army_morale_factor = 0.10
+				stability_factor = 0.10
+				political_power_gain = 0.15
+				research_speed_factor = 0.05
 			}
 		}
 		dd_isr_gantz_cabinet = {
@@ -372,9 +372,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_factor = 0.10
-				political_power_gain = 0.15
-				research_speed_factor = 0.05
+				war_support_factor = 0.10
+				army_defence_factor = 0.10
+				army_morale_factor = 0.10
 			}
 		}
 		dd_isr_religious_camp = {

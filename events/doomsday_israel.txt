@@ -60,6 +60,11 @@ country_event = {
 		ai_chance = { factor = 0 }
 		add_popularity = { ideology = social_democracy popularity = 0.06 }
 	}
+	option = {
+		name = dd_isr.10.f
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
+	}
 }
 
 country_event = {
@@ -92,6 +97,11 @@ country_event = {
 		ai_chance = { factor = 0 }
 		add_popularity = { ideology = social_democracy popularity = 0.06 }
 	}
+	option = {
+		name = dd_isr.11.f
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
+	}
 }
 
 country_event = {
@@ -123,6 +133,11 @@ country_event = {
 		name = dd_isr.12.e
 		ai_chance = { factor = 0 }
 		add_popularity = { ideology = social_democracy popularity = 0.06 }
+	}
+	option = {
+		name = dd_isr.12.f
+		ai_chance = { factor = 0 }
+		add_popularity = { ideology = liberal_conservatism popularity = 0.06 }
 	}
 }
 
@@ -173,7 +188,7 @@ country_event = {
 	id = dd_isr.23
 	title = dd_isr.23.t
 	desc = dd_isr.23.d
-	picture = GFX_report_event_generic_sign_treaty
+	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	option = { name = dd_isr.23.a }
 }
@@ -182,7 +197,7 @@ country_event = {
 	id = dd_isr.24
 	title = dd_isr.24.t
 	desc = dd_isr.24.d
-	picture = GFX_report_event_generic_sign_treaty
+	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	option = { name = dd_isr.24.a }
 }
@@ -191,7 +206,7 @@ country_event = {
 	id = dd_isr.25
 	title = dd_isr.25.t
 	desc = dd_isr.25.d
-	picture = GFX_report_event_generic_sign_treaty
+	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	option = { name = dd_isr.25.a }
 }

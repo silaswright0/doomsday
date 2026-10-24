@@ -1,6 +1,5 @@
 # Israel - Doomsday 2026
 capital = 454
-oob = "ISR_2026"
 set_research_slots = 4
 set_stability = 0.90
 set_war_support = 0.70
@@ -604,7 +603,6 @@ set_technology = {
 
 
 
-set_naval_oob = "ISR_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
 	type = ship_hull_light_cw3
@@ -666,7 +664,9 @@ add_equipment_to_stockpile = { type = support_equipment_cw4 amount = 74 producer
 add_equipment_to_stockpile = { type = artillery_equipment_cw4 amount = 25 producer = ISR }
 add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 720 producer = ISR }
 add_equipment_to_stockpile = { type = mbt_equipment_7 amount = 68 producer = ISR }
-add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 54 producer = ISR }
+add_equipment_to_stockpile = { type = fighter_equipment_cw5b amount = 54 producer = ISR }
+oob = "ISR_2026"
+set_naval_oob = "ISR_2026_naval"
 add_ideas = dd_welfare_4
 add_ideas = dd_education_4
 add_ideas = dd_immigration_4
