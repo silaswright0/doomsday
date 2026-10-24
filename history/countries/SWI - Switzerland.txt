@@ -495,9 +495,9 @@ set_technology = {
 
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 8 producer = SWI }
 add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 660 producer = SWI }
-add_equipment_to_stockpile = { type = support_equipment amount = 26 producer = SWI }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = SWI }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = SWI }
+add_equipment_to_stockpile = { type = support_equipment_cw2 amount = 26 producer = SWI }
+add_equipment_to_stockpile = { type = artillery_equipment_cw2 amount = 9 producer = SWI }
+add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 90 producer = SWI }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 6 producer = SWI }
 add_ideas = dd_welfare_4
 add_ideas = dd_education_4
@@ -546,3 +546,8 @@ recruit_character = SWI_john_airforce
 recruit_character = SWI_john_navy
 recruit_character = SWI_fm_army_command
 recruit_character = SWI_gen_field_command
+recruit_character = SWI_hc_infantry
+recruit_character = SWI_hc_armor
+recruit_character = SWI_hc_artillery
+recruit_character = SWI_hc_air
+recruit_character = SWI_hc_navy

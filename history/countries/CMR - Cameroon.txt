@@ -361,7 +361,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = CMR }
-add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = CMR }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 6 producer = CMR }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = CMR }
 add_ideas = dd_welfare_2
 add_ideas = dd_education_4
@@ -408,6 +408,11 @@ recruit_character = CMR_john_army
 recruit_character = CMR_john_airforce
 recruit_character = CMR_john_navy
 recruit_character = CMR_gen_field_command
+recruit_character = CMR_hc_infantry
+recruit_character = CMR_hc_armor
+recruit_character = CMR_hc_artillery
+recruit_character = CMR_hc_air
+recruit_character = CMR_hc_navy
 declare_war_on = {
 	target = AMB
 	type = annex_everything

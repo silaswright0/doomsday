@@ -481,9 +481,9 @@ create_equipment_variant = {
 	}
 }
 add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1245 producer = NGA }
-add_equipment_to_stockpile = { type = support_equipment amount = 34 producer = NGA }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = NGA }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = NGA }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 34 producer = NGA }
+add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 11 producer = NGA }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 90 producer = NGA }
 add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = NGA }
 add_ideas = dd_welfare_2
 add_ideas = dd_education_4
@@ -536,3 +536,8 @@ recruit_character = NGA_fm_army_command
 recruit_character = NGA_gen_field_command
 recruit_character = NGA_gen_corps_command
 recruit_character = NGA_nav_fleet_command
+recruit_character = NGA_hc_infantry
+recruit_character = NGA_hc_armor
+recruit_character = NGA_hc_artillery
+recruit_character = NGA_hc_air
+recruit_character = NGA_hc_navy

@@ -16,6 +16,22 @@ leader_traits = {
 		sprite = 1
 		experience_gain_navy = 0.04
 	}
+	# Named service chiefs. Twice the generic John rate, still small.
+	dd_exp_army = {
+		random = no
+		sprite = 5
+		experience_gain_army = 0.08
+	}
+	dd_exp_navy = {
+		random = no
+		sprite = 3
+		experience_gain_navy = 0.08
+	}
+	dd_exp_air = {
+		random = no
+		sprite = 1
+		experience_gain_air = 0.08
+	}
 	dd_propagandist = {
 		random = no
 		sprite = 13

@@ -359,6 +359,10 @@ types = {
 		success_levels = {
 			failure = {
 				actor_effects = {
+					# The missile is expended even when it fails.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 					var:actor_country = {
 						custom_effect_tooltip = dud_missile_tt
 					}
@@ -366,6 +370,9 @@ types = {
 			}
 			limited_success = {
 				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 1
+					}
 					var:actor_country = {
 						custom_effect_tooltip = dud_missile_tt
 					}
@@ -374,6 +381,10 @@ types = {
 			success = {
 			    custom_sound = raid_result_success_nuclear
 				actor_effects = {
+					# one_use_only keeps the destroyed missile out of the stockpile.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 				}
 				victim_effects = {
 					var:actor_country = { save_global_event_target_as = nuclear_gandhi_actor_country }  
@@ -396,8 +407,10 @@ types = {
 			critical_success = {
 			    custom_sound = raid_result_critical_success_nuclear
 				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 1
+					}
 				}
-
 				victim_effects = {
 					var:actor_country = { save_global_event_target_as = nuclear_gandhi_actor_country }  
 					var:target_state = {
@@ -534,6 +547,10 @@ types = {
 		success_levels = {
 			failure = {
 				actor_effects = {
+					# The missile is expended even when it fails.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 					var:actor_country = {
 						custom_effect_tooltip = dud_missile_tt
 					}
@@ -541,6 +558,9 @@ types = {
 			}
 			limited_success = {
 				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 1
+					}
 					var:actor_country = {
 						custom_effect_tooltip = dud_missile_tt
 					}
@@ -549,6 +569,10 @@ types = {
 			success = {
 			    custom_sound = raid_result_success_nuclear
 				actor_effects = {
+					# one_use_only keeps the destroyed missile out of the stockpile.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 				}
 				victim_effects = {
 					var:actor_country = { save_global_event_target_as = nuclear_gandhi_actor_country }  
@@ -572,8 +596,10 @@ types = {
 			critical_success = {
 			    custom_sound = raid_result_critical_success_nuclear
 				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 1
+					}
 				}
-
 				victim_effects = {
 					var:actor_country = { save_global_event_target_as = nuclear_gandhi_actor_country }  
 					var:target_state = {
@@ -964,6 +990,10 @@ types = {
 		success_levels = {
 			failure = {
 				actor_effects = {
+					# The missile is expended even when it fails.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 					var:actor_country = {
 						custom_effect_tooltip = dud_missile_tt
 					}
@@ -971,6 +1001,9 @@ types = {
 			}
 			limited_success = {
 				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 1
+					}
 					var:actor_country = {
 						custom_effect_tooltip = dud_missile_tt
 					}
@@ -979,6 +1012,10 @@ types = {
 			success = {
 			    custom_sound = raid_result_success_nuclear
 				actor_effects = {
+					# one_use_only keeps the destroyed missile out of the stockpile.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 				}
 				victim_effects = {
 					var:actor_country = { save_global_event_target_as = nuclear_gandhi_actor_country }  
@@ -1003,6 +1040,10 @@ types = {
 			critical_success = {
 			    custom_sound = raid_result_critical_success_nuclear
 				actor_effects = {
+					# one_use_only keeps the destroyed missile out of the stockpile.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 				}
 				victim_effects = {
 					var:actor_country = { save_global_event_target_as = nuclear_gandhi_actor_country }  
@@ -1141,6 +1182,10 @@ types = {
 		success_levels = {
 			failure = {
 				actor_effects = {
+					# The missile is expended even when it fails.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 					var:actor_country = {
 						custom_effect_tooltip = dud_missile_tt
 					}
@@ -1148,6 +1193,9 @@ types = {
 			}
 			limited_success = {
 				actor_effects = {
+					raid_damage_units = {
+						plane_loss = 1
+					}
 					var:actor_country = {
 						custom_effect_tooltip = dud_missile_tt
 					}
@@ -1156,6 +1204,10 @@ types = {
 			success = {
 			    custom_sound = raid_result_success_nuclear
 				actor_effects = {
+					# one_use_only keeps the destroyed missile out of the stockpile.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 				}
 				victim_effects = {
 					var:actor_country = { save_global_event_target_as = nuclear_gandhi_actor_country }  
@@ -1181,6 +1233,10 @@ types = {
 			critical_success = {
 			    custom_sound = raid_result_critical_success_nuclear
 				actor_effects = {
+					# one_use_only keeps the destroyed missile out of the stockpile.
+					raid_damage_units = {
+						plane_loss = 1
+					}
 				}
 				victim_effects = {
 					var:actor_country = { save_global_event_target_as = nuclear_gandhi_actor_country }  

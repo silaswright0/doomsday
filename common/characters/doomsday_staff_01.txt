@@ -967,6 +967,15 @@ characters = {
 			logistics_skill = 4
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = army_chief
+			idea_token = CHI_fm_liu_zhenli
+			cost = 150
+			allowed = { original_tag = CHI }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	CHI_fm_lin_xiangyang = {
 		name = "Lin Xiangyang"
@@ -981,6 +990,15 @@ characters = {
 			planning_skill = 4
 			logistics_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = CHI_fm_lin_xiangyang
+			cost = 100
+			allowed = { original_tag = CHI }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	CHI_fm_wang_qiang = {
@@ -997,6 +1015,15 @@ characters = {
 			logistics_skill = 4
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = CHI_fm_wang_qiang
+			cost = 100
+			allowed = { original_tag = CHI }
+			traits = { army_logistics_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	CHI_gen_wu_yanan = {
 		name = "Wu Yanan"
@@ -1012,6 +1039,15 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = CHI_gen_wu_yanan
+			cost = 100
+			allowed = { original_tag = CHI }
+			traits = { army_armored_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	CHI_nav_hu_zhongming = {
 		name = "Hu Zhongming"
@@ -1026,6 +1062,15 @@ characters = {
 			maneuvering_skill = 3
 			coordination_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = navy_chief
+			idea_token = CHI_nav_hu_zhongming
+			cost = 150
+			allowed = { original_tag = CHI }
+			traits = { dd_exp_navy }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	CHL_john_army = {

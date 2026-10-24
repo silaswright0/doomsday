@@ -367,7 +367,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 330 producer = KEN }
-add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = KEN }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 10 producer = KEN }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = KEN }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = KEN }
 add_ideas = dd_welfare_3
@@ -417,3 +417,8 @@ recruit_character = KEN_john_army
 recruit_character = KEN_john_airforce
 recruit_character = KEN_john_navy
 recruit_character = KEN_gen_field_command
+recruit_character = KEN_hc_infantry
+recruit_character = KEN_hc_armor
+recruit_character = KEN_hc_artillery
+recruit_character = KEN_hc_air
+recruit_character = KEN_hc_navy

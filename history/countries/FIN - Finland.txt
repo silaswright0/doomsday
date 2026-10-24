@@ -498,9 +498,9 @@ set_technology = {
 
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 8 producer = FIN }
 add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 765 producer = FIN }
-add_equipment_to_stockpile = { type = support_equipment amount = 27 producer = FIN }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = FIN }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = FIN }
+add_equipment_to_stockpile = { type = support_equipment_cw2 amount = 27 producer = FIN }
+add_equipment_to_stockpile = { type = artillery_equipment_cw2 amount = 9 producer = FIN }
+add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 90 producer = FIN }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 12 producer = FIN }
 add_ideas = dd_welfare_4
 add_ideas = dd_education_5
@@ -550,3 +550,8 @@ recruit_character = FIN_john_navy
 recruit_character = FIN_fm_army_command
 recruit_character = FIN_gen_field_command
 recruit_character = FIN_gen_corps_command
+recruit_character = FIN_hc_infantry
+recruit_character = FIN_hc_armor
+recruit_character = FIN_hc_artillery
+recruit_character = FIN_hc_air
+recruit_character = FIN_hc_navy

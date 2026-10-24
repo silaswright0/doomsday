@@ -566,9 +566,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 26 producer = RAJ }
 add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 4500 producer = RAJ }
-add_equipment_to_stockpile = { type = support_equipment amount = 172 producer = RAJ }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 59 producer = RAJ }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 1080 producer = RAJ }
+add_equipment_to_stockpile = { type = support_equipment_cw2 amount = 172 producer = RAJ }
+add_equipment_to_stockpile = { type = artillery_equipment_cw2 amount = 59 producer = RAJ }
+add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 1080 producer = RAJ }
 add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 90 producer = RAJ }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 66 producer = RAJ }
 add_ideas = dd_welfare_3
@@ -620,3 +620,8 @@ recruit_character = RAJ_john_navy
 recruit_character = RAJ_fm_upendra_dwivedi
 recruit_character = RAJ_fm_anil_chauhan
 recruit_character = RAJ_nav_dinesh_tripathi
+recruit_character = RAJ_hc_infantry
+recruit_character = RAJ_hc_armor
+recruit_character = RAJ_hc_artillery
+recruit_character = RAJ_hc_air
+recruit_character = RAJ_hc_navy

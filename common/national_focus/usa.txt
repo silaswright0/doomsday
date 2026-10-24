@@ -1822,6 +1822,14 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = social_democracy popularity = 0.05 }
 			add_popularity = { ideology = social_liberalism popularity = 0.05 }
+			if = { limit = { has_idea = USA_pete_hegseth } remove_ideas = USA_pete_hegseth }
+			if = { limit = { has_idea = USA_susie_wiles } remove_ideas = USA_susie_wiles }
+			if = { limit = { has_idea = USA_howard_lutnick } remove_ideas = USA_howard_lutnick }
+			if = { limit = { has_idea = USA_jared_kushner } remove_ideas = USA_jared_kushner }
+			retire_character = USA_pete_hegseth
+			retire_character = USA_susie_wiles
+			retire_character = USA_howard_lutnick
+			retire_character = USA_jared_kushner
 		}
 	}
 	focus = {

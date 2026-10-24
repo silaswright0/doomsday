@@ -487,9 +487,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 8 producer = BRA }
 add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1620 producer = BRA }
-add_equipment_to_stockpile = { type = support_equipment amount = 60 producer = BRA }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 20 producer = BRA }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 360 producer = BRA }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 60 producer = BRA }
+add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 20 producer = BRA }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 360 producer = BRA }
 add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = BRA }
 add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 24 producer = BRA }
 add_ideas = dd_welfare_3
@@ -539,3 +539,8 @@ recruit_character = BRA_john_airforce
 recruit_character = BRA_john_navy
 recruit_character = BRA_fm_tomas_paiva
 recruit_character = BRA_nav_marcos_olsen
+recruit_character = BRA_hc_infantry
+recruit_character = BRA_hc_armor
+recruit_character = BRA_hc_artillery
+recruit_character = BRA_hc_air
+recruit_character = BRA_hc_navy

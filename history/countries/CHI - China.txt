@@ -626,9 +626,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 94 producer = CHI }
 add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 9064 producer = CHI }
-add_equipment_to_stockpile = { type = support_equipment amount = 370 producer = CHI }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 127 producer = CHI }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 2904 producer = CHI }
+add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 370 producer = CHI }
+add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 127 producer = CHI }
+add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 2904 producer = CHI }
 add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 264 producer = CHI }
 add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 242 producer = CHI }
 save_global_event_target_as = WTT_communist_china
@@ -681,3 +681,5 @@ recruit_character = CHI_fm_lin_xiangyang
 recruit_character = CHI_fm_wang_qiang
 recruit_character = CHI_gen_wu_yanan
 recruit_character = CHI_nav_hu_zhongming
+recruit_character = CHI_chang_dingqiu
+recruit_character = CHI_wang_houbin

@@ -369,9 +369,9 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 975 producer = SYR }
-add_equipment_to_stockpile = { type = support_equipment amount = 21 producer = SYR }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 21 producer = SYR }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 7 producer = SYR }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = SYR }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 90 producer = SYR }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = SYR }
 add_ideas = dd_welfare_1
 add_ideas = dd_education_4
@@ -421,6 +421,11 @@ recruit_character = SYR_john_navy
 recruit_character = SYR_fm_army_command
 recruit_character = SYR_gen_field_command
 recruit_character = SYR_gen_corps_command
+recruit_character = SYR_hc_infantry
+recruit_character = SYR_hc_armor
+recruit_character = SYR_hc_artillery
+recruit_character = SYR_hc_air
+recruit_character = SYR_hc_navy
 declare_war_on = {
 	target = ROJ
 	type = annex_everything

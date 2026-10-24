@@ -43,22 +43,22 @@ country_event = {
 	option = {
 		name = dd_isr.10.a
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = social_liberalism popularity = 0.04 }
+		add_popularity = { ideology = social_liberalism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.10.b
 		ai_chance = { factor = 100 }
-		add_popularity = { ideology = national_populism popularity = 0.04 }
+		add_popularity = { ideology = national_populism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.10.c
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = communism popularity = 0.04 }
+		add_popularity = { ideology = communism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.10.e
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = social_democracy popularity = 0.04 }
+		add_popularity = { ideology = social_democracy popularity = 0.06 }
 	}
 }
 
@@ -75,22 +75,22 @@ country_event = {
 	option = {
 		name = dd_isr.11.a
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = social_liberalism popularity = 0.04 }
+		add_popularity = { ideology = social_liberalism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.11.b
 		ai_chance = { factor = 100 }
-		add_popularity = { ideology = national_populism popularity = 0.04 }
+		add_popularity = { ideology = national_populism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.11.c
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = communism popularity = 0.04 }
+		add_popularity = { ideology = communism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.11.e
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = social_democracy popularity = 0.04 }
+		add_popularity = { ideology = social_democracy popularity = 0.06 }
 	}
 }
 
@@ -107,23 +107,93 @@ country_event = {
 	option = {
 		name = dd_isr.12.a
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = social_liberalism popularity = 0.04 }
+		add_popularity = { ideology = social_liberalism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.12.b
 		ai_chance = { factor = 100 }
-		add_popularity = { ideology = national_populism popularity = 0.04 }
+		add_popularity = { ideology = national_populism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.12.c
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = communism popularity = 0.04 }
+		add_popularity = { ideology = communism popularity = 0.06 }
 	}
 	option = {
 		name = dd_isr.12.e
 		ai_chance = { factor = 0 }
-		add_popularity = { ideology = social_democracy popularity = 0.04 }
+		add_popularity = { ideology = social_democracy popularity = 0.06 }
 	}
+}
+
+# Annexing the Palestinian Authority. Communist support, then the revolt.
+country_event = {
+	id = dd_isr.20
+	title = dd_isr.20.t
+	desc = dd_isr.20.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = dd_isr.20.a
+		add_popularity = { ideology = communism popularity = 0.05 }
+		country_event = { id = dd_isr.21 days = 2 }
+	}
+}
+
+country_event = {
+	id = dd_isr.21
+	title = dd_isr.21.t
+	desc = dd_isr.21.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = dd_isr.21.a
+		dd_isr_tyrant_falls = yes
+	}
+}
+
+country_event = {
+	id = dd_isr.22
+	title = dd_isr.22.t
+	desc = dd_isr.22.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = dd_isr.22.a
+		ai_chance = { factor = 10 }
+		dd_isr_hendel_posts = yes
+	}
+	option = {
+		name = dd_isr.22.b
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = {
+	id = dd_isr.23
+	title = dd_isr.23.t
+	desc = dd_isr.23.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = { name = dd_isr.23.a }
+}
+
+country_event = {
+	id = dd_isr.24
+	title = dd_isr.24.t
+	desc = dd_isr.24.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = { name = dd_isr.24.a }
+}
+
+country_event = {
+	id = dd_isr.25
+	title = dd_isr.25.t
+	desc = dd_isr.25.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = { name = dd_isr.25.a }
 }
 
 news_event = {

@@ -360,7 +360,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = SWZ }
-add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SWZ }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 2 producer = SWZ }
 add_ideas = dd_welfare_2
 add_ideas = dd_education_3
 add_ideas = dd_immigration_2
@@ -405,3 +405,8 @@ recruit_character = SWZ_john_army
 recruit_character = SWZ_john_airforce
 recruit_character = SWZ_john_navy
 recruit_character = SWZ_gen_field_command
+recruit_character = SWZ_hc_infantry
+recruit_character = SWZ_hc_armor
+recruit_character = SWZ_hc_artillery
+recruit_character = SWZ_hc_air
+recruit_character = SWZ_hc_navy

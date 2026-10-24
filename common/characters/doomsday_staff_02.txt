@@ -484,6 +484,15 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = army_chief
+			idea_token = PER_fm_abdolrahim_mousavi
+			cost = 150
+			allowed = { original_tag = PER }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	PER_gen_mohammad_pakpour = {
 		name = "Mohammad Pakpour"
@@ -499,6 +508,15 @@ characters = {
 			logistics_skill = 2
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = PER_gen_mohammad_pakpour
+			cost = 100
+			allowed = { original_tag = PER }
+			traits = { army_commando_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	PER_nav_shahram_irani = {
 		name = "Shahram Irani"
@@ -513,6 +531,15 @@ characters = {
 			maneuvering_skill = 3
 			coordination_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = navy_chief
+			idea_token = PER_nav_shahram_irani
+			cost = 150
+			allowed = { original_tag = PER }
+			traits = { dd_exp_navy }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	PHI_john_army = {
@@ -1372,6 +1399,15 @@ characters = {
 			logistics_skill = 4
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = army_chief
+			idea_token = USA_fm_randy_george
+			cost = 150
+			allowed = { original_tag = USA }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	USA_fm_michael_kurilla = {
 		name = "Michael Kurilla"
@@ -1386,6 +1422,15 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = USA_fm_michael_kurilla
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { army_commando_1 }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	USA_fm_christopher_donahue = {
@@ -1402,6 +1447,15 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = USA_fm_christopher_donahue
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	USA_gen_james_jarrard = {
 		name = "James Jarrard"
@@ -1416,6 +1470,15 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = USA_gen_james_jarrard
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { army_logistics_1 }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	USA_gen_andrew_poppas = {
@@ -1432,6 +1495,15 @@ characters = {
 			logistics_skill = 2
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = USA_gen_andrew_poppas
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { army_armored_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	USA_gen_eric_smith = {
 		name = "Eric Smith"
@@ -1446,6 +1518,15 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = USA_gen_eric_smith
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { army_commando_1 }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	USA_nav_lisa_franchetti = {
@@ -1462,6 +1543,15 @@ characters = {
 			coordination_skill = 3
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = navy_chief
+			idea_token = USA_nav_lisa_franchetti
+			cost = 150
+			allowed = { original_tag = USA }
+			traits = { dd_exp_navy }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	USA_nav_samuel_paparo = {
 		name = "Samuel Paparo"
@@ -1477,6 +1567,15 @@ characters = {
 			coordination_skill = 3
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = USA_nav_samuel_paparo
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { air_air_superiority_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	USA_nav_james_kilby = {
 		name = "James Kilby"
@@ -1491,6 +1590,15 @@ characters = {
 			maneuvering_skill = 3
 			coordination_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = USA_nav_james_kilby
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { navy_screen_1 }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	MON_john_army = {

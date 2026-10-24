@@ -198,6 +198,20 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	USA_pete_hegseth = {
+		name = "Pete Hegseth"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_pete_hegseth small = GFX_portrait_USA_pete_hegseth_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_pete_hegseth
+			allowed = { original_tag = USA }
+			available = { has_government = national_populism }
+			traits = { hawk }
+			ai_will_do = { factor = 1 }
+		}
+	}
 	USA_ilhan_omar = {
 		name = "Ilhan Omar"
 		portraits = {

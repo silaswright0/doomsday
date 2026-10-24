@@ -485,9 +485,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 8 producer = MEX }
 add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 990 producer = MEX }
-add_equipment_to_stockpile = { type = support_equipment amount = 32 producer = MEX }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = MEX }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = MEX }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 32 producer = MEX }
+add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 9 producer = MEX }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 90 producer = MEX }
 add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = MEX }
 add_ideas = dd_welfare_3
 add_ideas = dd_education_4
@@ -538,3 +538,8 @@ recruit_character = MEX_fm_army_command
 recruit_character = MEX_gen_field_command
 recruit_character = MEX_gen_corps_command
 recruit_character = MEX_nav_fleet_command
+recruit_character = MEX_hc_infantry
+recruit_character = MEX_hc_armor
+recruit_character = MEX_hc_artillery
+recruit_character = MEX_hc_air
+recruit_character = MEX_hc_navy

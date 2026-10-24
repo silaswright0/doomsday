@@ -361,7 +361,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = SLV }
-add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = SLV }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 2 producer = SLV }
 add_ideas = dd_welfare_4
 add_ideas = dd_education_5
 add_ideas = dd_immigration_3
@@ -408,3 +408,8 @@ recruit_character = SLV_john_army
 recruit_character = SLV_john_airforce
 recruit_character = SLV_john_navy
 recruit_character = SLV_gen_field_command
+recruit_character = SLV_hc_infantry
+recruit_character = SLV_hc_armor
+recruit_character = SLV_hc_artillery
+recruit_character = SLV_hc_air
+recruit_character = SLV_hc_navy

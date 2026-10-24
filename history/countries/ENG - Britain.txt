@@ -636,9 +636,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 25 producer = ENG }
 add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 1425 producer = ENG }
-add_equipment_to_stockpile = { type = support_equipment amount = 54 producer = ENG }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 18 producer = ENG }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 360 producer = ENG }
+add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 54 producer = ENG }
+add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 18 producer = ENG }
+add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 360 producer = ENG }
 add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 22 producer = ENG }
 add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 42 producer = ENG }
 add_ideas = dd_welfare_4
@@ -689,3 +689,8 @@ recruit_character = ENG_john_navy
 recruit_character = ENG_fm_roland_walker
 recruit_character = ENG_gen_james_hockenhull
 recruit_character = ENG_nav_ben_key
+recruit_character = ENG_hc_infantry
+recruit_character = ENG_hc_armor
+recruit_character = ENG_hc_artillery
+recruit_character = ENG_hc_air
+recruit_character = ENG_hc_navy

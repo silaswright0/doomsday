@@ -429,9 +429,9 @@ create_equipment_variant = {
 	}
 }
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 990 producer = VEN }
-add_equipment_to_stockpile = { type = support_equipment amount = 33 producer = VEN }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 33 producer = VEN }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = VEN }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 180 producer = VEN }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 180 producer = VEN }
 add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = VEN }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = VEN }
 add_ideas = dd_welfare_3
@@ -483,3 +483,8 @@ recruit_character = VEN_fm_army_command
 recruit_character = VEN_gen_field_command
 recruit_character = VEN_gen_corps_command
 recruit_character = VEN_nav_fleet_command
+recruit_character = VEN_hc_infantry
+recruit_character = VEN_hc_armor
+recruit_character = VEN_hc_artillery
+recruit_character = VEN_hc_air
+recruit_character = VEN_hc_navy

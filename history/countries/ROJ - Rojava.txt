@@ -361,7 +361,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 600 producer = ROJ }
-add_equipment_to_stockpile = { type = support_equipment amount = 10 producer = ROJ }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 10 producer = ROJ }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 4 producer = ROJ }
 add_ideas = dd_welfare_2
 add_ideas = dd_education_3
@@ -411,6 +411,11 @@ recruit_character = ROJ_john_airforce
 recruit_character = ROJ_john_navy
 recruit_character = ROJ_fm_army_command
 recruit_character = ROJ_gen_field_command
+recruit_character = ROJ_hc_infantry
+recruit_character = ROJ_hc_armor
+recruit_character = ROJ_hc_artillery
+recruit_character = ROJ_hc_air
+recruit_character = ROJ_hc_navy
 declare_war_on = {
 	target = SNA
 	type = annex_everything

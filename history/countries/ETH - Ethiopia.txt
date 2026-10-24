@@ -374,9 +374,9 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1860 producer = ETH }
-add_equipment_to_stockpile = { type = support_equipment amount = 56 producer = ETH }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 56 producer = ETH }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 20 producer = ETH }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = ETH }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 90 producer = ETH }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = ETH }
 add_ideas = dd_welfare_2
 add_ideas = dd_education_3
@@ -429,3 +429,8 @@ recruit_character = ETH_john_navy
 recruit_character = ETH_fm_army_command
 recruit_character = ETH_gen_field_command
 recruit_character = ETH_gen_corps_command
+recruit_character = ETH_hc_infantry
+recruit_character = ETH_hc_armor
+recruit_character = ETH_hc_artillery
+recruit_character = ETH_hc_air
+recruit_character = ETH_hc_navy

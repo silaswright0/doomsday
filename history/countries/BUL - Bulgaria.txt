@@ -371,7 +371,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = BUL }
-add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = BUL }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 6 producer = BUL }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = BUL }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = BUL }
 add_ideas = dd_welfare_3
@@ -420,3 +420,8 @@ recruit_character = BUL_john_army
 recruit_character = BUL_john_airforce
 recruit_character = BUL_john_navy
 recruit_character = BUL_gen_field_command
+recruit_character = BUL_hc_infantry
+recruit_character = BUL_hc_armor
+recruit_character = BUL_hc_artillery
+recruit_character = BUL_hc_air
+recruit_character = BUL_hc_navy

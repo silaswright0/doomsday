@@ -371,9 +371,9 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 510 producer = ARM }
-add_equipment_to_stockpile = { type = support_equipment amount = 20 producer = ARM }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 20 producer = ARM }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 7 producer = ARM }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = ARM }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 90 producer = ARM }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 3 producer = ARM }
 add_ideas = dd_welfare_3
 add_ideas = dd_education_4
@@ -420,3 +420,8 @@ recruit_character = ARM_john_army
 recruit_character = ARM_john_airforce
 recruit_character = ARM_john_navy
 recruit_character = ARM_gen_field_command
+recruit_character = ARM_hc_infantry
+recruit_character = ARM_hc_armor
+recruit_character = ARM_hc_artillery
+recruit_character = ARM_hc_air
+recruit_character = ARM_hc_navy

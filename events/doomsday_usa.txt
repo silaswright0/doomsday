@@ -55,6 +55,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = dd_usa_greenland.2.a
+		ai_chance = { factor = 5 }
 		# Greenland starts as Denmark's puppet, and Denmark is in NATO, so a war
 		# goal on Nuuk is refused while Washington shares that faction.
 		dd_usa_hand_nato_to_france = yes
@@ -70,6 +71,7 @@ country_event = {
 	}
 	option = {
 		name = dd_usa_greenland.2.b
+		ai_chance = { factor = 95 }
 		GRN = {
 			give_military_access = USA
 			add_ideas = dd_usa_greenland_security

@@ -368,7 +368,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 195 producer = LAT }
-add_equipment_to_stockpile = { type = support_equipment amount = 6 producer = LAT }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 6 producer = LAT }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = LAT }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 9 producer = LAT }
 add_ideas = dd_welfare_3
@@ -417,3 +417,8 @@ recruit_character = LAT_john_army
 recruit_character = LAT_john_airforce
 recruit_character = LAT_john_navy
 recruit_character = LAT_gen_field_command
+recruit_character = LAT_hc_infantry
+recruit_character = LAT_hc_armor
+recruit_character = LAT_hc_artillery
+recruit_character = LAT_hc_air
+recruit_character = LAT_hc_navy

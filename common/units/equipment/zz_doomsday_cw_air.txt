@@ -41,7 +41,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw1
 		priority = 6
-		visual_level = 1
+		visual_level = 2
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -75,7 +75,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw2
 		priority = 6
-		visual_level = 1
+		visual_level = 3
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -110,7 +110,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw3
 		priority = 6
-		visual_level = 1
+		visual_level = 4
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -147,7 +147,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw4
 		priority = 6
-		visual_level = 1
+		visual_level = 5
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -186,7 +186,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw45
 		priority = 6
-		visual_level = 1
+		visual_level = 6
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -225,7 +225,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw45
 		priority = 6
-		visual_level = 1
+		visual_level = 6
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -264,7 +264,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw5a
 		priority = 6
-		visual_level = 1
+		visual_level = 7
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -338,7 +338,7 @@ equipments = {
 		archetype = cv_small_plane_airframe
 		parent = cv_fighter_equipment_cw2
 		priority = 6
-		visual_level = 1
+		visual_level = 2
 		carrier_capable = yes
 		allow_mission_type = {
 			air_superiority
@@ -376,7 +376,7 @@ equipments = {
 		archetype = cv_small_plane_airframe
 		parent = cv_fighter_equipment_cw4
 		priority = 6
-		visual_level = 1
+		visual_level = 3
 		carrier_capable = yes
 		allow_mission_type = {
 			air_superiority
@@ -451,7 +451,7 @@ equipments = {
 		archetype = small_plane_cas_airframe
 		parent = cas_equipment_cw1
 		priority = 6
-		visual_level = 1
+		visual_level = 2
 		allow_mission_type = {
 			cas
 			naval_bomber
@@ -486,7 +486,7 @@ equipments = {
 		archetype = small_plane_cas_airframe
 		parent = cas_equipment_cw2
 		priority = 6
-		visual_level = 1
+		visual_level = 3
 		allow_mission_type = {
 			cas
 			naval_bomber
@@ -522,7 +522,7 @@ equipments = {
 		archetype = small_plane_cas_airframe
 		parent = cas_equipment_cw3
 		priority = 6
-		visual_level = 1
+		visual_level = 4
 		allow_mission_type = {
 			cas
 			naval_bomber
@@ -595,7 +595,7 @@ equipments = {
 		archetype = small_plane_naval_bomber_airframe
 		parent = nav_bomber_equipment_cw1
 		priority = 6
-		visual_level = 1
+		visual_level = 2
 		allow_mission_type = {
 			naval_bomber
 			port_strike
@@ -629,7 +629,7 @@ equipments = {
 		archetype = small_plane_naval_bomber_airframe
 		parent = nav_bomber_equipment_cw2
 		priority = 6
-		visual_level = 1
+		visual_level = 3
 		allow_mission_type = {
 			naval_bomber
 			port_strike
@@ -700,7 +700,7 @@ equipments = {
 		archetype = medium_plane_airframe
 		parent = tac_bomber_equipment_cw1
 		priority = 6
-		visual_level = 1
+		visual_level = 2
 		allow_mission_type = {
 			cas
 			strategic_bomber
@@ -735,7 +735,7 @@ equipments = {
 		archetype = medium_plane_airframe
 		parent = tac_bomber_equipment_cw2
 		priority = 6
-		visual_level = 1
+		visual_level = 3
 		allow_mission_type = {
 			cas
 			strategic_bomber
@@ -772,7 +772,7 @@ equipments = {
 		archetype = medium_plane_airframe
 		parent = tac_bomber_equipment_cw3
 		priority = 6
-		visual_level = 1
+		visual_level = 4
 		allow_mission_type = {
 			cas
 			strategic_bomber
@@ -846,7 +846,7 @@ equipments = {
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw1
 		priority = 6
-		visual_level = 1
+		visual_level = 2
 		allow_mission_type = {
 			strategic_bomber
 			naval_bomber
@@ -881,7 +881,7 @@ equipments = {
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw2
 		priority = 6
-		visual_level = 1
+		visual_level = 3
 		allow_mission_type = {
 			strategic_bomber
 			naval_bomber
@@ -916,7 +916,7 @@ equipments = {
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw3
 		priority = 6
-		visual_level = 1
+		visual_level = 4
 		allow_mission_type = {
 			strategic_bomber
 			naval_bomber
@@ -955,7 +955,7 @@ equipments = {
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw4
 		priority = 6
-		visual_level = 1
+		visual_level = 5
 		allow_mission_type = {
 			strategic_bomber
 			naval_bomber
@@ -994,7 +994,7 @@ equipments = {
 		archetype = large_plane_airframe
 		parent = strat_bomber_equipment_cw5
 		priority = 6
-		visual_level = 1
+		visual_level = 6
 		allow_mission_type = {
 			strategic_bomber
 			naval_bomber
@@ -1102,7 +1102,7 @@ equipments = {
 		archetype = medium_plane_scout_plane_airframe
 		parent = aew_equipment_1
 		priority = 6
-		visual_level = 1
+		visual_level = 2
 					allow_mission_type = {
 				recon
 				naval_patrol
@@ -1137,7 +1137,7 @@ equipments = {
 		archetype = medium_plane_scout_plane_airframe
 		parent = aew_equipment_2
 		priority = 6
-		visual_level = 1
+		visual_level = 3
 					allow_mission_type = {
 				recon
 				naval_patrol
@@ -1209,7 +1209,7 @@ equipments = {
 		archetype = large_plane_maritime_patrol_plane_airframe
 		parent = mpa_equipment_cw1
 		priority = 6
-		visual_level = 1
+		visual_level = 2
 					allow_mission_type = {
 				naval_patrol
 				naval_bomber
@@ -1246,7 +1246,7 @@ equipments = {
 		archetype = large_plane_maritime_patrol_plane_airframe
 		parent = mpa_equipment_cw2
 		priority = 6
-		visual_level = 1
+		visual_level = 3
 					allow_mission_type = {
 				naval_patrol
 				naval_bomber
@@ -1283,7 +1283,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = fighter_equipment_cw45
 		priority = 6
-		visual_level = 1
+		visual_level = 6
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -1320,7 +1320,7 @@ equipments = {
 		archetype = small_plane_airframe
 		parent = cca_equipment_1
 		priority = 6
-		visual_level = 1
+		visual_level = 7
 		allow_mission_type = {
 			air_superiority
 			interception
@@ -1480,7 +1480,7 @@ equipments = {
 		archetype = transport_heli_equipment
 		parent = transport_heli_equipment_2
 		priority = 90
-		visual_level = 1
+		visual_level = 2
 		air_range = 900
 		maximum_speed = 320
 		air_agility = 32
@@ -1498,6 +1498,7 @@ equipments = {
 		year = 2009
 		archetype = guided_missile_equipment
 		parent = guided_missile_equipment_4
+		one_use_only = yes
 		priority = 90
 		visual_level = 1
 		air_range = 2500

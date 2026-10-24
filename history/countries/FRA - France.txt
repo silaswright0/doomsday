@@ -635,9 +635,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 19 producer = FRA }
 add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 2070 producer = FRA }
-add_equipment_to_stockpile = { type = support_equipment amount = 80 producer = FRA }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 25 producer = FRA }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 540 producer = FRA }
+add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 80 producer = FRA }
+add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 25 producer = FRA }
+add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 540 producer = FRA }
 add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 45 producer = FRA }
 add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 48 producer = FRA }
 add_ideas = dd_welfare_4
@@ -688,3 +688,9 @@ recruit_character = FRA_john_navy
 recruit_character = FRA_fm_pierre_schill
 recruit_character = FRA_fm_thierry_burkhard
 recruit_character = FRA_nav_nicolas_vaujour
+recruit_character = FRA_hc_infantry
+recruit_character = FRA_hc_armor
+recruit_character = FRA_hc_artillery
+recruit_character = FRA_hc_air
+recruit_character = FRA_hc_navy
+recruit_character = FRA_jerome_bellanger

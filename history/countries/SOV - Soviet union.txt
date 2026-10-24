@@ -673,9 +673,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 45 producer = SOV }
 add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 5415 producer = SOV }
-add_equipment_to_stockpile = { type = support_equipment amount = 201 producer = SOV }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 72 producer = SOV }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 1080 producer = SOV }
+add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 201 producer = SOV }
+add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 72 producer = SOV }
+add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 1080 producer = SOV }
 add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 90 producer = SOV }
 add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 45 producer = SOV }
 add_ideas = dd_welfare_3
@@ -727,6 +727,8 @@ recruit_character = SOV_fm_valery_gerasimov
 recruit_character = SOV_fm_andrey_mordvichev
 recruit_character = SOV_gen_aleksandr_lapin
 recruit_character = SOV_nav_aleksandr_moiseev
+recruit_character = SOV_viktor_afzalov
+recruit_character = SOV_mikhail_teplinsky
 create_faction = CSTO
 add_to_faction = BLR
 add_to_faction = KAZ

@@ -370,9 +370,9 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 795 producer = AZR }
-add_equipment_to_stockpile = { type = support_equipment amount = 32 producer = AZR }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 32 producer = AZR }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = AZR }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = AZR }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 270 producer = AZR }
 add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = AZR }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 12 producer = AZR }
 add_ideas = dd_welfare_3
@@ -421,3 +421,8 @@ recruit_character = AZR_john_navy
 recruit_character = AZR_fm_army_command
 recruit_character = AZR_gen_field_command
 recruit_character = AZR_gen_corps_command
+recruit_character = AZR_hc_infantry
+recruit_character = AZR_hc_armor
+recruit_character = AZR_hc_artillery
+recruit_character = AZR_hc_air
+recruit_character = AZR_hc_navy

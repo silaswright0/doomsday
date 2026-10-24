@@ -426,9 +426,9 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 795 producer = BLR }
-add_equipment_to_stockpile = { type = support_equipment amount = 32 producer = BLR }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 11 producer = BLR }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = BLR }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 32 producer = BLR }
+add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 11 producer = BLR }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 270 producer = BLR }
 add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 22 producer = BLR }
 add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 12 producer = BLR }
 add_ideas = dd_welfare_3
@@ -478,3 +478,8 @@ recruit_character = BLR_john_navy
 recruit_character = BLR_fm_army_command
 recruit_character = BLR_gen_field_command
 recruit_character = BLR_gen_corps_command
+recruit_character = BLR_hc_infantry
+recruit_character = BLR_hc_armor
+recruit_character = BLR_hc_artillery
+recruit_character = BLR_hc_air
+recruit_character = BLR_hc_navy

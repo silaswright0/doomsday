@@ -1,43 +1,120 @@
+dd_isr_tally_blocs = {
+	set_variable = { dd_isr_hadash = party_popularity@progressive_populism }
+	add_to_variable = { dd_isr_hadash = party_popularity@communism }
+	set_variable = { dd_isr_lapid = party_popularity@social_liberalism }
+	set_variable = { dd_isr_yashar = party_popularity@liberal_conservatism }
+	set_variable = { dd_isr_golan = party_popularity@social_democracy }
+	set_variable = { dd_isr_opposition = dd_isr_lapid }
+	add_to_variable = { dd_isr_opposition = dd_isr_yashar }
+	add_to_variable = { dd_isr_opposition = dd_isr_golan }
+	set_variable = { dd_isr_bibi = party_popularity@national_populism }
+	add_to_variable = { dd_isr_bibi = party_popularity@theocratic_absolutism }
+	add_to_variable = { dd_isr_bibi = party_popularity@fascism }
+	add_to_variable = { dd_isr_bibi = party_popularity@technocracy }
+}
+
 dd_isr_hold_election = {
 	if = {
-		limit = { NOT = { has_country_flag = dd_isr_election_done } }
-		set_country_flag = dd_isr_election_done
-		set_variable = { dd_isr_hadash = party_popularity@progressive_populism }
-		add_to_variable = { dd_isr_hadash = party_popularity@communism }
-		set_variable = { dd_isr_dem = party_popularity@social_democracy }
-		set_variable = { dd_isr_yashar = party_popularity@social_liberalism }
-		set_variable = { dd_isr_bibi = party_popularity@liberal_conservatism }
-		add_to_variable = { dd_isr_bibi = party_popularity@national_populism }
-		add_to_variable = { dd_isr_bibi = party_popularity@theocratic_absolutism }
-		add_to_variable = { dd_isr_bibi = party_popularity@fascism }
-		set_country_flag = dd_isr_resolving_election
+		limit = {
+			NOT = { has_country_flag = dd_isr_election_done }
+			NOT = { has_country_flag = dd_isr_election_called }
+		}
+		set_country_flag = dd_isr_election_called
+		clr_country_flag = dd_isr_election_rerun_active
+		dd_isr_tally_blocs = yes
+		set_variable = { dd_isr_form_try = 1 }
 		if = {
-			limit = {
-				check_variable = { dd_isr_hadash > dd_isr_dem }
-				check_variable = { dd_isr_hadash > dd_isr_yashar }
-				check_variable = { dd_isr_hadash > dd_isr_bibi }
-			}
-			complete_national_focus = ISR_election_hadash
-			news_event = { id = dd_isr_news.1 }
-		}
-		else_if = {
-			limit = {
-				check_variable = { dd_isr_dem > dd_isr_yashar }
-				check_variable = { dd_isr_dem > dd_isr_bibi }
-			}
-			complete_national_focus = ISR_election_democrats
-			news_event = { id = dd_isr_news.2 }
-		}
-		else_if = {
-			limit = { check_variable = { dd_isr_yashar > dd_isr_bibi } }
-			complete_national_focus = ISR_election_yashar
-			news_event = { id = dd_isr_news.3 }
+			limit = { check_variable = { dd_isr_opposition > dd_isr_bibi } }
+			set_country_flag = dd_isr_form_opposition
+			clr_country_flag = dd_isr_form_bibi
+			country_event = { id = dd_isr.23 }
 		}
 		else = {
-			complete_national_focus = ISR_election_netanyahu
-			news_event = { id = dd_isr_news.4 }
+			set_country_flag = dd_isr_form_bibi
+			clr_country_flag = dd_isr_form_opposition
+			country_event = { id = dd_isr.24 }
 		}
-		clr_country_flag = dd_isr_resolving_election
+		activate_mission = dd_isr_form_government
+	}
+}
+
+dd_isr_form_timeout = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_isr_election_done } }
+		dd_isr_tally_blocs = yes
+		if = {
+			limit = {
+				has_country_flag = dd_isr_form_opposition
+				check_variable = { dd_isr_opposition > 0.5 }
+			}
+			dd_isr_form_opposition_gov = yes
+		}
+		else_if = {
+			limit = {
+				has_country_flag = dd_isr_form_bibi
+				check_variable = { dd_isr_bibi > 0.5 }
+			}
+			dd_isr_form_bibi_gov = yes
+		}
+		else = {
+			dd_isr_form_failed = yes
+		}
+	}
+}
+
+dd_isr_form_opposition_gov = {
+	set_country_flag = dd_isr_election_done
+	clr_country_flag = dd_isr_form_opposition
+	clr_country_flag = dd_isr_form_bibi
+	set_country_flag = dd_isr_resolving_election
+	if = {
+		limit = { check_variable = { dd_isr_yashar > dd_isr_lapid } }
+		complete_national_focus = ISR_election_yashar
+		news_event = { id = dd_isr_news.3 }
+	}
+	else = {
+		complete_national_focus = ISR_election_democrats
+		news_event = { id = dd_isr_news.2 }
+	}
+	clr_country_flag = dd_isr_resolving_election
+	country_event = { id = dd_isr.22 days = 12 }
+}
+
+dd_isr_form_bibi_gov = {
+	set_country_flag = dd_isr_election_done
+	clr_country_flag = dd_isr_form_opposition
+	clr_country_flag = dd_isr_form_bibi
+	set_country_flag = dd_isr_resolving_election
+	complete_national_focus = ISR_election_netanyahu
+	news_event = { id = dd_isr_news.4 }
+	clr_country_flag = dd_isr_resolving_election
+	country_event = { id = dd_isr.22 days = 12 }
+}
+
+dd_isr_form_failed = {
+	if = {
+		limit = { check_variable = { dd_isr_form_try < 2 } }
+		set_variable = { dd_isr_form_try = 2 }
+		if = {
+			limit = { has_country_flag = dd_isr_form_opposition }
+			clr_country_flag = dd_isr_form_opposition
+			set_country_flag = dd_isr_form_bibi
+			country_event = { id = dd_isr.24 }
+		}
+		else = {
+			clr_country_flag = dd_isr_form_bibi
+			set_country_flag = dd_isr_form_opposition
+			country_event = { id = dd_isr.23 }
+		}
+		activate_mission = dd_isr_form_government
+	}
+	else = {
+		clr_country_flag = dd_isr_form_opposition
+		clr_country_flag = dd_isr_form_bibi
+		clr_country_flag = dd_isr_election_called
+		set_country_flag = dd_isr_election_rerun_active
+		country_event = { id = dd_isr.25 }
+		activate_mission = dd_isr_election_rerun
 	}
 }
 
@@ -46,11 +123,25 @@ dd_isr_clear_torah = {
 	if = { limit = { has_idea = dd_isr_torah_study } remove_ideas = dd_isr_torah_study }
 }
 
+dd_isr_tyrant_falls = {
+	dd_isr_palestine_war = yes
+	if = {
+		limit = { NOT = { has_completed_focus = ISR_declare_palestine } }
+		complete_national_focus = ISR_declare_palestine
+	}
+}
+
 dd_isr_palestine_war = {
 	custom_effect_tooltip = dd_isr_palestine_war_tt
 	hidden_effect = {
 		set_cosmetic_tag = ISR_PALESTINE
 		set_country_flag = dd_isr_palestine_declared
+		set_variable = { dd_isr_revolt_share = 1 }
+		subtract_from_variable = { dd_isr_revolt_share = party_popularity@communism }
+		if = {
+			limit = { check_variable = { dd_isr_revolt_share < 0 } }
+			set_variable = { dd_isr_revolt_share = 0 }
+		}
 		if = {
 			limit = {
 				1120 = { is_owned_by = ROOT }
@@ -59,8 +150,11 @@ dd_isr_palestine_war = {
 			}
 			set_capital = { state = 1120 }
 			start_civil_war = {
-				ideology = theocratic_absolutism
+				ideology = fascism
 				size = 0.35
+				army_ratio = var:dd_isr_revolt_share
+				navy_ratio = 0.10
+				air_ratio = 0.20
 				capital = 454
 				states = { 454 1088 }
 				set_country_flag = dd_isr_revolt
@@ -74,8 +168,11 @@ dd_isr_palestine_war = {
 			}
 			set_capital = { state = 1120 }
 			start_civil_war = {
-				ideology = theocratic_absolutism
+				ideology = fascism
 				size = 0.35
+				army_ratio = var:dd_isr_revolt_share
+				navy_ratio = 0.10
+				air_ratio = 0.20
 				capital = 454
 				states = { 454 }
 				set_country_flag = dd_isr_revolt
@@ -87,16 +184,65 @@ dd_isr_palestine_war = {
 			event_target:dd_isr_rebels = {
 				set_cosmetic_tag = ISR_REVOLT
 				set_country_flag = dd_isr_revolt
-				set_politics = { ruling_party = theocratic_absolutism elections_allowed = no }
-				add_popularity = { ideology = theocratic_absolutism popularity = 0.45 }
-				add_popularity = { ideology = fascism popularity = 0.35 }
+				set_politics = { ruling_party = fascism elections_allowed = no }
+				add_popularity = { ideology = fascism popularity = 0.50 }
+				add_popularity = { ideology = theocratic_absolutism popularity = 0.25 }
 				create_country_leader = {
 					name = "Itamar Ben-Gvir"
 					picture = GFX_portrait_ISR_ben_gvir
-					ideology = theocrat
+					ideology = fascism_ideology
 				}
 				add_ideas = dd_isr_insurgent
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_country_flag = dd_isr_idf_urban
+								has_idea = dd_isr_idf_urban
+								has_idea = dd_isr_idf_both
+							}
+						}
+					}
+					set_country_flag = dd_isr_idf_urban
+				}
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_country_flag = dd_isr_idf_arms
+								has_idea = dd_isr_idf_arms
+								has_idea = dd_isr_idf_both
+							}
+						}
+					}
+					set_country_flag = dd_isr_idf_arms
+				}
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_completed_focus = ISR_the_idf
+								has_completed_focus = ISR_urban_fighting
+								has_completed_focus = ISR_combined_arms
+								has_idea = dd_isr_idf
+								has_idea = dd_isr_idf_urban
+								has_idea = dd_isr_idf_arms
+								has_idea = dd_isr_idf_both
+								has_dynamic_modifier = { modifier = dd_isr_idf_spirit }
+								has_country_flag = dd_isr_idf_urban
+								has_country_flag = dd_isr_idf_arms
+							}
+						}
+					}
+					dd_isr_refresh_idf = yes
+				}
 			}
+		}
+		if = {
+			limit = { has_event_target = dd_isr_rebels }
+			set_country_flag = dd_isr_idf_sealed
+			dd_isr_clear_idf = yes
+			dd_isr_spawn_militia = yes
 		}
 		news_event = { id = dd_isr_news.5 }
 	}
@@ -144,17 +290,31 @@ dd_isr_grant_gaza = {
 	}
 }
 
+# Same 2x6 militia the communist civil war pops. Twelve, fully equipped, in the capital.
+dd_isr_spawn_militia = {
+	dd_usa_cw_tpl_militia_2x6 = yes
+	capital_scope = {
+		create_unit = {
+			division = "name = \"Militia\" division_template = \"Militia\" start_experience_factor = 0.2 start_equipment_factor = 1"
+			owner = PREV
+			count = 12
+		}
+	}
+}
+
 dd_isr_strip_idf = {
 	custom_effect_tooltip = dd_isr_strip_idf_tt
-	hidden_effect = {
-		if = { limit = { has_dynamic_modifier = { modifier = dd_isr_idf_spirit } } remove_dynamic_modifier = { modifier = dd_isr_idf_spirit } }
-		if = { limit = { has_idea = dd_isr_idf } remove_ideas = dd_isr_idf }
-		if = { limit = { has_idea = dd_isr_idf_urban } remove_ideas = dd_isr_idf_urban }
-		if = { limit = { has_idea = dd_isr_idf_arms } remove_ideas = dd_isr_idf_arms }
-		if = { limit = { has_idea = dd_isr_idf_both } remove_ideas = dd_isr_idf_both }
-		clr_country_flag = dd_isr_idf_urban
-		clr_country_flag = dd_isr_idf_arms
-	}
+	dd_isr_clear_idf = yes
+}
+
+dd_isr_clear_idf = {
+	if = { limit = { has_dynamic_modifier = { modifier = dd_isr_idf_spirit } } remove_dynamic_modifier = { modifier = dd_isr_idf_spirit } }
+	if = { limit = { has_idea = dd_isr_idf } remove_ideas = dd_isr_idf }
+	if = { limit = { has_idea = dd_isr_idf_urban } remove_ideas = dd_isr_idf_urban }
+	if = { limit = { has_idea = dd_isr_idf_arms } remove_ideas = dd_isr_idf_arms }
+	if = { limit = { has_idea = dd_isr_idf_both } remove_ideas = dd_isr_idf_both }
+	clr_country_flag = dd_isr_idf_urban
+	clr_country_flag = dd_isr_idf_arms
 }
 
 dd_isr_override_pal = {
@@ -393,8 +553,13 @@ dd_isr_expand_mil = {
 # A variable spirit created in the same effect as its numbers applies as an empty card.
 dd_isr_refresh_idf = {
 	if = {
-		limit = { has_government = communism }
-		dd_isr_strip_idf = yes
+		limit = {
+			OR = {
+				has_government = communism
+				has_country_flag = dd_isr_idf_sealed
+			}
+		}
+		dd_isr_clear_idf = yes
 	}
 	else = {
 		if = {
@@ -656,10 +821,52 @@ dd_isr_restore_yeshiva = {
 }
 
 dd_isr_ben_gvir = {
-	add_popularity = { ideology = theocratic_absolutism popularity = 0.20 }
+	add_popularity = { ideology = fascism popularity = 0.20 }
+	retire_country_leader = yes
+	set_politics = { ruling_party = fascism elections_allowed = yes }
+	promote_character = ISR_itamar_ben_gvir
+}
+
+dd_isr_deri = {
+	add_popularity = { ideology = theocratic_absolutism popularity = 0.15 }
 	retire_country_leader = yes
 	set_politics = { ruling_party = theocratic_absolutism elections_allowed = yes }
-	promote_character = ISR_itamar_ben_gvir
+	promote_character = ISR_aryeh_deri
+}
+
+dd_isr_hendel_posts = {
+	if = {
+		limit = { has_government = national_populism }
+		add_popularity = { ideology = national_populism popularity = 0.02 }
+	}
+	else_if = {
+		limit = { has_government = liberal_conservatism }
+		add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
+	}
+	else_if = {
+		limit = { has_government = social_liberalism }
+		add_popularity = { ideology = social_liberalism popularity = 0.02 }
+	}
+	else_if = {
+		limit = { has_government = social_democracy }
+		add_popularity = { ideology = social_democracy popularity = 0.02 }
+	}
+	else_if = {
+		limit = { has_government = fascism }
+		add_popularity = { ideology = fascism popularity = 0.02 }
+	}
+	else_if = {
+		limit = { has_government = theocratic_absolutism }
+		add_popularity = { ideology = theocratic_absolutism popularity = 0.02 }
+	}
+	else_if = {
+		limit = { has_government = communism }
+		add_popularity = { ideology = communism popularity = 0.02 }
+	}
+	else_if = {
+		limit = { has_government = progressive_populism }
+		add_popularity = { ideology = progressive_populism popularity = 0.02 }
+	}
 }
 
 dd_isr_false_flag = {
@@ -667,6 +874,10 @@ dd_isr_false_flag = {
 	set_country_flag = dd_isr_election_done
 	set_country_flag = dd_isr_no_elections
 	if = {
+		limit = { has_government = fascism }
+		set_politics = { ruling_party = fascism elections_allowed = no }
+	}
+	else_if = {
 		limit = { has_government = theocratic_absolutism }
 		set_politics = { ruling_party = theocratic_absolutism elections_allowed = no }
 	}

@@ -563,9 +563,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 14 producer = KOR }
 add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 3090 producer = KOR }
-add_equipment_to_stockpile = { type = support_equipment amount = 126 producer = KOR }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 43 producer = KOR }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 1080 producer = KOR }
+add_equipment_to_stockpile = { type = support_equipment_cw2 amount = 126 producer = KOR }
+add_equipment_to_stockpile = { type = artillery_equipment_cw2 amount = 43 producer = KOR }
+add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 1080 producer = KOR }
 add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 90 producer = KOR }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 72 producer = KOR }
 add_ideas = dd_welfare_4
@@ -616,3 +616,8 @@ recruit_character = KOR_john_navy
 recruit_character = KOR_fm_kim_myung_soo
 recruit_character = KOR_gen_park_an_su
 recruit_character = KOR_nav_yang_yong_mo
+recruit_character = KOR_hc_infantry
+recruit_character = KOR_hc_armor
+recruit_character = KOR_hc_artillery
+recruit_character = KOR_hc_air
+recruit_character = KOR_hc_navy

@@ -707,9 +707,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 200 producer = USA }
 add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 3872 producer = USA }
-add_equipment_to_stockpile = { type = support_equipment amount = 141 producer = USA }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 42 producer = USA }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 528 producer = USA }
+add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 141 producer = USA }
+add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 42 producer = USA }
+add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 528 producer = USA }
 add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 66 producer = USA }
 add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 211 producer = USA }
 add_ideas = dd_welfare_3
@@ -810,6 +810,7 @@ recruit_character = USA_lindsey_graham
 recruit_character = USA_bernie_sanders
 recruit_character = USA_howard_lutnick
 recruit_character = USA_susie_wiles
+recruit_character = USA_pete_hegseth
 recruit_character = USA_kamala_harris
 recruit_character = USA_pete_buttigieg
 recruit_character = USA_marc_andreessen
@@ -819,6 +820,7 @@ recruit_character = USA_peter_thiel
 recruit_character = USA_elon_musk
 recruit_character = USA_david_sacks
 recruit_character = USA_tucker_carlson
+recruit_character = USA_david_allvin
 add_ideas = USA_jd_vance
 add_ideas = USA_marco_rubio
 add_ideas = USA_jared_kushner

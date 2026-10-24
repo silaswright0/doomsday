@@ -247,6 +247,15 @@ characters = {
 			logistics_skill = 4
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = army_chief
+			idea_token = SOV_fm_valery_gerasimov
+			cost = 150
+			allowed = { original_tag = SOV }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	SOV_fm_andrey_mordvichev = {
 		name = "Andrey Mordvichev"
@@ -261,6 +270,15 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = SOV_fm_andrey_mordvichev
+			cost = 100
+			allowed = { original_tag = SOV }
+			traits = { army_armored_1 }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	SOV_gen_aleksandr_lapin = {
@@ -277,6 +295,15 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = SOV_gen_aleksandr_lapin
+			cost = 100
+			allowed = { original_tag = SOV }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	SOV_nav_aleksandr_moiseev = {
 		name = "Aleksandr Moiseev"
@@ -291,6 +318,15 @@ characters = {
 			maneuvering_skill = 3
 			coordination_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = navy_chief
+			idea_token = SOV_nav_aleksandr_moiseev
+			cost = 150
+			allowed = { original_tag = SOV }
+			traits = { dd_exp_navy }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	SWE_john_army = {
@@ -433,6 +469,15 @@ characters = {
 			logistics_skill = 4
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = FRA_fm_pierre_schill
+			cost = 100
+			allowed = { original_tag = FRA }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	FRA_fm_thierry_burkhard = {
 		name = "Thierry Burkhard"
@@ -448,6 +493,15 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = army_chief
+			idea_token = FRA_fm_thierry_burkhard
+			cost = 150
+			allowed = { original_tag = FRA }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	FRA_nav_nicolas_vaujour = {
 		name = "Nicolas Vaujour"
@@ -462,6 +516,15 @@ characters = {
 			maneuvering_skill = 3
 			coordination_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = navy_chief
+			idea_token = FRA_nav_nicolas_vaujour
+			cost = 150
+			allowed = { original_tag = FRA }
+			traits = { dd_exp_navy }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	LUX_john_army = {

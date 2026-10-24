@@ -427,9 +427,9 @@ set_technology = {
 
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 8 producer = CZE }
 add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 420 producer = CZE }
-add_equipment_to_stockpile = { type = support_equipment amount = 15 producer = CZE }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = CZE }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = CZE }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 15 producer = CZE }
+add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 5 producer = CZE }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 90 producer = CZE }
 add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 6 producer = CZE }
 add_ideas = dd_welfare_4
 add_ideas = dd_education_5
@@ -477,3 +477,8 @@ recruit_character = CZE_john_army
 recruit_character = CZE_john_airforce
 recruit_character = CZE_john_navy
 recruit_character = CZE_gen_field_command
+recruit_character = CZE_hc_infantry
+recruit_character = CZE_hc_armor
+recruit_character = CZE_hc_artillery
+recruit_character = CZE_hc_air
+recruit_character = CZE_hc_navy

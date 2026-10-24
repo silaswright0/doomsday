@@ -558,9 +558,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 10 producer = AST }
 add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 720 producer = AST }
-add_equipment_to_stockpile = { type = support_equipment amount = 28 producer = AST }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 9 producer = AST }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 270 producer = AST }
+add_equipment_to_stockpile = { type = support_equipment_cw2 amount = 28 producer = AST }
+add_equipment_to_stockpile = { type = artillery_equipment_cw2 amount = 9 producer = AST }
+add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 270 producer = AST }
 add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 22 producer = AST }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 24 producer = AST }
 add_ideas = dd_welfare_4
@@ -610,3 +610,8 @@ recruit_character = AST_john_airforce
 recruit_character = AST_john_navy
 recruit_character = AST_fm_david_johnston
 recruit_character = AST_nav_mark_hammond
+recruit_character = AST_hc_infantry
+recruit_character = AST_hc_armor
+recruit_character = AST_hc_artillery
+recruit_character = AST_hc_air
+recruit_character = AST_hc_navy

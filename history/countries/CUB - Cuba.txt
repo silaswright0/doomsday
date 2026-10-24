@@ -427,9 +427,9 @@ create_equipment_variant = {
 	}
 }
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 675 producer = CUB }
-add_equipment_to_stockpile = { type = support_equipment amount = 22 producer = CUB }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 22 producer = CUB }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 7 producer = CUB }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 90 producer = CUB }
+add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 90 producer = CUB }
 add_equipment_to_stockpile = { type = fighter_equipment_cw3 amount = 6 producer = CUB }
 add_ideas = dd_welfare_3
 add_ideas = dd_education_5
@@ -476,3 +476,8 @@ recruit_character = CUB_john_navy
 recruit_character = CUB_fm_army_command
 recruit_character = CUB_gen_field_command
 recruit_character = CUB_nav_fleet_command
+recruit_character = CUB_hc_infantry
+recruit_character = CUB_hc_armor
+recruit_character = CUB_hc_artillery
+recruit_character = CUB_hc_air
+recruit_character = CUB_hc_navy

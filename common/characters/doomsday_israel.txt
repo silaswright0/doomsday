@@ -1,4 +1,96 @@
 characters = {
+	ISR_benjamin_netanyahu = {
+		name = "Benjamin Netanyahu"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_ISR_leader
+				small = GFX_portrait_ISR_leader
+			}
+		}
+		country_leader = {
+			ideology = national_populist
+			desc = ISR_LEADER_DESC
+			expire = "2065.1.1"
+		}
+	}
+	ISR_yair_golan = {
+		name = "Yair Golan"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+				small = GFX_portrait_unknown
+			}
+		}
+		country_leader = {
+			ideology = social_democrat
+			expire = "2065.1.1"
+		}
+	}
+	ISR_yair_lapid = {
+		name = "Yair Lapid"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+				small = GFX_portrait_unknown
+			}
+		}
+		country_leader = {
+			ideology = social_liberal
+			expire = "2065.1.1"
+		}
+	}
+	ISR_gadi_eisenkot = {
+		name = "Gadi Eisenkot"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+				small = GFX_portrait_unknown
+			}
+		}
+		country_leader = {
+			ideology = liberal_conservative
+			expire = "2065.1.1"
+		}
+	}
+	ISR_benny_gantz = {
+		name = "Benny Gantz"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+				small = GFX_portrait_unknown
+			}
+		}
+		country_leader = {
+			ideology = old_left
+			expire = "2065.1.1"
+		}
+	}
+	ISR_ayman_odeh = {
+		name = "Ayman Odeh"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+				small = GFX_portrait_unknown
+			}
+		}
+		country_leader = {
+			ideology = progressive_populist
+			expire = "2065.1.1"
+		}
+	}
+	ISR_ofer_cassif = {
+		name = "Ofer Cassif"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+				small = GFX_portrait_unknown
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			expire = "2065.1.1"
+		}
+	}
 	ISR_itamar_ben_gvir = {
 		name = "Itamar Ben-Gvir"
 		portraits = {
@@ -8,7 +100,7 @@ characters = {
 			}
 		}
 		country_leader = {
-			ideology = theocrat
+			ideology = fascism_ideology
 			expire = "2065.1.1"
 		}
 		advisor = {
@@ -18,12 +110,26 @@ characters = {
 			available = {
 				OR = {
 					has_government = national_populism
+					has_government = fascism
 					has_government = theocratic_absolutism
 				}
 				NOT = { has_country_leader = { name = "Itamar Ben-Gvir" ruling_only = yes } }
 			}
 			traits = { prince_of_terror }
 			ai_will_do = { factor = 1 }
+		}
+	}
+	ISR_aryeh_deri = {
+		name = "Aryeh Deri"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+				small = GFX_portrait_unknown
+			}
+		}
+		country_leader = {
+			ideology = theocrat
+			expire = "2065.1.1"
 		}
 	}
 	ISR_bezalel_smotrich = {

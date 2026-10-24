@@ -360,7 +360,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = KOS }
-add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = KOS }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 2 producer = KOS }
 add_ideas = dd_welfare_3
 add_ideas = dd_education_4
 add_ideas = dd_immigration_3
@@ -405,3 +405,8 @@ recruit_character = KOS_john_army
 recruit_character = KOS_john_airforce
 recruit_character = KOS_john_navy
 recruit_character = KOS_gen_field_command
+recruit_character = KOS_hc_infantry
+recruit_character = KOS_hc_armor
+recruit_character = KOS_hc_artillery
+recruit_character = KOS_hc_air
+recruit_character = KOS_hc_navy

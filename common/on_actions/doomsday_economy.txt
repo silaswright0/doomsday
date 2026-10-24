@@ -25,6 +25,76 @@ on_actions = {
 					add_offsite_building = { type = arms_factory level = 2 }
 				}
 			}
+			ISR = {
+				if = {
+					limit = {
+						has_idea = dd_isr_commodities
+						NOT = { has_country_flag = dd_isr_commodities_granted }
+					}
+					set_country_flag = dd_isr_commodities_granted
+					add_offsite_building = { type = industrial_complex level = 12 }
+				}
+			}
+			HAM = {
+				if = {
+					limit = {
+						has_idea = dd_ham_fractured_support
+						NOT = { has_country_flag = dd_ham_mils_granted }
+					}
+					set_country_flag = dd_ham_mils_granted
+					add_offsite_building = { type = arms_factory level = 1 }
+				}
+			}
+			HEZ = {
+				if = {
+					limit = {
+						has_idea = dd_hez_hindered_support
+						NOT = { has_country_flag = dd_hez_hindered_mils_granted }
+					}
+					set_country_flag = dd_hez_hindered_mils_granted
+					add_offsite_building = { type = arms_factory level = 3 }
+				}
+			}
+			HOU = {
+				if = {
+					limit = {
+						has_idea = dd_hez_iranian_support
+						NOT = { has_country_flag = dd_hou_iran_mils_granted }
+					}
+					set_country_flag = dd_hou_iran_mils_granted
+					add_offsite_building = { type = arms_factory level = 5 }
+				}
+			}
+			IRQ = {
+				if = {
+					limit = {
+						has_idea = dd_irq_shiite_militias
+						NOT = { has_country_flag = dd_irq_shiite_mils_granted }
+					}
+					set_country_flag = dd_irq_shiite_mils_granted
+					add_offsite_building = { type = arms_factory level = 1 }
+				}
+			}
+			KUR = {
+				if = {
+					limit = {
+						has_idea = dd_kurd_us_support
+						NOT = { has_country_flag = dd_kurd_us_mils }
+					}
+					set_country_flag = dd_kurd_us_mils
+					add_offsite_building = { type = arms_factory level = 2 }
+				}
+			}
+			ROJ = {
+				if = {
+					limit = {
+						has_idea = dd_kurd_us_support
+						NOT = { has_country_flag = dd_kurd_us_mils }
+					}
+					set_country_flag = dd_kurd_us_mils
+					add_offsite_building = { type = arms_factory level = 2 }
+				}
+			}
 			# set_autonomy spawns a blank leader on the puppet. Put Abbas back once.
 			PAL = {
 				if = {

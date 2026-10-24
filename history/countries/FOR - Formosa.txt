@@ -561,9 +561,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 8 producer = FOR }
 add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1320 producer = FOR }
-add_equipment_to_stockpile = { type = support_equipment amount = 52 producer = FOR }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 18 producer = FOR }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 360 producer = FOR }
+add_equipment_to_stockpile = { type = support_equipment_cw2 amount = 52 producer = FOR }
+add_equipment_to_stockpile = { type = artillery_equipment_cw2 amount = 18 producer = FOR }
+add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 360 producer = FOR }
 add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 22 producer = FOR }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 48 producer = FOR }
 add_ideas = dd_welfare_4
@@ -613,3 +613,8 @@ recruit_character = FOR_john_airforce
 recruit_character = FOR_john_navy
 recruit_character = FOR_fm_mei_chia_shu
 recruit_character = FOR_nav_tang_hua
+recruit_character = FOR_hc_infantry
+recruit_character = FOR_hc_armor
+recruit_character = FOR_hc_artillery
+recruit_character = FOR_hc_air
+recruit_character = FOR_hc_navy

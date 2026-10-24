@@ -564,9 +564,9 @@ create_equipment_variant = {
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 27 producer = GER }
 add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1545 producer = GER }
-add_equipment_to_stockpile = { type = support_equipment amount = 63 producer = GER }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 22 producer = GER }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 540 producer = GER }
+add_equipment_to_stockpile = { type = support_equipment_cw2 amount = 63 producer = GER }
+add_equipment_to_stockpile = { type = artillery_equipment_cw2 amount = 22 producer = GER }
+add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 540 producer = GER }
 add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 45 producer = GER }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 36 producer = GER }
 add_ideas = dd_welfare_4
@@ -618,3 +618,8 @@ recruit_character = GER_john_navy
 recruit_character = GER_fm_carsten_breuer
 recruit_character = GER_gen_alfons_mais
 recruit_character = GER_nav_jan_christian_kaack
+recruit_character = GER_hc_infantry
+recruit_character = GER_hc_armor
+recruit_character = GER_hc_artillery
+recruit_character = GER_hc_air
+recruit_character = GER_hc_navy

@@ -360,7 +360,7 @@ set_technology = {
 
 
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 60 producer = FSM }
-add_equipment_to_stockpile = { type = support_equipment amount = 2 producer = FSM }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 2 producer = FSM }
 add_ideas = dd_welfare_3
 add_ideas = dd_education_3
 add_ideas = dd_immigration_3
@@ -405,6 +405,11 @@ recruit_character = FSM_john_army
 recruit_character = FSM_john_airforce
 recruit_character = FSM_john_navy
 recruit_character = FSM_gen_field_command
+recruit_character = FSM_hc_infantry
+recruit_character = FSM_hc_armor
+recruit_character = FSM_hc_artillery
+recruit_character = FSM_hc_air
+recruit_character = FSM_hc_navy
 USA = {
 	set_autonomy = {
 		target = FSM

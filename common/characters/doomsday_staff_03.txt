@@ -1145,6 +1145,15 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = army_chief
+			idea_token = ISR_fm_eyal_zamir
+			cost = 150
+			allowed = { original_tag = ISR }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	ISR_fm_herzi_halevi = {
 		name = "Herzi Halevi"
@@ -1159,6 +1168,15 @@ characters = {
 			planning_skill = 4
 			logistics_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = army_chief
+			idea_token = ISR_fm_herzi_halevi
+			cost = 150
+			allowed = { original_tag = ISR }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	ISR_gen_david_barnea = {
@@ -1189,6 +1207,15 @@ characters = {
 			maneuvering_skill = 3
 			coordination_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = navy_chief
+			idea_token = ISR_nav_david_saar_salama
+			cost = 150
+			allowed = { original_tag = ISR }
+			traits = { dd_exp_navy }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	VIN_john_army = {
@@ -1706,6 +1733,15 @@ characters = {
 			logistics_skill = 4
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = army_chief
+			idea_token = UKR_fm_oleksandr_syrskyi
+			cost = 150
+			allowed = { original_tag = UKR }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	UKR_gen_mykhailo_drapatyi = {
 		name = "Mykhailo Drapatyi"
@@ -1720,6 +1756,15 @@ characters = {
 			planning_skill = 3
 			logistics_skill = 3
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = UKR_gen_mykhailo_drapatyi
+			cost = 100
+			allowed = { original_tag = UKR }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	UKR_gen_andrii_hnatov = {
@@ -1736,6 +1781,15 @@ characters = {
 			logistics_skill = 4
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = UKR_gen_andrii_hnatov
+			cost = 100
+			allowed = { original_tag = UKR }
+			traits = { army_logistics_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	UKR_gen_hennadii_shapovalov = {
 		name = "Hennadii Shapovalov"
@@ -1751,6 +1805,15 @@ characters = {
 			logistics_skill = 4
 			legacy_id = 0
 		}
+	
+		advisor = {
+			slot = high_command
+			idea_token = UKR_gen_hennadii_shapovalov
+			cost = 100
+			allowed = { original_tag = UKR }
+			traits = { army_entrenchment_1 }
+			ai_will_do = { factor = 10 }
+		}
 	}
 	UKR_nav_oleksii_neizhpapa = {
 		name = "Oleksii Neizhpapa"
@@ -1765,6 +1828,15 @@ characters = {
 			maneuvering_skill = 3
 			coordination_skill = 2
 			legacy_id = 0
+		}
+	
+		advisor = {
+			slot = navy_chief
+			idea_token = UKR_nav_oleksii_neizhpapa
+			cost = 150
+			allowed = { original_tag = UKR }
+			traits = { dd_exp_navy }
+			ai_will_do = { factor = 10 }
 		}
 	}
 }

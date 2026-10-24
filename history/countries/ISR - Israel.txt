@@ -661,11 +661,11 @@ create_equipment_variant = {
 	}
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 14 producer = ISR }
-add_equipment_to_stockpile = { type = infantry_equipment_cw4 amount = 1950 producer = ISR }
-add_equipment_to_stockpile = { type = support_equipment amount = 74 producer = ISR }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 25 producer = ISR }
-add_equipment_to_stockpile = { type = mechanized_equipment amount = 720 producer = ISR }
-add_equipment_to_stockpile = { type = mbt_equipment_3 amount = 68 producer = ISR }
+add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 1950 producer = ISR }
+add_equipment_to_stockpile = { type = support_equipment_cw4 amount = 74 producer = ISR }
+add_equipment_to_stockpile = { type = artillery_equipment_cw4 amount = 25 producer = ISR }
+add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 720 producer = ISR }
+add_equipment_to_stockpile = { type = mbt_equipment_7 amount = 68 producer = ISR }
 add_equipment_to_stockpile = { type = fighter_equipment_cw45 amount = 54 producer = ISR }
 add_ideas = dd_welfare_4
 add_ideas = dd_education_4
@@ -698,10 +698,10 @@ set_politics = {
 }
 set_popularities = {
 	national_populism = 28
-	theocratic_absolutism = 22
-	liberal_conservatism = 8
-	fascism = 5
-	social_liberalism = 22
+	fascism = 15
+	theocratic_absolutism = 12
+	liberal_conservatism = 20
+	social_liberalism = 10
 	social_democracy = 9
 	progressive_populism = 4
 	communism = 2
@@ -709,13 +709,13 @@ set_popularities = {
 set_variable = { debt = 415.3440 }
 set_variable = { treasury = 12.2160 }
 set_variable = { dd_prod = 6.6681 }
-create_country_leader = {
-	name = "Benjamin Netanyahu"
-	desc = ISR_LEADER_DESC
-	picture = GFX_portrait_ISR_leader
-	ideology = national_populist
-	traits = { }
-}
+recruit_character = ISR_benjamin_netanyahu
+recruit_character = ISR_yair_golan
+recruit_character = ISR_yair_lapid
+recruit_character = ISR_gadi_eisenkot
+recruit_character = ISR_benny_gantz
+recruit_character = ISR_ayman_odeh
+recruit_character = ISR_ofer_cassif
 recruit_character = ISR_john_army
 recruit_character = ISR_john_airforce
 recruit_character = ISR_john_navy
@@ -724,7 +724,14 @@ recruit_character = ISR_fm_herzi_halevi
 recruit_character = ISR_gen_david_barnea
 recruit_character = ISR_nav_david_saar_salama
 recruit_character = ISR_itamar_ben_gvir
+recruit_character = ISR_aryeh_deri
 recruit_character = ISR_bezalel_smotrich
+recruit_character = ISR_hc_infantry
+recruit_character = ISR_hc_armor
+recruit_character = ISR_hc_artillery
+recruit_character = ISR_hc_air
+recruit_character = ISR_hc_navy
+recruit_character = ISR_tomer_bar
 activate_advisor = ISR_itamar_ben_gvir
 activate_advisor = ISR_bezalel_smotrich
 declare_war_on = {
