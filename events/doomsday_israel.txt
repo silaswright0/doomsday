@@ -211,6 +211,74 @@ country_event = {
 	option = { name = dd_isr.25.a }
 }
 
+country_event = {
+	id = dd_isr.26
+	title = dd_isr.26.t
+	desc = dd_isr.26.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_flag = dd_isr_partner_picked }
+	}
+	option = {
+		name = dd_isr.26.a
+		ai_chance = { factor = 10 }
+		set_country_flag = dd_isr_partner_picked
+		set_country_flag = dd_isr_golan_joined
+		set_country_flag = dd_isr_hadash_joined
+		clr_country_flag = dd_isr_lieberman_joined
+		country_event = { id = dd_isr.27 days = 1 }
+	}
+	option = {
+		name = dd_isr.26.b
+		ai_chance = { factor = 0 }
+		set_country_flag = dd_isr_partner_picked
+		set_country_flag = dd_isr_lieberman_joined
+		clr_country_flag = dd_isr_golan_joined
+		clr_country_flag = dd_isr_hadash_joined
+	}
+}
+
+country_event = {
+	id = dd_isr.27
+	title = dd_isr.27.t
+	desc = dd_isr.27.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = dd_isr_golan_joined
+		NOT = { has_country_flag = dd_isr_hadash_seen }
+	}
+	option = {
+		name = dd_isr.27.a
+		set_country_flag = dd_isr_hadash_seen
+		set_country_flag = dd_isr_hadash_joined
+	}
+}
+
+country_event = {
+	id = dd_isr.28
+	title = dd_isr.28.t
+	desc = dd_isr.28.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_flag = dd_isr_orthodox_answered }
+	}
+	option = {
+		name = dd_isr.28.a
+		ai_chance = { factor = 10 }
+		set_country_flag = dd_isr_orthodox_answered
+		set_country_flag = dd_isr_orthodox_joined
+	}
+	option = {
+		name = dd_isr.28.b
+		ai_chance = { factor = 0 }
+		set_country_flag = dd_isr_orthodox_answered
+		clr_country_flag = dd_isr_orthodox_joined
+	}
+}
+
 news_event = {
 	id = dd_isr_news.1
 	title = dd_isr_news.1.t

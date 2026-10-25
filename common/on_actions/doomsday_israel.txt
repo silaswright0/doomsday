@@ -66,21 +66,7 @@ on_actions = {
 				}
 				dd_isr_hold_election = yes
 			}
-			if = {
-				limit = {
-					has_country_flag = dd_isr_election_called
-					NOT = { has_country_flag = dd_isr_election_done }
-					NOT = { has_country_flag = dd_isr_form_popup_queued }
-				}
-				set_country_flag = dd_isr_form_popup_queued
-				if = {
-					limit = { has_country_flag = dd_isr_form_opposition }
-					country_event = { id = dd_isr.23 days = 1 }
-				}
-				else = {
-					country_event = { id = dd_isr.24 days = 1 }
-				}
-			}
+			dd_isr_queue_partner_events = yes
 			if = {
 				limit = {
 					OR = {

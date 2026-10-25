@@ -107,6 +107,38 @@ dd_elections_category = {
 		ai_will_do = { factor = 0 }
 	}
 
+	dd_isr_talks_opposition = {
+		icon = generic_political_discourse
+		allowed = { tag = ISR }
+		visible = {
+			has_country_flag = dd_isr_form_opposition
+			NOT = { has_country_flag = dd_isr_election_done }
+			NOT = { has_country_flag = dd_isr_partner_picked }
+		}
+		available = { always = yes }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			country_event = dd_isr.26
+		}
+	}
+
+	dd_isr_talks_orthodox = {
+		icon = generic_political_discourse
+		allowed = { tag = ISR }
+		visible = {
+			has_country_flag = dd_isr_form_bibi
+			NOT = { has_country_flag = dd_isr_election_done }
+			NOT = { has_country_flag = dd_isr_orthodox_answered }
+		}
+		available = { always = yes }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			country_event = dd_isr.28
+		}
+	}
+
 	dd_isr_election_rerun = {
 		icon = generic_political_discourse
 		allowed = { tag = ISR }

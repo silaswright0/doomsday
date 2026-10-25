@@ -744,7 +744,7 @@ focus_tree = {
 		id = ISR_new_strongman
 		icon = GFX_goal_generic_occupy_start_war
 		x = 14
-		y = 11
+		y = 12
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -841,12 +841,12 @@ focus_tree = {
 	focus = {
 		id = ISR_northern_frontier
 		icon = GFX_goal_generic_demand_territory
-		x = 12
-		y = 12
+		x = 18
+		y = 15
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_oppose_palestine focus = ISR_side_lieberman }
+		prerequisite = { focus = ISR_oppose_palestine }
 		mutually_exclusive = { focus = ISR_protect_kurds }
 		available = {
 			OR = {
@@ -861,12 +861,12 @@ focus_tree = {
 	focus = {
 		id = ISR_protect_kurds
 		icon = GFX_goal_generic_national_unity
-		x = 20
-		y = 12
+		x = 16
+		y = 15
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_oppose_palestine focus = ISR_side_lieberman }
+		prerequisite = { focus = ISR_oppose_palestine }
 		mutually_exclusive = { focus = ISR_northern_frontier }
 		available = {
 			ROJ = { exists = yes }
@@ -882,8 +882,8 @@ focus_tree = {
 	focus = {
 		id = ISR_target_shiites
 		icon = GFX_goal_generic_major_war
-		x = 16
-		y = 13
+		x = 18
+		y = 16
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -895,8 +895,8 @@ focus_tree = {
 	focus = {
 		id = ISR_jordan_overlord
 		icon = GFX_goal_generic_forceful_treaty
-		x = 16
-		y = 14
+		x = 18
+		y = 17
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -914,8 +914,8 @@ focus_tree = {
 	focus = {
 		id = ISR_toward_greater
 		icon = GFX_goal_generic_demand_territory
-		x = 16
-		y = 15
+		x = 18
+		y = 18
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -927,8 +927,8 @@ focus_tree = {
 	focus = {
 		id = ISR_proclaim_greater
 		icon = GFX_goal_generic_national_unity
-		x = 16
-		y = 16
+		x = 18
+		y = 19
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
