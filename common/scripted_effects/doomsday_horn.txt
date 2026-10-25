@@ -1,0 +1,190 @@
+# Tigray rising, 1 Jan 2026. The TDF never disarmed. The OLA is the militia
+# that fought beside them in 2021. Fano is a separate Amhara war.
+dd_eth_tigray_rising = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = dd_eth_rebellion_done }
+			owns_state = 842
+		}
+		set_country_flag = dd_eth_rebellion_done
+		start_civil_war = {
+			ideology = communism
+			size = 0.2
+			army_ratio = 0.2
+			navy_ratio = 0
+			air_ratio = 0.05
+			capital = 842
+			states = { 842 }
+			keep_unit_leaders = no
+			set_country_flag = dd_eth_tig_side
+			save_event_target_as = dd_tig_rebels
+		}
+		if = {
+			limit = { has_event_target = dd_tig_rebels }
+			event_target:dd_tig_rebels = {
+				set_cosmetic_tag = TIG_REVOLT
+				set_country_flag = dd_eth_tig_side
+				add_state_core = 842
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+				add_popularity = { ideology = communism popularity = 0.6 }
+				create_country_leader = {
+					name = "Debretsion Gebremichael"
+					desc = "TPLF chairman. His wing and the Tigray Defense Forces pushed the federal interim administration out of Mekelle in March 2025."
+					picture = GFX_portrait_unknown
+					ideology = marxism
+				}
+				add_ideas = dd_tdf_and_ola
+				load_oob = "TIG_revolt"
+			}
+		}
+	}
+}
+
+dd_uae_open_compact = {
+	if = {
+		limit = { is_in_faction = no }
+		hidden_effect = {
+			set_rule = { can_create_factions = yes }
+		}
+		create_faction = DD_FACTION_RED_SEA
+	}
+}
+
+# Scope is the partner. ROOT is the Emirates. Found the Levant Pact and invite
+# them, unless Abu Dhabi already leads another faction. Then the partner founds it.
+dd_uae_tie_partner = {
+	if = {
+		limit = {
+			exists = yes
+			is_subject = no
+			is_in_faction = no
+			NOT = { has_war_with = ROOT }
+		}
+		if = {
+			limit = { ROOT = { is_in_faction = no } }
+			ROOT = {
+				hidden_effect = {
+					set_rule = { can_create_factions = yes }
+				}
+				create_faction = DD_FACTION_LEVANT
+				set_country_flag = dd_levant_leader
+			}
+		}
+		if = {
+			limit = {
+				ROOT = {
+					is_faction_leader = yes
+					has_country_flag = dd_levant_leader
+				}
+			}
+			ROOT = { add_to_faction = PREV }
+		}
+		else = {
+			dd_levant_open = yes
+		}
+	}
+}
+
+# Called on the country being invited. ROOT is the Emirates.
+# STC must be at peace. Somaliland must still hold and be at peace.
+# Only the Rapid Support Forces come out of the Sudan war. Sudan and Eritrea never join.
+dd_uae_try_invite = {
+	if = {
+		limit = {
+			ROOT = { is_faction_leader = yes }
+			exists = yes
+			is_subject = no
+			is_in_faction = no
+			NOT = { has_war_with = ROOT }
+			OR = {
+				AND = { tag = STC has_war = no }
+				AND = { tag = SML has_war = no owns_state = 269 }
+				AND = {
+					tag = RSF
+					dd_sudan_war_over = yes
+				}
+			}
+		}
+		ROOT = { add_to_faction = PREV }
+	}
+}
+
+# Join the Levant pact if one of the four already leads it. Otherwise found it.
+# Stays off the Red Sea Compact, so Turkey and Riyadh are not dropped in with the RSF.
+dd_levant_open = {
+	if = {
+		limit = { is_in_faction = no }
+		if = {
+			limit = {
+				TUR = {
+					NOT = { tag = ROOT }
+					has_country_flag = dd_levant_leader
+					is_faction_leader = yes
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			TUR = { add_to_faction = PREV }
+		}
+		else_if = {
+			limit = {
+				SAU = {
+					NOT = { tag = ROOT }
+					has_country_flag = dd_levant_leader
+					is_faction_leader = yes
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			SAU = { add_to_faction = PREV }
+		}
+		else_if = {
+			limit = {
+				UAE = {
+					NOT = { tag = ROOT }
+					has_country_flag = dd_levant_leader
+					is_faction_leader = yes
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			UAE = { add_to_faction = PREV }
+		}
+		else_if = {
+			limit = {
+				PAK = {
+					NOT = { tag = ROOT }
+					has_country_flag = dd_levant_leader
+					is_faction_leader = yes
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			PAK = { add_to_faction = PREV }
+		}
+		else = {
+			hidden_effect = {
+				set_rule = { can_create_factions = yes }
+			}
+			create_faction = DD_FACTION_LEVANT
+			set_country_flag = dd_levant_leader
+		}
+	}
+}
+
+# Called on the country being invited. ROOT must lead the Levant pact, not the Red Sea Compact.
+# The target stays out until it has settled its own crisis.
+dd_levant_invite = {
+	if = {
+		limit = {
+			ROOT = {
+				is_faction_leader = yes
+				has_country_flag = dd_levant_leader
+			}
+			exists = yes
+			is_subject = no
+			is_in_faction = no
+			NOT = { has_war_with = ROOT }
+		}
+		ROOT = { add_to_faction = PREV }
+	}
+}

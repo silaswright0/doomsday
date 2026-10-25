@@ -1,0 +1,29 @@
+# Oromo Liberation Army brigades that join the Tigray Defense Forces.
+division_template = {
+	name = "OLA Militia"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	is_locked = yes
+}
+units = {
+	division = {
+		name = "Oromo Liberation Army"
+		location = 2072
+		division_template = "OLA Militia"
+		start_experience_factor = 0.30
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "Oromo Liberation Army"
+		location = 2072
+		division_template = "OLA Militia"
+		start_experience_factor = 0.30
+		start_equipment_factor = 0.7
+	}
+}

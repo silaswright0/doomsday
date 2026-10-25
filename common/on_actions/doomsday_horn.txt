@@ -1,0 +1,16 @@
+on_actions = {
+	# Fighting resumed 1 August 2026 at Shererina. Not at the 1 January bookmark.
+	on_daily_ETH = {
+		effect = {
+			if = {
+				limit = {
+					date > 2026.7.31
+					NOT = { has_country_flag = dd_eth_rebellion_scheduled }
+					NOT = { has_country_flag = dd_eth_rebellion_done }
+				}
+				set_country_flag = dd_eth_rebellion_scheduled
+				country_event = dd_ethiopia.1
+			}
+		}
+	}
+}

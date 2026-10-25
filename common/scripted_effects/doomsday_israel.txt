@@ -9,6 +9,9 @@ dd_isr_tally_blocs = {
 	if = {
 		limit = { has_country_flag = dd_isr_golan_joined }
 		add_to_variable = { dd_isr_opposition = dd_isr_golan }
+	}
+	if = {
+		limit = { has_country_flag = dd_isr_hadash_joined }
 		add_to_variable = { dd_isr_opposition = dd_isr_hadash }
 	}
 	set_variable = { dd_isr_bibi = party_popularity@national_populism }
@@ -28,6 +31,12 @@ dd_isr_clear_partners = {
 	clr_country_flag = dd_isr_orthodox_answered
 	clr_country_flag = dd_isr_partner_picked
 	clr_country_flag = dd_isr_partners_queued
+	clr_country_flag = dd_isr_talks_v2
+	clr_country_flag = dd_isr_hadash_answered
+	clr_country_flag = dd_isr_hendel_done
+	clr_country_flag = dd_isr_leader_announced
+	clr_country_flag = dd_isr_eisenkot_leads
+	clr_country_flag = dd_isr_lapid_leads
 }
 
 dd_isr_queue_partner_events = {
@@ -35,17 +44,19 @@ dd_isr_queue_partner_events = {
 		limit = {
 			has_country_flag = dd_isr_election_called
 			NOT = { has_country_flag = dd_isr_election_done }
-			NOT = { has_country_flag = dd_isr_partners_queued }
+			NOT = { has_country_flag = dd_isr_talks_v2 }
 		}
-		set_country_flag = dd_isr_partners_queued
+		set_country_flag = dd_isr_talks_v2
 		if = {
 			limit = { has_country_flag = dd_isr_form_opposition }
-			country_event = { id = dd_isr.23 days = 1 }
-			country_event = { id = dd_isr.26 days = 3 }
+			country_event = { id = dd_isr.29 days = 2 }
+			country_event = { id = dd_isr.26 days = 14 }
+			country_event = { id = dd_isr.22 days = 20 }
+			country_event = { id = dd_isr.27 days = 24 }
 		}
 		else = {
-			country_event = { id = dd_isr.24 days = 1 }
-			country_event = { id = dd_isr.28 days = 3 }
+			country_event = { id = dd_isr.24 days = 2 }
+			country_event = { id = dd_isr.28 days = 14 }
 		}
 	}
 }
@@ -128,7 +139,6 @@ dd_isr_form_opposition_gov = {
 		complete_national_focus = ISR_side_lieberman
 	}
 	clr_country_flag = dd_isr_resolving_election
-	country_event = { id = dd_isr.22 days = 12 }
 }
 
 dd_isr_form_bibi_gov = {
@@ -139,7 +149,6 @@ dd_isr_form_bibi_gov = {
 	complete_national_focus = ISR_election_netanyahu
 	news_event = { id = dd_isr_news.4 }
 	clr_country_flag = dd_isr_resolving_election
-	country_event = { id = dd_isr.22 days = 12 }
 }
 
 dd_isr_form_failed = {
@@ -887,6 +896,17 @@ dd_isr_deri = {
 
 dd_isr_hendel_posts = {
 	if = {
+		limit = { has_country_flag = dd_isr_form_opposition }
+		dd_isr_tally_blocs = yes
+		if = {
+			limit = { check_variable = { dd_isr_yashar > dd_isr_lapid } }
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
+		}
+		else = {
+			add_popularity = { ideology = social_liberalism popularity = 0.02 }
+		}
+	}
+	else_if = {
 		limit = { has_government = national_populism }
 		add_popularity = { ideology = national_populism popularity = 0.02 }
 	}

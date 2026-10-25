@@ -1,0 +1,537 @@
+focus_tree = {
+	id = dd_eth_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			original_tag = ETH
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = ETH_face_mekelle
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ETH_hold_the_federation
+		icon = GFX_goal_generic_major_war
+		x = 4
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_face_mekelle }
+		mutually_exclusive = { focus = ETH_tplf_cadre }
+		available = {
+			NOT = { has_country_flag = dd_eth_tig_side }
+		}
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0
+				has_country_flag = dd_eth_tig_side
+			}
+		}
+		completion_reward = {
+			add_ideas = dd_eth_hold_addis
+			add_war_support = 0.10
+		}
+	}
+
+	focus = {
+		id = ETH_the_other_war
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_hold_the_federation }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 25
+			add_stability = -0.05
+		}
+	}
+
+	focus = {
+		id = ETH_federal_offensive
+		icon = GFX_goal_generic_attack_allies
+		x = 6
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = ETH_hold_the_federation }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_war_support = 0.05
+			add_command_power = 25
+		}
+	}
+
+	focus = {
+		id = ETH_addis_holds
+		icon = GFX_goal_generic_demand_territory
+		x = 4
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_federal_offensive }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 75
+		}
+	}
+
+	focus = {
+		id = ETH_across_the_mereb
+		icon = GFX_goal_generic_major_war
+		x = 4
+		y = 4
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = ETH_hold_the_federation }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_eth_tigray_open_tt
+				dd_eth_tigray_open = yes
+			}
+			ERI = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			create_wargoal = { type = dd_annex target = ERI }
+		}
+	}
+
+	focus = {
+		id = ETH_the_sudan_road
+		icon = GFX_goal_generic_major_war
+		x = 4
+		y = 5
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = ETH_across_the_mereb }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_eth_eritrea_open_tt
+				dd_eth_eritrea_open = yes
+			}
+			SUD = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			create_wargoal = { type = dd_annex target = SUD }
+		}
+	}
+
+	focus = {
+		id = ETH_tplf_cadre
+		icon = GFX_goal_generic_political_pressure
+		x = 12
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_face_mekelle }
+		mutually_exclusive = { focus = ETH_hold_the_federation }
+		available = {
+			has_country_flag = dd_eth_tig_side
+		}
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = dd_eth_tig_side }
+			}
+		}
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.15 }
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ETH_ola_beside_them
+		icon = GFX_goal_generic_alliance
+		x = 12
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_tplf_cadre }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_idea = dd_tdf_and_ola } }
+				add_ideas = dd_tdf_and_ola
+			}
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = ETH_marxist_line
+		icon = GFX_goal_generic_political_pressure
+		x = 12
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_ola_beside_them }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_popularity = { ideology = communism popularity = 0.35 }
+			add_stability = 0.05
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_uae_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = UAE
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = UAE_red_sea_portfolio
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cancel_if_invalid = yes
+		available = { has_war = no }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = UAE_arm_the_rsf
+		icon = GFX_goal_generic_alliance
+		x = 4
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_red_sea_portfolio }
+		available = {
+			has_war = no
+			RSF = { exists = yes }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			RSF = {
+				add_ideas = dd_uae_rsf_arms
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_cw4
+					amount = 500
+					producer = UAE
+				}
+				give_military_access = ROOT
+			}
+			give_military_access = RSF
+			add_opinion_modifier = { target = RSF modifier = dd_uae_client_opinion }
+		}
+	}
+
+	focus = {
+		id = UAE_southern_council
+		icon = GFX_goal_generic_alliance
+		x = 8
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_red_sea_portfolio }
+		available = {
+			has_war = no
+			STC = { exists = yes }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			STC = { give_military_access = ROOT }
+			give_military_access = STC
+			add_opinion_modifier = { target = STC modifier = dd_uae_client_opinion }
+		}
+	}
+
+	focus = {
+		id = UAE_court_asmara
+		icon = GFX_goal_generic_alliance
+		x = 12
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_red_sea_portfolio }
+		available = {
+			has_war = no
+			ERI = { exists = yes }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			ERI = {
+				give_military_access = ROOT
+				diplomatic_relation = { country = ROOT relation = docking_rights active = yes }
+				add_opinion_modifier = { target = ROOT modifier = dd_uae_client_opinion }
+			}
+			give_military_access = ERI
+			add_opinion_modifier = { target = ERI modifier = dd_uae_client_opinion }
+		}
+	}
+
+	focus = {
+		id = UAE_pressure_khartoum
+		icon = GFX_goal_generic_demand_territory
+		x = 4
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_arm_the_rsf }
+		available = {
+			has_war = no
+			SUD = { exists = yes }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			SUD = {
+				add_ideas = dd_uae_khartoum_pressure
+				add_opinion_modifier = { target = ROOT modifier = dd_uae_khartoum_opinion }
+			}
+			add_opinion_modifier = { target = SUD modifier = dd_uae_khartoum_opinion }
+		}
+	}
+
+	focus = {
+		id = UAE_the_compact
+		icon = GFX_goal_generic_major_war
+		x = 8
+		y = 4
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_arm_the_rsf }
+		prerequisite = { focus = UAE_southern_council }
+		prerequisite = { focus = UAE_berbera }
+		cancel_if_invalid = yes
+		available = { has_war = no }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_uae_open_compact = yes
+			RSF = { dd_uae_try_invite = yes }
+			STC = { dd_uae_try_invite = yes }
+			SML = { dd_uae_try_invite = yes }
+		}
+	}
+
+	focus = {
+		id = UAE_berbera
+		icon = GFX_goal_generic_alliance
+		x = 0
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_red_sea_portfolio }
+		available = {
+			has_war = no
+			SML = { exists = yes }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			SML = { give_military_access = ROOT }
+			give_military_access = SML
+			add_opinion_modifier = { target = SML modifier = dd_uae_client_opinion }
+			SML = { add_opinion_modifier = { target = ROOT modifier = dd_uae_client_opinion } }
+		}
+	}
+	focus = {
+		id = UAE_somaliland_seat
+		icon = GFX_goal_generic_major_alliance
+		x = 0
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_berbera }
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = dd_sml_held_tt
+				dd_sml_held = yes
+			}
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_uae_open_compact = yes
+			SML = { dd_uae_try_invite = yes }
+		}
+	}
+	focus = {
+		id = UAE_stc_seat
+		icon = GFX_goal_generic_major_alliance
+		x = 8
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_southern_council }
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = dd_stc_at_peace_tt
+				dd_stc_at_peace = yes
+			}
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_uae_open_compact = yes
+			STC = { dd_uae_try_invite = yes }
+		}
+	}
+	focus = {
+		id = UAE_sudan_seat
+		icon = GFX_goal_generic_major_alliance
+		x = 4
+		y = 3
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_arm_the_rsf }
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = dd_sudan_war_over_tt
+				dd_sudan_war_over = yes
+			}
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			dd_uae_open_compact = yes
+			RSF = { dd_uae_try_invite = yes }
+		}
+	}
+
+	# Diplomacy section. A fuller tree can sit to the left of this later.
+	focus = {
+		id = UAE_levant_file
+		icon = GFX_goal_generic_political_pressure
+		x = 20
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		cancel_if_invalid = yes
+		available = { has_war = no }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = UAE_tie_ankara
+		icon = GFX_goal_generic_alliance
+		x = 16
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_levant_file }
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = dd_levant_shock_tt
+				dd_levant_shock = yes
+			}
+			TUR = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			give_military_access = TUR
+			TUR = { give_military_access = ROOT }
+			add_opinion_modifier = { target = TUR modifier = dd_levant_opinion }
+			TUR = {
+				add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion }
+				dd_uae_tie_partner = yes
+			}
+		}
+	}
+	focus = {
+		id = UAE_tie_riyadh
+		icon = GFX_goal_generic_alliance
+		x = 20
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_levant_file }
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = dd_levant_shock_tt
+				dd_levant_shock = yes
+			}
+			SAU = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			give_military_access = SAU
+			SAU = { give_military_access = ROOT }
+			add_opinion_modifier = { target = SAU modifier = dd_levant_opinion }
+			SAU = {
+				add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion }
+				dd_uae_tie_partner = yes
+			}
+		}
+	}
+	focus = {
+		id = UAE_tie_islamabad
+		icon = GFX_goal_generic_alliance
+		x = 24
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = UAE_levant_file }
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = dd_levant_shock_tt
+				dd_levant_shock = yes
+			}
+			PAK = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			give_military_access = PAK
+			PAK = { give_military_access = ROOT }
+			add_opinion_modifier = { target = PAK modifier = dd_levant_opinion }
+			PAK = {
+				add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion }
+				dd_uae_tie_partner = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+add_namespace = dd_ethiopia
+
+country_event = {
+	id = dd_ethiopia.1
+	title = dd_ethiopia.1.t
+	desc = dd_ethiopia.1.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = dd_ethiopia.1.a
+		ai_chance = { factor = 100 }
+		custom_effect_tooltip = dd_ethiopia.1.tt
+		hidden_effect = {
+			dd_eth_tigray_rising = yes
+		}
+	}
+}

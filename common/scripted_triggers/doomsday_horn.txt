@@ -1,0 +1,70 @@
+# Federal Ethiopia is fighting the Tigray rising, or that side has been destroyed.
+dd_eth_tigray_open = {
+	NOT = { has_country_flag = dd_eth_tig_side }
+	OR = {
+		any_enemy_country = { has_country_flag = dd_eth_tig_side }
+		AND = {
+			has_country_flag = dd_eth_rebellion_done
+			NOT = {
+				any_country = {
+					has_country_flag = dd_eth_tig_side
+					exists = yes
+					has_capitulated = no
+				}
+			}
+		}
+	}
+}
+
+# The Eritrea war is underway, or Eritrea has been beaten.
+dd_eth_eritrea_open = {
+	OR = {
+		has_war_with = ERI
+		ERI = { exists = no }
+		ERI = { has_capitulated = yes }
+	}
+}
+
+# Israel holds Lebanon proper (north of South Lebanon) or any Syrian state,
+# or Iran has already split Iraq.
+dd_levant_shock = {
+	OR = {
+		553 = { OR = { is_owned_by = ISR owner = { is_subject_of = ISR } } }
+		554 = { OR = { is_owned_by = ISR owner = { is_subject_of = ISR } } }
+		677 = { OR = { is_owned_by = ISR owner = { is_subject_of = ISR } } }
+		680 = { OR = { is_owned_by = ISR owner = { is_subject_of = ISR } } }
+		1100 = { OR = { is_owned_by = ISR owner = { is_subject_of = ISR } } }
+		any_country = { has_country_flag = dd_irq_shiite_state }
+	}
+}
+
+# Red Sea partners. Each one stays out of the compact until its own crisis is over.
+dd_stc_at_peace = {
+	STC = {
+		exists = yes
+		has_capitulated = no
+		has_war = no
+	}
+}
+
+dd_sml_held = {
+	SML = {
+		exists = yes
+		has_capitulated = no
+		has_war = no
+		owns_state = 269
+	}
+}
+
+# The Sudan war is over: one side is gone, or the two are no longer fighting.
+dd_sudan_war_over = {
+	OR = {
+		RSF = { exists = no }
+		SUD = { exists = no }
+		NOT = { RSF = { has_war_with = SUD } }
+	}
+	OR = {
+		RSF = { exists = yes has_capitulated = no }
+		SUD = { exists = yes has_capitulated = no }
+	}
+}

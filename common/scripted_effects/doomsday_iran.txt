@@ -46,13 +46,32 @@ dd_per_puppet_proxies = {
 			HOU = { exists = yes }
 			NOT = { HOU = { is_subject_of = PER } }
 		}
-		# Puppeting white-peaces the new subject's other wars. Put the Houthis back
-		# at war with whoever they were already fighting. Hamas and Hezbollah are
-		# called in with the overlord and leave again.
+		# Puppeting ends the Houthis' other wars and can hand them the land.
+		# Put the land back, then put the Houthis back at war. Hamas and Hezbollah
+		# are called in with Iran and leave again.
 		HOU = {
 			every_enemy_country = {
 				set_country_flag = dd_hou_prewar_enemy
+				every_owned_state = {
+					set_state_flag = dd_hou_keep_owner
+				}
 			}
+		}
+		if = {
+			limit = { YEM = { has_country_flag = dd_hou_prewar_enemy } }
+			YEM = { every_owned_state = { set_state_flag = dd_hou_was_yem } }
+		}
+		if = {
+			limit = { YNR = { has_country_flag = dd_hou_prewar_enemy } }
+			YNR = { every_owned_state = { set_state_flag = dd_hou_was_ynr } }
+		}
+		if = {
+			limit = { STC = { has_country_flag = dd_hou_prewar_enemy } }
+			STC = { every_owned_state = { set_state_flag = dd_hou_was_stc } }
+		}
+		if = {
+			limit = { SAU = { has_country_flag = dd_hou_prewar_enemy } }
+			SAU = { every_owned_state = { set_state_flag = dd_hou_was_sau } }
 		}
 		puppet = HOU
 		every_country = {
@@ -63,6 +82,7 @@ dd_per_puppet_proxies = {
 					declare_war_on = {
 						target = PREV
 						type = annex_everything
+						call_allies = no
 					}
 				}
 				HOU = {
@@ -74,26 +94,66 @@ dd_per_puppet_proxies = {
 						}
 					}
 				}
-				if = {
-					limit = { HAM = { exists = yes } }
-					HAM = {
-						if = {
-							limit = { has_war_with = PREV }
-							white_peace = PREV
-						}
+			}
+			if = {
+				limit = { HAM = { exists = yes } }
+				HAM = {
+					if = {
+						limit = { has_war_with = PREV }
+						white_peace = PREV
 					}
 				}
-				if = {
-					limit = { HEZ = { exists = yes } }
-					HEZ = {
-						if = {
-							limit = { has_war_with = PREV }
-							white_peace = PREV
-						}
+			}
+			if = {
+				limit = { HEZ = { exists = yes } }
+				HEZ = {
+					if = {
+						limit = { has_war_with = PREV }
+						white_peace = PREV
 					}
 				}
 			}
 			clr_country_flag = dd_hou_prewar_enemy
+		}
+		every_state = {
+			limit = {
+				has_state_flag = dd_hou_was_yem
+				NOT = { is_owned_by = YEM }
+				YEM = { exists = yes }
+			}
+			YEM = { transfer_state = PREV }
+		}
+		every_state = {
+			limit = {
+				has_state_flag = dd_hou_was_ynr
+				NOT = { is_owned_by = YNR }
+				YNR = { exists = yes }
+			}
+			YNR = { transfer_state = PREV }
+		}
+		every_state = {
+			limit = {
+				has_state_flag = dd_hou_was_stc
+				NOT = { is_owned_by = STC }
+				STC = { exists = yes }
+			}
+			STC = { transfer_state = PREV }
+		}
+		every_state = {
+			limit = {
+				has_state_flag = dd_hou_was_sau
+				NOT = { is_owned_by = SAU }
+				SAU = { exists = yes }
+			}
+			SAU = { transfer_state = PREV }
+		}
+		every_state = {
+			limit = { has_state_flag = dd_hou_keep_owner }
+			clr_state_flag = dd_hou_keep_owner
+			clr_state_flag = dd_hou_was_yem
+			clr_state_flag = dd_hou_was_ynr
+			clr_state_flag = dd_hou_was_stc
+			clr_state_flag = dd_hou_was_sau
 		}
 	}
 }
