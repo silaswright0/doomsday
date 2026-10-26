@@ -11,14 +11,285 @@ ideas = {
 				war_support_factor = 0.10
 			}
 		}
+		dd_eth_mobilized = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription = 0.03
+				war_support_factor = 0.05
+			}
+		}
+		dd_eth_backing_mekelle = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = -0.10
+				political_power_gain = 0.10
+			}
+		}
 		dd_eth_hold_addis = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_core_defence_factor = 0.10
+				war_support_factor = 0.05
+			}
+		}
+		dd_eth_fano = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.10
+				army_defence_factor = -0.05
+				resistance_target = 0.05
+			}
+		}
+		dd_eth_fano_rage = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.15
+				army_org_factor = -0.05
+				war_support_factor = -0.05
+			}
+		}
+		dd_eth_ola = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.10
+				political_power_gain = -0.10
+				resistance_target = 0.10
+			}
+		}
+		dd_eth_endf = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.10
+				army_defence_factor = 0.05
+			}
+		}
+		dd_eth_amhara_standard = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				war_support_factor = 0.10
+				stability_factor = -0.05
+			}
+		}
+		dd_eth_amhara_west = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		dd_eth_kilil = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.15
+				conscription = -0.005
+			}
+		}
+		dd_eth_oromia_security = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.05
+				resistance_target = -0.05
+			}
+		}
+		dd_eth_djibouti_corridor = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.03
+				production_speed_infrastructure_factor = 0.10
+			}
+		}
+		dd_eth_berbera_base = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_dockyard = 0.10
+				navy_max_range_factor = 0.25
+			}
+		}
+		dd_eth_to_the_sea = {
 			picture = generic_intel_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_core_defence_factor = 0.10
 				war_support_factor = 0.05
+				planning_speed = 0.10
+			}
+		}
+		dd_eth_gerd_full = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.10
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		dd_eth_gerd_export = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.05
+				trade_opinion_factor = 0.10
+			}
+		}
+		dd_eth_imf = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = 0.05
+				political_power_gain = 0.10
+			}
+		}
+		dd_eth_parks = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.10
+				production_speed_industrial_complex_factor = 0.15
+			}
+		}
+		dd_eth_wheat = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.02
+				stability_factor = 0.03
+			}
+		}
+		dd_eth_border_camps = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				monthly_population = 0.03
+			}
+		}
+		dd_eth_federation_stands = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.10
+			}
+		}
+		dd_eth_one_army = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.05
+				army_attack_factor = 0.05
+				training_time_factor = -0.10
+			}
+		}
+		dd_tig_cadre = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				drift_defence_factor = 0.25
+				army_org_factor = -0.05
+			}
+		}
+		dd_tig_generals = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.10
+				army_org_factor = 0.05
+				command_power_gain = 0.15
+				political_power_gain = -0.10
+			}
+		}
+		dd_tig_western = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
+			}
+		}
+		dd_tig_on_addis = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.10
+				army_attack_factor = 0.05
+			}
+		}
+		dd_tig_northern_state = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_core_defence_factor = 0.15
+				stability_factor = 0.10
 			}
 		}
 		dd_uae_rsf_arms = {

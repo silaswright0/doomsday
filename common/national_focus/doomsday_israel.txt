@@ -491,6 +491,19 @@ focus_tree = {
 		prerequisite = { focus = ISR_dismantle_orthodox }
 		completion_reward = {
 			add_ideas = dd_isr_shared_republic
+			set_variable = { dd_isr_hadash_com = party_popularity@communism }
+			set_variable = { dd_isr_hadash_pop = party_popularity@progressive_populism }
+			if = {
+				limit = { check_variable = { dd_isr_hadash_com > dd_isr_hadash_pop } }
+				add_popularity = { ideology = communism popularity = 0.20 }
+				set_politics = { ruling_party = communism elections_allowed = yes }
+				promote_character = ISR_ofer_cassif
+			}
+			else = {
+				add_popularity = { ideology = progressive_populism popularity = 0.20 }
+				set_politics = { ruling_party = progressive_populism elections_allowed = yes }
+				promote_character = ISR_ayman_odeh
+			}
 		}
 	}
 	focus = {
@@ -757,7 +770,7 @@ focus_tree = {
 	focus = {
 		id = ISR_eternal_premiership
 		icon = GFX_goal_generic_forceful_treaty
-		x = 18
+		x = 20
 		y = 11
 		cost = 5
 		available_if_capitulated = yes
@@ -842,18 +855,12 @@ focus_tree = {
 		id = ISR_northern_frontier
 		icon = GFX_goal_generic_demand_territory
 		x = 18
-		y = 15
+		y = 16
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_oppose_palestine }
+		prerequisite = { focus = ISR_side_lieberman focus = ISR_coalition_survives }
 		mutually_exclusive = { focus = ISR_protect_kurds }
-		available = {
-			OR = {
-				has_completed_focus = ISR_side_lieberman
-				has_completed_focus = ISR_election_netanyahu
-			}
-		}
 		completion_reward = {
 			dd_isr_northern_frontier = yes
 		}
@@ -861,19 +868,15 @@ focus_tree = {
 	focus = {
 		id = ISR_protect_kurds
 		icon = GFX_goal_generic_national_unity
-		x = 16
-		y = 15
+		x = 12
+		y = 16
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_oppose_palestine }
+		prerequisite = { focus = ISR_side_lieberman focus = ISR_coalition_survives }
 		mutually_exclusive = { focus = ISR_northern_frontier }
 		available = {
 			ROJ = { exists = yes }
-			OR = {
-				has_completed_focus = ISR_side_lieberman
-				has_completed_focus = ISR_election_netanyahu
-			}
 		}
 		completion_reward = {
 			dd_isr_protect_kurds = yes
@@ -882,8 +885,8 @@ focus_tree = {
 	focus = {
 		id = ISR_target_shiites
 		icon = GFX_goal_generic_major_war
-		x = 18
-		y = 16
+		x = 16
+		y = 17
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -895,8 +898,8 @@ focus_tree = {
 	focus = {
 		id = ISR_jordan_overlord
 		icon = GFX_goal_generic_forceful_treaty
-		x = 18
-		y = 17
+		x = 16
+		y = 18
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -914,8 +917,8 @@ focus_tree = {
 	focus = {
 		id = ISR_toward_greater
 		icon = GFX_goal_generic_demand_territory
-		x = 18
-		y = 18
+		x = 16
+		y = 19
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -927,8 +930,8 @@ focus_tree = {
 	focus = {
 		id = ISR_proclaim_greater
 		icon = GFX_goal_generic_national_unity
-		x = 18
-		y = 19
+		x = 16
+		y = 20
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }

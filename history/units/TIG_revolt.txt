@@ -11,7 +11,53 @@ division_template = {
 	}
 	is_locked = yes
 }
+division_template = {
+	name = "TDF Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
 units = {
+	division = {
+		name = "1st Tigray Division"
+		location = 2072
+		division_template = "TDF Division"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "2nd Tigray Division"
+		location = 13237
+		division_template = "TDF Division"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "3rd Tigray Division"
+		location = 13238
+		division_template = "TDF Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "4th Tigray Division"
+		location = 2072
+		division_template = "TDF Division"
+		start_experience_factor = 0.40
+		start_equipment_factor = 0.8
+	}
 	division = {
 		name = "Oromo Liberation Army"
 		location = 2072
@@ -21,7 +67,7 @@ units = {
 	}
 	division = {
 		name = "Oromo Liberation Army"
-		location = 2072
+		location = 13237
 		division_template = "OLA Militia"
 		start_experience_factor = 0.30
 		start_equipment_factor = 0.7

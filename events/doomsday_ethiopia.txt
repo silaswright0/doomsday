@@ -12,8 +12,14 @@ country_event = {
 		name = dd_ethiopia.1.a
 		ai_chance = { factor = 100 }
 		custom_effect_tooltip = dd_ethiopia.1.tt
+		custom_effect_tooltip = dd_ethiopia.1.tt2
+		if = {
+			limit = { has_country_flag = dd_eth_player_tigray }
+			custom_effect_tooltip = dd_ethiopia.1.tt_play
+		}
 		hidden_effect = {
 			dd_eth_tigray_rising = yes
 		}
+		dd_eth_player_becomes_tigray = yes
 	}
 }

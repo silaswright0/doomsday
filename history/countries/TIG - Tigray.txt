@@ -360,25 +360,25 @@ set_technology = {
 
 
 set_politics = {
-	ruling_party = sovereign_democracy
+	ruling_party = communism
 	last_election = "2024.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	sovereign_democracy = 88
+	communism = 72
+	sovereign_democracy = 16
 	liberal_conservatism = 6
-	social_democracy = 4
-	communism = 2
+	social_democracy = 6
 }
 set_variable = { debt = 0.0000 }
 set_variable = { treasury = 1.0000 }
 set_variable = { dd_prod = 1.0000 }
 create_country_leader = {
-	name = "TIG Government"
+	name = "Debretsion Gebremichael"
 	desc = TIG_LEADER_DESC
-	picture = GFX_portrait_unknown
-	ideology = oligarch
+	picture = GFX_portrait_TIG_debretsion
+	ideology = marxism
 	traits = { }
 }
 recruit_character = TIG_john_army

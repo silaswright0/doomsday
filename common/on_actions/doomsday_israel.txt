@@ -66,7 +66,7 @@ on_actions = {
 				}
 				dd_isr_hold_election = yes
 			}
-			dd_isr_queue_partner_events = yes
+			dd_isr_form_clock = yes
 			if = {
 				limit = {
 					OR = {

@@ -174,7 +174,10 @@ country_event = {
 	picture = GFX_report_event_generic_factory
 	is_triggered_only = yes
 	trigger = {
-		has_country_flag = dd_isr_form_opposition
+		OR = {
+			has_country_flag = dd_isr_form_opposition
+			has_country_flag = dd_isr_form_bibi
+		}
 		NOT = { has_country_flag = dd_isr_election_done }
 		NOT = { has_country_flag = dd_isr_hendel_done }
 	}
@@ -182,6 +185,7 @@ country_event = {
 		name = dd_isr.22.a
 		ai_chance = { factor = 10 }
 		set_country_flag = dd_isr_hendel_done
+		add_political_power = -50
 		dd_isr_hendel_posts = yes
 	}
 	option = {
@@ -290,13 +294,24 @@ country_event = {
 	}
 	option = {
 		name = dd_isr.28.a
-		ai_chance = { factor = 10 }
 		set_country_flag = dd_isr_orthodox_answered
 		set_country_flag = dd_isr_orthodox_joined
 	}
+}
+
+country_event = {
+	id = dd_isr.31
+	title = dd_isr.31.t
+	desc = dd_isr.31.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = dd_isr_form_bibi
+		NOT = { has_country_flag = dd_isr_election_done }
+		NOT = { has_country_flag = dd_isr_orthodox_answered }
+	}
 	option = {
-		name = dd_isr.28.b
-		ai_chance = { factor = 0 }
+		name = dd_isr.31.a
 		set_country_flag = dd_isr_orthodox_answered
 		clr_country_flag = dd_isr_orthodox_joined
 	}
@@ -319,15 +334,27 @@ country_event = {
 	option = {
 		name = dd_isr.29.a
 		set_country_flag = dd_isr_leader_announced
-		if = {
-			limit = { check_variable = { dd_isr_yashar > dd_isr_lapid } }
-			set_country_flag = dd_isr_eisenkot_leads
-			clr_country_flag = dd_isr_lapid_leads
-		}
-		else = {
-			set_country_flag = dd_isr_lapid_leads
-			clr_country_flag = dd_isr_eisenkot_leads
-		}
+		set_country_flag = dd_isr_eisenkot_leads
+		clr_country_flag = dd_isr_lapid_leads
+	}
+}
+
+country_event = {
+	id = dd_isr.30
+	title = dd_isr.30.t
+	desc = dd_isr.30.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = dd_isr_form_opposition
+		NOT = { has_country_flag = dd_isr_election_done }
+		NOT = { has_country_flag = dd_isr_leader_announced }
+	}
+	option = {
+		name = dd_isr.30.a
+		set_country_flag = dd_isr_leader_announced
+		set_country_flag = dd_isr_lapid_leads
+		clr_country_flag = dd_isr_eisenkot_leads
 	}
 }
 

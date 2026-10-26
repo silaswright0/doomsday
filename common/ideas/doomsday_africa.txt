@@ -42,13 +42,13 @@ ideas = {
 		dd_fragile_peace = {
 			picture = generic_intel_bonus
 			allowed = { always = no }
-			allowed_civil_war = { always = yes }
+			allowed_civil_war = { always = no }
 			removal_cost = -1
 			modifier = {
 				stability_factor = -0.30
 				political_power_gain = -0.1
 				resistance_target = 0.10
-				conscription = -0.03
+				conscription = -0.01
 			}
 		}
 		dd_jihadist_insurgents = {
@@ -91,7 +91,7 @@ ideas = {
 		dd_berbera_access = {
 			picture = generic_navy_bonus
 			allowed = { always = no }
-			allowed_civil_war = { always = yes }
+			allowed_civil_war = { always = no }
 			removal_cost = -1
 		}
 		dd_sparse_recognition = {

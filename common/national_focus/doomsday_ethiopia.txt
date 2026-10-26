@@ -1,0 +1,1082 @@
+focus_tree = {
+	id = dd_eth_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			original_tag = ETH
+			NOT = { has_country_flag = dd_eth_tig_side }
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	# The August rising is an event. This tree is the settlement around it.
+	focus = {
+		id = ETH_face_mekelle
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+		}
+	}
+
+	# Straight war column. Oppose Tigray, then Eritrea, then Sudan.
+	focus = {
+		id = ETH_oppose_tigray
+		icon = GFX_goal_generic_major_war
+		x = 8
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = ETH_face_mekelle }
+		mutually_exclusive = { focus = ETH_prop_up_tigray }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 30 }
+		completion_reward = {
+			add_ideas = dd_eth_hold_addis
+			add_war_support = 0.10
+			set_country_flag = dd_eth_oppose_tigray
+		}
+	}
+
+	focus = {
+		id = ETH_prop_up_tigray
+		icon = GFX_goal_generic_alliance
+		x = 2
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_face_mekelle }
+		mutually_exclusive = { focus = ETH_oppose_tigray }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			add_ideas = dd_eth_backing_mekelle
+			add_political_power = 50
+			set_country_flag = dd_eth_player_tigray
+		}
+	}
+
+	focus = {
+		id = ETH_arm_the_tdf
+		icon = GFX_goal_generic_small_arms
+		x = 2
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		prerequisite = { focus = ETH_prop_up_tigray }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			set_country_flag = dd_eth_tdf_armed
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = ETH_take_mekelle
+		icon = GFX_goal_generic_demand_territory
+		x = 2
+		y = 3
+		cost = 1
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_prop_up_tigray }
+		available = {
+			has_country_flag = dd_eth_rebellion_done
+			any_country = { has_country_flag = dd_eth_tig_side }
+		}
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			dd_eth_player_becomes_tigray = yes
+		}
+	}
+
+	focus = {
+		id = ETH_prosperity
+		icon = GFX_goal_generic_national_unity
+		x = 34
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_face_mekelle }
+		mutually_exclusive = { focus = ETH_amhara_bargain focus = ETH_the_regions }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 30 }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = ETH_amhara_bargain
+		icon = GFX_goal_generic_army_doctrines
+		x = 42
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_face_mekelle }
+		mutually_exclusive = { focus = ETH_prosperity focus = ETH_the_regions }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = { ideology = national_populism popularity = 0.10 }
+		}
+	}
+
+	focus = {
+		id = ETH_the_regions
+		icon = GFX_goal_generic_alliance
+		x = 48
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_face_mekelle }
+		mutually_exclusive = { focus = ETH_prosperity focus = ETH_amhara_bargain }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = { ideology = left_wing_nationalism popularity = 0.08 }
+			add_popularity = { ideology = social_democracy popularity = 0.05 }
+		}
+	}
+
+	focus = {
+		id = ETH_call_the_endf
+		icon = GFX_goal_generic_army_doctrines
+		x = 12
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		prerequisite = { focus = ETH_oppose_tigray }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_eth_endf
+			army_experience = 20
+			add_command_power = 25
+		}
+	}
+
+	focus = {
+		id = ETH_gondar_standard
+		icon = GFX_goal_generic_demand_territory
+		x = 42
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_amhara_bargain }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_eth_amhara_standard
+			create_country_leader = {
+				name = "Abiy Ahmed"
+				desc = ETH_LEADER_DESC
+				picture = GFX_portrait_ETH_leader
+				ideology = national_populist
+			}
+			set_politics = {
+				ruling_party = national_populism
+				elections_allowed = no
+			}
+			add_popularity = { ideology = national_populism popularity = 0.25 }
+		}
+	}
+
+	focus = {
+		id = ETH_restore_the_kilil
+		icon = GFX_goal_generic_national_unity
+		x = 48
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_the_regions }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_eth_kilil
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = ETH_west_for_gondar
+		icon = GFX_goal_generic_alliance
+		x = 16
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_oppose_tigray }
+		mutually_exclusive = { focus = ETH_west_for_mekelle }
+		available = {
+			NOT = { has_completed_focus = ETH_the_regions }
+		}
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_eth_fano }
+				remove_ideas = dd_eth_fano
+			}
+			if = {
+				limit = { has_idea = dd_eth_fano_rage }
+				remove_ideas = dd_eth_fano_rage
+			}
+			add_ideas = dd_eth_amhara_west
+			set_country_flag = dd_eth_west_amhara
+		}
+	}
+
+	focus = {
+		id = ETH_west_for_mekelle
+		icon = GFX_goal_generic_demand_territory
+		x = 20
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_oppose_tigray }
+		mutually_exclusive = { focus = ETH_west_for_gondar }
+		available = {
+			NOT = { has_completed_focus = ETH_amhara_bargain }
+		}
+		available_if_capitulated = yes
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_eth_fano }
+				remove_ideas = dd_eth_fano
+			}
+			add_ideas = dd_eth_fano_rage
+			set_country_flag = dd_eth_west_tigray
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ETH_shene_offensive
+		icon = GFX_goal_generic_attack_allies
+		x = 24
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = ETH_oppose_tigray }
+		mutually_exclusive = { focus = ETH_shene_talks }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_eth_ola }
+				remove_ideas = dd_eth_ola
+			}
+			add_ideas = dd_eth_oromia_security
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ETH_shene_talks
+		icon = GFX_goal_generic_alliance
+		x = 28
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_oppose_tigray }
+		mutually_exclusive = { focus = ETH_shene_offensive }
+		available = {
+			NOT = { has_completed_focus = ETH_amhara_bargain }
+		}
+		available_if_capitulated = yes
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_eth_ola }
+				remove_ideas = dd_eth_ola
+			}
+			add_stability = 0.05
+			add_war_support = -0.05
+			add_popularity = { ideology = left_wing_nationalism popularity = 0.05 }
+		}
+	}
+
+	focus = {
+		id = ETH_fold_fano_in
+		icon = GFX_goal_generic_army_doctrines
+		x = 16
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		prerequisite = { focus = ETH_west_for_gondar }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_manpower = 20000
+			add_popularity = { ideology = national_populism popularity = 0.05 }
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ETH_break_fano
+		icon = GFX_goal_generic_attack_allies
+		x = 20
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = ETH_west_for_mekelle }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_eth_fano_rage }
+				remove_ideas = dd_eth_fano_rage
+			}
+			add_stability = 0.10
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = ETH_militia_into_the_endf
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 42
+		y = 4
+		cost = 10
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		prerequisite = { focus = ETH_gondar_standard }
+		prerequisite = { focus = ETH_west_for_gondar }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_manpower = 25000
+			add_war_support = 0.05
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = ETH_oromo_wing
+		icon = GFX_goal_generic_national_unity
+		x = 48
+		y = 4
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_restore_the_kilil }
+		prerequisite = { focus = ETH_shene_talks }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+			add_popularity = { ideology = left_wing_nationalism popularity = 0.08 }
+		}
+	}
+
+	focus = {
+		id = ETH_somali_region
+		icon = GFX_goal_generic_alliance
+		x = 52
+		y = 3
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_restore_the_kilil }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.03
+			if = {
+				limit = { SOM = { exists = yes } }
+				add_opinion_modifier = { target = SOM modifier = dd_eth_somali_region_opinion }
+			}
+		}
+	}
+
+	focus = {
+		id = ETH_djibouti_dues
+		icon = GFX_goal_generic_trade
+		x = 26
+		y = 5
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_wheat_push }
+		mutually_exclusive = { focus = ETH_recognize_hargeisa }
+		available = {
+			DJI = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_eth_djibouti_corridor
+			add_opinion_modifier = { target = DJI modifier = dd_eth_djibouti_opinion }
+			DJI = { add_opinion_modifier = { target = ROOT modifier = dd_eth_djibouti_opinion } }
+			add_political_power = -50
+		}
+	}
+
+	focus = {
+		id = ETH_recognize_hargeisa
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 38
+		y = 5
+		cost = 10
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+		prerequisite = { focus = ETH_wheat_push }
+		mutually_exclusive = { focus = ETH_djibouti_dues }
+		available = {
+			SML = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_berbera_access }
+				remove_ideas = dd_berbera_access
+			}
+			add_ideas = dd_eth_berbera_base
+			add_opinion_modifier = { target = SML modifier = dd_eth_berbera_opinion }
+			SML = { add_opinion_modifier = { target = ROOT modifier = dd_eth_berbera_opinion } }
+			if = {
+				limit = { SOM = { exists = yes } }
+				add_opinion_modifier = { target = SOM modifier = dd_eth_somaliland_anger }
+				SOM = { add_opinion_modifier = { target = ROOT modifier = dd_eth_somaliland_anger } }
+			}
+			navy_experience = 15
+		}
+	}
+
+	focus = {
+		id = ETH_assab_road
+		icon = GFX_goal_generic_major_war
+		x = 8
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = ETH_oppose_tigray }
+		will_lead_to_war_with = ERI
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_eth_tigray_open_tt
+				dd_eth_tigray_open = yes
+			}
+			ERI = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_eth_to_the_sea
+			create_wargoal = { type = dd_annex target = ERI }
+		}
+	}
+
+	focus = {
+		id = ETH_ankara_line
+		icon = GFX_goal_generic_air_fighter
+		x = 12
+		y = 3
+		cost = 5
+		search_filters = { FOCUS_FILTER_AIR_XP }
+		prerequisite = { focus = ETH_call_the_endf }
+		available = {
+			TUR = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			air_experience = 20
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_cw3
+				amount = 8
+				producer = ETH
+			}
+			add_opinion_modifier = { target = TUR modifier = dd_eth_ankara_opinion }
+			TUR = { add_opinion_modifier = { target = ROOT modifier = dd_eth_ankara_opinion } }
+		}
+	}
+
+	focus = {
+		id = ETH_gerd
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 44
+		y = 5
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = ETH_prosperity focus = ETH_amhara_bargain focus = ETH_the_regions }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = ETH_the_fill
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 42
+		y = 6
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = ETH_gerd }
+		mutually_exclusive = { focus = ETH_power_for_cairo }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			add_ideas = dd_eth_gerd_full
+			if = {
+				limit = { EGY = { exists = yes } }
+				add_opinion_modifier = { target = EGY modifier = dd_eth_nile_anger }
+				EGY = { add_opinion_modifier = { target = ROOT modifier = dd_eth_nile_anger } }
+			}
+		}
+	}
+
+	focus = {
+		id = ETH_power_for_cairo
+		icon = GFX_goal_generic_trade
+		x = 46
+		y = 6
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = ETH_gerd }
+		mutually_exclusive = { focus = ETH_the_fill }
+		available = {
+			EGY = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_ideas = dd_eth_gerd_export
+			add_opinion_modifier = { target = EGY modifier = dd_eth_nile_deal }
+			EGY = { add_opinion_modifier = { target = ROOT modifier = dd_eth_nile_deal } }
+		}
+	}
+
+	focus = {
+		id = ETH_al_fashaga
+		icon = GFX_goal_generic_demand_territory
+		x = 8
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = ETH_assab_road }
+		will_lead_to_war_with = SUD
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_eth_eritrea_open_tt
+				dd_eth_eritrea_open = yes
+			}
+			SUD = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			add_state_claim = 883
+			create_wargoal = { type = dd_annex target = SUD }
+		}
+	}
+
+	focus = {
+		id = ETH_border_camps
+		icon = GFX_goal_generic_construct_civilian
+		x = 8
+		y = 4
+		cost = 5
+		search_filters = { FOCUS_FILTER_STABILITY }
+		prerequisite = { focus = ETH_al_fashaga }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = -0.03
+			add_manpower = 30000
+			add_ideas = dd_eth_border_camps
+		}
+	}
+
+	focus = {
+		id = ETH_imf_program
+		icon = GFX_goal_generic_trade
+		x = 30
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = ETH_prosperity }
+		mutually_exclusive = { focus = ETH_industrial_parks }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			add_ideas = dd_eth_imf
+			add_stability = 0.05
+			add_political_power = 75
+		}
+	}
+
+	focus = {
+		id = ETH_industrial_parks
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 38
+		y = 2
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = ETH_prosperity }
+		mutually_exclusive = { focus = ETH_imf_program }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_ideas = dd_eth_parks
+			if = {
+				limit = {
+					owns_state = 271
+					controls_state = 271
+				}
+				271 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ETH_wheat_push
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 36
+		y = 3
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = ETH_imf_program focus = ETH_industrial_parks }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = dd_eth_wheat
+		}
+	}
+
+	focus = {
+		id = ETH_lift_fragile_peace
+		icon = GFX_goal_generic_national_unity
+		x = 4
+		y = 5
+		cost = 5
+		search_filters = { FOCUS_FILTER_STABILITY }
+		prerequisite = { focus = ETH_oppose_tigray }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_eth_tigray_beaten_tt
+				dd_eth_tigray_beaten = yes
+			}
+		}
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_fragile_peace }
+				remove_ideas = dd_fragile_peace
+			}
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = ETH_addis_holds
+		icon = GFX_goal_generic_national_unity
+		x = 22
+		y = 5
+		cost = 10
+		search_filters = { FOCUS_FILTER_STABILITY }
+		prerequisite = { focus = ETH_oppose_tigray }
+		prerequisite = { focus = ETH_fold_fano_in focus = ETH_break_fano }
+		prerequisite = { focus = ETH_shene_offensive focus = ETH_shene_talks }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_fragile_peace }
+				remove_ideas = dd_fragile_peace
+			}
+			if = {
+				limit = { has_idea = dd_eth_hold_addis }
+				remove_ideas = dd_eth_hold_addis
+			}
+			add_ideas = dd_eth_federation_stands
+			add_stability = 0.10
+			add_political_power = 75
+		}
+	}
+
+	focus = {
+		id = ETH_one_army
+		icon = GFX_goal_generic_army_doctrines
+		x = 14
+		y = 6
+		cost = 10
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		prerequisite = { focus = ETH_call_the_endf }
+		prerequisite = { focus = ETH_addis_holds }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			army_experience = 30
+			add_ideas = dd_eth_one_army
+		}
+	}
+}
+
+focus_tree = {
+	id = dd_tig_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 25
+			has_country_flag = dd_eth_tig_side
+		}
+		modifier = {
+			add = 25
+			tag = TIG
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = TIG_hold_mekelle
+		icon = GFX_goal_generic_demand_territory
+		x = 8
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.10
+			add_state_core = 842
+		}
+	}
+
+	focus = {
+		id = TIG_the_cadre
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = TIG_hold_mekelle }
+		mutually_exclusive = { focus = TIG_the_generals }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_tig_cadre
+			add_popularity = { ideology = communism popularity = 0.15 }
+			add_political_power = 40
+		}
+	}
+
+	focus = {
+		id = TIG_the_generals
+		icon = GFX_goal_generic_army_doctrines
+		x = 8
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		prerequisite = { focus = TIG_hold_mekelle }
+		mutually_exclusive = { focus = TIG_the_cadre }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_ideas = dd_tig_generals
+			army_experience = 20
+			add_command_power = 30
+		}
+	}
+
+	focus = {
+		id = TIG_the_caches
+		icon = GFX_goal_generic_small_arms
+		x = 12
+		y = 1
+		cost = 5
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		prerequisite = { focus = TIG_hold_mekelle }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_manpower = 12000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_cw1
+				amount = 1000
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_cw1
+				amount = 40
+				producer = ROOT
+			}
+		}
+	}
+
+	focus = {
+		id = TIG_keep_the_ola
+		icon = GFX_goal_generic_alliance
+		x = 2
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = TIG_the_cadre focus = TIG_the_generals }
+		mutually_exclusive = { focus = TIG_send_them_south }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_idea = dd_tdf_and_ola } }
+				add_ideas = dd_tdf_and_ola
+			}
+			add_manpower = 8000
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIG_send_them_south
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = TIG_the_cadre focus = TIG_the_generals }
+		mutually_exclusive = { focus = TIG_keep_the_ola }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			if = {
+				limit = { has_idea = dd_tdf_and_ola }
+				remove_ideas = dd_tdf_and_ola
+			}
+			add_stability = 0.05
+			add_war_support = -0.05
+		}
+	}
+
+	focus = {
+		id = TIG_the_west
+		icon = GFX_goal_generic_demand_territory
+		x = 10
+		y = 2
+		cost = 5
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = TIG_hold_mekelle }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_tig_western
+			add_state_claim = 842
+		}
+	}
+
+	focus = {
+		id = TIG_wello
+		icon = GFX_goal_generic_major_war
+		x = 2
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = TIG_the_west }
+		prerequisite = { focus = TIG_the_cadre focus = TIG_the_generals }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			add_state_claim = 843
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIG_afar_corridor
+		icon = GFX_goal_generic_major_war
+		x = 6
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = TIG_the_west }
+		prerequisite = { focus = TIG_the_cadre focus = TIG_the_generals }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		completion_reward = {
+			add_state_claim = 908
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIG_begemder
+		icon = GFX_goal_generic_attack_allies
+		x = 10
+		y = 3
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = TIG_the_west }
+		prerequisite = { focus = TIG_the_cadre focus = TIG_the_generals }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_state_claim = 841
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIG_across_the_mereb
+		icon = GFX_goal_generic_major_war
+		x = 2
+		y = 4
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = TIG_wello }
+		will_lead_to_war_with = ERI
+		available = {
+			ERI = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_state_claim = 550
+			create_wargoal = { type = dd_annex target = ERI }
+		}
+	}
+
+	focus = {
+		id = TIG_kassala
+		icon = GFX_goal_generic_major_war
+		x = 10
+		y = 4
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = TIG_begemder }
+		will_lead_to_war_with = SUD
+		available = {
+			SUD = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_state_claim = 883
+			create_wargoal = { type = dd_annex target = SUD }
+		}
+	}
+
+	focus = {
+		id = TIG_djibouti_ask
+		icon = GFX_goal_generic_trade
+		x = 6
+		y = 4
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = TIG_afar_corridor }
+		available = {
+			owns_state = 908
+			DJI = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			give_military_access = DJI
+			DJI = { give_military_access = ROOT }
+			diplomatic_relation = { country = DJI relation = docking_rights active = yes }
+			add_opinion_modifier = { target = DJI modifier = dd_eth_djibouti_opinion }
+			DJI = { add_opinion_modifier = { target = ROOT modifier = dd_eth_djibouti_opinion } }
+		}
+	}
+
+	focus = {
+		id = TIG_secure_the_north
+		icon = GFX_goal_generic_fortify_city
+		x = 6
+		y = 5
+		cost = 10
+		search_filters = { FOCUS_FILTER_STABILITY }
+		prerequisite = { focus = TIG_wello }
+		prerequisite = { focus = TIG_afar_corridor }
+		prerequisite = { focus = TIG_the_west }
+		available = {
+			owns_state = 842
+			owns_state = 843
+			owns_state = 908
+		}
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_state_core = 842
+			add_state_core = 843
+			add_state_core = 908
+			add_stability = 0.10
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIG_on_to_addis
+		icon = GFX_goal_generic_major_war
+		x = 4
+		y = 6
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = TIG_secure_the_north }
+		mutually_exclusive = { focus = TIG_northern_state }
+		available = {
+			OR = {
+				owns_state = 271
+				ETH = { exists = yes has_capitulated = yes }
+			}
+		}
+		available_if_capitulated = yes
+		ai_will_do = { factor = 12 }
+		completion_reward = {
+			add_state_core = 271
+			add_state_core = 835
+			add_state_core = 836
+			add_state_core = 837
+			add_state_core = 838
+			add_state_core = 839
+			add_state_core = 840
+			add_state_core = 841
+			set_cosmetic_tag = TIG_ADDIS
+			add_ideas = dd_tig_on_addis
+		}
+	}
+
+	focus = {
+		id = TIG_northern_state
+		icon = GFX_goal_generic_national_unity
+		x = 8
+		y = 6
+		cost = 10
+		search_filters = { FOCUS_FILTER_STABILITY }
+		prerequisite = { focus = TIG_secure_the_north }
+		mutually_exclusive = { focus = TIG_on_to_addis }
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			set_cosmetic_tag = TIG_NORTH
+			add_ideas = dd_tig_northern_state
+			add_stability = 0.10
+		}
+	}
+}

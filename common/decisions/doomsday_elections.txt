@@ -247,7 +247,13 @@ dd_elections_category = {
 		cost = 0
 		ai_will_do = { factor = 0 }
 		complete_effect = {
-			country_event = dd_isr.28
+			if = {
+				limit = { has_completed_focus = ISR_protect_torah }
+				country_event = dd_isr.28
+			}
+			else = {
+				country_event = dd_isr.31
+			}
 		}
 	}
 

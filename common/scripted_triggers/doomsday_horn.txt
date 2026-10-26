@@ -16,6 +16,19 @@ dd_eth_tigray_open = {
 	}
 }
 
+# The Tigray rising has been destroyed. The war itself does not count.
+dd_eth_tigray_beaten = {
+	NOT = { has_country_flag = dd_eth_tig_side }
+	has_country_flag = dd_eth_rebellion_done
+	NOT = {
+		any_country = {
+			has_country_flag = dd_eth_tig_side
+			exists = yes
+			has_capitulated = no
+		}
+	}
+}
+
 # The Eritrea war is underway, or Eritrea has been beaten.
 dd_eth_eritrea_open = {
 	OR = {
