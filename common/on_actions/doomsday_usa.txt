@@ -9,6 +9,7 @@ on_actions = {
 					country_event = { id = dd_usa_graham.1 days = 191 }
 				}
 				dd_usa_init_legislature = yes
+				dd_usa_refresh_services = yes
 				dd_usa_grant_station_docking = yes
 				dd_usa_sync_partner_air = yes
 				dd_usa_mark_starting_states = yes
@@ -65,6 +66,7 @@ on_actions = {
 					dd_usa_apply_gut = yes
 				}
 			}
+			dd_usa_cw_retry_invites = yes
 		}
 	}
 
@@ -117,9 +119,15 @@ on_actions = {
 	on_daily = {
 		effect = {
 			dd_usa_cw_strip_diplomacy = yes
+			every_country = {
+				limit = {
+					has_country_flag = dd_usa_services_wanted
+					NOT = { has_dynamic_modifier = { modifier = dd_usa_armed_forces_dyn } }
+				}
+				add_dynamic_modifier = { modifier = dd_usa_armed_forces_dyn }
+			}
 		}
 	}
-
 	on_daily_USA = {
 		effect = {
 			dd_usa_sync_tucker = yes

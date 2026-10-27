@@ -210,6 +210,15 @@ ideas = {
 				national_populism_drift = -0.01
 			}
 		}
+		dd_yem_seiyun_holdout = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				surrender_limit = 0.10
+			}
+		}
 		dd_stc_overextended = {
 			picture = generic_army_problems
 			allowed = { always = no }

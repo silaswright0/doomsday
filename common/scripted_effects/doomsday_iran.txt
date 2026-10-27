@@ -46,114 +46,11 @@ dd_per_puppet_proxies = {
 			HOU = { exists = yes }
 			NOT = { HOU = { is_subject_of = PER } }
 		}
-		# Puppeting ends the Houthis' other wars and can hand them the land.
-		# Put the land back, then put the Houthis back at war. Hamas and Hezbollah
-		# are called in with Iran and leave again.
-		HOU = {
-			every_enemy_country = {
-				set_country_flag = dd_hou_prewar_enemy
-				every_owned_state = {
-					set_state_flag = dd_hou_keep_owner
-				}
-			}
-		}
-		if = {
-			limit = { YEM = { has_country_flag = dd_hou_prewar_enemy } }
-			YEM = { every_owned_state = { set_state_flag = dd_hou_was_yem } }
-		}
-		if = {
-			limit = { YNR = { has_country_flag = dd_hou_prewar_enemy } }
-			YNR = { every_owned_state = { set_state_flag = dd_hou_was_ynr } }
-		}
-		if = {
-			limit = { STC = { has_country_flag = dd_hou_prewar_enemy } }
-			STC = { every_owned_state = { set_state_flag = dd_hou_was_stc } }
-		}
-		if = {
-			limit = { SAU = { has_country_flag = dd_hou_prewar_enemy } }
-			SAU = { every_owned_state = { set_state_flag = dd_hou_was_sau } }
-		}
-		puppet = HOU
-		every_country = {
-			limit = { has_country_flag = dd_hou_prewar_enemy }
-			if = {
-				limit = { NOT = { has_war_with = HOU } }
-				PER = {
-					declare_war_on = {
-						target = PREV
-						type = annex_everything
-						call_allies = no
-					}
-				}
-				HOU = {
-					if = {
-						limit = { NOT = { has_war_with = PREV } }
-						add_to_war = {
-							targeted_alliance = PER
-							enemy = PREV
-						}
-					}
-				}
-			}
-			if = {
-				limit = { HAM = { exists = yes } }
-				HAM = {
-					if = {
-						limit = { has_war_with = PREV }
-						white_peace = PREV
-					}
-				}
-			}
-			if = {
-				limit = { HEZ = { exists = yes } }
-				HEZ = {
-					if = {
-						limit = { has_war_with = PREV }
-						white_peace = PREV
-					}
-				}
-			}
-			clr_country_flag = dd_hou_prewar_enemy
-		}
-		every_state = {
-			limit = {
-				has_state_flag = dd_hou_was_yem
-				NOT = { is_owned_by = YEM }
-				YEM = { exists = yes }
-			}
-			YEM = { transfer_state = PREV }
-		}
-		every_state = {
-			limit = {
-				has_state_flag = dd_hou_was_ynr
-				NOT = { is_owned_by = YNR }
-				YNR = { exists = yes }
-			}
-			YNR = { transfer_state = PREV }
-		}
-		every_state = {
-			limit = {
-				has_state_flag = dd_hou_was_stc
-				NOT = { is_owned_by = STC }
-				STC = { exists = yes }
-			}
-			STC = { transfer_state = PREV }
-		}
-		every_state = {
-			limit = {
-				has_state_flag = dd_hou_was_sau
-				NOT = { is_owned_by = SAU }
-				SAU = { exists = yes }
-			}
-			SAU = { transfer_state = PREV }
-		}
-		every_state = {
-			limit = { has_state_flag = dd_hou_keep_owner }
-			clr_state_flag = dd_hou_keep_owner
-			clr_state_flag = dd_hou_was_yem
-			clr_state_flag = dd_hou_was_ynr
-			clr_state_flag = dd_hou_was_stc
-			clr_state_flag = dd_hou_was_sau
+		# end_wars would white-peace Yemen and hand the Houthis land, including land they had lost.
+		puppet = {
+			target = HOU
+			end_wars = no
+			end_civil_wars = no
 		}
 	}
 }
@@ -1179,84 +1076,68 @@ dd_per_join_shiite_war = {
 	}
 }
 
-# The diplomacy volunteer button is closed while the sender is at war.
-# Iran, the United States, and Israel are already in the Gulf war, so they deploy
-# puppet-owned brigades, four at most. A country at peace uses the volunteer button.
-# The idea adds 4 to the volunteer cap and waives the division and tension gates.
+# Volunteers are refused while the sender is at war, and recalled if a war starts.
+# Expeditionary forces are the same divisions, lent while Iran is already in the war.
 dd_per_open_iraq_volunteers = {
 	if = {
 		limit = { has_global_event_target = dd_shiite_side }
-		event_target:dd_shiite_side = {
-			if = {
-				limit = { NOT = { has_country_flag = dd_shiite_brigade_template } }
-				set_country_flag = dd_shiite_brigade_template
-				division_template = {
-					name = "Foreign Brigade"
-					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-						infantry = { x = 2 y = 0 }
-						infantry = { x = 2 y = 1 }
-						infantry = { x = 2 y = 2 }
-					}
-					support = {
-						engineer = { x = 0 y = 0 }
-						artillery = { x = 0 y = 1 }
-					}
-					is_locked = yes
-				}
-			}
+		if = {
+			limit = { NOT = { has_idea = dd_irq_volunteer_window } }
+			add_ideas = dd_irq_volunteer_window
 		}
-		every_country = {
-			limit = {
-				OR = {
-					tag = PER
-					tag = USA
-					tag = ISR
-					tag = FRA
-				}
-			}
-			set_country_flag = dd_irq_volunteer_window
-			set_variable = { dd_irq_brigades_sent = 0 }
-			if = {
-				limit = { NOT = { has_idea = dd_irq_volunteer_window } }
-				add_ideas = dd_irq_volunteer_window
-			}
-			add_ai_strategy = {
-				type = send_volunteers_desire
-				id = IRQ
-				value = -200
-			}
-			event_target:dd_shiite_side = {
-				PREV = {
-					add_ai_strategy = {
-						type = send_volunteers_desire
-						id = PREV
-						value = 200
-					}
+		set_country_flag = dd_irq_expedition_ai
+		event_target:dd_shiite_side = {
+			PREV = {
+				add_ai_strategy = {
+					type = diplo_action_desire
+					id = PREV
+					target = send_expeditionary_force
+					value = 200
 				}
 			}
 		}
 	}
 }
 
-dd_irq_spawn_foreign_brigade = {
+# Older saves opened this for America, Israel, and France. Take it back.
+dd_irq_close_other_brigades = {
 	if = {
 		limit = {
+			has_idea = dd_irq_volunteer_window
+			NOT = { has_country_flag = dd_irq_expedition_ai }
 			has_global_event_target = dd_shiite_side
-			check_variable = { dd_irq_brigades_sent < 4 }
-			event_target:dd_shiite_side = { exists = yes has_war_with = IRQ }
 		}
-		add_to_variable = { dd_irq_brigades_sent = 1 }
+		set_country_flag = dd_irq_expedition_ai
 		event_target:dd_shiite_side = {
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Foreign Brigade\" division_template = \"Foreign Brigade\" start_experience_factor = 0.9 start_equipment_factor = 1"
-					owner = PREV
+			PREV = {
+				add_ai_strategy = {
+					type = diplo_action_desire
+					id = PREV
+					target = send_expeditionary_force
+					value = 200
+				}
+			}
+		}
+	}
+	if = {
+		limit = { has_global_event_target = dd_shiite_side }
+		every_country = {
+			limit = {
+				NOT = { tag = PER }
+				has_country_flag = dd_irq_volunteer_window
+			}
+			clr_country_flag = dd_irq_volunteer_window
+			if = {
+				limit = { has_idea = dd_irq_volunteer_window }
+				remove_ideas = dd_irq_volunteer_window
+			}
+			event_target:dd_shiite_side = {
+				PREV = {
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = PREV
+						value = -200
+					}
 				}
 			}
 		}

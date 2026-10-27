@@ -242,7 +242,8 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				conscription = -0.03
+				conscription = -0.02
+				political_power_gain = 0.10
 			}
 		}
 		dd_isr_torah_study = {
@@ -444,17 +445,50 @@ ideas = {
 				breakthrough_factor = 0.20
 			}
 		}
-		dd_isr_strongman = {
-			picture = generic_army_problems
+		dd_isr_peoples_army = {
+			picture = generic_morale_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				war_support_factor = 0.20
-				stability_factor = 0.20
-				industrial_capacity_factory = 0.10
-				production_speed_arms_factory_factor = 0.20
+				conscription = 0.02
+				war_support_factor = 0.05
+			}
+		}
+		dd_isr_hostages = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.10
+				war_support_factor = -0.05
+				political_power_gain = 0.05
+			}
+		}
+		dd_isr_defined_aims = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				planning_speed = 0.15
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
 				army_org_factor = 0.05
+			}
+		}
+		dd_isr_strongman = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.20
+				war_support_factor = 0.10
+				army_org_factor = 0.10
+				army_defence_factor = 0.10
 			}
 		}
 		dd_kurd_us_support = {

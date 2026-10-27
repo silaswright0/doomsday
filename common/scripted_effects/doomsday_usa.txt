@@ -664,6 +664,85 @@ dd_usa_cw_spawn_militia = {
 	clear_variable = dd_cw_militia_count
 }
 
+# American Schism sets can_join_factions = no. Removing the idea and adding to
+# a faction in the same effect still sees that rule, so the join is one hour later.
+dd_cw_restore_schism = {
+	if = {
+		limit = {
+			NOT = { has_idea = dd_usa_civil_war_cause }
+			OR = {
+				has_country_flag = dd_usa_civil_war
+				has_country_flag = dd_cw_released
+			}
+		}
+		add_ideas = dd_usa_civil_war_cause
+	}
+}
+
+# A focus completed while the schism still blocked joining never added anyone.
+# One retry on the next load, only when they are still not in that faction.
+dd_usa_cw_retry_invites = {
+	every_country = {
+		if = {
+			limit = {
+				has_completed_focus = USA_cw_fascist_invite_etx
+				ETX = { exists = yes }
+				NOT = { is_in_faction_with = ETX }
+				NOT = { has_country_flag = dd_cw_invite_etx_retried }
+			}
+			set_country_flag = dd_cw_invite_etx_retried
+			dd_usa_cw_invite_etx = yes
+		}
+		if = {
+			limit = {
+				has_completed_focus = USA_cw_fascist_invite_txo
+				TXO = { exists = yes }
+				NOT = { is_in_faction_with = TXO }
+				NOT = { has_country_flag = dd_cw_invite_txo_retried }
+			}
+			set_country_flag = dd_cw_invite_txo_retried
+			dd_usa_cw_invite_txo = yes
+		}
+		if = {
+			limit = {
+				has_completed_focus = TXR_join_anarchists
+				NOT = { has_country_flag = dd_cw_join_aca_retried }
+				NOT = { is_in_faction_with = ACA }
+				NOT = { is_in_faction_with = USA }
+			}
+			set_country_flag = dd_cw_join_aca_retried
+			dd_cw_join_aca = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = TXR_join_communists
+					has_completed_focus = ASK_join_communists
+					has_completed_focus = ABR_join_communists
+				}
+				NOT = { has_country_flag = dd_cw_join_rbl_retried }
+				NOT = { is_in_faction_with = RBL }
+				NOT = { is_in_faction_with = USA }
+			}
+			set_country_flag = dd_cw_join_rbl_retried
+			dd_cw_join_rbl = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = ASK_join_demsoc
+					has_completed_focus = ABR_join_demsoc
+				}
+				NOT = { has_country_flag = dd_cw_join_eas_retried }
+				NOT = { is_in_faction_with = EAS }
+				NOT = { is_in_faction_with = USA }
+			}
+			set_country_flag = dd_cw_join_eas_retried
+			dd_cw_join_eas = yes
+		}
+	}
+}
+
 dd_usa_cw_invite_etx = {
 	if = {
 		limit = { has_war_with = ETX }
@@ -678,19 +757,9 @@ dd_usa_cw_invite_etx = {
 		}
 		ETX = { leave_faction = yes }
 	}
-	if = {
-		limit = { is_in_faction = no }
-		remove_ideas = dd_usa_civil_war_cause
-		set_rule = { can_create_factions = yes }
-		create_faction = FACTION_SOUTHERN_PACT
-		add_ideas = dd_usa_civil_war_cause
-	}
-	ETX = {
-		remove_ideas = dd_usa_civil_war_cause
-		set_rule = { can_join_factions = yes }
-	}
-	add_to_faction = ETX
-	ETX = { add_ideas = dd_usa_civil_war_cause }
+	remove_ideas = dd_usa_civil_war_cause
+	ETX = { remove_ideas = dd_usa_civil_war_cause }
+	country_event = { id = dd_usa_cw.20 hours = 1 }
 }
 
 dd_usa_cw_invite_txo = {
@@ -707,19 +776,9 @@ dd_usa_cw_invite_txo = {
 		}
 		TXO = { leave_faction = yes }
 	}
-	if = {
-		limit = { is_in_faction = no }
-		remove_ideas = dd_usa_civil_war_cause
-		set_rule = { can_create_factions = yes }
-		create_faction = FACTION_SOUTHERN_PACT
-		add_ideas = dd_usa_civil_war_cause
-	}
-	TXO = {
-		remove_ideas = dd_usa_civil_war_cause
-		set_rule = { can_join_factions = yes }
-	}
-	add_to_faction = TXO
-	TXO = { add_ideas = dd_usa_civil_war_cause }
+	remove_ideas = dd_usa_civil_war_cause
+	TXO = { remove_ideas = dd_usa_civil_war_cause }
+	country_event = { id = dd_usa_cw.21 hours = 1 }
 }
 
 dd_usa_cw_wargoal_demsoc = {
@@ -881,33 +940,17 @@ dd_cw_join_aca = {
 		limit = { ACA = { exists = yes is_subject = no } }
 		if = { limit = { has_war_with = ACA } white_peace = ACA }
 		dd_cw_prepare_join = yes
-		ACA = {
-			remove_ideas = dd_usa_civil_war_cause
-			set_rule = { can_create_factions = yes }
-			if = {
-				limit = { is_in_faction = no }
-				create_faction = FACTION_ANARCHIST_COMMUNES
-			}
-			faction_leader = { add_to_faction = ROOT }
-			add_ideas = dd_usa_civil_war_cause
-		}
-		add_ideas = dd_usa_civil_war_cause
+		ACA = { remove_ideas = dd_usa_civil_war_cause }
+		set_country_flag = dd_cw_join_aca_tag
+		country_event = { id = dd_usa_cw.22 hours = 1 }
 	}
 	else_if = {
 		limit = { USA = { has_country_flag = dd_usa_keep_aca is_subject = no } }
 		if = { limit = { has_war_with = USA } white_peace = USA }
 		dd_cw_prepare_join = yes
-		USA = {
-			remove_ideas = dd_usa_civil_war_cause
-			set_rule = { can_create_factions = yes }
-			if = {
-				limit = { is_in_faction = no }
-				create_faction = FACTION_ANARCHIST_COMMUNES
-			}
-			faction_leader = { add_to_faction = ROOT }
-			add_ideas = dd_usa_civil_war_cause
-		}
-		add_ideas = dd_usa_civil_war_cause
+		USA = { remove_ideas = dd_usa_civil_war_cause }
+		set_country_flag = dd_cw_join_aca_usa
+		country_event = { id = dd_usa_cw.22 hours = 1 }
 	}
 }
 
@@ -916,33 +959,17 @@ dd_cw_join_rbl = {
 		limit = { RBL = { exists = yes } }
 		if = { limit = { has_war_with = RBL } white_peace = RBL }
 		dd_cw_prepare_join = yes
-		RBL = {
-			remove_ideas = dd_usa_civil_war_cause
-			set_rule = { can_create_factions = yes }
-			if = {
-				limit = { is_in_faction = no }
-				create_faction = FACTION_COMMUNIST_FRONT
-			}
-			faction_leader = { add_to_faction = ROOT }
-			add_ideas = dd_usa_civil_war_cause
-		}
-		add_ideas = dd_usa_civil_war_cause
+		RBL = { remove_ideas = dd_usa_civil_war_cause }
+		set_country_flag = dd_cw_join_rbl_tag
+		country_event = { id = dd_usa_cw.23 hours = 1 }
 	}
 	else_if = {
 		limit = { USA = { has_country_flag = dd_usa_keep_rbl } }
 		if = { limit = { has_war_with = USA } white_peace = USA }
 		dd_cw_prepare_join = yes
-		USA = {
-			remove_ideas = dd_usa_civil_war_cause
-			set_rule = { can_create_factions = yes }
-			if = {
-				limit = { is_in_faction = no }
-				create_faction = FACTION_COMMUNIST_FRONT
-			}
-			faction_leader = { add_to_faction = ROOT }
-			add_ideas = dd_usa_civil_war_cause
-		}
-		add_ideas = dd_usa_civil_war_cause
+		USA = { remove_ideas = dd_usa_civil_war_cause }
+		set_country_flag = dd_cw_join_rbl_usa
+		country_event = { id = dd_usa_cw.23 hours = 1 }
 	}
 }
 
@@ -951,33 +978,17 @@ dd_cw_join_eas = {
 		limit = { EAS = { exists = yes } }
 		if = { limit = { has_war_with = EAS } white_peace = EAS }
 		dd_cw_prepare_join = yes
-		EAS = {
-			remove_ideas = dd_usa_civil_war_cause
-			set_rule = { can_create_factions = yes }
-			if = {
-				limit = { is_in_faction = no }
-				create_faction = FACTION_POPULAR_FRONT
-			}
-			faction_leader = { add_to_faction = ROOT }
-			add_ideas = dd_usa_civil_war_cause
-		}
-		add_ideas = dd_usa_civil_war_cause
+		EAS = { remove_ideas = dd_usa_civil_war_cause }
+		set_country_flag = dd_cw_join_eas_tag
+		country_event = { id = dd_usa_cw.24 hours = 1 }
 	}
 	else_if = {
 		limit = { USA = { has_country_flag = dd_usa_keep_eas } }
 		if = { limit = { has_war_with = USA } white_peace = USA }
 		dd_cw_prepare_join = yes
-		USA = {
-			remove_ideas = dd_usa_civil_war_cause
-			set_rule = { can_create_factions = yes }
-			if = {
-				limit = { is_in_faction = no }
-				create_faction = FACTION_POPULAR_FRONT
-			}
-			faction_leader = { add_to_faction = ROOT }
-			add_ideas = dd_usa_civil_war_cause
-		}
-		add_ideas = dd_usa_civil_war_cause
+		USA = { remove_ideas = dd_usa_civil_war_cause }
+		set_country_flag = dd_cw_join_eas_usa
+		country_event = { id = dd_usa_cw.24 hours = 1 }
 	}
 }
 
@@ -1286,108 +1297,32 @@ dd_usa_cw_inherit_supply_hole = {
 		}
 		if = {
 			limit = {
-				PREV = { has_idea = dd_usa_armed_forces }
-				NOT = { has_idea = dd_usa_armed_forces }
+				PREV = { has_country_flag = dd_usa_services_wanted }
 			}
-			add_ideas = dd_usa_armed_forces
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_armed_forces_ready }
-				NOT = { has_idea = dd_usa_armed_forces_ready }
-			}
-			add_ideas = dd_usa_armed_forces_ready
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_armed_forces_drone }
-				NOT = { has_idea = dd_usa_armed_forces_drone }
-			}
-			add_ideas = dd_usa_armed_forces_drone
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_armed_forces_arty }
-				NOT = { has_idea = dd_usa_armed_forces_arty }
-			}
-			add_ideas = dd_usa_armed_forces_arty
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_armed_forces_aa }
-				NOT = { has_idea = dd_usa_armed_forces_aa }
-			}
-			add_ideas = dd_usa_armed_forces_aa
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_armed_forces_cavalry }
-				NOT = { has_idea = dd_usa_armed_forces_cavalry }
-			}
-			add_ideas = dd_usa_armed_forces_cavalry
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_airforce }
-				NOT = { has_idea = dd_usa_airforce }
-			}
-			add_ideas = dd_usa_airforce
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_airforce_prod }
-				NOT = { has_idea = dd_usa_airforce_prod }
-			}
-			add_ideas = dd_usa_airforce_prod
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_airforce_para }
-				NOT = { has_idea = dd_usa_airforce_para }
-			}
-			add_ideas = dd_usa_airforce_para
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_airforce_drone }
-				NOT = { has_idea = dd_usa_airforce_drone }
-			}
-			add_ideas = dd_usa_airforce_drone
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_airforce_cca }
-				NOT = { has_idea = dd_usa_airforce_cca }
-			}
-			add_ideas = dd_usa_airforce_cca
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_navy }
-				NOT = { has_idea = dd_usa_navy }
-			}
-			add_ideas = dd_usa_navy
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_navy_beds }
-				NOT = { has_idea = dd_usa_navy_beds }
-			}
-			add_ideas = dd_usa_navy_beds
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_navy_morale }
-				NOT = { has_idea = dd_usa_navy_morale }
-			}
-			add_ideas = dd_usa_navy_morale
-		}
-		if = {
-			limit = {
-				PREV = { has_idea = dd_usa_navy_yards }
-				NOT = { has_idea = dd_usa_navy_yards }
-			}
-			add_ideas = dd_usa_navy_yards
+			set_variable = { dd_usa_af_civ_intel = PREV.dd_usa_af_civ_intel }
+			set_variable = { dd_usa_af_army_intel = PREV.dd_usa_af_army_intel }
+			set_variable = { dd_usa_af_enemy_air = PREV.dd_usa_af_enemy_air }
+			set_variable = { dd_usa_af_org = PREV.dd_usa_af_org }
+			set_variable = { dd_usa_af_morale = PREV.dd_usa_af_morale }
+			set_variable = { dd_usa_af_inf_atk = PREV.dd_usa_af_inf_atk }
+			set_variable = { dd_usa_af_arm_atk = PREV.dd_usa_af_arm_atk }
+			set_variable = { dd_usa_af_arty_atk = PREV.dd_usa_af_arty_atk }
+			set_variable = { dd_usa_af_arty_def = PREV.dd_usa_af_arty_def }
+			set_variable = { dd_usa_af_aa = PREV.dd_usa_af_aa }
+			set_variable = { dd_usa_af_mech = PREV.dd_usa_af_mech }
+			set_variable = { dd_usa_af_brk = PREV.dd_usa_af_brk }
+			set_variable = { dd_usa_air_sup = PREV.dd_usa_air_sup }
+			set_variable = { dd_usa_air_cas = PREV.dd_usa_air_cas }
+			set_variable = { dd_usa_air_strat = PREV.dd_usa_air_strat }
+			set_variable = { dd_usa_air_ic = PREV.dd_usa_air_ic }
+			set_variable = { dd_usa_air_para = PREV.dd_usa_air_para }
+			set_variable = { dd_usa_air_para_grace = PREV.dd_usa_air_para_grace }
+			set_variable = { dd_usa_nav_range = PREV.dd_usa_nav_range }
+			set_variable = { dd_usa_nav_sortie = PREV.dd_usa_nav_sortie }
+			set_variable = { dd_usa_nav_coord = PREV.dd_usa_nav_coord }
+			set_variable = { dd_usa_nav_org = PREV.dd_usa_nav_org }
+			set_variable = { dd_usa_nav_dock = PREV.dd_usa_nav_dock }
+			set_country_flag = dd_usa_services_wanted
 		}
 	}
 }
@@ -1890,6 +1825,10 @@ dd_usa_peace_out_before_civil_war = {
 	every_enemy_country = {
 		USA = { white_peace = PREV }
 	}
+	if = {
+		limit = { has_global_flag = dd_hormuz_war }
+		dd_hormuz_end = yes
+	}
 }
 
 # Host grants the United States docking rights, military access, and airfield use.
@@ -2147,65 +2086,321 @@ dd_usa_provoke_blob = {
 	}
 }
 
-# Army / air / navy: each focus adds its own spirit. Branches stack.
+# One spirit. Each focus adds its numbers. The card itself is added the next day so the values are already set.
+dd_usa_service_zero = {
+	set_variable = { dd_usa_af_civ_intel = 0 }
+	set_variable = { dd_usa_af_army_intel = 0 }
+	set_variable = { dd_usa_af_enemy_air = 0 }
+	set_variable = { dd_usa_af_org = 0 }
+	set_variable = { dd_usa_af_morale = 0 }
+	set_variable = { dd_usa_af_inf_atk = 0 }
+	set_variable = { dd_usa_af_arm_atk = 0 }
+	set_variable = { dd_usa_af_arty_atk = 0 }
+	set_variable = { dd_usa_af_arty_def = 0 }
+	set_variable = { dd_usa_af_aa = 0 }
+	set_variable = { dd_usa_af_mech = 0 }
+	set_variable = { dd_usa_af_brk = 0 }
+	set_variable = { dd_usa_air_sup = 0 }
+	set_variable = { dd_usa_air_cas = 0 }
+	set_variable = { dd_usa_air_strat = 0 }
+	set_variable = { dd_usa_air_ic = 0 }
+	set_variable = { dd_usa_air_para = 0 }
+	set_variable = { dd_usa_air_para_grace = 0 }
+	set_variable = { dd_usa_nav_range = 0 }
+	set_variable = { dd_usa_nav_sortie = 0 }
+	set_variable = { dd_usa_nav_coord = 0 }
+	set_variable = { dd_usa_nav_org = 0 }
+	set_variable = { dd_usa_nav_dock = 0 }
+}
+
+dd_usa_service_clear_old = {
+	if = { limit = { has_idea = dd_usa_armed_forces } remove_ideas = dd_usa_armed_forces }
+	if = { limit = { has_idea = dd_usa_armed_forces_ready } remove_ideas = dd_usa_armed_forces_ready }
+	if = { limit = { has_idea = dd_usa_armed_forces_drone } remove_ideas = dd_usa_armed_forces_drone }
+	if = { limit = { has_idea = dd_usa_armed_forces_arty } remove_ideas = dd_usa_armed_forces_arty }
+	if = { limit = { has_idea = dd_usa_armed_forces_aa } remove_ideas = dd_usa_armed_forces_aa }
+	if = { limit = { has_idea = dd_usa_armed_forces_cavalry } remove_ideas = dd_usa_armed_forces_cavalry }
+	if = { limit = { has_idea = dd_usa_airforce } remove_ideas = dd_usa_airforce }
+	if = { limit = { has_idea = dd_usa_airforce_para } remove_ideas = dd_usa_airforce_para }
+	if = { limit = { has_idea = dd_usa_airforce_drone } remove_ideas = dd_usa_airforce_drone }
+	if = { limit = { has_idea = dd_usa_airforce_cca } remove_ideas = dd_usa_airforce_cca }
+	if = { limit = { has_idea = dd_usa_navy } remove_ideas = dd_usa_navy }
+	if = { limit = { has_idea = dd_usa_navy_beds } remove_ideas = dd_usa_navy_beds }
+	if = { limit = { has_idea = dd_usa_navy_morale } remove_ideas = dd_usa_navy_morale }
+	if = { limit = { has_idea = dd_usa_navy_yards } remove_ideas = dd_usa_navy_yards }
+	if = { limit = { has_dynamic_modifier = { modifier = dd_usa_airforce_dyn } } remove_dynamic_modifier = { modifier = dd_usa_airforce_dyn } }
+	if = { limit = { has_dynamic_modifier = { modifier = dd_usa_navy_dyn } } remove_dynamic_modifier = { modifier = dd_usa_navy_dyn } }
+}
+
+dd_usa_refresh_services = {
+	dd_usa_service_zero = yes
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_af
+				has_completed_focus = USA_us_armed_forces
+			}
+		}
+		set_variable = { dd_usa_af_civ_intel = -0.25 }
+		set_variable = { dd_usa_af_army_intel = -0.25 }
+		set_variable = { dd_usa_af_enemy_air = -0.05 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_ready
+				has_completed_focus = USA_invest_health_readiness
+			}
+		}
+		set_variable = { dd_usa_af_org = 0.08 }
+		set_variable = { dd_usa_af_morale = 0.05 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_land_drone
+				has_completed_focus = USA_integrating_drone_warfare
+			}
+		}
+		set_variable = { dd_usa_af_inf_atk = 0.08 }
+		set_variable = { dd_usa_af_arm_atk = 0.05 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_arty
+				has_completed_focus = USA_autonomous_targeting
+			}
+		}
+		set_variable = { dd_usa_af_arty_atk = 0.12 }
+		set_variable = { dd_usa_af_arty_def = 0.08 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_aa
+				has_completed_focus = USA_drone_countermeasures
+			}
+		}
+		set_variable = { dd_usa_af_aa = 0.15 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_cav
+				has_completed_focus = USA_us_cavalry
+			}
+		}
+		add_to_variable = { dd_usa_af_arm_atk = 0.12 }
+		set_variable = { dd_usa_af_mech = 0.10 }
+		set_variable = { dd_usa_af_brk = 0.08 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_air
+				has_completed_focus = USA_us_airforce
+			}
+		}
+		set_variable = { dd_usa_air_sup = 0.10 }
+		set_variable = { dd_usa_air_cas = 0.10 }
+		set_variable = { dd_usa_air_strat = 0.10 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_air_drone
+				has_completed_focus = USA_kickstart_drone_production
+			}
+		}
+		add_to_variable = { dd_usa_air_ic = 0.05 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_para
+				has_completed_focus = USA_paratrooper_drills
+			}
+		}
+		set_variable = { dd_usa_air_para = 0.15 }
+		set_variable = { dd_usa_air_para_grace = 48 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_cca
+				has_completed_focus = USA_fund_cca
+			}
+		}
+		add_to_variable = { dd_usa_air_sup = 0.08 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_navy
+				has_completed_focus = USA_us_navy
+			}
+		}
+		set_variable = { dd_usa_nav_range = 0.20 }
+		set_variable = { dd_usa_nav_sortie = 0.15 }
+		set_variable = { dd_usa_nav_coord = 0.05 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_beds
+				has_completed_focus = USA_new_sailor_beds
+			}
+		}
+		set_variable = { dd_usa_nav_org = 0.14 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_morale
+				has_completed_focus = USA_invest_navy_morale
+			}
+		}
+		add_to_variable = { dd_usa_nav_org = 0.12 }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_yards
+				has_completed_focus = USA_expand_shipbuilding
+			}
+		}
+		set_variable = { dd_usa_nav_dock = 0.10 }
+	}
+	dd_usa_service_clear_old = yes
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_af
+				has_country_flag = dd_usa_svc_ready
+				has_country_flag = dd_usa_svc_land_drone
+				has_country_flag = dd_usa_svc_arty
+				has_country_flag = dd_usa_svc_aa
+				has_country_flag = dd_usa_svc_cav
+				has_country_flag = dd_usa_svc_air
+				has_country_flag = dd_usa_svc_para
+				has_country_flag = dd_usa_svc_air_drone
+				has_country_flag = dd_usa_svc_cca
+				has_country_flag = dd_usa_svc_navy
+				has_country_flag = dd_usa_svc_beds
+				has_country_flag = dd_usa_svc_morale
+				has_country_flag = dd_usa_svc_yards
+				has_completed_focus = USA_us_armed_forces
+				has_completed_focus = USA_invest_health_readiness
+				has_completed_focus = USA_integrating_drone_warfare
+				has_completed_focus = USA_autonomous_targeting
+				has_completed_focus = USA_drone_countermeasures
+				has_completed_focus = USA_us_cavalry
+				has_completed_focus = USA_us_airforce
+				has_completed_focus = USA_paratrooper_drills
+				has_completed_focus = USA_kickstart_drone_production
+				has_completed_focus = USA_fund_cca
+				has_completed_focus = USA_us_navy
+				has_completed_focus = USA_new_sailor_beds
+				has_completed_focus = USA_invest_navy_morale
+				has_completed_focus = USA_expand_shipbuilding
+			}
+		}
+		set_country_flag = dd_usa_services_wanted
+	}
+}
+
 dd_usa_af_base = {
-	add_ideas = dd_usa_armed_forces
+	custom_effect_tooltip = dd_usa_svc_af_tt
+	set_country_flag = dd_usa_svc_af
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_af_ready = {
-	add_ideas = dd_usa_armed_forces_ready
+	custom_effect_tooltip = dd_usa_svc_ready_tt
+	set_country_flag = dd_usa_svc_ready
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_af_drone = {
-	add_ideas = dd_usa_armed_forces_drone
+	custom_effect_tooltip = dd_usa_svc_land_drone_tt
+	set_country_flag = dd_usa_svc_land_drone
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_af_arty = {
-	add_ideas = dd_usa_armed_forces_arty
+	custom_effect_tooltip = dd_usa_svc_arty_tt
+	set_country_flag = dd_usa_svc_arty
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_af_add_aa = {
-	add_ideas = dd_usa_armed_forces_aa
+	custom_effect_tooltip = dd_usa_svc_aa_tt
+	set_country_flag = dd_usa_svc_aa
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_af_cavalry = {
-	add_ideas = dd_usa_armed_forces_cavalry
+	custom_effect_tooltip = dd_usa_svc_cav_tt
+	set_country_flag = dd_usa_svc_cav
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_air_base = {
-	add_ideas = dd_usa_airforce
+	custom_effect_tooltip = dd_usa_svc_air_tt
+	set_country_flag = dd_usa_svc_air
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_air_prod = {
-	add_ideas = dd_usa_airforce_prod
+	custom_effect_tooltip = dd_usa_svc_air_prod_tt
+	dd_usa_refresh_services = yes
+	if = {
+		limit = { NOT = { has_idea = dd_usa_airforce_prod } }
+		add_ideas = dd_usa_airforce_prod
+	}
 }
 
 dd_usa_air_add_para = {
-	add_ideas = dd_usa_airforce_para
+	custom_effect_tooltip = dd_usa_svc_para_tt
+	set_country_flag = dd_usa_svc_para
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_air_drone = {
-	add_ideas = dd_usa_airforce_drone
+	custom_effect_tooltip = dd_usa_svc_air_drone_tt
+	set_country_flag = dd_usa_svc_air_drone
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_air_cca = {
-	add_ideas = dd_usa_airforce_cca
+	custom_effect_tooltip = dd_usa_svc_cca_tt
+	set_country_flag = dd_usa_svc_cca
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_nav_base = {
-	add_ideas = dd_usa_navy
+	custom_effect_tooltip = dd_usa_svc_navy_tt
+	set_country_flag = dd_usa_svc_navy
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_nav_beds = {
-	add_ideas = dd_usa_navy_beds
+	custom_effect_tooltip = dd_usa_svc_beds_tt
+	set_country_flag = dd_usa_svc_beds
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_nav_add_morale = {
-	add_ideas = dd_usa_navy_morale
+	custom_effect_tooltip = dd_usa_svc_morale_tt
+	set_country_flag = dd_usa_svc_morale
+	dd_usa_refresh_services = yes
 }
 
 dd_usa_nav_yards = {
-	add_ideas = dd_usa_navy_yards
+	custom_effect_tooltip = dd_usa_svc_yards_tt
+	set_country_flag = dd_usa_svc_yards
+	dd_usa_refresh_services = yes
 }
 
 # Legislature — country-scoped, no random.
@@ -3135,6 +3330,7 @@ dd_usa_start_civil_war = {
 		clr_country_flag = dd_usa_keep_rbl
 		clr_country_flag = dd_usa_keep_aca
 		clr_country_flag = dd_usa_keep_fed
+		# The same faction tags always break away. The election winner plays as that tag. Nobody keeps USA.
 		if = {
 			limit = {
 				OR = {
@@ -3142,41 +3338,34 @@ dd_usa_start_civil_war = {
 					has_government = progressive_populism
 				}
 			}
-			set_country_flag = dd_usa_keep_eas
-			set_capital = { state = 395 }
+			EAS = { save_global_event_target_as = dd_usa_winner }
 		}
 		else_if = {
 			limit = { has_government = social_liberalism }
-			set_country_flag = dd_usa_keep_wcl
-			set_capital = { state = 378 }
+			WCL = { save_global_event_target_as = dd_usa_winner }
 		}
 		else_if = {
 			limit = { has_government = liberal_conservatism }
-			set_country_flag = dd_usa_keep_rbm
-			set_capital = { state = 383 }
+			RBM = { save_global_event_target_as = dd_usa_winner }
 		}
 		else_if = {
 			limit = { has_government = national_populism }
-			set_country_flag = dd_usa_keep_vnm
-			set_capital = { state = 373 }
+			VNM = { save_global_event_target_as = dd_usa_winner }
 		}
 		else_if = {
 			limit = { has_government = fascism }
-			set_country_flag = dd_usa_keep_fds
-			set_capital = { state = 367 }
+			FDS = { save_global_event_target_as = dd_usa_winner }
 		}
 		else_if = {
 			limit = { dd_is_anarchist_gov = yes }
-			set_country_flag = dd_usa_keep_aca
-			set_capital = { state = 386 }
+			ACA = { save_global_event_target_as = dd_usa_winner }
 		}
 		else_if = {
 			limit = { has_government = communism }
-			set_country_flag = dd_usa_keep_rbl
-			set_capital = { state = 360 }
+			RBL = { save_global_event_target_as = dd_usa_winner }
 		}
 		else = {
-			set_country_flag = dd_usa_keep_fed
+			FVA = { save_global_event_target_as = dd_usa_winner }
 		}
 		# Federal / Mandate remnant stays MAGA under Trump.
 		if = {
@@ -3525,11 +3714,90 @@ dd_usa_start_civil_war = {
 		# Claims so peace conferences can fully annex (war score / takeover of cores).
 		dd_usa_cw_grant_all_us_claims = yes
 		news_event = { id = dd_usa_news.10 }
+		dd_usa_drop_usa_tag = yes
+	}
+}
+
+# Election winner takes their faction tag. Leftover land goes to Federal Command. The USA tag is removed.
+dd_usa_drop_usa_tag = {
+	if = {
+		limit = { has_government = progressive_populism }
+		event_target:dd_usa_winner = { set_politics = { ruling_party = progressive_populism elections_allowed = no } }
+	}
+	every_owned_state = {
+		transfer_state_to = FVA
+	}
+	event_target:dd_usa_winner = {
+		inherit_technology = USA
+		load_focus_tree = { tree = usa_focus keep_completed = no }
+		set_country_flag = dd_usa_civil_war
+	}
+	transfer_units_fraction = {
+		target = event_target:dd_usa_winner
+		size = 1
+		army_ratio = 1
+		navy_ratio = 1
+		air_ratio = 1
+		stockpile_ratio = 1
+	}
+	if = {
+		limit = { has_country_leader = { character = USA_alexandria_ocasio_cortez ruling_only = yes } }
+		USA_alexandria_ocasio_cortez = { set_nationality = event_target:dd_usa_winner }
 		if = {
-			limit = { is_ai = no }
-			country_event = { id = dd_usa_cw.2 }
+			limit = { has_government = progressive_populism }
+			event_target:dd_usa_winner = { promote_character = { character = USA_alexandria_ocasio_cortez ideology = progressive_populist } }
+		}
+		else = {
+			event_target:dd_usa_winner = { promote_character = { character = USA_alexandria_ocasio_cortez ideology = social_democrat } }
 		}
 	}
+	if = {
+		limit = { has_country_leader = { character = USA_gavin_newsom ruling_only = yes } }
+		USA_gavin_newsom = { set_nationality = event_target:dd_usa_winner }
+		if = {
+			limit = { has_government = social_liberalism }
+			event_target:dd_usa_winner = { promote_character = { character = USA_gavin_newsom ideology = social_liberal } }
+		}
+		else_if = {
+			limit = { has_government = progressive_populism }
+			event_target:dd_usa_winner = { promote_character = { character = USA_gavin_newsom ideology = progressive_populist } }
+		}
+		else = {
+			event_target:dd_usa_winner = { promote_character = { character = USA_gavin_newsom ideology = social_democrat } }
+		}
+	}
+	if = {
+		limit = { has_country_leader = { character = USA_marco_rubio ruling_only = yes } }
+		USA_marco_rubio = { set_nationality = event_target:dd_usa_winner }
+		if = {
+			limit = { has_government = national_populism }
+			event_target:dd_usa_winner = { promote_character = { character = USA_marco_rubio ideology = national_populist } }
+		}
+		else = {
+			event_target:dd_usa_winner = { promote_character = { character = USA_marco_rubio ideology = liberal_conservative } }
+		}
+	}
+	if = {
+		limit = { has_country_leader = { character = USA_jd_vance ruling_only = yes } }
+		USA_jd_vance = { set_nationality = event_target:dd_usa_winner }
+		if = {
+			limit = { has_government = liberal_conservatism }
+			event_target:dd_usa_winner = { promote_character = { character = USA_jd_vance ideology = liberal_conservative } }
+		}
+		else = {
+			event_target:dd_usa_winner = { promote_character = { character = USA_jd_vance ideology = national_populist } }
+		}
+	}
+	if = {
+		limit = { has_country_leader = { character = USA_james_fishback ruling_only = yes } }
+		USA_james_fishback = { set_nationality = event_target:dd_usa_winner }
+		event_target:dd_usa_winner = { promote_character = { character = USA_james_fishback ideology = fascism_ideology } }
+	}
+	if = {
+		limit = { is_ai = no }
+		event_target:dd_usa_winner = { change_tag_from = USA }
+	}
+	event_target:dd_usa_winner = { annex_country = { target = USA transfer_troops = yes } }
 }
 
 dd_usa_congress_sweep = {
@@ -3552,6 +3820,99 @@ dd_usa_congress_cling = {
 	set_variable = { dd_usa_senate_dem = 49 }
 	set_variable = { dd_usa_senate_rep = 51 }
 	dd_usa_refresh_lobby_seats = yes
+}
+
+# One role per ideology a face can head. Promoting a non-ruling party
+# puts that person in the party-leader slot. It does not replace the president.
+dd_usa_grant_party_roles = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_usa_party_roles } }
+		set_country_flag = dd_usa_party_roles
+		USA_alexandria_ocasio_cortez = {
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = social_democrat } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = progressive_populist } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = marxism } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = anarcho_communist } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = social_liberal } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = liberal_conservative } }
+		}
+		USA_gavin_newsom = {
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = social_democrat } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = progressive_populist } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = marxism } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = anarcho_communist } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = social_liberal } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = liberal_conservative } }
+		}
+		USA_marco_rubio = {
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = liberal_conservative } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = national_populist } }
+		}
+		USA_jd_vance = {
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = liberal_conservative } }
+			add_country_leader_role = { promote_leader = no country_leader = { ideology = national_populist } }
+		}
+	}
+}
+
+dd_usa_seat_party_leaders = {
+	dd_usa_grant_party_roles = yes
+	if = {
+		limit = { check_variable = { dd_usa_left_nominee = 2 } }
+		if = { limit = { NOT = { has_government = social_democracy } } promote_character = { character = USA_gavin_newsom ideology = social_democrat } }
+		if = { limit = { NOT = { has_government = progressive_populism } } promote_character = { character = USA_gavin_newsom ideology = progressive_populist } }
+		if = { limit = { NOT = { has_government = communism } } promote_character = { character = USA_gavin_newsom ideology = marxism } }
+		if = { limit = { NOT = { has_government = anarcho_communism } } promote_character = { character = USA_gavin_newsom ideology = anarcho_communist } }
+		if = { limit = { NOT = { has_government = social_liberalism } } promote_character = { character = USA_gavin_newsom ideology = social_liberal } }
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_left_nominee = 1 } }
+		if = { limit = { NOT = { has_government = social_democracy } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = social_democrat } }
+		if = { limit = { NOT = { has_government = progressive_populism } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = progressive_populist } }
+		if = { limit = { NOT = { has_government = communism } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = marxism } }
+		if = { limit = { NOT = { has_government = anarcho_communism } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = anarcho_communist } }
+		if = { limit = { NOT = { has_government = social_liberalism } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = social_liberal } }
+	}
+	else = {
+		if = { limit = { NOT = { has_government = social_democracy } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = social_democrat } }
+		if = { limit = { NOT = { has_government = progressive_populism } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = progressive_populist } }
+		if = { limit = { NOT = { has_government = communism } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = marxism } }
+		if = { limit = { NOT = { has_government = anarcho_communism } } promote_character = { character = USA_alexandria_ocasio_cortez ideology = anarcho_communist } }
+		if = { limit = { NOT = { has_government = social_liberalism } } promote_character = { character = USA_gavin_newsom ideology = social_liberal } }
+	}
+	if = {
+		limit = { check_variable = { dd_usa_right_nominee = 3 } }
+		if = { limit = { NOT = { has_government = national_populism } } promote_character = { character = USA_jd_vance ideology = national_populist } }
+		if = {
+			limit = {
+				check_variable = { dd_usa_left_nominee = 2 }
+				NOT = { has_government = liberal_conservatism }
+			}
+			promote_character = { character = USA_gavin_newsom ideology = liberal_conservative }
+		}
+		else_if = {
+			limit = { NOT = { has_government = liberal_conservatism } }
+			promote_character = { character = USA_alexandria_ocasio_cortez ideology = liberal_conservative }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_right_nominee = 2 } }
+		if = { limit = { NOT = { has_government = liberal_conservatism } } promote_character = { character = USA_jd_vance ideology = liberal_conservative } }
+		if = { limit = { NOT = { has_government = national_populism } } promote_character = { character = USA_jd_vance ideology = national_populist } }
+	}
+	else_if = {
+		limit = { check_variable = { dd_usa_right_nominee = 1 } }
+		if = { limit = { NOT = { has_government = liberal_conservatism } } promote_character = { character = USA_marco_rubio ideology = liberal_conservative } }
+		if = { limit = { NOT = { has_government = national_populism } } promote_character = { character = USA_marco_rubio ideology = national_populist } }
+	}
+	else = {
+		if = { limit = { NOT = { has_government = liberal_conservatism } } promote_character = { character = USA_marco_rubio ideology = liberal_conservative } }
+		if = { limit = { NOT = { has_government = national_populism } } promote_character = { character = USA_jd_vance ideology = national_populist } }
+	}
+	if = {
+		limit = { NOT = { has_government = fascism } }
+		promote_character = { character = USA_james_fishback ideology = fascism_ideology }
+	}
 }
 
 dd_usa_name_ballot = {
@@ -3618,6 +3979,7 @@ dd_usa_name_ballot = {
 			set_party_name = { ideology = fascism long_name = DD_USA_PIE_FAS_HOME name = DD_USA_PIE_FAS_HOME }
 		}
 	}
+	dd_usa_seat_party_leaders = yes
 }
 
 dd_usa_run_primaries = {

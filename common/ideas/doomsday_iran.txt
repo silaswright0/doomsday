@@ -82,14 +82,6 @@ ideas = {
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
-			rule = {
-				can_send_volunteers = yes
-			}
-			modifier = {
-				send_volunteer_size = 4
-				send_volunteer_divisions_required = -1
-				send_volunteers_tension = -1
-			}
 		}
 		dd_fight_for_survival = {
 			picture = generic_wall_line

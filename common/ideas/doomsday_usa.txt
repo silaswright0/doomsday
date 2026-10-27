@@ -148,7 +148,7 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_weekly = -0.001
+				stability_factor = -0.50
 				war_support_weekly = 0.001
 				fascism_drift = 0.05
 				communism_drift = 0.03

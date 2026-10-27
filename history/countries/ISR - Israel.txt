@@ -597,6 +597,10 @@ set_technology = {
 	dd_wpn_4 = 1
 	dd_wpn_5 = 1
 	dd_wpn_6 = 1
+	dd_lt_1 = 1
+	dd_lt_2 = 1
+	dd_lt_3 = 1
+	dd_lt_4 = 1
 }
 
 
@@ -726,6 +730,9 @@ recruit_character = ISR_nav_david_saar_salama
 recruit_character = ISR_itamar_ben_gvir
 recruit_character = ISR_aryeh_deri
 recruit_character = ISR_bezalel_smotrich
+recruit_character = ISR_naama_lazimi
+recruit_character = ISR_shikma_bressler
+recruit_character = ISR_amir_yaron
 recruit_character = ISR_hc_infantry
 recruit_character = ISR_hc_armor
 recruit_character = ISR_hc_artillery
@@ -749,9 +756,4 @@ add_named_threat = {
 add_named_threat = {
 	threat = 3
 	name = DD_THREAT_ISR_HEZBOLLAH
-}
-set_autonomy = {
-	target = PAL
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.4
 }

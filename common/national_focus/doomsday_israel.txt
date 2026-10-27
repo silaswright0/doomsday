@@ -167,7 +167,7 @@ focus_tree = {
 	focus = {
 		id = ISR_election_democrats
 		icon = GFX_goal_generic_political_pressure
-		x = 2
+		x = 0
 		y = 6
 		cost = 1
 		available_if_capitulated = yes
@@ -185,7 +185,7 @@ focus_tree = {
 	focus = {
 		id = ISR_election_yashar
 		icon = GFX_goal_generic_political_pressure
-		x = 14
+		x = 4
 		y = 6
 		cost = 1
 		available_if_capitulated = yes
@@ -246,13 +246,16 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			add_war_support = 0.05
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
+			add_popularity = { ideology = social_liberalism popularity = 0.02 }
+			add_popularity = { ideology = national_populism popularity = -0.02 }
 		}
 	}
 	focus = {
 		id = ISR_old_left_golan
 		icon = GFX_goal_generic_national_unity
-		x = 6
-		y = 11.5
+		x = 8
+		y = 12
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -269,7 +272,7 @@ focus_tree = {
 		id = ISR_old_left_gantz
 		icon = GFX_goal_generic_national_unity
 		x = 10
-		y = 11.5
+		y = 12
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 5 }
@@ -536,8 +539,8 @@ focus_tree = {
 	focus = {
 		id = ISR_reverse_overhaul
 		icon = GFX_goal_generic_political_pressure
-		x = 2
-		y = 7
+		x = 0
+		y = 9
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -551,8 +554,8 @@ focus_tree = {
 	focus = {
 		id = ISR_protect_court
 		icon = GFX_goal_generic_political_pressure
-		x = 2
-		y = 8
+		x = 0
+		y = 10
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -566,8 +569,8 @@ focus_tree = {
 	focus = {
 		id = ISR_democrat_policy
 		icon = GFX_goal_generic_political_pressure
-		x = 2
-		y = 9
+		x = 0
+		y = 11
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -579,8 +582,8 @@ focus_tree = {
 	focus = {
 		id = ISR_constitution
 		icon = GFX_goal_generic_national_unity
-		x = 2
-		y = 10
+		x = 0
+		y = 12
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -598,11 +601,12 @@ focus_tree = {
 		id = ISR_cut_extremists
 		icon = GFX_goal_generic_political_pressure
 		x = 2
-		y = 11
+		y = 16
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_constitution }
+		prerequisite = { focus = ISR_reapproach_europe }
+		prerequisite = { focus = ISR_repair_usa }
 		completion_reward = {
 			add_stability = 0.05
 			add_popularity = { ideology = national_populism popularity = -0.05 }
@@ -613,12 +617,12 @@ focus_tree = {
 	focus = {
 		id = ISR_reapproach_europe
 		icon = GFX_goal_generic_positive_diplomacy
-		x = 0
-		y = 12
+		x = -2
+		y = 15
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_cut_extremists }
+		prerequisite = { focus = ISR_universal_service focus = ISR_new_strongman }
 		completion_reward = {
 			dd_isr_europe_opinion = yes
 		}
@@ -626,12 +630,12 @@ focus_tree = {
 	focus = {
 		id = ISR_repair_usa
 		icon = GFX_goal_generic_positive_diplomacy
-		x = 4
-		y = 12
+		x = 6
+		y = 15
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_cut_extremists }
+		prerequisite = { focus = ISR_universal_service focus = ISR_new_strongman }
 		completion_reward = {
 			dd_isr_repair_usa = yes
 		}
@@ -639,13 +643,12 @@ focus_tree = {
 	focus = {
 		id = ISR_universal_service
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 2
+		x = 0
 		y = 13
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_reapproach_europe }
-		prerequisite = { focus = ISR_repair_usa }
+		prerequisite = { focus = ISR_constitution }
 		completion_reward = {
 			dd_isr_clear_torah = yes
 			if = {
@@ -673,11 +676,11 @@ focus_tree = {
 		id = ISR_democratic_israel
 		icon = GFX_goal_generic_national_unity
 		x = 2
-		y = 14
+		y = 17
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_universal_service }
+		prerequisite = { focus = ISR_cut_extremists }
 		completion_reward = {
 			add_ideas = dd_isr_democratic_israel
 		}
@@ -685,8 +688,8 @@ focus_tree = {
 	focus = {
 		id = ISR_october_7
 		icon = GFX_goal_generic_army_doctrines
-		x = 14
-		y = 7.5
+		x = 4
+		y = 9
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -697,10 +700,57 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = ISR_peoples_army
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 4
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_october_7 }
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = dd_isr_peoples_army
+			if = {
+				limit = { has_idea = dd_isr_silent_mutiny }
+				remove_ideas = dd_isr_silent_mutiny
+			}
+		}
+	}
+	focus = {
+		id = ISR_hostages_home
+		icon = GFX_goal_generic_forceful_treaty
+		x = 4
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_peoples_army }
+		completion_reward = {
+			add_stability = 0.10
+			add_war_support = -0.05
+			add_popularity = { ideology = liberal_conservatism popularity = 0.02 }
+		}
+	}
+	focus = {
+		id = ISR_defined_aims
+		icon = GFX_goal_generic_army_doctrines
+		x = 4
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = ISR_hostages_home }
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = dd_isr_defined_aims
+		}
+	}
+	focus = {
 		id = ISR_coalition_survives
 		icon = GFX_goal_generic_political_pressure
 		x = 18
-		y = 7
+		y = 7.5
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -718,7 +768,7 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_october_7 focus = ISR_coalition_survives }
+		prerequisite = { focus = ISR_side_lieberman focus = ISR_coalition_survives }
 		completion_reward = {
 			dd_isr_expand_settlements = yes
 		}
@@ -755,14 +805,13 @@ focus_tree = {
 	}
 	focus = {
 		id = ISR_new_strongman
-		icon = GFX_goal_generic_occupy_start_war
-		x = 14
-		y = 12
+		icon = GFX_goal_generic_national_unity
+		x = 4
+		y = 13
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_october_7 }
-		prerequisite = { focus = ISR_oppose_palestine }
+		prerequisite = { focus = ISR_defined_aims }
 		completion_reward = {
 			add_ideas = dd_isr_strongman
 		}
@@ -770,7 +819,7 @@ focus_tree = {
 	focus = {
 		id = ISR_eternal_premiership
 		icon = GFX_goal_generic_forceful_treaty
-		x = 20
+		x = 24
 		y = 11
 		cost = 5
 		available_if_capitulated = yes
@@ -791,8 +840,16 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = ISR_eternal_premiership }
 		mutually_exclusive = { focus = ISR_restore_yeshiva }
+		available = {
+			has_country_flag = dd_isr_orthodox_answered
+			NOT = { has_country_flag = dd_isr_orthodox_joined }
+		}
 		completion_reward = {
-			add_political_power = 100
+			add_political_power = -200
+			if = {
+				limit = { has_idea = dd_isr_silent_mutiny }
+				remove_ideas = dd_isr_silent_mutiny
+			}
 		}
 	}
 	focus = {
@@ -802,9 +859,12 @@ focus_tree = {
 		y = 12
 		cost = 5
 		available_if_capitulated = yes
-		ai_will_do = { factor = 0 }
+		ai_will_do = { factor = 1 }
 		prerequisite = { focus = ISR_eternal_premiership }
 		mutually_exclusive = { focus = ISR_neglect_haredi }
+		available = {
+			has_country_flag = dd_isr_orthodox_joined
+		}
 		completion_reward = {
 			dd_isr_restore_yeshiva = yes
 		}
@@ -812,12 +872,13 @@ focus_tree = {
 	focus = {
 		id = ISR_netanyahu_invincible
 		icon = GFX_goal_generic_forceful_treaty
-		x = 22
-		y = 13
+		x = 20
+		y = 15
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_neglect_haredi }
+		prerequisite = { focus = ISR_neglect_haredi focus = ISR_restore_yeshiva }
+		mutually_exclusive = { focus = ISR_extremists_reins }
 		completion_reward = {
 			add_popularity = { ideology = national_populism popularity = 0.20 }
 			add_political_power = 100
@@ -827,12 +888,13 @@ focus_tree = {
 	focus = {
 		id = ISR_extremists_reins
 		icon = GFX_goal_generic_demand_territory
-		x = 26
-		y = 13
+		x = 28
+		y = 15
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 0 }
-		prerequisite = { focus = ISR_restore_yeshiva }
+		prerequisite = { focus = ISR_neglect_haredi focus = ISR_restore_yeshiva }
+		mutually_exclusive = { focus = ISR_netanyahu_invincible }
 		completion_reward = {
 			dd_isr_ben_gvir = yes
 			add_ideas = dd_isr_extremists_reins
@@ -842,7 +904,7 @@ focus_tree = {
 		id = ISR_false_flag
 		icon = GFX_goal_generic_secret_weapon
 		x = 24
-		y = 14
+		y = 16
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -855,11 +917,11 @@ focus_tree = {
 		id = ISR_northern_frontier
 		icon = GFX_goal_generic_demand_territory
 		x = 18
-		y = 16
+		y = 13
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_side_lieberman focus = ISR_coalition_survives }
+		prerequisite = { focus = ISR_oppose_palestine }
 		mutually_exclusive = { focus = ISR_protect_kurds }
 		completion_reward = {
 			dd_isr_northern_frontier = yes
@@ -868,12 +930,12 @@ focus_tree = {
 	focus = {
 		id = ISR_protect_kurds
 		icon = GFX_goal_generic_national_unity
-		x = 12
-		y = 16
+		x = 14
+		y = 13
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_side_lieberman focus = ISR_coalition_survives }
+		prerequisite = { focus = ISR_oppose_palestine }
 		mutually_exclusive = { focus = ISR_northern_frontier }
 		available = {
 			ROJ = { exists = yes }
@@ -886,7 +948,7 @@ focus_tree = {
 		id = ISR_target_shiites
 		icon = GFX_goal_generic_major_war
 		x = 16
-		y = 17
+		y = 14
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -899,7 +961,7 @@ focus_tree = {
 		id = ISR_jordan_overlord
 		icon = GFX_goal_generic_forceful_treaty
 		x = 16
-		y = 18
+		y = 15
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -918,7 +980,7 @@ focus_tree = {
 		id = ISR_toward_greater
 		icon = GFX_goal_generic_demand_territory
 		x = 16
-		y = 19
+		y = 16
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -931,7 +993,7 @@ focus_tree = {
 		id = ISR_proclaim_greater
 		icon = GFX_goal_generic_national_unity
 		x = 16
-		y = 20
+		y = 17
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }

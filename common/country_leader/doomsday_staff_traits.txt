@@ -105,4 +105,11 @@ leader_traits = {
 		trade_opinion_factor = 0.10
 		improve_relations_maintain_cost_factor = -0.15
 	}
+	dd_cunning_personality = {
+		random = no
+		sprite = 13
+		political_power_gain = 0.10
+		justify_war_goal_time = -0.20
+		fascism_drift = 0.0001
+	}
 }

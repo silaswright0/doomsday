@@ -82,8 +82,8 @@ characters = {
 		name = "Ofer Cassif"
 		portraits = {
 			civilian = {
-				large = GFX_portrait_unknown
-				small = GFX_portrait_unknown
+				large = GFX_portrait_ISR_cassif
+				small = GFX_portrait_ISR_cassif
 			}
 		}
 		country_leader = {
@@ -123,13 +123,32 @@ characters = {
 		name = "Aryeh Deri"
 		portraits = {
 			civilian = {
-				large = GFX_portrait_unknown
-				small = GFX_portrait_unknown
+				large = GFX_portrait_ISR_deri
+				small = GFX_portrait_ISR_deri_small
 			}
 		}
 		country_leader = {
 			ideology = theocrat
 			expire = "2065.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_aryeh_deri
+			allowed = { original_tag = ISR }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = theocratic_absolutism
+				}
+				OR = {
+					has_idea = dd_isr_silent_mutiny
+					has_idea = dd_isr_torah_study
+					has_idea = dd_isr_yeshiva_traditions
+				}
+				NOT = { has_country_leader = { name = "Aryeh Deri" ruling_only = yes } }
+			}
+			traits = { backroom_backstabber }
+			ai_will_do = { factor = 1 }
 		}
 	}
 	ISR_bezalel_smotrich = {
@@ -148,6 +167,88 @@ characters = {
 				OR = {
 					has_government = national_populism
 					has_government = theocratic_absolutism
+				}
+			}
+			traits = { ideological_crusader }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ISR_naama_lazimi = {
+		name = "Naama Lazimi"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_ISR_lazimi
+				small = GFX_portrait_ISR_lazimi_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_naama_lazimi
+			allowed = { original_tag = ISR }
+			available = {
+				has_government = social_democracy
+				OR = {
+					has_idea = dd_isr_silent_mutiny
+					has_idea = dd_isr_torah_study
+					has_idea = dd_isr_yeshiva_traditions
+				}
+			}
+			traits = { silent_workhorse }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ISR_shikma_bressler = {
+		name = "Shikma Bressler"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_ISR_bressler
+				small = GFX_portrait_ISR_bressler_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_shikma_bressler
+			allowed = { original_tag = ISR }
+			available = {
+				OR = {
+					has_government = social_democracy
+					has_government = social_liberalism
+					has_government = liberal_conservatism
+				}
+				OR = {
+					has_idea = dd_isr_silent_mutiny
+					has_idea = dd_isr_torah_study
+					has_idea = dd_isr_yeshiva_traditions
+				}
+			}
+			traits = { popular_figurehead }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ISR_amir_yaron = {
+		name = "Amir Yaron"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_ISR_yaron
+				small = GFX_portrait_ISR_yaron_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_amir_yaron
+			allowed = { original_tag = ISR }
+			available = {
+				OR = {
+					has_government = national_populism
+					has_government = liberal_conservatism
+					has_government = social_liberalism
+					has_government = social_democracy
+					has_government = theocratic_absolutism
+				}
+				OR = {
+					has_idea = dd_isr_silent_mutiny
+					has_idea = dd_isr_torah_study
+					has_idea = dd_isr_yeshiva_traditions
 				}
 			}
 			traits = { financial_expert }

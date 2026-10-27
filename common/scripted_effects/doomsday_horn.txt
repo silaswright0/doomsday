@@ -43,6 +43,7 @@ dd_eth_tigray_rising = {
 					picture = GFX_portrait_TIG_debretsion
 					ideology = marxism
 				}
+				# Ethiopia keeps Fragile Peace and Berbera Access. Tigray does not.
 				if = {
 					limit = { has_idea = dd_fragile_peace }
 					remove_ideas = dd_fragile_peace
@@ -99,39 +100,10 @@ dd_uae_open_compact = {
 	}
 }
 
-# Scope is the partner. ROOT is the Emirates. Found the Levant Pact and invite
-# them, unless Abu Dhabi already leads another faction. Then the partner founds it.
+# Scope is the partner. ROOT is the Emirates. Mutual guarantee. No faction,
+# so Turkey stays in NATO and nobody is pulled into an offensive war.
 dd_uae_tie_partner = {
-	if = {
-		limit = {
-			exists = yes
-			is_subject = no
-			is_in_faction = no
-			NOT = { has_war_with = ROOT }
-		}
-		if = {
-			limit = { ROOT = { is_in_faction = no } }
-			ROOT = {
-				hidden_effect = {
-					set_rule = { can_create_factions = yes }
-				}
-				create_faction = DD_FACTION_LEVANT
-				set_country_flag = dd_levant_leader
-			}
-		}
-		if = {
-			limit = {
-				ROOT = {
-					is_faction_leader = yes
-					has_country_flag = dd_levant_leader
-				}
-			}
-			ROOT = { add_to_faction = PREV }
-		}
-		else = {
-			dd_levant_open = yes
-		}
-	}
+	dd_levant_invite = yes
 }
 
 # Called on the country being invited. ROOT is the Emirates.
@@ -158,79 +130,30 @@ dd_uae_try_invite = {
 	}
 }
 
-# Join the Levant pact if one of the four already leads it. Otherwise found it.
-# Stays off the Red Sea Compact, so Turkey and Riyadh are not dropped in with the RSF.
+# Marks the guarantee round. Does not found a faction.
 dd_levant_open = {
-	if = {
-		limit = { is_in_faction = no }
-		if = {
-			limit = {
-				TUR = {
-					NOT = { tag = ROOT }
-					has_country_flag = dd_levant_leader
-					is_faction_leader = yes
-					NOT = { has_war_with = ROOT }
-				}
-			}
-			TUR = { add_to_faction = PREV }
-		}
-		else_if = {
-			limit = {
-				SAU = {
-					NOT = { tag = ROOT }
-					has_country_flag = dd_levant_leader
-					is_faction_leader = yes
-					NOT = { has_war_with = ROOT }
-				}
-			}
-			SAU = { add_to_faction = PREV }
-		}
-		else_if = {
-			limit = {
-				UAE = {
-					NOT = { tag = ROOT }
-					has_country_flag = dd_levant_leader
-					is_faction_leader = yes
-					NOT = { has_war_with = ROOT }
-				}
-			}
-			UAE = { add_to_faction = PREV }
-		}
-		else_if = {
-			limit = {
-				PAK = {
-					NOT = { tag = ROOT }
-					has_country_flag = dd_levant_leader
-					is_faction_leader = yes
-					NOT = { has_war_with = ROOT }
-				}
-			}
-			PAK = { add_to_faction = PREV }
-		}
-		else = {
-			hidden_effect = {
-				set_rule = { can_create_factions = yes }
-			}
-			create_faction = DD_FACTION_LEVANT
-			set_country_flag = dd_levant_leader
-		}
-	}
+	set_country_flag = dd_levant_guarantees
 }
 
-# Called on the country being invited. ROOT must lead the Levant pact, not the Red Sea Compact.
-# The target stays out until it has settled its own crisis.
+# Scope is the partner. ROOT is the country taking the focus.
+# Each guarantees the other. Existing factions are left alone.
 dd_levant_invite = {
 	if = {
 		limit = {
-			ROOT = {
-				is_faction_leader = yes
-				has_country_flag = dd_levant_leader
-			}
 			exists = yes
 			is_subject = no
-			is_in_faction = no
+			NOT = { tag = ROOT }
 			NOT = { has_war_with = ROOT }
 		}
-		ROOT = { add_to_faction = PREV }
+		if = {
+			limit = { NOT = { has_guaranteed = ROOT } }
+			give_guarantee = ROOT
+		}
+		ROOT = {
+			if = {
+				limit = { NOT = { has_guaranteed = PREV } }
+				give_guarantee = PREV
+			}
+		}
 	}
 }

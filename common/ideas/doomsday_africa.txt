@@ -42,7 +42,9 @@ ideas = {
 		dd_fragile_peace = {
 			picture = generic_intel_bonus
 			allowed = { always = no }
-			allowed_civil_war = { always = no }
+			allowed_civil_war = {
+				NOT = { has_country_flag = dd_eth_tig_side }
+			}
 			removal_cost = -1
 			modifier = {
 				stability_factor = -0.30
@@ -91,7 +93,9 @@ ideas = {
 		dd_berbera_access = {
 			picture = generic_navy_bonus
 			allowed = { always = no }
-			allowed_civil_war = { always = no }
+			allowed_civil_war = {
+				NOT = { has_country_flag = dd_eth_tig_side }
+			}
 			removal_cost = -1
 		}
 		dd_sparse_recognition = {

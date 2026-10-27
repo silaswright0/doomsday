@@ -75,6 +75,25 @@ dd_elections_category = {
 		ai_will_do = { factor = 0 }
 	}
 
+	dd_usa_fuse_countdown = {
+		icon = generic_civil_war
+		allowed = { tag = USA }
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 60
+		is_good = no
+		activation = { always = no }
+		cancel_trigger = {
+			OR = {
+				has_global_flag = dd_usa_civil_war_started
+				has_country_flag = dd_usa_civil_war
+			}
+		}
+		timeout_effect = {
+			set_country_flag = dd_usa_fuse_expired
+		}
+		ai_will_do = { factor = 0 }
+	}
+
 	dd_isr_election_countdown = {
 		icon = generic_political_discourse
 		allowed = { tag = ISR }
@@ -251,8 +270,12 @@ dd_elections_category = {
 				limit = { has_completed_focus = ISR_protect_torah }
 				country_event = dd_isr.28
 			}
-			else = {
+			else_if = {
+				limit = { has_completed_focus = ISR_no_exemptions }
 				country_event = dd_isr.31
+			}
+			else = {
+				country_event = dd_isr.32
 			}
 		}
 	}

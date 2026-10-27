@@ -211,37 +211,6 @@ dd_per_proxy_category = {
 	}
 }
 
-dd_irq_volunteer_category = {
-	dd_irq_deploy_brigade = {
-		icon = generic_prepare_civil_war
-		allowed = {
-			OR = {
-				tag = PER
-				tag = USA
-				tag = ISR
-				tag = FRA
-			}
-		}
-		cost = 0
-		visible = {
-			has_country_flag = dd_irq_volunteer_window
-			has_war = yes
-			check_variable = { dd_irq_brigades_sent < 4 }
-			has_global_event_target = dd_shiite_side
-		}
-		available = {
-			event_target:dd_shiite_side = {
-				exists = yes
-				has_war_with = IRQ
-			}
-		}
-		complete_effect = {
-			dd_irq_spawn_foreign_brigade = yes
-		}
-		ai_will_do = { factor = 100 }
-	}
-}
-
 dd_hormuz_category = {
 	dd_hormuz_demand_surrender = {
 		icon = generic_political_discourse

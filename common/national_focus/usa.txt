@@ -478,7 +478,6 @@ focus_tree = {
 		completion_reward = {
 			set_country_flag = dd_usa_alt_ballot
 			dd_usa_provoke_blob = yes
-			dd_usa_name_ballot = yes
 		}
 	}
 	focus = {
@@ -1403,7 +1402,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_ideas = dd_usa_marching_institutions
+			add_timed_idea = { idea = dd_usa_marching_institutions days = 730 }
 		}
 	}
 	focus = {
@@ -1426,7 +1425,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_ideas = dd_usa_radicalizing_white_america
+			add_timed_idea = { idea = dd_usa_radicalizing_white_america days = 730 }
 		}
 	}
 	focus = {
@@ -5095,6 +5094,7 @@ focus_tree = {
 			set_cosmetic_tag = USA_REBIRTH
 			add_ideas = dd_usa_american_rebirth
 			dd_usa_claim_north_america = yes
+			promote_character = { character = USA_james_fishback ideology = fascism_ideology }
 		}
 	}
 	focus = {
@@ -5110,6 +5110,7 @@ focus_tree = {
 		completion_reward = {
 			set_cosmetic_tag = USA_FOURTH_REICH
 			dd_usa_claim_americas = yes
+			promote_character = { character = USA_rinaldo_nazzaro ideology = fascism_ideology }
 		}
 	}
 	focus = {
@@ -5194,6 +5195,7 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_nazi_blueprint }
 		completion_reward = {
 			set_cosmetic_tag = USA_ACCEL
+			promote_character = { character = USA_james_mason ideology = fascism_ideology }
 		}
 	}
 	focus = {

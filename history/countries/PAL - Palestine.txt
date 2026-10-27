@@ -354,6 +354,7 @@ set_technology = {
 	modern_depth_charges = 1
 	modern_ship_torpedo_launcher = 1
 	modern_sonar = 1
+	dd_lt_1 = 1
 }
 
 
@@ -394,7 +395,6 @@ set_popularities = {
 set_variable = { debt = 4.0000 }
 set_variable = { treasury = 1.0000 }
 set_variable = { dd_prod = 0.5161 }
-recruit_character = PAL_mahmoud_abbas
 recruit_character = PAL_john_army
 recruit_character = PAL_john_airforce
 recruit_character = PAL_john_navy
@@ -404,3 +404,26 @@ recruit_character = PAL_hc_armor
 recruit_character = PAL_hc_artillery
 recruit_character = PAL_hc_air
 recruit_character = PAL_hc_navy
+# Puppeting clears the chair. Seat Abbas after that, on the Authority's own ruling party.
+ISR = {
+	set_autonomy = {
+		target = PAL
+		autonomous_state = autonomy_puppet
+		freedom_level = 0.4
+	}
+}
+set_politics = {
+	ruling_party = sovereign_democracy
+	last_election = "2024.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	sovereign_democracy = 87
+	liberal_conservatism = 6
+	social_democracy = 4
+	communism = 3
+}
+retire_country_leader = yes
+recruit_character = PAL_mahmoud_abbas
+promote_character = PAL_mahmoud_abbas

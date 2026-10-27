@@ -1,4 +1,48 @@
 characters = {
+	USA_james_fishback = {
+		name = "James Fishback"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_fishback small = GFX_portrait_USA_fishback_small }
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			desc = USA_JAMES_FISHBACK_DESC
+		}
+	}
+	USA_rinaldo_nazzaro = {
+		name = "Rinaldo Nazzaro"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_nazzaro small = GFX_portrait_USA_nazzaro_small }
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			desc = USA_RINALDO_NAZZARO_DESC
+		}
+	}
+	USA_james_mason = {
+		name = "James Mason"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_mason small = GFX_portrait_USA_mason_small }
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			desc = USA_JAMES_MASON_DESC
+		}
+	}
+	USA_nick_fuentes = {
+		name = "Nick Fuentes"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_fuentes small = GFX_portrait_USA_fuentes_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_nick_fuentes
+			allowed = { original_tag = USA }
+			available = { has_completed_focus = USA_american_rebirth }
+			traits = { dd_cunning_personality }
+			ai_will_do = { factor = 1 }
+		}
+	}
 	USA_jd_vance = {
 		name = "JD Vance"
 		portraits = {
@@ -391,7 +435,12 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_elon_musk
 			allowed = { original_tag = USA }
-			available = { has_government = technocracy }
+			available = {
+				OR = {
+					has_government = technocracy
+					has_government = fascism
+				}
+			}
 			traits = { captain_of_industry }
 			ai_will_do = { factor = 1 }
 		}

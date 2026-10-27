@@ -485,18 +485,22 @@ dd_usa_postcw_monthly = {
 	}
 }
 
+# American Schism. PREV inside PREV pointed at the wrong country, so docking
+# between the civil war tags was never cleared. Both directions, and only
+# between tags that hold the schism.
 dd_usa_cw_strip_diplomacy = {
 	if = {
 		limit = { has_idea = dd_usa_civil_war_cause }
 		every_other_country = {
-			limit = { exists = yes }
-			PREV = {
+			limit = { has_idea = dd_usa_civil_war_cause }
+			diplomatic_relation = { country = ROOT relation = non_aggression_pact active = no }
+			diplomatic_relation = { country = ROOT relation = military_access active = no }
+			diplomatic_relation = { country = ROOT relation = docking_rights active = no }
+			ROOT = {
 				diplomatic_relation = { country = PREV relation = non_aggression_pact active = no }
 				diplomatic_relation = { country = PREV relation = military_access active = no }
 				diplomatic_relation = { country = PREV relation = docking_rights active = no }
 			}
-			diplomatic_relation = { country = PREV relation = military_access active = no }
-			diplomatic_relation = { country = PREV relation = docking_rights active = no }
 		}
 	}
 }

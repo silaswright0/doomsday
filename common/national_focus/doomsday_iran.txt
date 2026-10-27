@@ -6,6 +6,7 @@ focus_tree = {
 			add = 20
 			tag = PER
 			NOT = { has_country_flag = dd_irg_revolt }
+			NOT = { has_country_flag = dd_per_is_irgc }
 		}
 	}
 	default = no

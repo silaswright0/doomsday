@@ -32,6 +32,9 @@ on_actions = {
 				}
 			}
 			ISR = {
+				if = { limit = { NOT = { has_character = ISR_naama_lazimi } } recruit_character = ISR_naama_lazimi }
+				if = { limit = { NOT = { has_character = ISR_shikma_bressler } } recruit_character = ISR_shikma_bressler }
+				if = { limit = { NOT = { has_character = ISR_amir_yaron } } recruit_character = ISR_amir_yaron }
 				if = {
 					limit = {
 						NOT = { has_country_flag = dd_isr_election_cd_armed }
@@ -96,20 +99,26 @@ on_actions = {
 					NOT = { PAL = { exists = yes } }
 				}
 				set_country_flag = dd_isr_pal_annex_noted
-				country_event = { id = dd_isr.20 }
+				if = {
+					limit = { communism > 0.25 }
+					country_event = { id = dd_isr.20 }
+				}
 			}
 		}
 	}
+	# on_weekly already runs once per country. Do not loop every country
+	# inside it, or Hadash gains support once for every tag in the world.
 	on_weekly = {
 		effect = {
-			every_country = {
+			if = {
 				limit = { has_idea = dd_isr_reactionary_ripple }
-				add_popularity = { ideology = communism popularity = 0.002 }
+				add_popularity = { ideology = communism popularity = 0.0005 }
 			}
 		}
 	}
 	on_annex = {
 		effect = {
+			# ROOT is the annexer. FROM is the country that was annexed.
 			if = {
 				limit = {
 					tag = ISR
@@ -117,7 +126,27 @@ on_actions = {
 					NOT = { has_country_flag = dd_isr_pal_annex_noted }
 				}
 				set_country_flag = dd_isr_pal_annex_noted
-				country_event = { id = dd_isr.20 }
+				if = {
+					limit = { communism > 0.25 }
+					country_event = { id = dd_isr.20 }
+				}
+			}
+			# Some builds scope the annexed tag as ROOT. Fire for Israel either way.
+			if = {
+				limit = {
+					tag = PAL
+					FROM = {
+						tag = ISR
+						NOT = { has_country_flag = dd_isr_pal_annex_noted }
+					}
+				}
+				FROM = {
+					set_country_flag = dd_isr_pal_annex_noted
+					if = {
+						limit = { communism > 0.25 }
+						country_event = { id = dd_isr.20 }
+					}
+				}
 			}
 		}
 	}

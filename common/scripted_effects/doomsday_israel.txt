@@ -121,8 +121,12 @@ dd_isr_form_clock = {
 					limit = { has_completed_focus = ISR_protect_torah }
 					country_event = { id = dd_isr.28 days = 1 }
 				}
-				else = {
+				else_if = {
+					limit = { has_completed_focus = ISR_no_exemptions }
 					country_event = { id = dd_isr.31 days = 1 }
+				}
+				else = {
+					country_event = { id = dd_isr.32 days = 1 }
 				}
 			}
 			if = {
@@ -258,6 +262,33 @@ dd_isr_clear_torah = {
 	if = { limit = { has_idea = dd_isr_torah_study } remove_ideas = dd_isr_torah_study }
 }
 
+dd_isr_drop_generals = {
+	every_army_leader = {
+		limit = { NOT = { ROOT = { has_country_flag = dd_isr_gen_one } } }
+		remove_unit_leader = yes
+		ROOT = { set_country_flag = dd_isr_gen_one }
+	}
+	clr_country_flag = dd_isr_gen_one
+	every_army_leader = {
+		limit = { NOT = { ROOT = { has_country_flag = dd_isr_gen_one } } }
+		remove_unit_leader = yes
+		ROOT = { set_country_flag = dd_isr_gen_one }
+	}
+	clr_country_flag = dd_isr_gen_one
+	every_army_leader = {
+		limit = { NOT = { ROOT = { has_country_flag = dd_isr_gen_one } } }
+		remove_unit_leader = yes
+		ROOT = { set_country_flag = dd_isr_gen_one }
+	}
+	clr_country_flag = dd_isr_gen_one
+	every_army_leader = {
+		limit = { NOT = { ROOT = { has_country_flag = dd_isr_gen_one } } }
+		remove_unit_leader = yes
+		ROOT = { set_country_flag = dd_isr_gen_one }
+	}
+	clr_country_flag = dd_isr_gen_one
+}
+
 dd_isr_tyrant_falls = {
 	dd_isr_palestine_war = yes
 	if = {
@@ -327,6 +358,7 @@ dd_isr_palestine_war = {
 					picture = GFX_portrait_ISR_ben_gvir
 					ideology = fascism_ideology
 				}
+				if = { limit = { has_idea = dd_isr_strongman } remove_ideas = dd_isr_strongman }
 				add_ideas = dd_isr_insurgent
 				if = {
 					limit = {
@@ -378,6 +410,19 @@ dd_isr_palestine_war = {
 			set_country_flag = dd_isr_idf_sealed
 			dd_isr_clear_idf = yes
 			dd_isr_spawn_militia = yes
+		}
+		if = { limit = { has_idea = dd_isr_strongman } remove_ideas = dd_isr_strongman }
+		if = { limit = { NOT = { has_character = ISR_ofer_cassif } } recruit_character = ISR_ofer_cassif }
+		set_politics = { ruling_party = communism elections_allowed = no }
+		promote_character = ISR_ofer_cassif
+		dd_isr_drop_generals = yes
+		if = { limit = { has_war_with = PER } white_peace = PER }
+		if = {
+			limit = {
+				has_event_target = dd_isr_rebels
+				event_target:dd_isr_rebels = { has_war_with = PER }
+			}
+			event_target:dd_isr_rebels = { white_peace = PER }
 		}
 		news_event = { id = dd_isr_news.5 }
 	}
@@ -950,7 +995,6 @@ dd_isr_diaspora_act_puppet = {
 }
 
 dd_isr_restore_yeshiva = {
-	if = { limit = { has_idea = dd_isr_silent_mutiny } remove_ideas = dd_isr_silent_mutiny }
 	if = { limit = { has_idea = dd_isr_torah_study } remove_ideas = dd_isr_torah_study }
 	if = { limit = { NOT = { has_idea = dd_isr_yeshiva_traditions } } add_ideas = dd_isr_yeshiva_traditions }
 }
@@ -1037,6 +1081,10 @@ dd_isr_false_flag = {
 	}
 	else = {
 		set_politics = { ruling_party = national_populism elections_allowed = no }
+	}
+	if = {
+		limit = { has_idea = dd_isr_reactionary_ripple }
+		remove_ideas = dd_isr_reactionary_ripple
 	}
 	news_event = { id = dd_isr_news.7 }
 }

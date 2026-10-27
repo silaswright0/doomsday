@@ -285,6 +285,7 @@ country_event = {
 	option = {
 		name = dd_usa_alt.1.c
 		set_country_flag = dd_usa_light_the_fuse
+		activate_mission = dd_usa_fuse_countdown
 		country_event = { id = dd_usa_fuse.1 days = 45 }
 		country_event = { id = dd_usa_fuse.2 days = 58 }
 		country_event = { id = dd_usa_fuse.3 days = 59 }
@@ -298,6 +299,10 @@ country_event = {
 	desc = dd_usa_fuse.2.d
 	picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = dd_usa_civil_war_started }
+		NOT = { has_country_flag = dd_usa_civil_war }
+	}
 	option = { name = dd_usa_fuse.2.a }
 }
 
@@ -305,6 +310,10 @@ country_event = {
 	id = dd_usa_fuse.4
 	hidden = yes
 	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = dd_usa_civil_war_started }
+		NOT = { has_country_flag = dd_usa_civil_war }
+	}
 	immediate = {
 		news_event = { id = dd_usa_news.5 }
 		country_event = { id = dd_usa_fuse.5 hours = 12 }
@@ -686,6 +695,10 @@ country_event = {
 	id = dd_usa_fuse.1
 	hidden = yes
 	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = dd_usa_civil_war_started }
+		NOT = { has_country_flag = dd_usa_civil_war }
+	}
 	immediate = { news_event = { id = dd_usa_news.3 } }
 }
 
@@ -693,6 +706,10 @@ country_event = {
 	id = dd_usa_fuse.3
 	hidden = yes
 	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = dd_usa_civil_war_started }
+		NOT = { has_country_flag = dd_usa_civil_war }
+	}
 	immediate = { news_event = { id = dd_usa_news.4 } }
 }
 
@@ -1015,5 +1032,160 @@ country_event = {
 	}
 	option = {
 		name = dd_usa_bill.2.a
+	}
+}
+
+# Fired an hour after the schism is removed, so can_join_factions is actually clear.
+country_event = {
+	id = dd_usa_cw.20
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { ETX = { exists = yes } }
+			ETX = { set_rule = { can_join_factions = yes } }
+			if = {
+				limit = { is_in_faction = no }
+				set_rule = { can_create_factions = yes }
+				create_faction = FACTION_SOUTHERN_PACT
+			}
+			if = {
+				limit = { NOT = { is_in_faction_with = ETX } }
+				faction_leader = { add_to_faction = ETX }
+			}
+			ETX = { dd_cw_restore_schism = yes }
+		}
+		dd_cw_restore_schism = yes
+	}
+}
+
+country_event = {
+	id = dd_usa_cw.21
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { TXO = { exists = yes } }
+			TXO = { set_rule = { can_join_factions = yes } }
+			if = {
+				limit = { is_in_faction = no }
+				set_rule = { can_create_factions = yes }
+				create_faction = FACTION_SOUTHERN_PACT
+			}
+			if = {
+				limit = { NOT = { is_in_faction_with = TXO } }
+				faction_leader = { add_to_faction = TXO }
+			}
+			TXO = { dd_cw_restore_schism = yes }
+		}
+		dd_cw_restore_schism = yes
+	}
+}
+
+country_event = {
+	id = dd_usa_cw.22
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_rule = { can_join_factions = yes }
+		if = {
+			limit = { has_country_flag = dd_cw_join_aca_tag }
+			ACA = {
+				set_rule = { can_create_factions = yes }
+				if = {
+					limit = { is_in_faction = no }
+					create_faction = FACTION_ANARCHIST_COMMUNES
+				}
+				faction_leader = { add_to_faction = ROOT }
+				dd_cw_restore_schism = yes
+			}
+			clr_country_flag = dd_cw_join_aca_tag
+		}
+		else_if = {
+			limit = { has_country_flag = dd_cw_join_aca_usa }
+			USA = {
+				set_rule = { can_create_factions = yes }
+				if = {
+					limit = { is_in_faction = no }
+					create_faction = FACTION_ANARCHIST_COMMUNES
+				}
+				faction_leader = { add_to_faction = ROOT }
+				dd_cw_restore_schism = yes
+			}
+			clr_country_flag = dd_cw_join_aca_usa
+		}
+		dd_cw_restore_schism = yes
+	}
+}
+
+country_event = {
+	id = dd_usa_cw.23
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_rule = { can_join_factions = yes }
+		if = {
+			limit = { has_country_flag = dd_cw_join_rbl_tag }
+			RBL = {
+				set_rule = { can_create_factions = yes }
+				if = {
+					limit = { is_in_faction = no }
+					create_faction = FACTION_COMMUNIST_FRONT
+				}
+				faction_leader = { add_to_faction = ROOT }
+				dd_cw_restore_schism = yes
+			}
+			clr_country_flag = dd_cw_join_rbl_tag
+		}
+		else_if = {
+			limit = { has_country_flag = dd_cw_join_rbl_usa }
+			USA = {
+				set_rule = { can_create_factions = yes }
+				if = {
+					limit = { is_in_faction = no }
+					create_faction = FACTION_COMMUNIST_FRONT
+				}
+				faction_leader = { add_to_faction = ROOT }
+				dd_cw_restore_schism = yes
+			}
+			clr_country_flag = dd_cw_join_rbl_usa
+		}
+		dd_cw_restore_schism = yes
+	}
+}
+
+country_event = {
+	id = dd_usa_cw.24
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_rule = { can_join_factions = yes }
+		if = {
+			limit = { has_country_flag = dd_cw_join_eas_tag }
+			EAS = {
+				set_rule = { can_create_factions = yes }
+				if = {
+					limit = { is_in_faction = no }
+					create_faction = FACTION_POPULAR_FRONT
+				}
+				faction_leader = { add_to_faction = ROOT }
+				dd_cw_restore_schism = yes
+			}
+			clr_country_flag = dd_cw_join_eas_tag
+		}
+		else_if = {
+			limit = { has_country_flag = dd_cw_join_eas_usa }
+			USA = {
+				set_rule = { can_create_factions = yes }
+				if = {
+					limit = { is_in_faction = no }
+					create_faction = FACTION_POPULAR_FRONT
+				}
+				faction_leader = { add_to_faction = ROOT }
+				dd_cw_restore_schism = yes
+			}
+			clr_country_flag = dd_cw_join_eas_usa
+		}
+		dd_cw_restore_schism = yes
 	}
 }

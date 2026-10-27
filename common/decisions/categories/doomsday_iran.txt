@@ -19,13 +19,3 @@ dd_per_proxy_category = {
 		}
 	}
 }
-
-dd_irq_volunteer_category = {
-	icon = generic_prepare_civil_war
-	priority = 170
-	visible = {
-		has_country_flag = dd_irq_volunteer_window
-		has_war = yes
-		check_variable = { dd_irq_brigades_sent < 4 }
-	}
-}

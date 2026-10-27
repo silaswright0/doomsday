@@ -2,8 +2,10 @@
 
 1936-1944 equipment stays researched for every country (those techs are hidden).
 Later equipment is researched when that country's 2026 forces use it, plus the
-small-arms and vehicle steps of its tier. Rocket trucks and silo cruise
-missiles are a hardcoded tier table: a missing battalion does not withhold them.
+small-arms and vehicle steps of its tier. Rocket trucks, silo cruise missiles,
+and the light-tank line are hardcoded tier tables: a missing battalion does
+not withhold them. No 2026 order of battle fields a light tank, so reading
+the divisions never granted M41 (the 1960 row) to anyone, including the US.
 Earlier steps of a researched line are included, because each tech requires the
 one before it.
 
@@ -106,6 +108,16 @@ ROCKET_COUNTRY = {
     "DPK": ["dd_rkt_2", "dd_rkt_3", "dd_wpn_5"],
     "PAK": ["dd_rkt_2", "dd_rkt_3", "dd_wpn_5"],
     "RAJ": ["dd_wpn_5"],
+}
+
+# Light tanks are not in any 2026 division, so the order-of-battle scan never
+# grants them. Years follow YEAR_CAP. dd_lt_1 is the M41 (1955, the 1960 row).
+# dd_lt_5 is 2016, past the tier-3 cap, so it stays researchable.
+LIGHT_BY_TIER = {
+    0: ["dd_lt_1"],
+    1: ["dd_lt_1", "dd_lt_2"],
+    2: ["dd_lt_1", "dd_lt_2", "dd_lt_3", "dd_lt_4"],
+    3: ["dd_lt_1", "dd_lt_2", "dd_lt_3", "dd_lt_4"],
 }
 
 BLOCK_RE = re.compile(r"\n\t([A-Za-z0-9_]+) = \{")
@@ -307,6 +319,7 @@ def rocket_seeds(tag: str) -> list[str]:
 def kit_for(tag: str, techs: dict, eq_to_tech: dict[str, str], parents: dict[str, list[str]]) -> list[str]:
     tier = tier_of(tag)
     seeds = [t for t in LAND[tier] if t in techs]
+    seeds += [t for t in LIGHT_BY_TIER[tier] if t in techs]
     seeds += [t for t in rocket_seeds(tag) if t in techs]
     seeds += bonus_seeds(tag, techs)
     text = unit_text(tag)

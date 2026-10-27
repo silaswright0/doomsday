@@ -1,6 +1,4 @@
-# Country-scoped. Variable values come from ROOT. No random.
-# Army / air / navy focus trees upgrade one spirit each via these modifiers.
-
+# One spirit. Army, air, and navy focuses add to these numbers.
 dd_usa_armed_forces_dyn = {
 	enable = { always = yes }
 	icon = GFX_idea_generic_intel_bonus
@@ -16,6 +14,17 @@ dd_usa_armed_forces_dyn = {
 	static_anti_air_hit_chance_factor = dd_usa_af_aa
 	mechanized_attack_factor = dd_usa_af_mech
 	breakthrough_factor = dd_usa_af_brk
+	air_superiority_efficiency = dd_usa_air_sup
+	air_cas_efficiency = dd_usa_air_cas
+	air_strategic_bomber_bombing_factor = dd_usa_air_strat
+	industrial_capacity_factory = dd_usa_air_ic
+	paradrop_organization_factor = dd_usa_air_para
+	extra_paratrooper_supply_grace = dd_usa_air_para_grace
+	navy_max_range_factor = dd_usa_nav_range
+	sortie_efficiency = dd_usa_nav_sortie
+	naval_coordination = dd_usa_nav_coord
+	navy_org_factor = dd_usa_nav_org
+	production_speed_dockyard_factor = dd_usa_nav_dock
 }
 
 dd_usa_airforce_dyn = {

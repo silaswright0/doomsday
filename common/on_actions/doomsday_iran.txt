@@ -32,6 +32,7 @@ on_actions = {
 			if = {
 				limit = { tag = PER }
 				dd_per_sync_hezbollah = yes
+				dd_irq_close_other_brigades = yes
 			}
 			if = {
 				limit = { has_global_flag = dd_gulf_closed_usa }

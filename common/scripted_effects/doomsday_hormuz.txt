@@ -188,6 +188,10 @@ dd_hormuz_auth_daily = {
 }
 
 dd_hormuz_sync = {
+	USA = {
+		if = { limit = { has_idea = dd_hormuz_usa_arabian } remove_ideas = dd_hormuz_usa_arabian }
+		if = { limit = { has_idea = dd_hormuz_usa_gulf } remove_ideas = dd_hormuz_usa_gulf }
+	}
 	if = {
 		limit = { USA = { has_naval_control = 104 } }
 		if = {
@@ -197,7 +201,7 @@ dd_hormuz_sync = {
 			clr_global_flag = dd_hormuz_arabian_none
 			USA = {
 				remove_ideas = dd_hormuz_usa_arabian_lost
-				add_ideas = dd_hormuz_usa_arabian
+				remove_ideas = dd_hormuz_usa_arabian
 			}
 			PER = {
 				remove_ideas = dd_hormuz_per_arabian
@@ -251,7 +255,7 @@ dd_hormuz_sync = {
 			clr_global_flag = dd_hormuz_gulf_none
 			USA = {
 				remove_ideas = dd_hormuz_usa_gulf_lost
-				add_ideas = dd_hormuz_usa_gulf
+				remove_ideas = dd_hormuz_usa_gulf
 			}
 			PER = {
 				remove_ideas = dd_hormuz_per_gulf
@@ -400,6 +404,7 @@ dd_hormuz_sync_bombs = {
 
 dd_hormuz_end = {
 	dd_hormuz_clear_blockade = yes
+	set_global_flag = dd_hormuz_ended
 	clr_global_flag = dd_hormuz_war
 	clr_global_flag = dd_hormuz_arabian_usa
 	clr_global_flag = dd_hormuz_arabian_per

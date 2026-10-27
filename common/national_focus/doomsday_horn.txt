@@ -77,31 +77,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = UAE_court_asmara
-		icon = GFX_goal_generic_alliance
-		x = 12
-		y = 1
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = UAE_red_sea_portfolio }
-		available = {
-			has_war = no
-			ERI = { exists = yes }
-		}
-		cancel_if_invalid = yes
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			ERI = {
-				give_military_access = ROOT
-				diplomatic_relation = { country = ROOT relation = docking_rights active = yes }
-				add_opinion_modifier = { target = ROOT modifier = dd_uae_client_opinion }
-			}
-			give_military_access = ERI
-			add_opinion_modifier = { target = ERI modifier = dd_uae_client_opinion }
-		}
-	}
-
-	focus = {
 		id = UAE_pressure_khartoum
 		icon = GFX_goal_generic_demand_territory
 		x = 4

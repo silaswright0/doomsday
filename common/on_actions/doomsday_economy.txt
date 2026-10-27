@@ -95,20 +95,23 @@ on_actions = {
 					add_offsite_building = { type = arms_factory level = 2 }
 				}
 			}
-			# set_autonomy spawns a blank leader on the puppet. Promoting the
-			# character leaves that blank leader in the chair, so replace it.
+			# Israel's history used to puppet the Authority and leave the chair empty.
+			# Seat the character if he is not already ruling. Do not retire him once he is.
 			PAL = {
 				if = {
-					limit = { NOT = { has_country_flag = dd_pal_abbas_restored } }
-					set_country_flag = dd_pal_abbas_restored
-					retire_country_leader = yes
-					create_country_leader = {
-						name = "Mahmoud Abbas"
-						desc = PAL_LEADER_DESC
-						picture = GFX_portrait_PAL_leader
-						expire = "2065.1.1"
-						ideology = oligarch
+					limit = {
+						NOT = { has_country_leader = { character = PAL_mahmoud_abbas ruling_only = yes } }
 					}
+					set_politics = {
+						ruling_party = sovereign_democracy
+						elections_allowed = no
+					}
+					retire_country_leader = yes
+					if = {
+						limit = { NOT = { has_character = PAL_mahmoud_abbas } }
+						recruit_character = PAL_mahmoud_abbas
+					}
+					promote_character = PAL_mahmoud_abbas
 				}
 			}
 			# Hide leftover vanilla NATO decisions (date > 1944). Same PP cost
