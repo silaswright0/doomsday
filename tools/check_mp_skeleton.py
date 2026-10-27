@@ -315,10 +315,10 @@ def check_buildings() -> None:
         fail("rocket_site is underground and must not share factory slots")
     if rocket and re.search(r"disable_grow_animation", rocket.group(0)):
         fail("rocket_site disable_grow_animation draws extra V2 meshes")
-    if rocket and not re.search(r"show_on_map\s*=\s*0", rocket.group(0)):
-        fail("rocket_site show_on_map plus spawn_point draws two V2 pads")
+    if rocket and not re.search(r"show_on_map\s*=\s*1", rocket.group(0)):
+        fail("rocket_site must show on the map")
     if rocket and not re.search(r"spawn_point\s*=\s*rocket_site_spawn", rocket.group(0)):
-        fail("rocket_site must keep rocket_site_spawn")
+        fail("rocket_site must keep rocket_site_spawn or the pad has no map position")
     aa = (ROOT / "common" / "units" / "doomsday_aa.txt").read_text(encoding="utf-8")
     if "mobile_sam" not in aa:
         fail("missing mobile_sam battalion")

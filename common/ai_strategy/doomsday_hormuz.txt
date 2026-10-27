@@ -124,16 +124,6 @@ dd_per_total_war_air = {
 		value = 60
 	}
 	ai_strategy = {
-		type = unit_ratio
-		id = guided_missile
-		value = 50
-	}
-	ai_strategy = {
-		type = unit_ratio
-		id = ballistic_missile
-		value = 40
-	}
-	ai_strategy = {
 		type = equipment_production_factor
 		id = strategic_bomber
 		value = 80
@@ -142,16 +132,6 @@ dd_per_total_war_air = {
 		type = equipment_production_factor
 		id = tactical_bomber
 		value = 40
-	}
-	ai_strategy = {
-		type = equipment_production_min_factories_archetype
-		id = guided_missile_equipment
-		value = 6
-	}
-	ai_strategy = {
-		type = equipment_production_min_factories_archetype
-		id = ballistic_missile_equipment
-		value = 4
 	}
 	ai_strategy = {
 		type = equipment_production_min_factories_archetype
@@ -166,4 +146,57 @@ dd_per_total_war_air = {
 	ai_strategy = { type = raid_target_country id = QAT value = 200 }
 	ai_strategy = { type = raid_target_country id = UAE value = 200 }
 	ai_strategy = { type = raid_target_country id = BHR value = 200 }
+}
+
+# Missiles answer a raid, then stop. The flag lasts five days from the last hit.
+dd_per_total_war_missiles = {
+	allowed = {
+		original_tag = PER
+	}
+	enable = {
+		has_idea = dd_per_total_war
+		has_country_flag = dd_per_missile_salvo
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = unit_ratio
+		id = guided_missile
+		value = 80
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = guided_missile_equipment
+		value = 8
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = ballistic_missile_equipment
+		value = 6
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 232
+		value = 200000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 238
+		value = 160000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 28
+		value = 160000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 203
+		value = 120000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 104
+		value = 120000
+	}
 }

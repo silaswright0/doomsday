@@ -318,6 +318,17 @@ dd_hormuz_sync_bombs = {
 				set_country_flag = dd_per_bomb_cash_month
 			}
 		}
+		# A raid refreshes a five-day missile salvo. Quiet days let it run out.
+		PER = {
+			if = {
+				limit = { has_idea = dd_per_total_war }
+				set_country_flag = {
+					flag = dd_per_missile_salvo
+					days = 5
+					value = 1
+				}
+			}
+		}
 		if = {
 			limit = {
 				NOT = {

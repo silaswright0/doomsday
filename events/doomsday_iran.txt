@@ -214,6 +214,21 @@ country_event = {
 	}
 }
 
+# One hour after load, once the rocket projects have enabled the missile types.
+country_event = {
+	id = dd_iran.41
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = dd_per_ballistic_stock_v2 } }
+			set_country_flag = dd_per_ballistic_stock_v2
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 24 producer = PER }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 12 producer = PER }
+		}
+	}
+}
+
 news_event = {
 	id = dd_iran_news.7
 	title = dd_iran_news.7.t

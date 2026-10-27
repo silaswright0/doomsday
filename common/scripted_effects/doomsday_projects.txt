@@ -170,6 +170,38 @@ dd_grant_starting_projects = {
 				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = PER_dd_lab_lead state = 266 }
 			}
 		}
+		# History cannot stock these on an existing save. The types unlock when the projects finish.
+		if = {
+			limit = { NOT = { has_country_flag = dd_per_ballistic_stock_v2 } }
+			if = {
+				limit = { NOT = { has_character = PER_dd_lab_lead } }
+				recruit_character = PER_dd_lab_lead
+			}
+			if = {
+				limit = { NOT = { has_tech = experimental_rockets } }
+				set_technology = { experimental_rockets = 1 popup = no }
+			}
+			if = {
+				limit = { NOT = { is_special_project_completed = sp:sp_rockets_ballistic_missile } }
+				complete_special_project = { project = sp:sp_rockets_ballistic_missile scientist = PER_dd_lab_lead state = 266 }
+			}
+			if = {
+				limit = { NOT = { is_special_project_completed = sp:sp_rockets_medium_range_ballistic_missile } }
+				complete_special_project = { project = sp:sp_rockets_medium_range_ballistic_missile scientist = PER_dd_lab_lead state = 266 }
+			}
+			country_event = { id = dd_iran.41 hours = 1 }
+		}
+		if = {
+			limit = {
+				266 = {
+					is_owned_by = PER
+					NOT = { rocket_site > 0 }
+				}
+			}
+			266 = {
+				add_building_construction = { type = rocket_site level = 3 instant_build = yes }
+			}
+		}
 	}
 	GER = {
 		if = {

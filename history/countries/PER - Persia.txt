@@ -489,6 +489,7 @@ create_equipment_variant = {
 	}
 }
 add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 8 producer = PER }
+add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 8 producer = PER }
 add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 1770 producer = PER }
 add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 63 producer = PER }
 add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 22 producer = PER }
@@ -554,3 +555,18 @@ recruit_character = PER_hc_air
 recruit_character = PER_hc_navy
 recruit_character = PER_hamid_vahedi
 recruit_character = PER_alireza_tangsiri
+recruit_character = PER_dd_lab_lead
+# These missile types unlock when the projects complete, so the stock has to come after.
+complete_special_project = {
+	project = sp:sp_rockets_ballistic_missile
+	scientist = PER_dd_lab_lead
+	state = 266
+}
+complete_special_project = {
+	project = sp:sp_rockets_medium_range_ballistic_missile
+	scientist = PER_dd_lab_lead
+	state = 266
+}
+set_country_flag = dd_per_ballistic_stock_v2
+add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 24 producer = PER }
+add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 12 producer = PER }

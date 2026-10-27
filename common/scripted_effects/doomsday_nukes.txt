@@ -105,15 +105,6 @@ dd_assign_starting_nukes = {
 # Flag-guarded: on_startup also runs when a save is loaded.
 
 dd_assign_starting_missiles = {
-	PER = {
-		if = {
-			limit = { NOT = { has_country_flag = dd_starting_missiles } }
-			set_country_flag = dd_starting_missiles
-			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 24 producer = PER }
-			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 12 producer = PER }
-			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 8 producer = PER }
-		}
-	}
 	KOR = {
 		if = {
 			limit = { NOT = { has_country_flag = dd_starting_missiles } }

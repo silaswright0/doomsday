@@ -139,7 +139,10 @@ dd_per_proxy_category = {
 		icon = generic_prepare_civil_war
 		days_re_enable = 30
 		cost = 25
-		visible = { tag = PER }
+		visible = {
+			tag = PER
+			has_completed_focus = PER_reconstitute_hezbollah
+		}
 		available = {
 			HEZ = { exists = yes has_idea = dd_hez_hindered_support }
 			has_equipment = { infantry_equipment > 499 }
@@ -157,7 +160,10 @@ dd_per_proxy_category = {
 		icon = generic_prepare_civil_war
 		days_re_enable = 45
 		cost = 25
-		visible = { tag = PER }
+		visible = {
+			tag = PER
+			has_completed_focus = PER_reconstitute_hezbollah
+		}
 		available = {
 			HEZ = { exists = yes has_idea = dd_hez_hindered_support }
 			has_equipment = { artillery_equipment > 23 }
@@ -175,7 +181,10 @@ dd_per_proxy_category = {
 		icon = generic_prepare_civil_war
 		days_re_enable = 45
 		cost = 25
-		visible = { tag = PER }
+		visible = {
+			tag = PER
+			has_completed_focus = PER_reconstitute_hezbollah
+		}
 		available = {
 			HEZ = { exists = yes has_idea = dd_hez_hindered_support }
 			has_equipment = { support_equipment > 19 }

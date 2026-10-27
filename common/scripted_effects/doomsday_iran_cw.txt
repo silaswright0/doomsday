@@ -81,7 +81,7 @@ dd_per_state_collapse = {
 		set_global_flag = dd_per_collapse_war
 		dd_per_foreigners_leave = yes
 		dd_per_end_gulf_economy = yes
-		# The populists need a province before they can take divisions. Half the Guard's army is then deleted there.
+		# Each side needs a province before it can take divisions. A quarter stays with each. The Guard keeps half.
 		if = {
 			limit = { 420 = { is_owned_by = PER } }
 			PRP = {
@@ -90,30 +90,93 @@ dd_per_state_collapse = {
 				set_capital = { state = 420 }
 			}
 		}
-		PER = {
-			transfer_units_fraction = {
-				target = PRP
-				size = 0.5
-				army_ratio = 0.5
-				navy_ratio = 0
-				air_ratio = 0
-				stockpile_ratio = 0
-				keep_unit_leaders_trigger = { always = yes }
+		if = {
+			limit = { 412 = { is_owned_by = PER } }
+			PAH = {
+				transfer_state = 412
+				add_state_core = 412
 			}
 		}
-		PRP = { delete_unit = { disband = no } }
-		PER = {
-			set_variable = { dd_irgc_keep = num_divisions }
-			divide_variable = { dd_irgc_keep = 2 }
-			every_owned_state = {
-				limit = { PREV = { num_divisions > dd_irgc_keep } }
-				PREV = {
-					delete_unit = {
-						state = PREV
-						disband = no
-					}
+		if = {
+			limit = { 411 = { is_owned_by = PER } }
+			PAH = {
+				transfer_state = 411
+				add_state_core = 411
+			}
+		}
+		if = {
+			limit = { PAH = { owns_state = 412 } }
+			PAH = { set_capital = { state = 412 } }
+		}
+		else_if = {
+			limit = { PAH = { owns_state = 411 } }
+			PAH = { set_capital = { state = 411 } }
+		}
+		if = {
+			limit = {
+				PRP = { owns_state = 420 }
+				OR = {
+					PAH = { owns_state = 412 }
+					PAH = { owns_state = 411 }
 				}
 			}
+			PER = {
+				transfer_units_fraction = {
+					target = PRP
+					size = 0.5
+					army_ratio = 0.5
+					navy_ratio = 0
+					air_ratio = 0
+					stockpile_ratio = 0
+					keep_unit_leaders_trigger = { always = yes }
+				}
+			}
+			PRP = {
+				transfer_units_fraction = {
+					target = PAH
+					size = 0.5
+					army_ratio = 0.5
+					navy_ratio = 0
+					air_ratio = 0
+					stockpile_ratio = 0
+					keep_unit_leaders_trigger = { always = yes }
+				}
+			}
+		}
+		else_if = {
+			limit = { PRP = { owns_state = 420 } }
+			PER = {
+				transfer_units_fraction = {
+					target = PRP
+					size = 0.25
+					army_ratio = 0.25
+					navy_ratio = 0
+					air_ratio = 0
+					stockpile_ratio = 0
+					keep_unit_leaders_trigger = { always = yes }
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					PAH = { owns_state = 412 }
+					PAH = { owns_state = 411 }
+				}
+			}
+			PER = {
+				transfer_units_fraction = {
+					target = PAH
+					size = 0.25
+					army_ratio = 0.25
+					navy_ratio = 0
+					air_ratio = 0
+					stockpile_ratio = 0
+					keep_unit_leaders_trigger = { always = yes }
+				}
+			}
+		}
+		PER = {
 			set_cosmetic_tag = IRG_REVOLT
 			set_country_flag = dd_per_is_irgc
 			load_focus_tree = { tree = dd_irg_focus keep_completed = no }

@@ -335,12 +335,10 @@ buildings = {
 	}
 
 
-	# One constructed silo = one pad. show_on_map AND spawn_point both drew a
-	# V2 (two sites per build). Spawn only. Extra levels share the same pad
-	# (engine spawn max is 1 per state). Offensive missiles use this
-	# rocket_launch_capacity. SAM is aircraft on airbases, not a building.
+	# The pad is the spawn model. The map graphic is the province icon.
+	# Offensive missiles use rocket_launch_capacity. SAM is aircraft on airbases.
 	rocket_site = {
-		show_on_map = 0
+		show_on_map = 1
 		base_cost = 8000
 		icon_frame = 12
 		rocket_production = 0
@@ -350,7 +348,6 @@ buildings = {
 		damage_factor = 0.1
 		infrastructure_construction_effect = yes
 		disabled_in_dmz = yes
-		only_display_if_exists = yes
 		spawn_point = rocket_site_spawn
 		level_cap = {
 			state_max = 5

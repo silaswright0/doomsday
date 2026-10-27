@@ -118,6 +118,35 @@ shared_focus = {
 		add_ideas = dd_prp_new_face
 	}
 }
+shared_focus = {
+	id = PRP_one_iran
+	icon = GFX_goal_generic_national_unity
+	x = 40
+	y = 5
+	cost = 10
+	prerequisite = { focus = PRP_new_face }
+	available = {
+		tag = PRP
+		has_war = no
+		custom_trigger_tooltip = {
+			tooltip = dd_owns_all_iran_tt
+			NOT = {
+				any_state = {
+					is_core_of = PER
+					NOT = { is_owned_by = ROOT }
+				}
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 200 }
+	completion_reward = {
+		every_state = {
+			limit = { is_core_of = PER }
+			add_core_of = ROOT
+		}
+	}
+}
 
 shared_focus = {
 	id = PAH_return_of_the_shah
@@ -181,6 +210,35 @@ shared_focus = {
 		add_ideas = dd_pah_shahanshah
 	}
 }
+shared_focus = {
+	id = PAH_imperial_state
+	icon = GFX_goal_generic_national_unity
+	x = 50
+	y = 3
+	cost = 10
+	prerequisite = { focus = PAH_shahanshah }
+	available = {
+		tag = PAH
+		has_war = no
+		custom_trigger_tooltip = {
+			tooltip = dd_owns_all_iran_tt
+			NOT = {
+				any_state = {
+					is_core_of = PER
+					NOT = { is_owned_by = ROOT }
+				}
+			}
+		}
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	ai_will_do = { factor = 200 }
+	completion_reward = {
+		every_state = {
+			limit = { is_core_of = PER }
+			add_core_of = ROOT
+		}
+	}
+}
 
 focus_tree = {
 	id = dd_prp_focus
@@ -201,6 +259,7 @@ focus_tree = {
 	shared_focus = PRP_free_people
 	shared_focus = PRP_central_command
 	shared_focus = PRP_new_face
+	shared_focus = PRP_one_iran
 }
 
 focus_tree = {
@@ -220,6 +279,7 @@ focus_tree = {
 	shared_focus = PAH_imperial_guard
 	shared_focus = PAH_crown_and_bazaar
 	shared_focus = PAH_shahanshah
+	shared_focus = PAH_imperial_state
 }
 
 # The Guard keeps no political tree after the state collapses.
