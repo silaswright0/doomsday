@@ -5,6 +5,7 @@ dd_world_econ_category = {
 	visible_when_empty = yes
 	allowed = { always = yes }
 	visible = {
+		NOT = { has_global_flag = dd_per_collapse_war }
 		OR = {
 			has_global_flag = dd_hormuz_blockade
 			has_global_flag = dd_hormuz_squeeze_on

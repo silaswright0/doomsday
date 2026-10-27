@@ -625,6 +625,21 @@ dd_hormuz_clear_blockade = {
 	clr_global_flag = dd_hormuz_gulf_cities_bombed
 }
 
+# Collapse ends the Gulf economy spirits. The Saudi squeeze and the Global Economy tab go with them.
+dd_per_end_gulf_economy = {
+	if = {
+		limit = { has_global_flag = dd_hormuz_war }
+		dd_hormuz_end = yes
+	}
+	else = {
+		dd_hormuz_clear_blockade = yes
+	}
+	if = {
+		limit = { SAU = { has_idea = dd_sau_squeezed } }
+		SAU = { remove_ideas = dd_sau_squeezed }
+	}
+}
+
 dd_per_squeeze_saudis = {
 	if = {
 		limit = { SAU = { exists = yes } }

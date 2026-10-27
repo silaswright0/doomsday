@@ -1199,15 +1199,11 @@ dd_isr_greater_claims = {
 		if = { limit = { 1089 = { NOT = { is_owned_by = ROOT } } } 1089 = { add_claim_by = ROOT } }
 		if = { limit = { 554 = { NOT = { is_owned_by = ROOT } } } 554 = { add_claim_by = ROOT } }
 		if = { limit = { 677 = { NOT = { is_owned_by = ROOT } } } 677 = { add_claim_by = ROOT } }
-		if = { limit = { 680 = { NOT = { is_owned_by = ROOT } } } 680 = { add_claim_by = ROOT } }
-		if = { limit = { 1100 = { NOT = { is_owned_by = ROOT } } } 1100 = { add_claim_by = ROOT } }
-		if = { limit = { 1103 = { NOT = { is_owned_by = ROOT } } } 1103 = { add_claim_by = ROOT } }
-		if = { limit = { 1104 = { NOT = { is_owned_by = ROOT } } } 1104 = { add_claim_by = ROOT } }
-		if = { limit = { 1088 = { NOT = { is_owned_by = ROOT } } } 1088 = { add_claim_by = ROOT } }
 		if = { limit = { 455 = { NOT = { is_owned_by = ROOT } } } 455 = { add_claim_by = ROOT } }
 		if = { limit = { 453 = { NOT = { is_owned_by = ROOT } } } 453 = { add_claim_by = ROOT } }
 		if = { limit = { 1085 = { NOT = { is_owned_by = ROOT } } } 1085 = { add_claim_by = ROOT } }
 		if = { limit = { 1086 = { NOT = { is_owned_by = ROOT } } } 1086 = { add_claim_by = ROOT } }
+		if = { limit = { 1010 = { NOT = { is_owned_by = ROOT } } } 1010 = { add_claim_by = ROOT } }
 	}
 }
 
@@ -1220,15 +1216,11 @@ dd_isr_proclaim_greater = {
 		if = { limit = { 1089 = { is_owned_by = ROOT } } 1089 = { add_core_of = ROOT } }
 		if = { limit = { 554 = { is_owned_by = ROOT } } 554 = { add_core_of = ROOT } }
 		if = { limit = { 677 = { is_owned_by = ROOT } } 677 = { add_core_of = ROOT } }
-		if = { limit = { 680 = { is_owned_by = ROOT } } 680 = { add_core_of = ROOT } }
-		if = { limit = { 1100 = { is_owned_by = ROOT } } 1100 = { add_core_of = ROOT } }
-		if = { limit = { 1103 = { is_owned_by = ROOT } } 1103 = { add_core_of = ROOT } }
-		if = { limit = { 1104 = { is_owned_by = ROOT } } 1104 = { add_core_of = ROOT } }
-		if = { limit = { 1088 = { is_owned_by = ROOT } } 1088 = { add_core_of = ROOT } }
 		if = { limit = { 455 = { is_owned_by = ROOT } } 455 = { add_core_of = ROOT } }
 		if = { limit = { 453 = { is_owned_by = ROOT } } 453 = { add_core_of = ROOT } }
 		if = { limit = { 1085 = { is_owned_by = ROOT } } 1085 = { add_core_of = ROOT } }
 		if = { limit = { 1086 = { is_owned_by = ROOT } } 1086 = { add_core_of = ROOT } }
+		if = { limit = { 1010 = { is_owned_by = ROOT } } 1010 = { add_core_of = ROOT } }
 	}
 }
 

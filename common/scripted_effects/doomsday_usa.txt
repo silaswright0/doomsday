@@ -367,6 +367,8 @@ dd_tw_usa_dairy = {
 		dd_tw_ensure_spirit = yes
 		dd_tw_note_usa = yes
 	}
+	set_temp_variable = { dd_tw_measure = 1 }
+	dd_tw_ai_answer_can = yes
 }
 
 dd_tw_usa_lumber = {
@@ -382,6 +384,8 @@ dd_tw_usa_lumber = {
 		dd_tw_ensure_spirit = yes
 		dd_tw_note_usa = yes
 	}
+	set_temp_variable = { dd_tw_measure = 2 }
+	dd_tw_ai_answer_can = yes
 }
 
 dd_tw_usa_steel_can = {
@@ -397,6 +401,8 @@ dd_tw_usa_steel_can = {
 		dd_tw_ensure_spirit = yes
 		dd_tw_note_usa = yes
 	}
+	set_temp_variable = { dd_tw_measure = 3 }
+	dd_tw_ai_answer_can = yes
 }
 
 dd_tw_usa_steel_mex = {
@@ -412,6 +418,8 @@ dd_tw_usa_steel_mex = {
 		dd_tw_ensure_spirit = yes
 		dd_tw_note_usa = yes
 	}
+	set_temp_variable = { dd_tw_measure = 1 }
+	dd_tw_ai_answer_mex = yes
 }
 
 dd_tw_usa_autos_mex = {
@@ -427,6 +435,8 @@ dd_tw_usa_autos_mex = {
 		dd_tw_ensure_spirit = yes
 		dd_tw_note_usa = yes
 	}
+	set_temp_variable = { dd_tw_measure = 2 }
+	dd_tw_ai_answer_mex = yes
 }
 
 dd_tw_usa_border_mex = {
@@ -442,6 +452,8 @@ dd_tw_usa_border_mex = {
 		dd_tw_ensure_spirit = yes
 		dd_tw_note_usa = yes
 	}
+	set_temp_variable = { dd_tw_measure = 3 }
+	dd_tw_ai_answer_mex = yes
 }
 
 dd_tw_usa_tomatoes = {
@@ -457,9 +469,93 @@ dd_tw_usa_tomatoes = {
 		dd_tw_ensure_spirit = yes
 		dd_tw_note_usa = yes
 	}
+	set_temp_variable = { dd_tw_measure = 4 }
+	dd_tw_ai_answer_mex = yes
+}
+
+# Day the measure is taken, plus which measure. Even sum: the neighbor answers
+# with one of its own tariffs. Same day and same measure always agree in MP.
+dd_tw_ai_answer_can = {
+	if = {
+		limit = {
+			CAN = { exists = yes is_ai = yes }
+			NOT = { has_country_flag = dd_tw_settled_can }
+		}
+		set_temp_variable = { dd_tw_flip = global.num_days }
+		add_to_temp_variable = { dd_tw_flip = dd_tw_measure }
+		modulo_temp_variable = { dd_tw_flip = 2 }
+		if = {
+			limit = { check_variable = { dd_tw_flip = 0 } }
+			CAN = { dd_tw_fire_next_can = yes }
+		}
+	}
+}
+
+dd_tw_ai_answer_mex = {
+	if = {
+		limit = {
+			MEX = { exists = yes is_ai = yes }
+			NOT = { has_country_flag = dd_tw_settled_mex }
+		}
+		set_temp_variable = { dd_tw_flip = global.num_days }
+		add_to_temp_variable = { dd_tw_flip = dd_tw_measure }
+		modulo_temp_variable = { dd_tw_flip = 2 }
+		if = {
+			limit = { check_variable = { dd_tw_flip = 0 } }
+			MEX = { dd_tw_fire_next_mex = yes }
+		}
+	}
+}
+
+dd_tw_fire_next_can = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_tw_used_can_alcohol } }
+		dd_tw_can_alcohol = yes
+		USA = { country_event = { id = dd_usa_tariff.30 days = 1 } }
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_tw_used_can_retaliation } }
+		dd_tw_can_retaliation = yes
+		USA = { country_event = { id = dd_usa_tariff.30 days = 1 } }
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_tw_used_can_potash } }
+		dd_tw_can_potash = yes
+		USA = { country_event = { id = dd_usa_tariff.30 days = 1 } }
+	}
+}
+
+dd_tw_fire_next_mex = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_tw_used_mex_pork } }
+		dd_tw_mex_pork = yes
+		USA = { country_event = { id = dd_usa_tariff.31 days = 1 } }
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_tw_used_mex_steel } }
+		dd_tw_mex_steel = yes
+		USA = { country_event = { id = dd_usa_tariff.31 days = 1 } }
+	}
+	else_if = {
+		limit = { NOT = { has_country_flag = dd_tw_used_mex_autos } }
+		dd_tw_mex_autos = yes
+		USA = { country_event = { id = dd_usa_tariff.31 days = 1 } }
+	}
+}
+
+# One day in five the cabinet will walk out. Checked again if the talks are reopened on a later day.
+dd_tw_roll_refuse = {
+	clr_country_flag = dd_tw_refuse_deal
+	set_temp_variable = { dd_tw_roll = global.num_days }
+	modulo_temp_variable = { dd_tw_roll = 5 }
+	if = {
+		limit = { check_variable = { dd_tw_roll = 0 } }
+		set_country_flag = dd_tw_refuse_deal
+	}
 }
 
 dd_tw_can_alcohol = {
+	set_country_flag = dd_tw_used_can_alcohol
 	set_temp_variable = { dd_tw_add_cg = 0.01 }
 	set_temp_variable = { dd_tw_add_fac = 0 }
 	set_temp_variable = { dd_tw_add_pts = 1 }
@@ -475,6 +571,7 @@ dd_tw_can_alcohol = {
 }
 
 dd_tw_can_retaliation = {
+	set_country_flag = dd_tw_used_can_retaliation
 	set_temp_variable = { dd_tw_add_cg = 0.01 }
 	set_temp_variable = { dd_tw_add_fac = 0 }
 	set_temp_variable = { dd_tw_add_pts = 1 }
@@ -490,6 +587,7 @@ dd_tw_can_retaliation = {
 }
 
 dd_tw_can_potash = {
+	set_country_flag = dd_tw_used_can_potash
 	set_temp_variable = { dd_tw_add_cg = 0.01 }
 	set_temp_variable = { dd_tw_add_fac = 0 }
 	set_temp_variable = { dd_tw_add_pts = 1 }
@@ -505,6 +603,7 @@ dd_tw_can_potash = {
 }
 
 dd_tw_mex_pork = {
+	set_country_flag = dd_tw_used_mex_pork
 	set_temp_variable = { dd_tw_add_cg = 0.01 }
 	set_temp_variable = { dd_tw_add_fac = 0 }
 	set_temp_variable = { dd_tw_add_pts = 1 }
@@ -520,6 +619,7 @@ dd_tw_mex_pork = {
 }
 
 dd_tw_mex_steel = {
+	set_country_flag = dd_tw_used_mex_steel
 	set_temp_variable = { dd_tw_add_cg = 0.01 }
 	set_temp_variable = { dd_tw_add_fac = 0 }
 	set_temp_variable = { dd_tw_add_pts = 1 }
@@ -535,6 +635,7 @@ dd_tw_mex_steel = {
 }
 
 dd_tw_mex_autos = {
+	set_country_flag = dd_tw_used_mex_autos
 	set_temp_variable = { dd_tw_add_cg = 0.01 }
 	set_temp_variable = { dd_tw_add_fac = 0 }
 	set_temp_variable = { dd_tw_add_pts = 1 }
@@ -1302,6 +1403,8 @@ dd_usa_cw_inherit_supply_hole = {
 			set_variable = { dd_usa_af_civ_intel = PREV.dd_usa_af_civ_intel }
 			set_variable = { dd_usa_af_army_intel = PREV.dd_usa_af_army_intel }
 			set_variable = { dd_usa_af_enemy_air = PREV.dd_usa_af_enemy_air }
+			set_variable = { dd_usa_af_speed = PREV.dd_usa_af_speed }
+			set_variable = { dd_usa_af_move_org = PREV.dd_usa_af_move_org }
 			set_variable = { dd_usa_af_org = PREV.dd_usa_af_org }
 			set_variable = { dd_usa_af_morale = PREV.dd_usa_af_morale }
 			set_variable = { dd_usa_af_inf_atk = PREV.dd_usa_af_inf_atk }
@@ -1568,7 +1671,6 @@ dd_usa_demsoc_policy_set = {
 	custom_effect_tooltip = dd_usa_policy_demsoc_tt
 	if = {
 		limit = {
-			has_idea = dd_taxes_4
 			has_idea = dd_welfare_5
 			has_idea = dd_labor_4
 			has_idea = dd_education_5
@@ -1577,7 +1679,6 @@ dd_usa_demsoc_policy_set = {
 		add_political_power = 100
 	}
 	else = {
-		dd_usa_force_taxes_4 = yes
 		dd_usa_force_welfare_5 = yes
 		dd_usa_force_labor_4 = yes
 		dd_usa_force_education_5 = yes
@@ -2091,6 +2192,8 @@ dd_usa_service_zero = {
 	set_variable = { dd_usa_af_civ_intel = 0 }
 	set_variable = { dd_usa_af_army_intel = 0 }
 	set_variable = { dd_usa_af_enemy_air = 0 }
+	set_variable = { dd_usa_af_speed = 0 }
+	set_variable = { dd_usa_af_move_org = 0 }
 	set_variable = { dd_usa_af_org = 0 }
 	set_variable = { dd_usa_af_morale = 0 }
 	set_variable = { dd_usa_af_inf_atk = 0 }
@@ -2144,6 +2247,8 @@ dd_usa_refresh_services = {
 		set_variable = { dd_usa_af_civ_intel = -0.25 }
 		set_variable = { dd_usa_af_army_intel = -0.25 }
 		set_variable = { dd_usa_af_enemy_air = -0.05 }
+		set_variable = { dd_usa_af_speed = 0.05 }
+		set_variable = { dd_usa_af_move_org = -0.10 }
 	}
 	if = {
 		limit = {
@@ -2163,7 +2268,6 @@ dd_usa_refresh_services = {
 			}
 		}
 		set_variable = { dd_usa_af_inf_atk = 0.08 }
-		set_variable = { dd_usa_af_arm_atk = 0.05 }
 	}
 	if = {
 		limit = {
@@ -2307,6 +2411,16 @@ dd_usa_refresh_services = {
 			}
 		}
 		set_country_flag = dd_usa_services_wanted
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = dd_usa_svc_land_drone
+				has_completed_focus = USA_integrating_drone_warfare
+			}
+			NOT = { has_idea = dd_usa_drone_pierce }
+		}
+		add_ideas = dd_usa_drone_pierce
 	}
 }
 
@@ -3718,18 +3832,173 @@ dd_usa_start_civil_war = {
 	}
 }
 
-# Election winner takes their faction tag. Leftover land goes to Federal Command. The USA tag is removed.
-dd_usa_drop_usa_tag = {
+# Laws, spirits, and the pie move onto the faction tag. Called on that tag. PREV is the United States.
+dd_usa_cw_copy_from_usa = {
+	if = { limit = { PREV = { has_idea = dd_welfare_1 } } add_ideas = dd_welfare_1 }
+	if = { limit = { PREV = { has_idea = dd_welfare_2 } } add_ideas = dd_welfare_2 }
+	if = { limit = { PREV = { has_idea = dd_welfare_3 } } add_ideas = dd_welfare_3 }
+	if = { limit = { PREV = { has_idea = dd_welfare_4 } } add_ideas = dd_welfare_4 }
+	if = { limit = { PREV = { has_idea = dd_welfare_5 } } add_ideas = dd_welfare_5 }
+	if = { limit = { PREV = { has_idea = dd_education_1 } } add_ideas = dd_education_1 }
+	if = { limit = { PREV = { has_idea = dd_education_2 } } add_ideas = dd_education_2 }
+	if = { limit = { PREV = { has_idea = dd_education_3 } } add_ideas = dd_education_3 }
+	if = { limit = { PREV = { has_idea = dd_education_4 } } add_ideas = dd_education_4 }
+	if = { limit = { PREV = { has_idea = dd_education_5 } } add_ideas = dd_education_5 }
+	if = { limit = { PREV = { has_idea = dd_immigration_1 } } add_ideas = dd_immigration_1 }
+	if = { limit = { PREV = { has_idea = dd_immigration_2 } } add_ideas = dd_immigration_2 }
+	if = { limit = { PREV = { has_idea = dd_immigration_3 } } add_ideas = dd_immigration_3 }
+	if = { limit = { PREV = { has_idea = dd_immigration_4 } } add_ideas = dd_immigration_4 }
+	if = { limit = { PREV = { has_idea = dd_immigration_5 } } add_ideas = dd_immigration_5 }
+	if = { limit = { PREV = { has_idea = dd_taxes_1 } } add_ideas = dd_taxes_1 }
+	if = { limit = { PREV = { has_idea = dd_taxes_2 } } add_ideas = dd_taxes_2 }
+	if = { limit = { PREV = { has_idea = dd_taxes_3 } } add_ideas = dd_taxes_3 }
+	if = { limit = { PREV = { has_idea = dd_taxes_4 } } add_ideas = dd_taxes_4 }
+	if = { limit = { PREV = { has_idea = dd_taxes_5 } } add_ideas = dd_taxes_5 }
+	if = { limit = { PREV = { has_idea = dd_women_1 } } add_ideas = dd_women_1 }
+	if = { limit = { PREV = { has_idea = dd_women_2 } } add_ideas = dd_women_2 }
+	if = { limit = { PREV = { has_idea = dd_women_3 } } add_ideas = dd_women_3 }
+	if = { limit = { PREV = { has_idea = dd_women_4 } } add_ideas = dd_women_4 }
+	if = { limit = { PREV = { has_idea = dd_women_5 } } add_ideas = dd_women_5 }
+	if = { limit = { PREV = { has_idea = dd_minority_1 } } add_ideas = dd_minority_1 }
+	if = { limit = { PREV = { has_idea = dd_minority_2 } } add_ideas = dd_minority_2 }
+	if = { limit = { PREV = { has_idea = dd_minority_3 } } add_ideas = dd_minority_3 }
+	if = { limit = { PREV = { has_idea = dd_minority_4 } } add_ideas = dd_minority_4 }
+	if = { limit = { PREV = { has_idea = dd_minority_5 } } add_ideas = dd_minority_5 }
+	if = { limit = { PREV = { has_idea = dd_investment_1 } } add_ideas = dd_investment_1 }
+	if = { limit = { PREV = { has_idea = dd_investment_2 } } add_ideas = dd_investment_2 }
+	if = { limit = { PREV = { has_idea = dd_investment_3 } } add_ideas = dd_investment_3 }
+	if = { limit = { PREV = { has_idea = dd_investment_4 } } add_ideas = dd_investment_4 }
+	if = { limit = { PREV = { has_idea = dd_investment_5 } } add_ideas = dd_investment_5 }
+	if = { limit = { PREV = { has_idea = dd_security_1 } } add_ideas = dd_security_1 }
+	if = { limit = { PREV = { has_idea = dd_security_2 } } add_ideas = dd_security_2 }
+	if = { limit = { PREV = { has_idea = dd_security_3 } } add_ideas = dd_security_3 }
+	if = { limit = { PREV = { has_idea = dd_security_4 } } add_ideas = dd_security_4 }
+	if = { limit = { PREV = { has_idea = dd_security_5 } } add_ideas = dd_security_5 }
+	if = { limit = { PREV = { has_idea = dd_healthcare_1 } } add_ideas = dd_healthcare_1 }
+	if = { limit = { PREV = { has_idea = dd_healthcare_2 } } add_ideas = dd_healthcare_2 }
+	if = { limit = { PREV = { has_idea = dd_healthcare_3 } } add_ideas = dd_healthcare_3 }
+	if = { limit = { PREV = { has_idea = dd_healthcare_4 } } add_ideas = dd_healthcare_4 }
+	if = { limit = { PREV = { has_idea = dd_healthcare_5 } } add_ideas = dd_healthcare_5 }
+	if = { limit = { PREV = { has_idea = dd_labor_1 } } add_ideas = dd_labor_1 }
+	if = { limit = { PREV = { has_idea = dd_labor_2 } } add_ideas = dd_labor_2 }
+	if = { limit = { PREV = { has_idea = dd_labor_3 } } add_ideas = dd_labor_3 }
+	if = { limit = { PREV = { has_idea = dd_labor_4 } } add_ideas = dd_labor_4 }
+	if = { limit = { PREV = { has_idea = dd_labor_5 } } add_ideas = dd_labor_5 }
+	if = { limit = { PREV = { has_idea = volunteer_only } } add_ideas = volunteer_only }
+	if = { limit = { PREV = { has_idea = limited_conscription } } add_ideas = limited_conscription }
+	if = { limit = { PREV = { has_idea = extensive_conscription } } add_ideas = extensive_conscription }
+	if = { limit = { PREV = { has_idea = service_by_requirement } } add_ideas = service_by_requirement }
+	if = { limit = { PREV = { has_idea = all_adults_serve } } add_ideas = all_adults_serve }
+	if = { limit = { PREV = { has_idea = scraping_the_barrel } } add_ideas = scraping_the_barrel }
+	if = { limit = { PREV = { has_idea = civilian_economy } } add_ideas = civilian_economy }
+	if = { limit = { PREV = { has_idea = low_economic_mobilisation } } add_ideas = low_economic_mobilisation }
+	if = { limit = { PREV = { has_idea = partial_economic_mobilisation } } add_ideas = partial_economic_mobilisation }
+	if = { limit = { PREV = { has_idea = war_economy } } add_ideas = war_economy }
+	if = { limit = { PREV = { has_idea = tot_economic_mobilisation } } add_ideas = tot_economic_mobilisation }
+	if = { limit = { PREV = { has_idea = free_trade } } add_ideas = free_trade }
+	if = { limit = { PREV = { has_idea = export_focus } } add_ideas = export_focus }
+	if = { limit = { PREV = { has_idea = limited_exports } } add_ideas = limited_exports }
+	if = { limit = { PREV = { has_idea = closed_economy } } add_ideas = closed_economy }
+	if = { limit = { PREV = { has_idea = dd_usa_little_tech } } add_ideas = dd_usa_little_tech }
+	if = { limit = { PREV = { has_idea = dd_usa_little_tech_2 } } add_ideas = dd_usa_little_tech_2 }
+	if = { limit = { PREV = { has_idea = dd_usa_little_tech_3 } } add_ideas = dd_usa_little_tech_3 }
+	if = { limit = { PREV = { has_idea = dd_usa_little_tech_4 } } add_ideas = dd_usa_little_tech_4 }
+	if = { limit = { PREV = { has_idea = dd_usa_little_tech_5 } } add_ideas = dd_usa_little_tech_5 }
+	if = { limit = { PREV = { has_idea = dd_usa_little_tech_6 } } add_ideas = dd_usa_little_tech_6 }
+	if = { limit = { PREV = { has_idea = dd_usa_provoking_the_blob } } add_ideas = dd_usa_provoking_the_blob }
+	if = { limit = { PREV = { has_idea = dd_usa_global_tariff_plan } } add_ideas = dd_usa_global_tariff_plan }
+	if = { limit = { PREV = { has_idea = dd_usa_protectionism_doubled } } add_ideas = dd_usa_protectionism_doubled }
+	if = { limit = { PREV = { has_idea = dd_usa_airforce_prod } } add_ideas = dd_usa_airforce_prod }
+	if = { limit = { PREV = { has_idea = dd_usa_drone_pierce } } add_ideas = dd_usa_drone_pierce }
+	if = { limit = { PREV = { has_idea = dd_usa_bill_beautiful } } add_ideas = dd_usa_bill_beautiful }
+	if = { limit = { PREV = { has_idea = dd_usa_bill_homes } } add_ideas = dd_usa_bill_homes }
+	if = { limit = { PREV = { has_idea = dd_usa_gutting_middle_class } } add_ideas = dd_usa_gutting_middle_class }
+	if = { limit = { PREV = { has_idea = dd_usa_gutting_middle_class_2 } } add_ideas = dd_usa_gutting_middle_class_2 }
+	if = { limit = { PREV = { has_idea = dd_usa_tucker_tech } } add_ideas = dd_usa_tucker_tech }
+	if = { limit = { PREV = { has_idea = dd_usa_tucker_natpop } } add_ideas = dd_usa_tucker_natpop }
+	if = { limit = { PREV = { has_idea = dd_usa_israel_arms } } add_ideas = dd_usa_israel_arms }
 	if = {
-		limit = { has_government = progressive_populism }
-		event_target:dd_usa_winner = { set_politics = { ruling_party = progressive_populism elections_allowed = no } }
+		limit = { PREV = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } } }
+		set_variable = { dd_ruins_stability = PREV.dd_ruins_stability }
+		set_variable = { dd_ruins_war_support = PREV.dd_ruins_war_support }
+		set_variable = { dd_ruins_factory = PREV.dd_ruins_factory }
+		set_variable = { dd_ruins_cg = PREV.dd_ruins_cg }
+		set_country_flag = dd_usa_ruins_pending
 	}
-	every_owned_state = {
-		transfer_state_to = FVA
+	set_variable = { dd_pie_sd = PREV.party_popularity@social_democracy }
+	set_variable = { dd_pie_sl = PREV.party_popularity@social_liberalism }
+	set_variable = { dd_pie_lc = PREV.party_popularity@liberal_conservatism }
+	set_variable = { dd_pie_pp = PREV.party_popularity@progressive_populism }
+	set_variable = { dd_pie_np = PREV.party_popularity@national_populism }
+	set_variable = { dd_pie_fa = PREV.party_popularity@fascism }
+	set_variable = { dd_pie_co = PREV.party_popularity@communism }
+	set_variable = { dd_pie_ac = PREV.party_popularity@anarcho_communism }
+	multiply_variable = { dd_pie_sd = 100 }
+	multiply_variable = { dd_pie_sl = 100 }
+	multiply_variable = { dd_pie_lc = 100 }
+	multiply_variable = { dd_pie_pp = 100 }
+	multiply_variable = { dd_pie_np = 100 }
+	multiply_variable = { dd_pie_fa = 100 }
+	multiply_variable = { dd_pie_co = 100 }
+	multiply_variable = { dd_pie_ac = 100 }
+	set_popularities = {
+		social_democracy = var:dd_pie_sd
+		social_liberalism = var:dd_pie_sl
+		liberal_conservatism = var:dd_pie_lc
+		progressive_populism = var:dd_pie_pp
+		national_populism = var:dd_pie_np
+		fascism = var:dd_pie_fa
+		communism = var:dd_pie_co
+		anarcho_communism = var:dd_pie_ac
 	}
+	if = { limit = { PREV = { has_government = social_democracy } } set_politics = { ruling_party = social_democracy elections_allowed = no } }
+	if = { limit = { PREV = { has_government = progressive_populism } } set_politics = { ruling_party = progressive_populism elections_allowed = no } }
+	if = { limit = { PREV = { has_government = social_liberalism } } set_politics = { ruling_party = social_liberalism elections_allowed = no } }
+	if = { limit = { PREV = { has_government = liberal_conservatism } } set_politics = { ruling_party = liberal_conservatism elections_allowed = no } }
+	if = { limit = { PREV = { has_government = national_populism } } set_politics = { ruling_party = national_populism elections_allowed = no } }
+	if = { limit = { PREV = { has_government = fascism } } set_politics = { ruling_party = fascism elections_allowed = no } }
+	if = { limit = { PREV = { has_government = communism } } set_politics = { ruling_party = communism elections_allowed = no } }
+	if = { limit = { PREV = { has_government = anarcho_communism } } set_politics = { ruling_party = anarcho_communism elections_allowed = no } }
+	if = { limit = { PREV = { has_variable = dd_usa_left_nominee } } set_variable = { dd_usa_left_nominee = PREV.dd_usa_left_nominee } }
+	if = { limit = { PREV = { has_variable = dd_usa_right_nominee } } set_variable = { dd_usa_right_nominee = PREV.dd_usa_right_nominee } }
+	if = { limit = { PREV = { has_country_flag = dd_usa_alt_ballot } } set_country_flag = dd_usa_alt_ballot }
+}
+
+# The USA tag is removed only after the player is on the faction tag, and only if that country is AI.
+dd_usa_cw_finish_tag = {
+	if = {
+		limit = {
+			has_global_flag = dd_usa_tag_drop_pending
+			USA = { exists = yes }
+		}
+		if = {
+			limit = { USA = { is_ai = no } }
+			event_target:dd_usa_winner = { change_tag_from = USA }
+		}
+		else = {
+			USA = {
+				every_owned_state = { transfer_state_to = FVA }
+			}
+			event_target:dd_usa_winner = { annex_country = { target = USA transfer_troops = yes } }
+			clr_global_flag = dd_usa_tag_drop_pending
+		}
+	}
+	every_country = {
+		limit = {
+			has_country_flag = dd_usa_ruins_pending
+			NOT = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } }
+		}
+		add_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+		clr_country_flag = dd_usa_ruins_pending
+	}
+}
+
+# Election winner takes their faction tag. The player is moved first. USA is removed the next day, and only if nobody is still playing it.
+dd_usa_drop_usa_tag = {
 	event_target:dd_usa_winner = {
+		dd_usa_cw_copy_from_usa = yes
 		inherit_technology = USA
-		load_focus_tree = { tree = usa_focus keep_completed = no }
+		load_focus_tree = { tree = usa_focus copy_completed_from = USA }
 		set_country_flag = dd_usa_civil_war
 	}
 	transfer_units_fraction = {
@@ -3793,11 +4062,17 @@ dd_usa_drop_usa_tag = {
 		USA_james_fishback = { set_nationality = event_target:dd_usa_winner }
 		event_target:dd_usa_winner = { promote_character = { character = USA_james_fishback ideology = fascism_ideology } }
 	}
+	if = { limit = { has_character = USA_alexandria_ocasio_cortez } USA_alexandria_ocasio_cortez = { set_nationality = event_target:dd_usa_winner } }
+	if = { limit = { has_character = USA_gavin_newsom } USA_gavin_newsom = { set_nationality = event_target:dd_usa_winner } }
+	if = { limit = { has_character = USA_marco_rubio } USA_marco_rubio = { set_nationality = event_target:dd_usa_winner } }
+	if = { limit = { has_character = USA_jd_vance } USA_jd_vance = { set_nationality = event_target:dd_usa_winner } }
+	if = { limit = { has_character = USA_james_fishback } USA_james_fishback = { set_nationality = event_target:dd_usa_winner } }
+	event_target:dd_usa_winner = { dd_usa_name_ballot = yes }
 	if = {
 		limit = { is_ai = no }
 		event_target:dd_usa_winner = { change_tag_from = USA }
 	}
-	event_target:dd_usa_winner = { annex_country = { target = USA transfer_troops = yes } }
+	set_global_flag = dd_usa_tag_drop_pending
 }
 
 dd_usa_congress_sweep = {

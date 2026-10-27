@@ -80,20 +80,43 @@ dd_per_state_collapse = {
 		}
 		set_global_flag = dd_per_collapse_war
 		dd_per_foreigners_leave = yes
+		dd_per_end_gulf_economy = yes
+		# The populists need a province before they can take divisions. Half the Guard's army is then deleted there.
+		if = {
+			limit = { 420 = { is_owned_by = PER } }
+			PRP = {
+				transfer_state = 420
+				add_state_core = 420
+				set_capital = { state = 420 }
+			}
+		}
 		PER = {
-			set_cosmetic_tag = IRG_REVOLT
-			set_country_flag = dd_per_is_irgc
-			load_focus_tree = { tree = dd_irg_focus keep_completed = no }
-			# Half the Guard's field army is gone. Generals stay.
 			transfer_units_fraction = {
 				target = PRP
-				size = 0
+				size = 0.5
 				army_ratio = 0.5
 				navy_ratio = 0
 				air_ratio = 0
 				stockpile_ratio = 0
 				keep_unit_leaders_trigger = { always = yes }
 			}
+		}
+		PRP = { delete_unit = { disband = no } }
+		PER = {
+			set_variable = { dd_irgc_keep = num_divisions }
+			divide_variable = { dd_irgc_keep = 2 }
+			every_owned_state = {
+				limit = { PREV = { num_divisions > dd_irgc_keep } }
+				PREV = {
+					delete_unit = {
+						state = PREV
+						disband = no
+					}
+				}
+			}
+			set_cosmetic_tag = IRG_REVOLT
+			set_country_flag = dd_per_is_irgc
+			load_focus_tree = { tree = dd_irg_focus keep_completed = no }
 			set_politics = {
 				ruling_party = theocratic_absolutism
 				elections_allowed = no
@@ -110,8 +133,6 @@ dd_per_state_collapse = {
 				add_ideas = dd_per_irgc_dominance
 			}
 		}
-		PRP = { delete_unit = { disband = no } }
-
 		if = {
 			limit = { 1001 = { is_owned_by = PER } }
 			KRD = {
@@ -261,11 +282,19 @@ dd_per_state_collapse = {
 		}
 
 		if = {
-			limit = { 420 = { is_owned_by = PER } }
+			limit = {
+				OR = {
+					420 = { is_owned_by = PER }
+					PRP = { owns_state = 420 }
+				}
+			}
 			PRP = {
-				transfer_state = 420
-				add_state_core = 420
-				set_capital = { state = 420 }
+				if = {
+					limit = { 420 = { is_owned_by = PER } }
+					transfer_state = 420
+					add_state_core = 420
+					set_capital = { state = 420 }
+				}
 				set_country_flag = dd_per_cw_released
 				set_variable = { dd_cw_militia_count = 12 }
 				dd_per_cw_arm = yes

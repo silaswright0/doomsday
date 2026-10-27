@@ -32,6 +32,7 @@ on_actions = {
 				}
 			}
 			ISR = {
+				set_party_name = { ideology = fascism long_name = dd_isr_otzma_party_long name = dd_isr_otzma_party }
 				if = { limit = { NOT = { has_character = ISR_naama_lazimi } } recruit_character = ISR_naama_lazimi }
 				if = { limit = { NOT = { has_character = ISR_shikma_bressler } } recruit_character = ISR_shikma_bressler }
 				if = { limit = { NOT = { has_character = ISR_amir_yaron } } recruit_character = ISR_amir_yaron }

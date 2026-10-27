@@ -44,19 +44,15 @@ dd_isr_middle_east = {
 	}
 }
 
-# Lebanon, Syria (including Rojava), the Golan, Jordan, Sinai, Gaza, and the West Bank. Hatay stays out.
+# Palestine, Jordan, all of Lebanon, Sinai, Damascus, Aleppo, and Al Anbar. The east of Syria stays out.
 dd_isr_greater_held = {
 	553 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
 	1089 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
 	554 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
 	677 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
-	680 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
-	1100 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
-	1103 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
-	1104 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
-	1088 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
 	455 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
 	453 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
 	1085 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
 	1086 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
+	1010 = { OR = { is_owned_by = ROOT owner = { is_subject_of = ROOT } } }
 }

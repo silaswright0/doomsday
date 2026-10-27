@@ -53,10 +53,7 @@ characters = {
 			idea_token = USA_jd_vance
 			allowed = { original_tag = USA }
 			available = {
-				OR = {
-					has_government = national_populism
-					has_government = technocracy
-				}
+				has_government = national_populism
 				NOT = { has_country_leader = { name = "JD Vance" ruling_only = yes } }
 			}
 			traits = { dd_movement_heir }
@@ -76,7 +73,6 @@ characters = {
 				OR = {
 					has_government = national_populism
 					has_government = liberal_conservatism
-					has_government = sovereign_democracy
 				}
 				NOT = { has_country_leader = { name = "Marco Rubio" ruling_only = yes } }
 			}
@@ -107,12 +103,7 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_howard_lutnick
 			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = national_populism
-					has_government = technocracy
-				}
-			}
+			available = { has_government = national_populism }
 			traits = { captain_of_industry }
 			ai_will_do = { factor = 1 }
 		}
@@ -146,10 +137,7 @@ characters = {
 			idea_token = USA_gavin_newsom
 			allowed = { original_tag = USA }
 			available = {
-				OR = {
-					has_government = social_liberalism
-					has_government = sovereign_democracy
-				}
+				has_government = social_liberalism
 				NOT = { has_country_leader = { name = "Gavin Newsom" ruling_only = yes } }
 			}
 			traits = { smooth_talking_charmer }
@@ -284,12 +272,7 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_hakeem_jeffries
 			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = social_liberalism
-					has_government = social_democracy
-				}
-			}
+			available = { has_government = social_liberalism }
 			traits = { silent_workhorse }
 			ai_will_do = { factor = 1 }
 		}
@@ -355,12 +338,7 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_chuck_schumer
 			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = social_liberalism
-					has_government = social_democracy
-				}
-			}
+			available = { has_government = social_liberalism }
 			traits = { silent_workhorse }
 			ai_will_do = { factor = 1 }
 		}
@@ -393,7 +371,12 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_susie_wiles
 			allowed = { original_tag = USA }
-			available = { has_government = national_populism }
+			available = {
+				OR = {
+					has_government = liberal_conservatism
+					has_government = national_populism
+				}
+			}
 			traits = { silent_workhorse }
 			ai_will_do = { factor = 1 }
 		}
@@ -435,12 +418,7 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_elon_musk
 			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = technocracy
-					has_government = fascism
-				}
-			}
+			available = { has_government = technocracy }
 			traits = { captain_of_industry }
 			ai_will_do = { factor = 1 }
 		}
@@ -468,12 +446,7 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_marc_andreessen
 			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = social_liberalism
-					has_government = technocracy
-				}
-			}
+			available = { has_government = technocracy }
 			traits = { dd_tech_builder }
 			ai_will_do = { factor = 1 }
 		}
@@ -487,12 +460,7 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_tucker_carlson
 			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = national_populism
-					has_government = technocracy
-				}
-			}
+			available = { has_government = national_populism }
 			traits = { dd_propagandist }
 			ai_will_do = { factor = 1 }
 		}
@@ -506,12 +474,7 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_pete_buttigieg
 			allowed = { original_tag = USA }
-			available = {
-				OR = {
-					has_government = social_liberalism
-					has_government = social_democracy
-				}
-			}
+			available = { has_government = social_liberalism }
 			traits = { dd_transport_secretary }
 			ai_will_do = { factor = 1 }
 		}

@@ -238,16 +238,29 @@ focus_tree = {
 	continuous_focus_position = { x = 50 y = 1200 }
 
 	focus = {
-		id = IRG_none
-		icon = GFX_goal_generic_army_doctrines
+		id = IRG_war_on_israel
+		icon = GFX_goal_generic_occupy_start_war
 		x = 0
 		y = 0
 		cost = 5
-		allow_branch = { always = no }
-		available = { always = no }
-		ai_will_do = { factor = 0 }
+		available = {
+			tag = PER
+			has_war = no
+			ISR = { exists = yes }
+			NOT = { has_war_with = ISR }
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = ISR }
+				has_war_with = ISR
+			}
+		}
+		ai_will_do = { factor = 200 }
 		completion_reward = {
-			add_political_power = 1
+			create_wargoal = {
+				type = annex_everything
+				target = ISR
+			}
 		}
 	}
 }

@@ -91,3 +91,25 @@ dd_csto_no_offensive = {
 		value = -1000
 	}
 }
+
+# While the American ultimatum is running, members want a larger field army.
+dd_nato_ultimatum_divisions = {
+	enable = {
+		has_country_flag = dd_nato_ultimatum
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = 80
+	}
+	ai_strategy = {
+		type = force_build_armies
+		value = 8
+	}
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = 6
+	}
+}

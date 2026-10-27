@@ -17,6 +17,7 @@ add_namespace = dd_usa_blood
 add_namespace = dd_usa_bill
 add_namespace = dd_usa_graham
 add_namespace = dd_usa_noem
+add_namespace = dd_usa_kirk
 
 country_event = {
 	id = dd_usa_greenland.1
@@ -344,10 +345,13 @@ country_event = {
 	option = {
 		name = dd_usa_tariff.11.a
 		ai_chance = {
-			factor = 10
+			factor = 1
 			modifier = {
 				factor = 0
-				check_variable = { dd_trade_war_points > 3 }
+				OR = {
+					has_country_flag = dd_tw_refuse_deal
+					check_variable = { dd_trade_war_points > 3 }
+				}
 			}
 		}
 		USA = { country_event = { id = dd_usa_tariff.12 } }
@@ -355,10 +359,11 @@ country_event = {
 	option = {
 		name = dd_usa_tariff.11.b
 		ai_chance = {
-			factor = 0
+			factor = 1
 			modifier = {
-				factor = 10
-				check_variable = { dd_trade_war_points > 3 }
+				factor = 0
+				NOT = { has_country_flag = dd_tw_refuse_deal }
+				NOT = { check_variable = { dd_trade_war_points > 3 } }
 			}
 		}
 		USA = {
@@ -390,10 +395,13 @@ country_event = {
 	option = {
 		name = dd_usa_tariff.13.a
 		ai_chance = {
-			factor = 10
+			factor = 1
 			modifier = {
 				factor = 0
-				check_variable = { dd_trade_war_points > 3 }
+				OR = {
+					has_country_flag = dd_tw_refuse_deal
+					check_variable = { dd_trade_war_points > 3 }
+				}
 			}
 		}
 		USA = {
@@ -406,10 +414,11 @@ country_event = {
 	option = {
 		name = dd_usa_tariff.13.b
 		ai_chance = {
-			factor = 0
+			factor = 1
 			modifier = {
-				factor = 10
-				check_variable = { dd_trade_war_points > 3 }
+				factor = 0
+				NOT = { has_country_flag = dd_tw_refuse_deal }
+				NOT = { check_variable = { dd_trade_war_points > 3 } }
 			}
 		}
 		USA = {
@@ -452,10 +461,13 @@ country_event = {
 	option = {
 		name = dd_usa_tariff.21.a
 		ai_chance = {
-			factor = 10
+			factor = 1
 			modifier = {
 				factor = 0
-				check_variable = { dd_trade_war_points > 3 }
+				OR = {
+					has_country_flag = dd_tw_refuse_deal
+					check_variable = { dd_trade_war_points > 3 }
+				}
 			}
 		}
 		USA = { country_event = { id = dd_usa_tariff.22 } }
@@ -463,10 +475,11 @@ country_event = {
 	option = {
 		name = dd_usa_tariff.21.b
 		ai_chance = {
-			factor = 0
+			factor = 1
 			modifier = {
-				factor = 10
-				check_variable = { dd_trade_war_points > 3 }
+				factor = 0
+				NOT = { has_country_flag = dd_tw_refuse_deal }
+				NOT = { check_variable = { dd_trade_war_points > 3 } }
 			}
 		}
 		USA = {
@@ -498,10 +511,13 @@ country_event = {
 	option = {
 		name = dd_usa_tariff.23.a
 		ai_chance = {
-			factor = 10
+			factor = 1
 			modifier = {
 				factor = 0
-				check_variable = { dd_trade_war_points > 3 }
+				OR = {
+					has_country_flag = dd_tw_refuse_deal
+					check_variable = { dd_trade_war_points > 3 }
+				}
 			}
 		}
 		USA = {
@@ -514,10 +530,11 @@ country_event = {
 	option = {
 		name = dd_usa_tariff.23.b
 		ai_chance = {
-			factor = 0
+			factor = 1
 			modifier = {
-				factor = 10
-				check_variable = { dd_trade_war_points > 3 }
+				factor = 0
+				NOT = { has_country_flag = dd_tw_refuse_deal }
+				NOT = { check_variable = { dd_trade_war_points > 3 } }
 			}
 		}
 		USA = {
@@ -552,6 +569,30 @@ country_event = {
 }
 
 country_event = {
+	id = dd_usa_tariff.30
+	title = dd_usa_tariff.30.t
+	desc = dd_usa_tariff.30.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.30.a
+		ai_chance = { factor = 10 }
+	}
+}
+
+country_event = {
+	id = dd_usa_tariff.31
+	title = dd_usa_tariff.31.t
+	desc = dd_usa_tariff.31.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_usa_tariff.31.a
+		ai_chance = { factor = 10 }
+	}
+}
+
+country_event = {
 	id = dd_usa_foreign.1
 	title = dd_usa_foreign.1.t
 	desc = dd_usa_foreign.1.d
@@ -559,35 +600,12 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = dd_usa_foreign.1.a
-		if = {
-			limit = { has_country_flag = dd_usa_caucus_anarchist }
-			add_to_variable = { dd_usa_aca_pop = 0.02 }
-			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
-		}
-		if = {
-			limit = { has_country_flag = dd_usa_caucus_communist }
-			add_popularity = { ideology = communism popularity = 0.02 }
-		}
-		if = {
-			limit = { has_country_flag = dd_usa_caucus_demsoc }
-			add_popularity = { ideology = social_democracy popularity = 0.02 }
-		}
+		add_popularity = { ideology = social_democracy popularity = 0.02 }
+		add_popularity = { ideology = communism popularity = 0.01 }
 	}
 	option = {
 		name = dd_usa_foreign.1.b
-		if = {
-			limit = { has_country_flag = dd_usa_caucus_anarchist }
-			add_to_variable = { dd_usa_aca_pop = 0.03 }
-			add_popularity = { ideology = anarcho_communism popularity = 0.03 }
-		}
-		if = {
-			limit = { has_country_flag = dd_usa_caucus_communist }
-			add_popularity = { ideology = communism popularity = 0.03 }
-		}
-		if = {
-			limit = { has_country_flag = dd_usa_caucus_demsoc }
-			add_popularity = { ideology = social_democracy popularity = 0.03 }
-		}
+		add_popularity = { ideology = communism popularity = 0.02 }
 	}
 }
 
@@ -921,8 +939,21 @@ country_event = {
 
 	option = {
 		name = dd_usa_noem.1.a
-		add_political_power = -25
-		add_stability = -0.02
+		add_stability = -0.01
+	}
+}
+
+# September 10, 2026. A year after Charlie Kirk was killed.
+country_event = {
+	id = dd_usa_kirk.1
+	title = dd_usa_kirk.1.t
+	desc = dd_usa_kirk.1.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = dd_usa_kirk.1.a
+		add_stability = -0.01
 	}
 }
 

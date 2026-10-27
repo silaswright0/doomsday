@@ -85,47 +85,85 @@ dd_per_total_war_air = {
 	ai_strategy = {
 		type = strategic_air_importance
 		id = 232 # Levant: Israel
-		value = 50000
+		value = 200000
 	}
 	ai_strategy = {
 		type = strategic_air_importance
 		id = 238 # East Arabia: Bahrain, Qatar, the UAE
-		value = 50000
+		value = 160000
 	}
 	ai_strategy = {
 		type = strategic_air_importance
 		id = 28 # Middle East: Kuwait
-		value = 50000
+		value = 160000
 	}
 	ai_strategy = {
 		type = strategic_air_importance
 		id = 203 # Persian Gulf
-		value = 40000
+		value = 120000
 	}
 	ai_strategy = {
 		type = strategic_air_importance
 		id = 104 # Arabian Sea
-		value = 40000
+		value = 120000
 	}
 
 	ai_strategy = {
 		type = unit_ratio
 		id = strategic_bomber
-		value = 40
+		value = 80
 	}
 	ai_strategy = {
 		type = unit_ratio
 		id = tactical_bomber
-		value = 25
+		value = 50
 	}
 	ai_strategy = {
-		type = equipment_production_factor
-		id = strategic_bomber
+		type = unit_ratio
+		id = strike_uav
+		value = 60
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = guided_missile
+		value = 50
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = ballistic_missile
 		value = 40
 	}
 	ai_strategy = {
 		type = equipment_production_factor
-		id = tactical_bomber
-		value = 20
+		id = strategic_bomber
+		value = 80
 	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = 40
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = guided_missile_equipment
+		value = 6
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = ballistic_missile_equipment
+		value = 4
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = strike_uav_equipment
+		value = 4
+	}
+
+	ai_strategy = { type = raid_target_country id = ISR value = 400 }
+	ai_strategy = { type = raid_target_country id = SAU value = 300 }
+	ai_strategy = { type = raid_target_country id = USA value = 300 }
+	ai_strategy = { type = raid_target_country id = KUW value = 200 }
+	ai_strategy = { type = raid_target_country id = QAT value = 200 }
+	ai_strategy = { type = raid_target_country id = UAE value = 200 }
+	ai_strategy = { type = raid_target_country id = BHR value = 200 }
 }

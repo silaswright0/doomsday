@@ -360,6 +360,23 @@ ideas = {
 				air_strategic_bomber_bombing_factor = 0.10
 			}
 		}
+		dd_usa_drone_pierce = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			equipment_bonus = {
+				infantry_equipment = { ap_attack = 0.10 instant = yes }
+				artillery_equipment = { ap_attack = 0.10 instant = yes }
+				anti_tank_equipment = { ap_attack = 0.10 instant = yes }
+				motorized_equipment = { ap_attack = 0.10 instant = yes }
+				mechanized_equipment = { ap_attack = 0.10 instant = yes }
+				light_tank_chassis = { ap_attack = 0.10 instant = yes }
+				medium_tank_chassis = { ap_attack = 0.10 instant = yes }
+				heavy_tank_chassis = { ap_attack = 0.10 instant = yes }
+				modern_tank_chassis = { ap_attack = 0.10 instant = yes }
+			}
+		}
 		dd_usa_airforce_prod = {
 			picture = generic_air_bonus
 			allowed = { always = no }
