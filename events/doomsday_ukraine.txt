@@ -1,0 +1,463 @@
+add_namespace = dd_ukr_aid
+add_namespace = dd_ukr_peace
+add_namespace = dd_ukr_shell
+
+country_event = {
+	id = dd_ukr_shell.1
+	title = dd_ukr_shell.1.t
+	desc = dd_ukr_shell.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_shell.1.a
+		add_ideas = dd_ukr_shell_hunger
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.1
+	title = dd_ukr_aid.1.t
+	desc = dd_ukr_aid.1.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				tag = USA
+				factor = 0.5
+			}
+		}
+		dd_ukr_deliver_usa = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				tag = USA
+				add = 50
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.2
+	title = dd_ukr_aid.2.t
+	desc = dd_ukr_aid.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid.2.a
+		ai_chance = { base = 25 }
+		UKR = {
+			set_country_flag = dd_ukr_diesel_watch
+			country_event = { id = dd_ukr_aid.3 }
+		}
+	}
+	option = {
+		name = dd_ukr_aid.2.b
+		ai_chance = { base = 75 }
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.3
+	title = dd_ukr_aid.3.t
+	desc = dd_ukr_aid.3.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_aid.3.a }
+}
+
+country_event = {
+	id = dd_ukr_aid.4
+	title = dd_ukr_aid.4.t
+	desc = dd_ukr_aid.4.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_aid.4.a }
+}
+
+country_event = {
+	id = dd_ukr_aid.11
+	title = dd_ukr_aid.11.t
+	desc = dd_ukr_aid.11.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_ger = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.12
+	title = dd_ukr_aid.12.t
+	desc = dd_ukr_aid.12.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_eng = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.13
+	title = dd_ukr_aid.13.t
+	desc = dd_ukr_aid.13.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_swe = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.14
+	title = dd_ukr_aid.14.t
+	desc = dd_ukr_aid.14.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_nor = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.15
+	title = dd_ukr_aid.15.t
+	desc = dd_ukr_aid.15.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_den = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.16
+	title = dd_ukr_aid.16.t
+	desc = dd_ukr_aid.16.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_hol = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.17
+	title = dd_ukr_aid.17.t
+	desc = dd_ukr_aid.17.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_fra = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.18
+	title = dd_ukr_aid.18.t
+	desc = dd_ukr_aid.18.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_pol = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_aid.19
+	title = dd_ukr_aid.19.t
+	desc = dd_ukr_aid.19.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_aid_accept
+		ai_chance = {
+			base = 100
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		dd_ukr_deliver_can = yes
+	}
+	option = {
+		name = dd_ukr_aid_reject
+		ai_chance = {
+			base = 0
+			modifier = {
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dd_ukr_peace.1
+	title = dd_ukr_peace.1.t
+	desc = dd_ukr_peace.1.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_peace.1.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				surrender_progress > 0.2
+				add = 50
+			}
+			modifier = {
+				has_war_support < 0.25
+				add = 30
+			}
+		}
+		UKR = {
+			dd_ukr_freeze_the_war = yes
+			country_event = { id = dd_ukr_peace.2 }
+		}
+	}
+	option = {
+		name = dd_ukr_peace.1.b
+		ai_chance = { base = 90 }
+		UKR = { country_event = { id = dd_ukr_peace.3 } }
+	}
+}
+
+country_event = {
+	id = dd_ukr_peace.2
+	title = dd_ukr_peace.2.t
+	desc = dd_ukr_peace.2.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_peace.2.a }
+}
+
+country_event = {
+	id = dd_ukr_peace.3
+	title = dd_ukr_peace.3.t
+	desc = dd_ukr_peace.3.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_peace.3.a }
+}

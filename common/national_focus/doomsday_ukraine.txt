@@ -1,0 +1,550 @@
+focus_tree = {
+	id = dd_ukr_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = UKR
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = UKR_desperate_defence
+		icon = GFX_goal_generic_defence
+		x = 24
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_ukr_desperate_defence
+		}
+	}
+
+	focus = {
+		id = UKR_secure_arms_support
+		icon = GFX_goal_generic_military_deal
+		x = 24
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 20 }
+		prerequisite = { focus = UKR_desperate_defence }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = UKR_the_front
+		icon = GFX_goal_generic_construct_military
+		x = 4
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		prerequisite = { focus = UKR_secure_arms_support }
+		completion_reward = {
+			add_ideas = dd_ukr_the_front
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = UKR_the_drone_line
+		icon = GFX_goal_generic_air_fighter
+		x = 4
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 12 }
+		prerequisite = { focus = UKR_the_front }
+		completion_reward = {
+			add_ideas = dd_ukr_drone_line
+		}
+	}
+
+	focus = {
+		id = UKR_drone_tactics
+		icon = GFX_goal_generic_defence
+		x = 4
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 12 }
+		prerequisite = { focus = UKR_the_drone_line }
+		completion_reward = {
+			add_ideas = dd_ukr_drone_tactics
+		}
+	}
+
+	focus = {
+		id = UKR_home_shells
+		icon = GFX_goal_generic_production
+		x = 4
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 12 }
+		prerequisite = { focus = UKR_drone_tactics }
+		completion_reward = {
+			remove_ideas = dd_ukr_shell_hunger
+			add_ideas = dd_ukr_home_shells
+			add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 25 producer = UKR }
+		}
+	}
+
+	focus = {
+		id = UKR_the_air_umbrella
+		icon = GFX_goal_generic_air_fighter
+		x = 4
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = UKR_home_shells }
+		completion_reward = {
+			add_ideas = dd_ukr_air_umbrella
+		}
+	}
+
+	focus = {
+		id = UKR_electronic_warfare
+		icon = GFX_goal_generic_secret_weapon
+		x = 4
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = UKR_the_air_umbrella }
+		completion_reward = {
+			add_ideas = dd_ukr_electronic_warfare
+		}
+	}
+
+	focus = {
+		id = UKR_the_black_sea
+		icon = GFX_goal_generic_navy_submarine
+		x = 4
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_electronic_warfare }
+		completion_reward = {
+			add_ideas = dd_ukr_black_sea
+			add_convoys = 25
+		}
+	}
+
+	focus = {
+		id = UKR_deep_strike
+		icon = GFX_goal_generic_major_war
+		x = 4
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_the_black_sea }
+		completion_reward = {
+			add_ideas = dd_ukr_deep_strike
+		}
+	}
+
+	focus = {
+		id = UKR_how_it_ends
+		icon = GFX_goal_generic_major_war
+		x = 24
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = UKR_secure_arms_support }
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = UKR_no_concession
+		icon = GFX_goal_generic_attack_allies
+		x = 16
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 12 }
+		prerequisite = { focus = UKR_how_it_ends }
+		mutually_exclusive = { focus = UKR_a_ceasefire }
+		completion_reward = {
+			add_ideas = dd_ukr_no_concession
+		}
+	}
+
+	focus = {
+		id = UKR_to_the_1991_border
+		icon = GFX_goal_generic_territory_or_war
+		x = 16
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = UKR_no_concession }
+		completion_reward = {
+			add_ideas = dd_ukr_to_the_border
+		}
+	}
+
+	focus = {
+		id = UKR_hold_what_we_take
+		icon = GFX_goal_generic_fortify_city
+		x = 16
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_to_the_1991_border }
+		completion_reward = {
+			add_ideas = dd_ukr_hold_the_line_taken
+		}
+	}
+
+	focus = {
+		id = UKR_the_land_bridge
+		icon = GFX_goal_generic_attack_allies
+		x = 16
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_hold_what_we_take }
+		completion_reward = {
+			add_ideas = dd_ukr_land_bridge
+		}
+	}
+
+	focus = {
+		id = UKR_crimea
+		icon = GFX_goal_generic_navy_submarine
+		x = 16
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = UKR_the_land_bridge }
+		completion_reward = {
+			add_ideas = dd_ukr_crimea
+		}
+	}
+
+	focus = {
+		id = UKR_a_ceasefire
+		icon = GFX_goal_generic_neutrality_focus
+		x = 32
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 4 }
+		prerequisite = { focus = UKR_how_it_ends }
+		mutually_exclusive = { focus = UKR_no_concession }
+		completion_reward = {
+			add_ideas = dd_ukr_ceasefire_track
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = UKR_propose_the_freeze
+		icon = GFX_goal_generic_improve_relations
+		x = 32
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 4 }
+		prerequisite = { focus = UKR_a_ceasefire }
+		available = {
+			has_war_with = SOV
+			SOV = { exists = yes }
+		}
+		cancel_if_invalid = yes
+		completion_reward = {
+			SOV = { country_event = { id = dd_ukr_peace.1 } }
+		}
+	}
+
+	focus = {
+		id = UKR_the_price_of_peace
+		icon = GFX_goal_generic_construction
+		x = 32
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = UKR_propose_the_freeze }
+		completion_reward = {
+			add_ideas = dd_ukr_price_of_peace
+		}
+	}
+
+	focus = {
+		id = UKR_the_grid
+		icon = GFX_goal_generic_construction
+		x = 32
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = UKR_the_price_of_peace }
+		completion_reward = {
+			add_ideas = dd_ukr_the_grid
+		}
+	}
+
+	focus = {
+		id = UKR_the_veterans
+		icon = GFX_goal_generic_national_unity
+		x = 32
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 5 }
+		prerequisite = { focus = UKR_the_grid }
+		completion_reward = {
+			add_ideas = dd_ukr_veterans
+		}
+	}
+
+	focus = {
+		id = UKR_who_holds_the_state
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 15 }
+		prerequisite = { focus = UKR_secure_arms_support }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = UKR_the_office_holds
+		icon = GFX_goal_generic_national_unity
+		x = 40
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 12 }
+		prerequisite = { focus = UKR_who_holds_the_state }
+		mutually_exclusive = { focus = UKR_the_generals_answer }
+		completion_reward = {
+			add_ideas = dd_ukr_the_office
+		}
+	}
+
+	focus = {
+		id = UKR_koretskyi_cabinet
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 40
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = UKR_the_office_holds }
+		completion_reward = {
+			add_ideas = dd_ukr_koretskyi
+		}
+	}
+
+	focus = {
+		id = UKR_budanov_at_the_office
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 40
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_koretskyi_cabinet }
+		completion_reward = {
+			add_ideas = dd_ukr_budanov
+		}
+	}
+
+	focus = {
+		id = UKR_the_eu_chapter
+		icon = GFX_goal_generic_alliance
+		x = 40
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_budanov_at_the_office }
+		completion_reward = {
+			add_ideas = dd_ukr_eu_track
+			add_opinion_modifier = { target = FRA modifier = dd_ukr_eu_opinion }
+			add_opinion_modifier = { target = GER modifier = dd_ukr_eu_opinion }
+			add_opinion_modifier = { target = POL modifier = dd_ukr_eu_opinion }
+		}
+	}
+
+	focus = {
+		id = UKR_security_guarantees
+		icon = GFX_goal_generic_defence
+		x = 40
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_the_eu_chapter }
+		completion_reward = {
+			add_ideas = dd_ukr_guarantees
+			add_opinion_modifier = { target = USA modifier = dd_ukr_eu_opinion }
+			add_opinion_modifier = { target = ENG modifier = dd_ukr_eu_opinion }
+		}
+	}
+
+	focus = {
+		id = UKR_anti_corruption
+		icon = GFX_goal_generic_political_pressure
+		x = 40
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_security_guarantees }
+		completion_reward = {
+			add_ideas = dd_ukr_anti_corruption
+		}
+	}
+
+	focus = {
+		id = UKR_frozen_assets
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 40
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = UKR_anti_corruption }
+		completion_reward = {
+			add_ideas = dd_ukr_frozen_assets
+			add_to_variable = { treasury = 4 }
+		}
+	}
+
+	focus = {
+		id = UKR_the_generals_answer
+		icon = GFX_goal_generic_army_doctrines
+		x = 56
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = UKR_who_holds_the_state }
+		mutually_exclusive = { focus = UKR_the_office_holds }
+		completion_reward = {
+			add_ideas = dd_ukr_generals
+			army_experience = 20
+		}
+	}
+
+	focus = {
+		id = UKR_syrskyi_stays
+		icon = GFX_goal_generic_defence
+		x = 56
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = UKR_the_generals_answer }
+		completion_reward = {
+			add_ideas = dd_ukr_syrskyi
+		}
+	}
+
+	focus = {
+		id = UKR_the_call_up
+		icon = GFX_goal_generic_construct_military
+		x = 64
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = UKR_the_generals_answer }
+		completion_reward = {
+			add_ideas = dd_ukr_the_call_up
+			add_manpower = 30000
+		}
+	}
+
+	focus = {
+		id = UKR_bring_them_back
+		icon = GFX_goal_generic_national_unity
+		x = 64
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 5 }
+		prerequisite = { focus = UKR_the_call_up }
+		completion_reward = {
+			add_ideas = dd_ukr_bring_them_back
+		}
+	}
+
+	focus = {
+		id = UKR_bring_zaluzhnyi_home
+		icon = GFX_goal_generic_political_pressure
+		x = 56
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = UKR_syrskyi_stays }
+		completion_reward = {
+			add_command_power = 30
+			add_war_support = 0.05
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = UKR_training_abroad
+		icon = GFX_goal_generic_army_doctrines
+		x = 56
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = UKR_bring_zaluzhnyi_home }
+		completion_reward = {
+			add_ideas = dd_ukr_training_abroad
+		}
+	}
+
+	focus = {
+		id = UKR_a_vote_when_it_is_over
+		icon = GFX_goal_generic_national_unity
+		x = 56
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 4 }
+		prerequisite = { focus = UKR_training_abroad }
+		available = { has_war = no }
+		cancel_if_invalid = yes
+		completion_reward = {
+			add_stability = 0.05
+			create_country_leader = {
+				name = "Valerii Zaluzhnyi"
+				desc = UKR_ZALUZHNYI_DESC
+				picture = GFX_portrait_unknown
+				ideology = social_liberal
+			}
+		}
+	}
+}

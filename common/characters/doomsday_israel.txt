@@ -4,13 +4,23 @@ characters = {
 		portraits = {
 			civilian = {
 				large = GFX_portrait_ISR_leader
-				small = GFX_portrait_ISR_leader
+				small = GFX_portrait_ISR_netanyahu_small
 			}
 		}
 		country_leader = {
 			ideology = national_populist
 			desc = ISR_LEADER_DESC
 			expire = "2065.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_benjamin_netanyahu
+			allowed = { original_tag = ISR }
+			available = {
+				NOT = { has_country_leader = { name = "Benjamin Netanyahu" ruling_only = yes } }
+			}
+			traits = { silent_workhorse }
+			ai_will_do = { factor = 1 }
 		}
 	}
 	ISR_yair_golan = {

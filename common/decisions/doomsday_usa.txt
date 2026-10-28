@@ -2,7 +2,7 @@ dd_usa_legislature_category = {
 	dd_usa_lobby_democratic_caucus = {
 		icon = generic_political_discourse
 		allowed = { tag = USA }
-		cost = 50
+		cost = 100
 		ai_will_do = { factor = 0 }
 		visible = {
 			has_country_flag = dd_usa_legislature_open
@@ -17,7 +17,7 @@ dd_usa_legislature_category = {
 	dd_usa_lobby_republican_caucus = {
 		icon = generic_political_discourse
 		allowed = { tag = USA }
-		cost = 50
+		cost = 100
 		ai_will_do = { factor = 0 }
 		visible = {
 			has_country_flag = dd_usa_legislature_open
@@ -32,7 +32,7 @@ dd_usa_legislature_category = {
 	dd_usa_use_filibuster_bypass = {
 		icon = generic_decision
 		allowed = { tag = USA }
-		cost = 100
+		cost = 200
 		fire_only_once = yes
 		ai_will_do = { factor = 0 }
 		visible = {

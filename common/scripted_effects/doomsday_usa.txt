@@ -2587,14 +2587,14 @@ dd_usa_clamp_caucus_support = {
 	}
 }
 
-# One stack: steal 6 House and 2 Senate from the other caucus for 180 days. Each click is its own timer.
+# One stack: steal 6 House and 2 Senate from the other caucus for 90 days. Each click is its own timer.
 dd_usa_lobby_democrats = {
-	add_to_array = { dd_usa_lobby_dem_days = 180 }
+	add_to_array = { dd_usa_lobby_dem_days = 90 }
 	dd_usa_refresh_lobby_seats = yes
 }
 
 dd_usa_lobby_republicans = {
-	add_to_array = { dd_usa_lobby_rep_days = 180 }
+	add_to_array = { dd_usa_lobby_rep_days = 90 }
 	dd_usa_refresh_lobby_seats = yes
 }
 

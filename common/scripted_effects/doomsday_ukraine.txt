@@ -1,0 +1,187 @@
+# Yearly donor packages. Amounts follow who has actually been sending kit:
+# America the deep stockpile, Germany the heavy European package, Poland the tanks,
+# the Nordics split across three replies, Canada the smaller end.
+
+dd_ukr_deliver_usa = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 800 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 40 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 36 producer = ROOT }
+		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 12 producer = ROOT }
+		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 80 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_ger = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 250 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 20 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 18 producer = ROOT }
+		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 8 producer = ROOT }
+		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 48 producer = ROOT }
+		add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 12 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_eng = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 400 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 16 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 24 producer = ROOT }
+		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 4 producer = ROOT }
+		add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 6 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_swe = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 120 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 12 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 8 producer = ROOT }
+		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 36 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_nor = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 100 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 8 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 10 producer = ROOT }
+		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 6 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_den = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 120 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 10 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 6 producer = ROOT }
+		add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 3 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_hol = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 120 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 8 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 8 producer = ROOT }
+		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 5 producer = ROOT }
+		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 24 producer = ROOT }
+		add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 8 producer = ROOT }
+		add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 2 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_fra = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 220 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 18 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 14 producer = ROOT }
+		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 3 producer = ROOT }
+		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 20 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_pol = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 500 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 18 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 16 producer = ROOT }
+		add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 14 producer = ROOT }
+	}
+}
+
+dd_ukr_deliver_can = {
+	UKR = {
+		add_equipment_to_stockpile = { type = infantry_equipment_cw2 amount = 220 producer = ROOT }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw1 amount = 8 producer = ROOT }
+		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 12 producer = ROOT }
+		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 3 producer = ROOT }
+		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 20 producer = ROOT }
+	}
+}
+
+dd_ukr_ask_nordics = {
+	if = {
+		limit = { DEN = { exists = yes } NOT = { has_war_with = DEN } }
+		DEN = { country_event = { id = dd_ukr_aid.15 } }
+	}
+	if = {
+		limit = { SWE = { exists = yes } NOT = { has_war_with = SWE } }
+		SWE = { country_event = { id = dd_ukr_aid.13 } }
+	}
+	if = {
+		limit = { NOR = { exists = yes } NOT = { has_war_with = NOR } }
+		NOR = { country_event = { id = dd_ukr_aid.14 } }
+	}
+}
+
+# Deep refineries only. A silo on the contact line is the front, not a strategic strike.
+dd_ukr_check_refinery_strike = {
+	if = {
+		limit = {
+			has_country_flag = dd_ukr_diesel_watch
+			has_war_with = SOV
+		}
+		every_state = {
+			limit = {
+				is_controlled_by = SOV
+				NOT = { is_core_of = UKR }
+				NOT = { any_neighbor_state = { is_controlled_by = UKR } }
+				OR = {
+					synthetic_refinery > 0
+					fuel_silo > 0
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						check_variable = { damaged_building_level@fuel_silo > 0 }
+						check_variable = { damaged_building_level@synthetic_refinery > 0 }
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_state_flag = dd_ukr_ref_seen }
+						ROOT = { has_country_flag = dd_ukr_ref_baseline }
+					}
+					set_state_flag = dd_ukr_ref_seen
+					ROOT = { set_country_flag = dd_ukr_new_ref_hit }
+				}
+				else_if = {
+					limit = { NOT = { has_state_flag = dd_ukr_ref_seen } }
+					set_state_flag = dd_ukr_ref_seen
+				}
+			}
+			else = {
+				clr_state_flag = dd_ukr_ref_seen
+			}
+		}
+		if = {
+			limit = { has_country_flag = dd_ukr_new_ref_hit }
+			clr_country_flag = dd_ukr_new_ref_hit
+			if = {
+				limit = { NOT = { has_idea = dd_ukr_starlink_disabled } }
+				add_timed_idea = { idea = dd_ukr_starlink_disabled days = 7 }
+				country_event = { id = dd_ukr_aid.4 }
+			}
+		}
+		set_country_flag = dd_ukr_ref_baseline
+	}
+}
+
+# Call from Ukraine's scope. ROOT may still be Russia, so the ally peace uses PREV.
+dd_ukr_freeze_the_war = {
+	if = {
+		limit = { has_war_with = SOV }
+		white_peace = SOV
+	}
+	every_country = {
+		limit = {
+			is_in_faction_with = SOV
+			has_war_with = PREV
+			NOT = { tag = SOV }
+		}
+		white_peace = PREV
+	}
+}

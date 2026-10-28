@@ -1,0 +1,24 @@
+on_actions = {
+	on_daily_UKR = {
+		effect = {
+			if = {
+				limit = {
+					has_war = no
+					has_idea = dd_ukr_western_package
+				}
+				remove_ideas = dd_ukr_western_package
+			}
+			if = {
+				limit = {
+					has_war = yes
+					NOT = { has_country_flag = dd_ukr_shell_hunger_fired }
+					NOT = { has_idea = dd_ukr_home_shells }
+					NOT = { has_equipment = { artillery_equipment > 0 } }
+				}
+				set_country_flag = dd_ukr_shell_hunger_fired
+				country_event = { id = dd_ukr_shell.1 }
+			}
+			dd_ukr_check_refinery_strike = yes
+		}
+	}
+}

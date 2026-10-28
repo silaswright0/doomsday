@@ -151,9 +151,10 @@ dd_per_irgc_revolt = {
 				}
 				add_ideas = dd_irg_no_faction
 				set_rule = { can_join_factions = no can_create_factions = no }
+				retire_country_leader = yes
 				create_country_leader = {
-					name = "Mohammad Pakpour"
-					picture = GFX_portrait_PER_leader
+					name = "Mojtaba Khamenei"
+					picture = GFX_portrait_PER_mojtaba
 					ideology = theocrat
 				}
 			}

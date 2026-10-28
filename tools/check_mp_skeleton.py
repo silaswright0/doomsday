@@ -312,7 +312,7 @@ def check_buildings() -> None:
             fail("hypersonic wings must be ballistic_missile so they use rocket sites")
     rocket = re.search(r"rocket_site = \{.*?level_cap = \{.*?\}", text, re.S)
     if rocket and re.search(r"shares_slots = yes", rocket.group(0)):
-        fail("rocket_site is underground and must not share factory slots")
+        fail("rocket_site must not share factory slots; a full state deletes the level on load")
     if rocket and re.search(r"disable_grow_animation", rocket.group(0)):
         fail("rocket_site disable_grow_animation draws extra V2 meshes")
     if rocket and not re.search(r"show_on_map\s*=\s*1", rocket.group(0)):

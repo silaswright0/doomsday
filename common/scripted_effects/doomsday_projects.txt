@@ -192,14 +192,18 @@ dd_grant_starting_projects = {
 			country_event = { id = dd_iran.41 hours = 1 }
 		}
 		if = {
-			limit = {
-				266 = {
-					is_owned_by = PER
-					NOT = { rocket_site > 0 }
-				}
-			}
+			limit = { NOT = { has_tech = experimental_rockets } }
+			set_technology = { experimental_rockets = 1 popup = no }
+		}
+		# A full factory row deletes a shared rocket site on load. Tehran's site is not shared, so a stripped save gets it back here.
+		if = {
+			limit = { 266 = { is_owned_by = PER NOT = { rocket_site > 0 } } }
 			266 = {
-				add_building_construction = { type = rocket_site level = 3 instant_build = yes }
+				add_building_construction = {
+					type = rocket_site
+					level = 3
+					instant_build = yes
+				}
 			}
 		}
 	}

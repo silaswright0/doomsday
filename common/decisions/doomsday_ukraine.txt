@@ -1,0 +1,154 @@
+dd_ukr_arms_category = {
+	dd_ukr_ask_usa = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 365
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_secure_arms_support }
+		available = {
+			USA = { exists = yes }
+			NOT = { has_war_with = USA }
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_ukr_aid_usa_tt
+			USA = { country_event = { id = dd_ukr_aid.1 } }
+			if = {
+				limit = { has_global_flag = dd_hormuz_blockade }
+				custom_effect_tooltip = dd_ukr_aid_usa_hormuz_tt
+				USA = { country_event = { id = dd_ukr_aid.2 } }
+			}
+		}
+	}
+
+	dd_ukr_ask_ger = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 365
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_secure_arms_support }
+		available = {
+			GER = { exists = yes }
+			NOT = { has_war_with = GER }
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_ukr_aid_ger_tt
+			GER = { country_event = { id = dd_ukr_aid.11 } }
+		}
+	}
+
+	dd_ukr_ask_eng = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 365
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_secure_arms_support }
+		available = {
+			ENG = { exists = yes }
+			NOT = { has_war_with = ENG }
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_ukr_aid_eng_tt
+			ENG = { country_event = { id = dd_ukr_aid.12 } }
+		}
+	}
+
+	dd_ukr_ask_nordics = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 365
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_secure_arms_support }
+		available = {
+			OR = {
+				DEN = {
+					exists = yes
+					NOT = { has_war_with = ROOT }
+				}
+				SWE = {
+					exists = yes
+					NOT = { has_war_with = ROOT }
+				}
+				NOR = {
+					exists = yes
+					NOT = { has_war_with = ROOT }
+				}
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_ukr_aid_nordic_tt
+			dd_ukr_ask_nordics = yes
+		}
+	}
+
+	dd_ukr_ask_hol = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 365
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_secure_arms_support }
+		available = {
+			HOL = { exists = yes }
+			NOT = { has_war_with = HOL }
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_ukr_aid_hol_tt
+			HOL = { country_event = { id = dd_ukr_aid.16 } }
+		}
+	}
+
+	dd_ukr_ask_fra = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 365
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_secure_arms_support }
+		available = {
+			FRA = { exists = yes }
+			NOT = { has_war_with = FRA }
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_ukr_aid_fra_tt
+			FRA = { country_event = { id = dd_ukr_aid.17 } }
+		}
+	}
+
+	dd_ukr_ask_pol = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 365
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_secure_arms_support }
+		available = {
+			POL = { exists = yes }
+			NOT = { has_war_with = POL }
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_ukr_aid_pol_tt
+			POL = { country_event = { id = dd_ukr_aid.18 } }
+		}
+	}
+
+	dd_ukr_ask_can = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 365
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_secure_arms_support }
+		available = {
+			CAN = { exists = yes }
+			NOT = { has_war_with = CAN }
+		}
+		complete_effect = {
+			custom_effect_tooltip = dd_ukr_aid_can_tt
+			CAN = { country_event = { id = dd_ukr_aid.19 } }
+		}
+	}
+}
