@@ -195,14 +195,84 @@ dd_grant_starting_projects = {
 			limit = { NOT = { has_tech = experimental_rockets } }
 			set_technology = { experimental_rockets = 1 popup = no }
 		}
-		# A full factory row deletes a shared rocket site on load. Tehran's site is not shared, so a stripped save gets it back here.
+		# Drop the every-state map test, then match the real bases. Once per save.
 		if = {
-			limit = { 266 = { is_owned_by = PER NOT = { rocket_site > 0 } } }
+			limit = { NOT = { has_country_flag = dd_per_rocket_sites_v2 } }
+			set_country_flag = dd_per_rocket_sites_v2
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 410
+						state = 413
+						state = 416
+						state = 419
+						state = 420
+						state = 421
+						state = 1003
+						state = 1004
+					}
+					rocket_site > 0
+				}
+				remove_building = { type = rocket_site level = 3 }
+			}
+			# Shahroud, Kermanshah, Isfahan. One step at a time so a save that already has one does not jump to three.
+			418 = {
+				if = {
+					limit = { NOT = { rocket_site > 0 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+				if = {
+					limit = { NOT = { rocket_site > 1 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+			}
+			1001 = {
+				if = {
+					limit = { NOT = { rocket_site > 0 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+				if = {
+					limit = { NOT = { rocket_site > 1 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+			}
+			411 = {
+				if = {
+					limit = { NOT = { rocket_site > 0 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+				if = {
+					limit = { NOT = { rocket_site > 1 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+			}
+			# Tehran and Shiraz are already full, so a build click does nothing.
 			266 = {
-				add_building_construction = {
-					type = rocket_site
-					level = 3
-					instant_build = yes
+				if = {
+					limit = { NOT = { rocket_site > 0 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+				if = {
+					limit = { NOT = { rocket_site > 1 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+				if = {
+					limit = { NOT = { rocket_site > 2 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+			}
+			412 = {
+				if = {
+					limit = { NOT = { rocket_site > 0 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+				if = {
+					limit = { NOT = { rocket_site > 1 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
+				}
+				if = {
+					limit = { NOT = { rocket_site > 2 } }
+					add_building_construction = { type = rocket_site level = 1 instant_build = yes }
 				}
 			}
 		}
