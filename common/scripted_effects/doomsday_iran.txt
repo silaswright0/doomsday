@@ -104,6 +104,15 @@ dd_per_irgc_revolt = {
 				states = { 413 411 410 414 }
 				set_country_flag = dd_irg_revolt
 				save_event_target_as = dd_irg_side
+				keep_unit_leaders_trigger = {
+					NOT = {
+						OR = {
+							is_character = PER_gen_mohammad_pakpour
+							is_character = PER_hamid_vahedi
+							is_character = PER_alireza_tangsiri
+						}
+					}
+				}
 			}
 		}
 		else_if = {
@@ -115,6 +124,15 @@ dd_per_irgc_revolt = {
 				states = { 413 411 410 414 }
 				set_country_flag = dd_irg_revolt
 				save_event_target_as = dd_irg_side
+				keep_unit_leaders_trigger = {
+					NOT = {
+						OR = {
+							is_character = PER_gen_mohammad_pakpour
+							is_character = PER_hamid_vahedi
+							is_character = PER_alireza_tangsiri
+						}
+					}
+				}
 			}
 		}
 		else_if = {
@@ -126,6 +144,15 @@ dd_per_irgc_revolt = {
 				states = { 413 411 410 414 }
 				set_country_flag = dd_irg_revolt
 				save_event_target_as = dd_irg_side
+				keep_unit_leaders_trigger = {
+					NOT = {
+						OR = {
+							is_character = PER_gen_mohammad_pakpour
+							is_character = PER_hamid_vahedi
+							is_character = PER_alireza_tangsiri
+						}
+					}
+				}
 			}
 		}
 		else_if = {
@@ -137,6 +164,15 @@ dd_per_irgc_revolt = {
 				states = { 413 411 410 414 }
 				set_country_flag = dd_irg_revolt
 				save_event_target_as = dd_irg_side
+				keep_unit_leaders_trigger = {
+					NOT = {
+						OR = {
+							is_character = PER_gen_mohammad_pakpour
+							is_character = PER_hamid_vahedi
+							is_character = PER_alireza_tangsiri
+						}
+					}
+				}
 			}
 		}
 		remove_ideas = dd_per_irgc_dominance
@@ -157,6 +193,9 @@ dd_per_irgc_revolt = {
 					picture = GFX_portrait_PER_mojtaba
 					ideology = theocrat
 				}
+				PER_gen_mohammad_pakpour = { set_nationality = PREV }
+				PER_hamid_vahedi = { set_nationality = PREV }
+				PER_alireza_tangsiri = { set_nationality = PREV }
 			}
 		}
 		news_event = { id = dd_iran_news.3 }
@@ -812,13 +851,13 @@ dd_per_apply_constitution = {
 			ideology = theocrat
 		}
 		set_popularities = {
-			theocratic_absolutism = 55
+			theocratic_absolutism = 61
 			islamic_democracy = 18
-			liberal_conservatism = 8
+			liberal_conservatism = 4
 			left_wing_nationalism = 8
-			national_populism = 5
-			communism = 3
-			sovereign_democracy = 3
+			national_populism = 3
+			communism = 1
+			sovereign_democracy = 5
 		}
 	}
 	else_if = {
@@ -830,13 +869,12 @@ dd_per_apply_constitution = {
 			ideology = islamic_democrat
 		}
 		set_popularities = {
-			theocratic_absolutism = 22
-			islamic_democracy = 48
+			islamic_democracy = 70
 			liberal_conservatism = 10
 			left_wing_nationalism = 8
-			national_populism = 5
+			national_populism = 3
 			communism = 4
-			sovereign_democracy = 3
+			sovereign_democracy = 5
 		}
 	}
 	else = {
@@ -847,19 +885,35 @@ dd_per_apply_constitution = {
 			ideology = social_liberal
 		}
 		set_popularities = {
-			theocratic_absolutism = 18
-			islamic_democracy = 14
-			social_liberalism = 40
+			islamic_democracy = 6
+			social_liberalism = 70
 			liberal_conservatism = 10
 			left_wing_nationalism = 8
-			national_populism = 5
-			communism = 3
+			national_populism = 3
+			communism = 1
 			sovereign_democracy = 2
 		}
 	}
 	if = {
 		limit = { check_variable = { dd_per_c2 = 3 } }
-		add_popularity = { ideology = left_wing_nationalism popularity = 0.12 }
+		add_popularity = { ideology = left_wing_nationalism popularity = 0.36 }
+	}
+	if = {
+		limit = { check_variable = { dd_per_c3 = 1 } }
+		add_popularity = { ideology = theocratic_absolutism popularity = 0.15 }
+		add_popularity = { ideology = national_populism popularity = 0.06 }
+		add_ideas = dd_per_social_1
+	}
+	else_if = {
+		limit = { check_variable = { dd_per_c3 = 2 } }
+		add_popularity = { ideology = social_liberalism popularity = 0.12 }
+		add_popularity = { ideology = islamic_democracy popularity = 0.06 }
+		add_ideas = dd_per_social_2
+	}
+	else = {
+		add_popularity = { ideology = progressive_populism popularity = 0.24 }
+		add_popularity = { ideology = social_liberalism popularity = 0.12 }
+		add_ideas = dd_per_social_3
 	}
 	if = {
 		limit = {
@@ -1217,16 +1271,23 @@ dd_per_update_lebanon_link = {
 	}
 }
 
-# Focus reward. Existing Hezbollah only receives the spirit. A dead tag is rebuilt off-map.
+# Same spirit the Houthis carry. That mark is what puts a proxy on the network.
+dd_per_grant_hez_support = {
+	if = {
+		limit = { has_idea = dd_hez_hindered_support }
+		remove_ideas = dd_hez_hindered_support
+	}
+	if = {
+		limit = { NOT = { has_idea = dd_hez_iranian_support } }
+		add_ideas = dd_hez_iranian_support
+	}
+}
+
+# Focus reward. Existing Hezbollah receives Iranian Support. A dead tag is rebuilt off-map.
 dd_per_link_hezbollah = {
 	if = {
 		limit = { HEZ = { exists = yes } }
-		HEZ = {
-			if = {
-				limit = { NOT = { has_idea = dd_hez_hindered_support } }
-				add_ideas = dd_hez_hindered_support
-			}
-		}
+		HEZ = { dd_per_grant_hez_support = yes }
 	}
 	else_if = {
 		limit = { NOT = { has_country_flag = dd_per_hez_offmap } }
@@ -1261,7 +1322,7 @@ dd_per_spawn_offmap_hez = {
 	HEZ = {
 		set_capital = { state = 1089 }
 		add_state_core = 1089
-		add_ideas = dd_hez_hindered_support
+		dd_per_grant_hez_support = yes
 		set_politics = {
 			ruling_party = theocratic_absolutism
 			elections_allowed = no
@@ -1296,10 +1357,7 @@ dd_per_hez_popout = {
 		1089 = { set_state_controller_to = HEZ }
 		HEZ = {
 			add_state_core = 1089
-			if = {
-				limit = { NOT = { has_idea = dd_hez_hindered_support } }
-				add_ideas = dd_hez_hindered_support
-			}
+			dd_per_grant_hez_support = yes
 			division_template = {
 				name = "Garrison Brigade"
 				regiments = {

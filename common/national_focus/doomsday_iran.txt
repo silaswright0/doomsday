@@ -164,7 +164,8 @@ focus_tree = {
 		prerequisite = { focus = PER_popular_reforms }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			add_ideas = dd_per_release_prisoners
+			add_stability = 0.10
+			add_war_support = -0.05
 		}
 	}
 	focus = {
@@ -473,7 +474,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			remove_ideas = dd_per_popular_unrest
+			if = {
+				limit = { has_idea = dd_per_popular_unrest }
+				remove_ideas = dd_per_popular_unrest
+			}
+			else = {
+				add_political_power = 200
+			}
 		}
 	}
 	focus = {

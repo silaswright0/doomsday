@@ -128,7 +128,13 @@ dd_per_state_collapse = {
 					navy_ratio = 0
 					air_ratio = 0
 					stockpile_ratio = 0
-					keep_unit_leaders_trigger = { always = yes }
+					keep_unit_leaders_trigger = {
+						OR = {
+							is_character = PER_gen_mohammad_pakpour
+							is_character = PER_hamid_vahedi
+							is_character = PER_alireza_tangsiri
+						}
+					}
 				}
 			}
 			PRP = {
@@ -139,7 +145,13 @@ dd_per_state_collapse = {
 					navy_ratio = 0
 					air_ratio = 0
 					stockpile_ratio = 0
-					keep_unit_leaders_trigger = { always = yes }
+					keep_unit_leaders_trigger = {
+						OR = {
+							is_character = PER_gen_mohammad_pakpour
+							is_character = PER_hamid_vahedi
+							is_character = PER_alireza_tangsiri
+						}
+					}
 				}
 			}
 		}
@@ -153,7 +165,13 @@ dd_per_state_collapse = {
 					navy_ratio = 0
 					air_ratio = 0
 					stockpile_ratio = 0
-					keep_unit_leaders_trigger = { always = yes }
+					keep_unit_leaders_trigger = {
+						OR = {
+							is_character = PER_gen_mohammad_pakpour
+							is_character = PER_hamid_vahedi
+							is_character = PER_alireza_tangsiri
+						}
+					}
 				}
 			}
 		}
@@ -172,11 +190,20 @@ dd_per_state_collapse = {
 					navy_ratio = 0
 					air_ratio = 0
 					stockpile_ratio = 0
-					keep_unit_leaders_trigger = { always = yes }
+					keep_unit_leaders_trigger = {
+						OR = {
+							is_character = PER_gen_mohammad_pakpour
+							is_character = PER_hamid_vahedi
+							is_character = PER_alireza_tangsiri
+						}
+					}
 				}
 			}
 		}
 		PER = {
+			PER_gen_mohammad_pakpour = { set_nationality = PREV }
+			PER_hamid_vahedi = { set_nationality = PREV }
+			PER_alireza_tangsiri = { set_nationality = PREV }
 			set_cosmetic_tag = IRG_REVOLT
 			set_country_flag = dd_per_is_irgc
 			load_focus_tree = { tree = dd_irg_focus keep_completed = no }

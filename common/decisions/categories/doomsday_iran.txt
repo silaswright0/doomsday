@@ -14,7 +14,7 @@ dd_per_proxy_category = {
 		tag = PER
 		OR = {
 			HOU = { has_idea = dd_hez_iranian_support }
-			HEZ = { has_idea = dd_hez_hindered_support }
+			HEZ = { has_idea = dd_hez_iranian_support }
 			has_country_flag = dd_per_proxy_shiite
 		}
 	}

@@ -71,18 +71,44 @@ country_event = {
 		name = dd_iran.3.a
 		ai_chance = { factor = 10 }
 		set_variable = { dd_per_c2 = 1 }
-		dd_per_apply_constitution = yes
+		country_event = { id = dd_iran.4 }
 	}
 	option = {
 		name = dd_iran.3.b
 		ai_chance = { factor = 0 }
 		set_variable = { dd_per_c2 = 2 }
-		dd_per_apply_constitution = yes
+		country_event = { id = dd_iran.4 }
 	}
 	option = {
 		name = dd_iran.3.c
 		ai_chance = { factor = 0 }
 		set_variable = { dd_per_c2 = 3 }
+		country_event = { id = dd_iran.4 }
+	}
+}
+
+country_event = {
+	id = dd_iran.4
+	title = dd_iran.4.t
+	desc = dd_iran.4.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+	option = {
+		name = dd_iran.4.a
+		ai_chance = { factor = 10 }
+		set_variable = { dd_per_c3 = 1 }
+		dd_per_apply_constitution = yes
+	}
+	option = {
+		name = dd_iran.4.b
+		ai_chance = { factor = 0 }
+		set_variable = { dd_per_c3 = 2 }
+		dd_per_apply_constitution = yes
+	}
+	option = {
+		name = dd_iran.4.c
+		ai_chance = { factor = 0 }
+		set_variable = { dd_per_c3 = 3 }
 		dd_per_apply_constitution = yes
 	}
 }
