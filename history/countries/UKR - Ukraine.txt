@@ -511,6 +511,7 @@ add_ideas = extensive_conscription
 add_ideas = limited_exports
 add_ideas = war_economy
 add_ideas = dd_ukr_western_package
+add_ideas = dd_ukr_defensive_bulwark
 set_politics = {
 	ruling_party = social_liberalism
 	last_election = "2019.4.21"
@@ -529,13 +530,14 @@ set_popularities = {
 set_variable = { debt = 192.7800 }
 set_variable = { treasury = 4.2840 }
 set_variable = { dd_prod = 2.2151 }
-create_country_leader = {
-	name = "Volodymyr Zelenskyy"
-	desc = UKR_LEADER_DESC
-	picture = GFX_portrait_UKR_leader
-	ideology = social_liberal
-	traits = { }
-}
+recruit_character = UKR_volodymyr_zelenskyy
+recruit_character = UKR_oleh_lyashko
+recruit_character = UKR_petro_poroshenko
+recruit_character = UKR_yulia_tymoshenko
+recruit_character = UKR_yuriy_boyko
+recruit_character = UKR_petro_symonenko
+recruit_character = UKR_oleh_tyahnybok
+promote_character = UKR_volodymyr_zelenskyy
 recruit_character = UKR_john_army
 recruit_character = UKR_john_airforce
 recruit_character = UKR_john_navy

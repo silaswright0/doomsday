@@ -113,3 +113,44 @@ dd_nato_ultimatum_divisions = {
 		value = 6
 	}
 }
+
+# Keep the field army on the Russian front. No city garrisons, and no line facing Belarus.
+dd_ukr_defensive_bulwark_front = {
+	allowed = { original_tag = UKR }
+	enable = { has_idea = dd_ukr_defensive_bulwark }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = garrison
+		value = -100
+	}
+	ai_strategy = {
+		type = spare_unit_factor
+		value = -90
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -20
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = SOV
+		value = 200
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = BLR
+		value = -200
+	}
+	ai_strategy = {
+		type = force_concentration_front_factor
+		tag = SOV
+		value = 100
+	}
+	ai_strategy = {
+		type = force_concentration_front_factor
+		tag = BLR
+		value = -100
+	}
+}

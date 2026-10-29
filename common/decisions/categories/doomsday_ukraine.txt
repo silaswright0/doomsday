@@ -4,3 +4,25 @@ dd_ukr_arms_category = {
 	allowed = { original_tag = UKR }
 	visible = { has_completed_focus = UKR_secure_arms_support }
 }
+
+dd_ukr_grid_status_category = {
+	icon = generic_industry
+	picture = GFX_decision_cat_picture_generic_industry
+	priority = 100
+	allowed = { original_tag = UKR }
+	visible = { has_war_with = SOV }
+}
+
+dd_ukr_grid_category = {
+	icon = generic_political_actions
+	priority = 90
+	allowed = { original_tag = UKR }
+	visible = { has_war_with = SOV }
+}
+
+dd_sov_grid_category = {
+	icon = generic_political_actions
+	priority = 70
+	allowed = { original_tag = SOV }
+	visible = { has_war_with = UKR }
+}

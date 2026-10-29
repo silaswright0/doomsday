@@ -1,0 +1,10 @@
+# Stacks are dd_ukr_blackout on Ukraine. Penalties are written by dd_ukr_grid_sync.
+
+dd_ukr_grid_blackout = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_production_bonus
+	industrial_capacity_factory = dd_ukr_grid_fac
+	stability_factor = dd_ukr_grid_stab
+	production_speed_buildings_factor = dd_ukr_grid_con
+	consumer_goods_factor = dd_ukr_grid_cg
+}

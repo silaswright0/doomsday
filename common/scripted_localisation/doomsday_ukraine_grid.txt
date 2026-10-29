@@ -1,0 +1,36 @@
+defined_text = {
+	name = GetDdUkrGridRules
+	text = {
+		trigger = {
+			has_country_flag = dd_ukr_grid_shield
+			has_country_flag = dd_ukr_dispersed
+		}
+		localization_key = dd_ukr_grid_rules_both
+	}
+	text = {
+		trigger = { has_country_flag = dd_ukr_grid_shield }
+		localization_key = dd_ukr_grid_rules_shield
+	}
+	text = {
+		trigger = { has_country_flag = dd_ukr_dispersed }
+		localization_key = dd_ukr_grid_rules_dispersed
+	}
+	text = {
+		localization_key = dd_ukr_grid_rules_open
+	}
+}
+
+defined_text = {
+	name = GetDdUkrGridClock
+	text = {
+		trigger = { has_country_flag = dd_ukr_grid_shield }
+		localization_key = dd_ukr_grid_clock_shield
+	}
+	text = {
+		trigger = { check_variable = { dd_ukr_grid_cd > 0 } }
+		localization_key = dd_ukr_grid_clock_wait
+	}
+	text = {
+		localization_key = dd_ukr_grid_clock_open
+	}
+}

@@ -1,0 +1,31 @@
+focus_tree = {
+	id = dd_yem_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = YEM
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = YEM_annex_national_resistance
+		icon = GFX_goal_generic_national_unity
+		x = 6
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			has_war = no
+			YNR = { exists = yes }
+		}
+		cancel_if_invalid = yes
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			annex_country = { target = YNR transfer_troops = yes }
+		}
+	}
+}

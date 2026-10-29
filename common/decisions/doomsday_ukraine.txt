@@ -9,8 +9,10 @@ dd_ukr_arms_category = {
 		available = {
 			USA = { exists = yes }
 			NOT = { has_war_with = USA }
+			NOT = { has_country_flag = dd_ukr_asked_usa }
 		}
 		complete_effect = {
+			set_country_flag = { flag = dd_ukr_asked_usa days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_usa_tt
 			USA = { country_event = { id = dd_ukr_aid.1 } }
 			if = {
@@ -31,8 +33,10 @@ dd_ukr_arms_category = {
 		available = {
 			GER = { exists = yes }
 			NOT = { has_war_with = GER }
+			NOT = { has_country_flag = dd_ukr_asked_ger }
 		}
 		complete_effect = {
+			set_country_flag = { flag = dd_ukr_asked_ger days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_ger_tt
 			GER = { country_event = { id = dd_ukr_aid.11 } }
 		}
@@ -48,8 +52,10 @@ dd_ukr_arms_category = {
 		available = {
 			ENG = { exists = yes }
 			NOT = { has_war_with = ENG }
+			NOT = { has_country_flag = dd_ukr_asked_eng }
 		}
 		complete_effect = {
+			set_country_flag = { flag = dd_ukr_asked_eng days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_eng_tt
 			ENG = { country_event = { id = dd_ukr_aid.12 } }
 		}
@@ -77,8 +83,10 @@ dd_ukr_arms_category = {
 					NOT = { has_war_with = ROOT }
 				}
 			}
+			NOT = { has_country_flag = dd_ukr_asked_nordics }
 		}
 		complete_effect = {
+			set_country_flag = { flag = dd_ukr_asked_nordics days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_nordic_tt
 			dd_ukr_ask_nordics = yes
 		}
@@ -94,8 +102,10 @@ dd_ukr_arms_category = {
 		available = {
 			HOL = { exists = yes }
 			NOT = { has_war_with = HOL }
+			NOT = { has_country_flag = dd_ukr_asked_hol }
 		}
 		complete_effect = {
+			set_country_flag = { flag = dd_ukr_asked_hol days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_hol_tt
 			HOL = { country_event = { id = dd_ukr_aid.16 } }
 		}
@@ -111,8 +121,10 @@ dd_ukr_arms_category = {
 		available = {
 			FRA = { exists = yes }
 			NOT = { has_war_with = FRA }
+			NOT = { has_country_flag = dd_ukr_asked_fra }
 		}
 		complete_effect = {
+			set_country_flag = { flag = dd_ukr_asked_fra days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_fra_tt
 			FRA = { country_event = { id = dd_ukr_aid.17 } }
 		}
@@ -128,8 +140,10 @@ dd_ukr_arms_category = {
 		available = {
 			POL = { exists = yes }
 			NOT = { has_war_with = POL }
+			NOT = { has_country_flag = dd_ukr_asked_pol }
 		}
 		complete_effect = {
+			set_country_flag = { flag = dd_ukr_asked_pol days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_pol_tt
 			POL = { country_event = { id = dd_ukr_aid.18 } }
 		}
@@ -145,10 +159,133 @@ dd_ukr_arms_category = {
 		available = {
 			CAN = { exists = yes }
 			NOT = { has_war_with = CAN }
+			NOT = { has_country_flag = dd_ukr_asked_can }
 		}
 		complete_effect = {
+			set_country_flag = { flag = dd_ukr_asked_can days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_can_tt
 			CAN = { country_event = { id = dd_ukr_aid.19 } }
+		}
+	}
+}
+
+dd_ukr_grid_status_category = {
+	dd_ukr_grid_status = {
+		icon = generic_industry
+		allowed = { original_tag = UKR }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = SOV }
+		available = { hidden_trigger = { always = no } }
+	}
+	dd_ukr_grid_how = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = SOV }
+		available = { hidden_trigger = { always = no } }
+	}
+}
+
+dd_ukr_grid_category = {
+	dd_ukr_emergency_repair = {
+		icon = generic_construction
+		allowed = { original_tag = UKR }
+		cost = 40
+		days_re_enable = 30
+		ai_will_do = { factor = 20 }
+		visible = { has_war_with = SOV }
+		available = { check_variable = { dd_ukr_blackout > 0 } }
+		complete_effect = {
+			if = {
+				limit = { has_country_flag = dd_ukr_repair_crews }
+				subtract_from_variable = { dd_ukr_blackout = 2 }
+			}
+			else = {
+				subtract_from_variable = { dd_ukr_blackout = 1 }
+			}
+			dd_ukr_grid_sync = yes
+			202 = { dd_ukr_repair_grid_state = yes }
+			221 = { dd_ukr_repair_grid_state = yes }
+			192 = { dd_ukr_repair_grid_state = yes }
+		}
+	}
+
+	dd_ukr_transformer_imports = {
+		icon = generic_construction
+		allowed = { original_tag = UKR }
+		cost = 60
+		days_re_enable = 120
+		ai_will_do = { factor = 5 }
+		visible = { has_war_with = SOV }
+		available = {
+			check_variable = { dd_ukr_blackout > 0 }
+			check_variable = { treasury > 0.4 }
+		}
+		complete_effect = {
+			subtract_from_variable = { treasury = 0.4 }
+			subtract_from_variable = { dd_ukr_blackout = 2 }
+			dd_ukr_grid_sync = yes
+			202 = { dd_ukr_repair_grid_state = yes }
+			221 = { dd_ukr_repair_grid_state = yes }
+			197 = { dd_ukr_repair_grid_state = yes }
+			193 = { dd_ukr_repair_grid_state = yes }
+		}
+	}
+
+	dd_ukr_crew_rotation = {
+		icon = generic_construction
+		allowed = { original_tag = UKR }
+		cost = 50
+		days_re_enable = 21
+		ai_will_do = { factor = 10 }
+		visible = { has_completed_focus = UKR_the_grid }
+		available = { check_variable = { dd_ukr_blackout > 0 } }
+		complete_effect = {
+			subtract_from_variable = { dd_ukr_blackout = 4 }
+			dd_ukr_grid_sync = yes
+			221 = { dd_ukr_repair_grid_state = yes }
+			197 = { dd_ukr_repair_grid_state = yes }
+			193 = { dd_ukr_repair_grid_state = yes }
+		}
+	}
+
+	dd_ukr_national_overhaul = {
+		icon = generic_construction
+		allowed = { original_tag = UKR }
+		cost = 80
+		days_re_enable = 45
+		ai_will_do = { factor = 5 }
+		visible = { has_completed_focus = UKR_the_grid }
+		available = {
+			check_variable = { dd_ukr_blackout > 0 }
+			check_variable = { treasury > 0.6 }
+		}
+		complete_effect = {
+			subtract_from_variable = { treasury = 0.6 }
+			subtract_from_variable = { dd_ukr_blackout = 8 }
+			dd_ukr_grid_sync = yes
+			202 = { dd_ukr_repair_grid_state = yes }
+			221 = { dd_ukr_repair_grid_state = yes }
+			192 = { dd_ukr_repair_grid_state = yes }
+			197 = { dd_ukr_repair_grid_state = yes }
+			1115 = { dd_ukr_repair_grid_state = yes }
+		}
+	}
+}
+
+dd_sov_grid_category = {
+	dd_sov_strike_ukr_grid = {
+		icon = generic_construction
+		allowed = { original_tag = SOV }
+		cost = 40
+		days_re_enable = 90
+		ai_will_do = { factor = 50 }
+		visible = { has_war_with = UKR }
+		available = { UKR = { exists = yes } }
+		complete_effect = {
+			UKR = { dd_ukr_russia_grid_strike = yes }
 		}
 	}
 }

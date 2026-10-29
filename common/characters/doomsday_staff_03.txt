@@ -1839,4 +1839,127 @@ characters = {
 			ai_will_do = { factor = 10 }
 		}
 	}
+	UKR_valerii_zaluzhnyi = {
+		name = "Valerii Zaluzhnyi"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		field_marshal = {
+			traits = { infantry_officer war_hero }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 5
+			planning_skill = 4
+			logistics_skill = 3
+			legacy_id = 0
+		}
+	}
+	UKR_oleksandr_tarnavskyi = {
+		name = "Oleksandr Tarnavskyi"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		corps_commander = {
+			traits = { infantry_officer organizer }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+			legacy_id = 0
+		}
+	}
+	UKR_kyrylo_budanov = {
+		name = "Kyrylo Budanov"
+		portraits = {
+			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		corps_commander = {
+			traits = { commando trickster }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
+			legacy_id = 0
+		}
+	}
+	UKR_volodymyr_zelenskyy = {
+		name = "Volodymyr Zelenskyy"
+		portraits = {
+			civilian = { large = GFX_portrait_UKR_leader small = GFX_portrait_UKR_leader }
+		}
+		country_leader = {
+			ideology = social_liberal
+			desc = UKR_LEADER_DESC
+			expire = "2065.1.1"
+		}
+	}
+	UKR_oleh_lyashko = {
+		name = "Oleh Lyashko"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		country_leader = {
+			ideology = national_populist
+			desc = UKR_LYASHKO_DESC
+			expire = "2065.1.1"
+		}
+	}
+	UKR_petro_poroshenko = {
+		name = "Petro Poroshenko"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		country_leader = {
+			ideology = liberal_conservative
+			desc = UKR_POROSHENKO_DESC
+			expire = "2065.1.1"
+		}
+	}
+	UKR_yulia_tymoshenko = {
+		name = "Yulia Tymoshenko"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		country_leader = {
+			ideology = social_democrat
+			desc = UKR_TYMOSHENKO_DESC
+			expire = "2065.1.1"
+		}
+	}
+	UKR_yuriy_boyko = {
+		name = "Yuriy Boyko"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		country_leader = {
+			ideology = oligarch
+			desc = UKR_BOYKO_DESC
+			expire = "2065.1.1"
+		}
+	}
+	UKR_petro_symonenko = {
+		name = "Petro Symonenko"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		country_leader = {
+			ideology = marxism
+			desc = UKR_SYMONENKO_DESC
+			expire = "2065.1.1"
+		}
+	}
+	UKR_oleh_tyahnybok = {
+		name = "Oleh Tyahnybok"
+		portraits = {
+			civilian = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			desc = UKR_TYAHNYBOK_DESC
+			expire = "2065.1.1"
+		}
+	}
 }

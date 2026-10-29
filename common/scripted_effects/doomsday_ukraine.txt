@@ -170,8 +170,93 @@ dd_ukr_check_refinery_strike = {
 	}
 }
 
+# The largest slice takes the presidency. A tie stays with the party already ahead in this order.
+dd_ukr_seat_largest_party = {
+	set_variable = { dd_ukr_top = party_popularity@social_liberalism }
+	set_variable = { dd_ukr_seat = 1 }
+	set_variable = { dd_ukr_slice = party_popularity@national_populism }
+	if = {
+		limit = { check_variable = { dd_ukr_slice > dd_ukr_top } }
+		set_variable = { dd_ukr_top = dd_ukr_slice }
+		set_variable = { dd_ukr_seat = 2 }
+	}
+	set_variable = { dd_ukr_slice = party_popularity@liberal_conservatism }
+	if = {
+		limit = { check_variable = { dd_ukr_slice > dd_ukr_top } }
+		set_variable = { dd_ukr_top = dd_ukr_slice }
+		set_variable = { dd_ukr_seat = 3 }
+	}
+	set_variable = { dd_ukr_slice = party_popularity@social_democracy }
+	if = {
+		limit = { check_variable = { dd_ukr_slice > dd_ukr_top } }
+		set_variable = { dd_ukr_top = dd_ukr_slice }
+		set_variable = { dd_ukr_seat = 4 }
+	}
+	set_variable = { dd_ukr_slice = party_popularity@sovereign_democracy }
+	if = {
+		limit = { check_variable = { dd_ukr_slice > dd_ukr_top } }
+		set_variable = { dd_ukr_top = dd_ukr_slice }
+		set_variable = { dd_ukr_seat = 5 }
+	}
+	set_variable = { dd_ukr_slice = party_popularity@communism }
+	if = {
+		limit = { check_variable = { dd_ukr_slice > dd_ukr_top } }
+		set_variable = { dd_ukr_top = dd_ukr_slice }
+		set_variable = { dd_ukr_seat = 6 }
+	}
+	set_variable = { dd_ukr_slice = party_popularity@fascism }
+	if = {
+		limit = { check_variable = { dd_ukr_slice > dd_ukr_top } }
+		set_variable = { dd_ukr_seat = 7 }
+	}
+	if = {
+		limit = { check_variable = { dd_ukr_seat = 1 } }
+		set_politics = { ruling_party = social_liberalism elections_allowed = yes }
+		promote_character = UKR_volodymyr_zelenskyy
+	}
+	else_if = {
+		limit = { check_variable = { dd_ukr_seat = 2 } }
+		set_politics = { ruling_party = national_populism elections_allowed = yes }
+		promote_character = UKR_oleh_lyashko
+	}
+	else_if = {
+		limit = { check_variable = { dd_ukr_seat = 3 } }
+		set_politics = { ruling_party = liberal_conservatism elections_allowed = yes }
+		promote_character = UKR_petro_poroshenko
+	}
+	else_if = {
+		limit = { check_variable = { dd_ukr_seat = 4 } }
+		set_politics = { ruling_party = social_democracy elections_allowed = yes }
+		promote_character = UKR_yulia_tymoshenko
+	}
+	else_if = {
+		limit = { check_variable = { dd_ukr_seat = 5 } }
+		set_politics = { ruling_party = sovereign_democracy elections_allowed = yes }
+		promote_character = UKR_yuriy_boyko
+	}
+	else_if = {
+		limit = { check_variable = { dd_ukr_seat = 6 } }
+		set_politics = { ruling_party = communism elections_allowed = yes }
+		promote_character = UKR_petro_symonenko
+	}
+	else = {
+		set_politics = { ruling_party = fascism elections_allowed = yes }
+		promote_character = UKR_oleh_tyahnybok
+	}
+}
+
 # Call from Ukraine's scope. ROOT may still be Russia, so the ally peace uses PREV.
+# Crimea, Donetsk, Luhansk, the Azov coast, and the left bank of Kherson go to Russia, plus any other Ukrainian state Russia still holds. Then the war stops.
 dd_ukr_freeze_the_war = {
+	137 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
+	227 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
+	228 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
+	1113 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
+	1114 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
+	every_owned_state = {
+		limit = { is_controlled_by = SOV }
+		transfer_state_to = SOV
+	}
 	if = {
 		limit = { has_war_with = SOV }
 		white_peace = SOV
@@ -183,5 +268,295 @@ dd_ukr_freeze_the_war = {
 			NOT = { tag = SOV }
 		}
 		white_peace = PREV
+	}
+}
+
+# State scope. Winter repair: one power site, one infrastructure level, and a repair of what is already broken.
+dd_ukr_grid_state = {
+	if = {
+		limit = { is_controlled_by = ROOT }
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+			type = energy_infrastructure
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = infrastructure
+			level = 1
+			instant_build = yes
+		}
+		repair_building = {
+			type = infrastructure
+			amount = 2
+		}
+	}
+}
+
+dd_ukr_aa_state = {
+	if = {
+		limit = { is_controlled_by = ROOT }
+		add_building_construction = {
+			type = anti_air_building
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+# State scope. One level off the power site and the roads into it.
+dd_ukr_damage_grid_state = {
+	damage_building = {
+		type = infrastructure
+		damage = 1
+	}
+	damage_building = {
+		type = energy_infrastructure
+		damage = 1
+	}
+}
+
+# State scope. Puts the lights back in a state Ukraine holds.
+dd_ukr_repair_grid_state = {
+	if = {
+		limit = { is_controlled_by = UKR }
+		repair_building = {
+			type = infrastructure
+			amount = 2
+		}
+		repair_building = {
+			type = energy_infrastructure
+			amount = 1
+		}
+	}
+}
+
+# Ukraine scope. Writes the blackout penalties and shows or hides the modifier.
+dd_ukr_grid_sync = {
+	if = {
+		limit = { NOT = { has_variable = dd_ukr_blackout_cap } }
+		set_variable = { dd_ukr_blackout_cap = 20 }
+	}
+	if = {
+		limit = { check_variable = { dd_ukr_blackout > dd_ukr_blackout_cap } }
+		set_variable = { dd_ukr_blackout = dd_ukr_blackout_cap }
+	}
+	if = {
+		limit = { check_variable = { dd_ukr_blackout < 0 } }
+		set_variable = { dd_ukr_blackout = 0 }
+	}
+	set_variable = { dd_ukr_grid_fac = dd_ukr_blackout }
+	multiply_variable = { dd_ukr_grid_fac = -0.04 }
+	set_variable = { dd_ukr_grid_stab = dd_ukr_blackout }
+	multiply_variable = { dd_ukr_grid_stab = -0.02 }
+	set_variable = { dd_ukr_grid_con = dd_ukr_blackout }
+	multiply_variable = { dd_ukr_grid_con = -0.03 }
+	set_variable = { dd_ukr_grid_cg = dd_ukr_blackout }
+	multiply_variable = { dd_ukr_grid_cg = 0.02 }
+	if = {
+		limit = { check_variable = { dd_ukr_blackout > 0 } }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = dd_ukr_grid_blackout } } }
+			add_dynamic_modifier = { modifier = dd_ukr_grid_blackout }
+		}
+		force_update_dynamic_modifier = yes
+	}
+	else = {
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_ukr_grid_blackout } }
+			remove_dynamic_modifier = { modifier = dd_ukr_grid_blackout }
+		}
+	}
+}
+
+# Ukraine scope. Adds dd_ukr_hit_amount stacks, capped, and tells Ukraine.
+dd_ukr_grid_apply_hit = {
+	if = {
+		limit = { NOT = { has_variable = dd_ukr_blackout_cap } }
+		set_variable = { dd_ukr_blackout_cap = 20 }
+	}
+	if = {
+		limit = { check_variable = { dd_ukr_blackout < dd_ukr_blackout_cap } }
+		add_to_variable = { dd_ukr_blackout = dd_ukr_hit_amount }
+		dd_ukr_grid_sync = yes
+		country_event = { id = dd_ukr_grid.1 }
+	}
+}
+
+# Ukraine scope. A dedicated Russian strike, rotating through pairs of cities.
+dd_ukr_russia_grid_strike = {
+	if = {
+		limit = {
+			OR = {
+				check_variable = { dd_ukr_grid_turn < 1 }
+				NOT = { has_variable = dd_ukr_grid_turn }
+			}
+		}
+		202 = {
+			if = {
+				limit = { is_controlled_by = UKR }
+				dd_ukr_damage_grid_state = yes
+			}
+		}
+		221 = {
+			if = {
+				limit = {
+					is_controlled_by = UKR
+					NOT = { UKR = { has_country_flag = dd_ukr_dispersed } }
+				}
+				dd_ukr_damage_grid_state = yes
+			}
+		}
+		set_variable = { dd_ukr_grid_turn = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_ukr_grid_turn < 2 } }
+		192 = {
+			if = {
+				limit = { is_controlled_by = UKR }
+				dd_ukr_damage_grid_state = yes
+			}
+		}
+		197 = {
+			if = {
+				limit = {
+					is_controlled_by = UKR
+					NOT = { UKR = { has_country_flag = dd_ukr_dispersed } }
+				}
+				dd_ukr_damage_grid_state = yes
+			}
+		}
+		set_variable = { dd_ukr_grid_turn = 2 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_ukr_grid_turn < 3 } }
+		193 = {
+			if = {
+				limit = { is_controlled_by = UKR }
+				dd_ukr_damage_grid_state = yes
+			}
+		}
+		201 = {
+			if = {
+				limit = {
+					is_controlled_by = UKR
+					NOT = { UKR = { has_country_flag = dd_ukr_dispersed } }
+				}
+				dd_ukr_damage_grid_state = yes
+			}
+		}
+		set_variable = { dd_ukr_grid_turn = 3 }
+	}
+	else = {
+		203 = {
+			if = {
+				limit = { is_controlled_by = UKR }
+				dd_ukr_damage_grid_state = yes
+			}
+		}
+		198 = {
+			if = {
+				limit = {
+					is_controlled_by = UKR
+					NOT = { UKR = { has_country_flag = dd_ukr_dispersed } }
+				}
+				dd_ukr_damage_grid_state = yes
+			}
+		}
+		set_variable = { dd_ukr_grid_turn = 0 }
+	}
+	if = {
+		limit = { has_country_flag = dd_ukr_dispersed }
+		set_variable = { dd_ukr_hit_amount = 1 }
+	}
+	else = {
+		set_variable = { dd_ukr_hit_amount = 2 }
+	}
+	dd_ukr_grid_apply_hit = yes
+}
+
+# Ukraine scope. One hit if a power-state was bombed today and the cooldown has run out.
+dd_ukr_grid_check_bombs = {
+	if = {
+		limit = {
+			has_war_with = SOV
+			NOT = { has_country_flag = dd_ukr_grid_shield }
+			OR = {
+				check_variable = { dd_ukr_grid_cd < 1 }
+				NOT = { has_variable = dd_ukr_grid_cd }
+			}
+		}
+		if = {
+			limit = {
+				202 = {
+					is_controlled_by = UKR
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			202 = { dd_ukr_damage_grid_state = yes }
+			set_variable = { dd_ukr_grid_cd = 21 }
+			set_variable = { dd_ukr_hit_amount = 1 }
+			dd_ukr_grid_apply_hit = yes
+		}
+		else_if = {
+			limit = {
+				221 = {
+					is_controlled_by = UKR
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			221 = { dd_ukr_damage_grid_state = yes }
+			set_variable = { dd_ukr_grid_cd = 21 }
+			set_variable = { dd_ukr_hit_amount = 1 }
+			dd_ukr_grid_apply_hit = yes
+		}
+		else_if = {
+			limit = {
+				192 = {
+					is_controlled_by = UKR
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			192 = { dd_ukr_damage_grid_state = yes }
+			set_variable = { dd_ukr_grid_cd = 21 }
+			set_variable = { dd_ukr_hit_amount = 1 }
+			dd_ukr_grid_apply_hit = yes
+		}
+		else_if = {
+			limit = {
+				197 = {
+					is_controlled_by = UKR
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			197 = { dd_ukr_damage_grid_state = yes }
+			set_variable = { dd_ukr_grid_cd = 21 }
+			set_variable = { dd_ukr_hit_amount = 1 }
+			dd_ukr_grid_apply_hit = yes
+		}
+		else_if = {
+			limit = {
+				193 = {
+					is_controlled_by = UKR
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			193 = { dd_ukr_damage_grid_state = yes }
+			set_variable = { dd_ukr_grid_cd = 21 }
+			set_variable = { dd_ukr_hit_amount = 1 }
+			dd_ukr_grid_apply_hit = yes
+		}
+	}
+	if = {
+		limit = { check_variable = { dd_ukr_grid_cd > 0 } }
+		subtract_from_variable = { dd_ukr_grid_cd = 1 }
+	}
+	if = {
+		limit = {
+			has_war = no
+			check_variable = { dd_ukr_blackout > 0 }
+		}
+		set_variable = { dd_ukr_blackout = 0 }
+		dd_ukr_grid_sync = yes
 	}
 }

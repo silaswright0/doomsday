@@ -112,4 +112,11 @@ leader_traits = {
 		justify_war_goal_time = -0.20
 		fascism_drift = 0.0001
 	}
+	dd_right_wing_agitator = {
+		random = no
+		sprite = 13
+		political_power_gain = 0.15
+		war_support_factor = 0.10
+		fascism_drift = 0.05
+	}
 }

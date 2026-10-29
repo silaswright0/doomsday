@@ -1,6 +1,8 @@
 add_namespace = dd_ukr_aid
 add_namespace = dd_ukr_peace
 add_namespace = dd_ukr_shell
+add_namespace = dd_ukr_guarantee
+add_namespace = dd_ukr_grid
 
 country_event = {
 	id = dd_ukr_shell.1
@@ -460,4 +462,82 @@ country_event = {
 	is_triggered_only = yes
 
 	option = { name = dd_ukr_peace.3.a }
+}
+
+country_event = {
+	id = dd_ukr_guarantee.1
+	title = dd_ukr_guarantee.1.t
+	desc = dd_ukr_guarantee.1.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_ukr_guarantee.1.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				tag = USA
+				factor = 0.5
+			}
+			modifier = {
+				NOT = { tag = USA }
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				factor = 0.1
+			}
+		}
+		give_guarantee = FROM
+		FROM = { country_event = { id = dd_ukr_guarantee.2 } }
+	}
+	option = {
+		name = dd_ukr_guarantee.1.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				tag = USA
+				add = 50
+			}
+			modifier = {
+				NOT = { tag = USA }
+				OR = {
+					has_government = national_populism
+					has_government = fascism
+				}
+				add = 90
+			}
+		}
+		FROM = { country_event = { id = dd_ukr_guarantee.3 } }
+	}
+}
+
+country_event = {
+	id = dd_ukr_guarantee.2
+	title = dd_ukr_guarantee.2.t
+	desc = dd_ukr_guarantee.2.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_guarantee.2.a }
+}
+
+country_event = {
+	id = dd_ukr_guarantee.3
+	title = dd_ukr_guarantee.3.t
+	desc = dd_ukr_guarantee.3.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_guarantee.3.a }
+}
+
+country_event = {
+	id = dd_ukr_grid.1
+	title = dd_ukr_grid.1.t
+	desc = dd_ukr_grid.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_grid.1.a }
 }

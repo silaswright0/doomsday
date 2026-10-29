@@ -1,4 +1,35 @@
 on_actions = {
+	on_startup = {
+		effect = {
+			UKR = {
+				set_party_name = { ideology = social_liberalism name = dd_ukr_servant_party long_name = dd_ukr_servant_party_long }
+				set_party_name = { ideology = national_populism name = dd_ukr_radical_party long_name = dd_ukr_radical_party_long }
+				set_party_name = { ideology = liberal_conservatism name = dd_ukr_eurosolidarity_party long_name = dd_ukr_eurosolidarity_party_long }
+				set_party_name = { ideology = social_democracy name = dd_ukr_batkivshchyna_party long_name = dd_ukr_batkivshchyna_party_long }
+				set_party_name = { ideology = sovereign_democracy name = dd_ukr_platform_party long_name = dd_ukr_platform_party_long }
+				set_party_name = { ideology = communism name = dd_ukr_cpu_party long_name = dd_ukr_cpu_party_long }
+				set_party_name = { ideology = fascism name = dd_ukr_svoboda_party long_name = dd_ukr_svoboda_party_long }
+				if = { limit = { NOT = { has_character = UKR_volodymyr_zelenskyy } } recruit_character = UKR_volodymyr_zelenskyy }
+				if = { limit = { NOT = { has_character = UKR_oleh_lyashko } } recruit_character = UKR_oleh_lyashko }
+				if = { limit = { NOT = { has_character = UKR_petro_poroshenko } } recruit_character = UKR_petro_poroshenko }
+				if = { limit = { NOT = { has_character = UKR_yulia_tymoshenko } } recruit_character = UKR_yulia_tymoshenko }
+				if = { limit = { NOT = { has_character = UKR_yuriy_boyko } } recruit_character = UKR_yuriy_boyko }
+				if = { limit = { NOT = { has_character = UKR_petro_symonenko } } recruit_character = UKR_petro_symonenko }
+				if = { limit = { NOT = { has_character = UKR_oleh_tyahnybok } } recruit_character = UKR_oleh_tyahnybok }
+				if = {
+					limit = {
+						NOT = { has_completed_focus = UKR_a_vote_when_it_is_over }
+						has_government = social_liberalism
+					}
+					promote_character = UKR_volodymyr_zelenskyy
+				}
+				if = { limit = { NOT = { has_variable = dd_ukr_blackout } } set_variable = { dd_ukr_blackout = 0 } }
+				if = { limit = { NOT = { has_variable = dd_ukr_blackout_cap } } set_variable = { dd_ukr_blackout_cap = 20 } }
+				if = { limit = { NOT = { has_variable = dd_ukr_grid_cd } } set_variable = { dd_ukr_grid_cd = 0 } }
+				dd_ukr_grid_sync = yes
+			}
+		}
+	}
 	on_daily_UKR = {
 		effect = {
 			if = {
@@ -12,13 +43,14 @@ on_actions = {
 				limit = {
 					has_war = yes
 					NOT = { has_country_flag = dd_ukr_shell_hunger_fired }
-					NOT = { has_idea = dd_ukr_home_shells }
+					NOT = { has_country_flag = dd_ukr_home_shells }
 					NOT = { has_equipment = { artillery_equipment > 0 } }
 				}
 				set_country_flag = dd_ukr_shell_hunger_fired
 				country_event = { id = dd_ukr_shell.1 }
 			}
 			dd_ukr_check_refinery_strike = yes
+			dd_ukr_grid_check_bombs = yes
 		}
 	}
 }

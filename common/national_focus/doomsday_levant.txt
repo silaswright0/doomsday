@@ -27,32 +27,9 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = TUR_abu_dhabi
-		icon = GFX_goal_generic_alliance
-		x = 16
-		y = 1
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = TUR_diplomacy }
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = dd_levant_shock_tt
-				dd_levant_shock = yes
-			}
-			UAE = { exists = yes NOT = { has_war_with = ROOT } }
-		}
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			give_military_access = UAE
-			UAE = { give_military_access = ROOT }
-			add_opinion_modifier = { target = UAE modifier = dd_levant_opinion }
-			UAE = { add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion } }
-		}
-	}
-	focus = {
 		id = TUR_riyadh
 		icon = GFX_goal_generic_alliance
-		x = 20
+		x = 18
 		y = 1
 		cost = 5
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -75,7 +52,7 @@ focus_tree = {
 	focus = {
 		id = TUR_islamabad
 		icon = GFX_goal_generic_alliance
-		x = 24
+		x = 22
 		y = 1
 		cost = 5
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -102,7 +79,6 @@ focus_tree = {
 		y = 2
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = TUR_abu_dhabi }
 		prerequisite = { focus = TUR_riyadh }
 		prerequisite = { focus = TUR_islamabad }
 		available = {
@@ -115,7 +91,6 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			dd_levant_open = yes
-			UAE = { dd_levant_invite = yes }
 			SAU = { dd_levant_invite = yes }
 			PAK = { dd_levant_invite = yes }
 		}
@@ -148,32 +123,9 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SAU_abu_dhabi
-		icon = GFX_goal_generic_alliance
-		x = 16
-		y = 1
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = SAU_diplomacy }
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = dd_levant_shock_tt
-				dd_levant_shock = yes
-			}
-			UAE = { exists = yes NOT = { has_war_with = ROOT } }
-		}
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			give_military_access = UAE
-			UAE = { give_military_access = ROOT }
-			add_opinion_modifier = { target = UAE modifier = dd_levant_opinion }
-			UAE = { add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion } }
-		}
-	}
-	focus = {
 		id = SAU_ankara
 		icon = GFX_goal_generic_alliance
-		x = 20
+		x = 18
 		y = 1
 		cost = 5
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -196,7 +148,7 @@ focus_tree = {
 	focus = {
 		id = SAU_islamabad
 		icon = GFX_goal_generic_alliance
-		x = 24
+		x = 22
 		y = 1
 		cost = 5
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -223,7 +175,6 @@ focus_tree = {
 		y = 2
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = SAU_abu_dhabi }
 		prerequisite = { focus = SAU_ankara }
 		prerequisite = { focus = SAU_islamabad }
 		available = {
@@ -236,7 +187,6 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			dd_levant_open = yes
-			UAE = { dd_levant_invite = yes }
 			TUR = { dd_levant_invite = yes }
 			PAK = { dd_levant_invite = yes }
 		}
@@ -269,32 +219,9 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = PAK_abu_dhabi
-		icon = GFX_goal_generic_alliance
-		x = 16
-		y = 1
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = PAK_diplomacy }
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = dd_levant_shock_tt
-				dd_levant_shock = yes
-			}
-			UAE = { exists = yes NOT = { has_war_with = ROOT } }
-		}
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			give_military_access = UAE
-			UAE = { give_military_access = ROOT }
-			add_opinion_modifier = { target = UAE modifier = dd_levant_opinion }
-			UAE = { add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion } }
-		}
-	}
-	focus = {
 		id = PAK_ankara
 		icon = GFX_goal_generic_alliance
-		x = 20
+		x = 18
 		y = 1
 		cost = 5
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -317,7 +244,7 @@ focus_tree = {
 	focus = {
 		id = PAK_riyadh
 		icon = GFX_goal_generic_alliance
-		x = 24
+		x = 22
 		y = 1
 		cost = 5
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -344,7 +271,6 @@ focus_tree = {
 		y = 2
 		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = PAK_abu_dhabi }
 		prerequisite = { focus = PAK_ankara }
 		prerequisite = { focus = PAK_riyadh }
 		available = {
@@ -357,7 +283,6 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			dd_levant_open = yes
-			UAE = { dd_levant_invite = yes }
 			TUR = { dd_levant_invite = yes }
 			SAU = { dd_levant_invite = yes }
 		}

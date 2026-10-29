@@ -284,15 +284,18 @@ dd_elections_category = {
 		icon = generic_political_discourse
 		allowed = { tag = ISR }
 		available = { hidden_trigger = { always = no } }
-		days_mission_timeout = 90
+		days_mission_timeout = 120
 		is_good = yes
 		activation = { always = no }
 		cancel_trigger = {
 			has_country_flag = dd_isr_election_done
 		}
 		timeout_effect = {
-			clr_country_flag = dd_isr_election_rerun_active
-			dd_isr_hold_election = yes
+			if = {
+				limit = { check_variable = { dd_isr_rerun_days > 119 } }
+				clr_country_flag = dd_isr_election_rerun_active
+				dd_isr_hold_election = yes
+			}
 		}
 		ai_will_do = { factor = 0 }
 	}

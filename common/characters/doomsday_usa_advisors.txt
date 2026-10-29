@@ -43,6 +43,25 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	USA_gavin_mcinnes = {
+		name = "Gavin McInnes"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_mcinnes small = GFX_portrait_USA_mcinnes_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_gavin_mcinnes
+			allowed = {
+				OR = {
+					original_tag = USA
+					tag = FDS
+				}
+			}
+			available = { has_government = fascism }
+			traits = { dd_right_wing_agitator }
+			ai_will_do = { factor = 1 }
+		}
+	}
 	USA_jd_vance = {
 		name = "JD Vance"
 		portraits = {

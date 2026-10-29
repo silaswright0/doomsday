@@ -23,6 +23,7 @@ focus_tree = {
 		ai_will_do = { factor = 20 }
 		completion_reward = {
 			add_political_power = 50
+			dd_uae_open_compact = yes
 		}
 	}
 
@@ -70,7 +71,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			STC = { give_military_access = ROOT }
+			STC = {
+				add_ideas = dd_rsf_uae_support
+				give_military_access = ROOT
+			}
 			give_military_access = STC
 			add_opinion_modifier = { target = STC modifier = dd_uae_client_opinion }
 		}
@@ -113,7 +117,6 @@ focus_tree = {
 		available = { has_war = no }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			dd_uae_open_compact = yes
 			RSF = { dd_uae_try_invite = yes }
 			STC = { dd_uae_try_invite = yes }
 			SML = { dd_uae_try_invite = yes }
@@ -159,7 +162,6 @@ focus_tree = {
 		cancel_if_invalid = yes
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			dd_uae_open_compact = yes
 			SML = { dd_uae_try_invite = yes }
 		}
 	}
@@ -181,7 +183,6 @@ focus_tree = {
 		cancel_if_invalid = yes
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			dd_uae_open_compact = yes
 			STC = { dd_uae_try_invite = yes }
 		}
 	}
@@ -203,108 +204,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			dd_uae_open_compact = yes
 			RSF = { dd_uae_try_invite = yes }
-		}
-	}
-
-	# Diplomacy section. A fuller tree can sit to the left of this later.
-	focus = {
-		id = UAE_levant_file
-		icon = GFX_goal_generic_political_pressure
-		x = 20
-		y = 0
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		cancel_if_invalid = yes
-		available = { has_war = no }
-		ai_will_do = { factor = 10 }
-		completion_reward = {
-			add_political_power = 25
-		}
-	}
-	focus = {
-		id = UAE_tie_ankara
-		icon = GFX_goal_generic_alliance
-		x = 16
-		y = 1
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = UAE_levant_file }
-		available = {
-			has_war = no
-			custom_trigger_tooltip = {
-				tooltip = dd_levant_shock_tt
-				dd_levant_shock = yes
-			}
-			TUR = { exists = yes NOT = { has_war_with = ROOT } }
-		}
-		cancel_if_invalid = yes
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			give_military_access = TUR
-			TUR = { give_military_access = ROOT }
-			add_opinion_modifier = { target = TUR modifier = dd_levant_opinion }
-			TUR = {
-				add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion }
-				dd_uae_tie_partner = yes
-			}
-		}
-	}
-	focus = {
-		id = UAE_tie_riyadh
-		icon = GFX_goal_generic_alliance
-		x = 20
-		y = 1
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = UAE_levant_file }
-		available = {
-			has_war = no
-			custom_trigger_tooltip = {
-				tooltip = dd_levant_shock_tt
-				dd_levant_shock = yes
-			}
-			SAU = { exists = yes NOT = { has_war_with = ROOT } }
-		}
-		cancel_if_invalid = yes
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			give_military_access = SAU
-			SAU = { give_military_access = ROOT }
-			add_opinion_modifier = { target = SAU modifier = dd_levant_opinion }
-			SAU = {
-				add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion }
-				dd_uae_tie_partner = yes
-			}
-		}
-	}
-	focus = {
-		id = UAE_tie_islamabad
-		icon = GFX_goal_generic_alliance
-		x = 24
-		y = 1
-		cost = 5
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		prerequisite = { focus = UAE_levant_file }
-		available = {
-			has_war = no
-			custom_trigger_tooltip = {
-				tooltip = dd_levant_shock_tt
-				dd_levant_shock = yes
-			}
-			PAK = { exists = yes NOT = { has_war_with = ROOT } }
-		}
-		cancel_if_invalid = yes
-		ai_will_do = { factor = 20 }
-		completion_reward = {
-			give_military_access = PAK
-			PAK = { give_military_access = ROOT }
-			add_opinion_modifier = { target = PAK modifier = dd_levant_opinion }
-			PAK = {
-				add_opinion_modifier = { target = ROOT modifier = dd_levant_opinion }
-				dd_uae_tie_partner = yes
-			}
 		}
 	}
 }

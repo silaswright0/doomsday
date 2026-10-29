@@ -4067,6 +4067,7 @@ dd_usa_drop_usa_tag = {
 	if = { limit = { has_character = USA_marco_rubio } USA_marco_rubio = { set_nationality = event_target:dd_usa_winner } }
 	if = { limit = { has_character = USA_jd_vance } USA_jd_vance = { set_nationality = event_target:dd_usa_winner } }
 	if = { limit = { has_character = USA_james_fishback } USA_james_fishback = { set_nationality = event_target:dd_usa_winner } }
+	if = { limit = { has_character = USA_gavin_mcinnes } USA_gavin_mcinnes = { set_nationality = event_target:dd_usa_winner } }
 	event_target:dd_usa_winner = { dd_usa_name_ballot = yes }
 	if = {
 		limit = { is_ai = no }
