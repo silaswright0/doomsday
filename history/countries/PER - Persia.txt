@@ -428,10 +428,6 @@ set_technology = {
 	dd_lt_2 = 1
 }
 
-
-
-
-
 set_naval_oob = "PER_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Frigate"
@@ -535,24 +531,13 @@ set_popularities = {
 set_variable = { debt = 108.8100 }
 set_variable = { treasury = 7.2540 }
 set_variable = { dd_prod = 2.1298 }
-create_country_leader = {
-	name = "Ali Khamenei"
-	desc = PER_LEADER_DESC
-	picture = GFX_portrait_PER_leader
-	ideology = theocrat
-	traits = { }
-}
-recruit_character = PER_john_army
-recruit_character = PER_john_airforce
-recruit_character = PER_john_navy
+recruit_character = PER_ali_khamenei
+promote_character = PER_ali_khamenei
+
 recruit_character = PER_fm_abdolrahim_mousavi
 recruit_character = PER_gen_mohammad_pakpour
 recruit_character = PER_nav_shahram_irani
-recruit_character = PER_hc_infantry
-recruit_character = PER_hc_armor
-recruit_character = PER_hc_artillery
-recruit_character = PER_hc_air
-recruit_character = PER_hc_navy
+
 recruit_character = PER_hamid_vahedi
 recruit_character = PER_alireza_tangsiri
 recruit_character = PER_dd_lab_lead

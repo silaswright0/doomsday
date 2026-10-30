@@ -1,3 +1,12 @@
+# Fired from the donor's scope, so Ukraine's notice names that country.
+dd_ukr_aid_yes = {
+	UKR = { country_event = { id = dd_ukr_aid.20 } }
+}
+
+dd_ukr_aid_no = {
+	UKR = { country_event = { id = dd_ukr_aid.21 } }
+}
+
 # Yearly donor packages. Amounts follow who has actually been sending kit:
 # America the deep stockpile, Germany the heavy European package, Poland the tanks,
 # the Nordics split across three replies, Canada the smaller end.
@@ -10,6 +19,7 @@ dd_ukr_deliver_usa = {
 		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 12 producer = ROOT }
 		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 80 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_ger = {
@@ -21,6 +31,7 @@ dd_ukr_deliver_ger = {
 		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 48 producer = ROOT }
 		add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 12 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_eng = {
@@ -31,6 +42,7 @@ dd_ukr_deliver_eng = {
 		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 4 producer = ROOT }
 		add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 6 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_swe = {
@@ -40,6 +52,7 @@ dd_ukr_deliver_swe = {
 		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 8 producer = ROOT }
 		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 36 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_nor = {
@@ -49,6 +62,7 @@ dd_ukr_deliver_nor = {
 		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 10 producer = ROOT }
 		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 6 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_den = {
@@ -58,6 +72,7 @@ dd_ukr_deliver_den = {
 		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 6 producer = ROOT }
 		add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 3 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_hol = {
@@ -70,6 +85,7 @@ dd_ukr_deliver_hol = {
 		add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 8 producer = ROOT }
 		add_equipment_to_stockpile = { type = fighter_equipment_cw4 amount = 2 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_fra = {
@@ -80,6 +96,7 @@ dd_ukr_deliver_fra = {
 		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 3 producer = ROOT }
 		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 20 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_pol = {
@@ -89,6 +106,7 @@ dd_ukr_deliver_pol = {
 		add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 16 producer = ROOT }
 		add_equipment_to_stockpile = { type = mbt_equipment_2 amount = 14 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_deliver_can = {
@@ -99,6 +117,7 @@ dd_ukr_deliver_can = {
 		add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 3 producer = ROOT }
 		add_equipment_to_stockpile = { type = mechanized_equipment_1 amount = 20 producer = ROOT }
 	}
+	dd_ukr_aid_yes = yes
 }
 
 dd_ukr_ask_nordics = {

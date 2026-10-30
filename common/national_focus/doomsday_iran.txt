@@ -67,13 +67,32 @@ focus_tree = {
 	}
 
 	focus = {
+		id = PER_pezeshkian_leads
+		icon = GFX_goal_support_democracy
+		x = 2
+		y = 2
+		cost = 1
+		mutually_exclusive = { focus = PER_mojtaba_leads }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = PER_pezeshkian_leads_tt
+				has_country_flag = dd_per_pezeshkian
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			custom_effect_tooltip = PER_pezeshkian_leads_done_tt
+		}
+	}
+	focus = {
 		id = PER_islamabad
 		icon = GFX_goal_generic_positive_diplomacy
 		x = 2
 		y = 3
 		cost = 5
+		prerequisite = { focus = PER_pezeshkian_leads }
 		prerequisite = { focus = PER_rescue_brigades }
-		mutually_exclusive = { focus = PER_blockade_hormuz }
 		available = { has_country_flag = dd_per_pezeshkian }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 20 }
@@ -103,8 +122,10 @@ focus_tree = {
 		prerequisite = { focus = PER_withdraw_proxies }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			add_political_power = 100
-			dd_per_irgc_revolt = yes
+			hidden_effect = {
+				add_political_power = 100
+				dd_per_irgc_revolt = yes
+			}
 		}
 	}
 	focus = {
@@ -195,13 +216,32 @@ focus_tree = {
 	}
 
 	focus = {
+		id = PER_mojtaba_leads
+		icon = GFX_goal_generic_major_war
+		x = 14
+		y = 2
+		cost = 1
+		mutually_exclusive = { focus = PER_pezeshkian_leads }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = PER_mojtaba_leads_tt
+				has_country_flag = dd_per_mojtaba
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			custom_effect_tooltip = PER_mojtaba_leads_done_tt
+		}
+	}
+	focus = {
 		id = PER_blockade_hormuz
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		x = 14
 		y = 3
 		cost = 5
+		prerequisite = { focus = PER_mojtaba_leads }
 		prerequisite = { focus = PER_rescue_brigades }
-		mutually_exclusive = { focus = PER_islamabad }
 		available = { has_country_flag = dd_per_mojtaba }
 		search_filters = { FOCUS_FILTER_NAVY }
 		ai_will_do = { factor = 1000 }

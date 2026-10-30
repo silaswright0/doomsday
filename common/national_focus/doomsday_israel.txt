@@ -916,12 +916,12 @@ focus_tree = {
 	focus = {
 		id = ISR_northern_frontier
 		icon = GFX_goal_generic_demand_territory
-		x = 18
-		y = 13
+		x = 34
+		y = 12
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_oppose_palestine }
+		prerequisite = { focus = ISR_eternal_premiership }
 		mutually_exclusive = { focus = ISR_protect_kurds }
 		completion_reward = {
 			dd_isr_northern_frontier = yes
@@ -930,12 +930,12 @@ focus_tree = {
 	focus = {
 		id = ISR_protect_kurds
 		icon = GFX_goal_generic_national_unity
-		x = 14
-		y = 13
+		x = 30
+		y = 12
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
-		prerequisite = { focus = ISR_oppose_palestine }
+		prerequisite = { focus = ISR_eternal_premiership }
 		mutually_exclusive = { focus = ISR_northern_frontier }
 		available = {
 			ROJ = { exists = yes }
@@ -947,8 +947,8 @@ focus_tree = {
 	focus = {
 		id = ISR_target_shiites
 		icon = GFX_goal_generic_major_war
-		x = 16
-		y = 14
+		x = 32
+		y = 13
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -960,8 +960,8 @@ focus_tree = {
 	focus = {
 		id = ISR_jordan_overlord
 		icon = GFX_goal_generic_forceful_treaty
-		x = 16
-		y = 15
+		x = 32
+		y = 14
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -979,8 +979,8 @@ focus_tree = {
 	focus = {
 		id = ISR_toward_greater
 		icon = GFX_goal_generic_demand_territory
-		x = 16
-		y = 16
+		x = 32
+		y = 15
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -992,8 +992,8 @@ focus_tree = {
 	focus = {
 		id = ISR_proclaim_greater
 		icon = GFX_goal_generic_national_unity
-		x = 16
-		y = 17
+		x = 32
+		y = 16
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }

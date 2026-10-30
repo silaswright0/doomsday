@@ -506,10 +506,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "CAN_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
@@ -614,13 +610,7 @@ create_country_leader = {
 	ideology = social_liberal
 	traits = { }
 }
-recruit_character = CAN_john_army
-recruit_character = CAN_john_airforce
-recruit_character = CAN_john_navy
+
 recruit_character = CAN_fm_jennie_carignan
 recruit_character = CAN_nav_angus_topshee
-recruit_character = CAN_hc_infantry
-recruit_character = CAN_hc_armor
-recruit_character = CAN_hc_artillery
-recruit_character = CAN_hc_air
-recruit_character = CAN_hc_navy
+

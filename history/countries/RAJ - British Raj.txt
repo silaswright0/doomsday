@@ -508,10 +508,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "RAJ_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
@@ -618,14 +614,8 @@ create_country_leader = {
 	ideology = national_populist
 	traits = { }
 }
-recruit_character = RAJ_john_army
-recruit_character = RAJ_john_airforce
-recruit_character = RAJ_john_navy
+
 recruit_character = RAJ_fm_upendra_dwivedi
 recruit_character = RAJ_fm_anil_chauhan
 recruit_character = RAJ_nav_dinesh_tripathi
-recruit_character = RAJ_hc_infantry
-recruit_character = RAJ_hc_armor
-recruit_character = RAJ_hc_artillery
-recruit_character = RAJ_hc_air
-recruit_character = RAJ_hc_navy
+

@@ -578,10 +578,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "ENG_2026_naval"
 create_equipment_variant = {
 	name = "Modern Destroyer"
@@ -687,14 +683,7 @@ create_country_leader = {
 	ideology = social_democrat
 	traits = { }
 }
-recruit_character = ENG_john_army
-recruit_character = ENG_john_airforce
-recruit_character = ENG_john_navy
+
 recruit_character = ENG_fm_roland_walker
 recruit_character = ENG_gen_james_hockenhull
-recruit_character = ENG_nav_ben_key
-recruit_character = ENG_hc_infantry
-recruit_character = ENG_hc_armor
-recruit_character = ENG_hc_artillery
-recruit_character = ENG_hc_air
-recruit_character = ENG_hc_navy
+

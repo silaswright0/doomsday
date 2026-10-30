@@ -12,25 +12,17 @@ country_event = {
 		name = dd_iran.1.a
 		ai_chance = { factor = 0 }
 		set_country_flag = dd_per_pezeshkian
-		retire_country_leader = yes
-		create_country_leader = {
-			name = "Masoud Pezeshkian"
-			picture = GFX_portrait_PER_pezeshkian
-			ideology = theocrat
-		}
+		complete_national_focus = PER_pezeshkian_leads
+		dd_per_seat_pezeshkian = yes
 		news_event = { id = dd_hormuz_news.1 }
 	}
 	option = {
 		name = dd_iran.1.b
 		ai_chance = { factor = 100 }
 		set_country_flag = dd_per_mojtaba
+		complete_national_focus = PER_mojtaba_leads
 		add_ideas = dd_holy_war
-		retire_country_leader = yes
-		create_country_leader = {
-			name = "Mojtaba Khamenei"
-			picture = GFX_portrait_PER_mojtaba
-			ideology = theocrat
-		}
+		dd_per_seat_mojtaba = yes
 		news_event = { id = dd_hormuz_news.1 }
 	}
 }

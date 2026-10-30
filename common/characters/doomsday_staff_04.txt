@@ -719,58 +719,10 @@ characters = {
 			legacy_id = 0
 		}
 	}
-	PAK_john_army = {
-		name = "John Army"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = army_chief
-			idea_token = PAK_john_army
-			cost = 100
-			allowed = { original_tag = PAK }
-			traits = { dd_john_army }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PAK_john_airforce = {
-		name = "John Airforce"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = air_chief
-			idea_token = PAK_john_airforce
-			cost = 100
-			allowed = { original_tag = PAK }
-			traits = { dd_john_airforce }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PAK_john_navy = {
-		name = "John Navy"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = navy_chief
-			idea_token = PAK_john_navy
-			cost = 100
-			allowed = { original_tag = PAK }
-			traits = { dd_john_navy }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	PAK_fm_asim_munir = {
 		name = "Asim Munir"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_PAK_asim_munir small = GFX_portrait_PAK_asim_munir_small }
 		}
 		field_marshal = {
 			traits = { politically_connected career_officer }
@@ -785,7 +737,7 @@ characters = {
 	PAK_nav_naveed_ashraf = {
 		name = "Naveed Ashraf"
 		portraits = {
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_PAK_naveed_ashraf small = GFX_portrait_PAK_naveed_ashraf_small }
 		}
 		navy_leader = {
 			traits = { spotter }

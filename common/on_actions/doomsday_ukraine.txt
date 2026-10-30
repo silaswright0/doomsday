@@ -16,6 +16,9 @@ on_actions = {
 				if = { limit = { NOT = { has_character = UKR_yuriy_boyko } } recruit_character = UKR_yuriy_boyko }
 				if = { limit = { NOT = { has_character = UKR_petro_symonenko } } recruit_character = UKR_petro_symonenko }
 				if = { limit = { NOT = { has_character = UKR_oleh_tyahnybok } } recruit_character = UKR_oleh_tyahnybok }
+				if = { limit = { NOT = { has_character = UKR_larry_fink } } recruit_character = UKR_larry_fink }
+				if = { limit = { NOT = { has_character = UKR_christopher_cavoli } } recruit_character = UKR_christopher_cavoli }
+				if = { limit = { NOT = { has_character = UKR_mykhailo_fedorov } } recruit_character = UKR_mykhailo_fedorov }
 				if = {
 					limit = {
 						NOT = { has_completed_focus = UKR_a_vote_when_it_is_over }
@@ -26,12 +29,29 @@ on_actions = {
 				if = { limit = { NOT = { has_variable = dd_ukr_blackout } } set_variable = { dd_ukr_blackout = 0 } }
 				if = { limit = { NOT = { has_variable = dd_ukr_blackout_cap } } set_variable = { dd_ukr_blackout_cap = 20 } }
 				if = { limit = { NOT = { has_variable = dd_ukr_grid_cd } } set_variable = { dd_ukr_grid_cd = 0 } }
+				if = {
+					limit = {
+						has_idea = dd_ukr_western_package
+						NOT = { has_country_flag = dd_ukr_western_civs }
+					}
+					add_offsite_building = { type = industrial_complex level = 8 }
+					set_country_flag = dd_ukr_western_civs
+				}
 				dd_ukr_grid_sync = yes
 			}
 		}
 	}
 	on_daily_UKR = {
 		effect = {
+			if = {
+				limit = {
+					has_war = yes
+					has_idea = dd_ukr_western_package
+					NOT = { has_country_flag = dd_ukr_western_civs }
+				}
+				add_offsite_building = { type = industrial_complex level = 8 }
+				set_country_flag = dd_ukr_western_civs
+			}
 			if = {
 				limit = {
 					has_war = no

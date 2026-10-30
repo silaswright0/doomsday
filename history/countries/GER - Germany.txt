@@ -506,10 +506,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "GER_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
@@ -616,14 +612,8 @@ create_country_leader = {
 	ideology = liberal_conservative
 	traits = { }
 }
-recruit_character = GER_john_army
-recruit_character = GER_john_airforce
-recruit_character = GER_john_navy
+
 recruit_character = GER_fm_carsten_breuer
 recruit_character = GER_gen_alfons_mais
 recruit_character = GER_nav_jan_christian_kaack
-recruit_character = GER_hc_infantry
-recruit_character = GER_hc_armor
-recruit_character = GER_hc_artillery
-recruit_character = GER_hc_air
-recruit_character = GER_hc_navy
+

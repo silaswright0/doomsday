@@ -649,10 +649,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "USA_2026_naval"
 create_equipment_variant = {
 	name = "Modern Destroyer"
@@ -783,9 +779,7 @@ create_country_leader = {
 	ideology = national_populist
 	traits = { }
 }
-recruit_character = USA_john_army
-recruit_character = USA_john_airforce
-recruit_character = USA_john_navy
+
 recruit_character = USA_fm_randy_george
 recruit_character = USA_fm_michael_kurilla
 recruit_character = USA_fm_christopher_donahue
@@ -823,6 +817,7 @@ recruit_character = USA_pete_hegseth
 recruit_character = USA_kamala_harris
 recruit_character = USA_pete_buttigieg
 recruit_character = USA_marc_andreessen
+recruit_character = USA_larry_ellison
 recruit_character = USA_stephen_miller
 recruit_character = USA_steve_witkoff
 recruit_character = USA_peter_thiel

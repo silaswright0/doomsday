@@ -503,10 +503,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "FOR_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
@@ -612,13 +608,7 @@ create_country_leader = {
 	ideology = social_liberal
 	traits = { }
 }
-recruit_character = FOR_john_army
-recruit_character = FOR_john_airforce
-recruit_character = FOR_john_navy
+
 recruit_character = FOR_fm_mei_chia_shu
 recruit_character = FOR_nav_tang_hua
-recruit_character = FOR_hc_infantry
-recruit_character = FOR_hc_armor
-recruit_character = FOR_hc_artillery
-recruit_character = FOR_hc_air
-recruit_character = FOR_hc_navy
+

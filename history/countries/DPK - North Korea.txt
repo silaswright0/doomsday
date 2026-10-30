@@ -429,10 +429,6 @@ set_technology = {
 	dd_lt_2 = 1
 }
 
-
-
-
-
 set_naval_oob = "DPK_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Frigate"
@@ -533,14 +529,8 @@ create_country_leader = {
 	ideology = vanguardist
 	traits = { }
 }
-recruit_character = DPK_john_army
-recruit_character = DPK_john_airforce
-recruit_character = DPK_john_navy
+
 recruit_character = DPK_fm_ri_yong_gil
 recruit_character = DPK_gen_kang_sun_nam
 recruit_character = DPK_nav_kim_jong_gil
-recruit_character = DPK_hc_infantry
-recruit_character = DPK_hc_armor
-recruit_character = DPK_hc_artillery
-recruit_character = DPK_hc_air
-recruit_character = DPK_hc_navy
+

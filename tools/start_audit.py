@@ -540,7 +540,6 @@ COMMANDERS: dict[str, list[tuple]] = {
     "ENG": [
         ("Roland Walker", "fm", 3, 3, 3, 4, 3, "career_officer organizer"),
         ("James Hockenhull", "gen", 3, 2, 3, 4, 3, "organizer"),
-        ("Ben Key", "nav", 3, 3, 3, 3, 3, "superior_tactician"),
     ],
     "FRA": [
         ("Pierre Schill", "fm", 3, 3, 3, 3, 4, "career_officer"),

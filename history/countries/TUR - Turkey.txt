@@ -528,10 +528,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "TUR_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
@@ -639,14 +635,8 @@ create_country_leader = {
 	ideology = national_populist
 	traits = { }
 }
-recruit_character = TUR_john_army
-recruit_character = TUR_john_airforce
-recruit_character = TUR_john_navy
+
 recruit_character = TUR_fm_metin_gurak
 recruit_character = TUR_gen_selcuk_bayraktaroglu
 recruit_character = TUR_nav_ercument_tatlioglu
-recruit_character = TUR_hc_infantry
-recruit_character = TUR_hc_armor
-recruit_character = TUR_hc_artillery
-recruit_character = TUR_hc_air
-recruit_character = TUR_hc_navy
+

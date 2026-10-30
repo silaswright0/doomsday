@@ -577,10 +577,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "FRA_2026_naval"
 create_equipment_variant = {
 	name = "Modern Destroyer"
@@ -686,15 +682,9 @@ create_country_leader = {
 	ideology = social_liberal
 	traits = { }
 }
-recruit_character = FRA_john_army
-recruit_character = FRA_john_airforce
-recruit_character = FRA_john_navy
+
 recruit_character = FRA_fm_pierre_schill
 recruit_character = FRA_fm_thierry_burkhard
 recruit_character = FRA_nav_nicolas_vaujour
-recruit_character = FRA_hc_infantry
-recruit_character = FRA_hc_armor
-recruit_character = FRA_hc_artillery
-recruit_character = FRA_hc_air
-recruit_character = FRA_hc_navy
+
 recruit_character = FRA_jerome_bellanger

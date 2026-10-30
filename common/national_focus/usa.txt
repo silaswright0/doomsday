@@ -404,7 +404,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			set_country_flag = dd_usa_zionist_advisors
 		}
 	}
 	focus = {
@@ -428,7 +427,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			set_country_flag = dd_usa_zionist_advisors
 		}
 	}
 	focus = {
@@ -1330,7 +1328,6 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
 			add_political_power = 250
-			set_country_flag = dd_usa_zionist_advisors
 		}
 	}
 	focus = {
@@ -1356,7 +1353,6 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = national_populism popularity = 0.03 }
 			add_political_power = 50
-			set_country_flag = dd_usa_zionist_advisors
 		}
 	}
 	focus = {
@@ -1668,7 +1664,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_politics = { ruling_party = social_liberalism elections_allowed = no }
-			set_country_flag = dd_usa_zionist_advisors
 			create_country_leader = { name = "Gavin Newsom" picture = GFX_portrait_WCL_leader ideology = social_liberal }
 		}
 	}
@@ -1686,7 +1681,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_politics = { ruling_party = liberal_conservatism elections_allowed = no }
-			set_country_flag = dd_usa_zionist_advisors
 			create_country_leader = { name = "Marco Rubio" picture = GFX_portrait_RBM_leader ideology = liberal_conservative }
 		}
 	}
@@ -2314,7 +2308,6 @@ focus_tree = {
 		prerequisite = { focus = USA_election_natpop }
 		completion_reward = {
 			custom_effect_tooltip = dd_usa_little_tech_2_desc
-			set_country_flag = dd_usa_little_tech_advisors
 			hidden_effect = {
 				set_variable = { dd_usa_little_tech_level = 2 }
 				dd_usa_apply_little_tech = yes

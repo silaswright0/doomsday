@@ -706,6 +706,10 @@ focus_tree = {
 			add_stability = -0.05
 			add_war_support = -0.02
 			add_political_power = 35
+			if = {
+				limit = { has_idea = UKR_mykhailo_fedorov }
+				remove_ideas = UKR_mykhailo_fedorov
+			}
 		}
 	}
 
@@ -869,7 +873,7 @@ focus_tree = {
 		id = UKR_the_call_up
 		icon = GFX_goal_generic_national_unity
 		x = 48
-		y = 4.5
+		y = 6
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -895,7 +899,7 @@ focus_tree = {
 		id = UKR_bring_them_back
 		icon = GFX_goal_generic_improve_relations
 		x = 48
-		y = 6
+		y = 7
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 8 }
@@ -974,12 +978,12 @@ focus_tree = {
 	focus = {
 		id = UKR_a_vote_when_it_is_over
 		icon = GFX_goal_generic_national_unity
-		x = 56
+		x = 48
 		y = 8
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 4 }
-		prerequisite = { focus = UKR_training_abroad }
+		prerequisite = { focus = UKR_bring_them_back }
 		available = { has_war = no }
 		cancel_if_invalid = yes
 		completion_reward = {

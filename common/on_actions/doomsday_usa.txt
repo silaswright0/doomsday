@@ -11,6 +11,7 @@ on_actions = {
 				dd_usa_init_legislature = yes
 				dd_usa_refresh_services = yes
 				if = { limit = { NOT = { has_character = USA_gavin_mcinnes } } recruit_character = USA_gavin_mcinnes }
+				if = { limit = { NOT = { has_character = USA_larry_ellison } } recruit_character = USA_larry_ellison }
 				dd_usa_grant_station_docking = yes
 				dd_usa_sync_partner_air = yes
 				dd_usa_mark_starting_states = yes

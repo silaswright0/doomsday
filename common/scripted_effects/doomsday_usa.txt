@@ -4335,13 +4335,11 @@ dd_usa_seat_president = {
 		if = {
 			limit = { check_variable = { dd_usa_general_winner = 2 } }
 			set_politics = { ruling_party = social_liberalism elections_allowed = no }
-			set_country_flag = dd_usa_zionist_advisors
 			create_country_leader = { name = "Gavin Newsom" picture = GFX_portrait_WCL_leader ideology = social_liberal }
 		}
 		if = {
 			limit = { check_variable = { dd_usa_general_winner = 3 } }
 			set_politics = { ruling_party = liberal_conservatism elections_allowed = no }
-			set_country_flag = dd_usa_zionist_advisors
 			create_country_leader = { name = "Marco Rubio" picture = GFX_portrait_RBM_leader ideology = liberal_conservative }
 		}
 		if = {

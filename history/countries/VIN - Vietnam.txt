@@ -424,10 +424,6 @@ set_technology = {
 	dd_lt_2 = 1
 }
 
-
-
-
-
 set_naval_oob = "VIN_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Frigate"
@@ -531,13 +527,7 @@ create_country_leader = {
 	ideology = vanguardist
 	traits = { }
 }
-recruit_character = VIN_john_army
-recruit_character = VIN_john_airforce
-recruit_character = VIN_john_navy
+
 recruit_character = VIN_fm_nguyen_tan_cuong
 recruit_character = VIN_nav_tran_thanh_nghiem
-recruit_character = VIN_hc_infantry
-recruit_character = VIN_hc_armor
-recruit_character = VIN_hc_artillery
-recruit_character = VIN_hc_air
-recruit_character = VIN_hc_navy
+

@@ -686,58 +686,10 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	DPK_john_army = {
-		name = "John Army"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = army_chief
-			idea_token = DPK_john_army
-			cost = 100
-			allowed = { original_tag = DPK }
-			traits = { dd_john_army }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	DPK_john_airforce = {
-		name = "John Airforce"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = air_chief
-			idea_token = DPK_john_airforce
-			cost = 100
-			allowed = { original_tag = DPK }
-			traits = { dd_john_airforce }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	DPK_john_navy = {
-		name = "John Navy"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = navy_chief
-			idea_token = DPK_john_navy
-			cost = 100
-			allowed = { original_tag = DPK }
-			traits = { dd_john_navy }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	DPK_fm_ri_yong_gil = {
 		name = "Ri Yong-gil"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_DPK_ri_yong_gil small = GFX_portrait_DPK_ri_yong_gil_small }
 		}
 		field_marshal = {
 			traits = { infantry_officer politically_connected }
@@ -752,7 +704,7 @@ characters = {
 	DPK_gen_kang_sun_nam = {
 		name = "Kang Sun-nam"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_DPK_kang_sun_nam small = GFX_portrait_DPK_kang_sun_nam_small }
 		}
 		corps_commander = {
 			traits = { career_officer }
@@ -767,7 +719,7 @@ characters = {
 	DPK_nav_kim_jong_gil = {
 		name = "Kim Jong-gil"
 		portraits = {
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_DPK_kim_jong_gil small = GFX_portrait_DPK_kim_jong_gil_small }
 		}
 		navy_leader = {
 			traits = { spotter }

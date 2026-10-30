@@ -62,73 +62,10 @@ characters = {
 			legacy_id = 0
 		}
 	}
-	HAM_john_army = {
-		name = "John Army"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = army_chief
-			idea_token = HAM_john_army
-			cost = 100
-			allowed = { original_tag = HAM }
-			traits = { dd_john_army }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HAM_john_airforce = {
-		name = "John Airforce"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = air_chief
-			idea_token = HAM_john_airforce
-			cost = 100
-			allowed = { original_tag = HAM }
-			traits = { dd_john_airforce }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HAM_john_navy = {
-		name = "John Navy"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = navy_chief
-			idea_token = HAM_john_navy
-			cost = 100
-			allowed = { original_tag = HAM }
-			traits = { dd_john_navy }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HAM_gen_mohammed_sinwar = {
-		name = "Mohammed Sinwar"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
-		}
-		corps_commander = {
-			traits = { commando urban_assault_specialist }
-			skill = 3
-			attack_skill = 4
-			defense_skill = 2
-			planning_skill = 3
-			logistics_skill = 2
-			legacy_id = 0
-		}
-	}
 	HAM_gen_izz_al_din_haddad = {
 		name = "Izz al-Din Haddad"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_HAM_izz_al_din_haddad small = GFX_portrait_HAM_izz_al_din_haddad_small }
 		}
 		corps_commander = {
 			traits = { infantry_officer }
@@ -140,58 +77,10 @@ characters = {
 			legacy_id = 0
 		}
 	}
-	HEZ_john_army = {
-		name = "John Army"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = army_chief
-			idea_token = HEZ_john_army
-			cost = 100
-			allowed = { original_tag = HEZ }
-			traits = { dd_john_army }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HEZ_john_airforce = {
-		name = "John Airforce"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = air_chief
-			idea_token = HEZ_john_airforce
-			cost = 100
-			allowed = { original_tag = HEZ }
-			traits = { dd_john_airforce }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HEZ_john_navy = {
-		name = "John Navy"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = navy_chief
-			idea_token = HEZ_john_navy
-			cost = 100
-			allowed = { original_tag = HEZ }
-			traits = { dd_john_navy }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	HEZ_fm_naim_qassem = {
 		name = "Naim Qassem"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_HEZ_leader small = GFX_portrait_HEZ_naim_qassem_small }
 		}
 		field_marshal = {
 			traits = { politically_connected }
@@ -203,73 +92,10 @@ characters = {
 			legacy_id = 0
 		}
 	}
-	HEZ_gen_hashem_safieddine = {
-		name = "Hashem Safieddine"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
-		}
-		corps_commander = {
-			traits = { commando }
-			skill = 3
-			attack_skill = 3
-			defense_skill = 3
-			planning_skill = 3
-			logistics_skill = 2
-			legacy_id = 0
-		}
-	}
-	HOU_john_army = {
-		name = "John Army"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = army_chief
-			idea_token = HOU_john_army
-			cost = 100
-			allowed = { original_tag = HOU }
-			traits = { dd_john_army }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HOU_john_airforce = {
-		name = "John Airforce"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = air_chief
-			idea_token = HOU_john_airforce
-			cost = 100
-			allowed = { original_tag = HOU }
-			traits = { dd_john_airforce }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HOU_john_navy = {
-		name = "John Navy"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = navy_chief
-			idea_token = HOU_john_navy
-			cost = 100
-			allowed = { original_tag = HOU }
-			traits = { dd_john_navy }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	HOU_fm_mahdi_al_mashat = {
 		name = "Mahdi al-Mashat"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_HOU_leader small = GFX_portrait_HOU_mahdi_al_mashat_small }
 		}
 		field_marshal = {
 			traits = { politically_connected }
@@ -284,7 +110,7 @@ characters = {
 	HOU_gen_mohammed_ali_al_houthi = {
 		name = "Mohammed Ali al-Houthi"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_HOU_mohammed_ali_al_houthi small = GFX_portrait_HOU_mohammed_ali_al_houthi_small }
 		}
 		corps_commander = {
 			traits = { infantry_officer }

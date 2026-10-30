@@ -114,7 +114,8 @@ dd_nato_ultimatum_divisions = {
 	}
 }
 
-# Keep the field army on the Russian front. No city garrisons, and no line facing Belarus.
+# Man the Russian front and hold it. Do not garrison cities, and do not face Belarus.
+# No spearheads: a positive force-concentration factor picks attack provinces and starts a push.
 dd_ukr_defensive_bulwark_front = {
 	allowed = { original_tag = UKR }
 	enable = { has_idea = dd_ukr_defensive_bulwark }
@@ -146,11 +147,33 @@ dd_ukr_defensive_bulwark_front = {
 	ai_strategy = {
 		type = force_concentration_front_factor
 		tag = SOV
-		value = 100
+		value = -100
 	}
 	ai_strategy = {
 		type = force_concentration_front_factor
 		tag = BLR
 		value = -100
+	}
+	ai_strategy = {
+		type = front_control
+		tag = SOV
+		ratio = 1
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+		manual_attack = no
+	}
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			is_in_faction_with = SOV
+		}
+		ratio = 1
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+		manual_attack = no
 	}
 }

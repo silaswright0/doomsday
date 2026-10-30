@@ -50,6 +50,12 @@ leader_traits = {
 		research_speed_factor = 0.02
 		production_speed_buildings_factor = 0.05
 	}
+	dd_software_empire = {
+		random = no
+		sprite = 13
+		research_speed_factor = 0.03
+		industrial_capacity_factory = 0.05
+	}
 	dd_political_revolution = {
 		random = no
 		sprite = 13
@@ -118,5 +124,24 @@ leader_traits = {
 		political_power_gain = 0.15
 		war_support_factor = 0.10
 		fascism_drift = 0.05
+	}
+	dd_reconstruction_capital = {
+		random = no
+		sprite = 13
+		production_speed_buildings_factor = 0.10
+		consumer_goods_factor = -0.05
+	}
+	dd_saceur = {
+		random = no
+		sprite = 5
+		army_attack_factor = 0.05
+		army_defence_factor = 0.05
+		planning_speed = 0.10
+	}
+	dd_digital_ministry = {
+		random = no
+		sprite = 13
+		research_speed_factor = 0.05
+		production_factory_max_efficiency_factor = 0.05
 	}
 }

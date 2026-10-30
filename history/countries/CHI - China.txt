@@ -568,10 +568,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "CHI_2026_naval"
 create_equipment_variant = {
 	name = "Modern Destroyer"
@@ -677,9 +673,7 @@ create_country_leader = {
 	ideology = vanguardist
 	traits = { }
 }
-recruit_character = CHI_john_army
-recruit_character = CHI_john_airforce
-recruit_character = CHI_john_navy
+
 recruit_character = CHI_fm_liu_zhenli
 recruit_character = CHI_fm_lin_xiangyang
 recruit_character = CHI_fm_wang_qiang

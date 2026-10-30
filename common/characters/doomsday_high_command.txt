@@ -641,86 +641,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	AST_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = AST_hc_infantry
-			cost = 100
-			allowed = { original_tag = AST }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	AST_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = AST_hc_armor
-			cost = 100
-			allowed = { original_tag = AST }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	AST_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = AST_hc_artillery
-			cost = 100
-			allowed = { original_tag = AST }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	AST_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = AST_hc_air
-			cost = 100
-			allowed = { original_tag = AST }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	AST_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = AST_hc_navy
-			cost = 100
-			allowed = { original_tag = AST }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	ATG_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -1921,86 +1841,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	BRA_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = BRA_hc_infantry
-			cost = 100
-			allowed = { original_tag = BRA }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	BRA_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = BRA_hc_armor
-			cost = 100
-			allowed = { original_tag = BRA }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	BRA_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = BRA_hc_artillery
-			cost = 100
-			allowed = { original_tag = BRA }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	BRA_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = BRA_hc_air
-			cost = 100
-			allowed = { original_tag = BRA }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	BRA_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = BRA_hc_navy
-			cost = 100
-			allowed = { original_tag = BRA }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	BRB_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -2477,86 +2317,6 @@ characters = {
 			idea_token = CAM_hc_navy
 			cost = 100
 			allowed = { original_tag = CAM }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	CAN_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = CAN_hc_infantry
-			cost = 100
-			allowed = { original_tag = CAN }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	CAN_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = CAN_hc_armor
-			cost = 100
-			allowed = { original_tag = CAN }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	CAN_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = CAN_hc_artillery
-			cost = 100
-			allowed = { original_tag = CAN }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	CAN_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = CAN_hc_air
-			cost = 100
-			allowed = { original_tag = CAN }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	CAN_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = CAN_hc_navy
-			cost = 100
-			allowed = { original_tag = CAN }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -4001,86 +3761,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	DPK_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = DPK_hc_infantry
-			cost = 100
-			allowed = { original_tag = DPK }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	DPK_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = DPK_hc_armor
-			cost = 100
-			allowed = { original_tag = DPK }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	DPK_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = DPK_hc_artillery
-			cost = 100
-			allowed = { original_tag = DPK }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	DPK_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = DPK_hc_air
-			cost = 100
-			allowed = { original_tag = DPK }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	DPK_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = DPK_hc_navy
-			cost = 100
-			allowed = { original_tag = DPK }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	DRZ_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -4241,86 +3921,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	EGY_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = EGY_hc_infantry
-			cost = 100
-			allowed = { original_tag = EGY }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	EGY_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = EGY_hc_armor
-			cost = 100
-			allowed = { original_tag = EGY }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	EGY_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = EGY_hc_artillery
-			cost = 100
-			allowed = { original_tag = EGY }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	EGY_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = EGY_hc_air
-			cost = 100
-			allowed = { original_tag = EGY }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	EGY_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = EGY_hc_navy
-			cost = 100
-			allowed = { original_tag = EGY }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	ELS_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -4397,86 +3997,6 @@ characters = {
 			idea_token = ELS_hc_navy
 			cost = 100
 			allowed = { original_tag = ELS }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ENG_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ENG_hc_infantry
-			cost = 100
-			allowed = { original_tag = ENG }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ENG_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ENG_hc_armor
-			cost = 100
-			allowed = { original_tag = ENG }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ENG_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ENG_hc_artillery
-			cost = 100
-			allowed = { original_tag = ENG }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ENG_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ENG_hc_air
-			cost = 100
-			allowed = { original_tag = ENG }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ENG_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ENG_hc_navy
-			cost = 100
-			allowed = { original_tag = ENG }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -4961,166 +4481,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	FOR_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FOR_hc_infantry
-			cost = 100
-			allowed = { original_tag = FOR }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FOR_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FOR_hc_armor
-			cost = 100
-			allowed = { original_tag = FOR }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FOR_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FOR_hc_artillery
-			cost = 100
-			allowed = { original_tag = FOR }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FOR_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FOR_hc_air
-			cost = 100
-			allowed = { original_tag = FOR }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FOR_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FOR_hc_navy
-			cost = 100
-			allowed = { original_tag = FOR }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FRA_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FRA_hc_infantry
-			cost = 100
-			allowed = { original_tag = FRA }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FRA_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FRA_hc_armor
-			cost = 100
-			allowed = { original_tag = FRA }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FRA_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FRA_hc_artillery
-			cost = 100
-			allowed = { original_tag = FRA }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FRA_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FRA_hc_air
-			cost = 100
-			allowed = { original_tag = FRA }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FRA_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = FRA_hc_navy
-			cost = 100
-			allowed = { original_tag = FRA }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	FSM_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -5437,86 +4797,6 @@ characters = {
 			idea_token = GEO_hc_navy
 			cost = 100
 			allowed = { original_tag = GEO }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	GER_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = GER_hc_infantry
-			cost = 100
-			allowed = { original_tag = GER }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	GER_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = GER_hc_armor
-			cost = 100
-			allowed = { original_tag = GER }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	GER_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = GER_hc_artillery
-			cost = 100
-			allowed = { original_tag = GER }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	GER_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = GER_hc_air
-			cost = 100
-			allowed = { original_tag = GER }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	GER_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = GER_hc_navy
-			cost = 100
-			allowed = { original_tag = GER }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -6241,166 +5521,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	HAM_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HAM_hc_infantry
-			cost = 100
-			allowed = { original_tag = HAM }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HAM_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HAM_hc_armor
-			cost = 100
-			allowed = { original_tag = HAM }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HAM_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HAM_hc_artillery
-			cost = 100
-			allowed = { original_tag = HAM }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HAM_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HAM_hc_air
-			cost = 100
-			allowed = { original_tag = HAM }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HAM_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HAM_hc_navy
-			cost = 100
-			allowed = { original_tag = HAM }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HEZ_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HEZ_hc_infantry
-			cost = 100
-			allowed = { original_tag = HEZ }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HEZ_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HEZ_hc_armor
-			cost = 100
-			allowed = { original_tag = HEZ }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HEZ_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HEZ_hc_artillery
-			cost = 100
-			allowed = { original_tag = HEZ }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HEZ_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HEZ_hc_air
-			cost = 100
-			allowed = { original_tag = HEZ }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HEZ_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HEZ_hc_navy
-			cost = 100
-			allowed = { original_tag = HEZ }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	HLW_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -6637,86 +5757,6 @@ characters = {
 			idea_token = HON_hc_navy
 			cost = 100
 			allowed = { original_tag = HON }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HOU_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HOU_hc_infantry
-			cost = 100
-			allowed = { original_tag = HOU }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HOU_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HOU_hc_armor
-			cost = 100
-			allowed = { original_tag = HOU }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HOU_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HOU_hc_artillery
-			cost = 100
-			allowed = { original_tag = HOU }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HOU_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HOU_hc_air
-			cost = 100
-			allowed = { original_tag = HOU }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	HOU_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = HOU_hc_navy
-			cost = 100
-			allowed = { original_tag = HOU }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -7121,166 +6161,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	ISR_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ISR_hc_infantry
-			cost = 100
-			allowed = { original_tag = ISR }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ISR_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ISR_hc_armor
-			cost = 100
-			allowed = { original_tag = ISR }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ISR_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ISR_hc_artillery
-			cost = 100
-			allowed = { original_tag = ISR }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ISR_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ISR_hc_air
-			cost = 100
-			allowed = { original_tag = ISR }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ISR_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ISR_hc_navy
-			cost = 100
-			allowed = { original_tag = ISR }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ITA_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ITA_hc_infantry
-			cost = 100
-			allowed = { original_tag = ITA }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ITA_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ITA_hc_armor
-			cost = 100
-			allowed = { original_tag = ITA }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ITA_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ITA_hc_artillery
-			cost = 100
-			allowed = { original_tag = ITA }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ITA_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ITA_hc_air
-			cost = 100
-			allowed = { original_tag = ITA }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	ITA_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = ITA_hc_navy
-			cost = 100
-			allowed = { original_tag = ITA }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	IVO_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -7437,86 +6317,6 @@ characters = {
 			idea_token = JAM_hc_navy
 			cost = 100
 			allowed = { original_tag = JAM }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	JAP_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = JAP_hc_infantry
-			cost = 100
-			allowed = { original_tag = JAP }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	JAP_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = JAP_hc_armor
-			cost = 100
-			allowed = { original_tag = JAP }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	JAP_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = JAP_hc_artillery
-			cost = 100
-			allowed = { original_tag = JAP }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	JAP_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = JAP_hc_air
-			cost = 100
-			allowed = { original_tag = JAP }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	JAP_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = JAP_hc_navy
-			cost = 100
-			allowed = { original_tag = JAP }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -7917,86 +6717,6 @@ characters = {
 			idea_token = KIR_hc_navy
 			cost = 100
 			allowed = { original_tag = KIR }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	KOR_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = KOR_hc_infantry
-			cost = 100
-			allowed = { original_tag = KOR }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	KOR_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = KOR_hc_armor
-			cost = 100
-			allowed = { original_tag = KOR }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	KOR_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = KOR_hc_artillery
-			cost = 100
-			allowed = { original_tag = KOR }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	KOR_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = KOR_hc_air
-			cost = 100
-			allowed = { original_tag = KOR }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	KOR_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = KOR_hc_navy
-			cost = 100
-			allowed = { original_tag = KOR }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -11281,86 +10001,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	PAK_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PAK_hc_infantry
-			cost = 100
-			allowed = { original_tag = PAK }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PAK_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PAK_hc_armor
-			cost = 100
-			allowed = { original_tag = PAK }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PAK_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PAK_hc_artillery
-			cost = 100
-			allowed = { original_tag = PAK }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PAK_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PAK_hc_air
-			cost = 100
-			allowed = { original_tag = PAK }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PAK_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PAK_hc_navy
-			cost = 100
-			allowed = { original_tag = PAK }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	PAL_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -11597,86 +10237,6 @@ characters = {
 			idea_token = PAR_hc_navy
 			cost = 100
 			allowed = { original_tag = PAR }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PER_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PER_hc_infantry
-			cost = 100
-			allowed = { original_tag = PER }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PER_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PER_hc_armor
-			cost = 100
-			allowed = { original_tag = PER }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PER_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PER_hc_artillery
-			cost = 100
-			allowed = { original_tag = PER }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PER_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PER_hc_air
-			cost = 100
-			allowed = { original_tag = PER }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	PER_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = PER_hc_navy
-			cost = 100
-			allowed = { original_tag = PER }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -12081,86 +10641,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	POL_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = POL_hc_infantry
-			cost = 100
-			allowed = { original_tag = POL }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	POL_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = POL_hc_armor
-			cost = 100
-			allowed = { original_tag = POL }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	POL_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = POL_hc_artillery
-			cost = 100
-			allowed = { original_tag = POL }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	POL_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = POL_hc_air
-			cost = 100
-			allowed = { original_tag = POL }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	POL_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = POL_hc_navy
-			cost = 100
-			allowed = { original_tag = POL }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	POR_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -12397,86 +10877,6 @@ characters = {
 			idea_token = QAT_hc_navy
 			cost = 100
 			allowed = { original_tag = QAT }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	RAJ_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = RAJ_hc_infantry
-			cost = 100
-			allowed = { original_tag = RAJ }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	RAJ_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = RAJ_hc_armor
-			cost = 100
-			allowed = { original_tag = RAJ }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	RAJ_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = RAJ_hc_artillery
-			cost = 100
-			allowed = { original_tag = RAJ }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	RAJ_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = RAJ_hc_air
-			cost = 100
-			allowed = { original_tag = RAJ }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	RAJ_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = RAJ_hc_navy
-			cost = 100
-			allowed = { original_tag = RAJ }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -13037,86 +11437,6 @@ characters = {
 			idea_token = SAM_hc_navy
 			cost = 100
 			allowed = { original_tag = SAM }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SAU_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SAU_hc_infantry
-			cost = 100
-			allowed = { original_tag = SAU }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SAU_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SAU_hc_armor
-			cost = 100
-			allowed = { original_tag = SAU }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SAU_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SAU_hc_artillery
-			cost = 100
-			allowed = { original_tag = SAU }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SAU_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SAU_hc_air
-			cost = 100
-			allowed = { original_tag = SAU }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SAU_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SAU_hc_navy
-			cost = 100
-			allowed = { original_tag = SAU }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -13997,86 +12317,6 @@ characters = {
 			idea_token = SNA_hc_navy
 			cost = 100
 			allowed = { original_tag = SNA }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SNG_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SNG_hc_infantry
-			cost = 100
-			allowed = { original_tag = SNG }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SNG_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SNG_hc_armor
-			cost = 100
-			allowed = { original_tag = SNG }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SNG_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SNG_hc_artillery
-			cost = 100
-			allowed = { original_tag = SNG }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SNG_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SNG_hc_air
-			cost = 100
-			allowed = { original_tag = SNG }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SNG_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = SNG_hc_navy
-			cost = 100
-			allowed = { original_tag = SNG }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -15841,86 +14081,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	TUR_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = TUR_hc_infantry
-			cost = 100
-			allowed = { original_tag = TUR }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	TUR_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = TUR_hc_armor
-			cost = 100
-			allowed = { original_tag = TUR }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	TUR_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = TUR_hc_artillery
-			cost = 100
-			allowed = { original_tag = TUR }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	TUR_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = TUR_hc_air
-			cost = 100
-			allowed = { original_tag = TUR }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	TUR_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = TUR_hc_navy
-			cost = 100
-			allowed = { original_tag = TUR }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	TUV_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -16561,86 +14721,6 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	VIN_hc_infantry = {
-		name = "Infantry Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = VIN_hc_infantry
-			cost = 100
-			allowed = { original_tag = VIN }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	VIN_hc_armor = {
-		name = "Armor Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = VIN_hc_armor
-			cost = 100
-			allowed = { original_tag = VIN }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	VIN_hc_artillery = {
-		name = "Artillery Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = VIN_hc_artillery
-			cost = 100
-			allowed = { original_tag = VIN }
-			traits = { army_artillery_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	VIN_hc_air = {
-		name = "Air Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = VIN_hc_air
-			cost = 100
-			allowed = { original_tag = VIN }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	VIN_hc_navy = {
-		name = "Naval Staff"
-		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-		}
-		advisor = {
-			slot = high_command
-			idea_token = VIN_hc_navy
-			cost = 100
-			allowed = { original_tag = VIN }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	VOL_hc_infantry = {
 		name = "Infantry Staff"
 		portraits = {
@@ -17124,9 +15204,9 @@ characters = {
 	USA_david_allvin = {
 		name = "David Allvin"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_USA_david_allvin small = GFX_portrait_USA_david_allvin_small }
+			navy = { large = GFX_portrait_USA_david_allvin small = GFX_portrait_USA_david_allvin_small }
+			civilian = { large = GFX_portrait_USA_david_allvin small = GFX_portrait_USA_david_allvin_small }
 		}
 		advisor = {
 			slot = air_chief
@@ -17140,9 +15220,9 @@ characters = {
 	CHI_chang_dingqiu = {
 		name = "Chang Dingqiu"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_CHI_chang_dingqiu small = GFX_portrait_CHI_chang_dingqiu_small }
+			navy = { large = GFX_portrait_CHI_chang_dingqiu small = GFX_portrait_CHI_chang_dingqiu_small }
+			civilian = { large = GFX_portrait_CHI_chang_dingqiu small = GFX_portrait_CHI_chang_dingqiu_small }
 		}
 		advisor = {
 			slot = air_chief
@@ -17156,9 +15236,9 @@ characters = {
 	CHI_wang_houbin = {
 		name = "Wang Houbin"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_CHI_wang_houbin small = GFX_portrait_CHI_wang_houbin_small }
+			navy = { large = GFX_portrait_CHI_wang_houbin small = GFX_portrait_CHI_wang_houbin_small }
+			civilian = { large = GFX_portrait_CHI_wang_houbin small = GFX_portrait_CHI_wang_houbin_small }
 		}
 		advisor = {
 			slot = high_command
@@ -17172,9 +15252,9 @@ characters = {
 	SOV_viktor_afzalov = {
 		name = "Viktor Afzalov"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_SOV_viktor_afzalov small = GFX_portrait_SOV_viktor_afzalov_small }
+			navy = { large = GFX_portrait_SOV_viktor_afzalov small = GFX_portrait_SOV_viktor_afzalov_small }
+			civilian = { large = GFX_portrait_SOV_viktor_afzalov small = GFX_portrait_SOV_viktor_afzalov_small }
 		}
 		advisor = {
 			slot = air_chief
@@ -17188,9 +15268,9 @@ characters = {
 	SOV_mikhail_teplinsky = {
 		name = "Mikhail Teplinsky"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_SOV_mikhail_teplinsky small = GFX_portrait_SOV_mikhail_teplinsky_small }
+			navy = { large = GFX_portrait_SOV_mikhail_teplinsky small = GFX_portrait_SOV_mikhail_teplinsky_small }
+			civilian = { large = GFX_portrait_SOV_mikhail_teplinsky small = GFX_portrait_SOV_mikhail_teplinsky_small }
 		}
 		advisor = {
 			slot = high_command
@@ -17204,9 +15284,9 @@ characters = {
 	FRA_jerome_bellanger = {
 		name = "Jerome Bellanger"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_FRA_jerome_bellanger small = GFX_portrait_FRA_jerome_bellanger_small }
+			navy = { large = GFX_portrait_FRA_jerome_bellanger small = GFX_portrait_FRA_jerome_bellanger_small }
+			civilian = { large = GFX_portrait_FRA_jerome_bellanger small = GFX_portrait_FRA_jerome_bellanger_small }
 		}
 		advisor = {
 			slot = air_chief
@@ -17220,9 +15300,9 @@ characters = {
 	ISR_tomer_bar = {
 		name = "Tomer Bar"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_ISR_tomer_bar small = GFX_portrait_ISR_tomer_bar_small }
+			navy = { large = GFX_portrait_ISR_tomer_bar small = GFX_portrait_ISR_tomer_bar_small }
+			civilian = { large = GFX_portrait_ISR_tomer_bar small = GFX_portrait_ISR_tomer_bar_small }
 		}
 		advisor = {
 			slot = air_chief
@@ -17236,9 +15316,9 @@ characters = {
 	UKR_anatolii_kryvonozhko = {
 		name = "Anatolii Kryvonozhko"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_UKR_anatolii_kryvonozhko small = GFX_portrait_UKR_anatolii_kryvonozhko_small }
+			navy = { large = GFX_portrait_UKR_anatolii_kryvonozhko small = GFX_portrait_UKR_anatolii_kryvonozhko_small }
+			civilian = { large = GFX_portrait_UKR_anatolii_kryvonozhko small = GFX_portrait_UKR_anatolii_kryvonozhko_small }
 		}
 		advisor = {
 			slot = air_chief
@@ -17252,9 +15332,9 @@ characters = {
 	PER_hamid_vahedi = {
 		name = "Hamid Vahedi"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_PER_hamid_vahedi small = GFX_portrait_PER_hamid_vahedi_small }
+			navy = { large = GFX_portrait_PER_hamid_vahedi small = GFX_portrait_PER_hamid_vahedi_small }
+			civilian = { large = GFX_portrait_PER_hamid_vahedi small = GFX_portrait_PER_hamid_vahedi_small }
 		}
 		advisor = {
 			slot = air_chief
@@ -17268,9 +15348,9 @@ characters = {
 	PER_alireza_tangsiri = {
 		name = "Alireza Tangsiri"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
-			civilian = { large = GFX_portrait_unknown small = GFX_portrait_hc_generic_small }
+			army = { large = GFX_portrait_PER_alireza_tangsiri small = GFX_portrait_PER_alireza_tangsiri_small }
+			navy = { large = GFX_portrait_PER_alireza_tangsiri small = GFX_portrait_PER_alireza_tangsiri_small }
+			civilian = { large = GFX_portrait_PER_alireza_tangsiri small = GFX_portrait_PER_alireza_tangsiri_small }
 		}
 		advisor = {
 			slot = high_command

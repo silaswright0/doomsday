@@ -595,10 +595,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "SOV_2026_naval"
 create_equipment_variant = {
 	name = "Modern Destroyer"
@@ -724,9 +720,7 @@ create_country_leader = {
 	ideology = oligarch
 	traits = { }
 }
-recruit_character = SOV_john_army
-recruit_character = SOV_john_airforce
-recruit_character = SOV_john_navy
+
 recruit_character = SOV_fm_valery_gerasimov
 recruit_character = SOV_fm_andrey_mordvichev
 recruit_character = SOV_gen_aleksandr_lapin

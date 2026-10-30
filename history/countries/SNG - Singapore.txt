@@ -498,10 +498,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "SNG_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
@@ -606,13 +602,7 @@ create_country_leader = {
 	ideology = technocrat
 	traits = { }
 }
-recruit_character = SNG_john_army
-recruit_character = SNG_john_airforce
-recruit_character = SNG_john_navy
+
 recruit_character = SNG_fm_aaron_beng
 recruit_character = SNG_nav_sean_wat
-recruit_character = SNG_hc_infantry
-recruit_character = SNG_hc_armor
-recruit_character = SNG_hc_artillery
-recruit_character = SNG_hc_air
-recruit_character = SNG_hc_navy
+

@@ -1,10 +1,50 @@
 characters = {
-	PER_pakpour_head = {
-		name = "Mohammad Pakpour"
+	PER_ali_khamenei = {
+		name = "Ali Khamenei"
 		portraits = {
 			civilian = {
 				large = GFX_portrait_PER_leader
 				small = GFX_portrait_PER_leader
+			}
+		}
+		country_leader = {
+			ideology = theocrat
+			desc = PER_LEADER_DESC
+			expire = "2065.1.1"
+		}
+	}
+	PER_masoud_pezeshkian = {
+		name = "Masoud Pezeshkian"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_PER_pezeshkian
+				small = GFX_portrait_PER_pezeshkian_small
+			}
+		}
+		country_leader = {
+			ideology = theocrat
+			expire = "2065.1.1"
+		}
+	}
+	PER_mojtaba_khamenei = {
+		name = "Mojtaba Khamenei"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_PER_mojtaba
+				small = GFX_portrait_PER_mojtaba_small
+			}
+		}
+		country_leader = {
+			ideology = theocrat
+			expire = "2065.1.1"
+		}
+	}
+	PER_pakpour_head = {
+		name = "Mohammad Pakpour"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+				small = GFX_portrait_unknown
 			}
 		}
 		country_leader = {

@@ -428,58 +428,10 @@ characters = {
 			legacy_id = 0
 		}
 	}
-	FOR_john_army = {
-		name = "John Army"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = army_chief
-			idea_token = FOR_john_army
-			cost = 100
-			allowed = { original_tag = FOR }
-			traits = { dd_john_army }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FOR_john_airforce = {
-		name = "John Airforce"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = air_chief
-			idea_token = FOR_john_airforce
-			cost = 100
-			allowed = { original_tag = FOR }
-			traits = { dd_john_airforce }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	FOR_john_navy = {
-		name = "John Navy"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = navy_chief
-			idea_token = FOR_john_navy
-			cost = 100
-			allowed = { original_tag = FOR }
-			traits = { dd_john_navy }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	FOR_fm_mei_chia_shu = {
 		name = "Mei Chia-shu"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_FOR_mei_chia_shu small = GFX_portrait_FOR_mei_chia_shu_small }
 		}
 		field_marshal = {
 			traits = { infantry_officer }
@@ -494,7 +446,7 @@ characters = {
 	FOR_nav_tang_hua = {
 		name = "Tang Hua"
 		portraits = {
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_FOR_tang_hua small = GFX_portrait_FOR_tang_hua_small }
 		}
 		navy_leader = {
 			traits = { spotter }
@@ -617,58 +569,10 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
-	SNG_john_army = {
-		name = "John Army"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = army_chief
-			idea_token = SNG_john_army
-			cost = 100
-			allowed = { original_tag = SNG }
-			traits = { dd_john_army }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SNG_john_airforce = {
-		name = "John Airforce"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = air_chief
-			idea_token = SNG_john_airforce
-			cost = 100
-			allowed = { original_tag = SNG }
-			traits = { dd_john_airforce }
-			ai_will_do = { factor = 1 }
-		}
-	}
-	SNG_john_navy = {
-		name = "John Navy"
-		portraits = {
-			army = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			navy = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-			civilian = { large = GFX_portrait_john_staff small = GFX_portrait_john_staff }
-		}
-		advisor = {
-			slot = navy_chief
-			idea_token = SNG_john_navy
-			cost = 100
-			allowed = { original_tag = SNG }
-			traits = { dd_john_navy }
-			ai_will_do = { factor = 1 }
-		}
-	}
 	SNG_fm_aaron_beng = {
 		name = "Aaron Beng"
 		portraits = {
-			army = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			army = { large = GFX_portrait_SNG_aaron_beng small = GFX_portrait_SNG_aaron_beng_small }
 		}
 		field_marshal = {
 			traits = { organizer }
@@ -683,7 +587,7 @@ characters = {
 	SNG_nav_sean_wat = {
 		name = "Sean Wat"
 		portraits = {
-			navy = { large = GFX_portrait_unknown small = GFX_portrait_unknown }
+			navy = { large = GFX_portrait_SNG_sean_wat small = GFX_portrait_SNG_sean_wat_small }
 		}
 		navy_leader = {
 			traits = { fleet_protector }

@@ -323,6 +323,7 @@ dd_per_state_collapse = {
 			}
 			AZI = {
 				set_country_flag = dd_per_cw_released
+				load_focus_tree = { tree = dd_azi_focus keep_completed = no }
 				set_variable = { dd_cw_militia_count = 6 }
 				dd_per_cw_arm = yes
 				declare_war_on = { target = PER type = annex_everything }
@@ -495,7 +496,10 @@ dd_per_state_collapse = {
 			AZI = { add_civil_war_target = PRP }
 		}
 
-		PER = { news_event = { id = dd_iran_cw_news.1 } }
+		PER = {
+			dd_per_install_pakpour = yes
+			news_event = { id = dd_iran_cw_news.1 }
+		}
 		if = {
 			limit = { PER = { is_ai = no } }
 			PER = { country_event = { id = dd_iran_cw.1 hours = 1 } }
@@ -503,16 +507,60 @@ dd_per_state_collapse = {
 	}
 }
 
+# Ali Khamenei keeps the theocrat role after retire_country_leader. set_politics and
+# start_civil_war put that history leader back in the chair.
+dd_per_strip_khamenei = {
+	if = {
+		limit = { has_character = PER_ali_khamenei }
+		PER_ali_khamenei = { remove_country_leader_role = { ideology = theocrat } }
+	}
+	every_character = {
+		limit = {
+			has_ideology = theocrat
+			NOT = { is_character = PER_pakpour_head }
+			NOT = { is_character = PER_masoud_pezeshkian }
+			NOT = { is_character = PER_mojtaba_khamenei }
+		}
+		remove_country_leader_role = { ideology = theocrat }
+	}
+}
+
+dd_per_seat_pezeshkian = {
+	if = {
+		limit = { NOT = { has_character = PER_masoud_pezeshkian } }
+		recruit_character = PER_masoud_pezeshkian
+	}
+	dd_per_strip_khamenei = yes
+	retire_country_leader = yes
+	promote_character = { character = PER_masoud_pezeshkian ideology = theocrat }
+}
+
+dd_per_seat_mojtaba = {
+	if = {
+		limit = { NOT = { has_character = PER_mojtaba_khamenei } }
+		recruit_character = PER_mojtaba_khamenei
+	}
+	dd_per_strip_khamenei = yes
+	retire_country_leader = yes
+	promote_character = { character = PER_mojtaba_khamenei ideology = theocrat }
+}
+
 dd_per_install_pakpour = {
 	if = {
 		limit = { NOT = { has_character = PER_pakpour_head } }
 		recruit_character = PER_pakpour_head
 	}
+	dd_per_strip_khamenei = yes
 	if = {
-		limit = { NOT = { has_country_leader = { name = "Mohammad Pakpour" ruling_only = yes } } }
-		retire_country_leader = yes
-		promote_character = PER_pakpour_head
+		limit = { has_character = PER_masoud_pezeshkian }
+		PER_masoud_pezeshkian = { remove_country_leader_role = { ideology = theocrat } }
 	}
+	if = {
+		limit = { has_character = PER_mojtaba_khamenei }
+		PER_mojtaba_khamenei = { remove_country_leader_role = { ideology = theocrat } }
+	}
+	retire_country_leader = yes
+	promote_character = { character = PER_pakpour_head ideology = theocrat }
 }
 
 dd_pah_install_pahlavi = {

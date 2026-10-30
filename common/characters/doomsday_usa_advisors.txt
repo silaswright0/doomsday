@@ -470,6 +470,20 @@ characters = {
 			ai_will_do = { factor = 1 }
 		}
 	}
+	USA_larry_ellison = {
+		name = "Larry Ellison"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_ellison small = GFX_portrait_USA_ellison_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_larry_ellison
+			allowed = { original_tag = USA }
+			available = { has_government = technocracy }
+			traits = { dd_software_empire }
+			ai_will_do = { factor = 1 }
+		}
+	}
 	USA_tucker_carlson = {
 		name = "Tucker Carlson"
 		portraits = {

@@ -324,3 +324,50 @@ focus_tree = {
 		}
 	}
 }
+
+focus_tree = {
+	id = dd_azi_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 50
+			tag = AZI
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = AZI_join_azerbaijan
+		icon = GFX_goal_generic_alliance
+		x = 0
+		y = 0
+		cost = 32.857142857
+		cancel_if_invalid = yes
+		available = {
+			AZR = { exists = yes }
+			NOT = { has_war_with = AZR }
+		}
+		ai_will_do = { factor = 200 }
+		completion_reward = {
+			if = {
+				limit = {
+					is_in_faction = yes
+					NOT = { is_in_faction_with = AZR }
+				}
+				leave_faction = yes
+			}
+			if = {
+				limit = { AZR = { is_in_faction = yes } }
+				AZR = { add_to_faction = ROOT }
+			}
+			else = {
+				AZR = {
+					create_faction = AZI_alliance
+					add_to_faction = ROOT
+				}
+			}
+		}
+	}
+}

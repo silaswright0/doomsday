@@ -513,10 +513,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "ITA_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
@@ -623,13 +619,7 @@ create_country_leader = {
 	ideology = national_populist
 	traits = { }
 }
-recruit_character = ITA_john_army
-recruit_character = ITA_john_airforce
-recruit_character = ITA_john_navy
+
 recruit_character = ITA_fm_carmine_masiello
 recruit_character = ITA_nav_enrico_credendino
-recruit_character = ITA_hc_infantry
-recruit_character = ITA_hc_armor
-recruit_character = ITA_hc_artillery
-recruit_character = ITA_hc_air
-recruit_character = ITA_hc_navy
+

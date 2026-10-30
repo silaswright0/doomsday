@@ -44,6 +44,7 @@ country_event = {
 				add = 50
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -121,6 +122,7 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -157,6 +159,7 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -193,6 +196,7 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -229,6 +233,7 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -265,6 +270,7 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -301,6 +307,7 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -337,6 +344,7 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -373,6 +381,7 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
 }
 
@@ -409,7 +418,28 @@ country_event = {
 				add = 90
 			}
 		}
+		dd_ukr_aid_no = yes
 	}
+}
+
+country_event = {
+	id = dd_ukr_aid.20
+	title = dd_ukr_aid.20.t
+	desc = dd_ukr_aid.20.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_aid.20.a }
+}
+
+country_event = {
+	id = dd_ukr_aid.21
+	title = dd_ukr_aid.21.t
+	desc = dd_ukr_aid.21.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = { name = dd_ukr_aid.21.a }
 }
 
 country_event = {

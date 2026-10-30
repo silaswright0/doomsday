@@ -557,10 +557,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "JAP_2026_naval"
 create_equipment_variant = {
 	name = "Modern Destroyer"
@@ -667,14 +663,8 @@ create_country_leader = {
 	ideology = liberal_conservative
 	traits = { }
 }
-recruit_character = JAP_john_army
-recruit_character = JAP_john_airforce
-recruit_character = JAP_john_navy
+
 recruit_character = JAP_fm_yoshida_yoshihide
 recruit_character = JAP_gen_morishita_yasunori
 recruit_character = JAP_nav_saito_akira
-recruit_character = JAP_hc_infantry
-recruit_character = JAP_hc_armor
-recruit_character = JAP_hc_artillery
-recruit_character = JAP_hc_air
-recruit_character = JAP_hc_navy
+

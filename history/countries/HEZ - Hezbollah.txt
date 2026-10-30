@@ -363,9 +363,6 @@ set_technology = {
 	dd_lt_1 = 1
 }
 
-
-
-
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 510 producer = HEZ }
 add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 6 producer = HEZ }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 2 producer = HEZ }
@@ -414,13 +411,6 @@ create_country_leader = {
 	ideology = theocrat
 	traits = { }
 }
-recruit_character = HEZ_john_army
-recruit_character = HEZ_john_airforce
-recruit_character = HEZ_john_navy
+
 recruit_character = HEZ_fm_naim_qassem
-recruit_character = HEZ_gen_hashem_safieddine
-recruit_character = HEZ_hc_infantry
-recruit_character = HEZ_hc_armor
-recruit_character = HEZ_hc_artillery
-recruit_character = HEZ_hc_air
-recruit_character = HEZ_hc_navy
+

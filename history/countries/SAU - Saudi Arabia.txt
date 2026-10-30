@@ -498,10 +498,6 @@ set_technology = {
 	dd_lt_4 = 1
 }
 
-
-
-
-
 set_naval_oob = "SAU_2026_naval"
 create_equipment_variant = {
 	name = "Cold War Destroyer"
@@ -606,13 +602,7 @@ create_country_leader = {
 	ideology = absolute_monarchist
 	traits = { }
 }
-recruit_character = SAU_john_army
-recruit_character = SAU_john_airforce
-recruit_character = SAU_john_navy
+
 recruit_character = SAU_fm_fayyad_bin_hamed_al_ruwa
 recruit_character = SAU_nav_fahd_bin_abdullah
-recruit_character = SAU_hc_infantry
-recruit_character = SAU_hc_armor
-recruit_character = SAU_hc_artillery
-recruit_character = SAU_hc_air
-recruit_character = SAU_hc_navy
+

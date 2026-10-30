@@ -361,9 +361,6 @@ set_technology = {
 	dd_lt_1 = 1
 }
 
-
-
-
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 600 producer = HAM }
 add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 2 producer = HAM }
 add_ideas = dd_welfare_1
@@ -410,13 +407,6 @@ create_country_leader = {
 	ideology = jihadist
 	traits = { }
 }
-recruit_character = HAM_john_army
-recruit_character = HAM_john_airforce
-recruit_character = HAM_john_navy
-recruit_character = HAM_gen_mohammed_sinwar
+
 recruit_character = HAM_gen_izz_al_din_haddad
-recruit_character = HAM_hc_infantry
-recruit_character = HAM_hc_armor
-recruit_character = HAM_hc_artillery
-recruit_character = HAM_hc_air
-recruit_character = HAM_hc_navy
+
