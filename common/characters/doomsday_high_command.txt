@@ -15601,4 +15601,52 @@ characters = {
 			ai_will_do = { factor = 10 }
 		}
 	}
+	PER_ali_abdollahi = {
+		name = "Ali Abdollahi"
+		portraits = {
+			army = { large = GFX_portrait_PER_ali_abdollahi small = GFX_portrait_PER_ali_abdollahi_small }
+			navy = { large = GFX_portrait_PER_ali_abdollahi small = GFX_portrait_PER_ali_abdollahi_small }
+			civilian = { large = GFX_portrait_PER_ali_abdollahi small = GFX_portrait_PER_ali_abdollahi_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = PER_ali_abdollahi
+			cost = 100
+			allowed = { original_tag = PER }
+			traits = { army_logistics_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	PER_mostafa_izadi = {
+		name = "Mostafa Izadi"
+		portraits = {
+			army = { large = GFX_portrait_PER_mostafa_izadi small = GFX_portrait_PER_mostafa_izadi_small }
+			navy = { large = GFX_portrait_PER_mostafa_izadi small = GFX_portrait_PER_mostafa_izadi_small }
+			civilian = { large = GFX_portrait_PER_mostafa_izadi small = GFX_portrait_PER_mostafa_izadi_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = PER_mostafa_izadi
+			cost = 100
+			allowed = { original_tag = PER }
+			traits = { army_entrenchment_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	PER_hossein_taeb = {
+		name = "Hossein Taeb"
+		portraits = {
+			army = { large = GFX_portrait_PER_hossein_taeb small = GFX_portrait_PER_hossein_taeb_small }
+			navy = { large = GFX_portrait_PER_hossein_taeb small = GFX_portrait_PER_hossein_taeb_small }
+			civilian = { large = GFX_portrait_PER_hossein_taeb small = GFX_portrait_PER_hossein_taeb_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = PER_hossein_taeb
+			cost = 100
+			allowed = { original_tag = PER }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
 }

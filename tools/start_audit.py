@@ -591,6 +591,8 @@ COMMANDERS: dict[str, list[tuple]] = {
         ("Abdolrahim Mousavi", "fm", 3, 3, 3, 3, 3, "career_officer"),
         ("Mohammad Pakpour", "gen", 3, 4, 3, 3, 2, "commando"),
         ("Shahram Irani", "nav", 3, 3, 3, 3, 3, "spotter"),
+        ("Kioumars Heydari", "gen", 3, 3, 3, 3, 3, "armor_officer"),
+        ("Ali Ozmaei", "nav", 3, 3, 3, 3, 3, "spotter"),
     ],
     "TUR": [
         ("Metin Gurak", "fm", 3, 3, 3, 3, 3, "career_officer"),

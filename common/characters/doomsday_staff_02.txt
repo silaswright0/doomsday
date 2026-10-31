@@ -497,6 +497,54 @@ characters = {
 			ai_will_do = { factor = 10 }
 		}
 	}
+	PER_gen_kioumars_heydari = {
+		name = "Kioumars Heydari"
+		portraits = {
+			army = { large = GFX_portrait_PER_kioumars_heydari small = GFX_portrait_PER_kioumars_heydari_small }
+			civilian = { large = GFX_portrait_PER_kioumars_heydari small = GFX_portrait_PER_kioumars_heydari_small }
+		}
+		corps_commander = {
+			traits = { armor_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+		}
+		advisor = {
+			slot = high_command
+			idea_token = PER_gen_kioumars_heydari
+			cost = 100
+			allowed = { original_tag = PER }
+			traits = { army_armored_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	PER_nav_ali_ozmaei = {
+		name = "Ali Ozmaei"
+		portraits = {
+			navy = { large = GFX_portrait_PER_ali_ozmaei small = GFX_portrait_PER_ali_ozmaei_small }
+			civilian = { large = GFX_portrait_PER_ali_ozmaei small = GFX_portrait_PER_ali_ozmaei_small }
+		}
+		navy_leader = {
+			traits = { spotter }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 3
+			legacy_id = 0
+		}
+		advisor = {
+			slot = high_command
+			idea_token = PER_nav_ali_ozmaei
+			cost = 100
+			allowed = { original_tag = PER }
+			traits = { navy_screen_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
 	PHI_john_army = {
 		name = "John Army"
 		portraits = {
