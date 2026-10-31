@@ -91,11 +91,11 @@ characters = {
 		}
 	
 		advisor = {
-			slot = army_chief
+			slot = high_command
 			idea_token = SOV_fm_valery_gerasimov
-			cost = 150
+			cost = 100
 			allowed = { original_tag = SOV }
-			traits = { dd_exp_army }
+			traits = { army_logistics_1 }
 			ai_will_do = { factor = 10 }
 		}
 	}
@@ -124,31 +124,6 @@ characters = {
 			ai_will_do = { factor = 10 }
 		}
 	}
-	SOV_gen_aleksandr_lapin = {
-		name = "Aleksandr Lapin"
-		portraits = {
-			army = { large = GFX_portrait_SOV_aleksandr_lapin small = GFX_portrait_SOV_aleksandr_lapin_small }
-			civilian = { large = GFX_portrait_SOV_aleksandr_lapin small = GFX_portrait_SOV_aleksandr_lapin_small }
-		}
-		corps_commander = {
-			traits = { career_officer }
-			skill = 3
-			attack_skill = 3
-			defense_skill = 2
-			planning_skill = 3
-			logistics_skill = 3
-			legacy_id = 0
-		}
-	
-		advisor = {
-			slot = high_command
-			idea_token = SOV_gen_aleksandr_lapin
-			cost = 100
-			allowed = { original_tag = SOV }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 10 }
-		}
-	}
 	SOV_nav_aleksandr_moiseev = {
 		name = "Aleksandr Moiseev"
 		portraits = {
@@ -166,12 +141,42 @@ characters = {
 		}
 	
 		advisor = {
-			slot = navy_chief
+			slot = high_command
 			idea_token = SOV_nav_aleksandr_moiseev
-			cost = 150
+			cost = 100
 			allowed = { original_tag = SOV }
-			traits = { dd_exp_navy }
+			traits = { navy_capital_ship_1 }
 			ai_will_do = { factor = 10 }
+		}
+	}
+	SOV_gen_andrey_seritsky = {
+		name = "Andrey Seritsky"
+		portraits = {
+			army = { large = GFX_portrait_SOV_andrey_seritsky small = GFX_portrait_SOV_andrey_seritsky_small }
+		}
+		corps_commander = {
+			traits = { career_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+		}
+	}
+	SOV_gen_aleksandr_sanchik = {
+		name = "Aleksandr Sanchik"
+		portraits = {
+			army = { large = GFX_portrait_SOV_aleksandr_sanchik small = GFX_portrait_SOV_aleksandr_sanchik_small }
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
 		}
 	}
 	SWE_john_army = {

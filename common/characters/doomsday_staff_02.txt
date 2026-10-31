@@ -1273,7 +1273,6 @@ characters = {
 		name = "Michael Kurilla"
 		portraits = {
 			army = { large = GFX_portrait_USA_michael_kurilla small = GFX_portrait_USA_michael_kurilla_small }
-			civilian = { large = GFX_portrait_USA_michael_kurilla small = GFX_portrait_USA_michael_kurilla_small }
 		}
 		field_marshal = {
 			traits = { commando career_officer }
@@ -1284,21 +1283,11 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
-	
-		advisor = {
-			slot = high_command
-			idea_token = USA_fm_michael_kurilla
-			cost = 100
-			allowed = { original_tag = USA }
-			traits = { army_commando_1 }
-			ai_will_do = { factor = 10 }
-		}
 	}
 	USA_fm_christopher_donahue = {
 		name = "Christopher Donahue"
 		portraits = {
 			army = { large = GFX_portrait_USA_christopher_donahue small = GFX_portrait_USA_christopher_donahue_small }
-			civilian = { large = GFX_portrait_USA_christopher_donahue small = GFX_portrait_USA_christopher_donahue_small }
 		}
 		field_marshal = {
 			traits = { infantry_officer organizer }
@@ -1309,21 +1298,11 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
-	
-		advisor = {
-			slot = high_command
-			idea_token = USA_fm_christopher_donahue
-			cost = 100
-			allowed = { original_tag = USA }
-			traits = { army_infantry_1 }
-			ai_will_do = { factor = 10 }
-		}
 	}
 	USA_gen_james_jarrard = {
 		name = "James Jarrard"
 		portraits = {
 			army = { large = GFX_portrait_USA_james_jarrard small = GFX_portrait_USA_james_jarrard_small }
-			civilian = { large = GFX_portrait_USA_james_jarrard small = GFX_portrait_USA_james_jarrard_small }
 		}
 		corps_commander = {
 			traits = { infantry_officer }
@@ -1334,21 +1313,11 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 		}
-	
-		advisor = {
-			slot = high_command
-			idea_token = USA_gen_james_jarrard
-			cost = 100
-			allowed = { original_tag = USA }
-			traits = { army_logistics_1 }
-			ai_will_do = { factor = 10 }
-		}
 	}
 	USA_gen_andrew_poppas = {
 		name = "Andrew Poppas"
 		portraits = {
 			army = { large = GFX_portrait_USA_andrew_poppas small = GFX_portrait_USA_andrew_poppas_small }
-			civilian = { large = GFX_portrait_USA_andrew_poppas small = GFX_portrait_USA_andrew_poppas_small }
 		}
 		corps_commander = {
 			traits = { armor_officer }
@@ -1359,14 +1328,20 @@ characters = {
 			logistics_skill = 2
 			legacy_id = 0
 		}
-	
-		advisor = {
-			slot = high_command
-			idea_token = USA_gen_andrew_poppas
-			cost = 100
-			allowed = { original_tag = USA }
-			traits = { army_armored_1 }
-			ai_will_do = { factor = 10 }
+	}
+	USA_gen_kevin_admiral = {
+		name = "Kevin Admiral"
+		portraits = {
+			army = { large = GFX_portrait_USA_kevin_admiral small = GFX_portrait_USA_kevin_admiral_small }
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
 		}
 	}
 	USA_gen_eric_smith = {
@@ -1423,7 +1398,6 @@ characters = {
 		name = "Samuel Paparo"
 		portraits = {
 			navy = { large = GFX_portrait_USA_samuel_paparo small = GFX_portrait_USA_samuel_paparo_small }
-			civilian = { large = GFX_portrait_USA_samuel_paparo small = GFX_portrait_USA_samuel_paparo_small }
 		}
 		navy_leader = {
 			traits = { air_controller career_officer }
@@ -1434,21 +1408,11 @@ characters = {
 			coordination_skill = 3
 			legacy_id = 0
 		}
-	
-		advisor = {
-			slot = high_command
-			idea_token = USA_nav_samuel_paparo
-			cost = 100
-			allowed = { original_tag = USA }
-			traits = { air_air_superiority_1 }
-			ai_will_do = { factor = 10 }
-		}
 	}
 	USA_nav_james_kilby = {
 		name = "James Kilby"
 		portraits = {
 			navy = { large = GFX_portrait_USA_james_kilby small = GFX_portrait_USA_james_kilby_small }
-			civilian = { large = GFX_portrait_USA_james_kilby small = GFX_portrait_USA_james_kilby_small }
 		}
 		navy_leader = {
 			traits = { fleet_protector }
@@ -1458,15 +1422,6 @@ characters = {
 			maneuvering_skill = 3
 			coordination_skill = 3
 			legacy_id = 0
-		}
-	
-		advisor = {
-			slot = high_command
-			idea_token = USA_nav_james_kilby
-			cost = 100
-			allowed = { original_tag = USA }
-			traits = { navy_screen_1 }
-			ai_will_do = { factor = 10 }
 		}
 	}
 	MON_john_army = {

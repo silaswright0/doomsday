@@ -326,6 +326,56 @@ focus_tree = {
 }
 
 focus_tree = {
+	id = dd_krd_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 50
+			tag = KRD
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = KRD_join_rojava
+		icon = GFX_goal_generic_alliance
+		x = 0
+		y = 0
+		cost = 32.857142857
+		cancel_if_invalid = yes
+		available = {
+			ROJ = {
+				exists = yes
+				is_subject = no
+			}
+			NOT = { has_war_with = ROJ }
+		}
+		ai_will_do = { factor = 200 }
+		completion_reward = {
+			if = {
+				limit = {
+					is_in_faction = yes
+					NOT = { is_in_faction_with = ROJ }
+				}
+				leave_faction = yes
+			}
+			if = {
+				limit = { ROJ = { is_in_faction = yes } }
+				ROJ = { add_to_faction = ROOT }
+			}
+			else = {
+				ROJ = {
+					create_faction = KRD_alliance
+					add_to_faction = ROOT
+				}
+			}
+		}
+	}
+}
+
+focus_tree = {
 	id = dd_azi_focus
 	country = {
 		factor = 0

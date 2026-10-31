@@ -1041,15 +1041,16 @@ characters = {
 		name = "David Barnea"
 		portraits = {
 			army = { large = GFX_portrait_ISR_david_barnea small = GFX_portrait_ISR_david_barnea_small }
+			navy = { large = GFX_portrait_ISR_david_barnea small = GFX_portrait_ISR_david_barnea_small }
+			civilian = { large = GFX_portrait_ISR_david_barnea small = GFX_portrait_ISR_david_barnea_small }
 		}
-		corps_commander = {
-			traits = { commando }
-			skill = 3
-			attack_skill = 3
-			defense_skill = 3
-			planning_skill = 4
-			logistics_skill = 2
-			legacy_id = 0
+		advisor = {
+			slot = high_command
+			idea_token = ISR_gen_david_barnea
+			cost = 100
+			allowed = { original_tag = ISR }
+			traits = { army_commando_1 }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	ISR_nav_david_saar_salama = {
@@ -1074,6 +1075,54 @@ characters = {
 			cost = 150
 			allowed = { original_tag = ISR }
 			traits = { dd_exp_navy }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	ISR_gen_rafael_david = {
+		name = "Rafael David"
+		portraits = {
+			army = { large = GFX_portrait_ISR_rafael_david small = GFX_portrait_ISR_rafael_david_small }
+			civilian = { large = GFX_portrait_ISR_rafael_david small = GFX_portrait_ISR_rafael_david_small }
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+		}
+		advisor = {
+			slot = high_command
+			idea_token = ISR_gen_rafael_david
+			cost = 100
+			allowed = { original_tag = ISR }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	ISR_gen_avi_bluth = {
+		name = "Avi Bluth"
+		portraits = {
+			army = { large = GFX_portrait_ISR_avi_bluth small = GFX_portrait_ISR_avi_bluth_small }
+			civilian = { large = GFX_portrait_ISR_avi_bluth small = GFX_portrait_ISR_avi_bluth_small }
+		}
+		corps_commander = {
+			traits = { commando }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+		}
+		advisor = {
+			slot = high_command
+			idea_token = ISR_gen_avi_bluth
+			cost = 100
+			allowed = { original_tag = ISR }
+			traits = { army_commando_1 }
 			ai_will_do = { factor = 10 }
 		}
 	}

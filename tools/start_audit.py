@@ -520,6 +520,7 @@ COMMANDERS: dict[str, list[tuple]] = {
         ("James Jarrard", "gen", 3, 3, 2, 3, 3, "infantry_officer"),
         ("Andrew Poppas", "gen", 3, 3, 3, 3, 2, "armor_officer"),
         ("Eric Smith", "gen", 3, 3, 3, 3, 3, "commando naval_invader"),
+        ("Kevin Admiral", "gen", 3, 3, 3, 3, 3, "infantry_officer"),
         ("Lisa Franchetti", "nav", 4, 3, 3, 4, 3, "career_officer superior_tactician"),
         ("Samuel Paparo", "nav", 4, 4, 3, 4, 3, "air_controller career_officer"),
         ("James Kilby", "nav", 3, 3, 3, 3, 3, "fleet_protector"),
@@ -534,8 +535,9 @@ COMMANDERS: dict[str, list[tuple]] = {
     "SOV": [
         ("Valery Gerasimov", "fm", 4, 3, 4, 4, 4, "career_officer organizer"),
         ("Andrey Mordvichev", "fm", 4, 4, 3, 3, 3, "armor_officer offensive_doctrine"),
-        ("Aleksandr Lapin", "gen", 3, 3, 2, 3, 3, "career_officer"),
         ("Aleksandr Moiseev", "nav", 3, 3, 3, 3, 3, "seawolf"),
+        ("Andrey Seritsky", "gen", 3, 3, 3, 3, 3, "career_officer"),
+        ("Aleksandr Sanchik", "gen", 3, 3, 3, 3, 3, "infantry_officer"),
     ],
     "ENG": [
         ("Roland Walker", "fm", 3, 3, 3, 4, 3, "career_officer organizer"),
@@ -569,7 +571,8 @@ COMMANDERS: dict[str, list[tuple]] = {
     "ISR": [
         ("Eyal Zamir", "fm", 4, 4, 3, 3, 3, "offensive_doctrine armor_officer"),
         ("Herzi Halevi", "fm", 4, 3, 4, 4, 3, "organizer"),
-        ("David Barnea", "gen", 3, 3, 3, 4, 2, "commando"),
+        ("Rafael David", "gen", 3, 3, 3, 3, 3, "infantry_officer"),
+        ("Avi Bluth", "gen", 3, 3, 3, 3, 3, "commando"),
         ("David Saar Salama", "nav", 3, 3, 3, 3, 3, "spotter"),
     ],
     "UKR": [

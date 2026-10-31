@@ -15217,6 +15217,118 @@ characters = {
 			ai_will_do = { factor = 10 }
 		}
 	}
+	USA_douglas_schiess = {
+		name = "Douglas Schiess"
+		portraits = {
+			army = { large = GFX_portrait_USA_douglas_schiess small = GFX_portrait_USA_douglas_schiess_small }
+			navy = { large = GFX_portrait_USA_douglas_schiess small = GFX_portrait_USA_douglas_schiess_small }
+			civilian = { large = GFX_portrait_USA_douglas_schiess small = GFX_portrait_USA_douglas_schiess_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = USA_douglas_schiess
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { air_air_superiority_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	USA_daryl_caudle = {
+		name = "Daryl Caudle"
+		portraits = {
+			army = { large = GFX_portrait_USA_daryl_caudle small = GFX_portrait_USA_daryl_caudle_small }
+			navy = { large = GFX_portrait_USA_daryl_caudle small = GFX_portrait_USA_daryl_caudle_small }
+			civilian = { large = GFX_portrait_USA_daryl_caudle small = GFX_portrait_USA_daryl_caudle_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = USA_daryl_caudle
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { navy_submarine_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	USA_kenneth_wilsbach = {
+		name = "Kenneth Wilsbach"
+		portraits = {
+			army = { large = GFX_portrait_USA_kenneth_wilsbach small = GFX_portrait_USA_kenneth_wilsbach_small }
+			navy = { large = GFX_portrait_USA_kenneth_wilsbach small = GFX_portrait_USA_kenneth_wilsbach_small }
+			civilian = { large = GFX_portrait_USA_kenneth_wilsbach small = GFX_portrait_USA_kenneth_wilsbach_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = USA_kenneth_wilsbach
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { air_air_superiority_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	USA_christopher_mahoney = {
+		name = "Christopher Mahoney"
+		portraits = {
+			army = { large = GFX_portrait_USA_christopher_mahoney small = GFX_portrait_USA_christopher_mahoney_small }
+			navy = { large = GFX_portrait_USA_christopher_mahoney small = GFX_portrait_USA_christopher_mahoney_small }
+			civilian = { large = GFX_portrait_USA_christopher_mahoney small = GFX_portrait_USA_christopher_mahoney_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = USA_christopher_mahoney
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	USA_dan_caine = {
+		name = "Dan Caine"
+		portraits = {
+			army = { large = GFX_portrait_USA_dan_caine small = GFX_portrait_USA_dan_caine_small }
+			navy = { large = GFX_portrait_USA_dan_caine small = GFX_portrait_USA_dan_caine_small }
+			civilian = { large = GFX_portrait_USA_dan_caine small = GFX_portrait_USA_dan_caine_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = USA_dan_caine
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { air_close_air_support_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	USA_steven_nordhaus = {
+		name = "Steven Nordhaus"
+		portraits = {
+			army = { large = GFX_portrait_USA_steven_nordhaus small = GFX_portrait_USA_steven_nordhaus_small }
+			navy = { large = GFX_portrait_USA_steven_nordhaus small = GFX_portrait_USA_steven_nordhaus_small }
+			civilian = { large = GFX_portrait_USA_steven_nordhaus small = GFX_portrait_USA_steven_nordhaus_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = USA_steven_nordhaus
+			cost = 100
+			allowed = { original_tag = USA }
+			traits = { air_airborne_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	USA_edmond_brown = {
+		name = "Edmond 'Miles' Brown"
+		portraits = {
+			army = { large = GFX_portrait_USA_edmond_brown small = GFX_portrait_USA_edmond_brown_small }
+			navy = { large = GFX_portrait_USA_edmond_brown small = GFX_portrait_USA_edmond_brown_small }
+			civilian = { large = GFX_portrait_USA_edmond_brown small = GFX_portrait_USA_edmond_brown_small }
+		}
+		advisor = {
+			slot = theorist
+			idea_token = USA_edmond_brown
+			cost = 150
+			allowed = { original_tag = USA }
+			traits = { military_theorist }
+			ai_will_do = { factor = 10 }
+		}
+	}
 	CHI_chang_dingqiu = {
 		name = "Chang Dingqiu"
 		portraits = {
@@ -15281,6 +15393,70 @@ characters = {
 			ai_will_do = { factor = 10 }
 		}
 	}
+	SOV_sergey_karakayev = {
+		name = "Sergey Karakayev"
+		portraits = {
+			army = { large = GFX_portrait_SOV_sergey_karakayev small = GFX_portrait_SOV_sergey_karakayev_small }
+			navy = { large = GFX_portrait_SOV_sergey_karakayev small = GFX_portrait_SOV_sergey_karakayev_small }
+			civilian = { large = GFX_portrait_SOV_sergey_karakayev small = GFX_portrait_SOV_sergey_karakayev_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SOV_sergey_karakayev
+			cost = 100
+			allowed = { original_tag = SOV }
+			traits = { army_artillery_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	SOV_denis_lyamin = {
+		name = "Denis Lyamin"
+		portraits = {
+			army = { large = GFX_portrait_SOV_denis_lyamin small = GFX_portrait_SOV_denis_lyamin_small }
+			navy = { large = GFX_portrait_SOV_denis_lyamin small = GFX_portrait_SOV_denis_lyamin_small }
+			civilian = { large = GFX_portrait_SOV_denis_lyamin small = GFX_portrait_SOV_denis_lyamin_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SOV_denis_lyamin
+			cost = 100
+			allowed = { original_tag = SOV }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	SOV_andrey_belousov = {
+		name = "Andrey Belousov"
+		portraits = {
+			army = { large = GFX_portrait_SOV_andrey_belousov small = GFX_portrait_SOV_andrey_belousov_small }
+			navy = { large = GFX_portrait_SOV_andrey_belousov small = GFX_portrait_SOV_andrey_belousov_small }
+			civilian = { large = GFX_portrait_SOV_andrey_belousov small = GFX_portrait_SOV_andrey_belousov_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SOV_andrey_belousov
+			cost = 100
+			allowed = { original_tag = SOV }
+			traits = { army_logistics_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	SOV_aleksandr_chayko = {
+		name = "Aleksandr Chayko"
+		portraits = {
+			army = { large = GFX_portrait_SOV_aleksandr_chayko small = GFX_portrait_SOV_aleksandr_chayko_small }
+			navy = { large = GFX_portrait_SOV_aleksandr_chayko small = GFX_portrait_SOV_aleksandr_chayko_small }
+			civilian = { large = GFX_portrait_SOV_aleksandr_chayko small = GFX_portrait_SOV_aleksandr_chayko_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SOV_aleksandr_chayko
+			cost = 100
+			allowed = { original_tag = SOV }
+			traits = { army_entrenchment_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
 	FRA_jerome_bellanger = {
 		name = "Jerome Bellanger"
 		portraits = {
@@ -15310,6 +15486,70 @@ characters = {
 			cost = 150
 			allowed = { original_tag = ISR }
 			traits = { dd_exp_air }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	ISR_tamir_yadai = {
+		name = "Tamir Yadai"
+		portraits = {
+			army = { large = GFX_portrait_ISR_tamir_yadai small = GFX_portrait_ISR_tamir_yadai_small }
+			navy = { large = GFX_portrait_ISR_tamir_yadai small = GFX_portrait_ISR_tamir_yadai_small }
+			civilian = { large = GFX_portrait_ISR_tamir_yadai small = GFX_portrait_ISR_tamir_yadai_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = ISR_tamir_yadai
+			cost = 100
+			allowed = { original_tag = ISR }
+			traits = { army_infantry_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	ISR_hc_eyal_zamir = {
+		name = "Eyal Zamir"
+		portraits = {
+			army = { large = GFX_portrait_ISR_eyal_zamir small = GFX_portrait_ISR_eyal_zamir_small }
+			navy = { large = GFX_portrait_ISR_eyal_zamir small = GFX_portrait_ISR_eyal_zamir_small }
+			civilian = { large = GFX_portrait_ISR_eyal_zamir small = GFX_portrait_ISR_eyal_zamir_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = ISR_hc_eyal_zamir
+			cost = 100
+			allowed = { original_tag = ISR }
+			traits = { army_armored_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	ISR_shai_kalper = {
+		name = "Shai Kalper"
+		portraits = {
+			army = { large = GFX_portrait_ISR_shai_kalper small = GFX_portrait_ISR_shai_kalper_small }
+			navy = { large = GFX_portrait_ISR_shai_kalper small = GFX_portrait_ISR_shai_kalper_small }
+			civilian = { large = GFX_portrait_ISR_shai_kalper small = GFX_portrait_ISR_shai_kalper_small }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = ISR_shai_kalper
+			cost = 100
+			allowed = { original_tag = ISR }
+			traits = { army_entrenchment_1 }
+			ai_will_do = { factor = 10 }
+		}
+	}
+	ISR_hidai_zilberman = {
+		name = "Hidai Zilberman"
+		portraits = {
+			army = { large = GFX_portrait_ISR_hidai_zilberman small = GFX_portrait_ISR_hidai_zilberman_small }
+			navy = { large = GFX_portrait_ISR_hidai_zilberman small = GFX_portrait_ISR_hidai_zilberman_small }
+			civilian = { large = GFX_portrait_ISR_hidai_zilberman small = GFX_portrait_ISR_hidai_zilberman_small }
+		}
+		advisor = {
+			slot = theorist
+			idea_token = ISR_hidai_zilberman
+			cost = 150
+			allowed = { original_tag = ISR }
+			traits = { military_theorist }
 			ai_will_do = { factor = 10 }
 		}
 	}
