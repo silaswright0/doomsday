@@ -1,0 +1,262 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "dd_sov_ukraine_war_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 380 }
+		clipping = no
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_header"
+			position = { x = 12 y = 2 }
+			font = "hoi_20b"
+			text = "DD_SOV_UKR_HEADER"
+			maxWidth = 478
+			maxHeight = 24
+			format = left
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_sub"
+			position = { x = 12 y = 28 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_SUB"
+			maxWidth = 478
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_HOW_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_now_title"
+			position = { x = 12 y = 54 }
+			font = "hoi_18mbs"
+			text = "DD_SOV_UKR_NOW_TITLE"
+			maxWidth = 478
+			maxHeight = 22
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_HOW_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_now_body"
+			position = { x = 12 y = 76 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_NOW_BODY"
+			maxWidth = 478
+			maxHeight = 36
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_HOW_TT"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l0"
+			position = { x = 12 y = 118 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L0"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_0"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r0"
+			position = { x = 330 y = 118 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R0"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_0"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l1"
+			position = { x = 12 y = 140 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L1"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_1"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r1"
+			position = { x = 330 y = 140 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R1"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_1"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l2"
+			position = { x = 12 y = 162 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L2"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_2"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r2"
+			position = { x = 330 y = 162 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R2"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_2"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l3"
+			position = { x = 12 y = 184 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L3"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_3"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r3"
+			position = { x = 330 y = 184 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R3"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_3"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l4"
+			position = { x = 12 y = 206 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L4"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_4"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r4"
+			position = { x = 330 y = 206 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R4"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_4"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l5"
+			position = { x = 12 y = 228 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L5"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_5"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r5"
+			position = { x = 330 y = 228 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R5"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_5"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l6"
+			position = { x = 12 y = 250 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L6"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_6"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r6"
+			position = { x = 330 y = 250 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R6"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_6"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l7"
+			position = { x = 12 y = 272 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L7"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_7"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r7"
+			position = { x = 330 y = 272 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R7"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_7"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l8"
+			position = { x = 12 y = 294 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L8"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_8"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r8"
+			position = { x = 330 y = 294 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R8"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_8"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l9"
+			position = { x = 12 y = 316 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L9"
+			maxWidth = 320
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_9"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r9"
+			position = { x = 330 y = 316 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R9"
+			maxWidth = 160
+			maxHeight = 20
+			format = right
+			pdx_tooltip = "DD_SOV_UKR_TIP_9"
+		}
+	}
+}

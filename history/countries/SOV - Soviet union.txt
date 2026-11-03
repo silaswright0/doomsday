@@ -693,8 +693,9 @@ add_ideas = dd_aid_2
 add_ideas = dd_religion_2
 add_ideas = dd_media_2
 add_ideas = dd_civil_military_2
-add_ideas = limited_conscription
-add_ideas = limited_exports
+add_ideas = volunteer_only
+add_ideas = export_focus
+add_ideas = dd_sov_colossal
 add_ideas = war_economy
 set_politics = {
 	ruling_party = sovereign_democracy
@@ -732,6 +733,15 @@ recruit_character = SOV_andrey_belousov
 recruit_character = SOV_aleksandr_chayko
 recruit_character = SOV_gen_andrey_seritsky
 recruit_character = SOV_gen_aleksandr_sanchik
+set_power_balance = {
+	id = SOV_kremlin_siloviki
+	left_side = SOV_bop_chekist
+	right_side = SOV_bop_establishment
+	set_value = 0
+}
+every_owned_state = {
+	add_dynamic_modifier = { modifier = dd_sov_colossal_land }
+}
 create_faction = CSTO
 add_to_faction = BLR
 add_to_faction = KAZ
@@ -741,6 +751,10 @@ declare_war_on = {
 	target = UKR
 	type = annex_everything
 }
+set_variable = { dd_sov_ukr_months = 46 }
+set_variable = { dd_sov_ukr_stage_applied = -1 }
+set_country_flag = dd_sov_ukr_clock
+dd_sov_ukr_sync = yes
 add_named_threat = {
 	threat = 8
 	name = DD_THREAT_RUSSIA_UKRAINE

@@ -1,0 +1,105 @@
+dd_sov_csto_category = {
+	dd_sov_csto_step_1 = {
+		icon = generic_political_discourse
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = { factor = 20 }
+		target_root_trigger = {
+			has_country_flag = dd_sov_csto_open
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_in_faction_with = ROOT
+				NOT = { tag = ROOT }
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+
+	dd_sov_csto_step_2 = {
+		icon = generic_political_discourse
+		cost = 100
+		fire_only_once = yes
+		ai_will_do = { factor = 20 }
+		target_root_trigger = {
+			has_country_flag = dd_sov_csto_open
+		}
+		target_trigger = {
+			FROM = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+
+	dd_sov_csto_step_3 = {
+		icon = generic_prepare_civil_war
+		cost = 200
+		fire_only_once = yes
+		ai_will_do = { factor = 20 }
+		target_root_trigger = {
+			has_country_flag = dd_sov_csto_open
+		}
+		target_trigger = {
+			FROM = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			FROM = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = FROM
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+
+	dd_sov_csto_buy_influence = {
+		icon = generic_political_discourse
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		target_root_trigger = {
+			has_country_flag = dd_sov_csto_influence_open
+		}
+		target_trigger = {
+			FROM = {
+				is_subject_of = ROOT
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+}

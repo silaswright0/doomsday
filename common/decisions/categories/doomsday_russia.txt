@@ -1,0 +1,25 @@
+dd_sov_bop_category = {
+	icon = generic_political_discourse
+	allowed = { tag = SOV }
+	priority = 50
+	visible = { always = no }
+}
+
+dd_sov_ukraine_war_category = {
+	icon = generic_prepare_civil_war
+	picture = GFX_decision_cat_picture_generic_border_conflicts
+	priority = 100
+	allowed = { original_tag = SOV }
+	visible = { has_war_with = UKR }
+	visible_when_empty = yes
+	scripted_gui = dd_sov_ukraine_war_ui
+}
+
+dd_sov_csto_category = {
+	icon = generic_political_actions
+	allowed = { tag = SOV }
+	priority = 80
+	visible = {
+		has_country_flag = dd_sov_csto_open
+	}
+}

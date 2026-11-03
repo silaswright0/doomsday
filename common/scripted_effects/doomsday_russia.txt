@@ -1,0 +1,440 @@
+# Country-scoped. No random.
+
+dd_sov_apply_colossal_land = {
+	if = {
+		limit = { has_idea = dd_sov_colossal }
+		every_owned_state = {
+			limit = {
+				NOT = { has_dynamic_modifier = { modifier = dd_sov_colossal_land } }
+			}
+			add_dynamic_modifier = { modifier = dd_sov_colossal_land }
+		}
+	}
+}
+
+dd_sov_claim_compatriots = {
+	add_state_claim = 813
+	add_state_claim = 808
+	add_state_claim = 809
+	add_state_claim = 137
+	add_state_claim = 227
+	add_state_claim = 228
+	add_state_claim = 1115
+	add_state_claim = 221
+	add_state_claim = 1113
+	add_state_claim = 1114
+	add_state_claim = 225
+	add_state_claim = 207
+	add_state_claim = 241
+	add_state_claim = 590
+	add_state_claim = 882
+	add_state_claim = 407
+}
+
+dd_sov_apply_military_tradition = {
+	remove_ideas = dd_sov_tradition
+	remove_ideas = dd_sov_tradition_a
+	remove_ideas = dd_sov_tradition_n
+	remove_ideas = dd_sov_tradition_f
+	remove_ideas = dd_sov_tradition_an
+	remove_ideas = dd_sov_tradition_af
+	remove_ideas = dd_sov_tradition_nf
+	remove_ideas = dd_sov_tradition_anf
+	if = {
+		limit = {
+			has_country_flag = dd_sov_mil_army
+			has_country_flag = dd_sov_mil_navy
+			has_country_flag = dd_sov_mil_air
+		}
+		add_ideas = dd_sov_tradition_anf
+	}
+	else_if = {
+		limit = {
+			has_country_flag = dd_sov_mil_army
+			has_country_flag = dd_sov_mil_navy
+		}
+		add_ideas = dd_sov_tradition_an
+	}
+	else_if = {
+		limit = {
+			has_country_flag = dd_sov_mil_army
+			has_country_flag = dd_sov_mil_air
+		}
+		add_ideas = dd_sov_tradition_af
+	}
+	else_if = {
+		limit = {
+			has_country_flag = dd_sov_mil_navy
+			has_country_flag = dd_sov_mil_air
+		}
+		add_ideas = dd_sov_tradition_nf
+	}
+	else_if = {
+		limit = { has_country_flag = dd_sov_mil_army }
+		add_ideas = dd_sov_tradition_a
+	}
+	else_if = {
+		limit = { has_country_flag = dd_sov_mil_navy }
+		add_ideas = dd_sov_tradition_n
+	}
+	else_if = {
+		limit = { has_country_flag = dd_sov_mil_air }
+		add_ideas = dd_sov_tradition_f
+	}
+	else = {
+		add_ideas = dd_sov_tradition
+	}
+}
+
+dd_sov_bop_chekist = {
+	add_power_balance_value = {
+		id = SOV_kremlin_siloviki
+		value = -0.10
+		tooltip_side = SOV_bop_chekist
+	}
+}
+
+dd_sov_bop_establishment = {
+	add_power_balance_value = {
+		id = SOV_kremlin_siloviki
+		value = 0.10
+		tooltip_side = SOV_bop_establishment
+	}
+}
+
+dd_sov_apply_scorched_land = {
+	if = {
+		limit = { has_idea = dd_sov_scorched }
+		every_owned_state = {
+			limit = {
+				NOT = { has_dynamic_modifier = { modifier = dd_sov_scorched_land } }
+			}
+			add_dynamic_modifier = { modifier = dd_sov_scorched_land }
+		}
+	}
+}
+
+dd_sov_to_service_by_requirement = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = disarmed_nation
+				has_idea = volunteer_only
+				has_idea = limited_conscription
+				has_idea = extensive_conscription
+			}
+		}
+		add_ideas = service_by_requirement
+	}
+}
+
+dd_sov_to_total_mobilization = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = civilian_economy
+				has_idea = low_economic_mobilisation
+				has_idea = partial_economic_mobilisation
+				has_idea = war_economy
+			}
+		}
+		add_ideas = tot_economic_mobilisation
+	}
+}
+
+dd_sov_peoples_international = {
+	if = {
+		limit = { is_in_faction = no }
+		create_faction = SOV_peoples_international
+	}
+	every_other_country = {
+		limit = {
+			has_government = communism
+			NOT = { has_war_with = ROOT }
+		}
+		add_opinion_modifier = { target = ROOT modifier = dd_sov_comintern_ties }
+	}
+}
+
+dd_sov_restore_warsaw_pact = {
+	if = {
+		limit = { is_faction_leader = yes }
+		set_faction_name = SOV_warsaw_pact
+	}
+	else_if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+		create_faction = SOV_warsaw_pact
+	}
+	else = {
+		create_faction = SOV_warsaw_pact
+	}
+	if = {
+		limit = {
+			POL = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				is_in_faction = no
+			}
+		}
+		add_to_faction = POL
+	}
+	if = {
+		limit = {
+			DDR = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				is_in_faction = no
+			}
+		}
+		add_to_faction = DDR
+	}
+	if = {
+		limit = {
+			CZE = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				is_in_faction = no
+			}
+		}
+		add_to_faction = CZE
+	}
+	if = {
+		limit = {
+			SLO = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				is_in_faction = no
+			}
+		}
+		add_to_faction = SLO
+	}
+	if = {
+		limit = {
+			HUN = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				is_in_faction = no
+			}
+		}
+		add_to_faction = HUN
+	}
+	if = {
+		limit = {
+			ROM = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				is_in_faction = no
+			}
+		}
+		add_to_faction = ROM
+	}
+	if = {
+		limit = {
+			BUL = {
+				exists = yes
+				NOT = { has_war_with = ROOT }
+				is_in_faction = no
+			}
+		}
+		add_to_faction = BUL
+	}
+}
+
+dd_sov_claim_novorossiya = {
+	add_state_claim = 137
+	add_state_claim = 192
+	add_state_claim = 196
+	add_state_claim = 197
+	add_state_claim = 226
+	add_state_claim = 227
+	add_state_claim = 228
+	add_state_claim = 1113
+	add_state_claim = 1114
+	add_state_claim = 1115
+	if = {
+		limit = {
+			UKR = { exists = yes }
+			NOT = { has_war_with = UKR }
+			NOT = { is_in_faction_with = UKR }
+		}
+		create_wargoal = { type = annex_everything target = UKR }
+	}
+}
+
+dd_sov_dissolve_csto = {
+	if = {
+		limit = { is_faction_leader = yes }
+		dismantle_faction = yes
+	}
+	else_if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+}
+
+# Ukraine war clock. Ten years from 24 February 2022 to February 2032.
+# 2026.1.1 is month 46 of 120, year 4 of 10 (The Grind, 2025).
+# One stage per year: 0, 12, 24, 36, 48, 60, 72, 84, 96, 108.
+# A peace freezes the month count. The spirit comes off until the war resumes.
+
+dd_sov_ukr_clear = {
+	remove_ideas = dd_sov_ukr_0
+	remove_ideas = dd_sov_ukr_1
+	remove_ideas = dd_sov_ukr_2
+	remove_ideas = dd_sov_ukr_3
+	remove_ideas = dd_sov_ukr_4
+	remove_ideas = dd_sov_ukr_5
+	remove_ideas = dd_sov_ukr_6
+	remove_ideas = dd_sov_ukr_7
+	remove_ideas = dd_sov_ukr_8
+	remove_ideas = dd_sov_ukr_9
+	set_variable = { dd_sov_ukr_stage_applied = -1 }
+}
+
+dd_sov_ukr_apply = {
+	remove_ideas = dd_sov_ukr_0
+	remove_ideas = dd_sov_ukr_1
+	remove_ideas = dd_sov_ukr_2
+	remove_ideas = dd_sov_ukr_3
+	remove_ideas = dd_sov_ukr_4
+	remove_ideas = dd_sov_ukr_5
+	remove_ideas = dd_sov_ukr_6
+	remove_ideas = dd_sov_ukr_7
+	remove_ideas = dd_sov_ukr_8
+	remove_ideas = dd_sov_ukr_9
+	if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 0 } }
+		add_ideas = dd_sov_ukr_0
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 1 } }
+		add_ideas = dd_sov_ukr_1
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 2 } }
+		add_ideas = dd_sov_ukr_2
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 3 } }
+		add_ideas = dd_sov_ukr_3
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 4 } }
+		add_ideas = dd_sov_ukr_4
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 5 } }
+		add_ideas = dd_sov_ukr_5
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 6 } }
+		add_ideas = dd_sov_ukr_6
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 7 } }
+		add_ideas = dd_sov_ukr_7
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_stage = 8 } }
+		add_ideas = dd_sov_ukr_8
+	}
+	else = {
+		add_ideas = dd_sov_ukr_9
+	}
+	set_variable = { dd_sov_ukr_stage_applied = dd_sov_ukr_stage }
+}
+
+dd_sov_ukr_sync = {
+	if = {
+		limit = { check_variable = { dd_sov_ukr_months < 12 } }
+		set_variable = { dd_sov_ukr_stage = 0 }
+		set_variable = { dd_sov_ukr_next_at = 12 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 24 } }
+		set_variable = { dd_sov_ukr_stage = 1 }
+		set_variable = { dd_sov_ukr_next_at = 24 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 36 } }
+		set_variable = { dd_sov_ukr_stage = 2 }
+		set_variable = { dd_sov_ukr_next_at = 36 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 48 } }
+		set_variable = { dd_sov_ukr_stage = 3 }
+		set_variable = { dd_sov_ukr_next_at = 48 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 60 } }
+		set_variable = { dd_sov_ukr_stage = 4 }
+		set_variable = { dd_sov_ukr_next_at = 60 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 72 } }
+		set_variable = { dd_sov_ukr_stage = 5 }
+		set_variable = { dd_sov_ukr_next_at = 72 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 84 } }
+		set_variable = { dd_sov_ukr_stage = 6 }
+		set_variable = { dd_sov_ukr_next_at = 84 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 96 } }
+		set_variable = { dd_sov_ukr_stage = 7 }
+		set_variable = { dd_sov_ukr_next_at = 96 }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 108 } }
+		set_variable = { dd_sov_ukr_stage = 8 }
+		set_variable = { dd_sov_ukr_next_at = 108 }
+	}
+	else = {
+		set_variable = { dd_sov_ukr_stage = 9 }
+		set_variable = { dd_sov_ukr_next_at = dd_sov_ukr_months }
+	}
+	set_variable = { dd_sov_ukr_year = dd_sov_ukr_stage }
+	add_to_variable = { dd_sov_ukr_year = 1 }
+	set_variable = { dd_sov_ukr_until = dd_sov_ukr_next_at }
+	subtract_from_variable = { dd_sov_ukr_until = dd_sov_ukr_months }
+	if = {
+		limit = { check_variable = { dd_sov_ukr_until < 0 } }
+		set_variable = { dd_sov_ukr_until = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage_applied = dd_sov_ukr_stage } }
+		}
+		dd_sov_ukr_apply = yes
+	}
+}
+
+dd_sov_ukr_monthly = {
+	if = {
+		limit = { has_war_with = UKR }
+		if = {
+			limit = { NOT = { has_country_flag = dd_sov_ukr_clock } }
+			set_variable = { dd_sov_ukr_months = 0 }
+			set_variable = { dd_sov_ukr_stage_applied = -1 }
+			set_country_flag = dd_sov_ukr_clock
+		}
+		else = {
+			add_to_variable = { dd_sov_ukr_months = 1 }
+		}
+		dd_sov_ukr_sync = yes
+	}
+	else = {
+		dd_sov_ukr_clear = yes
+	}
+}
+
+dd_sov_bop_center = {
+	set_power_balance = {
+		id = SOV_kremlin_siloviki
+		left_side = SOV_bop_chekist
+		right_side = SOV_bop_establishment
+		set_value = 0
+	}
+}

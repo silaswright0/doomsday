@@ -1,0 +1,49 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = { SOV = { exists = yes } }
+				SOV = {
+					dd_sov_apply_colossal_land = yes
+					dd_sov_apply_scorched_land = yes
+					if = {
+						limit = {
+							has_war_with = UKR
+							NOT = { has_country_flag = dd_sov_ukr_clock }
+						}
+						set_variable = { dd_sov_ukr_months = 46 }
+						set_variable = { dd_sov_ukr_stage_applied = -1 }
+						set_country_flag = dd_sov_ukr_clock
+					}
+					if = {
+						limit = { has_war_with = UKR }
+						dd_sov_ukr_sync = yes
+					}
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = { SOV = { exists = yes } }
+				SOV = {
+					dd_sov_apply_colossal_land = yes
+					dd_sov_apply_scorched_land = yes
+					dd_sov_ukr_monthly = yes
+				}
+			}
+		}
+	}
+	on_peace = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = SOV
+					NOT = { has_war_with = UKR }
+				}
+				dd_sov_ukr_clear = yes
+			}
+		}
+	}
+}

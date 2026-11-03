@@ -1,0 +1,1025 @@
+focus_tree = {
+	id = dd_sov_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 50
+			tag = SOV
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = SOV_decree_604
+		icon = GFX_goal_generic_production
+		x = 6
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_ideas = dd_sov_decree_604
+		}
+	}
+	focus = {
+		id = SOV_shadow_fleet
+		icon = GFX_goal_generic_positive_trade
+		x = 4
+		y = 1
+		cost = 5
+		prerequisite = { focus = SOV_decree_604 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_ideas = dd_sov_shadow_fleet
+		}
+	}
+	focus = {
+		id = SOV_reduce_fuel_exports
+		icon = GFX_goal_generic_trade
+		x = 8
+		y = 1
+		cost = 5
+		prerequisite = { focus = SOV_decree_604 }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_ideas = limited_exports
+		}
+	}
+	focus = {
+		id = SOV_protect_citizens
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 6
+		y = 2
+		cost = 5
+		prerequisite = { focus = SOV_shadow_fleet }
+		prerequisite = { focus = SOV_reduce_fuel_exports }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			dd_sov_claim_compatriots = yes
+		}
+	}
+	focus = {
+		id = SOV_continuous_recruitment
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 6
+		y = 3
+		cost = 5
+		prerequisite = { focus = SOV_protect_citizens }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_ideas = limited_conscription
+		}
+	}
+	focus = {
+		id = SOV_dewesternize
+		icon = GFX_goal_generic_propaganda
+		x = 4
+		y = 4
+		cost = 5
+		prerequisite = { focus = SOV_continuous_recruitment }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = dd_sov_dewesternize
+		}
+	}
+	focus = {
+		id = SOV_traditional_values
+		icon = GFX_goal_generic_national_unity
+		x = 8
+		y = 4
+		cost = 5
+		prerequisite = { focus = SOV_continuous_recruitment }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = dd_sov_traditional_values
+		}
+	}
+	focus = {
+		id = SOV_ninth_duma
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 5
+		cost = 5
+		prerequisite = { focus = SOV_dewesternize }
+		prerequisite = { focus = SOV_traditional_values }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_political_power = 200
+			add_ideas = dd_sov_ninth_duma
+		}
+	}
+	focus = {
+		id = SOV_time_of_heroes
+		icon = GFX_goal_generic_major_war
+		x = 2
+		y = 6
+		cost = 5
+		prerequisite = { focus = SOV_ninth_duma }
+		mutually_exclusive = { focus = SOV_reaffirm_arbat }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 60 }
+		completion_reward = {
+			add_ideas = dd_sov_time_of_heroes
+			dd_sov_bop_chekist = yes
+		}
+	}
+	focus = {
+		id = SOV_reaffirm_arbat
+		icon = GFX_goal_generic_forceful_treaty
+		x = 10
+		y = 6
+		cost = 5
+		prerequisite = { focus = SOV_ninth_duma }
+		mutually_exclusive = { focus = SOV_time_of_heroes }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_reaffirm_arbat
+			dd_sov_bop_establishment = yes
+		}
+	}
+	focus = {
+		id = SOV_fifth_service
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 1
+		y = 7
+		cost = 5
+		prerequisite = { focus = SOV_time_of_heroes }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_fifth_service
+			dd_sov_bop_chekist = yes
+		}
+	}
+	focus = {
+		id = SOV_audit_mod
+		icon = GFX_goal_generic_army_doctrines
+		x = 1
+		y = 8
+		cost = 5
+		prerequisite = { focus = SOV_fifth_service }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_audit_mod
+			dd_sov_bop_chekist = yes
+		}
+	}
+	focus = {
+		id = SOV_procurement_guilds
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 11
+		y = 7
+		cost = 5
+		prerequisite = { focus = SOV_reaffirm_arbat }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_procurement_guilds
+			dd_sov_bop_establishment = yes
+		}
+	}
+	focus = {
+		id = SOV_traditional_bureaucracy
+		icon = GFX_goal_generic_political_pressure
+		x = 11
+		y = 8
+		cost = 5
+		prerequisite = { focus = SOV_procurement_guilds }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_traditional_bureaucracy
+			dd_sov_bop_establishment = yes
+		}
+	}
+	focus = {
+		id = SOV_sovereign_runet
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 4
+		y = 7
+		cost = 5
+		prerequisite = {
+			focus = SOV_time_of_heroes
+			focus = SOV_reaffirm_arbat
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_sovereign_runet
+		}
+	}
+	focus = {
+		id = SOV_monotowns
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 8
+		y = 7
+		cost = 5
+		prerequisite = {
+			focus = SOV_time_of_heroes
+			focus = SOV_reaffirm_arbat
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_monotowns
+		}
+	}
+	focus = {
+		id = SOV_hybrid_doctrine
+		icon = GFX_goal_generic_army_doctrines
+		x = 4
+		y = 8
+		cost = 5
+		prerequisite = {
+			focus = SOV_sovereign_runet
+			focus = SOV_monotowns
+		}
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_hybrid_doctrine
+		}
+	}
+	focus = {
+		id = SOV_budget_commitments
+		icon = GFX_goal_generic_consumer_goods
+		x = 8
+		y = 8
+		cost = 5
+		prerequisite = {
+			focus = SOV_sovereign_runet
+			focus = SOV_monotowns
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_budget_commitments
+		}
+	}
+	focus = {
+		id = SOV_foreign_disruption
+		icon = GFX_goal_generic_secret_weapon
+		x = 4
+		y = 9
+		cost = 5
+		prerequisite = {
+			focus = SOV_hybrid_doctrine
+			focus = SOV_budget_commitments
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_foreign_disruption
+		}
+	}
+	focus = {
+		id = SOV_doctrine_at_scale
+		icon = GFX_goal_generic_army_doctrines
+		x = 8
+		y = 9
+		cost = 5
+		prerequisite = {
+			focus = SOV_hybrid_doctrine
+			focus = SOV_budget_commitments
+		}
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_doctrine_at_scale
+		}
+	}
+	focus = {
+		id = SOV_chekist_monolith
+		icon = GFX_goal_generic_secret_weapon
+		x = 1
+		y = 10
+		cost = 5
+		prerequisite = { focus = SOV_foreign_disruption }
+		prerequisite = { focus = SOV_doctrine_at_scale }
+		mutually_exclusive = {
+			focus = SOV_arbiter_of_clans
+			focus = SOV_war_machine
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_ideas = dd_sov_chekist_monolith
+			dd_sov_bop_chekist = yes
+			dd_sov_bop_chekist = yes
+		}
+	}
+	focus = {
+		id = SOV_centralize_services
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 1
+		y = 11
+		cost = 5
+		prerequisite = { focus = SOV_chekist_monolith }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_centralize_services
+			dd_sov_bop_chekist = yes
+		}
+	}
+	focus = {
+		id = SOV_subjugate_general_staff
+		icon = GFX_goal_generic_army_doctrines
+		x = 1
+		y = 12
+		cost = 5
+		prerequisite = { focus = SOV_centralize_services }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_subjugate_general_staff
+			dd_sov_bop_chekist = yes
+		}
+	}
+	focus = {
+		id = SOV_surveillance_net
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 1
+		y = 13
+		cost = 5
+		prerequisite = { focus = SOV_subjugate_general_staff }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_surveillance_net
+			dd_sov_bop_chekist = yes
+		}
+	}
+	focus = {
+		id = SOV_war_machine
+		icon = GFX_goal_generic_major_war
+		x = 11
+		y = 10
+		cost = 5
+		prerequisite = { focus = SOV_foreign_disruption }
+		prerequisite = { focus = SOV_doctrine_at_scale }
+		mutually_exclusive = {
+			focus = SOV_chekist_monolith
+			focus = SOV_arbiter_of_clans
+		}
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_war_machine
+		}
+	}
+	focus = {
+		id = SOV_high_command_autonomy
+		icon = GFX_goal_generic_army_doctrines
+		x = 11
+		y = 11
+		cost = 5
+		prerequisite = { focus = SOV_war_machine }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_high_command_autonomy
+		}
+	}
+	focus = {
+		id = SOV_war_academy
+		icon = GFX_goal_generic_army_doctrines
+		x = 11
+		y = 12
+		cost = 5
+		prerequisite = { focus = SOV_high_command_autonomy }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_war_academy
+			army_experience = 25
+		}
+	}
+	focus = {
+		id = SOV_marshals_directorate
+		icon = GFX_goal_generic_major_war
+		x = 11
+		y = 13
+		cost = 5
+		prerequisite = { focus = SOV_war_academy }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_marshals_directorate
+		}
+	}
+	focus = {
+		id = SOV_arbiter_of_clans
+		icon = GFX_goal_generic_national_unity
+		x = 6
+		y = 10
+		cost = 5
+		prerequisite = { focus = SOV_foreign_disruption }
+		prerequisite = { focus = SOV_doctrine_at_scale }
+		mutually_exclusive = {
+			focus = SOV_chekist_monolith
+			focus = SOV_war_machine
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_sov_arbiter_of_clans
+			add_political_power = 100
+			dd_sov_bop_center = yes
+		}
+	}
+	focus = {
+		id = SOV_state_council
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 11
+		cost = 5
+		prerequisite = { focus = SOV_arbiter_of_clans }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_state_council
+		}
+	}
+	focus = {
+		id = SOV_sovereign_equilibrium
+		icon = GFX_goal_generic_national_unity
+		x = 4
+		y = 12
+		cost = 5
+		prerequisite = { focus = SOV_state_council }
+		mutually_exclusive = { focus = SOV_zemsky_sobor }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			add_ideas = dd_sov_sovereign_equilibrium
+			dd_sov_bop_center = yes
+		}
+	}
+	focus = {
+		id = SOV_zemsky_sobor
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 12
+		cost = 5
+		prerequisite = { focus = SOV_state_council }
+		mutually_exclusive = { focus = SOV_sovereign_equilibrium }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_zemsky_sobor
+			dd_sov_bop_establishment = yes
+		}
+	}
+	focus = {
+		id = SOV_adjust_constitution
+		icon = GFX_goal_generic_forceful_treaty
+		x = 8
+		y = 13
+		cost = 5
+		prerequisite = { focus = SOV_zemsky_sobor }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_adjust_constitution
+			add_popularity = { ideology = sovereign_democracy popularity = 0.10 }
+			dd_sov_bop_establishment = yes
+		}
+	}
+	focus = {
+		id = SOV_petrine_edict
+		icon = GFX_goal_generic_major_war
+		x = 8
+		y = 14
+		cost = 5
+		prerequisite = { focus = SOV_adjust_constitution }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_political_power = 150
+			add_ideas = dd_sov_petrine_edict
+			dd_sov_bop_establishment = yes
+		}
+	}
+
+	focus = {
+		id = SOV_military_tradition
+		icon = GFX_goal_generic_army_artillery
+		x = 20
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 80 }
+		completion_reward = {
+			add_ideas = dd_sov_tradition
+		}
+	}
+	focus = {
+		id = SOV_army_doctrine
+		icon = GFX_goal_generic_army_doctrines
+		x = 17
+		y = 1
+		cost = 10
+		prerequisite = { focus = SOV_military_tradition }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			custom_effect_tooltip = SOV_army_doctrine_tt
+			hidden_effect = {
+				set_country_flag = dd_sov_mil_army
+				dd_sov_apply_military_tradition = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_military_advancements
+		icon = GFX_goal_generic_scientific_exchange
+		x = 19
+		y = 1
+		cost = 10
+		prerequisite = { focus = SOV_military_tradition }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_tech_bonus = { name = SOV_military_advancements bonus = 1.0 uses = 1 category = infantry_weapons }
+			add_tech_bonus = { name = SOV_military_advancements bonus = 1.0 uses = 1 category = artillery }
+			add_tech_bonus = { name = SOV_military_advancements bonus = 1.0 uses = 1 category = armor }
+			add_tech_bonus = { name = SOV_military_advancements bonus = 1.0 uses = 1 category = air_equipment }
+		}
+	}
+	focus = {
+		id = SOV_naval_tradition
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 21
+		y = 1
+		cost = 10
+		prerequisite = { focus = SOV_military_tradition }
+		search_filters = { FOCUS_FILTER_NAVY }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			custom_effect_tooltip = SOV_naval_tradition_tt
+			hidden_effect = {
+				set_country_flag = dd_sov_mil_navy
+				dd_sov_apply_military_tradition = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_air_tradition
+		icon = GFX_goal_generic_air_doctrine
+		x = 23
+		y = 1
+		cost = 10
+		prerequisite = { focus = SOV_military_tradition }
+		search_filters = { FOCUS_FILTER_AIR }
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			custom_effect_tooltip = SOV_air_tradition_tt
+			hidden_effect = {
+				set_country_flag = dd_sov_mil_air
+				dd_sov_apply_military_tradition = yes
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_csto
+		icon = GFX_goal_generic_alliance
+		x = 28
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 70 }
+		completion_reward = {
+			set_country_flag = dd_sov_csto_open
+			custom_effect_tooltip = SOV_csto_tt
+		}
+	}
+	focus = {
+		id = SOV_expand_influence
+		icon = GFX_goal_generic_military_sphere
+		x = 28
+		y = 1
+		cost = 10
+		prerequisite = { focus = SOV_csto }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			set_country_flag = dd_sov_csto_influence_open
+			custom_effect_tooltip = SOV_expand_influence_tt
+		}
+	}
+
+	focus = {
+		id = SOV_left_restoration
+		icon = GFX_goal_generic_soviet_construction
+		x = 36
+		y = 0
+		cost = 5
+		available = { has_government = communism }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 80 }
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = { ideology = communism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = SOV_dismantle_constitution
+		icon = GFX_goal_generic_forceful_treaty
+		x = 34
+		y = 1
+		cost = 5
+		prerequisite = { focus = SOV_left_restoration }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = { ideology = communism popularity = 0.10 }
+			add_ideas = dd_sov_dismantle_constitution
+		}
+	}
+	focus = {
+		id = SOV_purge_oligarchs
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 1
+		cost = 5
+		prerequisite = { focus = SOV_left_restoration }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_political_power = 75
+			add_stability = -0.05
+			add_ideas = dd_sov_purge_oligarchs
+		}
+	}
+	focus = {
+		id = SOV_supreme_soviet
+		icon = GFX_goal_generic_national_unity
+		x = 34
+		y = 2
+		cost = 5
+		prerequisite = { focus = SOV_dismantle_constitution }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.10 }
+			add_ideas = dd_sov_supreme_soviet
+		}
+	}
+	focus = {
+		id = SOV_nationalize_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 38
+		y = 2
+		cost = 5
+		prerequisite = { focus = SOV_purge_oligarchs }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_nationalize_industry
+		}
+	}
+	focus = {
+		id = SOV_gosplan
+		icon = GFX_goal_generic_production
+		x = 36
+		y = 3
+		cost = 5
+		prerequisite = { focus = SOV_supreme_soviet }
+		prerequisite = { focus = SOV_nationalize_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_gosplan
+		}
+	}
+	focus = {
+		id = SOV_collectivise_agriculture
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 34
+		y = 4
+		cost = 5
+		prerequisite = { focus = SOV_gosplan }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_collectivise
+		}
+	}
+	focus = {
+		id = SOV_eleventh_plan
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 38
+		y = 4
+		cost = 5
+		prerequisite = { focus = SOV_gosplan }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_eleventh_plan
+		}
+	}
+	focus = {
+		id = SOV_komsomol
+		icon = GFX_goal_generic_propaganda
+		x = 34
+		y = 5
+		cost = 5
+		prerequisite = { focus = SOV_collectivise_agriculture }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_komsomol
+		}
+	}
+	focus = {
+		id = SOV_capital_flight
+		icon = GFX_goal_generic_trade
+		x = 38
+		y = 5
+		cost = 5
+		prerequisite = { focus = SOV_eleventh_plan }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_capital_flight
+		}
+	}
+	focus = {
+		id = SOV_red_army_reform
+		icon = GFX_goal_generic_army_doctrines
+		x = 36
+		y = 6
+		cost = 5
+		prerequisite = { focus = SOV_komsomol }
+		prerequisite = { focus = SOV_capital_flight }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			army_experience = 25
+			add_ideas = dd_sov_red_army
+		}
+	}
+	focus = {
+		id = SOV_peoples_international
+		icon = GFX_goal_generic_alliance
+		x = 34
+		y = 7
+		cost = 10
+		prerequisite = { focus = SOV_red_army_reform }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_ideas = dd_sov_peoples_international_idea
+			custom_effect_tooltip = SOV_peoples_international_tt
+			hidden_effect = { dd_sov_peoples_international = yes }
+		}
+	}
+	focus = {
+		id = SOV_warsaw_pact
+		icon = GFX_goal_generic_major_alliance
+		x = 38
+		y = 7
+		cost = 10
+		prerequisite = { focus = SOV_red_army_reform }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_ideas = dd_sov_warsaw_pact_idea
+			custom_effect_tooltip = SOV_warsaw_pact_tt
+			hidden_effect = { dd_sov_restore_warsaw_pact = yes }
+		}
+	}
+
+	focus = {
+		id = SOV_turbo_patriots
+		icon = GFX_goal_generic_major_war
+		x = 50
+		y = 0
+		cost = 5
+		available = { has_government = fascism }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 80 }
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = { ideology = fascism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = SOV_tribunal_traitors
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 1
+		cost = 5
+		prerequisite = { focus = SOV_turbo_patriots }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = 0.05
+			add_popularity = { ideology = fascism popularity = 0.10 }
+			add_ideas = dd_sov_tribunal
+		}
+	}
+	focus = {
+		id = SOV_abolish_mod
+		icon = GFX_goal_generic_army_doctrines
+		x = 52
+		y = 1
+		cost = 5
+		prerequisite = { focus = SOV_turbo_patriots }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_political_power = 50
+			army_experience = 20
+			add_ideas = dd_sov_abolish_mod
+		}
+	}
+	focus = {
+		id = SOV_rehabilitate_volunteers
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 48
+		y = 2
+		cost = 5
+		prerequisite = { focus = SOV_tribunal_traitors }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_manpower = 75000
+			add_ideas = dd_sov_rehabilitate_volunteers
+		}
+	}
+	focus = {
+		id = SOV_field_commanders
+		icon = GFX_goal_generic_army_doctrines
+		x = 52
+		y = 2
+		cost = 5
+		prerequisite = { focus = SOV_abolish_mod }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_field_commanders
+		}
+	}
+	focus = {
+		id = SOV_total_war
+		icon = GFX_goal_generic_occupy_start_war
+		x = 50
+		y = 3
+		cost = 5
+		prerequisite = { focus = SOV_rehabilitate_volunteers }
+		prerequisite = { focus = SOV_field_commanders }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			dd_sov_to_total_mobilization = yes
+			add_ideas = dd_sov_total_war_idea
+		}
+	}
+	focus = {
+		id = SOV_militarize_population
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 48
+		y = 4
+		cost = 5
+		prerequisite = { focus = SOV_total_war }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			dd_sov_to_service_by_requirement = yes
+			add_ideas = dd_sov_militarize_population
+		}
+	}
+	focus = {
+		id = SOV_confiscate_property
+		icon = GFX_goal_generic_consumer_goods
+		x = 52
+		y = 4
+		cost = 5
+		prerequisite = { focus = SOV_total_war }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_political_power = 100
+			add_offsite_building = { type = industrial_complex level = 4 }
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_ideas = dd_sov_confiscate_property
+		}
+	}
+	focus = {
+		id = SOV_penal_battalions
+		icon = GFX_goal_generic_special_forces
+		x = 48
+		y = 5
+		cost = 5
+		prerequisite = { focus = SOV_militarize_population }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_penal_battalions
+		}
+	}
+	focus = {
+		id = SOV_sixteen_hours
+		icon = GFX_goal_generic_production
+		x = 52
+		y = 5
+		cost = 5
+		prerequisite = { focus = SOV_confiscate_property }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_sixteen_hours
+		}
+	}
+	focus = {
+		id = SOV_novorossiya
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 50
+		y = 6
+		cost = 5
+		prerequisite = { focus = SOV_penal_battalions }
+		prerequisite = { focus = SOV_sixteen_hours }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_novorossiya
+			dd_sov_claim_novorossiya = yes
+		}
+	}
+	focus = {
+		id = SOV_sacred_soil
+		icon = GFX_goal_generic_defence
+		x = 48
+		y = 7
+		cost = 5
+		prerequisite = { focus = SOV_novorossiya }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_sacred_soil
+		}
+	}
+	focus = {
+		id = SOV_scorched_doctrine
+		icon = GFX_goal_generic_territory_or_war
+		x = 52
+		y = 7
+		cost = 5
+		prerequisite = { focus = SOV_novorossiya }
+		search_filters = { FOCUS_FILTER_ARMY }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_scorched
+			custom_effect_tooltip = SOV_scorched_doctrine_tt
+			hidden_effect = { dd_sov_apply_scorched_land = yes }
+		}
+	}
+	focus = {
+		id = SOV_tactical_arsenal
+		icon = GFX_goal_generic_secret_weapon
+		x = 48
+		y = 8
+		cost = 5
+		prerequisite = { focus = SOV_sacred_soil }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_ideas = dd_sov_tactical_arsenal
+			add_tech_bonus = { name = SOV_tactical_arsenal bonus = 1.0 uses = 2 category = nuclear }
+			add_tech_bonus = { name = SOV_tactical_arsenal bonus = 1.0 uses = 2 category = rocketry }
+		}
+	}
+	focus = {
+		id = SOV_dissolve_csto
+		icon = GFX_goal_generic_alliance
+		x = 52
+		y = 8
+		cost = 5
+		prerequisite = { focus = SOV_scorched_doctrine }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+			dd_sov_dissolve_csto = yes
+		}
+	}
+}

@@ -1,0 +1,20 @@
+# State-scoped. Removed when the owner no longer has Colossal.
+
+dd_sov_colossal_land = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_army_problems
+	remove_trigger = {
+		NOT = { owner = { has_idea = dd_sov_colossal } }
+	}
+	enemy_attrition = 0.20
+}
+
+dd_sov_scorched_land = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_army_problems
+	remove_trigger = {
+		NOT = { owner = { has_idea = dd_sov_scorched } }
+	}
+	enemy_attrition = 0.25
+	enemy_local_supplies = -0.20
+}

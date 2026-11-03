@@ -1,0 +1,346 @@
+defined_text = {
+	name = GetDdSovUkrUntil
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 9 } }
+		localization_key = DD_SOV_UKR_UNTIL_END
+	}
+	text = {
+		localization_key = DD_SOV_UKR_UNTIL
+	}
+}
+
+defined_text = {
+	name = GetDdSovUkrNowTitle
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 0 } }
+		localization_key = DD_SOV_UKR_NOW_0
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 1 } }
+		localization_key = DD_SOV_UKR_NOW_1
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 2 } }
+		localization_key = DD_SOV_UKR_NOW_2
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 3 } }
+		localization_key = DD_SOV_UKR_NOW_3
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 4 } }
+		localization_key = DD_SOV_UKR_NOW_4
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 5 } }
+		localization_key = DD_SOV_UKR_NOW_5
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 6 } }
+		localization_key = DD_SOV_UKR_NOW_6
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 7 } }
+		localization_key = DD_SOV_UKR_NOW_7
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 8 } }
+		localization_key = DD_SOV_UKR_NOW_8
+	}
+	text = {
+		localization_key = DD_SOV_UKR_NOW_9
+	}
+}
+
+defined_text = {
+	name = GetDdSovUkrNowBody
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 0 } }
+		localization_key = DD_SOV_UKR_BODY_0
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 1 } }
+		localization_key = DD_SOV_UKR_BODY_1
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 2 } }
+		localization_key = DD_SOV_UKR_BODY_2
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 3 } }
+		localization_key = DD_SOV_UKR_BODY_3
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 4 } }
+		localization_key = DD_SOV_UKR_BODY_4
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 5 } }
+		localization_key = DD_SOV_UKR_BODY_5
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 6 } }
+		localization_key = DD_SOV_UKR_BODY_6
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 7 } }
+		localization_key = DD_SOV_UKR_BODY_7
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 8 } }
+		localization_key = DD_SOV_UKR_BODY_8
+	}
+	text = {
+		localization_key = DD_SOV_UKR_BODY_9
+	}
+}
+
+defined_text = {
+	name = GetDdSovUkrL0
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 0 } }
+		localization_key = DD_SOV_UKR_L0_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 0 } }
+		localization_key = DD_SOV_UKR_L0_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L0_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR0
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 0 } }
+		localization_key = DD_SOV_UKR_Y0_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 0 } }
+		localization_key = DD_SOV_UKR_Y0_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y0_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL1
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 1 } }
+		localization_key = DD_SOV_UKR_L1_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 1 } }
+		localization_key = DD_SOV_UKR_L1_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L1_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR1
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 1 } }
+		localization_key = DD_SOV_UKR_Y1_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 1 } }
+		localization_key = DD_SOV_UKR_Y1_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y1_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL2
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 2 } }
+		localization_key = DD_SOV_UKR_L2_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 2 } }
+		localization_key = DD_SOV_UKR_L2_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L2_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR2
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 2 } }
+		localization_key = DD_SOV_UKR_Y2_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 2 } }
+		localization_key = DD_SOV_UKR_Y2_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y2_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL3
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 3 } }
+		localization_key = DD_SOV_UKR_L3_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 3 } }
+		localization_key = DD_SOV_UKR_L3_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L3_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR3
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 3 } }
+		localization_key = DD_SOV_UKR_Y3_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 3 } }
+		localization_key = DD_SOV_UKR_Y3_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y3_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL4
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 4 } }
+		localization_key = DD_SOV_UKR_L4_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 4 } }
+		localization_key = DD_SOV_UKR_L4_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L4_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR4
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 4 } }
+		localization_key = DD_SOV_UKR_Y4_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 4 } }
+		localization_key = DD_SOV_UKR_Y4_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y4_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL5
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 5 } }
+		localization_key = DD_SOV_UKR_L5_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 5 } }
+		localization_key = DD_SOV_UKR_L5_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L5_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR5
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 5 } }
+		localization_key = DD_SOV_UKR_Y5_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 5 } }
+		localization_key = DD_SOV_UKR_Y5_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y5_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL6
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 6 } }
+		localization_key = DD_SOV_UKR_L6_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 6 } }
+		localization_key = DD_SOV_UKR_L6_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L6_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR6
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 6 } }
+		localization_key = DD_SOV_UKR_Y6_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 6 } }
+		localization_key = DD_SOV_UKR_Y6_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y6_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL7
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 7 } }
+		localization_key = DD_SOV_UKR_L7_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 7 } }
+		localization_key = DD_SOV_UKR_L7_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L7_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR7
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 7 } }
+		localization_key = DD_SOV_UKR_Y7_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 7 } }
+		localization_key = DD_SOV_UKR_Y7_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y7_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL8
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 8 } }
+		localization_key = DD_SOV_UKR_L8_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 8 } }
+		localization_key = DD_SOV_UKR_L8_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L8_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR8
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 8 } }
+		localization_key = DD_SOV_UKR_Y8_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 8 } }
+		localization_key = DD_SOV_UKR_Y8_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y8_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL9
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 9 } }
+		localization_key = DD_SOV_UKR_L9_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 9 } }
+		localization_key = DD_SOV_UKR_L9_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L9_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR9
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 9 } }
+		localization_key = DD_SOV_UKR_Y9_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 9 } }
+		localization_key = DD_SOV_UKR_Y9_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y9_FUTURE }
+}
