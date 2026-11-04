@@ -786,7 +786,7 @@ ideas = {
 				army_attack_factor = 0.05
 			}
 		}
-		# Ukraine war timeline. Only the current stage is applied.
+		# Ukraine war timeline. Each year stacks on the ones before it.
 		dd_sov_ukr_0 = {
 			picture = generic_morale_bonus
 			allowed = { always = no }
@@ -794,35 +794,29 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				war_support_factor = 0.10
-				army_attack_factor = 0.05
-				command_power_gain_mult = 0.10
+				consumer_goods_factor = 0.02
 			}
 		}
 		dd_sov_ukr_1 = {
-			picture = generic_goods_red_bonus
+			picture = generic_morale_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.05
-				consumer_goods_factor = 0.05
-				trade_opinion_factor = -0.25
 				war_support_factor = 0.05
+				army_attack_factor = 0.02
+				consumer_goods_factor = 0.02
 			}
 		}
 		dd_sov_ukr_2 = {
-			picture = generic_production_bonus
+			picture = generic_manpower_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
 				recruitable_population = 0.02
-				production_speed_arms_factory_factor = 0.10
-				production_speed_industrial_complex_factor = -0.10
-				consumer_goods_factor = 0.08
-				stability_factor = -0.05
-				trade_opinion_factor = -0.35
-				war_support_factor = 0.05
+				army_morale_factor = -0.02
+				consumer_goods_factor = 0.04
 			}
 		}
 		dd_sov_ukr_3 = {
@@ -831,14 +825,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_org_factor = -0.05
-				supply_consumption_factor = 0.08
-				war_support_factor = -0.05
-				stability_factor = -0.08
-				consumer_goods_factor = 0.10
-				production_speed_industrial_complex_factor = -0.15
-				trade_opinion_factor = -0.40
-				industrial_capacity_factory = -0.05
+				army_attack_factor = -0.02
+				army_defence_factor = -0.02
+				consumer_goods_factor = 0.04
 			}
 		}
 		dd_sov_ukr_4 = {
@@ -847,33 +836,20 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_org_factor = -0.05
-				army_morale_factor = -0.05
-				supply_consumption_factor = 0.10
-				war_support_factor = -0.10
-				stability_factor = -0.10
-				political_power_gain = -0.10
-				consumer_goods_factor = 0.10
-				industrial_capacity_factory = -0.08
-				production_speed_industrial_complex_factor = -0.20
+				war_support_factor = -0.02
+				army_morale_factor = -0.02
+				consumer_goods_factor = 0.04
 			}
 		}
 		dd_sov_ukr_5 = {
-			picture = generic_manpower_bonus
+			picture = generic_army_problems
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				recruitable_population = -0.02
-				training_time_army_factor = 0.15
-				experience_gain_army_factor = -0.10
-				army_org_factor = -0.08
-				supply_consumption_factor = 0.10
-				war_support_factor = -0.12
-				stability_factor = -0.12
-				political_power_gain = -0.10
-				consumer_goods_factor = 0.12
-				industrial_capacity_factory = -0.08
+				war_support_factor = -0.03
+				army_defence_factor = -0.03
+				consumer_goods_factor = 0.08
 			}
 		}
 		dd_sov_ukr_6 = {
@@ -882,17 +858,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.10
-				production_factory_efficiency_gain_factor = -0.05
-				army_org_factor = -0.08
-				army_morale_factor = -0.05
-				supply_consumption_factor = 0.10
-				war_support_factor = -0.12
-				stability_factor = -0.12
-				political_power_gain = -0.12
-				consumer_goods_factor = 0.12
-				recruitable_population = -0.02
-				training_time_army_factor = 0.10
+				war_support_factor = -0.03
+				army_attack_factor = -0.03
+				consumer_goods_factor = 0.08
 			}
 		}
 		dd_sov_ukr_7 = {
@@ -901,17 +869,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.12
-				production_factory_efficiency_gain_factor = -0.10
-				army_org_factor = -0.10
-				army_morale_factor = -0.08
-				supply_consumption_factor = 0.12
-				war_support_factor = -0.15
-				stability_factor = -0.15
-				political_power_gain = -0.15
-				consumer_goods_factor = 0.15
-				recruitable_population = -0.02
-				training_time_army_factor = 0.15
+				stability_factor = -0.04
+				war_support_factor = -0.04
+				consumer_goods_factor = 0.10
 			}
 		}
 		dd_sov_ukr_8 = {
@@ -920,17 +880,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.12
-				production_factory_efficiency_gain_factor = -0.10
-				army_org_factor = -0.10
-				army_morale_factor = -0.08
-				supply_consumption_factor = 0.12
-				war_support_factor = -0.18
-				stability_factor = -0.18
-				political_power_gain = -0.20
-				consumer_goods_factor = 0.15
-				recruitable_population = -0.02
-				training_time_army_factor = 0.15
+				stability_factor = -0.05
+				army_morale_factor = -0.05
+				consumer_goods_factor = 0.12
 			}
 		}
 		dd_sov_ukr_9 = {
@@ -939,19 +891,11 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				industrial_capacity_factory = -0.15
-				production_speed_arms_factory_factor = -0.10
-				army_org_factor = -0.12
+				stability_factor = -0.05
+				war_support_factor = -0.05
 				army_attack_factor = -0.05
-				army_morale_factor = -0.10
-				supply_consumption_factor = 0.15
-				war_support_factor = -0.20
-				stability_factor = -0.20
-				political_power_gain = -0.20
-				consumer_goods_factor = 0.15
-				recruitable_population = -0.03
-				training_time_army_factor = 0.20
-				experience_gain_army_factor = -0.15
+				army_defence_factor = -0.05
+				consumer_goods_factor = 0.16
 			}
 		}
 	}

@@ -3,7 +3,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "dd_sov_ukraine_war_window"
 		position = { x = 0 y = 0 }
-		size = { width = 100% height = 380 }
+		size = { width = 100% height = 404 }
 		clipping = no
 
 		instantTextboxType = {
@@ -54,19 +54,19 @@ guiTypes = {
 			position = { x = 12 y = 118 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L0"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_0"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r0"
-			position = { x = 330 y = 118 }
+			position = { x = 88 y = 118 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R0"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_0"
 		}
 
@@ -75,19 +75,19 @@ guiTypes = {
 			position = { x = 12 y = 140 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L1"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_1"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r1"
-			position = { x = 330 y = 140 }
+			position = { x = 88 y = 140 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R1"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_1"
 		}
 
@@ -96,19 +96,19 @@ guiTypes = {
 			position = { x = 12 y = 162 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L2"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_2"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r2"
-			position = { x = 330 y = 162 }
+			position = { x = 88 y = 162 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R2"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_2"
 		}
 
@@ -117,19 +117,19 @@ guiTypes = {
 			position = { x = 12 y = 184 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L3"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_3"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r3"
-			position = { x = 330 y = 184 }
+			position = { x = 88 y = 184 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R3"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_3"
 		}
 
@@ -138,19 +138,19 @@ guiTypes = {
 			position = { x = 12 y = 206 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L4"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_4"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r4"
-			position = { x = 330 y = 206 }
+			position = { x = 88 y = 206 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R4"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_4"
 		}
 
@@ -159,19 +159,19 @@ guiTypes = {
 			position = { x = 12 y = 228 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L5"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_5"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r5"
-			position = { x = 330 y = 228 }
+			position = { x = 88 y = 228 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R5"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_5"
 		}
 
@@ -180,19 +180,19 @@ guiTypes = {
 			position = { x = 12 y = 250 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L6"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_6"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r6"
-			position = { x = 330 y = 250 }
+			position = { x = 88 y = 250 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R6"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_6"
 		}
 
@@ -201,19 +201,19 @@ guiTypes = {
 			position = { x = 12 y = 272 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L7"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_7"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r7"
-			position = { x = 330 y = 272 }
+			position = { x = 88 y = 272 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R7"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_7"
 		}
 
@@ -222,19 +222,19 @@ guiTypes = {
 			position = { x = 12 y = 294 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L8"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_8"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r8"
-			position = { x = 330 y = 294 }
+			position = { x = 88 y = 294 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R8"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_8"
 		}
 
@@ -243,20 +243,41 @@ guiTypes = {
 			position = { x = 12 y = 316 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_L9"
-			maxWidth = 320
+			maxWidth = 72
 			maxHeight = 20
 			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_9"
 		}
 		instantTextboxType = {
 			name = "dd_sov_ukr_r9"
-			position = { x = 330 y = 316 }
+			position = { x = 88 y = 316 }
 			font = "hoi_16mbs"
 			text = "DD_SOV_UKR_R9"
-			maxWidth = 160
+			maxWidth = 390
 			maxHeight = 20
-			format = right
+			format = left
 			pdx_tooltip = "DD_SOV_UKR_TIP_9"
+		}
+
+		instantTextboxType = {
+			name = "dd_sov_ukr_l10"
+			position = { x = 12 y = 338 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_L10"
+			maxWidth = 72
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_10"
+		}
+		instantTextboxType = {
+			name = "dd_sov_ukr_r10"
+			position = { x = 88 y = 338 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_UKR_R10"
+			maxWidth = 390
+			maxHeight = 20
+			format = left
+			pdx_tooltip = "DD_SOV_UKR_TIP_10"
 		}
 	}
 }

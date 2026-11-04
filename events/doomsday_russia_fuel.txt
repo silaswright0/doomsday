@@ -1,0 +1,13 @@
+add_namespace = dd_sov_fuel
+
+country_event = {
+	id = dd_sov_fuel.1
+	title = dd_sov_fuel.1.t
+	desc = dd_sov_fuel.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	option = {
+		name = dd_sov_fuel.1.a
+	}
+}

@@ -1,0 +1,103 @@
+dd_chi_paranoia_sync = {
+	if = {
+		limit = { check_variable = { dd_chi_paranoia < 0 } }
+		set_variable = { dd_chi_paranoia = 0 }
+	}
+	if = {
+		limit = { check_variable = { dd_chi_paranoia > 100 } }
+		set_variable = { dd_chi_paranoia = 100 }
+	}
+	set_variable = { dd_chi_para_pp = dd_chi_paranoia }
+	multiply_variable = { dd_chi_para_pp = -0.001 }
+	set_variable = { dd_chi_para_stab = dd_chi_paranoia }
+	multiply_variable = { dd_chi_para_stab = -0.0015 }
+	set_variable = { dd_chi_para_fac = dd_chi_paranoia }
+	multiply_variable = { dd_chi_para_fac = -0.0008 }
+	set_variable = { dd_chi_para_org = dd_chi_paranoia }
+	multiply_variable = { dd_chi_para_org = -0.001 }
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_chi_paranoia } } }
+		add_dynamic_modifier = { modifier = dd_chi_paranoia }
+	}
+	force_update_dynamic_modifier = yes
+	set_variable = { dd_chi_para_meter = dd_chi_paranoia }
+	add_to_variable = { dd_chi_para_meter = 2.499 }
+	divide_variable = { dd_chi_para_meter = 5 }
+	round_variable = dd_chi_para_meter
+	add_to_variable = { dd_chi_para_meter = 1 }
+	if = {
+		limit = { check_variable = { dd_chi_para_meter < 1 } }
+		set_variable = { dd_chi_para_meter = 1 }
+	}
+	if = {
+		limit = { check_variable = { dd_chi_para_meter > 21 } }
+		set_variable = { dd_chi_para_meter = 21 }
+	}
+	set_variable = { dd_chi_para_photo_1 = 3 }
+	set_variable = { dd_chi_para_photo_2 = 4 }
+	set_variable = { dd_chi_para_photo_3 = 5 }
+	set_variable = { dd_chi_para_photo_4 = 6 }
+	set_variable = { dd_chi_para_photo_5 = 7 }
+	set_variable = { dd_chi_para_photo_6 = 2 }
+	set_variable = { dd_chi_para_photo_7 = 4 }
+	set_variable = { dd_chi_para_photo_8 = 6 }
+	set_variable = { dd_chi_para_photo_9 = 3 }
+	set_variable = { dd_chi_para_photo_10 = 5 }
+	set_variable = { dd_chi_para_photo_11 = 7 }
+	set_variable = { dd_chi_para_photo_12 = 2 }
+	set_variable = { dd_chi_para_photo_a = 8 }
+	set_variable = { dd_chi_para_photo_b = 9 }
+	set_variable = { dd_chi_para_photo_c = 10 }
+	set_variable = { dd_chi_para_photo_d = 11 }
+	set_variable = { dd_chi_para_photo_e = 12 }
+}
+
+dd_chi_paranoia_month = {
+	if = {
+		limit = { NOT = { has_variable = dd_chi_paranoia } }
+		set_variable = { dd_chi_paranoia = 25 }
+	}
+	if = {
+		limit = {
+			has_country_flag = dd_chi_paranoia_broke
+			check_variable = { dd_chi_paranoia < 60 }
+		}
+		clr_country_flag = dd_chi_paranoia_broke
+	}
+	if = {
+		limit = { has_country_flag = dd_chi_paranoia_contained }
+		add_to_variable = { dd_chi_paranoia = 1 }
+	}
+	else = {
+		add_to_variable = { dd_chi_paranoia = 4 }
+	}
+	if = {
+		limit = {
+			check_variable = { dd_chi_paranoia > 99.9 }
+			NOT = { has_country_flag = dd_chi_paranoia_broke }
+		}
+		set_variable = { dd_chi_paranoia = 50 }
+		set_country_flag = dd_chi_paranoia_broke
+		add_stability = -0.10
+		add_war_support = -0.05
+		add_political_power = -75
+		country_event = { id = dd_chi_para.1 }
+	}
+	dd_chi_paranoia_sync = yes
+}
+
+dd_chi_bop_loyalist = {
+	add_power_balance_value = {
+		id = CHI_party_balance
+		value = -0.10
+		tooltip_side = CHI_bop_loyalist
+	}
+}
+
+dd_chi_bop_technocrat = {
+	add_power_balance_value = {
+		id = CHI_party_balance
+		value = 0.10
+		tooltip_side = CHI_bop_technocrat
+	}
+}

@@ -18,3 +18,12 @@ dd_sov_scorched_land = {
 	enemy_attrition = 0.25
 	enemy_local_supplies = -0.20
 }
+
+# Country-scoped. One stack per Ukrainian strike on a fuel state.
+dd_sov_fuel_fires = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_production_bonus
+	base_fuel_gain_factor = dd_sov_fuel_gain
+	army_fuel_consumption_factor = dd_sov_fuel_use
+	industrial_capacity_factory = dd_sov_fuel_fac
+}

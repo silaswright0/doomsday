@@ -3,6 +3,7 @@
 dd_ukr_grid_blackout = {
 	enable = { always = yes }
 	icon = GFX_idea_generic_production_bonus
+	remove_trigger = { always = yes }
 	industrial_capacity_factory = dd_ukr_grid_fac
 	stability_factor = dd_ukr_grid_stab
 	production_speed_buildings_factor = dd_ukr_grid_con

@@ -648,6 +648,7 @@ add_ideas = dd_aid_3
 add_ideas = dd_religion_4
 add_ideas = dd_media_2
 add_ideas = dd_civil_military_1
+add_ideas = dd_chi_peace_disease
 add_ideas = limited_conscription
 add_ideas = limited_exports
 add_ideas = civilian_economy
@@ -681,3 +682,9 @@ recruit_character = CHI_gen_wu_yanan
 recruit_character = CHI_nav_hu_zhongming
 recruit_character = CHI_chang_dingqiu
 recruit_character = CHI_wang_houbin
+set_power_balance = {
+	id = CHI_party_balance
+	left_side = CHI_bop_loyalist
+	right_side = CHI_bop_technocrat
+	set_value = -0.20
+}

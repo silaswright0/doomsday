@@ -1,0 +1,10 @@
+# dd_chi_para_* are written by dd_chi_paranoia_sync. At 100: political power -0.10, stability -15%, factory output -8%, organization -10%.
+
+dd_chi_paranoia = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_secret_police
+	political_power_gain = dd_chi_para_pp
+	stability_factor = dd_chi_para_stab
+	industrial_capacity_factory = dd_chi_para_fac
+	army_org_factor = dd_chi_para_org
+}

@@ -103,3 +103,62 @@ dd_sov_csto_category = {
 		}
 	}
 }
+
+dd_sov_fuel_status_category = {
+	dd_sov_fuel_status = {
+		icon = generic_industry
+		allowed = { original_tag = SOV }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = UKR }
+		available = { hidden_trigger = { always = no } }
+	}
+	dd_sov_fuel_how = {
+		icon = generic_political_discourse
+		allowed = { original_tag = SOV }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = UKR }
+		available = { hidden_trigger = { always = no } }
+	}
+}
+
+dd_sov_fuel_category = {
+	dd_sov_fuel_patch = {
+		icon = generic_construction
+		allowed = { original_tag = SOV }
+		cost = 40
+		days_re_enable = 30
+		ai_will_do = { factor = 20 }
+		visible = { has_war_with = UKR }
+		available = { check_variable = { dd_sov_fuel > 0 } }
+		complete_effect = {
+			subtract_from_variable = { dd_sov_fuel = 1 }
+			dd_sov_fuel_sync = yes
+			219 = { dd_sov_repair_fuel_state = yes }
+			254 = { dd_sov_repair_fuel_state = yes }
+			248 = { dd_sov_repair_fuel_state = yes }
+		}
+	}
+
+	dd_sov_fuel_buy = {
+		icon = generic_construction
+		allowed = { original_tag = SOV }
+		cost = 60
+		days_re_enable = 120
+		ai_will_do = { factor = 5 }
+		visible = { has_war_with = UKR }
+		available = {
+			check_variable = { dd_sov_fuel > 0 }
+			check_variable = { treasury > 0.4 }
+		}
+		complete_effect = {
+			subtract_from_variable = { treasury = 0.4 }
+			subtract_from_variable = { dd_sov_fuel = 2 }
+			dd_sov_fuel_sync = yes
+			218 = { dd_sov_repair_fuel_state = yes }
+			195 = { dd_sov_repair_fuel_state = yes }
+			251 = { dd_sov_repair_fuel_state = yes }
+		}
+	}
+}

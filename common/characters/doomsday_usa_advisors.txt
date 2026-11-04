@@ -252,15 +252,18 @@ characters = {
 	USA_pete_hegseth = {
 		name = "Pete Hegseth"
 		portraits = {
+			army = { large = GFX_portrait_USA_pete_hegseth small = GFX_portrait_USA_pete_hegseth_small }
+			navy = { large = GFX_portrait_USA_pete_hegseth small = GFX_portrait_USA_pete_hegseth_small }
 			civilian = { large = GFX_portrait_USA_pete_hegseth small = GFX_portrait_USA_pete_hegseth_small }
 		}
 		advisor = {
-			slot = political_advisor
+			slot = army_chief
 			idea_token = USA_pete_hegseth
+			cost = 150
 			allowed = { original_tag = USA }
 			available = { has_government = national_populism }
-			traits = { hawk }
-			ai_will_do = { factor = 1 }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
 		}
 	}
 	USA_ilhan_omar = {
@@ -378,6 +381,25 @@ characters = {
 				}
 			}
 			traits = { dd_political_revolution }
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_hasan_piker = {
+		name = "Hasan Piker"
+		portraits = {
+			civilian = { large = GFX_portrait_USA_piker small = GFX_portrait_USA_piker_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_hasan_piker
+			allowed = { original_tag = USA }
+			available = {
+				OR = {
+					has_government = social_democracy
+					has_government = progressive_populism
+				}
+			}
+			traits = { dd_left_commentator }
 			ai_will_do = { factor = 1 }
 		}
 	}

@@ -5,12 +5,31 @@ dd_sov_bop_category = {
 	visible = { always = no }
 }
 
+dd_sov_fuel_status_category = {
+	icon = generic_industry
+	picture = GFX_decision_cat_picture_generic_industry
+	priority = 95
+	allowed = { original_tag = SOV }
+	visible = { has_war_with = UKR }
+}
+
+dd_sov_fuel_category = {
+	icon = generic_political_actions
+	priority = 90
+	allowed = { original_tag = SOV }
+	visible = { has_war_with = UKR }
+}
+
 dd_sov_ukraine_war_category = {
 	icon = generic_prepare_civil_war
 	picture = GFX_decision_cat_picture_generic_border_conflicts
 	priority = 100
 	allowed = { original_tag = SOV }
-	visible = { has_war_with = UKR }
+	visible = {
+		has_war_with = UKR
+		has_country_flag = dd_sov_ukr_clock
+		NOT = { has_country_flag = dd_sov_ukr_first_war_over }
+	}
 	visible_when_empty = yes
 	scripted_gui = dd_sov_ukraine_war_ui
 }

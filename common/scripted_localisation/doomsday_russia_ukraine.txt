@@ -1,7 +1,7 @@
 defined_text = {
 	name = GetDdSovUkrUntil
 	text = {
-		trigger = { check_variable = { dd_sov_ukr_stage = 9 } }
+		trigger = { check_variable = { dd_sov_ukr_stage > 9 } }
 		localization_key = DD_SOV_UKR_UNTIL_END
 	}
 	text = {
@@ -48,7 +48,11 @@ defined_text = {
 		localization_key = DD_SOV_UKR_NOW_8
 	}
 	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 9 } }
 		localization_key = DD_SOV_UKR_NOW_9
+	}
+	text = {
+		localization_key = DD_SOV_UKR_NOW_10
 	}
 }
 
@@ -91,7 +95,11 @@ defined_text = {
 		localization_key = DD_SOV_UKR_BODY_8
 	}
 	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 9 } }
 		localization_key = DD_SOV_UKR_BODY_9
+	}
+	text = {
+		localization_key = DD_SOV_UKR_BODY_10
 	}
 }
 
@@ -343,4 +351,29 @@ defined_text = {
 		localization_key = DD_SOV_UKR_Y9_NOW
 	}
 	text = { localization_key = DD_SOV_UKR_Y9_FUTURE }
+}
+
+defined_text = {
+	name = GetDdSovUkrL10
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 10 } }
+		localization_key = DD_SOV_UKR_L10_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 10 } }
+		localization_key = DD_SOV_UKR_L10_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_L10_FUTURE }
+}
+defined_text = {
+	name = GetDdSovUkrR10
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage > 10 } }
+		localization_key = DD_SOV_UKR_Y10_PAST
+	}
+	text = {
+		trigger = { check_variable = { dd_sov_ukr_stage = 10 } }
+		localization_key = DD_SOV_UKR_Y10_NOW
+	}
+	text = { localization_key = DD_SOV_UKR_Y10_FUTURE }
 }

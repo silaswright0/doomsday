@@ -1,0 +1,100 @@
+dd_chi_paranoia_category = {
+	dd_chi_review_dossiers = {
+		icon = generic_political_discourse
+		allowed = { original_tag = CHI }
+		cost = 25
+		days_re_enable = 35
+		ai_will_do = { factor = 4 }
+		available = {
+			check_variable = { dd_chi_paranoia > 5 }
+		}
+		complete_effect = {
+			custom_effect_tooltip = CHI_para_minus_8_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = -8 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+
+	dd_chi_loyalty_campaign = {
+		icon = generic_propaganda
+		allowed = { original_tag = CHI }
+		cost = 50
+		days_re_enable = 70
+		ai_will_do = { factor = 3 }
+		available = {
+			check_variable = { dd_chi_paranoia > 15 }
+		}
+		complete_effect = {
+			custom_effect_tooltip = CHI_para_minus_15_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = -15 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+
+	dd_chi_stage_a_purge = {
+		icon = generic_political_actions
+		allowed = { original_tag = CHI }
+		cost = 100
+		days_re_enable = 120
+		ai_will_do = { factor = 0 }
+		available = {
+			check_variable = { dd_chi_paranoia > 30 }
+		}
+		complete_effect = {
+			add_stability = -0.06
+			custom_effect_tooltip = CHI_para_minus_25_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = -25 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+
+	dd_chi_dismiss_wang = {
+		icon = generic_army_support
+		allowed = { original_tag = CHI }
+		cost = 50
+		ai_will_do = { factor = 0 }
+		visible = { has_character = CHI_wang_houbin }
+		available = { has_character = CHI_wang_houbin }
+		complete_effect = {
+			add_stability = -0.03
+			retire_character = CHI_wang_houbin
+			custom_effect_tooltip = CHI_para_minus_20_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = -20 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+}
+
+dd_chi_bop_category = {
+	dd_chi_rally_loyalists = {
+		icon = generic_political_discourse
+		allowed = { original_tag = CHI }
+		cost = 50
+		days_re_enable = 70
+		ai_will_do = { factor = 0 }
+		visible = { has_power_balance = { id = CHI_party_balance } }
+		complete_effect = {
+			dd_chi_bop_loyalist = yes
+		}
+	}
+
+	dd_chi_back_the_planners = {
+		icon = generic_industry
+		allowed = { original_tag = CHI }
+		cost = 50
+		days_re_enable = 70
+		ai_will_do = { factor = 0 }
+		visible = { has_power_balance = { id = CHI_party_balance } }
+		complete_effect = {
+			dd_chi_bop_technocrat = yes
+		}
+	}
+}

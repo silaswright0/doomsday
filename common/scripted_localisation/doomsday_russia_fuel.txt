@@ -1,0 +1,10 @@
+defined_text = {
+	name = GetDdSovFuelClock
+	text = {
+		trigger = { check_variable = { dd_sov_fuel_cd > 0 } }
+		localization_key = dd_sov_fuel_clock_wait
+	}
+	text = {
+		localization_key = dd_sov_fuel_clock_open
+	}
+}

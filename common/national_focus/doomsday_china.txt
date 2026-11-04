@@ -1,0 +1,1566 @@
+focus_tree = {
+	id = dd_chi_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CHI
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	initial_show_position = { focus = CHI_the_ccp }
+	continuous_focus_position = { x = 16 y = 2500 }
+
+	focus = {
+		id = CHI_the_ccp
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 200
+			dd_chi_bop_loyalist = yes
+			custom_effect_tooltip = CHI_para_minus_5_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = -5 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_purge_rocket_force
+		icon = GFX_goal_generic_secret_weapon
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = CHI_the_ccp }
+		completion_reward = {
+			add_stability = -0.03
+			army_experience = 20
+			dd_chi_bop_loyalist = yes
+			if = {
+				limit = { has_character = CHI_wang_houbin }
+				retire_character = CHI_wang_houbin
+			}
+			custom_effect_tooltip = CHI_para_minus_20_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = -20 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_enforce_ethnic_unity
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = CHI_purge_rocket_force }
+		completion_reward = {
+			add_ideas = dd_chi_ethnic_unity
+			dd_chi_bop_loyalist = yes
+		}
+	}
+	focus = {
+		id = CHI_ai_plus
+		icon = GFX_goal_generic_scientific_exchange
+		x = 0
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = CHI_enforce_ethnic_unity }
+		completion_reward = {
+			add_ideas = dd_chi_ai_plus
+			dd_chi_bop_technocrat = yes
+		}
+	}
+	focus = {
+		id = CHI_national_defence_overhaul
+		icon = GFX_goal_generic_defence
+		x = 0
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = CHI_ai_plus }
+		completion_reward = {
+			add_ideas = dd_chi_defence_overhaul
+			army_experience = 15
+		}
+	}
+	focus = {
+		id = CHI_us_visit
+		icon = GFX_goal_generic_improve_relations
+		x = 0
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_national_defence_overhaul }
+		completion_reward = {
+			add_political_power = 30
+			if = {
+				limit = { USA = { exists = yes } }
+				USA = { add_opinion_modifier = { target = ROOT modifier = dd_chi_us_visit } }
+				add_opinion_modifier = { target = USA modifier = dd_chi_us_visit }
+			}
+			custom_effect_tooltip = CHI_para_plus_10_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 10 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_ding_xuexiang
+		icon = GFX_goal_generic_political_pressure
+		x = -4
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 3 }
+		prerequisite = { focus = CHI_us_visit }
+		mutually_exclusive = { focus = CHI_li_qiang }
+		mutually_exclusive = { focus = CHI_zhang_guoqing }
+		completion_reward = {
+			add_political_power = 25
+			create_country_leader = {
+				ideology = vanguardist
+			}
+			dd_chi_bop_loyalist = yes
+			custom_effect_tooltip = CHI_para_contained_tt
+			custom_effect_tooltip = CHI_para_minus_10_tt
+			hidden_effect = {
+				set_country_flag = dd_chi_paranoia_contained
+				add_to_variable = { dd_chi_paranoia = -10 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_zhang_guoqing
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 4
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = CHI_us_visit }
+		mutually_exclusive = { focus = CHI_ding_xuexiang }
+		mutually_exclusive = { focus = CHI_li_qiang }
+		completion_reward = {
+			add_political_power = 25
+			create_country_leader = {
+				name = "Zhang Guoqing"
+				desc = CHI_ZHANG_DESC
+				picture = GFX_portrait_unknown
+				expire = "2065.1.1"
+				ideology = vanguardist
+			}
+			dd_chi_bop_technocrat = yes
+			custom_effect_tooltip = CHI_para_contained_tt
+			custom_effect_tooltip = CHI_para_minus_10_tt
+			hidden_effect = {
+				set_country_flag = dd_chi_paranoia_contained
+				add_to_variable = { dd_chi_paranoia = -10 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_li_qiang
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 0
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 2 }
+		prerequisite = { focus = CHI_us_visit }
+		mutually_exclusive = { focus = CHI_ding_xuexiang }
+		mutually_exclusive = { focus = CHI_zhang_guoqing }
+		completion_reward = {
+			add_political_power = 25
+			create_country_leader = {
+				name = "Li Qiang"
+				desc = CHI_LI_DESC
+				picture = GFX_portrait_unknown
+				expire = "2065.1.1"
+				ideology = vanguardist
+			}
+			dd_chi_bop_technocrat = yes
+			custom_effect_tooltip = CHI_para_contained_tt
+			custom_effect_tooltip = CHI_para_minus_10_tt
+			hidden_effect = {
+				set_country_flag = dd_chi_paranoia_contained
+				add_to_variable = { dd_chi_paranoia = -10 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+
+	focus = {
+		id = CHI_the_security_state
+		icon = GFX_goal_generic_secret_weapon
+		x = -8
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			add_political_power = 50
+			custom_effect_tooltip = CHI_para_plus_8_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 8 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_panic_in_the_committee
+		icon = GFX_goal_generic_political_pressure
+		x = -8
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_the_security_state }
+		completion_reward = {
+			add_stability = -0.08
+			add_war_support = 0.03
+			custom_effect_tooltip = CHI_para_plus_15_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 15 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_seize_the_military
+		icon = GFX_goal_generic_army_doctrines
+		x = -8
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_panic_in_the_committee }
+		completion_reward = {
+			army_experience = 25
+			add_command_power = 25
+			custom_effect_tooltip = CHI_para_plus_5_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 5 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_security_state_takeover
+		icon = GFX_goal_generic_secret_weapon
+		x = -8
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_seize_the_military }
+		completion_reward = {
+			add_ideas = dd_chi_security_state
+			add_stability = -0.03
+			dd_chi_bop_loyalist = yes
+		}
+	}
+	focus = {
+		id = CHI_sideline_the_committee
+		icon = GFX_goal_generic_political_pressure
+		x = -8
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_security_state_takeover }
+		completion_reward = {
+			add_political_power = 75
+			add_stability = -0.05
+			custom_effect_tooltip = CHI_para_plus_12_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 12 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_solidify_control
+		icon = GFX_goal_generic_national_unity
+		x = -8
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_sideline_the_committee }
+		completion_reward = {
+			add_stability = 0.08
+			custom_effect_tooltip = CHI_para_contained_tt
+			custom_effect_tooltip = CHI_para_minus_25_tt
+			hidden_effect = {
+				set_country_flag = dd_chi_paranoia_contained
+				add_to_variable = { dd_chi_paranoia = -25 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_crush_dissidents
+		icon = GFX_goal_generic_political_pressure
+		x = -8
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_solidify_control }
+		completion_reward = {
+			add_ideas = dd_chi_crushed_dissidents
+			add_stability = 0.03
+			dd_chi_bop_loyalist = yes
+			custom_effect_tooltip = CHI_para_plus_8_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 8 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_force_xis_resignation
+		icon = GFX_goal_generic_major_war
+		x = -8
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_crush_dissidents }
+		completion_reward = {
+			add_stability = -0.05
+			create_country_leader = {
+				name = "Chen Yixin"
+				desc = CHI_CHEN_DESC
+				picture = GFX_portrait_unknown
+				expire = "2065.1.1"
+				ideology = vanguardist
+			}
+			custom_effect_tooltip = CHI_para_minus_15_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = -15 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_oversee_transition
+		icon = GFX_goal_generic_national_unity
+		x = -8
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_force_xis_resignation }
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 50
+			custom_effect_tooltip = CHI_para_contained_tt
+			hidden_effect = {
+				set_country_flag = dd_chi_paranoia_contained
+			}
+		}
+	}
+	focus = {
+		id = CHI_meet_the_triads
+		icon = GFX_goal_generic_trade
+		x = -8
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_oversee_transition }
+		completion_reward = {
+			add_political_power = 25
+			add_stability = -0.02
+		}
+	}
+	focus = {
+		id = CHI_integrate_criminal_operations
+		icon = GFX_goal_generic_trade
+		x = -8
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_meet_the_triads }
+		completion_reward = {
+			add_ideas = dd_chi_criminal_operations
+		}
+	}
+	focus = {
+		id = CHI_the_opium_trade
+		icon = GFX_goal_generic_consumer_goods
+		x = -8
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_integrate_criminal_operations }
+		completion_reward = {
+			add_ideas = dd_chi_opium_trade
+			add_to_variable = { treasury = 3 }
+		}
+	}
+
+	focus = {
+		id = CHI_business_council
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 34
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = dd_chi_business_council
+			dd_chi_bop_technocrat = yes
+			custom_effect_tooltip = CHI_para_plus_5_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 5 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_hire_local_mercenaries
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 34
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_business_council }
+		completion_reward = {
+			add_manpower = 15000
+			army_experience = 10
+			add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 1500 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_smuggle_equipment
+		icon = GFX_goal_generic_trade
+		x = 34
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_hire_local_mercenaries }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 3000 producer = CHI }
+			add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 150 producer = CHI }
+			add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 100 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_secure_foreign_support
+		icon = GFX_goal_generic_military_deal
+		x = 34
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_smuggle_equipment }
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			if = {
+				limit = { USA = { exists = yes } }
+				USA = { add_opinion_modifier = { target = ROOT modifier = dd_chi_foreign_support } }
+			}
+			if = {
+				limit = { JAP = { exists = yes } }
+				JAP = { add_opinion_modifier = { target = ROOT modifier = dd_chi_foreign_support } }
+			}
+			if = {
+				limit = { ENG = { exists = yes } }
+				ENG = { add_opinion_modifier = { target = ROOT modifier = dd_chi_foreign_support } }
+			}
+		}
+	}
+	focus = {
+		id = CHI_eradicate_city_resistance
+		icon = GFX_goal_generic_occupy_states
+		x = 34
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_secure_foreign_support }
+		completion_reward = {
+			add_ideas = dd_chi_city_pacification
+		}
+	}
+	focus = {
+		id = CHI_bold_play_manchuria
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 30
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_eradicate_city_resistance }
+		completion_reward = {
+			add_ideas = dd_chi_manchuria_play
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_war_support = 0.05
+			army_experience = 15
+		}
+	}
+	focus = {
+		id = CHI_bold_play_naval
+		icon = GFX_goal_generic_navy_doctrines
+		x = 38
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_eradicate_city_resistance }
+		completion_reward = {
+			add_ideas = dd_chi_naval_dominance
+			add_offsite_building = { type = dockyard level = 2 }
+			navy_experience = 25
+		}
+	}
+	focus = {
+		id = CHI_increase_soldier_wages
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 30
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_bold_play_manchuria }
+		completion_reward = {
+			add_ideas = dd_chi_soldier_wages
+		}
+	}
+	focus = {
+		id = CHI_naval_supply_routes
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 38
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_bold_play_naval }
+		completion_reward = {
+			add_ideas = dd_chi_naval_supply
+			add_equipment_to_stockpile = { type = convoy_1 amount = 40 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_prioritize_legitimacy
+		icon = GFX_goal_generic_national_unity
+		x = 34
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_increase_soldier_wages }
+		prerequisite = { focus = CHI_naval_supply_routes }
+		completion_reward = {
+			add_ideas = dd_chi_legitimacy
+			add_stability = 0.05
+			add_political_power = 75
+			custom_effect_tooltip = CHI_para_contained_tt
+			hidden_effect = {
+				set_country_flag = dd_chi_paranoia_contained
+			}
+		}
+	}
+	focus = {
+		id = CHI_business_placeholder
+		icon = GFX_goal_generic_political_pressure
+		x = 34
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_prioritize_legitimacy }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = CHI_federal_republic
+		icon = GFX_goal_generic_national_unity
+		x = 50
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			add_ideas = dd_chi_federal_opening
+			add_stability = -0.05
+			add_popularity = { ideology = liberal_conservatism popularity = 0.10 }
+			custom_effect_tooltip = CHI_para_plus_10_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 10 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_federal_placeholder
+		icon = GFX_goal_generic_political_pressure
+		x = 50
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_republic }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = CHI_federal_recruit_militia
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 46
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_placeholder }
+		completion_reward = {
+			add_manpower = 30000
+		}
+	}
+	focus = {
+		id = CHI_federal_secure_guns
+		icon = GFX_goal_generic_military_deal
+		x = 54
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_placeholder }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 5000 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_federal_cry_to_the_world
+		icon = GFX_goal_generic_improve_relations
+		x = 50
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_recruit_militia }
+		prerequisite = { focus = CHI_federal_secure_guns }
+		completion_reward = {
+			add_ideas = dd_chi_federal_cry
+			add_war_support = 0.05
+			set_politics = { ruling_party = liberal_conservatism elections_allowed = no }
+			create_country_leader = {
+				name = "Federal Council"
+				desc = CHI_FEDERAL_DESC
+				picture = GFX_portrait_unknown
+				expire = "2065.1.1"
+				ideology = liberal_conservative
+			}
+			if = {
+				limit = { USA = { exists = yes } }
+				USA = { add_opinion_modifier = { target = ROOT modifier = dd_chi_cry_to_the_world } }
+			}
+			if = {
+				limit = { ENG = { exists = yes } }
+				ENG = { add_opinion_modifier = { target = ROOT modifier = dd_chi_cry_to_the_world } }
+			}
+			if = {
+				limit = { FRA = { exists = yes } }
+				FRA = { add_opinion_modifier = { target = ROOT modifier = dd_chi_cry_to_the_world } }
+			}
+			if = {
+				limit = { JAP = { exists = yes } }
+				JAP = { add_opinion_modifier = { target = ROOT modifier = dd_chi_cry_to_the_world } }
+			}
+			custom_effect_tooltip = CHI_para_contained_tt
+			hidden_effect = {
+				set_country_flag = dd_chi_paranoia_contained
+			}
+		}
+	}
+	focus = {
+		id = CHI_federal_weapons_1
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 46
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_cry_to_the_world }
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	focus = {
+		id = CHI_federal_foreign_1
+		icon = GFX_goal_generic_military_deal
+		x = 54
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_cry_to_the_world }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 4000 producer = CHI }
+			add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 200 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_federal_weapons_2
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 46
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_weapons_1 }
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	focus = {
+		id = CHI_federal_foreign_2
+		icon = GFX_goal_generic_military_deal
+		x = 54
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_foreign_1 }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 2000 producer = CHI }
+			add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 30 producer = CHI }
+			add_equipment_to_stockpile = { type = fighter_equipment_cw5a amount = 20 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_federal_manpower
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 50
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_weapons_2 }
+		prerequisite = { focus = CHI_federal_foreign_2 }
+		completion_reward = {
+			add_manpower = 50000
+			add_ideas = dd_chi_federal_manpower
+		}
+	}
+	focus = {
+		id = CHI_federal_capstone
+		icon = GFX_goal_generic_political_pressure
+		x = 50
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_federal_manpower }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = CHI_new_left
+		icon = GFX_goal_generic_propaganda
+		x = 50
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			add_ideas = dd_chi_new_left
+			add_stability = -0.03
+			custom_effect_tooltip = CHI_para_plus_10_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 10 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_new_left_placeholder
+		icon = GFX_goal_generic_political_pressure
+		x = 50
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = CHI_new_left_recruit_militia
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 46
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_placeholder }
+		completion_reward = {
+			add_manpower = 40000
+		}
+	}
+	focus = {
+		id = CHI_new_left_secure_guns
+		icon = GFX_goal_generic_military_deal
+		x = 54
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_placeholder }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 5000 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_new_left_cry_to_the_world
+		icon = GFX_goal_generic_propaganda
+		x = 50
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_recruit_militia }
+		prerequisite = { focus = CHI_new_left_secure_guns }
+		completion_reward = {
+			add_ideas = dd_chi_new_left_cry
+			add_war_support = 0.10
+			add_stability = -0.03
+			custom_effect_tooltip = CHI_para_contained_tt
+			hidden_effect = {
+				set_country_flag = dd_chi_paranoia_contained
+			}
+		}
+	}
+	focus = {
+		id = CHI_new_left_weapons_1
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 46
+		y = 13
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_cry_to_the_world }
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	focus = {
+		id = CHI_new_left_foreign_1
+		icon = GFX_goal_generic_military_deal
+		x = 54
+		y = 13
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_cry_to_the_world }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 4000 producer = CHI }
+			add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 200 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_new_left_weapons_2
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 46
+		y = 14
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_weapons_1 }
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	focus = {
+		id = CHI_new_left_foreign_2
+		icon = GFX_goal_generic_military_deal
+		x = 54
+		y = 14
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_foreign_1 }
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 2000 producer = CHI }
+			add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 200 producer = CHI }
+			add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 150 producer = CHI }
+		}
+	}
+	focus = {
+		id = CHI_new_left_manpower
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 50
+		y = 15
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_weapons_2 }
+		prerequisite = { focus = CHI_new_left_foreign_2 }
+		completion_reward = {
+			add_manpower = 60000
+			add_ideas = dd_chi_new_left_manpower
+		}
+	}
+	focus = {
+		id = CHI_new_left_capstone
+		icon = GFX_goal_generic_political_pressure
+		x = 50
+		y = 16
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 0 }
+		prerequisite = { focus = CHI_new_left_manpower }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = CHI_the_chinese_century
+		icon = GFX_goal_generic_national_unity
+		x = 16
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.03
+		}
+	}
+	focus = {
+		id = CHI_fifteenth_plan
+		icon = GFX_goal_generic_construction
+		x = 16
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_the_chinese_century }
+		completion_reward = {
+			add_ideas = dd_chi_five_year_plan
+			dd_chi_bop_technocrat = yes
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	focus = {
+		id = CHI_state_bank_credit
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 12
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_fifteenth_plan }
+		completion_reward = {
+			add_ideas = dd_chi_state_bank
+			dd_chi_bop_technocrat = yes
+		}
+	}
+	focus = {
+		id = CHI_target_foreign_entities
+		icon = GFX_goal_generic_demand_territory
+		x = 16
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_fifteenth_plan }
+		completion_reward = {
+			add_ideas = dd_chi_foreign_targets
+			add_war_support = 0.05
+			custom_effect_tooltip = CHI_para_plus_8_tt
+			hidden_effect = {
+				add_to_variable = { dd_chi_paranoia = 8 }
+				dd_chi_paranoia_sync = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_high_quality_development
+		icon = GFX_goal_generic_scientific_exchange
+		x = 20
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_fifteenth_plan }
+		completion_reward = {
+			add_ideas = dd_chi_high_quality
+			dd_chi_bop_technocrat = yes
+		}
+	}
+	focus = {
+		id = CHI_chinese_domination
+		icon = GFX_goal_generic_production
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_state_bank_credit }
+		completion_reward = {
+			add_ideas = dd_chi_domination
+			dd_chi_bop_loyalist = yes
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	focus = {
+		id = CHI_prepare_against_sanctions
+		icon = GFX_goal_generic_trade
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_state_bank_credit }
+		completion_reward = {
+			add_ideas = dd_chi_sanctions_prep
+		}
+	}
+	focus = {
+		id = CHI_deficit_target
+		icon = GFX_goal_generic_consumer_goods
+		x = 16
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_target_foreign_entities }
+		completion_reward = {
+			add_ideas = dd_chi_deficit
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	focus = {
+		id = CHI_innovation_triangle
+		icon = GFX_goal_generic_scientific_exchange
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_high_quality_development }
+		completion_reward = {
+			add_ideas = dd_chi_innovation
+			dd_chi_bop_technocrat = yes
+		}
+	}
+	focus = {
+		id = CHI_outgrow_debt
+		icon = GFX_goal_generic_production
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_deficit_target }
+		completion_reward = {
+			add_ideas = dd_chi_outgrow_debt
+			if = {
+				limit = { has_variable = debt }
+				multiply_variable = { debt = 0.90 }
+			}
+		}
+	}
+	focus = {
+		id = CHI_expand_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 20
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_innovation_triangle }
+		completion_reward = {
+			add_ideas = dd_chi_mil_industry
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	focus = {
+		id = CHI_expand_military_infrastructure
+		icon = GFX_goal_generic_construction
+		x = 24
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_innovation_triangle }
+		completion_reward = {
+			add_ideas = dd_chi_mil_infrastructure
+			capital_scope = {
+				add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+				add_building_construction = { type = bunker level = 2 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = CHI_address_the_army
+		icon = GFX_goal_generic_army_doctrines
+		x = 16
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			army_experience = 25
+			add_command_power = 20
+		}
+	}
+	focus = {
+		id = CHI_integrate_ai
+		icon = GFX_goal_generic_scientific_exchange
+		x = 12
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_address_the_army }
+		completion_reward = {
+			add_ideas = dd_chi_integrate_ai
+		}
+	}
+	focus = {
+		id = CHI_combined_arms
+		icon = GFX_goal_generic_army_doctrines
+		x = 16
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_address_the_army }
+		completion_reward = {
+			add_ideas = dd_chi_combined_arms
+		}
+	}
+	focus = {
+		id = CHI_military_research_1
+		icon = GFX_goal_generic_scientific_exchange
+		x = 22
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_address_the_army }
+		completion_reward = {
+			add_ideas = dd_chi_mil_research_1
+			army_experience = 15
+		}
+	}
+	focus = {
+		id = CHI_tighten_decision_loops
+		icon = GFX_goal_generic_army_doctrines
+		x = 12
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_integrate_ai }
+		completion_reward = {
+			add_ideas = dd_chi_tight_loops
+			add_command_power = 15
+		}
+	}
+	focus = {
+		id = CHI_end_peace_disease
+		icon = GFX_goal_generic_defence
+		x = 16
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		prerequisite = { focus = CHI_combined_arms }
+		completion_reward = {
+			remove_ideas = dd_chi_peace_disease
+			army_experience = 25
+			add_stability = 0.03
+		}
+	}
+	focus = {
+		id = CHI_military_research_2
+		icon = GFX_goal_generic_scientific_exchange
+		x = 20
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_military_research_1 }
+		completion_reward = {
+			add_ideas = dd_chi_mil_research_2
+		}
+	}
+	focus = {
+		id = CHI_military_research_3
+		icon = GFX_goal_generic_scientific_exchange
+		x = 24
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_military_research_1 }
+		completion_reward = {
+			add_ideas = dd_chi_mil_research_3
+		}
+	}
+
+	focus = {
+		id = CHI_address_the_navy
+		icon = GFX_goal_generic_navy_doctrines
+		x = 16
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			navy_experience = 25
+		}
+	}
+	focus = {
+		id = CHI_navy_research_1
+		icon = GFX_goal_generic_scientific_exchange
+		x = 10
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_address_the_navy }
+		completion_reward = {
+			add_ideas = dd_chi_navy_research_1
+			navy_experience = 15
+		}
+	}
+	focus = {
+		id = CHI_carrier_drills
+		icon = GFX_goal_generic_navy_doctrines
+		x = 16
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_address_the_navy }
+		completion_reward = {
+			add_ideas = dd_chi_carrier_drills
+			navy_experience = 15
+		}
+	}
+	focus = {
+		id = CHI_nationalize_civilian_fleet
+		icon = GFX_goal_generic_trade
+		x = 22
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		available = { has_war = yes }
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_address_the_navy }
+		completion_reward = {
+			add_ideas = dd_chi_nationalized_fleet
+			add_equipment_to_stockpile = { type = convoy_1 amount = 100 producer = CHI }
+			add_offsite_building = { type = dockyard level = 1 }
+		}
+	}
+	focus = {
+		id = CHI_navy_research_2
+		icon = GFX_goal_generic_scientific_exchange
+		x = 8
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_navy_research_1 }
+		completion_reward = {
+			add_ideas = dd_chi_navy_research_2
+		}
+	}
+	focus = {
+		id = CHI_navy_research_3
+		icon = GFX_goal_generic_scientific_exchange
+		x = 12
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_navy_research_1 }
+		completion_reward = {
+			add_ideas = dd_chi_navy_research_3
+		}
+	}
+	focus = {
+		id = CHI_fleet_logistics
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 16
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_carrier_drills }
+		completion_reward = {
+			add_ideas = dd_chi_fleet_logistics
+		}
+	}
+
+	focus = {
+		id = CHI_address_the_airforce
+		icon = GFX_goal_generic_air_doctrine
+		x = 16
+		y = 14
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			air_experience = 25
+		}
+	}
+	focus = {
+		id = CHI_space_systems
+		icon = GFX_goal_generic_scientific_exchange
+		x = 12
+		y = 15
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_address_the_airforce }
+		completion_reward = {
+			add_ideas = dd_chi_space_systems
+		}
+	}
+	focus = {
+		id = CHI_air_research_1
+		icon = GFX_goal_generic_air_fighter
+		x = 20
+		y = 15
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_address_the_airforce }
+		completion_reward = {
+			add_ideas = dd_chi_air_research_1
+			air_experience = 15
+		}
+	}
+	focus = {
+		id = CHI_air_research_2
+		icon = GFX_goal_generic_air_fighter
+		x = 18
+		y = 16
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_air_research_1 }
+		completion_reward = {
+			add_ideas = dd_chi_air_research_2
+		}
+	}
+	focus = {
+		id = CHI_air_research_3
+		icon = GFX_goal_generic_air_fighter
+		x = 22
+		y = 16
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 8 }
+		prerequisite = { focus = CHI_air_research_1 }
+		completion_reward = {
+			add_ideas = dd_chi_air_research_3
+		}
+	}
+
+	focus = {
+		id = CHI_disaster_recovery
+		icon = GFX_goal_generic_construction
+		x = 34
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.02
+		}
+	}
+	focus = {
+		id = CHI_real_estate_1
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 28
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_disaster_recovery }
+		completion_reward = {
+			add_ideas = dd_chi_real_estate_1
+			add_stability = 0.03
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	focus = {
+		id = CHI_local_debt_1
+		icon = GFX_goal_generic_consumer_goods
+		x = 34
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_disaster_recovery }
+		completion_reward = {
+			add_ideas = dd_chi_local_debt_1
+			add_political_power = 40
+		}
+	}
+	focus = {
+		id = CHI_youth_unemployment_1
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 40
+		y = 11
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_disaster_recovery }
+		completion_reward = {
+			add_ideas = dd_chi_youth_1
+			add_manpower = 15000
+		}
+	}
+	focus = {
+		id = CHI_real_estate_2
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 28
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_real_estate_1 }
+		completion_reward = {
+			remove_ideas = dd_chi_real_estate_1
+			add_ideas = dd_chi_real_estate_2
+			add_stability = 0.03
+		}
+	}
+	focus = {
+		id = CHI_local_debt_2
+		icon = GFX_goal_generic_consumer_goods
+		x = 34
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_local_debt_1 }
+		completion_reward = {
+			remove_ideas = dd_chi_local_debt_1
+			add_ideas = dd_chi_local_debt_2
+		}
+	}
+	focus = {
+		id = CHI_youth_unemployment_2
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 40
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_youth_unemployment_1 }
+		completion_reward = {
+			remove_ideas = dd_chi_youth_1
+			add_ideas = dd_chi_youth_2
+			add_manpower = 20000
+		}
+	}
+	focus = {
+		id = CHI_real_estate_3
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 28
+		y = 13
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_real_estate_2 }
+		completion_reward = {
+			remove_ideas = dd_chi_real_estate_2
+			add_ideas = dd_chi_real_estate_3
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	focus = {
+		id = CHI_local_debt_3
+		icon = GFX_goal_generic_consumer_goods
+		x = 34
+		y = 13
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_local_debt_2 }
+		completion_reward = {
+			remove_ideas = dd_chi_local_debt_2
+			add_ideas = dd_chi_local_debt_3
+			add_political_power = 50
+			if = {
+				limit = { has_variable = debt }
+				multiply_variable = { debt = 0.95 }
+			}
+		}
+	}
+	focus = {
+		id = CHI_youth_unemployment_3
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 40
+		y = 13
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_youth_unemployment_2 }
+		completion_reward = {
+			remove_ideas = dd_chi_youth_2
+			add_ideas = dd_chi_youth_3
+			add_manpower = 30000
+		}
+	}
+	focus = {
+		id = CHI_recovery_capstone
+		icon = GFX_goal_generic_national_unity
+		x = 34
+		y = 14
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 6 }
+		prerequisite = { focus = CHI_real_estate_3 }
+		prerequisite = { focus = CHI_local_debt_3 }
+		prerequisite = { focus = CHI_youth_unemployment_3 }
+		completion_reward = {
+			add_ideas = dd_chi_recovery
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+}

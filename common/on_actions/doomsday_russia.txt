@@ -10,17 +10,30 @@ on_actions = {
 						limit = {
 							has_war_with = UKR
 							NOT = { has_country_flag = dd_sov_ukr_clock }
+							NOT = { has_country_flag = dd_sov_ukr_first_war_over }
 						}
 						set_variable = { dd_sov_ukr_months = 46 }
 						set_variable = { dd_sov_ukr_stage_applied = -1 }
 						set_country_flag = dd_sov_ukr_clock
 					}
 					if = {
-						limit = { has_war_with = UKR }
+						limit = {
+							has_war_with = UKR
+							NOT = { has_country_flag = dd_sov_ukr_first_war_over }
+						}
 						dd_sov_ukr_sync = yes
 					}
+					if = { limit = { NOT = { has_variable = dd_sov_fuel } } set_variable = { dd_sov_fuel = 0 } }
+					if = { limit = { NOT = { has_variable = dd_sov_fuel_cap } } set_variable = { dd_sov_fuel_cap = 20 } }
+					if = { limit = { NOT = { has_variable = dd_sov_fuel_cd } } set_variable = { dd_sov_fuel_cd = 0 } }
+					dd_sov_fuel_sync = yes
 				}
 			}
+		}
+	}
+	on_daily_SOV = {
+		effect = {
+			dd_sov_fuel_check_bombs = yes
 		}
 	}
 	on_monthly = {
@@ -40,8 +53,10 @@ on_actions = {
 			if = {
 				limit = {
 					original_tag = SOV
+					has_country_flag = dd_sov_ukr_clock
 					NOT = { has_war_with = UKR }
 				}
+				set_country_flag = dd_sov_ukr_first_war_over
 				dd_sov_ukr_clear = yes
 			}
 		}

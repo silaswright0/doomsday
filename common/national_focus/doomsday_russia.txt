@@ -9,7 +9,7 @@ focus_tree = {
 	}
 	default = no
 	reset_on_civilwar = no
-	continuous_focus_position = { x = 50 y = 1500 }
+	continuous_focus_position = { x = 50 y = 2400 }
 
 	focus = {
 		id = SOV_decree_604
@@ -626,7 +626,7 @@ focus_tree = {
 	focus = {
 		id = SOV_left_restoration
 		icon = GFX_goal_generic_soviet_construction
-		x = 36
+		x = -3
 		y = 0
 		cost = 5
 		available = { has_government = communism }
@@ -640,7 +640,7 @@ focus_tree = {
 	focus = {
 		id = SOV_dismantle_constitution
 		icon = GFX_goal_generic_forceful_treaty
-		x = 34
+		x = -5
 		y = 1
 		cost = 5
 		prerequisite = { focus = SOV_left_restoration }
@@ -655,7 +655,7 @@ focus_tree = {
 	focus = {
 		id = SOV_purge_oligarchs
 		icon = GFX_goal_generic_political_pressure
-		x = 38
+		x = -1
 		y = 1
 		cost = 5
 		prerequisite = { focus = SOV_left_restoration }
@@ -670,7 +670,7 @@ focus_tree = {
 	focus = {
 		id = SOV_supreme_soviet
 		icon = GFX_goal_generic_national_unity
-		x = 34
+		x = -5
 		y = 2
 		cost = 5
 		prerequisite = { focus = SOV_dismantle_constitution }
@@ -684,7 +684,7 @@ focus_tree = {
 	focus = {
 		id = SOV_nationalize_industry
 		icon = GFX_goal_generic_construct_civ_factory
-		x = 38
+		x = -1
 		y = 2
 		cost = 5
 		prerequisite = { focus = SOV_purge_oligarchs }
@@ -697,7 +697,7 @@ focus_tree = {
 	focus = {
 		id = SOV_gosplan
 		icon = GFX_goal_generic_production
-		x = 36
+		x = -3
 		y = 3
 		cost = 5
 		prerequisite = { focus = SOV_supreme_soviet }
@@ -711,7 +711,7 @@ focus_tree = {
 	focus = {
 		id = SOV_collectivise_agriculture
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 34
+		x = -5
 		y = 4
 		cost = 5
 		prerequisite = { focus = SOV_gosplan }
@@ -724,7 +724,7 @@ focus_tree = {
 	focus = {
 		id = SOV_eleventh_plan
 		icon = GFX_goal_generic_construct_mil_factory
-		x = 38
+		x = -1
 		y = 4
 		cost = 5
 		prerequisite = { focus = SOV_gosplan }
@@ -737,7 +737,7 @@ focus_tree = {
 	focus = {
 		id = SOV_komsomol
 		icon = GFX_goal_generic_propaganda
-		x = 34
+		x = -5
 		y = 5
 		cost = 5
 		prerequisite = { focus = SOV_collectivise_agriculture }
@@ -750,7 +750,7 @@ focus_tree = {
 	focus = {
 		id = SOV_capital_flight
 		icon = GFX_goal_generic_trade
-		x = 38
+		x = -1
 		y = 5
 		cost = 5
 		prerequisite = { focus = SOV_eleventh_plan }
@@ -763,7 +763,7 @@ focus_tree = {
 	focus = {
 		id = SOV_red_army_reform
 		icon = GFX_goal_generic_army_doctrines
-		x = 36
+		x = -3
 		y = 6
 		cost = 5
 		prerequisite = { focus = SOV_komsomol }
@@ -778,7 +778,7 @@ focus_tree = {
 	focus = {
 		id = SOV_peoples_international
 		icon = GFX_goal_generic_alliance
-		x = 34
+		x = -5
 		y = 7
 		cost = 10
 		prerequisite = { focus = SOV_red_army_reform }
@@ -793,7 +793,7 @@ focus_tree = {
 	focus = {
 		id = SOV_warsaw_pact
 		icon = GFX_goal_generic_major_alliance
-		x = 38
+		x = -1
 		y = 7
 		cost = 10
 		prerequisite = { focus = SOV_red_army_reform }
@@ -805,12 +805,11 @@ focus_tree = {
 			hidden_effect = { dd_sov_restore_warsaw_pact = yes }
 		}
 	}
-
 	focus = {
 		id = SOV_turbo_patriots
 		icon = GFX_goal_generic_major_war
-		x = 50
-		y = 0
+		x = 24
+		y = 3
 		cost = 5
 		available = { has_government = fascism }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -823,8 +822,8 @@ focus_tree = {
 	focus = {
 		id = SOV_tribunal_traitors
 		icon = GFX_goal_generic_political_pressure
-		x = 48
-		y = 1
+		x = 22
+		y = 4
 		cost = 5
 		prerequisite = { focus = SOV_turbo_patriots }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -839,8 +838,8 @@ focus_tree = {
 	focus = {
 		id = SOV_abolish_mod
 		icon = GFX_goal_generic_army_doctrines
-		x = 52
-		y = 1
+		x = 26
+		y = 4
 		cost = 5
 		prerequisite = { focus = SOV_turbo_patriots }
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -854,8 +853,8 @@ focus_tree = {
 	focus = {
 		id = SOV_rehabilitate_volunteers
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 48
-		y = 2
+		x = 22
+		y = 5
 		cost = 5
 		prerequisite = { focus = SOV_tribunal_traitors }
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -868,8 +867,8 @@ focus_tree = {
 	focus = {
 		id = SOV_field_commanders
 		icon = GFX_goal_generic_army_doctrines
-		x = 52
-		y = 2
+		x = 26
+		y = 5
 		cost = 5
 		prerequisite = { focus = SOV_abolish_mod }
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -881,8 +880,8 @@ focus_tree = {
 	focus = {
 		id = SOV_total_war
 		icon = GFX_goal_generic_occupy_start_war
-		x = 50
-		y = 3
+		x = 24
+		y = 6
 		cost = 5
 		prerequisite = { focus = SOV_rehabilitate_volunteers }
 		prerequisite = { focus = SOV_field_commanders }
@@ -896,8 +895,8 @@ focus_tree = {
 	focus = {
 		id = SOV_militarize_population
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 48
-		y = 4
+		x = 22
+		y = 7
 		cost = 5
 		prerequisite = { focus = SOV_total_war }
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -910,8 +909,8 @@ focus_tree = {
 	focus = {
 		id = SOV_confiscate_property
 		icon = GFX_goal_generic_consumer_goods
-		x = 52
-		y = 4
+		x = 26
+		y = 7
 		cost = 5
 		prerequisite = { focus = SOV_total_war }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -926,8 +925,8 @@ focus_tree = {
 	focus = {
 		id = SOV_penal_battalions
 		icon = GFX_goal_generic_special_forces
-		x = 48
-		y = 5
+		x = 22
+		y = 8
 		cost = 5
 		prerequisite = { focus = SOV_militarize_population }
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -939,8 +938,8 @@ focus_tree = {
 	focus = {
 		id = SOV_sixteen_hours
 		icon = GFX_goal_generic_production
-		x = 52
-		y = 5
+		x = 26
+		y = 8
 		cost = 5
 		prerequisite = { focus = SOV_confiscate_property }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -952,8 +951,8 @@ focus_tree = {
 	focus = {
 		id = SOV_novorossiya
 		icon = GFX_goal_generic_more_territorial_claims
-		x = 50
-		y = 6
+		x = 24
+		y = 9
 		cost = 5
 		prerequisite = { focus = SOV_penal_battalions }
 		prerequisite = { focus = SOV_sixteen_hours }
@@ -967,8 +966,8 @@ focus_tree = {
 	focus = {
 		id = SOV_sacred_soil
 		icon = GFX_goal_generic_defence
-		x = 48
-		y = 7
+		x = 22
+		y = 10
 		cost = 5
 		prerequisite = { focus = SOV_novorossiya }
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -980,8 +979,8 @@ focus_tree = {
 	focus = {
 		id = SOV_scorched_doctrine
 		icon = GFX_goal_generic_territory_or_war
-		x = 52
-		y = 7
+		x = 26
+		y = 10
 		cost = 5
 		prerequisite = { focus = SOV_novorossiya }
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -995,8 +994,8 @@ focus_tree = {
 	focus = {
 		id = SOV_tactical_arsenal
 		icon = GFX_goal_generic_secret_weapon
-		x = 48
-		y = 8
+		x = 22
+		y = 11
 		cost = 5
 		prerequisite = { focus = SOV_sacred_soil }
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1010,8 +1009,8 @@ focus_tree = {
 	focus = {
 		id = SOV_dissolve_csto
 		icon = GFX_goal_generic_alliance
-		x = 52
-		y = 8
+		x = 26
+		y = 11
 		cost = 5
 		prerequisite = { focus = SOV_scorched_doctrine }
 		search_filters = { FOCUS_FILTER_POLITICAL }

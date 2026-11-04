@@ -2563,6 +2563,7 @@ dd_usa_init_legislature = {
 		set_variable = { dd_usa_bill_advancing = 0 }
 		set_country_flag = dd_usa_filibuster_bypass_available
 	}
+	dd_usa_sync_calendar_year = yes
 	dd_usa_sync_caucus_from_ruling = yes
 	dd_usa_refresh_lobby_seats = yes
 	dd_usa_name_ballot = yes
@@ -2666,7 +2667,8 @@ dd_usa_refresh_lobby_seats = {
 }
 
 dd_usa_bypass_filibuster = {
-	clr_country_flag = dd_usa_filibuster_bypass_available
+	# Once a calendar year. The decision also uses days_re_enable = 365.
+	set_country_flag = { flag = dd_usa_recon_year_lock days = 365 value = 1 }
 	if = {
 		limit = {
 			check_variable = { dd_usa_bill_active > 0 }
@@ -2995,7 +2997,50 @@ dd_usa_advance_bill_chamber = {
 }
 
 # Daily: 60% caucus support to advance. Senate still needs 51 seats, and 60 seats or a filibuster bypass.
+dd_usa_sync_calendar_year = {
+	if = {
+		limit = { date < 2027.1.1 }
+		set_variable = { dd_usa_calendar_year = 2026 }
+	}
+	else_if = {
+		limit = { date < 2028.1.1 }
+		set_variable = { dd_usa_calendar_year = 2027 }
+	}
+	else_if = {
+		limit = { date < 2029.1.1 }
+		set_variable = { dd_usa_calendar_year = 2028 }
+	}
+	else_if = {
+		limit = { date < 2030.1.1 }
+		set_variable = { dd_usa_calendar_year = 2029 }
+	}
+	else_if = {
+		limit = { date < 2031.1.1 }
+		set_variable = { dd_usa_calendar_year = 2030 }
+	}
+	else_if = {
+		limit = { date < 2032.1.1 }
+		set_variable = { dd_usa_calendar_year = 2031 }
+	}
+	else_if = {
+		limit = { date < 2033.1.1 }
+		set_variable = { dd_usa_calendar_year = 2032 }
+	}
+	else_if = {
+		limit = { date < 2034.1.1 }
+		set_variable = { dd_usa_calendar_year = 2033 }
+	}
+	else_if = {
+		limit = { date < 2035.1.1 }
+		set_variable = { dd_usa_calendar_year = 2034 }
+	}
+	else = {
+		set_variable = { dd_usa_calendar_year = 2035 }
+	}
+}
+
 dd_usa_legislature_daily = {
+	dd_usa_sync_calendar_year = yes
 	dd_usa_sync_caucus_from_ruling = yes
 	dd_usa_decay_lobby_dem = yes
 	dd_usa_decay_lobby_rep = yes
@@ -3413,7 +3458,14 @@ dd_usa_sync_tucker = {
 
 # The standing general staff and admirals leave with Federal Command. Advisors stay on the USA remnant.
 dd_usa_cw_generals_to_fva = {
-	USA_fm_randy_george = { set_nationality = FVA }
+	if = {
+		limit = { has_character = USA_fm_randy_george }
+		USA_fm_randy_george = { set_nationality = FVA }
+	}
+	if = {
+		limit = { has_character = USA_fm_christopher_laneve }
+		USA_fm_christopher_laneve = { set_nationality = FVA }
+	}
 	USA_fm_michael_kurilla = { set_nationality = FVA }
 	USA_fm_christopher_donahue = { set_nationality = FVA }
 	USA_gen_james_jarrard = { set_nationality = FVA }

@@ -1317,6 +1317,30 @@ characters = {
 			ai_will_do = { factor = 10 }
 		}
 	}
+	USA_fm_christopher_laneve = {
+		name = "Christopher LaNeve"
+		portraits = {
+			army = { large = GFX_portrait_USA_christopher_laneve small = GFX_portrait_USA_christopher_laneve_small }
+			civilian = { large = GFX_portrait_USA_christopher_laneve small = GFX_portrait_USA_christopher_laneve_small }
+		}
+		field_marshal = {
+			traits = { commando career_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = 0
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = USA_fm_christopher_laneve
+			cost = 150
+			allowed = { original_tag = USA }
+			traits = { dd_exp_army }
+			ai_will_do = { factor = 10 }
+		}
+	}
 	USA_fm_michael_kurilla = {
 		name = "Michael Kurilla"
 		portraits = {

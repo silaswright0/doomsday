@@ -18,6 +18,7 @@ add_namespace = dd_usa_bill
 add_namespace = dd_usa_graham
 add_namespace = dd_usa_noem
 add_namespace = dd_usa_kirk
+add_namespace = dd_usa_george
 
 country_event = {
 	id = dd_usa_greenland.1
@@ -939,6 +940,35 @@ country_event = {
 
 	option = {
 		name = dd_usa_noem.1.a
+		add_stability = -0.01
+	}
+}
+
+# 2 April 2026. Hegseth removes the army chief while the national-populist government is still in office.
+country_event = {
+	id = dd_usa_george.1
+	title = dd_usa_george.1.t
+	desc = dd_usa_george.1.d
+	picture = GFX_report_event_generic_army
+	is_triggered_only = yes
+
+	trigger = {
+		tag = USA
+		has_government = national_populism
+		has_character = USA_pete_hegseth
+		has_character = USA_fm_randy_george
+		NOT = { has_country_flag = dd_usa_civil_war }
+		NOT = { has_global_flag = dd_usa_civil_war_started }
+	}
+
+	option = {
+		name = dd_usa_george.1.a
+		retire_character = USA_fm_randy_george
+		if = {
+			limit = { NOT = { has_character = USA_fm_christopher_laneve } }
+			recruit_character = USA_fm_christopher_laneve
+		}
+		# Hegseth keeps the army-chief seat. LaNeve is the new field marshal.
 		add_stability = -0.01
 	}
 }

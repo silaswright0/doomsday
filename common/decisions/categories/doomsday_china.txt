@@ -1,0 +1,14 @@
+dd_chi_paranoia_category = {
+	icon = SOV_paranoia
+	priority = 100
+	allowed = { original_tag = CHI }
+	scripted_gui = dd_chi_paranoia_ui
+	visible_when_empty = yes
+}
+
+dd_chi_bop_category = {
+	icon = generic_political_discourse
+	priority = 110
+	allowed = { original_tag = CHI }
+	visible = { has_power_balance = { id = CHI_party_balance } }
+}

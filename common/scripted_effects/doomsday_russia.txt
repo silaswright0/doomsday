@@ -273,10 +273,9 @@ dd_sov_dissolve_csto = {
 	}
 }
 
-# Ukraine war clock. Ten years from 24 February 2022 to February 2032.
-# 2026.1.1 is month 46 of 120, year 4 of 10 (The Grind, 2025).
-# One stage per year: 0, 12, 24, 36, 48, 60, 72, 84, 96, 108.
-# A peace freezes the month count. The spirit comes off until the war resumes.
+# Ukraine war clock. Ten years from 24 February 2022. February 2032 forces a surrender.
+# 2026.1.1 is month 46 of 120, calendar year 2025. Each year's spirit stays on.
+# The menu and the spirits exist only for the first war.
 
 dd_sov_ukr_clear = {
 	remove_ideas = dd_sov_ukr_0
@@ -293,56 +292,118 @@ dd_sov_ukr_clear = {
 }
 
 dd_sov_ukr_apply = {
-	remove_ideas = dd_sov_ukr_0
-	remove_ideas = dd_sov_ukr_1
-	remove_ideas = dd_sov_ukr_2
-	remove_ideas = dd_sov_ukr_3
-	remove_ideas = dd_sov_ukr_4
-	remove_ideas = dd_sov_ukr_5
-	remove_ideas = dd_sov_ukr_6
-	remove_ideas = dd_sov_ukr_7
-	remove_ideas = dd_sov_ukr_8
-	remove_ideas = dd_sov_ukr_9
 	if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 0 } }
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 0 } }
+			NOT = { has_idea = dd_sov_ukr_0 }
+		}
 		add_ideas = dd_sov_ukr_0
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 1 } }
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 1 } }
+			NOT = { has_idea = dd_sov_ukr_1 }
+		}
 		add_ideas = dd_sov_ukr_1
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 2 } }
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 2 } }
+			NOT = { has_idea = dd_sov_ukr_2 }
+		}
 		add_ideas = dd_sov_ukr_2
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 3 } }
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 3 } }
+			NOT = { has_idea = dd_sov_ukr_3 }
+		}
 		add_ideas = dd_sov_ukr_3
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 4 } }
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 4 } }
+			NOT = { has_idea = dd_sov_ukr_4 }
+		}
 		add_ideas = dd_sov_ukr_4
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 5 } }
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 5 } }
+			NOT = { has_idea = dd_sov_ukr_5 }
+		}
 		add_ideas = dd_sov_ukr_5
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 6 } }
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 6 } }
+			NOT = { has_idea = dd_sov_ukr_6 }
+		}
 		add_ideas = dd_sov_ukr_6
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 7 } }
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 7 } }
+			NOT = { has_idea = dd_sov_ukr_7 }
+		}
 		add_ideas = dd_sov_ukr_7
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_stage = 8 } }
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 8 } }
+			NOT = { has_idea = dd_sov_ukr_8 }
+		}
 		add_ideas = dd_sov_ukr_8
 	}
-	else = {
+	if = {
+		limit = {
+			NOT = { check_variable = { dd_sov_ukr_stage < 9 } }
+			NOT = { has_idea = dd_sov_ukr_9 }
+		}
 		add_ideas = dd_sov_ukr_9
 	}
+	if = {
+		limit = { NOT = { check_variable = { dd_sov_ukr_stage < 10 } } }
+		dd_sov_ukr_surrender = yes
+	}
 	set_variable = { dd_sov_ukr_stage_applied = dd_sov_ukr_stage }
+}
+
+# February 2032. Ukrainian cores come home. Russia is not annexed.
+dd_sov_ukr_surrender = {
+	if = {
+		limit = {
+			has_war_with = UKR
+			NOT = { has_country_flag = dd_sov_ukr_surrendered }
+		}
+		set_country_flag = dd_sov_ukr_surrendered
+		set_country_flag = dd_sov_ukr_first_war_over
+		every_owned_state = {
+			limit = { is_core_of = UKR }
+			transfer_state_to = UKR
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			every_country = {
+				limit = {
+					has_war_with = PREV
+					OR = {
+						tag = UKR
+						is_in_faction_with = UKR
+					}
+				}
+				white_peace = PREV
+			}
+		}
+		dd_sov_ukr_clear = yes
+		country_event = { id = dd_sov_ukr.1 }
+		UKR = { country_event = { id = dd_sov_ukr.1 } }
+	}
 }
 
 dd_sov_ukr_sync = {
@@ -391,42 +452,210 @@ dd_sov_ukr_sync = {
 		set_variable = { dd_sov_ukr_stage = 8 }
 		set_variable = { dd_sov_ukr_next_at = 108 }
 	}
-	else = {
+	else_if = {
+		limit = { check_variable = { dd_sov_ukr_months < 120 } }
 		set_variable = { dd_sov_ukr_stage = 9 }
+		set_variable = { dd_sov_ukr_next_at = 120 }
+	}
+	else = {
+		set_variable = { dd_sov_ukr_stage = 10 }
 		set_variable = { dd_sov_ukr_next_at = dd_sov_ukr_months }
 	}
 	set_variable = { dd_sov_ukr_year = dd_sov_ukr_stage }
-	add_to_variable = { dd_sov_ukr_year = 1 }
+	add_to_variable = { dd_sov_ukr_year = 2022 }
 	set_variable = { dd_sov_ukr_until = dd_sov_ukr_next_at }
 	subtract_from_variable = { dd_sov_ukr_until = dd_sov_ukr_months }
 	if = {
 		limit = { check_variable = { dd_sov_ukr_until < 0 } }
 		set_variable = { dd_sov_ukr_until = 0 }
 	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage_applied = dd_sov_ukr_stage } }
-		}
-		dd_sov_ukr_apply = yes
-	}
+	dd_sov_ukr_apply = yes
 }
 
 dd_sov_ukr_monthly = {
 	if = {
-		limit = { has_war_with = UKR }
+		limit = { NOT = { has_country_flag = dd_sov_ukr_first_war_over } }
 		if = {
-			limit = { NOT = { has_country_flag = dd_sov_ukr_clock } }
-			set_variable = { dd_sov_ukr_months = 0 }
-			set_variable = { dd_sov_ukr_stage_applied = -1 }
-			set_country_flag = dd_sov_ukr_clock
+			limit = { has_war_with = UKR }
+			if = {
+				limit = { NOT = { has_country_flag = dd_sov_ukr_clock } }
+				set_variable = { dd_sov_ukr_months = 0 }
+				set_variable = { dd_sov_ukr_stage_applied = -1 }
+				set_country_flag = dd_sov_ukr_clock
+			}
+			else = {
+				add_to_variable = { dd_sov_ukr_months = 1 }
+			}
+			dd_sov_ukr_sync = yes
 		}
-		else = {
-			add_to_variable = { dd_sov_ukr_months = 1 }
+		else_if = {
+			limit = { has_country_flag = dd_sov_ukr_clock }
+			set_country_flag = dd_sov_ukr_first_war_over
+			dd_sov_ukr_clear = yes
 		}
-		dd_sov_ukr_sync = yes
+	}
+}
+
+# State scope. A fuel site Ukraine has just bombed.
+dd_sov_damage_fuel_state = {
+	if = {
+		limit = { fuel_silo > 0 }
+		damage_building = { type = fuel_silo damage = 1 }
+	}
+	if = {
+		limit = { synthetic_refinery > 0 }
+		damage_building = { type = synthetic_refinery damage = 1 }
+	}
+	damage_building = { type = infrastructure damage = 1 }
+}
+
+# State scope. Puts a held fuel site back together.
+dd_sov_repair_fuel_state = {
+	if = {
+		limit = { is_controlled_by = SOV }
+		if = {
+			limit = { fuel_silo > 0 }
+			repair_building = { type = fuel_silo amount = 1 }
+		}
+		if = {
+			limit = { synthetic_refinery > 0 }
+			repair_building = { type = synthetic_refinery amount = 1 }
+		}
+		repair_building = { type = infrastructure amount = 1 }
+	}
+}
+
+dd_sov_fuel_sync = {
+	if = {
+		limit = { NOT = { has_variable = dd_sov_fuel_cap } }
+		set_variable = { dd_sov_fuel_cap = 20 }
+	}
+	if = {
+		limit = { check_variable = { dd_sov_fuel > dd_sov_fuel_cap } }
+		set_variable = { dd_sov_fuel = dd_sov_fuel_cap }
+	}
+	if = {
+		limit = { check_variable = { dd_sov_fuel < 0 } }
+		set_variable = { dd_sov_fuel = 0 }
+	}
+	set_variable = { dd_sov_fuel_gain = dd_sov_fuel }
+	multiply_variable = { dd_sov_fuel_gain = -0.04 }
+	set_variable = { dd_sov_fuel_use = dd_sov_fuel }
+	multiply_variable = { dd_sov_fuel_use = 0.03 }
+	set_variable = { dd_sov_fuel_fac = dd_sov_fuel }
+	multiply_variable = { dd_sov_fuel_fac = -0.02 }
+	if = {
+		limit = { check_variable = { dd_sov_fuel > 0 } }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = dd_sov_fuel_fires } } }
+			add_dynamic_modifier = { modifier = dd_sov_fuel_fires }
+		}
+		force_update_dynamic_modifier = yes
 	}
 	else = {
-		dd_sov_ukr_clear = yes
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_sov_fuel_fires } }
+			remove_dynamic_modifier = { modifier = dd_sov_fuel_fires }
+		}
+	}
+}
+
+dd_sov_fuel_apply_hit = {
+	if = {
+		limit = { NOT = { has_variable = dd_sov_fuel_cap } }
+		set_variable = { dd_sov_fuel_cap = 20 }
+	}
+	if = {
+		limit = { check_variable = { dd_sov_fuel < dd_sov_fuel_cap } }
+		add_to_variable = { dd_sov_fuel = dd_sov_fuel_hit_amount }
+		dd_sov_fuel_sync = yes
+		country_event = { id = dd_sov_fuel.1 }
+	}
+}
+
+# One stack if Ukraine bombed a fuel state today and the cooldown has run out.
+# Moscow, Ryazan, Yaroslavl, Rostov, Leningrad.
+dd_sov_fuel_check_bombs = {
+	if = {
+		limit = {
+			has_war_with = UKR
+			OR = {
+				check_variable = { dd_sov_fuel_cd < 1 }
+				NOT = { has_variable = dd_sov_fuel_cd }
+			}
+		}
+		if = {
+			limit = {
+				219 = {
+					is_controlled_by = SOV
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			219 = { dd_sov_damage_fuel_state = yes }
+			set_variable = { dd_sov_fuel_cd = 21 }
+			set_variable = { dd_sov_fuel_hit_amount = 1 }
+			dd_sov_fuel_apply_hit = yes
+		}
+		else_if = {
+			limit = {
+				254 = {
+					is_controlled_by = SOV
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			254 = { dd_sov_damage_fuel_state = yes }
+			set_variable = { dd_sov_fuel_cd = 21 }
+			set_variable = { dd_sov_fuel_hit_amount = 1 }
+			dd_sov_fuel_apply_hit = yes
+		}
+		else_if = {
+			limit = {
+				248 = {
+					is_controlled_by = SOV
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			248 = { dd_sov_damage_fuel_state = yes }
+			set_variable = { dd_sov_fuel_cd = 21 }
+			set_variable = { dd_sov_fuel_hit_amount = 1 }
+			dd_sov_fuel_apply_hit = yes
+		}
+		else_if = {
+			limit = {
+				218 = {
+					is_controlled_by = SOV
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			218 = { dd_sov_damage_fuel_state = yes }
+			set_variable = { dd_sov_fuel_cd = 21 }
+			set_variable = { dd_sov_fuel_hit_amount = 1 }
+			dd_sov_fuel_apply_hit = yes
+		}
+		else_if = {
+			limit = {
+				195 = {
+					is_controlled_by = SOV
+					days_since_last_strategic_bombing < 2
+				}
+			}
+			195 = { dd_sov_damage_fuel_state = yes }
+			set_variable = { dd_sov_fuel_cd = 21 }
+			set_variable = { dd_sov_fuel_hit_amount = 1 }
+			dd_sov_fuel_apply_hit = yes
+		}
+	}
+	if = {
+		limit = { check_variable = { dd_sov_fuel_cd > 0 } }
+		subtract_from_variable = { dd_sov_fuel_cd = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { has_war_with = UKR }
+			check_variable = { dd_sov_fuel > 0 }
+		}
+		set_variable = { dd_sov_fuel = 0 }
+		dd_sov_fuel_sync = yes
 	}
 }
 

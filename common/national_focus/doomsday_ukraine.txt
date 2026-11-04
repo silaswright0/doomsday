@@ -352,7 +352,6 @@ focus_tree = {
 		ai_will_do = { factor = 14 }
 		prerequisite = { focus = UKR_secure_arms_support }
 		completion_reward = {
-			custom_effect_tooltip = UKR_the_grid_tt
 			202 = { dd_ukr_grid_state = yes }
 			221 = { dd_ukr_grid_state = yes }
 			192 = { dd_ukr_grid_state = yes }
@@ -371,8 +370,11 @@ focus_tree = {
 		ai_will_do = { factor = 12 }
 		prerequisite = { focus = UKR_the_grid }
 		completion_reward = {
-			custom_effect_tooltip = UKR_shield_the_stations_tt
-			hidden_effect = { set_country_flag = dd_ukr_grid_shield }
+			202 = { dd_ukr_aa_state = yes }
+			221 = { dd_ukr_aa_state = yes }
+			192 = { dd_ukr_aa_state = yes }
+			197 = { dd_ukr_aa_state = yes }
+			1115 = { dd_ukr_aa_state = yes }
 		}
 	}
 
@@ -386,10 +388,11 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = UKR_shield_the_stations }
 		completion_reward = {
-			custom_effect_tooltip = UKR_dispersed_power_tt
-			hidden_effect = { set_country_flag = dd_ukr_dispersed }
-			set_variable = { dd_ukr_blackout_cap = 10 }
-			dd_ukr_grid_sync = yes
+			202 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+			221 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+			192 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+			197 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+			1115 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
 		}
 	}
 
@@ -403,13 +406,11 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = UKR_dispersed_power }
 		completion_reward = {
-			custom_effect_tooltip = UKR_repair_crews_tt
-			hidden_effect = { set_country_flag = dd_ukr_repair_crews }
-			if = {
-				limit = { check_variable = { dd_ukr_blackout > 0 } }
-				subtract_from_variable = { dd_ukr_blackout = 1 }
-				dd_ukr_grid_sync = yes
-			}
+			202 = { dd_ukr_repair_grid_state = yes }
+			221 = { dd_ukr_repair_grid_state = yes }
+			192 = { dd_ukr_repair_grid_state = yes }
+			197 = { dd_ukr_repair_grid_state = yes }
+			1115 = { dd_ukr_repair_grid_state = yes }
 		}
 	}
 

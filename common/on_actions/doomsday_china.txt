@@ -1,0 +1,34 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			CHI = {
+				if = {
+					limit = { NOT = { has_variable = dd_chi_paranoia } }
+					set_variable = { dd_chi_paranoia = 25 }
+				}
+				dd_chi_paranoia_sync = yes
+				if = {
+					limit = {
+						NOT = { has_idea = dd_chi_peace_disease }
+						NOT = { has_completed_focus = CHI_end_peace_disease }
+					}
+					add_ideas = dd_chi_peace_disease
+				}
+				if = {
+					limit = { NOT = { has_power_balance = { id = CHI_party_balance } } }
+					set_power_balance = {
+						id = CHI_party_balance
+						left_side = CHI_bop_loyalist
+						right_side = CHI_bop_technocrat
+						set_value = -0.20
+					}
+				}
+			}
+		}
+	}
+	on_monthly_CHI = {
+		effect = {
+			dd_chi_paranoia_month = yes
+		}
+	}
+}

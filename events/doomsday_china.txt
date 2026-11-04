@@ -1,0 +1,13 @@
+add_namespace = dd_chi_para
+
+country_event = {
+	id = dd_chi_para.1
+	title = dd_chi_para.1.t
+	desc = dd_chi_para.1.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = dd_chi_para.1.a
+	}
+}

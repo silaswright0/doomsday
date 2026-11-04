@@ -12,6 +12,7 @@ on_actions = {
 				dd_usa_refresh_services = yes
 				if = { limit = { NOT = { has_character = USA_gavin_mcinnes } } recruit_character = USA_gavin_mcinnes }
 				if = { limit = { NOT = { has_character = USA_larry_ellison } } recruit_character = USA_larry_ellison }
+				if = { limit = { NOT = { has_character = USA_hasan_piker } } recruit_character = USA_hasan_piker }
 				dd_usa_grant_station_docking = yes
 				dd_usa_sync_partner_air = yes
 				dd_usa_mark_starting_states = yes
@@ -171,6 +172,19 @@ on_actions = {
 				}
 				set_country_flag = dd_usa_noem_fired
 				country_event = { id = dd_usa_noem.1 }
+			}
+			if = {
+				limit = {
+					date > 2026.4.1
+					NOT = { has_country_flag = dd_usa_george_retired }
+					has_government = national_populism
+					has_character = USA_pete_hegseth
+					has_character = USA_fm_randy_george
+					NOT = { has_country_flag = dd_usa_civil_war }
+					NOT = { has_global_flag = dd_usa_civil_war_started }
+				}
+				set_country_flag = dd_usa_george_retired
+				country_event = { id = dd_usa_george.1 }
 			}
 			if = {
 				limit = {
