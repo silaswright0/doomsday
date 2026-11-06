@@ -571,12 +571,12 @@ focus_tree = {
 		ai_will_do = { factor = 0 }
 		prerequisite = { focus = UKR_a_ceasefire }
 		available = {
-			has_war_with = SOV
-			SOV = { exists = yes }
+			has_war_with = RUS
+			RUS = { exists = yes }
 		}
 		cancel_if_invalid = yes
 		completion_reward = {
-			SOV = { country_event = { id = dd_ukr_peace.1 } }
+			RUS = { country_event = { id = dd_ukr_peace.1 } }
 		}
 	}
 

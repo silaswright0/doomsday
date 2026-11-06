@@ -922,7 +922,7 @@ characters = {
 			slot = army_chief
 			idea_token = RUS_john_army
 			cost = 100
-			allowed = { original_tag = RUS }
+			allowed = { always = no }
 			traits = { dd_john_army }
 			ai_will_do = { factor = 1 }
 		}
@@ -938,7 +938,7 @@ characters = {
 			slot = air_chief
 			idea_token = RUS_john_airforce
 			cost = 100
-			allowed = { original_tag = RUS }
+			allowed = { always = no }
 			traits = { dd_john_airforce }
 			ai_will_do = { factor = 1 }
 		}
@@ -954,7 +954,7 @@ characters = {
 			slot = navy_chief
 			idea_token = RUS_john_navy
 			cost = 100
-			allowed = { original_tag = RUS }
+			allowed = { always = no }
 			traits = { dd_john_navy }
 			ai_will_do = { factor = 1 }
 		}

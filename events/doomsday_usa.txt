@@ -77,9 +77,9 @@ country_event = {
 		GRN = {
 			give_military_access = USA
 			add_ideas = dd_usa_greenland_security
-			add_opinion_modifier = { target = SOV modifier = dd_usa_greenland_ban_opinion }
+			add_opinion_modifier = { target = RUS modifier = dd_usa_greenland_ban_opinion }
 			add_opinion_modifier = { target = CHI modifier = dd_usa_greenland_ban_opinion }
-			add_ai_strategy = { type = antagonize id = SOV value = 400 }
+			add_ai_strategy = { type = antagonize id = RUS value = 400 }
 			add_ai_strategy = { type = antagonize id = CHI value = 400 }
 			add_ai_strategy = { type = alliance id = USA value = 200 }
 			country_event = { id = dd_usa_greenland.3 }

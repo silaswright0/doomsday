@@ -4,9 +4,9 @@
 dd_sync_csto_spirit = {
 	if = {
 		limit = {
-			is_in_faction_with = SOV
-			NOT = { tag = SOV }
-			SOV = { is_faction_leader = yes }
+			is_in_faction_with = RUS
+			NOT = { tag = RUS }
+			RUS = { is_faction_leader = yes }
 			NOT = { has_idea = dd_csto_defensive_only }
 		}
 		add_ideas = dd_csto_defensive_only
@@ -15,9 +15,9 @@ dd_sync_csto_spirit = {
 		limit = {
 			has_idea = dd_csto_defensive_only
 			OR = {
-				tag = SOV
-				NOT = { is_in_faction_with = SOV }
-				NOT = { SOV = { is_faction_leader = yes } }
+				tag = RUS
+				NOT = { is_in_faction_with = RUS }
+				NOT = { RUS = { is_faction_leader = yes } }
 			}
 		}
 		remove_ideas = dd_csto_defensive_only

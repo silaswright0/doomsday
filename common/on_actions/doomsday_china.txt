@@ -23,12 +23,27 @@ on_actions = {
 						set_value = -0.20
 					}
 				}
+				if = {
+					limit = {
+						OR = {
+							has_completed_focus = CHI_purge_rocket_force
+							has_completed_focus = CHI_crush_dissidents
+							has_completed_focus = CHI_party_inspectors
+							has_completed_focus = CHI_subordinate_the_barons
+							has_completed_focus = CHI_force_xis_resignation
+							NOT = { has_character = CHI_wang_houbin }
+						}
+					}
+					dd_chi_begin_purge = yes
+				}
 			}
 		}
 	}
 	on_monthly_CHI = {
 		effect = {
 			dd_chi_paranoia_month = yes
+			dd_chi_lift_elected_embargoes = yes
+			dd_chi_regime_watch = yes
 		}
 	}
 }

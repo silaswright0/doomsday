@@ -1,5 +1,5 @@
 # Only NEW tags live here. Every other 2026 country reuses a vanilla tag
-# (USA, SOV=Russia, RAJ=India, CHI=China, FOR=Taiwan, KOR=South Korea, ...).
+# (USA, RUS=Russia, RAJ=India, CHI=China, FOR=Taiwan, KOR=South Korea, ...).
 # Do NOT replace_path common/country_tags or those vanilla tags vanish.
 # Full roster: tools/doomsday_tag_map.csv
 
@@ -85,3 +85,16 @@ AHZ = "countries/Ahwaz.txt"
 AZI = "countries/South Azerbaijan.txt"
 PAH = "countries/Pahlavi Iran.txt"
 PRP = "countries/Progressive Populists.txt"
+# Myanmar civil war. BRM stays the empty vanilla tag. The junta is MYA.
+MYA = "countries/Myanmar.txt"
+TBA = "countries/Three Brotherhood Alliance.txt"
+WAA = "countries/Wa State.txt"
+KNU = "countries/Karen National Union.txt"
+KAC = "countries/Kachin Independence Army.txt"
+# Chinese regime collapse. Landless until low confidence, the three standing strains, and a lost war in Taiwan.
+FRC = "countries/Federal Republic of China.txt"
+NLC = "countries/New Left China.txt"
+SBC = "countries/Shanghai Business Council.txt"
+CMJ = "countries/Military Revolt.txt"
+CDW = "countries/Chengdu Warlord.txt"
+XIJ = "countries/Xinjiang Warlord.txt"

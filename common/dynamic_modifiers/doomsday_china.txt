@@ -8,3 +8,10 @@ dd_chi_paranoia = {
 	industrial_capacity_factory = dd_chi_para_fac
 	army_org_factor = dd_chi_para_org
 }
+
+# Applied to Yunnan by Eradicate the Border Syndicates.
+dd_chi_yunnan_quiet = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_secret_police
+	resistance_target = -0.15
+}

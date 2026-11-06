@@ -1,9 +1,11 @@
 dd_sov_csto_category = {
 	dd_sov_csto_step_1 = {
 		icon = generic_political_discourse
+		allowed = { original_tag = RUS }
 		cost = 50
-		fire_only_once = yes
+		fire_only_once = no
 		ai_will_do = { factor = 20 }
+		targets = { BLR KAZ KYR TAJ ARM UZB TMS AZR GEO MOL UKR MON }
 		target_root_trigger = {
 			has_country_flag = dd_sov_csto_open
 		}
@@ -14,6 +16,7 @@ dd_sov_csto_category = {
 				NOT = { tag = ROOT }
 				is_subject = no
 				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
 			}
 		}
 		complete_effect = {
@@ -27,9 +30,11 @@ dd_sov_csto_category = {
 
 	dd_sov_csto_step_2 = {
 		icon = generic_political_discourse
+		allowed = { original_tag = RUS }
 		cost = 100
-		fire_only_once = yes
+		fire_only_once = no
 		ai_will_do = { factor = 20 }
+		targets = { BLR KAZ KYR TAJ ARM UZB TMS AZR GEO MOL UKR MON }
 		target_root_trigger = {
 			has_country_flag = dd_sov_csto_open
 		}
@@ -56,9 +61,11 @@ dd_sov_csto_category = {
 
 	dd_sov_csto_step_3 = {
 		icon = generic_prepare_civil_war
+		allowed = { original_tag = RUS }
 		cost = 200
-		fire_only_once = yes
+		fire_only_once = no
 		ai_will_do = { factor = 20 }
+		targets = { BLR KAZ KYR TAJ ARM UZB TMS AZR GEO MOL UKR MON }
 		target_root_trigger = {
 			has_country_flag = dd_sov_csto_open
 		}
@@ -84,10 +91,12 @@ dd_sov_csto_category = {
 
 	dd_sov_csto_buy_influence = {
 		icon = generic_political_discourse
+		allowed = { original_tag = RUS }
 		cost = 100
 		fire_only_once = no
 		days_re_enable = 90
 		ai_will_do = { factor = 5 }
+		targets = { BLR KAZ KYR TAJ ARM UZB TMS AZR GEO MOL UKR MON }
 		target_root_trigger = {
 			has_country_flag = dd_sov_csto_influence_open
 		}
@@ -107,7 +116,7 @@ dd_sov_csto_category = {
 dd_sov_fuel_status_category = {
 	dd_sov_fuel_status = {
 		icon = generic_industry
-		allowed = { original_tag = SOV }
+		allowed = { original_tag = RUS }
 		cost = 0
 		ai_will_do = { factor = 0 }
 		visible = { has_war_with = UKR }
@@ -115,7 +124,7 @@ dd_sov_fuel_status_category = {
 	}
 	dd_sov_fuel_how = {
 		icon = generic_political_discourse
-		allowed = { original_tag = SOV }
+		allowed = { original_tag = RUS }
 		cost = 0
 		ai_will_do = { factor = 0 }
 		visible = { has_war_with = UKR }
@@ -126,7 +135,7 @@ dd_sov_fuel_status_category = {
 dd_sov_fuel_category = {
 	dd_sov_fuel_patch = {
 		icon = generic_construction
-		allowed = { original_tag = SOV }
+		allowed = { original_tag = RUS }
 		cost = 40
 		days_re_enable = 30
 		ai_will_do = { factor = 20 }
@@ -143,14 +152,17 @@ dd_sov_fuel_category = {
 
 	dd_sov_fuel_buy = {
 		icon = generic_construction
-		allowed = { original_tag = SOV }
+		allowed = { original_tag = RUS }
 		cost = 60
 		days_re_enable = 120
 		ai_will_do = { factor = 5 }
 		visible = { has_war_with = UKR }
 		available = {
 			check_variable = { dd_sov_fuel > 0 }
-			check_variable = { treasury > 0.4 }
+			custom_trigger_tooltip = {
+				tooltip = dd_sov_fuel_buy_cost_tt
+				NOT = { check_variable = { treasury < 0.4 } }
+			}
 		}
 		complete_effect = {
 			subtract_from_variable = { treasury = 0.4 }
@@ -159,6 +171,132 @@ dd_sov_fuel_category = {
 			218 = { dd_sov_repair_fuel_state = yes }
 			195 = { dd_sov_repair_fuel_state = yes }
 			251 = { dd_sov_repair_fuel_state = yes }
+		}
+	}
+
+	dd_sov_fuel_ration = {
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = RUS }
+		cost = 25
+		days_re_enable = 90
+		ai_will_do = { factor = 10 }
+		visible = { has_war_with = UKR }
+		available = { NOT = { has_idea = dd_sov_fuel_ration } }
+		complete_effect = {
+			add_timed_idea = { idea = dd_sov_fuel_ration days = 90 }
+		}
+	}
+
+	dd_sov_fuel_reserve = {
+		icon = generic_industry
+		allowed = { original_tag = RUS }
+		cost = 20
+		days_re_enable = 70
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = UKR }
+		available = { check_variable = { dd_sov_fuel > 0 } }
+		complete_effect = {
+			add_stability = -0.05
+			subtract_from_variable = { dd_sov_fuel = 3 }
+			dd_sov_fuel_sync = yes
+		}
+	}
+
+	dd_sov_fuel_charter = {
+		icon = generic_naval
+		allowed = { original_tag = RUS }
+		cost = 40
+		days_re_enable = 150
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 4
+				check_variable = { dd_sov_fuel > 8 }
+			}
+		}
+		visible = { has_war_with = UKR }
+		available = {
+			check_variable = { dd_sov_fuel > 0 }
+			custom_trigger_tooltip = {
+				tooltip = dd_sov_fuel_charter_cost_tt
+				NOT = { check_variable = { treasury < 3 } }
+			}
+		}
+		complete_effect = {
+			subtract_from_variable = { treasury = 3 }
+			subtract_from_variable = { dd_sov_fuel = 4 }
+			add_fuel = 400000
+			dd_sov_fuel_sync = yes
+		}
+	}
+
+	dd_sov_fuel_harden = {
+		icon = generic_construction
+		allowed = { original_tag = RUS }
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = { factor = 6 }
+		visible = {
+			has_war_with = UKR
+			NOT = { has_country_flag = dd_sov_fuel_hardened }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_sov_fuel_harden_cost_tt
+				NOT = { check_variable = { treasury < 5 } }
+			}
+		}
+		complete_effect = {
+			subtract_from_variable = { treasury = 5 }
+			set_country_flag = dd_sov_fuel_hardened
+			set_variable = { dd_sov_fuel_quiet = 42 }
+		}
+	}
+}
+
+dd_sov_ukraine_war_category = {
+	dd_sov_approach_rosgvardia = {
+		icon = generic_fascism
+		allowed = { original_tag = RUS }
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = { NOT = { has_government = fascism } }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_sov_rosgvardia_tt
+				fascism > 0.299
+			}
+		}
+		complete_effect = {
+			dd_sov_approach_rosgvardia = yes
+		}
+	}
+
+	dd_sov_ignite_revolution = {
+		icon = generic_ignite_civil_war
+		allowed = { original_tag = RUS }
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			NOT = { has_country_flag = dd_sov_red_risen }
+			NOT = { has_civil_war }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_sov_revolution_tt
+				communism > 0.299
+			}
+			OR = {
+				219 = { is_owned_and_controlled_by = ROOT }
+				195 = { is_owned_and_controlled_by = ROOT }
+				217 = { is_owned_and_controlled_by = ROOT }
+			}
+		}
+		complete_effect = {
+			set_country_flag = dd_sov_red_risen
+			dd_sov_red_war = yes
 		}
 	}
 }

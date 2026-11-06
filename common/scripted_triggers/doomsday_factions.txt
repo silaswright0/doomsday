@@ -5,7 +5,7 @@
 DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 	if = {
 		limit = {
-			tag = SOV
+			tag = RUS
 			has_offensive_war = yes
 			FROM = { has_idea = dd_csto_defensive_only }
 		}
@@ -71,7 +71,7 @@ DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
 		limit = {
 			has_idea = dd_csto_defensive_only
 			FROM = {
-				tag = SOV
+				tag = RUS
 				has_offensive_war = yes
 			}
 		}

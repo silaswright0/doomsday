@@ -17,14 +17,14 @@ dd_assign_starting_nukes = {
 			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 16 producer = USA }
 		}
 	}
-	SOV = {
+	RUS = {
 		if = {
 			limit = { NOT = { has_country_flag = dd_starting_arsenal } }
 			set_country_flag = dd_starting_arsenal
 			set_technology = { nukes = 1 popup = no }
 			add_nuclear_bombs = 35
-			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 20 producer = SOV }
-			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 16 producer = SOV }
+			add_equipment_to_stockpile = { type = nuclear_missile_equipment_2 amount = 20 producer = RUS }
+			add_equipment_to_stockpile = { type = nuclear_missile_equipment_1 amount = 16 producer = RUS }
 		}
 	}
 	CHI = {
@@ -114,13 +114,13 @@ dd_assign_starting_missiles = {
 			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 4 producer = KOR }
 		}
 	}
-	SOV = {
+	RUS = {
 		if = {
 			limit = { NOT = { has_country_flag = dd_starting_missiles } }
 			set_country_flag = dd_starting_missiles
-			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 12 producer = SOV }
-			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 8 producer = SOV }
-			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 10 producer = SOV }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_1 amount = 12 producer = RUS }
+			add_equipment_to_stockpile = { type = ballistic_missile_equipment_2 amount = 8 producer = RUS }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_cw amount = 10 producer = RUS }
 		}
 	}
 	CHI = {

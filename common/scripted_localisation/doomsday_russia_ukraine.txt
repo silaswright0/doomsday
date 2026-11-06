@@ -1,7 +1,7 @@
 defined_text = {
 	name = GetDdSovUkrUntil
 	text = {
-		trigger = { check_variable = { dd_sov_ukr_stage > 9 } }
+		trigger = { check_variable = { dd_sov_ukr_stage > 8 } }
 		localization_key = DD_SOV_UKR_UNTIL_END
 	}
 	text = {

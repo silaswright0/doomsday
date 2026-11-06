@@ -11,3 +11,43 @@ country_event = {
 		name = dd_sov_ukr.1.a
 	}
 }
+
+# 15 July 2026. The war is still on.
+country_event = {
+	id = dd_sov_ukr.2
+	title = dd_sov_ukr.2.t
+	desc = dd_sov_ukr.2.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	option = {
+		name = dd_sov_ukr.2.a
+		ai_chance = { factor = 10 }
+		add_popularity = { ideology = fascism popularity = 0.04 }
+	}
+	option = {
+		name = dd_sov_ukr.2.b
+		ai_chance = { factor = 1 }
+		add_popularity = { ideology = communism popularity = 0.04 }
+	}
+}
+
+# 15 January 2027. Claimed Ukrainian ground is still not under our control.
+country_event = {
+	id = dd_sov_ukr.3
+	title = dd_sov_ukr.3.t
+	desc = dd_sov_ukr.3.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+
+	option = {
+		name = dd_sov_ukr.3.a
+		ai_chance = { factor = 10 }
+		add_popularity = { ideology = fascism popularity = 0.04 }
+	}
+	option = {
+		name = dd_sov_ukr.3.b
+		ai_chance = { factor = 1 }
+		add_popularity = { ideology = communism popularity = 0.04 }
+	}
+}

@@ -1,0 +1,52 @@
+# Myanmar civil war. Country-scoped. Deterministic. No random.
+# Wa stays out of the junta war and out of the Brotherhood war.
+# A Chinese war cuts the Brotherhood's border supply.
+
+on_actions = {
+	on_war_relation_added = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = MYA
+							FROM = { tag = WAA }
+						}
+						AND = {
+							tag = WAA
+							FROM = { tag = MYA }
+						}
+						AND = {
+							tag = TBA
+							FROM = { tag = WAA }
+						}
+						AND = {
+							tag = WAA
+							FROM = { tag = TBA }
+						}
+					}
+					has_war_with = FROM
+				}
+				white_peace = FROM
+			}
+		}
+	}
+
+	on_monthly_TBA = {
+		effect = {
+			if = {
+				limit = { has_war_with = CHI }
+				if = {
+					limit = { NOT = { has_idea = dd_tba_supply_cut } }
+					add_ideas = dd_tba_supply_cut
+				}
+			}
+			else = {
+				if = {
+					limit = { has_idea = dd_tba_supply_cut }
+					remove_ideas = dd_tba_supply_cut
+				}
+			}
+		}
+	}
+}

@@ -479,12 +479,12 @@ technologies = {
 
 			modifier = {
 				factor = 2
-				tag = SOV
+				tag = RUS
 			}
 
 			modifier = {
 				factor = 10
-				tag = SOV
+				tag = RUS
 				date > "1941.1.1"
 			}
 		}
@@ -521,7 +521,7 @@ technologies = {
 
 			modifier = {
 				factor = 2
-				tag = SOV
+				tag = RUS
 			}
 		}
 
@@ -556,7 +556,7 @@ technologies = {
 
 			modifier = {
 				factor = 2
-				tag = SOV
+				tag = RUS
 			}
 		}
 
@@ -588,7 +588,7 @@ technologies = {
 
 			modifier = {
 				factor = 2
-				tag = SOV
+				tag = RUS
 			}
 		}
 
@@ -1011,7 +1011,7 @@ technologies = {
 				tag = JAP
 				not = {
 					OR = {
-						has_war_with = SOV
+						has_war_with = RUS
 						has_war_with = USA
 					}
 				}
@@ -1099,7 +1099,7 @@ technologies = {
 				tag = JAP
 				not = {
 					OR = {
-						has_War_with = SOV
+						has_War_with = RUS
 						has_war_with = USA
 					}
 				}
@@ -1161,7 +1161,7 @@ technologies = {
 				tag = JAP
 				not = {
 					OR = {
-						has_War_with = SOV
+						has_War_with = RUS
 						has_war_with = USA
 					}
 				}
@@ -1249,13 +1249,13 @@ technologies = {
 			modifier = {
 				factor = 10
 				original_tag = GER
-				has_war_with = SOV
+				has_war_with = RUS
 			}
 			modifier = {
 				tag = JAP
 				not = {
 					OR = {
-						has_War_with = SOV
+						has_War_with = RUS
 						has_war_with = USA
 					}
 				}
@@ -1320,7 +1320,7 @@ technologies = {
 				tag = JAP
 				not = {
 					OR = {
-						has_War_with = SOV
+						has_War_with = RUS
 						has_war_with = USA
 					}
 				}
@@ -1382,7 +1382,7 @@ technologies = {
 				tag = JAP
 				not = {
 					OR = {
-						has_War_with = SOV
+						has_War_with = RUS
 						has_war_with = USA
 					}
 				}

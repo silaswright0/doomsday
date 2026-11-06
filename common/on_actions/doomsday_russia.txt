@@ -2,9 +2,8 @@ on_actions = {
 	on_startup = {
 		effect = {
 			if = {
-				limit = { SOV = { exists = yes } }
-				SOV = {
-					dd_sov_apply_colossal_land = yes
+				limit = { RUS = { exists = yes } }
+				RUS = {
 					dd_sov_apply_scorched_land = yes
 					if = {
 						limit = {
@@ -24,27 +23,67 @@ on_actions = {
 						dd_sov_ukr_sync = yes
 					}
 					if = { limit = { NOT = { has_variable = dd_sov_fuel } } set_variable = { dd_sov_fuel = 0 } }
-					if = { limit = { NOT = { has_variable = dd_sov_fuel_cap } } set_variable = { dd_sov_fuel_cap = 20 } }
+					if = {
+						limit = { NOT = { has_completed_focus = SOV_reduce_fuel_exports } }
+						set_variable = { dd_sov_fuel_cap = 30 }
+					}
 					if = { limit = { NOT = { has_variable = dd_sov_fuel_cd } } set_variable = { dd_sov_fuel_cd = 0 } }
 					dd_sov_fuel_sync = yes
 				}
 			}
 		}
 	}
-	on_daily_SOV = {
+	on_daily_RUS = {
 		effect = {
 			dd_sov_fuel_check_bombs = yes
+			if = {
+				limit = {
+					date > 2026.7.14
+					NOT = { has_country_flag = dd_sov_cash_asked }
+					has_war_with = UKR
+					NOT = { has_country_flag = dd_sov_ukr_first_war_over }
+				}
+				set_country_flag = dd_sov_cash_asked
+				country_event = { id = dd_sov_ukr.2 }
+			}
+			if = {
+				limit = {
+					date > 2027.1.14
+					NOT = { has_country_flag = dd_sov_front_asked }
+					has_war_with = UKR
+					NOT = { has_country_flag = dd_sov_ukr_first_war_over }
+				}
+				set_country_flag = dd_sov_front_asked
+				dd_sov_mark_ukraine_stall = yes
+				if = {
+					limit = { has_country_flag = dd_sov_ukraine_stalling }
+					country_event = { id = dd_sov_ukr.3 }
+				}
+			}
 		}
 	}
 	on_monthly = {
 		effect = {
 			if = {
-				limit = { SOV = { exists = yes } }
-				SOV = {
-					dd_sov_apply_colossal_land = yes
+				limit = { RUS = { exists = yes } }
+				RUS = {
 					dd_sov_apply_scorched_land = yes
 					dd_sov_ukr_monthly = yes
 				}
+			}
+		}
+	}
+	on_army_leader_lost_combat = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						tag = RUS
+						has_war_with = UKR
+						NOT = { has_country_flag = dd_sov_ukr_first_war_over }
+					}
+				}
+				FROM = { add_to_variable = { dd_sov_battles_lost = 1 } }
 			}
 		}
 	}
@@ -52,7 +91,7 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					original_tag = SOV
+					original_tag = RUS
 					has_country_flag = dd_sov_ukr_clock
 					NOT = { has_war_with = UKR }
 				}

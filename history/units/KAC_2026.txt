@@ -1,0 +1,61 @@
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Militia Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	is_locked = yes
+}
+units = {
+	division = {
+		name = "Myitkyina Brigade"
+		location = 4425
+		division_template = "Infantry Division"
+		start_experience_factor = 0.30
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Hpakant Brigade"
+		location = 4425
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Border Brigade"
+		location = 4425
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Jade Road Brigade"
+		location = 4425
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.30
+		start_equipment_factor = 0.8
+	}
+}

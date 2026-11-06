@@ -642,11 +642,11 @@ technologies = {
 			
 			modifier = {
 				factor = 100
-				tag = SOV
+				tag = RUS
 			}
 			modifier = {
 				has_war_with = GER
-				tag = SOV
+				tag = RUS
 				factor = 2
 			}
 
@@ -751,13 +751,13 @@ technologies = {
 				factor = 2
 				OR = {
 					has_war_with = GER
-					has_war_with = SOV
+					has_war_with = RUS
 				}
 			}
 			
 			modifier = {
 				factor = 3
-				tag = SOV
+				tag = RUS
 			}
 		}
 	}
@@ -858,12 +858,12 @@ technologies = {
 				factor = 2
 				OR = {
 					has_war_with = GER
-					has_war_with = SOV
+					has_war_with = RUS
 				}
 			}
 			modifier = {
 				factor = 2
-				tag = SOV
+				tag = RUS
 			}
 		}
 	}

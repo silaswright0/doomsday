@@ -1,10 +1,10 @@
-# Myanmar Spring Revolution - Doomsday 2026
-capital = 999
+# National Unity Government - Doomsday 2026
+capital = 288
 oob = "NUG_2026"
 set_research_slots = 1
-set_stability = 0.90
+set_stability = 0.50
 set_war_support = 0.70
-set_convoys = 50
+set_convoys = 15
 # Cold War floor: Cuba/Eritrea/NK/Taliban-style inventories.
 # WWI/WWII weapon IDs stay researched (hidden from the tree) so vanilla focuses resolve.
 set_technology = {
@@ -356,10 +356,10 @@ set_technology = {
 	modern_sonar = 1
 	dd_lt_1 = 1
 }
-
-add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 870 producer = NUG }
-add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 15 producer = NUG }
-add_equipment_to_stockpile = { type = artillery_equipment amount = 5 producer = NUG }
+add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 900 producer = NUG }
+add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 20 producer = NUG }
+add_equipment_to_stockpile = { type = artillery_equipment amount = 10 producer = NUG }
+add_equipment_to_stockpile = { type = armored_car_equipment_1 amount = 400 producer = NUG }
 add_ideas = dd_welfare_2
 add_ideas = dd_education_3
 add_ideas = dd_immigration_3
@@ -378,6 +378,9 @@ add_ideas = dd_civil_military_3
 add_ideas = limited_conscription
 add_ideas = free_trade
 add_ideas = war_economy
+add_ideas = dd_nug_guerrilla
+add_ideas = dd_nug_equipment_deficit
+add_ideas = dd_nug_drones
 set_politics = {
 	ruling_party = social_liberalism
 	last_election = "2024.1.1"
@@ -413,3 +416,18 @@ recruit_character = NUG_hc_armor
 recruit_character = NUG_hc_artillery
 recruit_character = NUG_hc_air
 recruit_character = NUG_hc_navy
+diplomatic_relation = {
+	country = TBA
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = KNU
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = KAC
+	relation = non_aggression_pact
+	active = yes
+}

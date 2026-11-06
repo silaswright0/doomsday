@@ -194,7 +194,7 @@ hq_generic = {
 	}
 }
 
-# Vanilla country strategies still request these (USA/HUN mobile, SOV motorized, etc.).
+# Vanilla country strategies still request these (USA/HUN mobile, RUS motorized, etc.).
 # Missing role -> client_ping ACCESS_VIOLATION around 25 Jan.
 mobile_generic = {
 	role = mobile

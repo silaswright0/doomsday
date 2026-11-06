@@ -6,12 +6,12 @@ on_actions = {
 				limit = { NOT = { has_global_flag = dd_basing_init } }
 				set_global_flag = dd_basing_init
 				ABK = {
-					give_military_access = SOV
-					diplomatic_relation = { country = SOV relation = docking_rights active = yes }
+					give_military_access = RUS
+					diplomatic_relation = { country = RUS relation = docking_rights active = yes }
 				}
 				ARM = {
-					give_military_access = SOV
-					diplomatic_relation = { country = SOV relation = docking_rights active = yes }
+					give_military_access = RUS
+					diplomatic_relation = { country = RUS relation = docking_rights active = yes }
 				}
 				AST = {
 					give_military_access = USA
@@ -22,8 +22,8 @@ on_actions = {
 					diplomatic_relation = { country = USA relation = docking_rights active = yes }
 				}
 				BLR = {
-					give_military_access = SOV
-					diplomatic_relation = { country = SOV relation = docking_rights active = yes }
+					give_military_access = RUS
+					diplomatic_relation = { country = RUS relation = docking_rights active = yes }
 				}
 				BRN = {
 					give_military_access = ENG
@@ -118,8 +118,8 @@ on_actions = {
 					diplomatic_relation = { country = USA relation = docking_rights active = yes }
 				}
 				KYR = {
-					give_military_access = SOV
-					diplomatic_relation = { country = SOV relation = docking_rights active = yes }
+					give_military_access = RUS
+					diplomatic_relation = { country = RUS relation = docking_rights active = yes }
 				}
 				LAT = {
 					give_military_access = CAN
@@ -154,8 +154,8 @@ on_actions = {
 					diplomatic_relation = { country = USA relation = docking_rights active = yes }
 				}
 				PMR = {
-					give_military_access = SOV
-					diplomatic_relation = { country = SOV relation = docking_rights active = yes }
+					give_military_access = RUS
+					diplomatic_relation = { country = RUS relation = docking_rights active = yes }
 				}
 				POL = {
 					give_military_access = USA
@@ -198,8 +198,8 @@ on_actions = {
 					diplomatic_relation = { country = USA relation = docking_rights active = yes }
 				}
 				SOE = {
-					give_military_access = SOV
-					diplomatic_relation = { country = SOV relation = docking_rights active = yes }
+					give_military_access = RUS
+					diplomatic_relation = { country = RUS relation = docking_rights active = yes }
 				}
 				SOM = {
 					give_military_access = TUR
@@ -210,16 +210,16 @@ on_actions = {
 					diplomatic_relation = { country = USA relation = docking_rights active = yes }
 				}
 				SYR = {
-					give_military_access = SOV
-					diplomatic_relation = { country = SOV relation = docking_rights active = yes }
+					give_military_access = RUS
+					diplomatic_relation = { country = RUS relation = docking_rights active = yes }
 				}
 				SYR = {
 					give_military_access = TUR
 					diplomatic_relation = { country = TUR relation = docking_rights active = yes }
 				}
 				TAJ = {
-					give_military_access = SOV
-					diplomatic_relation = { country = SOV relation = docking_rights active = yes }
+					give_military_access = RUS
+					diplomatic_relation = { country = RUS relation = docking_rights active = yes }
 				}
 				TUR = {
 					give_military_access = USA

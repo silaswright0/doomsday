@@ -2012,7 +2012,7 @@ characters = {
 			slot = high_command
 			idea_token = BRM_hc_infantry
 			cost = 100
-			allowed = { original_tag = BRM }
+			allowed = { original_tag = MYA }
 			traits = { army_infantry_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -2028,7 +2028,7 @@ characters = {
 			slot = high_command
 			idea_token = BRM_hc_armor
 			cost = 100
-			allowed = { original_tag = BRM }
+			allowed = { original_tag = MYA }
 			traits = { army_armored_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -2044,7 +2044,7 @@ characters = {
 			slot = high_command
 			idea_token = BRM_hc_artillery
 			cost = 100
-			allowed = { original_tag = BRM }
+			allowed = { original_tag = MYA }
 			traits = { army_artillery_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -2060,7 +2060,7 @@ characters = {
 			slot = high_command
 			idea_token = BRM_hc_air
 			cost = 100
-			allowed = { original_tag = BRM }
+			allowed = { original_tag = MYA }
 			traits = { air_air_superiority_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -2076,7 +2076,7 @@ characters = {
 			slot = high_command
 			idea_token = BRM_hc_navy
 			cost = 100
-			allowed = { original_tag = BRM }
+			allowed = { original_tag = MYA }
 			traits = { navy_screen_1 }
 			ai_will_do = { factor = 1 }
 		}
@@ -15372,7 +15372,7 @@ characters = {
 			slot = air_chief
 			idea_token = SOV_viktor_afzalov
 			cost = 150
-			allowed = { original_tag = SOV }
+			allowed = { original_tag = RUS }
 			traits = { dd_exp_air }
 			ai_will_do = { factor = 10 }
 		}
@@ -15388,7 +15388,7 @@ characters = {
 			slot = high_command
 			idea_token = SOV_mikhail_teplinsky
 			cost = 100
-			allowed = { original_tag = SOV }
+			allowed = { original_tag = RUS }
 			traits = { army_commando_1 }
 			ai_will_do = { factor = 10 }
 		}
@@ -15404,7 +15404,7 @@ characters = {
 			slot = high_command
 			idea_token = SOV_sergey_karakayev
 			cost = 100
-			allowed = { original_tag = SOV }
+			allowed = { original_tag = RUS }
 			traits = { army_artillery_1 }
 			ai_will_do = { factor = 10 }
 		}
@@ -15420,7 +15420,7 @@ characters = {
 			slot = high_command
 			idea_token = SOV_denis_lyamin
 			cost = 100
-			allowed = { original_tag = SOV }
+			allowed = { original_tag = RUS }
 			traits = { army_infantry_1 }
 			ai_will_do = { factor = 10 }
 		}
@@ -15436,7 +15436,7 @@ characters = {
 			slot = high_command
 			idea_token = SOV_andrey_belousov
 			cost = 100
-			allowed = { original_tag = SOV }
+			allowed = { original_tag = RUS }
 			traits = { army_logistics_1 }
 			ai_will_do = { factor = 10 }
 		}
@@ -15452,7 +15452,7 @@ characters = {
 			slot = high_command
 			idea_token = SOV_aleksandr_chayko
 			cost = 100
-			allowed = { original_tag = SOV }
+			allowed = { original_tag = RUS }
 			traits = { army_entrenchment_1 }
 			ai_will_do = { factor = 10 }
 		}

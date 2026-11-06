@@ -282,7 +282,7 @@ technologies = {
 				factor = 10 #you are embarassing yourself
 			}
 			modifier = {
-				tag = SOV
+				tag = RUS
 				factor = 3
 			}
 			modifier = {
@@ -618,7 +618,7 @@ technologies = {
 
 			modifier = {
 				factor = 1.5
-				tag = SOV
+				tag = RUS
 			}
 
 			modifier = {
@@ -767,7 +767,7 @@ technologies = {
 
 			modifier = {
 				factor = 3
-				tag = SOV
+				tag = RUS
 				date > 1940.3.1
 			}
 
@@ -1059,7 +1059,7 @@ technologies = {
 				factor = 3
 			}
 			modifier = {
-				tag = SOV
+				tag = RUS
 				factor = 5
 			}
 			modifier = {
@@ -1136,7 +1136,7 @@ technologies = {
 				date > "1944.1.1"
 			}
 			modifier = {
-				tag = SOV
+				tag = RUS
 				factor = 5
 			}
 			modifier = {
@@ -1205,7 +1205,7 @@ technologies = {
 				date > "1946.1.1"
 			}
 			modifier = {
-				tag = SOV
+				tag = RUS
 				factor = 5
 			}
 
@@ -1345,7 +1345,7 @@ technologies = {
 				date > 1944.5.1
 				surrender_progress < 0.1
 				dd_is_far_right_gov = yes
-				has_war_with = SOV
+				has_war_with = RUS
 			}
 			modifier = {
 				factor = 10

@@ -1,6 +1,6 @@
 dd_sov_bop_category = {
 	icon = generic_political_discourse
-	allowed = { tag = SOV }
+	allowed = { tag = RUS }
 	priority = 50
 	visible = { always = no }
 }
@@ -9,14 +9,20 @@ dd_sov_fuel_status_category = {
 	icon = generic_industry
 	picture = GFX_decision_cat_picture_generic_industry
 	priority = 95
-	allowed = { original_tag = SOV }
+	allowed = {
+		original_tag = RUS
+		NOT = { has_country_flag = dd_sov_red_revolt }
+	}
 	visible = { has_war_with = UKR }
 }
 
 dd_sov_fuel_category = {
 	icon = generic_political_actions
 	priority = 90
-	allowed = { original_tag = SOV }
+	allowed = {
+		original_tag = RUS
+		NOT = { has_country_flag = dd_sov_red_revolt }
+	}
 	visible = { has_war_with = UKR }
 }
 
@@ -24,7 +30,10 @@ dd_sov_ukraine_war_category = {
 	icon = generic_prepare_civil_war
 	picture = GFX_decision_cat_picture_generic_border_conflicts
 	priority = 100
-	allowed = { original_tag = SOV }
+	allowed = {
+		original_tag = RUS
+		NOT = { has_country_flag = dd_sov_red_revolt }
+	}
 	visible = {
 		has_war_with = UKR
 		has_country_flag = dd_sov_ukr_clock
@@ -36,7 +45,7 @@ dd_sov_ukraine_war_category = {
 
 dd_sov_csto_category = {
 	icon = generic_political_actions
-	allowed = { tag = SOV }
+	allowed = { tag = RUS }
 	priority = 80
 	visible = {
 		has_country_flag = dd_sov_csto_open

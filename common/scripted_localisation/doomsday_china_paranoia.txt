@@ -16,6 +16,10 @@ defined_text = {
 defined_text = {
 	name = CHIGetParanoiaGain
 	text = {
+		trigger = { has_country_flag = dd_chi_paranoia_halted }
+		localization_key = dd_chi_para_gain_halted
+	}
+	text = {
 		trigger = { has_country_flag = dd_chi_paranoia_contained }
 		localization_key = dd_chi_para_gain_contained
 	}

@@ -11,23 +11,18 @@ scripted_gui = {
 			paranoia_main_needle = {
 				frame = dd_chi_para_meter
 			}
-			paranoia_photo_1 = { frame = dd_chi_para_photo_1 }
-			paranoia_photo_2 = { frame = dd_chi_para_photo_2 }
-			paranoia_photo_3 = { frame = dd_chi_para_photo_3 }
-			paranoia_photo_4 = { frame = dd_chi_para_photo_4 }
-			paranoia_photo_5 = { frame = dd_chi_para_photo_5 }
-			paranoia_photo_6 = { frame = dd_chi_para_photo_6 }
-			paranoia_photo_7 = { frame = dd_chi_para_photo_7 }
-			paranoia_photo_8 = { frame = dd_chi_para_photo_8 }
-			paranoia_photo_9 = { frame = dd_chi_para_photo_9 }
-			paranoia_photo_10 = { frame = dd_chi_para_photo_10 }
-			paranoia_photo_11 = { frame = dd_chi_para_photo_11 }
-			paranoia_photo_12 = { frame = dd_chi_para_photo_12 }
-			paranoia_photo_zinovyev = { frame = dd_chi_para_photo_a }
-			paranoia_photo_radek = { frame = dd_chi_para_photo_b }
-			paranoia_photo_bukharin = { frame = dd_chi_para_photo_c }
-			paranoia_photo_trotsky = { frame = dd_chi_para_photo_d }
-			paranoia_photo_tukhachevsky = { frame = dd_chi_para_photo_e }
+		}
+
+		triggers = {
+			dd_chi_confidence_text_visible = {
+				NOT = { has_country_flag = dd_chi_purge_begun }
+			}
+			dd_chi_confidence_track_visible = {
+				NOT = { has_country_flag = dd_chi_purge_begun }
+			}
+			dd_chi_confidence_bar_visible = {
+				NOT = { has_country_flag = dd_chi_purge_begun }
+			}
 		}
 	}
 }

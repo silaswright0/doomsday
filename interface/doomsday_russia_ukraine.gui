@@ -3,7 +3,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "dd_sov_ukraine_war_window"
 		position = { x = 0 y = 0 }
-		size = { width = 100% height = 404 }
+		size = { width = 100% height = 560 }
 		clipping = no
 
 		instantTextboxType = {
@@ -260,24 +260,58 @@ guiTypes = {
 		}
 
 		instantTextboxType = {
-			name = "dd_sov_ukr_l10"
-			position = { x = 12 y = 338 }
-			font = "hoi_16mbs"
-			text = "DD_SOV_UKR_L10"
-			maxWidth = 72
-			maxHeight = 20
+			name = "dd_sov_anger_left_title"
+			position = { x = 12 y = 352 }
+			font = "hoi_18mbs"
+			text = "DD_SOV_ANGER_LEFT_TITLE"
+			maxWidth = 230
+			maxHeight = 22
 			format = left
-			pdx_tooltip = "DD_SOV_UKR_TIP_10"
 		}
 		instantTextboxType = {
-			name = "dd_sov_ukr_r10"
-			position = { x = 88 y = 338 }
-			font = "hoi_16mbs"
-			text = "DD_SOV_UKR_R10"
-			maxWidth = 390
-			maxHeight = 20
+			name = "dd_sov_anger_right_title"
+			position = { x = 258 y = 352 }
+			font = "hoi_18mbs"
+			text = "DD_SOV_ANGER_RIGHT_TITLE"
+			maxWidth = 230
+			maxHeight = 22
 			format = left
-			pdx_tooltip = "DD_SOV_UKR_TIP_10"
+		}
+		instantTextboxType = {
+			name = "dd_sov_anger_left_body"
+			position = { x = 12 y = 378 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_ANGER_LEFT_BODY"
+			maxWidth = 230
+			maxHeight = 120
+			format = left
+		}
+		instantTextboxType = {
+			name = "dd_sov_anger_right_body"
+			position = { x = 258 y = 378 }
+			font = "hoi_16mbs"
+			text = "DD_SOV_ANGER_RIGHT_BODY"
+			maxWidth = 230
+			maxHeight = 120
+			format = left
+		}
+		instantTextboxType = {
+			name = "dd_sov_anger_left_pct"
+			position = { x = 12 y = 508 }
+			font = "hoi_18mbs"
+			text = "DD_SOV_ANGER_LEFT_PCT"
+			maxWidth = 230
+			maxHeight = 24
+			format = left
+		}
+		instantTextboxType = {
+			name = "dd_sov_anger_right_pct"
+			position = { x = 258 y = 508 }
+			font = "hoi_18mbs"
+			text = "DD_SOV_ANGER_RIGHT_PCT"
+			maxWidth = 230
+			maxHeight = 24
+			format = left
 		}
 	}
 }

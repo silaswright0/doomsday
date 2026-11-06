@@ -18,7 +18,7 @@ dd_intel_init = {
 			add_ideas = dd_intel_cia
 		}
 		else_if = {
-			limit = { tag = SOV }
+			limit = { tag = RUS }
 			set_variable = { dd_intel_tier = 1 }
 			add_ideas = dd_intel_svr
 		}

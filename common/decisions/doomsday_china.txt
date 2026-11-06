@@ -46,6 +46,7 @@ dd_chi_paranoia_category = {
 		}
 		complete_effect = {
 			add_stability = -0.06
+			dd_chi_begin_purge = yes
 			custom_effect_tooltip = CHI_para_minus_25_tt
 			hidden_effect = {
 				add_to_variable = { dd_chi_paranoia = -25 }
@@ -63,6 +64,7 @@ dd_chi_paranoia_category = {
 		available = { has_character = CHI_wang_houbin }
 		complete_effect = {
 			add_stability = -0.03
+			dd_chi_begin_purge = yes
 			retire_character = CHI_wang_houbin
 			custom_effect_tooltip = CHI_para_minus_20_tt
 			hidden_effect = {
@@ -80,7 +82,10 @@ dd_chi_bop_category = {
 		cost = 50
 		days_re_enable = 70
 		ai_will_do = { factor = 0 }
-		visible = { has_power_balance = { id = CHI_party_balance } }
+		visible = {
+			has_power_balance = { id = CHI_party_balance }
+			NOT = { has_country_flag = dd_chi_bop_locked }
+		}
 		complete_effect = {
 			dd_chi_bop_loyalist = yes
 		}
@@ -92,9 +97,26 @@ dd_chi_bop_category = {
 		cost = 50
 		days_re_enable = 70
 		ai_will_do = { factor = 0 }
-		visible = { has_power_balance = { id = CHI_party_balance } }
+		visible = {
+			has_power_balance = { id = CHI_party_balance }
+			NOT = { has_country_flag = dd_chi_bop_locked }
+		}
 		complete_effect = {
 			dd_chi_bop_technocrat = yes
+		}
+	}
+}
+
+dd_chi_border_category = {
+	dd_chi_border_sweep = {
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = CHI }
+		cost = 25
+		days_re_enable = 90
+		ai_will_do = { factor = 2 }
+		complete_effect = {
+			army_experience = 5
+			add_stability = 0.01
 		}
 	}
 }

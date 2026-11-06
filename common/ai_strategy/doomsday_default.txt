@@ -51,20 +51,20 @@ dd_nato_stay = {
 
 dd_csto_stay = {
 	enable = {
-		is_in_faction_with = SOV
-		SOV = { is_faction_leader = yes }
-		NOT = { tag = SOV }
+		is_in_faction_with = RUS
+		RUS = { is_faction_leader = yes }
+		NOT = { tag = RUS }
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = alliance
-		id = SOV
+		id = RUS
 		value = 200
 	}
 	ai_strategy = {
 		type = diplo_action_desire
-		id = SOV
+		id = RUS
 		target = leave_faction
 		value = -200
 	}
@@ -74,19 +74,19 @@ dd_csto_stay = {
 dd_csto_no_offensive = {
 	enable = {
 		has_idea = dd_csto_defensive_only
-		SOV = { has_offensive_war = yes }
+		RUS = { has_offensive_war = yes }
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = diplo_action_desire
-		id = SOV
+		id = RUS
 		target = join_allies
 		value = -1000
 	}
 	ai_strategy = {
 		type = diplo_action_acceptance
-		id = SOV
+		id = RUS
 		target = call_allies
 		value = -1000
 	}
@@ -136,7 +136,7 @@ dd_ukr_defensive_bulwark_front = {
 	}
 	ai_strategy = {
 		type = front_unit_request
-		tag = SOV
+		tag = RUS
 		value = 200
 	}
 	ai_strategy = {
@@ -146,7 +146,7 @@ dd_ukr_defensive_bulwark_front = {
 	}
 	ai_strategy = {
 		type = force_concentration_front_factor
-		tag = SOV
+		tag = RUS
 		value = -100
 	}
 	ai_strategy = {
@@ -156,7 +156,7 @@ dd_ukr_defensive_bulwark_front = {
 	}
 	ai_strategy = {
 		type = front_control
-		tag = SOV
+		tag = RUS
 		ratio = 1
 		priority = 100
 		ordertype = front
@@ -167,7 +167,7 @@ dd_ukr_defensive_bulwark_front = {
 	ai_strategy = {
 		type = front_control
 		country_trigger = {
-			is_in_faction_with = SOV
+			is_in_faction_with = RUS
 		}
 		ratio = 1
 		priority = 100

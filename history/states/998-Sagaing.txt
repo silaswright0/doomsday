@@ -4,12 +4,16 @@ state = {
 	
 	state_category = city
 	manpower = 6680715
-	
+
+	resources = {
+		rare_earths = 6
+	}
+
 	history = {
-		owner = NUG
+		owner = KAC
 		add_extra_state_shared_building_slots = 0
-		add_core_of = NUG
-		add_core_of = BRM
+		add_core_of = KAC
+		add_core_of = MYA
 
 		buildings = {
 			arms_factory = 0
@@ -22,7 +26,7 @@ state = {
 		}
 
 		victory_points = {
-			4425 1 
+			4425 10 # Myitkyina 
 		}
 	}
 

@@ -1,0 +1,88 @@
+# The Wa stay neutral toward the junta and the Brotherhood.
+# The other rebel armies stay pointed at the junta.
+
+dd_mya_spare_wa = {
+	allowed = { original_tag = MYA }
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = declare_war
+		id = WAA
+		value = -1000
+	}
+	ai_strategy = {
+		type = antagonize
+		id = WAA
+		value = -200
+	}
+	ai_strategy = {
+		type = befriend
+		id = WAA
+		value = 100
+	}
+}
+
+dd_tba_spare_wa = {
+	allowed = { original_tag = TBA }
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = declare_war
+		id = WAA
+		value = -1000
+	}
+	ai_strategy = {
+		type = antagonize
+		id = WAA
+		value = -200
+	}
+	ai_strategy = {
+		type = befriend
+		id = WAA
+		value = 50
+	}
+	ai_strategy = {
+		type = befriend
+		id = CHI
+		value = 40
+	}
+}
+
+dd_waa_stay_quiet = {
+	allowed = { original_tag = WAA }
+	enable = { always = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = declare_war
+		id = MYA
+		value = -1000
+	}
+	ai_strategy = {
+		type = declare_war
+		id = TBA
+		value = -1000
+	}
+	ai_strategy = {
+		type = antagonize
+		id = MYA
+		value = -200
+	}
+	ai_strategy = {
+		type = antagonize
+		id = TBA
+		value = -200
+	}
+	ai_strategy = {
+		type = befriend
+		id = MYA
+		value = 100
+	}
+	ai_strategy = {
+		type = befriend
+		id = TBA
+		value = 100
+	}
+}

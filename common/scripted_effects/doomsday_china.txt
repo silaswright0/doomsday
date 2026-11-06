@@ -33,23 +33,10 @@ dd_chi_paranoia_sync = {
 		limit = { check_variable = { dd_chi_para_meter > 21 } }
 		set_variable = { dd_chi_para_meter = 21 }
 	}
-	set_variable = { dd_chi_para_photo_1 = 3 }
-	set_variable = { dd_chi_para_photo_2 = 4 }
-	set_variable = { dd_chi_para_photo_3 = 5 }
-	set_variable = { dd_chi_para_photo_4 = 6 }
-	set_variable = { dd_chi_para_photo_5 = 7 }
-	set_variable = { dd_chi_para_photo_6 = 2 }
-	set_variable = { dd_chi_para_photo_7 = 4 }
-	set_variable = { dd_chi_para_photo_8 = 6 }
-	set_variable = { dd_chi_para_photo_9 = 3 }
-	set_variable = { dd_chi_para_photo_10 = 5 }
-	set_variable = { dd_chi_para_photo_11 = 7 }
-	set_variable = { dd_chi_para_photo_12 = 2 }
-	set_variable = { dd_chi_para_photo_a = 8 }
-	set_variable = { dd_chi_para_photo_b = 9 }
-	set_variable = { dd_chi_para_photo_c = 10 }
-	set_variable = { dd_chi_para_photo_d = 11 }
-	set_variable = { dd_chi_para_photo_e = 12 }
+	if = {
+		limit = { NOT = { has_variable = dd_chi_confidence } }
+		set_variable = { dd_chi_confidence = 100 }
+	}
 }
 
 dd_chi_paranoia_month = {
@@ -58,26 +45,22 @@ dd_chi_paranoia_month = {
 		set_variable = { dd_chi_paranoia = 25 }
 	}
 	if = {
-		limit = {
-			has_country_flag = dd_chi_paranoia_broke
-			check_variable = { dd_chi_paranoia < 60 }
+		limit = { NOT = { has_country_flag = dd_chi_paranoia_halted } }
+		if = {
+			limit = { has_country_flag = dd_chi_paranoia_contained }
+			add_to_variable = { dd_chi_paranoia = 1 }
 		}
-		clr_country_flag = dd_chi_paranoia_broke
-	}
-	if = {
-		limit = { has_country_flag = dd_chi_paranoia_contained }
-		add_to_variable = { dd_chi_paranoia = 1 }
-	}
-	else = {
-		add_to_variable = { dd_chi_paranoia = 4 }
+		else = {
+			add_to_variable = { dd_chi_paranoia = 4 }
+		}
 	}
 	if = {
 		limit = {
 			check_variable = { dd_chi_paranoia > 99.9 }
-			NOT = { has_country_flag = dd_chi_paranoia_broke }
+			NOT = { has_country_flag = dd_chi_security_seized }
 		}
+		set_country_flag = dd_chi_security_seized
 		set_variable = { dd_chi_paranoia = 50 }
-		set_country_flag = dd_chi_paranoia_broke
 		add_stability = -0.10
 		add_war_support = -0.05
 		add_political_power = -75
@@ -86,18 +69,228 @@ dd_chi_paranoia_month = {
 	dd_chi_paranoia_sync = yes
 }
 
+dd_chi_begin_purge = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_chi_purge_begun } }
+		set_country_flag = dd_chi_purge_begun
+		set_variable = { dd_chi_confidence = 0 }
+		add_ideas = dd_chi_army_fear
+	}
+}
+
 dd_chi_bop_loyalist = {
-	add_power_balance_value = {
-		id = CHI_party_balance
-		value = -0.10
-		tooltip_side = CHI_bop_loyalist
+	if = {
+		limit = { NOT = { has_country_flag = dd_chi_bop_locked } }
+		add_power_balance_value = {
+			id = CHI_party_balance
+			value = -0.10
+			tooltip_side = CHI_bop_loyalist
+		}
+	}
+}
+
+dd_chi_bop_loyalist_strong = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_chi_bop_locked } }
+		add_power_balance_value = {
+			id = CHI_party_balance
+			value = -0.15
+			tooltip_side = CHI_bop_loyalist
+		}
 	}
 }
 
 dd_chi_bop_technocrat = {
-	add_power_balance_value = {
-		id = CHI_party_balance
-		value = 0.10
-		tooltip_side = CHI_bop_technocrat
+	if = {
+		limit = { NOT = { has_country_flag = dd_chi_bop_locked } }
+		add_power_balance_value = {
+			id = CHI_party_balance
+			value = 0.10
+			tooltip_side = CHI_bop_technocrat
+		}
+	}
+}
+
+dd_chi_bop_technocrat_strong = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_chi_bop_locked } }
+		add_power_balance_value = {
+			id = CHI_party_balance
+			value = 0.15
+			tooltip_side = CHI_bop_technocrat
+		}
+	}
+}
+
+# Two passes, state id order. A state with two civilian factories can give both.
+dd_chi_convert_civ_to_mil = {
+	set_variable = { dd_chi_mills_left = 2 }
+	every_owned_state = {
+		limit = {
+			is_controlled_by = ROOT
+			industrial_complex > 0
+			check_variable = { ROOT.dd_chi_mills_left > 0 }
+		}
+		remove_building = { type = industrial_complex level = 1 }
+		add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		ROOT = { add_to_variable = { dd_chi_mills_left = -1 } }
+	}
+	every_owned_state = {
+		limit = {
+			is_controlled_by = ROOT
+			industrial_complex > 0
+			check_variable = { ROOT.dd_chi_mills_left > 0 }
+		}
+		remove_building = { type = industrial_complex level = 1 }
+		add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		ROOT = { add_to_variable = { dd_chi_mills_left = -1 } }
+	}
+	set_variable = { dd_chi_mills_left = 0 }
+}
+
+# Cores on every state China starts with as a core. Claims on the states China only claims.
+# Called in the splinter's scope.
+dd_chi_grant_china_map = {
+	save_event_target_as = dd_chi_splinter
+	every_state = {
+		limit = { is_core_of = CHI }
+		add_core_of = event_target:dd_chi_splinter
+	}
+	every_state = {
+		limit = {
+			is_claimed_by = CHI
+			NOT = { is_core_of = CHI }
+		}
+		add_claim_by = event_target:dd_chi_splinter
+	}
+}
+
+dd_chi_arm_splinter = {
+	inherit_technology = CHI
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_cw6
+		amount = 4000
+		producer = CHI
+	}
+	capital_scope = {
+		create_unit = {
+			division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.3 start_equipment_factor = 0.7"
+			owner = PREV
+			count = 4
+		}
+	}
+}
+
+# Low confidence, the three standing strains still open, and Taiwan lost.
+dd_chi_regime_watch = {
+	if = {
+		limit = { has_war_with = FOR }
+		set_country_flag = dd_chi_fought_taiwan
+	}
+	if = {
+		limit = {
+			has_country_flag = dd_chi_fought_taiwan
+			NOT = { has_war_with = FOR }
+			NOT = { owns_state = 524 }
+		}
+		set_country_flag = dd_chi_taiwan_failed
+	}
+	if = {
+		limit = {
+			NOT = { has_global_flag = dd_chi_civil_war_started }
+			NOT = { has_country_flag = dd_chi_civil_war_pending }
+			has_country_flag = dd_chi_taiwan_failed
+			check_variable = { dd_chi_confidence < 25 }
+			NOT = { has_completed_focus = CHI_real_estate_3 }
+			NOT = { has_completed_focus = CHI_local_debt_3 }
+			NOT = { has_completed_focus = CHI_youth_unemployment_3 }
+		}
+		set_country_flag = dd_chi_civil_war_pending
+		country_event = { id = dd_chi_cw.1 }
+	}
+}
+
+dd_chi_start_civil_war = {
+	if = {
+		limit = { NOT = { has_country_flag = dd_chi_civil_war } }
+		set_country_flag = dd_chi_civil_war
+		set_global_flag = dd_chi_civil_war_started
+		set_cosmetic_tag = CHI_BEIJING
+		FRC = { dd_chi_grant_china_map = yes }
+		NLC = { dd_chi_grant_china_map = yes }
+		SBC = { dd_chi_grant_china_map = yes }
+		CMJ = { dd_chi_grant_china_map = yes }
+		CDW = { dd_chi_grant_china_map = yes }
+		XIJ = { dd_chi_grant_china_map = yes }
+		FRC = {
+			transfer_state = 593
+			transfer_state = 326
+			set_capital = { state = 593 }
+			dd_chi_arm_splinter = yes
+		}
+		NLC = {
+			transfer_state = 1036
+			transfer_state = 602
+			set_capital = { state = 1036 }
+			dd_chi_arm_splinter = yes
+		}
+		SBC = {
+			transfer_state = 613
+			set_capital = { state = 613 }
+			dd_chi_arm_splinter = yes
+		}
+		CMJ = {
+			transfer_state = 1035
+			set_capital = { state = 1035 }
+			dd_chi_arm_splinter = yes
+		}
+		CDW = {
+			transfer_state = 1041
+			set_capital = { state = 1041 }
+			dd_chi_arm_splinter = yes
+		}
+		XIJ = {
+			transfer_state = 617
+			add_state_core = 617
+			set_capital = { state = 617 }
+			dd_chi_arm_splinter = yes
+		}
+		FRC = { declare_war_on = { target = CHI type = annex_everything } }
+		NLC = { declare_war_on = { target = CHI type = annex_everything } }
+		SBC = { declare_war_on = { target = CHI type = annex_everything } }
+		CMJ = { declare_war_on = { target = CHI type = annex_everything } }
+		CDW = { declare_war_on = { target = CHI type = annex_everything } }
+		XIJ = { declare_war_on = { target = CHI type = annex_everything } }
+		FRC = { declare_war_on = { target = NLC type = annex_everything } }
+		FRC = { declare_war_on = { target = SBC type = annex_everything } }
+		FRC = { declare_war_on = { target = CMJ type = annex_everything } }
+		FRC = { declare_war_on = { target = CDW type = annex_everything } }
+		FRC = { declare_war_on = { target = XIJ type = annex_everything } }
+		NLC = { declare_war_on = { target = SBC type = annex_everything } }
+		NLC = { declare_war_on = { target = CMJ type = annex_everything } }
+		NLC = { declare_war_on = { target = CDW type = annex_everything } }
+		NLC = { declare_war_on = { target = XIJ type = annex_everything } }
+		SBC = { declare_war_on = { target = CMJ type = annex_everything } }
+		SBC = { declare_war_on = { target = CDW type = annex_everything } }
+		SBC = { declare_war_on = { target = XIJ type = annex_everything } }
+		CMJ = { declare_war_on = { target = CDW type = annex_everything } }
+		CMJ = { declare_war_on = { target = XIJ type = annex_everything } }
+		CDW = { declare_war_on = { target = XIJ type = annex_everything } }
+	}
+}
+
+# Elected governments cannot keep an embargo on China while at peace.
+# Checked once a month. Deterministic country order. No random.
+dd_chi_lift_elected_embargoes = {
+	if = {
+		limit = { has_idea = dd_chi_alternative_hegemony }
+		every_other_country = {
+			limit = {
+				dd_is_elected_gov = yes
+				NOT = { has_war_with = ROOT }
+				ROOT = { is_embargoed_by = PREV }
+			}
+			ROOT = { break_embargo = PREV }
+		}
 	}
 }

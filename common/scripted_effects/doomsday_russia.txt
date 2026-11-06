@@ -1,15 +1,134 @@
 # Country-scoped. No random.
 
-dd_sov_apply_colossal_land = {
+dd_sov_duma_ensure = {
 	if = {
-		limit = { has_idea = dd_sov_colossal }
-		every_owned_state = {
-			limit = {
-				NOT = { has_dynamic_modifier = { modifier = dd_sov_colossal_land } }
-			}
-			add_dynamic_modifier = { modifier = dd_sov_colossal_land }
-		}
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_sov_ninth_duma } } }
+		set_variable = { dd_duma_pp = 0.10 }
+		set_variable = { dd_duma_ws = 0 }
+		set_variable = { dd_duma_stab = 0 }
+		set_variable = { dd_duma_trade = 0 }
+		set_variable = { dd_duma_rec = 0 }
+		set_variable = { dd_duma_org = 0 }
+		set_variable = { dd_duma_atk = 0 }
+		set_variable = { dd_duma_def = 0 }
+		set_variable = { dd_duma_spd = 0 }
+		set_variable = { dd_duma_brk = 0 }
+		set_variable = { dd_duma_xp = 0 }
+		set_variable = { dd_duma_train = 0 }
+		set_variable = { dd_duma_supply = 0 }
+		set_variable = { dd_duma_fac = 0 }
+		set_variable = { dd_duma_mil = 0 }
+		set_variable = { dd_duma_civ = 0 }
+		set_variable = { dd_duma_eff = 0 }
+		set_variable = { dd_duma_effcap = 0 }
+		set_variable = { dd_duma_cg = 0 }
+		set_variable = { dd_duma_enc = 0 }
+		set_variable = { dd_duma_dec = 0 }
+		set_variable = { dd_duma_subcost = 0 }
+		set_variable = { dd_duma_foreign = 0 }
+		set_variable = { dd_duma_ops = 0 }
+		add_dynamic_modifier = { modifier = dd_sov_ninth_duma }
+		remove_ideas = dd_sov_ninth_duma
 	}
+}
+
+dd_sov_duma_heroes = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_ws = 0.05 }
+	add_to_variable = { dd_duma_rec = 0.05 }
+	add_to_variable = { dd_duma_org = 0.05 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_arbat = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_stab = 0.10 }
+	add_to_variable = { dd_duma_pp = 0.10 }
+	add_to_variable = { dd_duma_trade = 0.10 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_fifth = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_ops = 1 }
+	add_to_variable = { dd_duma_dec = 0.10 }
+	add_to_variable = { dd_duma_subcost = -0.20 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_audit = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_org = 0.05 }
+	add_to_variable = { dd_duma_xp = 0.10 }
+	add_to_variable = { dd_duma_eff = 0.05 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_procurement = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_fac = 0.05 }
+	add_to_variable = { dd_duma_mil = 0.10 }
+	add_to_variable = { dd_duma_eff = 0.10 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_bureaucracy = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_stab = 0.10 }
+	add_to_variable = { dd_duma_pp = 0.10 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_runet = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_enc = 0.25 }
+	add_to_variable = { dd_duma_dec = 0.10 }
+	add_to_variable = { dd_duma_foreign = -0.30 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_monotowns = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_fac = 0.08 }
+	add_to_variable = { dd_duma_civ = 0.10 }
+	add_to_variable = { dd_duma_mil = 0.10 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_hybrid = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_atk = 0.05 }
+	add_to_variable = { dd_duma_brk = 0.05 }
+	add_to_variable = { dd_duma_rec = 0.05 }
+	add_to_variable = { dd_duma_spd = 0.05 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_budget = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_cg = -0.05 }
+	add_to_variable = { dd_duma_effcap = 0.05 }
+	add_to_variable = { dd_duma_mil = 0.10 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_disruption = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_dec = 0.15 }
+	add_to_variable = { dd_duma_enc = 0.10 }
+	add_to_variable = { dd_duma_subcost = -0.30 }
+	add_to_variable = { dd_duma_ws = 0.05 }
+	force_update_dynamic_modifier = yes
+}
+
+dd_sov_duma_doctrine = {
+	dd_sov_duma_ensure = yes
+	add_to_variable = { dd_duma_atk = 0.05 }
+	add_to_variable = { dd_duma_def = 0.05 }
+	add_to_variable = { dd_duma_org = 0.05 }
+	add_to_variable = { dd_duma_train = -0.10 }
+	add_to_variable = { dd_duma_supply = -0.05 }
+	force_update_dynamic_modifier = yes
 }
 
 dd_sov_claim_compatriots = {
@@ -29,6 +148,114 @@ dd_sov_claim_compatriots = {
 	add_state_claim = 590
 	add_state_claim = 882
 	add_state_claim = 407
+}
+
+# Finland, the Baltics, and Poland. Both directions, so the hit shows on our diplomacy screen.
+dd_sov_antagonize_borders = {
+	every_country = {
+		limit = {
+			exists = yes
+			OR = {
+				tag = FIN
+				tag = EST
+				tag = LAT
+				tag = LIT
+				tag = POL
+			}
+		}
+		add_opinion_modifier = { target = ROOT modifier = dd_sov_border_pressure }
+		ROOT = {
+			add_opinion_modifier = { target = PREV modifier = dd_sov_border_pressure }
+		}
+	}
+}
+
+dd_sov_wargoal_if_free = {
+	if = {
+		limit = {
+			exists = yes
+			NOT = { is_subject_of = ROOT }
+			NOT = { has_war_with = ROOT }
+		}
+		ROOT = {
+			create_wargoal = { type = annex_everything target = PREV }
+		}
+	}
+}
+
+dd_sov_recover_finland = {
+	FIN = { dd_sov_wargoal_if_free = yes }
+}
+
+dd_sov_recover_baltics = {
+	EST = { dd_sov_wargoal_if_free = yes }
+	LAT = { dd_sov_wargoal_if_free = yes }
+	LIT = { dd_sov_wargoal_if_free = yes }
+}
+
+dd_sov_georgian_puppets = {
+	if = {
+		limit = {
+			ABK = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+			}
+		}
+		puppet = ABK
+	}
+	if = {
+		limit = {
+			SOE = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+			}
+		}
+		puppet = SOE
+	}
+}
+
+dd_sov_mission_transnistria = {
+	if = {
+		limit = {
+			PMR = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+			}
+		}
+		puppet = PMR
+	}
+	MOL = { dd_sov_wargoal_if_free = yes }
+}
+
+# War goal on whoever leads NATO. USA, if NATO is gone.
+dd_sov_dismantle_nato = {
+	if = {
+		limit = {
+			USA = { is_in_faction = yes }
+		}
+		USA = {
+			faction_leader = {
+				SOV = {
+					if = {
+						limit = {
+							NOT = { tag = PREV }
+							NOT = { has_war_with = PREV }
+							NOT = { PREV = { is_subject_of = ROOT } }
+						}
+						create_wargoal = { type = annex_everything target = PREV }
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			USA = { exists = yes }
+			NOT = { has_war_with = USA }
+			NOT = { USA = { is_subject_of = ROOT } }
+		}
+		create_wargoal = { type = annex_everything target = USA }
+	}
 }
 
 dd_sov_apply_military_tradition = {
@@ -288,88 +515,130 @@ dd_sov_ukr_clear = {
 	remove_ideas = dd_sov_ukr_7
 	remove_ideas = dd_sov_ukr_8
 	remove_ideas = dd_sov_ukr_9
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_sov_ukr_war } }
+		remove_dynamic_modifier = { modifier = dd_sov_ukr_war }
+	}
 	set_variable = { dd_sov_ukr_stage_applied = -1 }
 }
 
 dd_sov_ukr_apply = {
 	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 0 } }
-			NOT = { has_idea = dd_sov_ukr_0 }
+		limit = { check_variable = { dd_sov_ukr_stage < 9 } }
+		if = {
+			limit = { check_variable = { dd_sov_ukr_stage = 0 } }
+			set_variable = { dd_sov_ukr_ws = 0.10 }
+			set_variable = { dd_sov_ukr_cg = 0.02 }
+			set_variable = { dd_sov_ukr_atk = 0 }
+			set_variable = { dd_sov_ukr_def = 0 }
+			set_variable = { dd_sov_ukr_rec = 0 }
+			set_variable = { dd_sov_ukr_man = 0 }
+			set_variable = { dd_sov_ukr_stab = 0 }
 		}
-		add_ideas = dd_sov_ukr_0
+		else_if = {
+			limit = { check_variable = { dd_sov_ukr_stage = 1 } }
+			set_variable = { dd_sov_ukr_ws = 0.15 }
+			set_variable = { dd_sov_ukr_cg = 0.04 }
+			set_variable = { dd_sov_ukr_atk = 0.02 }
+			set_variable = { dd_sov_ukr_def = 0 }
+			set_variable = { dd_sov_ukr_rec = 0 }
+			set_variable = { dd_sov_ukr_man = 0 }
+			set_variable = { dd_sov_ukr_stab = 0 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_sov_ukr_stage = 2 } }
+			set_variable = { dd_sov_ukr_ws = 0.15 }
+			set_variable = { dd_sov_ukr_cg = 0.08 }
+			set_variable = { dd_sov_ukr_atk = 0.02 }
+			set_variable = { dd_sov_ukr_def = 0 }
+			set_variable = { dd_sov_ukr_rec = -0.02 }
+			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_stab = 0 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_sov_ukr_stage = 3 } }
+			set_variable = { dd_sov_ukr_ws = 0.15 }
+			set_variable = { dd_sov_ukr_cg = 0.12 }
+			set_variable = { dd_sov_ukr_atk = 0 }
+			set_variable = { dd_sov_ukr_def = -0.02 }
+			set_variable = { dd_sov_ukr_rec = -0.02 }
+			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_stab = 0 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_sov_ukr_stage = 4 } }
+			set_variable = { dd_sov_ukr_ws = 0.13 }
+			set_variable = { dd_sov_ukr_cg = 0.16 }
+			set_variable = { dd_sov_ukr_atk = 0 }
+			set_variable = { dd_sov_ukr_def = -0.02 }
+			set_variable = { dd_sov_ukr_rec = -0.04 }
+			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_stab = 0 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_sov_ukr_stage = 5 } }
+			set_variable = { dd_sov_ukr_ws = 0.10 }
+			set_variable = { dd_sov_ukr_cg = 0.24 }
+			set_variable = { dd_sov_ukr_atk = 0 }
+			set_variable = { dd_sov_ukr_def = -0.05 }
+			set_variable = { dd_sov_ukr_rec = -0.04 }
+			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_stab = 0 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_sov_ukr_stage = 6 } }
+			set_variable = { dd_sov_ukr_ws = 0.07 }
+			set_variable = { dd_sov_ukr_cg = 0.32 }
+			set_variable = { dd_sov_ukr_atk = -0.03 }
+			set_variable = { dd_sov_ukr_def = -0.05 }
+			set_variable = { dd_sov_ukr_rec = -0.04 }
+			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_stab = 0 }
+		}
+		else_if = {
+			limit = { check_variable = { dd_sov_ukr_stage = 7 } }
+			set_variable = { dd_sov_ukr_ws = 0.03 }
+			set_variable = { dd_sov_ukr_cg = 0.42 }
+			set_variable = { dd_sov_ukr_atk = -0.03 }
+			set_variable = { dd_sov_ukr_def = -0.05 }
+			set_variable = { dd_sov_ukr_rec = -0.04 }
+			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_stab = -0.04 }
+		}
+		else = {
+			set_variable = { dd_sov_ukr_ws = 0.03 }
+			set_variable = { dd_sov_ukr_cg = 0.54 }
+			set_variable = { dd_sov_ukr_atk = -0.03 }
+			set_variable = { dd_sov_ukr_def = -0.05 }
+			set_variable = { dd_sov_ukr_rec = -0.09 }
+			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_stab = -0.09 }
+		}
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = dd_sov_ukr_war } } }
+			add_dynamic_modifier = { modifier = dd_sov_ukr_war }
+		}
+		force_update_dynamic_modifier = yes
+		remove_ideas = dd_sov_ukr_0
+		remove_ideas = dd_sov_ukr_1
+		remove_ideas = dd_sov_ukr_2
+		remove_ideas = dd_sov_ukr_3
+		remove_ideas = dd_sov_ukr_4
+		remove_ideas = dd_sov_ukr_5
+		remove_ideas = dd_sov_ukr_6
+		remove_ideas = dd_sov_ukr_7
+		remove_ideas = dd_sov_ukr_8
+		remove_ideas = dd_sov_ukr_9
 	}
 	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 1 } }
-			NOT = { has_idea = dd_sov_ukr_1 }
-		}
-		add_ideas = dd_sov_ukr_1
-	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 2 } }
-			NOT = { has_idea = dd_sov_ukr_2 }
-		}
-		add_ideas = dd_sov_ukr_2
-	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 3 } }
-			NOT = { has_idea = dd_sov_ukr_3 }
-		}
-		add_ideas = dd_sov_ukr_3
-	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 4 } }
-			NOT = { has_idea = dd_sov_ukr_4 }
-		}
-		add_ideas = dd_sov_ukr_4
-	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 5 } }
-			NOT = { has_idea = dd_sov_ukr_5 }
-		}
-		add_ideas = dd_sov_ukr_5
-	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 6 } }
-			NOT = { has_idea = dd_sov_ukr_6 }
-		}
-		add_ideas = dd_sov_ukr_6
-	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 7 } }
-			NOT = { has_idea = dd_sov_ukr_7 }
-		}
-		add_ideas = dd_sov_ukr_7
-	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 8 } }
-			NOT = { has_idea = dd_sov_ukr_8 }
-		}
-		add_ideas = dd_sov_ukr_8
-	}
-	if = {
-		limit = {
-			NOT = { check_variable = { dd_sov_ukr_stage < 9 } }
-			NOT = { has_idea = dd_sov_ukr_9 }
-		}
-		add_ideas = dd_sov_ukr_9
-	}
-	if = {
-		limit = { NOT = { check_variable = { dd_sov_ukr_stage < 10 } } }
+		limit = { NOT = { check_variable = { dd_sov_ukr_stage < 9 } } }
 		dd_sov_ukr_surrender = yes
 	}
 	set_variable = { dd_sov_ukr_stage_applied = dd_sov_ukr_stage }
 }
 
-# February 2032. Ukrainian cores come home. Russia is not annexed.
+# February 2031. Russia capitulates. Ukraine gets a full victory conference.
+# Surrender progress cannot be set from script, and a winning war score blocks the diplomacy button.
 dd_sov_ukr_surrender = {
 	if = {
 		limit = {
@@ -378,31 +647,18 @@ dd_sov_ukr_surrender = {
 		}
 		set_country_flag = dd_sov_ukr_surrendered
 		set_country_flag = dd_sov_ukr_first_war_over
-		every_owned_state = {
-			limit = { is_core_of = UKR }
-			transfer_state_to = UKR
-		}
-		every_country = {
-			limit = {
-				OR = {
-					tag = ROOT
-					is_in_faction_with = ROOT
-				}
-			}
-			every_country = {
-				limit = {
-					has_war_with = PREV
-					OR = {
-						tag = UKR
-						is_in_faction_with = UKR
-					}
-				}
-				white_peace = PREV
-			}
-		}
 		dd_sov_ukr_clear = yes
 		country_event = { id = dd_sov_ukr.1 }
-		UKR = { country_event = { id = dd_sov_ukr.1 } }
+		UKR = {
+			country_event = { id = dd_sov_ukr.1 }
+			start_peace_conference = {
+				tag = ROOT
+				score_factor = 1
+				winner_scope = FACTION
+				loser_scope = FACTION
+				message = dd_sov_ukr_cap_tt
+			}
+		}
 	}
 }
 
@@ -452,13 +708,8 @@ dd_sov_ukr_sync = {
 		set_variable = { dd_sov_ukr_stage = 8 }
 		set_variable = { dd_sov_ukr_next_at = 108 }
 	}
-	else_if = {
-		limit = { check_variable = { dd_sov_ukr_months < 120 } }
-		set_variable = { dd_sov_ukr_stage = 9 }
-		set_variable = { dd_sov_ukr_next_at = 120 }
-	}
 	else = {
-		set_variable = { dd_sov_ukr_stage = 10 }
+		set_variable = { dd_sov_ukr_stage = 9 }
 		set_variable = { dd_sov_ukr_next_at = dd_sov_ukr_months }
 	}
 	set_variable = { dd_sov_ukr_year = dd_sov_ukr_stage }
@@ -486,7 +737,9 @@ dd_sov_ukr_monthly = {
 			else = {
 				add_to_variable = { dd_sov_ukr_months = 1 }
 			}
+			set_variable = { dd_sov_stage_before = dd_sov_ukr_stage_applied }
 			dd_sov_ukr_sync = yes
+			dd_sov_anger_month = yes
 		}
 		else_if = {
 			limit = { has_country_flag = dd_sov_ukr_clock }
@@ -512,7 +765,7 @@ dd_sov_damage_fuel_state = {
 # State scope. Puts a held fuel site back together.
 dd_sov_repair_fuel_state = {
 	if = {
-		limit = { is_controlled_by = SOV }
+		limit = { is_controlled_by = RUS }
 		if = {
 			limit = { fuel_silo > 0 }
 			repair_building = { type = fuel_silo amount = 1 }
@@ -525,10 +778,28 @@ dd_sov_repair_fuel_state = {
 	}
 }
 
+# Two fuel-fire stacks off. The cap stays where it is.
+dd_sov_fuel_clear_two = {
+	if = {
+		limit = { NOT = { has_variable = dd_sov_fuel } }
+		set_variable = { dd_sov_fuel = 0 }
+	}
+	add_to_variable = { dd_sov_fuel = -2 }
+	dd_sov_fuel_sync = yes
+}
+
 dd_sov_fuel_sync = {
 	if = {
 		limit = { NOT = { has_variable = dd_sov_fuel_cap } }
-		set_variable = { dd_sov_fuel_cap = 20 }
+		set_variable = { dd_sov_fuel_cap = 30 }
+	}
+	if = {
+		limit = { NOT = { has_variable = dd_sov_fuel_quiet } }
+		set_variable = { dd_sov_fuel_quiet = 21 }
+	}
+	if = {
+		limit = { has_country_flag = dd_sov_fuel_hardened }
+		set_variable = { dd_sov_fuel_quiet = 42 }
 	}
 	if = {
 		limit = { check_variable = { dd_sov_fuel > dd_sov_fuel_cap } }
@@ -560,10 +831,18 @@ dd_sov_fuel_sync = {
 	}
 }
 
+dd_sov_fuel_start_quiet = {
+	if = {
+		limit = { NOT = { has_variable = dd_sov_fuel_quiet } }
+		set_variable = { dd_sov_fuel_quiet = 21 }
+	}
+	set_variable = { dd_sov_fuel_cd = dd_sov_fuel_quiet }
+}
+
 dd_sov_fuel_apply_hit = {
 	if = {
 		limit = { NOT = { has_variable = dd_sov_fuel_cap } }
-		set_variable = { dd_sov_fuel_cap = 20 }
+		set_variable = { dd_sov_fuel_cap = 30 }
 	}
 	if = {
 		limit = { check_variable = { dd_sov_fuel < dd_sov_fuel_cap } }
@@ -587,60 +866,60 @@ dd_sov_fuel_check_bombs = {
 		if = {
 			limit = {
 				219 = {
-					is_controlled_by = SOV
+					is_controlled_by = RUS
 					days_since_last_strategic_bombing < 2
 				}
 			}
 			219 = { dd_sov_damage_fuel_state = yes }
-			set_variable = { dd_sov_fuel_cd = 21 }
+			dd_sov_fuel_start_quiet = yes
 			set_variable = { dd_sov_fuel_hit_amount = 1 }
 			dd_sov_fuel_apply_hit = yes
 		}
 		else_if = {
 			limit = {
 				254 = {
-					is_controlled_by = SOV
+					is_controlled_by = RUS
 					days_since_last_strategic_bombing < 2
 				}
 			}
 			254 = { dd_sov_damage_fuel_state = yes }
-			set_variable = { dd_sov_fuel_cd = 21 }
+			dd_sov_fuel_start_quiet = yes
 			set_variable = { dd_sov_fuel_hit_amount = 1 }
 			dd_sov_fuel_apply_hit = yes
 		}
 		else_if = {
 			limit = {
 				248 = {
-					is_controlled_by = SOV
+					is_controlled_by = RUS
 					days_since_last_strategic_bombing < 2
 				}
 			}
 			248 = { dd_sov_damage_fuel_state = yes }
-			set_variable = { dd_sov_fuel_cd = 21 }
+			dd_sov_fuel_start_quiet = yes
 			set_variable = { dd_sov_fuel_hit_amount = 1 }
 			dd_sov_fuel_apply_hit = yes
 		}
 		else_if = {
 			limit = {
 				218 = {
-					is_controlled_by = SOV
+					is_controlled_by = RUS
 					days_since_last_strategic_bombing < 2
 				}
 			}
 			218 = { dd_sov_damage_fuel_state = yes }
-			set_variable = { dd_sov_fuel_cd = 21 }
+			dd_sov_fuel_start_quiet = yes
 			set_variable = { dd_sov_fuel_hit_amount = 1 }
 			dd_sov_fuel_apply_hit = yes
 		}
 		else_if = {
 			limit = {
 				195 = {
-					is_controlled_by = SOV
+					is_controlled_by = RUS
 					days_since_last_strategic_bombing < 2
 				}
 			}
 			195 = { dd_sov_damage_fuel_state = yes }
-			set_variable = { dd_sov_fuel_cd = 21 }
+			dd_sov_fuel_start_quiet = yes
 			set_variable = { dd_sov_fuel_hit_amount = 1 }
 			dd_sov_fuel_apply_hit = yes
 		}
@@ -667,3 +946,253 @@ dd_sov_bop_center = {
 		set_value = 0
 	}
 }
+
+# State scope. A claimed Ukraine mission state we do not control counts as stalling.
+dd_sov_note_open_claim = {
+	if = {
+		limit = {
+			is_claimed_by = PREV
+			NOT = { is_controlled_by = PREV }
+		}
+		PREV = { set_country_flag = dd_sov_ukraine_stalling }
+	}
+}
+
+# Country scope. Ukrainian states from Protect Citizens Abroad and the Reconquista of Novorossiya.
+dd_sov_mark_ukraine_stall = {
+	clr_country_flag = dd_sov_ukraine_stalling
+	137 = { dd_sov_note_open_claim = yes }
+	192 = { dd_sov_note_open_claim = yes }
+	196 = { dd_sov_note_open_claim = yes }
+	197 = { dd_sov_note_open_claim = yes }
+	221 = { dd_sov_note_open_claim = yes }
+	225 = { dd_sov_note_open_claim = yes }
+	226 = { dd_sov_note_open_claim = yes }
+	227 = { dd_sov_note_open_claim = yes }
+	228 = { dd_sov_note_open_claim = yes }
+	1113 = { dd_sov_note_open_claim = yes }
+	1114 = { dd_sov_note_open_claim = yes }
+	1115 = { dd_sov_note_open_claim = yes }
+}
+
+# Monthly. Economic strain feeds communism. A stalled year, lost cores, and lost battles feed fascism.
+dd_sov_anger_month = {
+	if = {
+		limit = { has_war_with = UKR }
+		if = {
+			limit = {
+				check_variable = { dd_sov_ukr_stage > dd_sov_stage_before }
+				check_variable = { dd_sov_stage_before > -0.1 }
+			}
+			add_popularity = { ideology = fascism popularity = 0.03 }
+		}
+		if = {
+			limit = { has_variable = dd_sov_ukr_cg }
+			set_variable = { dd_sov_red_gain = dd_sov_ukr_cg }
+			multiply_variable = { dd_sov_red_gain = 0.02 }
+			add_popularity = { ideology = communism popularity = var:dd_sov_red_gain }
+			if = {
+				limit = { check_variable = { dd_sov_ukr_cg > 0.30 } }
+				set_variable = { dd_sov_red_direct = dd_sov_ukr_cg }
+				subtract_from_variable = { dd_sov_red_direct = 0.30 }
+				add_popularity = { ideology = communism popularity = var:dd_sov_red_direct }
+			}
+		}
+		set_variable = { dd_sov_cores_now = 0 }
+		every_core_state = {
+			limit = { is_owned_by = ROOT }
+			add_to_variable = { ROOT.dd_sov_cores_now = 1 }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_sov_cores_ready } }
+			set_variable = { dd_sov_cores_last = dd_sov_cores_now }
+			set_country_flag = dd_sov_cores_ready
+		}
+		else = {
+			if = {
+				limit = { check_variable = { dd_sov_cores_last > dd_sov_cores_now } }
+				set_variable = { dd_sov_cores_lost = dd_sov_cores_last }
+				subtract_from_variable = { dd_sov_cores_lost = dd_sov_cores_now }
+				multiply_variable = { dd_sov_cores_lost = 0.05 }
+				add_popularity = { ideology = fascism popularity = var:dd_sov_cores_lost }
+			}
+			set_variable = { dd_sov_cores_last = dd_sov_cores_now }
+		}
+		if = {
+			limit = { NOT = { has_variable = dd_sov_battles_lost } }
+			set_variable = { dd_sov_battles_lost = 0 }
+		}
+		if = {
+			limit = { NOT = { has_variable = dd_sov_lost_last } }
+			set_variable = { dd_sov_lost_last = 0 }
+		}
+		set_variable = { dd_sov_lost_month = dd_sov_battles_lost }
+		subtract_from_variable = { dd_sov_lost_month = dd_sov_lost_last }
+		set_variable = { dd_sov_lost_last = dd_sov_battles_lost }
+		if = {
+			limit = { check_variable = { dd_sov_lost_month > 0 } }
+			set_variable = { dd_sov_battle_gain = dd_sov_lost_month }
+			multiply_variable = { dd_sov_battle_gain = 0.0001 }
+			add_popularity = { ideology = fascism popularity = var:dd_sov_battle_gain }
+		}
+	}
+}
+
+# State scope. One militia if this city joined the Soviets.
+dd_sov_red_one_city = {
+	if = {
+		limit = { is_owned_by = PREV }
+		create_unit = {
+			division = "name = \"Soviet Militia\" division_template = \"Soviet Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			count = 1
+		}
+		PREV = { add_to_variable = { dd_sov_militia_spawned = 1 } }
+	}
+}
+
+# Revolter scope. Twenty-six free irregular divisions, one in each city that joined, the rest at the capital.
+dd_sov_red_spawn_militia = {
+	set_technology = { dd_irregulars = 1 }
+	division_template = {
+		name = "Soviet Militia"
+		regiments = {
+			irregular_infantry = { x = 0 y = 0 }
+			irregular_infantry = { x = 0 y = 1 }
+			irregular_infantry = { x = 0 y = 2 }
+			irregular_infantry = { x = 1 y = 0 }
+			irregular_infantry = { x = 1 y = 1 }
+			irregular_infantry = { x = 1 y = 2 }
+		}
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_cw6
+		amount = 13000
+	}
+	set_variable = { dd_sov_militia_spawned = 0 }
+	219 = { dd_sov_red_one_city = yes }
+	195 = { dd_sov_red_one_city = yes }
+	217 = { dd_sov_red_one_city = yes }
+	218 = { dd_sov_red_one_city = yes }
+	408 = { dd_sov_red_one_city = yes }
+	242 = { dd_sov_red_one_city = yes }
+	763 = { dd_sov_red_one_city = yes }
+	252 = { dd_sov_red_one_city = yes }
+	249 = { dd_sov_red_one_city = yes }
+	247 = { dd_sov_red_one_city = yes }
+	224 = { dd_sov_red_one_city = yes }
+	222 = { dd_sov_red_one_city = yes }
+	248 = { dd_sov_red_one_city = yes }
+	239 = { dd_sov_red_one_city = yes }
+	234 = { dd_sov_red_one_city = yes }
+	220 = { dd_sov_red_one_city = yes }
+	214 = { dd_sov_red_one_city = yes }
+	213 = { dd_sov_red_one_city = yes }
+	251 = { dd_sov_red_one_city = yes }
+	223 = { dd_sov_red_one_city = yes }
+	240 = { dd_sov_red_one_city = yes }
+	398 = { dd_sov_red_one_city = yes }
+	409 = { dd_sov_red_one_city = yes }
+	254 = { dd_sov_red_one_city = yes }
+	400 = { dd_sov_red_one_city = yes }
+	399 = { dd_sov_red_one_city = yes }
+	set_variable = { dd_sov_militia_left = 26 }
+	subtract_from_variable = { dd_sov_militia_left = dd_sov_militia_spawned }
+	while_loop_effect = {
+		limit = { check_variable = { dd_sov_militia_left > 0 } }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Soviet Militia\" division_template = \"Soviet Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+				owner = PREV
+				count = 1
+			}
+		}
+		subtract_from_variable = { dd_sov_militia_left = 1 }
+	}
+}
+
+# Revolter scope. The dynamic rebel is retagged onto the real SOV tag.
+dd_sov_red_born = {
+	set_politics = { ruling_party = communism elections_allowed = no }
+	add_popularity = { ideology = communism popularity = 0.50 }
+	create_country_leader = {
+		name = "Gennady Zyuganov"
+		desc = SOV_LEADER_DESC
+		picture = GFX_portrait_unknown
+		expire = "2065.1.1"
+		ideology = marxism
+	}
+	set_country_flag = dd_sov_red_revolt
+	dd_sov_red_spawn_militia = yes
+	if = {
+		limit = { RUS = { has_war_with = UKR } }
+		declare_war_on = {
+			target = UKR
+			type = annex_everything
+		}
+	}
+	SOV = { change_tag_from = PREV }
+	SOV = { every_owned_state = { add_core_of = SOV } }
+}
+
+dd_sov_red_war = {
+	if = {
+		limit = { 219 = { is_owned_and_controlled_by = ROOT } }
+		start_civil_war = {
+			ideology = communism
+			size = 0.3
+			army_ratio = 0.3
+			navy_ratio = 0.3
+			air_ratio = 0.3
+			capital = 219
+			states = { 219 195 217 218 408 242 763 252 249 247 224 222 248 239 234 220 214 213 251 223 240 398 409 254 400 399 }
+			states_filter = { is_owned_and_controlled_by = ROOT }
+			dd_sov_red_born = yes
+		}
+	}
+	else_if = {
+		limit = { 195 = { is_owned_and_controlled_by = ROOT } }
+		start_civil_war = {
+			ideology = communism
+			size = 0.3
+			army_ratio = 0.3
+			navy_ratio = 0.3
+			air_ratio = 0.3
+			capital = 195
+			states = { 219 195 217 218 408 242 763 252 249 247 224 222 248 239 234 220 214 213 251 223 240 398 409 254 400 399 }
+			states_filter = { is_owned_and_controlled_by = ROOT }
+			dd_sov_red_born = yes
+		}
+	}
+	else_if = {
+		limit = { 217 = { is_owned_and_controlled_by = ROOT } }
+		start_civil_war = {
+			ideology = communism
+			size = 0.3
+			army_ratio = 0.3
+			navy_ratio = 0.3
+			air_ratio = 0.3
+			capital = 217
+			states = { 219 195 217 218 408 242 763 252 249 247 224 222 248 239 234 220 214 213 251 223 240 398 409 254 400 399 }
+			states_filter = { is_owned_and_controlled_by = ROOT }
+			dd_sov_red_born = yes
+		}
+	}
+}
+
+dd_sov_approach_rosgvardia = {
+	if = {
+		limit = { check_variable = { party_popularity@fascism < 0.5 } }
+		set_variable = { dd_sov_fasc_need = 0.5 }
+		subtract_from_variable = { dd_sov_fasc_need = party_popularity@fascism }
+		add_popularity = { ideology = fascism popularity = var:dd_sov_fasc_need }
+	}
+	set_politics = { ruling_party = fascism elections_allowed = no }
+	create_country_leader = {
+		name = "Viktor Zolotov"
+		picture = GFX_portrait_unknown
+		expire = "2065.1.1"
+		ideology = fascism_ideology
+	}
+}
+

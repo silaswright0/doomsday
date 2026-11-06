@@ -140,11 +140,11 @@ dd_ukr_check_refinery_strike = {
 	if = {
 		limit = {
 			has_country_flag = dd_ukr_diesel_watch
-			has_war_with = SOV
+			has_war_with = RUS
 		}
 		every_state = {
 			limit = {
-				is_controlled_by = SOV
+				is_controlled_by = RUS
 				NOT = { is_core_of = UKR }
 				NOT = { any_neighbor_state = { is_controlled_by = UKR } }
 				OR = {
@@ -267,24 +267,24 @@ dd_ukr_seat_largest_party = {
 # Call from Ukraine's scope. ROOT may still be Russia, so the ally peace uses PREV.
 # Crimea, Donetsk, Luhansk, the Azov coast, and the left bank of Kherson go to Russia, plus any other Ukrainian state Russia still holds. Then the war stops.
 dd_ukr_freeze_the_war = {
-	137 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
-	227 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
-	228 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
-	1113 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
-	1114 = { if = { limit = { is_owned_by = UKR } transfer_state_to = SOV } }
+	137 = { if = { limit = { is_owned_by = UKR } transfer_state_to = RUS } }
+	227 = { if = { limit = { is_owned_by = UKR } transfer_state_to = RUS } }
+	228 = { if = { limit = { is_owned_by = UKR } transfer_state_to = RUS } }
+	1113 = { if = { limit = { is_owned_by = UKR } transfer_state_to = RUS } }
+	1114 = { if = { limit = { is_owned_by = UKR } transfer_state_to = RUS } }
 	every_owned_state = {
-		limit = { is_controlled_by = SOV }
-		transfer_state_to = SOV
+		limit = { is_controlled_by = RUS }
+		transfer_state_to = RUS
 	}
 	if = {
-		limit = { has_war_with = SOV }
-		white_peace = SOV
+		limit = { has_war_with = RUS }
+		white_peace = RUS
 	}
 	every_country = {
 		limit = {
-			is_in_faction_with = SOV
+			is_in_faction_with = RUS
 			has_war_with = PREV
-			NOT = { tag = SOV }
+			NOT = { tag = RUS }
 		}
 		white_peace = PREV
 	}
@@ -498,7 +498,7 @@ dd_ukr_russia_grid_strike = {
 dd_ukr_grid_check_bombs = {
 	if = {
 		limit = {
-			has_war_with = SOV
+			has_war_with = RUS
 			NOT = { has_country_flag = dd_ukr_grid_shield }
 			OR = {
 				check_variable = { dd_ukr_grid_cd < 1 }

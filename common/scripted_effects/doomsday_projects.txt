@@ -24,7 +24,7 @@ dd_grant_starting_projects = {
 			}
 		}
 	}
-	SOV = {
+	RUS = {
 		if = {
 			limit = { NOT = { has_country_flag = dd_sp_granted } }
 			set_country_flag = dd_sp_granted

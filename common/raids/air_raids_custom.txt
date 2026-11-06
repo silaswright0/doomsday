@@ -1485,9 +1485,9 @@ types = {
 		}
 
 		show_target = {
-			has_war_with = SOV
+			has_war_with = RUS
 			219 = {
-				is_owned_and_controlled_by = SOV
+				is_owned_and_controlled_by = RUS
 			}
 		}
 		available = {
@@ -3338,7 +3338,7 @@ types = {
 		fire_only_once = yes #We got one shot at this stunt
 
 		allowed = {
-			original_tag = SOV
+			original_tag = RUS
 			always = yes
 		}
 		visible = {
@@ -3352,7 +3352,7 @@ types = {
 		show_target = {
 			73 = { is_fully_controlled_by = CZE }
 		}
-		available = {	#only for tooltip purposes, for SOV to understand why this is showing
+		available = {	#only for tooltip purposes, for RUS to understand why this is showing
 			CZE = {
 				has_completed_focus = CZE_airlift_soviet_support
 			}
