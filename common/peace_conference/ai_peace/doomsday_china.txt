@@ -1,0 +1,50 @@
+# Chinese civil war winners annex Chinese states.
+# The base game already tells Beijing not to release a country on a Chinese core.
+# The breakaway tags were missing from that list, so the peace deal released Guangxi, Shanxi, Yunnan, and the rest.
+
+peace_ai_desires = {
+	dd_chi_do_not_release = {
+		peace_action_type = { liberate puppet force_government }
+		enable = {
+			FROM.FROM.FROM = {
+				is_core_of = CHI
+			}
+			ROOT = {
+				OR = {
+					original_tag = CHI
+					original_tag = FRC
+					original_tag = NLC
+					original_tag = SBC
+					original_tag = CMJ
+					original_tag = CDW
+					original_tag = XIJ
+				}
+			}
+		}
+		ai_desire = -1000
+	}
+
+	dd_chi_take_the_land = {
+		peace_action_type = { take_states }
+		enable = {
+			FROM.FROM.FROM = {
+				is_core_of = CHI
+			}
+			FROM = {
+				tag = ROOT
+			}
+			ROOT = {
+				OR = {
+					original_tag = CHI
+					original_tag = FRC
+					original_tag = NLC
+					original_tag = SBC
+					original_tag = CMJ
+					original_tag = CDW
+					original_tag = XIJ
+				}
+			}
+		}
+		ai_desire = 400
+	}
+}

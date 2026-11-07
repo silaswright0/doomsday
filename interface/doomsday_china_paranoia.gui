@@ -10,7 +10,8 @@ guiTypes = {
 	containerWindowType = {
 		name = "dd_chi_paranoia_window"
 		position = { x = 0 y = 0 }
-		size = { width = 100% height = 400 }
+		size = { width = 100% height = 480 }
+		clipping = no
 
 		iconType = {
 			name = "paranoia_main_bg"
@@ -37,48 +38,44 @@ guiTypes = {
 			text = "dd_chi_paranoia_value_text"
 			format = center
 			maxWidth = 400
-			pdx_tooltip = dd_chi_paranoia_text_tt
 		}
 
-		instantTextBoxType = {
-			name = "paranoia_tooltip"
-			position = { x = @PARANOIA_PARANOIAMETER_BG_X y = @PARANOIA_PARANOIAMETER_BG_Y }
-			maxwidth = 230
-			maxHeight = 185
-			pdx_tooltip = dd_chi_paranoia_text_tt
-		}
+		containerWindowType = {
+			name = "dd_chi_confidence_block"
+			position = { x = 0 y = 268 }
+			size = { width = 500 height = 200 }
 
-		instantTextBoxType = {
-			name = "dd_chi_confidence_text"
-			position = { x = 50 y = 214 }
-			font = "hoi_18mbs"
-			text = "dd_chi_confidence_value_text"
-			format = center
-			maxWidth = 400
-			pdx_tooltip = dd_chi_confidence_tt
-		}
+			instantTextBoxType = {
+				name = "dd_chi_confidence_text"
+				position = { x = 50 y = 0 }
+				font = "hoi_18mbs"
+				text = "dd_chi_confidence_value_text"
+				format = center
+				maxWidth = 400
+			}
 
-		iconType = {
-			name = "dd_chi_confidence_track"
-			spriteType = "GFX_dd_chi_confidence_track"
-			position = { x = 50 y = 240 }
-		}
+			iconType = {
+				name = "dd_chi_confidence_track"
+				spriteType = "GFX_dd_chi_confidence_track"
+				position = { x = 50 y = 26 }
+			}
 
-		iconType = {
-			name = "dd_chi_confidence_bar"
-			spriteType = "GFX_dd_chi_confidence_bar"
-			position = { x = 54 y = 244 }
-		}
+			iconType = {
+				name = "dd_chi_confidence_bar"
+				spriteType = "GFX_dd_chi_confidence_bar"
+				position = { x = 54 y = 30 }
+				frame = 20
+			}
 
-		instantTextBoxType = {
-			name = "dd_chi_confidence_warning"
-			position = { x = 40 y = 268 }
-			font = "hoi_16mbs"
-			text = "dd_chi_confidence_warning"
-			format = left
-			maxWidth = 420
-			maxHeight = 120
-			pdx_tooltip = dd_chi_confidence_warning_tt
+			instantTextBoxType = {
+				name = "dd_chi_confidence_warning"
+				position = { x = 40 y = 56 }
+				font = "hoi_16mbs"
+				text = "dd_chi_confidence_warning"
+				format = left
+				maxWidth = 420
+				maxHeight = 130
+			}
 		}
 	}
 }

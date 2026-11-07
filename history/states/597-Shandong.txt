@@ -20,16 +20,19 @@ state = {
 		owner = CHI
 		add_extra_state_shared_building_slots = 7
 		add_core_of = CHI
-		add_core_of = PRC
 
 
-		victory_points = {
-			1104 2 # Yantai
+		victory_points = { # Yantai
+			1104 12
 		}
 
 		victory_points = {
 			4205 1 # Weihaiwei
 		}
+		victory_points = { # Weifang
+			12074 12
+		}
+
 
 		buildings = {
 			dockyard = 2

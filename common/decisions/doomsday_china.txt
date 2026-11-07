@@ -1,84 +1,15 @@
-dd_chi_paranoia_category = {
-	dd_chi_review_dossiers = {
-		icon = generic_political_discourse
-		allowed = { original_tag = CHI }
-		cost = 25
-		days_re_enable = 35
-		ai_will_do = { factor = 4 }
-		available = {
-			check_variable = { dd_chi_paranoia > 5 }
-		}
-		complete_effect = {
-			custom_effect_tooltip = CHI_para_minus_8_tt
-			hidden_effect = {
-				add_to_variable = { dd_chi_paranoia = -8 }
-				dd_chi_paranoia_sync = yes
-			}
-		}
-	}
-
-	dd_chi_loyalty_campaign = {
-		icon = generic_propaganda
-		allowed = { original_tag = CHI }
-		cost = 50
-		days_re_enable = 70
-		ai_will_do = { factor = 3 }
-		available = {
-			check_variable = { dd_chi_paranoia > 15 }
-		}
-		complete_effect = {
-			custom_effect_tooltip = CHI_para_minus_15_tt
-			hidden_effect = {
-				add_to_variable = { dd_chi_paranoia = -15 }
-				dd_chi_paranoia_sync = yes
-			}
-		}
-	}
-
-	dd_chi_stage_a_purge = {
-		icon = generic_political_actions
-		allowed = { original_tag = CHI }
-		cost = 100
-		days_re_enable = 120
-		ai_will_do = { factor = 0 }
-		available = {
-			check_variable = { dd_chi_paranoia > 30 }
-		}
-		complete_effect = {
-			add_stability = -0.06
-			dd_chi_begin_purge = yes
-			custom_effect_tooltip = CHI_para_minus_25_tt
-			hidden_effect = {
-				add_to_variable = { dd_chi_paranoia = -25 }
-				dd_chi_paranoia_sync = yes
-			}
-		}
-	}
-
-	dd_chi_dismiss_wang = {
-		icon = generic_army_support
-		allowed = { original_tag = CHI }
-		cost = 50
-		ai_will_do = { factor = 0 }
-		visible = { has_character = CHI_wang_houbin }
-		available = { has_character = CHI_wang_houbin }
-		complete_effect = {
-			add_stability = -0.03
-			dd_chi_begin_purge = yes
-			retire_character = CHI_wang_houbin
-			custom_effect_tooltip = CHI_para_minus_20_tt
-			hidden_effect = {
-				add_to_variable = { dd_chi_paranoia = -20 }
-				dd_chi_paranoia_sync = yes
-			}
-		}
-	}
-}
-
 dd_chi_bop_category = {
 	dd_chi_rally_loyalists = {
 		icon = generic_political_discourse
-		allowed = { original_tag = CHI }
+		allowed = {
+			OR = {
+				original_tag = CHI
+				original_tag = FRC
+				original_tag = NLC
+				original_tag = SBC
+				original_tag = CMJ
+			}
+		}
 		cost = 50
 		days_re_enable = 70
 		ai_will_do = { factor = 0 }
@@ -93,7 +24,15 @@ dd_chi_bop_category = {
 
 	dd_chi_back_the_planners = {
 		icon = generic_industry
-		allowed = { original_tag = CHI }
+		allowed = {
+			OR = {
+				original_tag = CHI
+				original_tag = FRC
+				original_tag = NLC
+				original_tag = SBC
+				original_tag = CMJ
+			}
+		}
 		cost = 50
 		days_re_enable = 70
 		ai_will_do = { factor = 0 }
@@ -103,6 +42,117 @@ dd_chi_bop_category = {
 		}
 		complete_effect = {
 			dd_chi_bop_technocrat = yes
+		}
+	}
+}
+
+dd_chi_cw_category = {
+	dd_chi_manual_civil_war = {
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = CHI }
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			NOT = { has_global_flag = dd_chi_civil_war_started }
+			NOT = { has_country_flag = dd_chi_civil_war }
+			NOT = { has_country_flag = dd_chi_security_seized }
+		}
+		complete_effect = {
+			set_country_flag = dd_chi_civil_war_pending
+			country_event = { id = dd_chi_cw.1 }
+		}
+	}
+}
+
+dd_chi_strait_category = {
+	dd_chi_taiwan_countdown = {
+		icon = generic_naval
+		priority = 100
+		allowed = {
+			OR = {
+				original_tag = CHI
+				original_tag = FOR
+			}
+		}
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 180
+		is_good = no
+		activation = { always = no }
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = dd_chi_taiwan_clock_running }
+				AND = {
+					tag = CHI
+					NOT = { has_war_with = FOR }
+				}
+				AND = {
+					tag = FOR
+					NOT = { has_war_with = CHI }
+				}
+			}
+		}
+		timeout_effect = {
+			dd_chi_strait_ceasefire = yes
+		}
+		cancel_effect = {
+			clr_country_flag = dd_chi_taiwan_clock_running
+		}
+		ai_will_do = { factor = 0 }
+	}
+}
+
+dd_chi_rev_category = {
+	dd_chi_rev_prepare = {
+		icon = generic_prepare_civil_war
+		allowed = {
+			OR = {
+				original_tag = FRC
+				original_tag = NLC
+			}
+		}
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+		target_root_trigger = { dd_chi_rev_unlocked = yes }
+		target_trigger = {
+			FROM = { dd_chi_rev_state_open = yes }
+		}
+		visible = { dd_chi_rev_unlocked = yes }
+		available = {
+			has_equipment = { infantry_equipment > 1999 }
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_chi_rev_prepare_state = yes
+		}
+	}
+
+	dd_chi_rev_rise = {
+		icon = generic_civil_support
+		allowed = {
+			OR = {
+				original_tag = FRC
+				original_tag = NLC
+			}
+		}
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+		target_root_trigger = { dd_chi_rev_unlocked = yes }
+		target_trigger = {
+			FROM = { dd_chi_rev_state_ready = yes }
+		}
+		visible = { dd_chi_rev_unlocked = yes }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_chi_rev_wait_ready_tt
+				dd_chi_rev_wait_done = yes
+			}
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			dd_chi_rev_raise_cells = yes
 		}
 	}
 }

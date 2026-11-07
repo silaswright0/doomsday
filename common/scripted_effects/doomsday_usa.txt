@@ -4035,14 +4035,6 @@ dd_usa_cw_finish_tag = {
 			clr_global_flag = dd_usa_tag_drop_pending
 		}
 	}
-	every_country = {
-		limit = {
-			has_country_flag = dd_usa_ruins_pending
-			NOT = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } }
-		}
-		add_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
-		clr_country_flag = dd_usa_ruins_pending
-	}
 }
 
 # Election winner takes their faction tag. The player is moved first. USA is removed the next day, and only if nobody is still playing it.

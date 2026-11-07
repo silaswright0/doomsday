@@ -17,6 +17,65 @@ dd_chi_border_category = {
 dd_chi_bop_category = {
 	icon = generic_political_discourse
 	priority = 110
-	allowed = { original_tag = CHI }
+	allowed = {
+		OR = {
+			original_tag = CHI
+			original_tag = FRC
+			original_tag = NLC
+			original_tag = SBC
+			original_tag = CMJ
+		}
+	}
 	visible = { has_power_balance = { id = CHI_party_balance } }
+}
+
+dd_chi_cw_category = {
+	icon = generic_prepare_civil_war
+	picture = GFX_decision_cat_picture_generic_border_conflicts
+	priority = 70
+	allowed = { original_tag = CHI }
+	visible = {
+		NOT = { has_global_flag = dd_chi_civil_war_started }
+		NOT = { has_country_flag = dd_chi_security_seized }
+	}
+}
+
+dd_chi_rev_category = {
+	icon = generic_prepare_civil_war
+	picture = GFX_decision_cat_picture_generic_border_conflicts
+	priority = 120
+	allowed = {
+		OR = {
+			original_tag = FRC
+			original_tag = NLC
+		}
+	}
+	visible = { dd_chi_rev_unlocked = yes }
+	highlight_states = {
+		highlight_states_trigger = {
+			OR = {
+				AND = {
+					ROOT = { original_tag = FRC }
+					has_state_flag = dd_frc_rev_prep
+				}
+				AND = {
+					ROOT = { original_tag = NLC }
+					has_state_flag = dd_nlc_rev_prep
+				}
+			}
+		}
+	}
+}
+
+dd_chi_strait_category = {
+	icon = generic_naval
+	picture = GFX_decision_cat_picture_generic_border_conflicts
+	priority = 95
+	allowed = {
+		OR = {
+			original_tag = CHI
+			original_tag = FOR
+		}
+	}
+	visible = { has_country_flag = dd_chi_taiwan_clock_running }
 }

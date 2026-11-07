@@ -355,6 +355,7 @@ set_technology = {
 	modern_ship_torpedo_launcher = 1
 	modern_sonar = 1
 	dd_lt_1 = 1
+	dd_irregulars = 1
 }
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 700 producer = KAC }
 add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 16 producer = KAC }
@@ -378,6 +379,7 @@ add_ideas = limited_conscription
 add_ideas = free_trade
 add_ideas = war_economy
 add_ideas = dd_kac_jade
+add_ideas = dd_no_recognition
 set_politics = {
 	ruling_party = national_populism
 	last_election = "2024.1.1"

@@ -16,7 +16,6 @@ state = {
 		owner = CHI
 		add_extra_state_shared_building_slots = 4
 		add_core_of = CHI
-		add_core_of = PRC
 
 		buildings = {
 			arms_factory = 0
@@ -29,12 +28,12 @@ state = {
 			}
 		}
 
-		victory_points = {
-			10076 3 # Suzhou
+		victory_points = { # Suzhou
+			10076 20
 		}
 
-		victory_points = {
-			4091 1 # Nantong
+		victory_points = { # Nantong
+			4091 12
 		}
 
 	}

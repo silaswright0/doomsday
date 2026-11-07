@@ -128,9 +128,20 @@ on_actions = {
 
 	on_daily = {
 		effect = {
-			dd_usa_cw_strip_diplomacy = yes
-			dd_usa_cw_finish_tag = yes
-			every_country = {
+			# This fires once per country. Do the work on that country. Do not scan the world from here.
+			if = {
+				limit = { has_idea = dd_usa_civil_war_cause }
+				dd_usa_cw_strip_diplomacy = yes
+			}
+			if = {
+				limit = {
+					has_country_flag = dd_usa_ruins_pending
+					NOT = { has_dynamic_modifier = { modifier = dd_usa_nation_in_ruins } }
+				}
+				add_dynamic_modifier = { modifier = dd_usa_nation_in_ruins }
+				clr_country_flag = dd_usa_ruins_pending
+			}
+			if = {
 				limit = {
 					has_country_flag = dd_usa_services_wanted
 					NOT = { has_dynamic_modifier = { modifier = dd_usa_armed_forces_dyn } }
@@ -141,6 +152,7 @@ on_actions = {
 	}
 	on_daily_USA = {
 		effect = {
+			dd_usa_cw_finish_tag = yes
 			dd_usa_sync_tucker = yes
 			if = {
 				limit = {

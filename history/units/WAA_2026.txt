@@ -1,5 +1,7 @@
+# United Wa State Army. Two standing brigades with artillery and anti-air,
+# a militia brigade, and a small Chinese-kit armor column. Not a tank brigade.
 division_template = {
-	name = "Infantry Division"
+	name = "Wa Brigade"
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -7,9 +9,6 @@ division_template = {
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
@@ -19,48 +18,53 @@ division_template = {
 	is_locked = yes
 }
 division_template = {
-	name = "Armored Brigade"
+	name = "Wa Militia"
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Wa Armored Column"
 	regiments = {
 		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1 }
-		light_armor = { x = 0 y = 2 }
-		light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1 }
-		light_armor = { x = 1 y = 2 }
 	}
 	support = {
 		artillery = { x = 0 y = 0 }
-		anti_air = { x = 0 y = 1 }
 	}
 	is_locked = yes
 }
 units = {
 	division = {
-		name = "1st Wa Division"
+		name = "1st Wa Brigade"
 		location = 7909
-		division_template = "Infantry Division"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "Wa Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.9
 	}
 	division = {
-		name = "2nd Wa Division"
-		location = 7909
-		division_template = "Infantry Division"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "2nd Wa Brigade"
+		location = 4175
+		division_template = "Wa Brigade"
+		start_experience_factor = 0.35
+		start_equipment_factor = 0.85
 	}
 	division = {
-		name = "3rd Wa Division"
-		location = 7909
-		division_template = "Infantry Division"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "Wa Militia"
+		location = 7400
+		division_template = "Wa Militia"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
 	}
 	division = {
-		name = "Wa Armored Brigade"
+		name = "Wa Armored Column"
 		location = 7909
-		division_template = "Armored Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "Wa Armored Column"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.55
 	}
 }

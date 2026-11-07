@@ -1,0 +1,64 @@
+# Revolution cells for the Federal Republic and the New Left.
+# Country scope unless noted. No random.
+
+dd_chi_rev_unlocked = {
+	has_global_flag = dd_chi_civil_war_started
+	OR = {
+		AND = {
+			original_tag = FRC
+			has_completed_focus = CHI_federal_republic
+		}
+		AND = {
+			original_tag = NLC
+			has_completed_focus = CHI_new_left
+		}
+	}
+}
+
+# State scope. ROOT is the country choosing the state.
+dd_chi_rev_state_open = {
+	OR = {
+		is_core_of = CHI
+		is_claimed_by = CHI
+	}
+	OR = {
+		AND = {
+			ROOT = { original_tag = FRC }
+			NOT = { has_state_flag = dd_frc_rev_prep }
+		}
+		AND = {
+			ROOT = { original_tag = NLC }
+			NOT = { has_state_flag = dd_nlc_rev_prep }
+		}
+	}
+}
+
+# State scope. Prepared, and the cells have not been raised. The 60-day wait is separate.
+dd_chi_rev_state_ready = {
+	OR = {
+		AND = {
+			ROOT = { original_tag = FRC }
+			has_state_flag = dd_frc_rev_prep
+			NOT = { has_state_flag = dd_frc_rev_risen }
+		}
+		AND = {
+			ROOT = { original_tag = NLC }
+			has_state_flag = dd_nlc_rev_prep
+			NOT = { has_state_flag = dd_nlc_rev_risen }
+		}
+	}
+}
+
+# Country scope, FROM is the state. The wait flag lasts 60 days.
+dd_chi_rev_wait_done = {
+	OR = {
+		AND = {
+			original_tag = FRC
+			FROM = { NOT = { has_state_flag = dd_frc_rev_wait } }
+		}
+		AND = {
+			original_tag = NLC
+			FROM = { NOT = { has_state_flag = dd_nlc_rev_wait } }
+		}
+	}
+}

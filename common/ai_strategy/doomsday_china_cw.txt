@@ -1,0 +1,94 @@
+# Chinese civil war. Beijing is the rival of every splinter.
+# The splinters do not open wars on each other.
+
+dd_frc_vs_beijing = {
+	allowed = { original_tag = FRC }
+	enable = { has_war_with = CHI }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CHI value = 400 }
+	ai_strategy = { type = antagonize id = CHI value = 200 }
+	ai_strategy = { type = declare_war id = NLC value = -400 }
+	ai_strategy = { type = declare_war id = SBC value = -400 }
+	ai_strategy = { type = declare_war id = CMJ value = -400 }
+	ai_strategy = { type = declare_war id = CDW value = -400 }
+	ai_strategy = { type = declare_war id = XIJ value = -400 }
+}
+
+dd_nlc_vs_beijing = {
+	allowed = { original_tag = NLC }
+	enable = { has_war_with = CHI }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CHI value = 400 }
+	ai_strategy = { type = antagonize id = CHI value = 200 }
+	ai_strategy = { type = declare_war id = FRC value = -400 }
+	ai_strategy = { type = declare_war id = SBC value = -400 }
+	ai_strategy = { type = declare_war id = CMJ value = -400 }
+	ai_strategy = { type = declare_war id = CDW value = -400 }
+	ai_strategy = { type = declare_war id = XIJ value = -400 }
+}
+
+dd_sbc_vs_beijing = {
+	allowed = { original_tag = SBC }
+	enable = { has_war_with = CHI }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CHI value = 400 }
+	ai_strategy = { type = antagonize id = CHI value = 200 }
+	ai_strategy = { type = declare_war id = FRC value = -400 }
+	ai_strategy = { type = declare_war id = NLC value = -400 }
+	ai_strategy = { type = declare_war id = CMJ value = -400 }
+	ai_strategy = { type = declare_war id = CDW value = -400 }
+	ai_strategy = { type = declare_war id = XIJ value = -400 }
+}
+
+dd_cmj_vs_beijing = {
+	allowed = { original_tag = CMJ }
+	enable = { has_war_with = CHI }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CHI value = 400 }
+	ai_strategy = { type = antagonize id = CHI value = 200 }
+	ai_strategy = { type = declare_war id = FRC value = -400 }
+	ai_strategy = { type = declare_war id = NLC value = -400 }
+	ai_strategy = { type = declare_war id = SBC value = -400 }
+	ai_strategy = { type = declare_war id = CDW value = -400 }
+	ai_strategy = { type = declare_war id = XIJ value = -400 }
+}
+
+dd_cdw_vs_beijing = {
+	allowed = { original_tag = CDW }
+	enable = { has_war_with = CHI }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CHI value = 400 }
+	ai_strategy = { type = antagonize id = CHI value = 200 }
+	ai_strategy = { type = declare_war id = FRC value = -400 }
+	ai_strategy = { type = declare_war id = NLC value = -400 }
+	ai_strategy = { type = declare_war id = SBC value = -400 }
+	ai_strategy = { type = declare_war id = CMJ value = -400 }
+	ai_strategy = { type = declare_war id = XIJ value = -400 }
+}
+
+dd_xij_vs_beijing = {
+	allowed = { original_tag = XIJ }
+	enable = { has_war_with = CHI }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CHI value = 400 }
+	ai_strategy = { type = antagonize id = CHI value = 200 }
+	ai_strategy = { type = declare_war id = FRC value = -400 }
+	ai_strategy = { type = declare_war id = NLC value = -400 }
+	ai_strategy = { type = declare_war id = SBC value = -400 }
+	ai_strategy = { type = declare_war id = CMJ value = -400 }
+	ai_strategy = { type = declare_war id = CDW value = -400 }
+}
+
+# The junta took the largest share, so Beijing treats it as the main front.
+dd_chi_hold_the_north = {
+	allowed = { original_tag = CHI }
+	enable = { has_country_flag = dd_chi_civil_war }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = conquer id = CMJ value = 400 }
+	ai_strategy = { type = antagonize id = CMJ value = 200 }
+	ai_strategy = { type = conquer id = FRC value = 200 }
+	ai_strategy = { type = conquer id = NLC value = 200 }
+	ai_strategy = { type = conquer id = SBC value = 200 }
+	ai_strategy = { type = conquer id = CDW value = 200 }
+	ai_strategy = { type = conquer id = XIJ value = 200 }
+}

@@ -1,6 +1,8 @@
-# Doomsday 2026 OOB. Generated. Locked templates match ai_templates.
+# Tatmadaw, early 2026. The light infantry divisions are hollow, so the field army
+# is four brigades, a mountain brigade, and a penny-packet armor column around the capital.
+# Pyusawhti and the people's militia are irregular territorial troops.
 division_template = {
-	name = "Infantry Division"
+	name = "Light Infantry Brigade"
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -8,9 +10,6 @@ division_template = {
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
@@ -32,203 +31,131 @@ division_template = {
 	is_locked = yes
 }
 division_template = {
-	name = "Armored Division"
-	regiments = {
-		modern_armor = { x = 0 y = 0 }
-		modern_armor = { x = 0 y = 1 }
-		modern_armor = { x = 0 y = 2 }
-		mechanized = { x = 1 y = 0 }
-		mechanized = { x = 1 y = 1 }
-		mechanized = { x = 1 y = 2 }
-		mechanized = { x = 2 y = 0 }
-		mechanized = { x = 2 y = 1 }
-		mechanized = { x = 2 y = 2 }
-	}
-	support = {
-		engineer = { x = 0 y = 0 }
-		artillery = { x = 0 y = 1 }
-	}
-	is_locked = yes
-}
-division_template = {
-	name = "Mechanized Brigade"
-	regiments = {
-		mechanized = { x = 0 y = 0 }
-		mechanized = { x = 0 y = 1 }
-		mechanized = { x = 0 y = 2 }
-		mechanized = { x = 1 y = 0 }
-		mechanized = { x = 1 y = 1 }
-		mechanized = { x = 1 y = 2 }
-	}
-	support = {
-		engineer = { x = 0 y = 0 }
-		artillery = { x = 0 y = 1 }
-	}
-	is_locked = yes
-}
-division_template = {
-	name = "Mountain Division"
+	name = "Mountain Brigade"
 	regiments = {
 		mountaineers = { x = 0 y = 0 }
 		mountaineers = { x = 0 y = 1 }
-		mountaineers = { x = 0 y = 2 }
 		mountaineers = { x = 1 y = 0 }
 		mountaineers = { x = 1 y = 1 }
-		mountaineers = { x = 1 y = 2 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
-		artillery = { x = 0 y = 1 }
 	}
 	is_locked = yes
 }
 division_template = {
-	name = "Marine Division"
+	name = "Armored Column"
 	regiments = {
-		marine = { x = 0 y = 0 }
-		marine = { x = 0 y = 1 }
-		marine = { x = 0 y = 2 }
-		marine = { x = 1 y = 0 }
-		marine = { x = 1 y = 1 }
-		marine = { x = 1 y = 2 }
+		light_armor = { x = 0 y = 0 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
-		artillery = { x = 0 y = 1 }
 	}
 	is_locked = yes
 }
 division_template = {
 	name = "Militia Brigade"
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
 	}
 	is_locked = yes
 }
 units = {
 	division = {
-		name = "1st Infantry Division"
-		location = 1330
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "2nd Infantry Division"
+		name = "1st Light Infantry Brigade"
 		location = 1492
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
+		division_template = "Light Infantry Brigade"
+		start_experience_factor = 0.32
+		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "3rd Infantry Division"
+		name = "2nd Light Infantry Brigade"
 		location = 1330
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
+		division_template = "Light Infantry Brigade"
+		start_experience_factor = 0.32
+		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "4th Infantry Division"
-		location = 1492
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "5th Infantry Division"
+		name = "3rd Light Infantry Brigade"
 		location = 10344
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
+		division_template = "Light Infantry Brigade"
+		start_experience_factor = 0.32
+		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "6th Infantry Division"
+		name = "4th Light Infantry Brigade"
 		location = 7254
-		division_template = "Infantry Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
+		division_template = "Light Infantry Brigade"
+		start_experience_factor = 0.32
+		start_equipment_factor = 0.8
 	}
 	division = {
-		name = "1st Armored Division"
-		location = 1330
-		division_template = "Armored Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
+		name = "Naypyidaw Armored Column"
+		location = 10344
+		division_template = "Armored Column"
+		start_experience_factor = 0.25
+		start_equipment_factor = 0.5
 	}
 	division = {
-		name = "1st Mechanized Brigade"
+		name = "Northern Mountain Brigade"
 		location = 1492
-		division_template = "Mechanized Brigade"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.28
+		start_equipment_factor = 0.75
 	}
 	division = {
-		name = "1st Mountain Division"
+		name = "Yangon Garrison"
 		location = 1330
-		division_template = "Mountain Division"
-		start_experience_factor = 0.40
-		start_equipment_factor = 1.0
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
 	}
 	division = {
-		name = "1st Militia Brigade"
+		name = "Mandalay Garrison"
+		location = 1492
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "Irrawaddy Garrison"
+		location = 7254
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "Yangon Pyusawhti"
+		location = 1330
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.45
+	}
+	division = {
+		name = "Mandalay Pyusawhti"
 		location = 1492
 		division_template = "Militia Brigade"
-		start_experience_factor = 0.15
-		start_equipment_factor = 1.0
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.45
 	}
 	division = {
-		name = "2nd Militia Brigade"
+		name = "Taungoo Pyusawhti"
 		location = 10344
 		division_template = "Militia Brigade"
-		start_experience_factor = 0.15
-		start_equipment_factor = 1.0
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.45
 	}
 	division = {
-		name = "3rd Militia Brigade"
+		name = "Bassein Pyusawhti"
 		location = 7254
 		division_template = "Militia Brigade"
-		start_experience_factor = 0.15
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "4th Militia Brigade"
-		location = 1330
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.15
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "1st Garrison Brigade"
-		location = 1492
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "2nd Garrison Brigade"
-		location = 1330
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "3rd Garrison Brigade"
-		location = 1492
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
-		start_equipment_factor = 1.0
-	}
-	division = {
-		name = "4th Garrison Brigade"
-		location = 10344
-		division_template = "Garrison Brigade"
-		start_experience_factor = 0.28
-		start_equipment_factor = 1.0
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.45
 	}
 }
 air_wings = {

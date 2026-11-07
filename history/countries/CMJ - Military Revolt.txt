@@ -1,4 +1,4 @@
-# Military Revolt - landless until the Chinese regime breaks
+# Chinese Guard - landless until the Chinese regime breaks
 capital = 1035
 oob = "DOOMSDAY_EMPTY"
 set_research_slots = 3
@@ -370,7 +370,7 @@ set_variable = { debt = 0 }
 set_variable = { treasury = 8 }
 set_variable = { dd_prod = 1 }
 create_country_leader = {
-	name = "Military Revolt"
+	name = "Chinese Guard"
 	picture = GFX_portrait_unknown
 	ideology = junta
 }

@@ -1,5 +1,7 @@
+# NUG on the Magway front. One trained PDF brigade and a technical column.
+# The rest are local defence columns: irregulars, short of guns.
 division_template = {
-	name = "Infantry Division"
+	name = "PDF Brigade"
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -7,81 +9,73 @@ division_template = {
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
-		artillery = { x = 0 y = 1 }
 	}
 	is_locked = yes
 }
 division_template = {
-	name = "Militia Brigade"
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-	}
-	is_locked = yes
-}
-division_template = {
-	name = "Light Motorized"
+	name = "Technical Column"
 	regiments = {
 		armored_car = { x = 0 y = 0 }
 		armored_car = { x = 0 y = 1 }
-		armored_car = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Irregular Column"
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
 	}
 	is_locked = yes
 }
 units = {
 	division = {
-		name = "1st Peoples Defence Brigade"
+		name = "1st PDF Brigade"
 		location = 4202
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "PDF Brigade"
+		start_experience_factor = 0.25
+		start_equipment_factor = 0.6
 	}
 	division = {
-		name = "2nd Peoples Defence Brigade"
+		name = "Anyar Technical Column"
 		location = 4202
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "Technical Column"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.55
 	}
 	division = {
-		name = "3rd Peoples Defence Brigade"
-		location = 4202
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "Yenangyaung Column"
+		location = 3999
+		division_template = "Irregular Column"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.4
 	}
 	division = {
-		name = "4th Peoples Defence Brigade"
-		location = 4202
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "Pakokku Column"
+		location = 4454
+		division_template = "Irregular Column"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.4
 	}
 	division = {
-		name = "1st Light Motorized"
-		location = 4202
-		division_template = "Light Motorized"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "Chauk Column"
+		location = 4541
+		division_template = "Irregular Column"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.4
 	}
 	division = {
-		name = "2nd Light Motorized"
-		location = 4202
-		division_template = "Light Motorized"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "Minbu Column"
+		location = 7034
+		division_template = "Irregular Column"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.4
 	}
 }

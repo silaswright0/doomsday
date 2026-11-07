@@ -14,6 +14,32 @@ defined_text = {
 }
 
 defined_text = {
+	name = CHIGetConfidenceColor
+	text = {
+		trigger = { check_variable = { dd_chi_confidence > 69 } }
+		localization_key = dd_chi_color_green
+	}
+	text = {
+		trigger = { check_variable = { dd_chi_confidence > 39 } }
+		localization_key = dd_chi_color_yellow
+	}
+	text = {
+		localization_key = dd_chi_color_red
+	}
+}
+
+defined_text = {
+	name = CHIGetConfidenceTip
+	text = {
+		trigger = { check_variable = { dd_chi_confidence > 99.9 } }
+		localization_key = dd_chi_confidence_tt_full
+	}
+	text = {
+		localization_key = dd_chi_confidence_tt_low
+	}
+}
+
+defined_text = {
 	name = CHIGetParanoiaGain
 	text = {
 		trigger = { has_country_flag = dd_chi_paranoia_halted }

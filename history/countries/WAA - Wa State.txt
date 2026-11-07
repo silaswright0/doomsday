@@ -355,12 +355,13 @@ set_technology = {
 	modern_ship_torpedo_launcher = 1
 	modern_sonar = 1
 	dd_lt_1 = 1
+	militia_tech = 1
 }
 add_equipment_to_stockpile = { type = infantry_equipment_cw1 amount = 1600 producer = WAA }
 add_equipment_to_stockpile = { type = support_equipment_cw1 amount = 60 producer = WAA }
 add_equipment_to_stockpile = { type = artillery_equipment amount = 80 producer = WAA }
 add_equipment_to_stockpile = { type = anti_air_equipment_1 amount = 40 producer = WAA }
-add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 400 producer = WAA }
+add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 24 producer = WAA }
 add_ideas = dd_welfare_2
 add_ideas = dd_education_3
 add_ideas = dd_immigration_3
@@ -376,10 +377,11 @@ add_ideas = dd_aid_1
 add_ideas = dd_religion_3
 add_ideas = dd_media_4
 add_ideas = dd_civil_military_3
-add_ideas = limited_conscription
+add_ideas = extensive_conscription
 add_ideas = limited_exports
 add_ideas = civilian_economy
 add_ideas = dd_waa_neutrality
+add_ideas = dd_no_recognition
 set_politics = {
 	ruling_party = national_populism
 	last_election = "2024.1.1"

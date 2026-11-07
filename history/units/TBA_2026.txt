@@ -1,5 +1,7 @@
+# Three Brotherhood. The Arakan Army and the Kokang army are standing brigades.
+# The Ta'ang army is a smaller regular core. Village columns on all three fronts are irregulars.
 division_template = {
-	name = "Infantry Division"
+	name = "Alliance Brigade"
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -7,9 +9,6 @@ division_template = {
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
@@ -18,58 +17,76 @@ division_template = {
 	is_locked = yes
 }
 division_template = {
-	name = "Militia Brigade"
+	name = "Taang Brigade"
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Irregular Column"
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
 	}
 	is_locked = yes
 }
 units = {
 	division = {
-		name = "Kokang Brigade"
-		location = 4210
-		division_template = "Infantry Division"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
-	}
-	division = {
-		name = "Laukkaing Brigade"
-		location = 4210
-		division_template = "Infantry Division"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
-	}
-	division = {
-		name = "Taang Brigade"
-		location = 7603
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
-	}
-	division = {
-		name = "Shan Highland Brigade"
-		location = 7603
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
-	}
-	division = {
 		name = "Arakan Brigade"
 		location = 12090
-		division_template = "Infantry Division"
-		start_experience_factor = 0.30
+		division_template = "Alliance Brigade"
+		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
 	division = {
 		name = "Kyaukpyu Brigade"
 		location = 12090
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "Alliance Brigade"
+		start_experience_factor = 0.35
+		start_equipment_factor = 0.75
+	}
+	division = {
+		name = "Rakhine Column"
+		location = 3651
+		division_template = "Irregular Column"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "Kokang Brigade"
+		location = 4210
+		division_template = "Alliance Brigade"
+		start_experience_factor = 0.35
+		start_equipment_factor = 0.85
+	}
+	division = {
+		name = "Laukkaing Column"
+		location = 4210
+		division_template = "Irregular Column"
+		start_experience_factor = 0.22
+		start_equipment_factor = 0.55
+	}
+	division = {
+		name = "Taang Brigade"
+		location = 7603
+		division_template = "Taang Brigade"
+		start_experience_factor = 0.28
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "Shan Highland Column"
+		location = 7603
+		division_template = "Irregular Column"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.45
 	}
 }

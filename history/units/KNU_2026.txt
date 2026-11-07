@@ -1,31 +1,24 @@
+# KNLA 5th and 6th Brigades are the standing army. KNDO and the local PDF are irregulars.
 division_template = {
-	name = "Infantry Division"
+	name = "KNLA Brigade"
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
-		artillery = { x = 0 y = 1 }
 	}
 	is_locked = yes
 }
 division_template = {
-	name = "Militia Brigade"
+	name = "Irregular Column"
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
 	}
 	is_locked = yes
 }
@@ -33,22 +26,29 @@ units = {
 	division = {
 		name = "5th Brigade"
 		location = 1403
-		division_template = "Infantry Division"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "KNLA Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
 	}
 	division = {
 		name = "6th Brigade"
 		location = 1403
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "KNLA Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
 	}
 	division = {
-		name = "Myawaddy Brigade"
-		location = 1403
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "Myawaddy Column"
+		location = 4275
+		division_template = "Irregular Column"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.45
+	}
+	division = {
+		name = "KNDO Column"
+		location = 1315
+		division_template = "Irregular Column"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.45
 	}
 }

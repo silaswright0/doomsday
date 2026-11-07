@@ -9,6 +9,18 @@ dd_chi_paranoia = {
 	army_org_factor = dd_chi_para_org
 }
 
+# Scales with missing confidence. At 100 every value is 0 and the modifier is removed.
+dd_chi_confidence_fear = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_army_problems
+	planning_speed = dd_chi_conf_plan
+	army_attack_factor = dd_chi_conf_atk
+	army_org_factor = dd_chi_conf_org
+	army_morale_factor = dd_chi_conf_mor
+	command_power_gain = dd_chi_conf_cp
+	experience_gain_army = dd_chi_conf_xp
+}
+
 # Applied to Yunnan by Eradicate the Border Syndicates.
 dd_chi_yunnan_quiet = {
 	enable = { always = yes }

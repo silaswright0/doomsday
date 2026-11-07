@@ -13,7 +13,6 @@ state = {
 		owner = CHI
 		add_extra_state_shared_building_slots = 1
 		add_core_of = CHI
-		add_core_of = PRC
 
 		buildings = {
 			renewable_park = 2
@@ -27,8 +26,8 @@ state = {
 			}
 		}
 
-		victory_points = {
-			6999 20 # Chongqing
+		victory_points = { # Chongqing
+			6999 30
 		}
 
 		victory_points = {

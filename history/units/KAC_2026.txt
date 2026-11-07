@@ -1,5 +1,6 @@
+# Kachin Independence Army brigades, plus the Sagaing PDF, which is irregular.
 division_template = {
-	name = "Infantry Division"
+	name = "KIA Brigade"
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
@@ -7,9 +8,6 @@ division_template = {
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
@@ -18,14 +16,12 @@ division_template = {
 	is_locked = yes
 }
 division_template = {
-	name = "Militia Brigade"
+	name = "Irregular Column"
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
 	}
 	is_locked = yes
 }
@@ -33,29 +29,43 @@ units = {
 	division = {
 		name = "Myitkyina Brigade"
 		location = 4425
-		division_template = "Infantry Division"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "KIA Brigade"
+		start_experience_factor = 0.35
+		start_equipment_factor = 0.75
 	}
 	division = {
 		name = "Hpakant Brigade"
 		location = 4425
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		division_template = "KIA Brigade"
+		start_experience_factor = 0.35
+		start_equipment_factor = 0.75
 	}
 	division = {
-		name = "Border Brigade"
-		location = 4425
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "Jade Road Column"
+		location = 1082
+		division_template = "Irregular Column"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
 	}
 	division = {
-		name = "Jade Road Brigade"
-		location = 4425
-		division_template = "Militia Brigade"
-		start_experience_factor = 0.30
-		start_equipment_factor = 0.8
+		name = "Bhamo Column"
+		location = 1197
+		division_template = "Irregular Column"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		name = "Katha Column"
+		location = 4087
+		division_template = "Irregular Column"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.45
+	}
+	division = {
+		name = "Kale Column"
+		location = 4588
+		division_template = "Irregular Column"
+		start_experience_factor = 0.18
+		start_equipment_factor = 0.45
 	}
 }

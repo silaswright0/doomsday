@@ -16,10 +16,19 @@ dd_chi_paranoia_sync = {
 	set_variable = { dd_chi_para_org = dd_chi_paranoia }
 	multiply_variable = { dd_chi_para_org = -0.001 }
 	if = {
-		limit = { NOT = { has_dynamic_modifier = { modifier = dd_chi_paranoia } } }
-		add_dynamic_modifier = { modifier = dd_chi_paranoia }
+		limit = { original_tag = CHI }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = dd_chi_paranoia } } }
+			add_dynamic_modifier = { modifier = dd_chi_paranoia }
+		}
+		force_update_dynamic_modifier = yes
 	}
-	force_update_dynamic_modifier = yes
+	else = {
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_chi_paranoia } }
+			remove_dynamic_modifier = { modifier = dd_chi_paranoia }
+		}
+	}
 	set_variable = { dd_chi_para_meter = dd_chi_paranoia }
 	add_to_variable = { dd_chi_para_meter = 2.499 }
 	divide_variable = { dd_chi_para_meter = 5 }
@@ -37,6 +46,7 @@ dd_chi_paranoia_sync = {
 		limit = { NOT = { has_variable = dd_chi_confidence } }
 		set_variable = { dd_chi_confidence = 100 }
 	}
+	dd_chi_sync_confidence = yes
 }
 
 dd_chi_paranoia_month = {
@@ -69,12 +79,76 @@ dd_chi_paranoia_month = {
 	dd_chi_paranoia_sync = yes
 }
 
-dd_chi_begin_purge = {
+# Full confidence has no officer penalty. Each purge cuts 25, and the penalty scales with what is missing.
+dd_chi_sync_confidence = {
 	if = {
-		limit = { NOT = { has_country_flag = dd_chi_purge_begun } }
-		set_country_flag = dd_chi_purge_begun
+		limit = { NOT = { has_variable = dd_chi_confidence } }
+		set_variable = { dd_chi_confidence = 100 }
+	}
+	if = {
+		limit = { check_variable = { dd_chi_confidence < 0 } }
 		set_variable = { dd_chi_confidence = 0 }
-		add_ideas = dd_chi_army_fear
+	}
+	if = {
+		limit = { check_variable = { dd_chi_confidence > 100 } }
+		set_variable = { dd_chi_confidence = 100 }
+	}
+	set_variable = { dd_chi_conf_missing = 100 }
+	subtract_variable = { dd_chi_conf_missing = dd_chi_confidence }
+	set_variable = { dd_chi_conf_plan = dd_chi_conf_missing }
+	multiply_variable = { dd_chi_conf_plan = -0.002 }
+	set_variable = { dd_chi_conf_atk = dd_chi_conf_missing }
+	multiply_variable = { dd_chi_conf_atk = -0.001 }
+	set_variable = { dd_chi_conf_org = dd_chi_conf_missing }
+	multiply_variable = { dd_chi_conf_org = -0.001 }
+	set_variable = { dd_chi_conf_mor = dd_chi_conf_missing }
+	multiply_variable = { dd_chi_conf_mor = -0.001 }
+	set_variable = { dd_chi_conf_cp = dd_chi_conf_missing }
+	multiply_variable = { dd_chi_conf_cp = -0.002 }
+	set_variable = { dd_chi_conf_xp = dd_chi_conf_missing }
+	multiply_variable = { dd_chi_conf_xp = -0.002 }
+	set_variable = { dd_chi_conf_frame = dd_chi_confidence }
+	multiply_variable = { dd_chi_conf_frame = 0.19 }
+	round_variable = dd_chi_conf_frame
+	add_to_variable = { dd_chi_conf_frame = 1 }
+	if = {
+		limit = { check_variable = { dd_chi_conf_frame < 1 } }
+		set_variable = { dd_chi_conf_frame = 1 }
+	}
+	if = {
+		limit = { check_variable = { dd_chi_conf_frame > 20 } }
+		set_variable = { dd_chi_conf_frame = 20 }
+	}
+	if = {
+		limit = { has_idea = dd_chi_army_fear }
+		remove_ideas = dd_chi_army_fear
+	}
+	if = {
+		limit = { check_variable = { dd_chi_confidence > 99.9 } }
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_chi_confidence_fear } }
+			remove_dynamic_modifier = { modifier = dd_chi_confidence_fear }
+		}
+	}
+	else = {
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = dd_chi_confidence_fear } } }
+			add_dynamic_modifier = { modifier = dd_chi_confidence_fear }
+		}
+	}
+	force_update_dynamic_modifier = yes
+}
+
+dd_chi_begin_purge = {
+	custom_effect_tooltip = dd_chi_purge_confidence_tt
+	hidden_effect = {
+		set_country_flag = dd_chi_purge_begun
+		if = {
+			limit = { NOT = { has_variable = dd_chi_confidence } }
+			set_variable = { dd_chi_confidence = 100 }
+		}
+		add_to_variable = { dd_chi_confidence = -25 }
+		dd_chi_sync_confidence = yes
 	}
 }
 
@@ -148,6 +222,68 @@ dd_chi_convert_civ_to_mil = {
 	set_variable = { dd_chi_mills_left = 0 }
 }
 
+# Puts the old warlord cores back on a save that already dropped them.
+# A new campaign gets the same cores from state history. Adding a core that is already there changes nothing.
+dd_chi_restore_warlord_cores = {
+	1033 = { add_core_of = GXC }
+	591 = { add_core_of = GXC }
+	592 = { add_core_of = GXC }
+	593 = { add_core_of = GXC }
+	594 = { add_core_of = GXC }
+	599 = { add_core_of = GXC }
+	1039 = { add_core_of = MEN }
+	611 = { add_core_of = MEN }
+	612 = { add_core_of = MEN }
+	1040 = { add_core_of = XSM }
+	1044 = { add_core_of = XSM }
+	1045 = { add_core_of = XSM }
+	283 = { add_core_of = XSM }
+	616 = { add_core_of = XSM }
+	753 = { add_core_of = XSM }
+	754 = { add_core_of = XSM }
+	755 = { add_core_of = XSM }
+	756 = { add_core_of = XSM }
+	1042 = { add_core_of = SIK }
+	287 = { add_core_of = SIK }
+	617 = { add_core_of = SIK }
+	618 = { add_core_of = SIK }
+	619 = { add_core_of = SIK }
+	759 = { add_core_of = SIK }
+	615 = { add_core_of = SHX }
+	328 = { add_core_of = MAN }
+	610 = { add_core_of = MAN }
+	714 = { add_core_of = MAN }
+	715 = { add_core_of = MAN }
+	716 = { add_core_of = MAN }
+	717 = { add_core_of = MAN }
+	745 = { add_core_of = MAN }
+	761 = { add_core_of = MAN }
+	325 = { add_core_of = YUN }
+	747 = { add_core_of = YUN }
+	1043 = {
+		add_core_of = SHX
+		add_core_of = MEN
+	}
+	621 = {
+		add_core_of = SHX
+		add_core_of = MEN
+	}
+	746 = {
+		add_core_of = SHX
+		add_core_of = MEN
+	}
+	760 = {
+		add_core_of = SIK
+		add_core_of = KUM
+	}
+	CHI = {
+		if = {
+			limit = { has_dlc = "No Compromise, No Surrender" }
+			743 = { add_core_of = SND }
+		}
+	}
+}
+
 # Cores on every state China starts with as a core. Claims on the states China only claims.
 # Called in the splinter's scope.
 dd_chi_grant_china_map = {
@@ -165,18 +301,32 @@ dd_chi_grant_china_map = {
 	}
 }
 
-dd_chi_arm_splinter = {
+# 12 irregular militia, on top of the real divisions transferred from Beijing.
+# Called in the splinter's scope, after it owns a capital.
+dd_chi_arm_militia = {
 	inherit_technology = CHI
+	division_template = {
+		name = "Irregular Militia"
+		regiments = {
+			irregular_infantry = { x = 0 y = 0 }
+			irregular_infantry = { x = 0 y = 1 }
+			irregular_infantry = { x = 0 y = 2 }
+			irregular_infantry = { x = 1 y = 0 }
+			irregular_infantry = { x = 1 y = 1 }
+			irregular_infantry = { x = 1 y = 2 }
+		}
+		is_locked = yes
+	}
 	add_equipment_to_stockpile = {
 		type = infantry_equipment_cw6
-		amount = 4000
+		amount = 6000
 		producer = CHI
 	}
 	capital_scope = {
 		create_unit = {
-			division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.3 start_equipment_factor = 0.7"
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 0.6"
 			owner = PREV
-			count = 4
+			count = 12
 		}
 	}
 }
@@ -195,24 +345,346 @@ dd_chi_regime_watch = {
 		}
 		set_country_flag = dd_chi_taiwan_failed
 	}
-	if = {
-		limit = {
-			NOT = { has_global_flag = dd_chi_civil_war_started }
-			NOT = { has_country_flag = dd_chi_civil_war_pending }
-			has_country_flag = dd_chi_taiwan_failed
-			check_variable = { dd_chi_confidence < 25 }
-			NOT = { has_completed_focus = CHI_real_estate_3 }
-			NOT = { has_completed_focus = CHI_local_debt_3 }
-			NOT = { has_completed_focus = CHI_youth_unemployment_3 }
-		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = dd_chi_civil_war_started }
+				NOT = { has_country_flag = dd_chi_civil_war_pending }
+				NOT = { has_country_flag = dd_chi_security_seized }
+				has_country_flag = dd_chi_taiwan_failed
+				check_variable = { dd_chi_confidence < 25 }
+				NOT = { has_completed_focus = CHI_real_estate_3 }
+				NOT = { has_completed_focus = CHI_local_debt_3 }
+				NOT = { has_completed_focus = CHI_youth_unemployment_3 }
+			}
 		set_country_flag = dd_chi_civil_war_pending
 		country_event = { id = dd_chi_cw.1 }
 	}
 }
 
+dd_chi_disband_field_army = {
+	if = {
+		limit = { has_template = "Infantry Division" }
+		delete_units = { division_template = "Infantry Division" disband = no }
+	}
+	if = {
+		limit = { has_template = "Garrison Brigade" }
+		delete_units = { division_template = "Garrison Brigade" disband = no }
+	}
+	if = {
+		limit = { has_template = "Armored Division" }
+		delete_units = { division_template = "Armored Division" disband = no }
+	}
+	if = {
+		limit = { has_template = "Mechanized Brigade" }
+		delete_units = { division_template = "Mechanized Brigade" disband = no }
+	}
+	if = {
+		limit = { has_template = "Mountain Division" }
+		delete_units = { division_template = "Mountain Division" disband = no }
+	}
+	if = {
+		limit = { has_template = "Marine Division" }
+		delete_units = { division_template = "Marine Division" disband = no }
+	}
+	if = {
+		limit = { has_template = "Militia Brigade" }
+		delete_units = { division_template = "Militia Brigade" disband = no }
+	}
+}
+
+# Same locked templates as the 2026 order of battle. Called on a breakaway, after it owns land.
+dd_chi_field_templates = {
+	inherit_technology = CHI
+	division_template = {
+		name = "Infantry Division"
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 2 y = 0 }
+			infantry = { x = 2 y = 1 }
+			infantry = { x = 2 y = 2 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+			artillery = { x = 0 y = 1 }
+		}
+		is_locked = yes
+	}
+	division_template = {
+		name = "Garrison Brigade"
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+		}
+		is_locked = yes
+	}
+	division_template = {
+		name = "Armored Division"
+		regiments = {
+			modern_armor = { x = 0 y = 0 }
+			modern_armor = { x = 0 y = 1 }
+			modern_armor = { x = 0 y = 2 }
+			mechanized = { x = 1 y = 0 }
+			mechanized = { x = 1 y = 1 }
+			mechanized = { x = 1 y = 2 }
+			mechanized = { x = 2 y = 0 }
+			mechanized = { x = 2 y = 1 }
+			mechanized = { x = 2 y = 2 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+			artillery = { x = 0 y = 1 }
+		}
+		is_locked = yes
+	}
+	division_template = {
+		name = "Mechanized Brigade"
+		regiments = {
+			mechanized = { x = 0 y = 0 }
+			mechanized = { x = 0 y = 1 }
+			mechanized = { x = 0 y = 2 }
+			mechanized = { x = 1 y = 0 }
+			mechanized = { x = 1 y = 1 }
+			mechanized = { x = 1 y = 2 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+			artillery = { x = 0 y = 1 }
+		}
+		is_locked = yes
+	}
+	division_template = {
+		name = "Mountain Division"
+		regiments = {
+			mountaineers = { x = 0 y = 0 }
+			mountaineers = { x = 0 y = 1 }
+			mountaineers = { x = 0 y = 2 }
+			mountaineers = { x = 1 y = 0 }
+			mountaineers = { x = 1 y = 1 }
+			mountaineers = { x = 1 y = 2 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+			artillery = { x = 0 y = 1 }
+		}
+		is_locked = yes
+	}
+	division_template = {
+		name = "Marine Division"
+		regiments = {
+			marine = { x = 0 y = 0 }
+			marine = { x = 0 y = 1 }
+			marine = { x = 0 y = 2 }
+			marine = { x = 1 y = 0 }
+			marine = { x = 1 y = 1 }
+			marine = { x = 1 y = 2 }
+		}
+		support = {
+			engineer = { x = 0 y = 0 }
+			artillery = { x = 0 y = 1 }
+		}
+		is_locked = yes
+	}
+}
+
+# 22 Beijing, 32 Guard, 2 each for the other five. Same mix as the 64-division start.
+# Raised on a capital that side already owns, so a later state transfer cannot delete them.
+dd_chi_raise_civil_war_armies = {
+	add_manpower = 400000
+	add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 16000 producer = CHI }
+	add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 900 producer = CHI }
+	add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 550 producer = CHI }
+	add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 3500 producer = CHI }
+	add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 250 producer = CHI }
+	capital_scope = {
+		create_unit = {
+			division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+			owner = PREV
+			count = 7
+		}
+		create_unit = {
+			division = "name = \"Garrison Brigade\" division_template = \"Garrison Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+			owner = PREV
+			count = 5
+		}
+		create_unit = {
+			division = "name = \"Mechanized Brigade\" division_template = \"Mechanized Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+			owner = PREV
+			count = 5
+		}
+		create_unit = {
+			division = "name = \"Armored Division\" division_template = \"Armored Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+			owner = PREV
+			count = 3
+		}
+		create_unit = {
+			division = "name = \"Mountain Division\" division_template = \"Mountain Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+			owner = PREV
+			count = 1
+		}
+		create_unit = {
+			division = "name = \"Marine Division\" division_template = \"Marine Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+			owner = PREV
+			count = 1
+		}
+	}
+	FRC = {
+		dd_chi_field_templates = yes
+		add_manpower = 40000
+		add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 2500 producer = CHI }
+		add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 80 producer = CHI }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 30 producer = CHI }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+			create_unit = {
+				division = "name = \"Garrison Brigade\" division_template = \"Garrison Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+		}
+	}
+	NLC = {
+		dd_chi_field_templates = yes
+		add_manpower = 40000
+		add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 2500 producer = CHI }
+		add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 80 producer = CHI }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 30 producer = CHI }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+			create_unit = {
+				division = "name = \"Garrison Brigade\" division_template = \"Garrison Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+		}
+	}
+	SBC = {
+		dd_chi_field_templates = yes
+		add_manpower = 40000
+		add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 1500 producer = CHI }
+		add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 80 producer = CHI }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 50 producer = CHI }
+		add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 500 producer = CHI }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+			create_unit = {
+				division = "name = \"Mechanized Brigade\" division_template = \"Mechanized Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+		}
+	}
+	CDW = {
+		dd_chi_field_templates = yes
+		add_manpower = 40000
+		add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 800 producer = CHI }
+		add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 80 producer = CHI }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 50 producer = CHI }
+		add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 500 producer = CHI }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Garrison Brigade\" division_template = \"Garrison Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+			create_unit = {
+				division = "name = \"Mechanized Brigade\" division_template = \"Mechanized Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+		}
+	}
+	XIJ = {
+		dd_chi_field_templates = yes
+		add_manpower = 40000
+		add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 1000 producer = CHI }
+		add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 80 producer = CHI }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 50 producer = CHI }
+		add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 500 producer = CHI }
+		add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 100 producer = CHI }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Armored Division\" division_template = \"Armored Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+			create_unit = {
+				division = "name = \"Mountain Division\" division_template = \"Mountain Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+		}
+	}
+	CMJ = {
+		dd_chi_field_templates = yes
+		add_manpower = 450000
+		add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 24000 producer = CHI }
+		add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 1300 producer = CHI }
+		add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 800 producer = CHI }
+		add_equipment_to_stockpile = { type = mechanized_equipment_5 amount = 4500 producer = CHI }
+		add_equipment_to_stockpile = { type = mbt_equipment_4 amount = 350 producer = CHI }
+		capital_scope = {
+			create_unit = {
+				division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 10
+			}
+			create_unit = {
+				division = "name = \"Garrison Brigade\" division_template = \"Garrison Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 8
+			}
+			create_unit = {
+				division = "name = \"Mechanized Brigade\" division_template = \"Mechanized Brigade\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 7
+			}
+			create_unit = {
+				division = "name = \"Armored Division\" division_template = \"Armored Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 4
+			}
+			create_unit = {
+				division = "name = \"Mountain Division\" division_template = \"Mountain Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 2
+			}
+			create_unit = {
+				division = "name = \"Marine Division\" division_template = \"Marine Division\" start_experience_factor = 0.2 start_equipment_factor = 0.85"
+				owner = PREV
+				count = 1
+			}
+		}
+	}
+}
+
 dd_chi_start_civil_war = {
 	if = {
-		limit = { NOT = { has_country_flag = dd_chi_civil_war } }
+		limit = {
+			NOT = { has_country_flag = dd_chi_civil_war }
+			NOT = { has_country_flag = dd_chi_security_seized }
+		}
 		set_country_flag = dd_chi_civil_war
 		set_global_flag = dd_chi_civil_war_started
 		set_cosmetic_tag = CHI_BEIJING
@@ -222,61 +694,318 @@ dd_chi_start_civil_war = {
 		CMJ = { dd_chi_grant_china_map = yes }
 		CDW = { dd_chi_grant_china_map = yes }
 		XIJ = { dd_chi_grant_china_map = yes }
+		FRC = { set_country_flag = dd_chi_sync_focus_progress }
+		NLC = { set_country_flag = dd_chi_sync_focus_progress }
+		SBC = { set_country_flag = dd_chi_sync_focus_progress }
+		CMJ = { set_country_flag = dd_chi_sync_focus_progress }
+		FRC = { dd_chi_adopt_tree = yes }
+		NLC = { dd_chi_adopt_tree = yes }
+		SBC = { dd_chi_adopt_tree = yes }
+		CMJ = { dd_chi_adopt_tree = yes }
+		# Disband before any state changes owner. A division left on land that changes hands is deleted.
+		dd_chi_disband_field_army = yes
 		FRC = {
 			transfer_state = 593
+			transfer_state = 592
 			transfer_state = 326
+			transfer_state = 729
+			transfer_state = 728
+			transfer_state = 591
+			transfer_state = 599
+			transfer_state = 594
+			transfer_state = 1033
+			transfer_state = 603
 			set_capital = { state = 593 }
-			dd_chi_arm_splinter = yes
 		}
 		NLC = {
 			transfer_state = 1036
 			transfer_state = 602
+			transfer_state = 620
+			transfer_state = 750
 			set_capital = { state = 1036 }
-			dd_chi_arm_splinter = yes
 		}
 		SBC = {
 			transfer_state = 613
+			transfer_state = 1034
+			transfer_state = 596
+			transfer_state = 595
+			transfer_state = 743
 			set_capital = { state = 613 }
-			dd_chi_arm_splinter = yes
 		}
 		CMJ = {
 			transfer_state = 1035
+			transfer_state = 598
+			transfer_state = 606
+			transfer_state = 749
+			transfer_state = 607
+			transfer_state = 615
+			transfer_state = 744
+			transfer_state = 1032
+			transfer_state = 622
+			transfer_state = 1046
+			transfer_state = 746
+			transfer_state = 616
+			transfer_state = 1045
+			transfer_state = 283
+			transfer_state = 1044
+			transfer_state = 753
+			transfer_state = 604
+			transfer_state = 754
+			transfer_state = 755
+			transfer_state = 756
 			set_capital = { state = 1035 }
-			dd_chi_arm_splinter = yes
 		}
 		CDW = {
 			transfer_state = 1041
+			transfer_state = 605
+			transfer_state = 1037
+			transfer_state = 751
 			set_capital = { state = 1041 }
-			dd_chi_arm_splinter = yes
 		}
 		XIJ = {
 			transfer_state = 617
+			transfer_state = 618
+			transfer_state = 760
+			transfer_state = 619
+			transfer_state = 1042
+			transfer_state = 287
+			transfer_state = 759
+			transfer_state = 1119
 			add_state_core = 617
 			set_capital = { state = 617 }
-			dd_chi_arm_splinter = yes
 		}
-		FRC = { declare_war_on = { target = CHI type = annex_everything } }
-		NLC = { declare_war_on = { target = CHI type = annex_everything } }
-		SBC = { declare_war_on = { target = CHI type = annex_everything } }
-		CMJ = { declare_war_on = { target = CHI type = annex_everything } }
-		CDW = { declare_war_on = { target = CHI type = annex_everything } }
-		XIJ = { declare_war_on = { target = CHI type = annex_everything } }
-		FRC = { declare_war_on = { target = NLC type = annex_everything } }
-		FRC = { declare_war_on = { target = SBC type = annex_everything } }
-		FRC = { declare_war_on = { target = CMJ type = annex_everything } }
-		FRC = { declare_war_on = { target = CDW type = annex_everything } }
-		FRC = { declare_war_on = { target = XIJ type = annex_everything } }
-		NLC = { declare_war_on = { target = SBC type = annex_everything } }
-		NLC = { declare_war_on = { target = CMJ type = annex_everything } }
-		NLC = { declare_war_on = { target = CDW type = annex_everything } }
-		NLC = { declare_war_on = { target = XIJ type = annex_everything } }
-		SBC = { declare_war_on = { target = CMJ type = annex_everything } }
-		SBC = { declare_war_on = { target = CDW type = annex_everything } }
-		SBC = { declare_war_on = { target = XIJ type = annex_everything } }
-		CMJ = { declare_war_on = { target = CDW type = annex_everything } }
-		CMJ = { declare_war_on = { target = XIJ type = annex_everything } }
-		CDW = { declare_war_on = { target = XIJ type = annex_everything } }
+		# 22 in Beijing, 32 for the Guard, 2 for each other breakaway, on land that side already owns.
+		dd_chi_raise_civil_war_armies = yes
+		FRC = { dd_chi_arm_militia = yes }
+		NLC = { dd_chi_arm_militia = yes }
+		SBC = { dd_chi_arm_militia = yes }
+		CDW = { dd_chi_arm_militia = yes }
+		XIJ = { dd_chi_arm_militia = yes }
+		CMJ = { inherit_technology = CHI }
+		# Every breakaway fights Beijing and every other breakaway.
+		FRC = {
+			declare_war_on = { target = CHI type = dd_annex }
+			declare_war_on = { target = NLC type = dd_annex }
+			declare_war_on = { target = SBC type = dd_annex }
+			declare_war_on = { target = CMJ type = dd_annex }
+			declare_war_on = { target = CDW type = dd_annex }
+			declare_war_on = { target = XIJ type = dd_annex }
+		}
+		NLC = {
+			declare_war_on = { target = CHI type = dd_annex }
+			declare_war_on = { target = SBC type = dd_annex }
+			declare_war_on = { target = CMJ type = dd_annex }
+			declare_war_on = { target = CDW type = dd_annex }
+			declare_war_on = { target = XIJ type = dd_annex }
+		}
+		SBC = {
+			declare_war_on = { target = CHI type = dd_annex }
+			declare_war_on = { target = CMJ type = dd_annex }
+			declare_war_on = { target = CDW type = dd_annex }
+			declare_war_on = { target = XIJ type = dd_annex }
+		}
+		CMJ = {
+			declare_war_on = { target = CHI type = dd_annex }
+			declare_war_on = { target = CDW type = dd_annex }
+			declare_war_on = { target = XIJ type = dd_annex }
+		}
+		CDW = {
+			declare_war_on = { target = CHI type = dd_annex }
+			declare_war_on = { target = XIJ type = dd_annex }
+		}
+		XIJ = { declare_war_on = { target = CHI type = dd_annex } }
 	}
+}
+
+# First war between China and Taiwan. 180 days, then a ceasefire.
+# Occupied land returns. A later war does not start another clock.
+dd_chi_begin_strait_clock = {
+	if = {
+		limit = { NOT = { has_global_flag = dd_chi_taiwan_clock_started } }
+		set_global_flag = dd_chi_taiwan_clock_started
+		CHI = {
+			set_country_flag = dd_chi_taiwan_clock_running
+			activate_mission = dd_chi_taiwan_countdown
+			country_event = { id = dd_chi_tw.1 }
+		}
+		FOR = {
+			set_country_flag = dd_chi_taiwan_clock_running
+			activate_mission = dd_chi_taiwan_countdown
+			country_event = { id = dd_chi_tw.1 }
+		}
+	}
+}
+
+# One writer. Both mission timeouts can call this on the same day.
+dd_chi_strait_ceasefire = {
+	if = {
+		limit = { NOT = { has_global_flag = dd_chi_taiwan_clock_done } }
+		set_global_flag = dd_chi_taiwan_clock_done
+		CHI = {
+			every_other_country = {
+				limit = {
+					has_war_with = CHI
+					OR = {
+						tag = FOR
+						has_war_together_with = FOR
+					}
+				}
+				CHI = { white_peace = PREV }
+			}
+			clr_country_flag = dd_chi_taiwan_clock_running
+			country_event = { id = dd_chi_tw.2 }
+		}
+		FOR = {
+			clr_country_flag = dd_chi_taiwan_clock_running
+			country_event = { id = dd_chi_tw.2 }
+		}
+	}
+}
+
+# Mark one Chinese state. 2000 guns. Once per state for this tag.
+# Called from the decision. FROM is the state.
+dd_chi_rev_prepare_state = {
+	if = {
+		limit = {
+			has_equipment = { infantry_equipment > 1999 }
+			FROM = { dd_chi_rev_state_open = yes }
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -2000
+		}
+		if = {
+			limit = { original_tag = FRC }
+			FROM = {
+				set_state_flag = dd_frc_rev_prep
+				set_state_flag = { flag = dd_frc_rev_wait value = 1 days = 60 }
+			}
+		}
+		if = {
+			limit = { original_tag = NLC }
+			FROM = {
+				set_state_flag = dd_nlc_rev_prep
+				set_state_flag = { flag = dd_nlc_rev_wait value = 1 days = 60 }
+			}
+		}
+	}
+}
+
+# Two irregular divisions in FROM. Works in a state this country does not control:
+# the divisions are placed there, then the previous controller is restored so they open an attack.
+dd_chi_rev_raise_cells = {
+	if = {
+		limit = {
+			FROM = { dd_chi_rev_state_ready = yes }
+			dd_chi_rev_wait_done = yes
+		}
+		if = {
+			limit = { original_tag = FRC }
+			FROM = { set_state_flag = dd_frc_rev_risen }
+		}
+		if = {
+			limit = { original_tag = NLC }
+			FROM = { set_state_flag = dd_nlc_rev_risen }
+		}
+		division_template = {
+			name = "Irregular Militia"
+			regiments = {
+				irregular_infantry = { x = 0 y = 0 }
+				irregular_infantry = { x = 0 y = 1 }
+				irregular_infantry = { x = 0 y = 2 }
+				irregular_infantry = { x = 1 y = 0 }
+				irregular_infantry = { x = 1 y = 1 }
+				irregular_infantry = { x = 1 y = 2 }
+			}
+			is_locked = yes
+		}
+		if = {
+			limit = { FROM = { is_controlled_by = ROOT } }
+			FROM = {
+				create_unit = {
+					division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+					owner = ROOT
+					count = 2
+				}
+			}
+		}
+		else = {
+			FROM = {
+				controller = {
+					if = {
+						limit = { NOT = { has_war_with = ROOT } }
+						ROOT = { declare_war_on = { target = PREV type = dd_annex } }
+					}
+					save_event_target_as = dd_chi_rev_holder
+				}
+				save_event_target_as = dd_chi_rev_state
+				set_state_controller_to = ROOT
+			}
+			event_target:dd_chi_rev_state = {
+				create_unit = {
+					division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+					owner = ROOT
+					count = 2
+				}
+			}
+			event_target:dd_chi_rev_holder = {
+				event_target:dd_chi_rev_state = { set_state_controller_to = PREV }
+			}
+		}
+	}
+}
+
+# One catch-up after a break that already happened. Later loads leave a focus in progress alone.
+dd_chi_sync_inherited_focuses = {
+	if = {
+		limit = {
+			has_global_flag = dd_chi_civil_war_started
+			NOT = { has_country_flag = dd_chi_focus_progress_copied }
+		}
+		set_country_flag = dd_chi_sync_focus_progress
+	}
+	dd_chi_adopt_tree = yes
+}
+
+# China's tree, plus the party balance the tree shifts. Not the warlords.
+# copy_completed_from marks Beijing's finished focuses done. It does not pay their rewards again.
+dd_chi_adopt_tree = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { has_focus_tree = dd_chi_focus }
+				has_country_flag = dd_chi_sync_focus_progress
+			}
+		}
+		load_focus_tree = {
+			tree = dd_chi_focus
+			keep_completed = yes
+			copy_completed_from = CHI
+		}
+		clr_country_flag = dd_chi_sync_focus_progress
+		if = {
+			limit = { has_global_flag = dd_chi_civil_war_started }
+			set_country_flag = dd_chi_focus_progress_copied
+		}
+	}
+	if = {
+		limit = { NOT = { has_variable = dd_chi_paranoia } }
+		set_variable = { dd_chi_paranoia = 25 }
+	}
+	if = {
+		limit = { NOT = { has_variable = dd_chi_confidence } }
+		set_variable = { dd_chi_confidence = 100 }
+	}
+	if = {
+		limit = { NOT = { has_power_balance = { id = CHI_party_balance } } }
+		set_power_balance = {
+			id = CHI_party_balance
+			left_side = CHI_bop_loyalist
+			right_side = CHI_bop_technocrat
+			set_value = -0.20
+		}
+	}
+	dd_chi_paranoia_sync = yes
 }
 
 # Elected governments cannot keep an embargo on China while at peace.

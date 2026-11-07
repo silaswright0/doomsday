@@ -98,8 +98,8 @@ dd_intel_cd_tick = {
 			clr_country_flag = dd_intel_mission_cd
 		}
 	}
-	else = {
-		# Drop leftover valued flags from the old days=365 value=1 cooldown.
+	else_if = {
+		limit = { has_country_flag = dd_intel_mission_cd }
 		clr_country_flag = dd_intel_mission_cd
 		set_variable = { dd_intel_cd = 0 }
 	}

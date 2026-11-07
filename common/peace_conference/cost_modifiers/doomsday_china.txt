@@ -1,0 +1,26 @@
+# Releasing a country on a Chinese core is priced out of the deal for the civil war tags.
+# Annexing stays on the normal core discount. This is a peace-deal cost, not a national spirit.
+
+peace_action_modifiers = {
+	dd_chi_release_is_unaffordable = {
+		category = events_or_focuses
+		peace_action_type = { liberate puppet force_government }
+		enable = {
+			FROM.FROM.FROM = {
+				is_core_of = CHI
+			}
+			ROOT = {
+				OR = {
+					original_tag = CHI
+					original_tag = FRC
+					original_tag = NLC
+					original_tag = SBC
+					original_tag = CMJ
+					original_tag = CDW
+					original_tag = XIJ
+				}
+			}
+		}
+		cost_multiplier = 10
+	}
+}

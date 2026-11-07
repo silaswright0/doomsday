@@ -17,7 +17,6 @@ state = {
 		owner = FOR
 		add_extra_state_shared_building_slots = 15
 		add_core_of = CHI
-		add_core_of = PRC
 		add_core_of = FOR
 
 		buildings = {
@@ -47,12 +46,16 @@ state = {
 			}
 		}
 
-		victory_points = {
-			7186 5 # Taipei
+		victory_points = { # Taipei
+			7186 20
 		}
-		victory_points = {
-			12068 1 # Gaoxiong
+		victory_points = { # Kaohsiung
+			12068 12
 		}
+		victory_points = { # Taichung
+			11959 12
+		}
+
 
 	}
 	provinces = {

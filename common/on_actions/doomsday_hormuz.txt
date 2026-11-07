@@ -38,30 +38,26 @@ on_actions = {
 			}
 		}
 	}
-	on_daily = {
+	on_daily_USA = {
 		effect = {
 			if = {
 				limit = {
 					NOT = { has_global_flag = dd_hormuz_war }
 					NOT = { has_global_flag = dd_hormuz_ended }
 					date > 2026.2.27
-					USA = { exists = yes }
 					PER = { exists = yes }
 				}
-				USA = { country_event = { id = dd_hormuz.1 } }
+				country_event = { id = dd_hormuz.1 }
 			}
 			if = {
 				limit = {
 					has_global_flag = dd_hormuz_war
-					NOT = { USA = { has_war_with = PER } }
+					NOT = { has_war_with = PER }
 				}
 				dd_hormuz_end = yes
 			}
 			if = {
-				limit = {
-					tag = USA
-					has_global_flag = dd_hormuz_war
-				}
+				limit = { has_global_flag = dd_hormuz_war }
 				dd_hormuz_sync = yes
 				dd_hormuz_auth_daily = yes
 				dd_hormuz_econ_sync = yes
@@ -69,14 +65,10 @@ on_actions = {
 			}
 		}
 	}
-	# Every country hits this, and the limit fails immediately unless the war is on and this is the United States.
-	on_hourly = {
+	on_hourly_USA = {
 		effect = {
 			if = {
-				limit = {
-					has_global_flag = dd_hormuz_war
-					tag = USA
-				}
+				limit = { has_global_flag = dd_hormuz_war }
 				dd_hormuz_sync = yes
 				dd_usa_sync_partner_air = yes
 			}

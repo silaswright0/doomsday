@@ -7,10 +7,9 @@ state={
 	history={
 		owner = CHI
 		add_extra_state_shared_building_slots = 10
-		add_core_of = GXC
 	
 		add_core_of = CHI
-		add_core_of = PRC
+		add_core_of = GXC
 		
 		buildings = {
 			renewable_park = 3
@@ -30,8 +29,8 @@ state={
 			}
 		}
 
-		victory_points = {
-			1047 10 # Guangzhou
+		victory_points = { # Guangzhou
+			1047 30
 		}
 
 		victory_points = {

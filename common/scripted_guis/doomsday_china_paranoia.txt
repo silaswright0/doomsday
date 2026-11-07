@@ -11,17 +11,8 @@ scripted_gui = {
 			paranoia_main_needle = {
 				frame = dd_chi_para_meter
 			}
-		}
-
-		triggers = {
-			dd_chi_confidence_text_visible = {
-				NOT = { has_country_flag = dd_chi_purge_begun }
-			}
-			dd_chi_confidence_track_visible = {
-				NOT = { has_country_flag = dd_chi_purge_begun }
-			}
-			dd_chi_confidence_bar_visible = {
-				NOT = { has_country_flag = dd_chi_purge_begun }
+			dd_chi_confidence_bar = {
+				frame = dd_chi_conf_frame
 			}
 		}
 	}
