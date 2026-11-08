@@ -1,45 +1,41 @@
 dd_sov_csto_category = {
-	dd_sov_csto_step_1 = {
+	dd_sov_csto_s1_BLR = {
 		icon = generic_political_discourse
-		allowed = { original_tag = RUS }
+		name = dd_sov_csto_s1_BLR
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
 		cost = 50
 		fire_only_once = no
 		ai_will_do = { factor = 20 }
-		targets = { BLR KAZ KYR TAJ ARM UZB TMS AZR GEO MOL UKR MON }
-		target_root_trigger = {
+		visible = {
 			has_country_flag = dd_sov_csto_open
-		}
-		target_trigger = {
-			FROM = {
+			BLR = {
 				exists = yes
 				is_in_faction_with = ROOT
-				NOT = { tag = ROOT }
 				is_subject = no
 				NOT = { has_war_with = ROOT }
 				NOT = { has_country_flag = dd_sov_csto_step_1 }
 			}
 		}
 		complete_effect = {
-			FROM = {
+			BLR = {
 				set_country_flag = dd_sov_csto_step_1
 				add_ideas = dd_sov_csto_market
 				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
 			}
 		}
 	}
-
-	dd_sov_csto_step_2 = {
+	dd_sov_csto_s2_BLR = {
 		icon = generic_political_discourse
-		allowed = { original_tag = RUS }
+		name = dd_sov_csto_s2_BLR
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
 		cost = 100
 		fire_only_once = no
 		ai_will_do = { factor = 20 }
-		targets = { BLR KAZ KYR TAJ ARM UZB TMS AZR GEO MOL UKR MON }
-		target_root_trigger = {
+		visible = {
 			has_country_flag = dd_sov_csto_open
-		}
-		target_trigger = {
-			FROM = {
+			BLR = {
 				has_country_flag = dd_sov_csto_step_1
 				NOT = { has_country_flag = dd_sov_csto_step_2 }
 				is_in_faction_with = ROOT
@@ -48,7 +44,7 @@ dd_sov_csto_category = {
 			}
 		}
 		complete_effect = {
-			FROM = {
+			BLR = {
 				set_country_flag = dd_sov_csto_step_2
 				swap_ideas = {
 					remove_idea = dd_sov_csto_market
@@ -58,19 +54,17 @@ dd_sov_csto_category = {
 			}
 		}
 	}
-
-	dd_sov_csto_step_3 = {
+	dd_sov_csto_s3_BLR = {
 		icon = generic_prepare_civil_war
-		allowed = { original_tag = RUS }
+		name = dd_sov_csto_s3_BLR
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
 		cost = 200
 		fire_only_once = no
 		ai_will_do = { factor = 20 }
-		targets = { BLR KAZ KYR TAJ ARM UZB TMS AZR GEO MOL UKR MON }
-		target_root_trigger = {
+		visible = {
 			has_country_flag = dd_sov_csto_open
-		}
-		target_trigger = {
-			FROM = {
+			BLR = {
 				has_country_flag = dd_sov_csto_step_2
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -78,38 +72,1175 @@ dd_sov_csto_category = {
 			}
 		}
 		complete_effect = {
-			FROM = {
+			BLR = {
 				remove_ideas = dd_sov_csto_market_2
 			}
 			set_autonomy = {
-				target = FROM
+				target = BLR
 				autonomous_state = autonomy_dominion
 				freedom_level = 0.9
 			}
 		}
 	}
-
-	dd_sov_csto_buy_influence = {
+	dd_sov_csto_buy_BLR = {
 		icon = generic_political_discourse
-		allowed = { original_tag = RUS }
+		name = dd_sov_csto_buy_BLR
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
 		cost = 100
 		fire_only_once = no
 		days_re_enable = 90
 		ai_will_do = { factor = 5 }
-		targets = { BLR KAZ KYR TAJ ARM UZB TMS AZR GEO MOL UKR MON }
-		target_root_trigger = {
+		visible = {
 			has_country_flag = dd_sov_csto_influence_open
-		}
-		target_trigger = {
-			FROM = {
-				is_subject_of = ROOT
-			}
+			BLR = { is_subject_of = ROOT }
 		}
 		complete_effect = {
-			FROM = {
+			BLR = {
 				add_autonomy_score = { value = -300 }
 			}
 		}
+	}
+	dd_sov_csto_s1_KAZ = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_KAZ
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			KAZ = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			KAZ = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_KAZ = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_KAZ
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			KAZ = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			KAZ = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_KAZ = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_KAZ
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			KAZ = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			KAZ = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = KAZ
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_KAZ = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_KAZ
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			KAZ = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			KAZ = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_KYR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_KYR
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			KYR = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			KYR = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_KYR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_KYR
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			KYR = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			KYR = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_KYR = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_KYR
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			KYR = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			KYR = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = KYR
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_KYR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_KYR
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			KYR = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			KYR = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_TAJ = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_TAJ
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			TAJ = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			TAJ = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_TAJ = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_TAJ
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			TAJ = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			TAJ = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_TAJ = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_TAJ
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			TAJ = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			TAJ = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = TAJ
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_TAJ = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_TAJ
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			TAJ = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			TAJ = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_ARM = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_ARM
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			ARM = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			ARM = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_ARM = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_ARM
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			ARM = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			ARM = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_ARM = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_ARM
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			ARM = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			ARM = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = ARM
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_ARM = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_ARM
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			ARM = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			ARM = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_UZB = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_UZB
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			UZB = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			UZB = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_UZB = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_UZB
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			UZB = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			UZB = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_UZB = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_UZB
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			UZB = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			UZB = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = UZB
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_UZB = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_UZB
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			UZB = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			UZB = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_TMS = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_TMS
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			TMS = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			TMS = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_TMS = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_TMS
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			TMS = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			TMS = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_TMS = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_TMS
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			TMS = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			TMS = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = TMS
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_TMS = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_TMS
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			TMS = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			TMS = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_AZR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_AZR
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			AZR = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			AZR = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_AZR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_AZR
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			AZR = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			AZR = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_AZR = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_AZR
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			AZR = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			AZR = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = AZR
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_AZR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_AZR
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			AZR = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			AZR = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_GEO = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_GEO
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			GEO = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			GEO = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_GEO = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_GEO
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			GEO = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			GEO = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_GEO = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_GEO
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			GEO = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			GEO = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = GEO
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_GEO = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_GEO
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			GEO = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			GEO = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_MOL = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_MOL
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			MOL = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			MOL = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_MOL = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_MOL
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			MOL = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			MOL = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_MOL = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_MOL
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			MOL = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			MOL = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = MOL
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_MOL = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_MOL
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			MOL = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			MOL = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_UKR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_UKR
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			UKR = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			UKR = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_UKR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_UKR
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			UKR = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			UKR = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_UKR = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_UKR
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			UKR = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			UKR = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = UKR
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_UKR = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_UKR
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			UKR = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			UKR = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+	dd_sov_csto_s1_MON = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s1_MON
+		desc = dd_sov_csto_step_1_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 50
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			MON = {
+				exists = yes
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+				NOT = { has_country_flag = dd_sov_csto_step_1 }
+			}
+		}
+		complete_effect = {
+			MON = {
+				set_country_flag = dd_sov_csto_step_1
+				add_ideas = dd_sov_csto_market
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties }
+			}
+		}
+	}
+	dd_sov_csto_s2_MON = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_s2_MON
+		desc = dd_sov_csto_step_2_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			MON = {
+				has_country_flag = dd_sov_csto_step_1
+				NOT = { has_country_flag = dd_sov_csto_step_2 }
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			MON = {
+				set_country_flag = dd_sov_csto_step_2
+				swap_ideas = {
+					remove_idea = dd_sov_csto_market
+					add_idea = dd_sov_csto_market_2
+				}
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_csto_ties_2 }
+			}
+		}
+	}
+	dd_sov_csto_s3_MON = {
+		icon = generic_prepare_civil_war
+		name = dd_sov_csto_s3_MON
+		desc = dd_sov_csto_step_3_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 200
+		fire_only_once = no
+		ai_will_do = { factor = 20 }
+		visible = {
+			has_country_flag = dd_sov_csto_open
+			MON = {
+				has_country_flag = dd_sov_csto_step_2
+				is_in_faction_with = ROOT
+				is_subject = no
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			MON = {
+				remove_ideas = dd_sov_csto_market_2
+			}
+			set_autonomy = {
+				target = MON
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.9
+			}
+		}
+	}
+	dd_sov_csto_buy_MON = {
+		icon = generic_political_discourse
+		name = dd_sov_csto_buy_MON
+		desc = dd_sov_csto_buy_influence_desc
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 100
+		fire_only_once = no
+		days_re_enable = 90
+		ai_will_do = { factor = 5 }
+		visible = {
+			has_country_flag = dd_sov_csto_influence_open
+			MON = { is_subject_of = ROOT }
+		}
+		complete_effect = {
+			MON = {
+				add_autonomy_score = { value = -300 }
+			}
+		}
+	}
+}
+
+dd_sov_their_grid_category = {
+	dd_sov_their_grid_status = {
+		icon = generic_industry
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = UKR }
+		available = { hidden_trigger = { always = no } }
+	}
+	dd_sov_their_grid_how = {
+		icon = generic_political_discourse
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = UKR }
+		available = { hidden_trigger = { always = no } }
 	}
 }
 
@@ -254,7 +1385,7 @@ dd_sov_fuel_category = {
 	}
 }
 
-dd_sov_ukraine_war_category = {
+dd_sov_home_front_category = {
 	dd_sov_approach_rosgvardia = {
 		icon = generic_fascism
 		allowed = { original_tag = RUS }
@@ -272,31 +1403,37 @@ dd_sov_ukraine_war_category = {
 			dd_sov_approach_rosgvardia = yes
 		}
 	}
+}
 
-	dd_sov_ignite_revolution = {
-		icon = generic_ignite_civil_war
-		allowed = { original_tag = RUS }
-		cost = 0
-		fire_only_once = yes
-		ai_will_do = { factor = 0 }
+dd_sov_pact_category = {
+	dd_sov_invite_communist = {
+		icon = generic_nationalism
+		cost = 25
+		fire_only_once = no
+		days_remove = 0
+		targets_dynamic = yes
+		allowed = { OR = { original_tag = RUS tag = RUS } }
+		target_trigger = {
+			FROM = {
+				exists = yes
+				has_government = communism
+				is_in_faction = no
+				NOT = { has_war_with = ROOT }
+				NOT = { tag = ROOT }
+			}
+		}
 		visible = {
-			NOT = { has_country_flag = dd_sov_red_risen }
-			NOT = { has_civil_war }
+			ROOT = { has_country_flag = dd_sov_warsaw_open }
 		}
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = dd_sov_revolution_tt
-				communism > 0.299
-			}
-			OR = {
-				219 = { is_owned_and_controlled_by = ROOT }
-				195 = { is_owned_and_controlled_by = ROOT }
-				217 = { is_owned_and_controlled_by = ROOT }
-			}
+			is_faction_leader = yes
 		}
 		complete_effect = {
-			set_country_flag = dd_sov_red_risen
-			dd_sov_red_war = yes
+			add_to_faction = FROM
+			FROM = {
+				add_opinion_modifier = { target = ROOT modifier = dd_sov_comintern_ties }
+			}
 		}
+		ai_will_do = { factor = 10 }
 	}
 }

@@ -177,3 +177,68 @@ dd_ukr_defensive_bulwark_front = {
 		manual_attack = no
 	}
 }
+
+# While the war lasts, put more bombers on the other side's fuel and power regions.
+dd_rus_bomb_ukraine = {
+	allowed = { original_tag = RUS }
+	enable = { has_war_with = UKR }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 130
+		value = 60000
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = strategic_bomber
+		value = 40
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = tactical_bomber
+		value = 20
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = 30
+	}
+}
+
+dd_ukr_bomb_russia = {
+	allowed = { original_tag = UKR }
+	enable = { has_war_with = RUS }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 133
+		value = 50000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 132
+		value = 40000
+	}
+	ai_strategy = {
+		type = strategic_air_importance
+		id = 135
+		value = 40000
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = strike_uav
+		value = 40
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = tactical_bomber
+		value = 25
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = 20
+	}
+}

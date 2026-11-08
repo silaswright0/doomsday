@@ -1,3 +1,19 @@
+dd_ukr_grid_status_category = {
+	icon = generic_industry
+	picture = GFX_decision_cat_picture_generic_industry
+	priority = 94
+	allowed = { original_tag = UKR }
+	visible = { has_war_with = RUS }
+}
+
+dd_ukr_their_fuel_category = {
+	icon = generic_industry
+	picture = GFX_decision_cat_picture_generic_industry
+	priority = 96
+	allowed = { original_tag = UKR }
+	visible = { has_war_with = RUS }
+}
+
 dd_ukr_arms_category = {
 	icon = generic_political_actions
 	priority = 80

@@ -5,10 +5,21 @@ dd_sov_bop_category = {
 	visible = { always = no }
 }
 
+dd_sov_their_grid_category = {
+	icon = generic_industry
+	picture = GFX_decision_cat_picture_generic_industry
+	priority = 96
+	allowed = {
+		original_tag = RUS
+		NOT = { has_country_flag = dd_sov_red_revolt }
+	}
+	visible = { has_war_with = UKR }
+}
+
 dd_sov_fuel_status_category = {
 	icon = generic_industry
 	picture = GFX_decision_cat_picture_generic_industry
-	priority = 95
+	priority = 94
 	allowed = {
 		original_tag = RUS
 		NOT = { has_country_flag = dd_sov_red_revolt }
@@ -18,7 +29,7 @@ dd_sov_fuel_status_category = {
 
 dd_sov_fuel_category = {
 	icon = generic_political_actions
-	priority = 90
+	priority = 92
 	allowed = {
 		original_tag = RUS
 		NOT = { has_country_flag = dd_sov_red_revolt }
@@ -27,7 +38,7 @@ dd_sov_fuel_category = {
 }
 
 dd_sov_ukraine_war_category = {
-	icon = generic_prepare_civil_war
+	icon = generic_military
 	picture = GFX_decision_cat_picture_generic_border_conflicts
 	priority = 100
 	allowed = {
@@ -43,11 +54,57 @@ dd_sov_ukraine_war_category = {
 	scripted_gui = dd_sov_ukraine_war_ui
 }
 
+dd_sov_home_front_category = {
+	icon = generic_political_discourse
+	priority = 99
+	allowed = {
+		original_tag = RUS
+		NOT = { has_country_flag = dd_sov_red_revolt }
+	}
+	visible = {
+		NOT = { has_country_flag = dd_sov_red_revolt }
+	}
+}
+
+dd_sov_dev_category = {
+	icon = generic_communism
+	picture = GFX_decision_cat_picture_soviet_civil_war
+	priority = 0
+	allowed = {
+		original_tag = RUS
+		NOT = { has_country_flag = dd_sov_red_revolt }
+	}
+	visible = {
+		NOT = { has_civil_war = yes }
+		NOT = { has_country_flag = dd_sov_red_revolt }
+	}
+	visible_when_empty = yes
+}
+
 dd_sov_csto_category = {
 	icon = generic_political_actions
-	allowed = { tag = RUS }
+	allowed = {
+		OR = {
+			tag = RUS
+			original_tag = RUS
+		}
+	}
 	priority = 80
 	visible = {
 		has_country_flag = dd_sov_csto_open
+	}
+}
+
+dd_sov_pact_category = {
+	icon = generic_communism
+	priority = 78
+	allowed = {
+		OR = {
+			tag = RUS
+			original_tag = RUS
+		}
+	}
+	visible = {
+		has_country_flag = dd_sov_warsaw_open
 	}
 }

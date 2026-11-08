@@ -1,0 +1,8 @@
+# Nuclear raids. 100% world tension, a nuke already used, or a country free-use flag.
+dd_can_use_nukes = {
+	OR = {
+		threat > 0.99
+		has_global_flag = dd_nuke_used
+		has_country_flag = dd_nuke_free_use
+	}
+}

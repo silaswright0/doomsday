@@ -2,7 +2,29 @@ on_actions = {
 	on_startup = {
 		effect = {
 			dd_mark_river_states = yes
+			FDS = {
+				if = {
+					limit = { has_idea = dd_usa_american_ruins }
+					remove_ideas = dd_usa_american_ruins
+				}
+			}
+			RBL = {
+				if = {
+					limit = { has_idea = dd_usa_american_ruins }
+					remove_ideas = dd_usa_american_ruins
+				}
+			}
+			ACA = {
+				if = {
+					limit = { has_idea = dd_usa_american_ruins }
+					remove_ideas = dd_usa_american_ruins
+				}
+			}
 			USA = {
+				if = {
+					limit = { has_idea = dd_usa_american_ruins }
+					remove_ideas = dd_usa_american_ruins
+				}
 				if = {
 					limit = { NOT = { has_country_flag = dd_usa_calendar_set } }
 					set_country_flag = dd_usa_calendar_set

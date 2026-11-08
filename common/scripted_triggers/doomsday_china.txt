@@ -33,6 +33,21 @@ dd_chi_rev_state_open = {
 	}
 }
 
+# State scope. Prepared, the wait has ended, and the cells have not been raised.
+dd_chi_rev_state_due = {
+	dd_chi_rev_state_ready = yes
+	OR = {
+		AND = {
+			ROOT = { original_tag = FRC }
+			NOT = { has_state_flag = dd_frc_rev_wait }
+		}
+		AND = {
+			ROOT = { original_tag = NLC }
+			NOT = { has_state_flag = dd_nlc_rev_wait }
+		}
+	}
+}
+
 # State scope. Prepared, and the cells have not been raised. The 60-day wait is separate.
 dd_chi_rev_state_ready = {
 	OR = {
@@ -46,6 +61,23 @@ dd_chi_rev_state_ready = {
 			has_state_flag = dd_nlc_rev_prep
 			NOT = { has_state_flag = dd_nlc_rev_risen }
 		}
+	}
+}
+
+# Character scope. Hired advisors, high command, service chiefs, field marshals, and generals.
+# The country leader is left in place.
+dd_chi_purge_eligible = {
+	NOT = { is_country_leader = yes }
+	OR = {
+		is_hired_as_advisor = yes
+		is_army_leader = yes
+	}
+}
+
+# Country scope. Someone the purge decision can still take.
+dd_chi_purge_has_target = {
+	any_character = {
+		dd_chi_purge_eligible = yes
 	}
 }
 

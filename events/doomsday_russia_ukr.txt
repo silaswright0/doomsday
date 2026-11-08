@@ -9,6 +9,16 @@ country_event = {
 
 	option = {
 		name = dd_sov_ukr.1.a
+		if = {
+			limit = { original_tag = UKR }
+			start_peace_conference = {
+				tag = RUS
+				score_factor = 1
+				winner_scope = FACTION
+				loser_scope = FACTION
+				message = dd_sov_ukr_cap_tt
+			}
+		}
 	}
 }
 

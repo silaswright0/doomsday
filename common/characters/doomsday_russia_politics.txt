@@ -1,0 +1,287 @@
+characters = {
+	SOV_anton_siluanov = {
+		name = "Anton Siluanov"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_anton_siluanov small = GFX_portrait_SOV_anton_siluanov_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_anton_siluanov
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = {
+				NOT = { has_completed_focus = SOV_turbo_patriots }
+				NOT = { has_completed_focus = SOV_left_restoration }
+			}
+			traits = { dd_sov_financial_technocrat }
+			ai_will_do = { factor = 4 }
+		}
+	}
+	SOV_irina_okladnikova = {
+		name = "Irina Okladnikova"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_irina_okladnikova small = GFX_portrait_SOV_irina_okladnikova_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_irina_okladnikova
+			cost = 150
+			allowed = { original_tag = RUS }
+			traits = { dd_sov_budgetary_administrator }
+			ai_will_do = { factor = 4 }
+		}
+	}
+	SOV_maksut_shadayev = {
+		name = "Maksut Shadayev"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_maksut_shadayev small = GFX_portrait_SOV_maksut_shadayev_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_maksut_shadayev
+			cost = 150
+			allowed = { original_tag = RUS }
+			research_bonus = { electronics = 0.10 }
+			traits = { dd_sov_digital_architect }
+			ai_will_do = { factor = 6 }
+		}
+	}
+	SOV_denis_manturov = {
+		name = "Denis Manturov"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_denis_manturov small = GFX_portrait_SOV_denis_manturov_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_denis_manturov
+			cost = 150
+			allowed = { original_tag = RUS }
+			traits = { dd_sov_industrial_coordinator }
+			ai_will_do = { factor = 5 }
+		}
+	}
+	SOV_sergey_lavrov = {
+		name = "Sergey Lavrov"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_sergey_lavrov small = GFX_portrait_SOV_sergey_lavrov_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_sergey_lavrov
+			cost = 150
+			allowed = { original_tag = RUS }
+			traits = { dd_sov_veteran_diplomat }
+			ai_will_do = { factor = 6 }
+		}
+	}
+	SOV_dmitry_patrushev = {
+		name = "Dmitry Patrushev"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_dmitry_patrushev small = GFX_portrait_SOV_dmitry_patrushev_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_dmitry_patrushev
+			cost = 150
+			allowed = { original_tag = RUS }
+			traits = { dd_sov_agro_security }
+			ai_will_do = { factor = 3 }
+		}
+	}
+	SOV_sergey_kiriyenko = {
+		name = "Sergey Kiriyenko"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_sergey_kiriyenko small = GFX_portrait_SOV_sergey_kiriyenko_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_sergey_kiriyenko
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_country_flag = dd_sov_kiriyenko_open }
+			traits = { dd_sov_political_technologist }
+			ai_will_do = { factor = 8 }
+		}
+	}
+	SOV_maxim_oreshkin = {
+		name = "Maxim Oreshkin"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_maxim_oreshkin small = GFX_portrait_SOV_maxim_oreshkin_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_maxim_oreshkin
+			cost = 150
+			allowed = { original_tag = RUS }
+			research_bonus = {
+				electronics = 0.15
+				synth_resources = 0.15
+			}
+			traits = { dd_sov_macro_strategist }
+			ai_will_do = { factor = 4 }
+		}
+	}
+	SOV_alexander_bortnikov = {
+		name = "Alexander Bortnikov"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_alexander_bortnikov small = GFX_portrait_SOV_alexander_bortnikov_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_alexander_bortnikov
+			cost = 150
+			allowed = { original_tag = RUS }
+			traits = { dd_sov_counter_intel }
+			ai_will_do = { factor = 5 }
+		}
+	}
+	SOV_patriarch_kirill = {
+		name = "Patriarch Kirill"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_patriarch_kirill small = GFX_portrait_SOV_patriarch_kirill_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_patriarch_kirill
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_government = absolute_monarchy }
+			traits = { dd_sov_spiritual_autocrat }
+			ai_will_do = { factor = 8 }
+		}
+	}
+	SOV_konstantin_malofeev = {
+		name = "Konstantin Malofeev"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_konstantin_malofeev small = GFX_portrait_SOV_konstantin_malofeev_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_konstantin_malofeev
+			cost = 150
+			allowed = { original_tag = RUS }
+			traits = { dd_sov_orthodox_financier }
+			ai_will_do = { factor = 2 }
+		}
+	}
+	SOV_vladimir_medinsky = {
+		name = "Vladimir Medinsky"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_vladimir_medinsky small = GFX_portrait_SOV_vladimir_medinsky_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_vladimir_medinsky
+			cost = 150
+			allowed = { original_tag = RUS }
+			traits = { dd_sov_imperial_historian }
+			ai_will_do = { factor = 3 }
+		}
+	}
+	SOV_yuri_afonin = {
+		name = "Yuri Afonin"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_yuri_afonin small = GFX_portrait_SOV_yuri_afonin_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_yuri_afonin
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_government = communism }
+			traits = { dd_sov_vanguard_whip }
+			ai_will_do = { factor = 6 }
+		}
+	}
+	SOV_nikolai_bondarenko = {
+		name = "Nikolai Bondarenko"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_nikolai_bondarenko small = GFX_portrait_SOV_nikolai_bondarenko_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_nikolai_bondarenko
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_government = communism }
+			traits = { dd_sov_anti_oligarch }
+			ai_will_do = { factor = 4 }
+		}
+	}
+	SOV_viktor_sobolev = {
+		name = "Viktor Sobolev"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_viktor_sobolev small = GFX_portrait_SOV_viktor_sobolev_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_viktor_sobolev
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_government = communism }
+			traits = { dd_sov_red_army_traditionalist }
+			ai_will_do = { factor = 5 }
+		}
+	}
+	SOV_alexander_dugin = {
+		name = "Alexander Dugin"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_alexander_dugin small = GFX_portrait_SOV_alexander_dugin_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_alexander_dugin
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_government = fascism }
+			traits = { dd_sov_ideological_crusader }
+			ai_will_do = { factor = 6 }
+		}
+	}
+	SOV_zakhar_prilepin = {
+		name = "Zakhar Prilepin"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_zakhar_prilepin small = GFX_portrait_SOV_zakhar_prilepin_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_zakhar_prilepin
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_government = fascism }
+			traits = { dd_sov_mobilization_agitator }
+			ai_will_do = { factor = 5 }
+		}
+	}
+	SOV_artem_zhoga = {
+		name = "Artem Zhoga"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_artem_zhoga small = GFX_portrait_SOV_artem_zhoga_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_artem_zhoga
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_government = fascism }
+			traits = { dd_sov_frontline_envoy }
+			on_add = { dd_sov_zhoga_sync = yes }
+			ai_will_do = { factor = 4 }
+		}
+	}
+	SOV_pavel_gubarev = {
+		name = "Pavel Gubarev"
+		portraits = {
+			civilian = { large = GFX_portrait_SOV_pavel_gubarev small = GFX_portrait_SOV_pavel_gubarev_small }
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_pavel_gubarev
+			cost = 150
+			allowed = { original_tag = RUS }
+			available = { has_government = fascism }
+			traits = { dd_sov_shock_organizer }
+			ai_will_do = { factor = 4 }
+		}
+	}
+}

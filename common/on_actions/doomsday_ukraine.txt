@@ -34,6 +34,16 @@ on_actions = {
 					add_offsite_building = { type = industrial_complex level = 8 }
 					set_country_flag = dd_ukr_western_civs
 				}
+				if = {
+					limit = { NOT = { has_variable = dd_ukr_blackout } }
+					set_variable = { dd_ukr_blackout = 0 }
+				}
+				if = {
+					limit = { NOT = { has_variable = dd_ukr_blackout_cap } }
+					set_variable = { dd_ukr_blackout_cap = 20 }
+				}
+				dd_ukr_grid_sync = yes
+				dd_mirror_enemy_stacks = yes
 			}
 		}
 	}
@@ -66,6 +76,17 @@ on_actions = {
 				country_event = { id = dd_ukr_shell.1 }
 			}
 			dd_ukr_check_refinery_strike = yes
+			if = {
+				limit = { NOT = { has_variable = dd_ukr_blackout } }
+				set_variable = { dd_ukr_blackout = 0 }
+			}
+			if = {
+				limit = { NOT = { has_variable = dd_ukr_blackout_cap } }
+				set_variable = { dd_ukr_blackout_cap = 20 }
+			}
+			dd_ukr_grid_sync = yes
+			dd_ukr_grid_check_bombs = yes
+			dd_mirror_enemy_stacks = yes
 		}
 	}
 }

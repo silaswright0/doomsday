@@ -28,7 +28,10 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_defence_factor = 0.50
+				army_defence_factor = 1.00
+				max_dig_in_factor = 0.25
+				dig_in_speed_factor = 0.25
+				army_org_regain = 0.10
 			}
 		}
 		dd_ukr_desperate_defence = {
@@ -37,8 +40,8 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				dig_in_speed_factor = 0.25
-				max_dig_in = 10
+				dig_in_speed_factor = 0.50
+				max_dig_in = 20
 			}
 		}
 		dd_ukr_shell_hunger = {
@@ -57,8 +60,8 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_defence_factor = 0.20
-				army_core_defence_factor = 0.10
+				army_defence_factor = 0.40
+				army_core_defence_factor = 0.20
 			}
 		}
 		dd_ukr_general_staff = {

@@ -170,13 +170,13 @@ focus_tree = {
 		icon = GFX_goal_generic_army_doctrines
 		x = 2
 		y = 8
-		cost = 5
+		cost = 10
 		prerequisite = { focus = SOV_fifth_service }
 		search_filters = { FOCUS_FILTER_ARMY }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			dd_sov_duma_audit = yes
-			dd_sov_bop_chekist = yes
+			dd_sov_bop_chekist_20 = yes
 		}
 	}
 	focus = {
@@ -204,7 +204,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			dd_sov_duma_bureaucracy = yes
-			dd_sov_bop_establishment = yes
+			dd_sov_bop_establishment_20 = yes
 		}
 	}
 	focus = {
@@ -221,6 +221,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			dd_sov_duma_runet = yes
+			dd_sov_bop_chekist_5 = yes
 		}
 	}
 	focus = {
@@ -237,6 +238,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			dd_sov_duma_monotowns = yes
+			dd_sov_bop_establishment_5 = yes
 		}
 	}
 	focus = {
@@ -253,6 +255,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			dd_sov_duma_hybrid = yes
+			dd_sov_bop_chekist_5 = yes
 		}
 	}
 	focus = {
@@ -269,6 +272,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			dd_sov_duma_budget = yes
+			dd_sov_bop_establishment_5 = yes
 		}
 	}
 	focus = {
@@ -285,6 +289,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			dd_sov_duma_disruption = yes
+			dd_sov_bop_chekist_5 = yes
 		}
 	}
 	focus = {
@@ -301,6 +306,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			dd_sov_duma_doctrine = yes
+			dd_sov_bop_establishment_5 = yes
 		}
 	}
 	focus = {
@@ -316,11 +322,15 @@ focus_tree = {
 			focus = SOV_war_machine
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			is_power_balance_in_range = {
+				id = SOV_kremlin_siloviki
+				range = SOV_bop_chekist_dominant
+			}
+		}
 		ai_will_do = { factor = 50 }
 		completion_reward = {
-			add_ideas = dd_sov_chekist_monolith
-			dd_sov_bop_chekist = yes
-			dd_sov_bop_chekist = yes
+			dd_sov_chekist_ensure = yes
 		}
 	}
 	focus = {
@@ -333,7 +343,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_centralize_services
+			dd_sov_centralize_services_mod = yes
 			dd_sov_bop_chekist = yes
 		}
 	}
@@ -347,8 +357,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ARMY }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_subjugate_general_staff
-			dd_sov_bop_chekist = yes
+			dd_sov_subjugate_staff = yes
 		}
 	}
 	focus = {
@@ -378,9 +387,15 @@ focus_tree = {
 			focus = SOV_arbiter_of_clans
 		}
 		search_filters = { FOCUS_FILTER_ARMY }
+		available = {
+			is_power_balance_in_range = {
+				id = SOV_kremlin_siloviki
+				range = SOV_bop_establishment_dominant
+			}
+		}
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_war_machine
+			dd_sov_war_ensure = yes
 		}
 	}
 	focus = {
@@ -393,7 +408,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ARMY }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_high_command_autonomy
+			dd_sov_war_high_command = yes
 		}
 	}
 	focus = {
@@ -406,7 +421,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ARMY }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_war_academy
+			dd_sov_war_academy = yes
 			army_experience = 25
 		}
 	}
@@ -420,7 +435,18 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ARMY }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_marshals_directorate
+			dd_sov_war_marshals = yes
+			set_politics = {
+				ruling_party = military_junta
+				elections_allowed = no
+			}
+			add_popularity = { ideology = military_junta popularity = 0.40 }
+			create_country_leader = {
+				name = "Valery Gerasimov"
+				picture = "GFX_portrait_SOV_valery_gerasimov"
+				expire = "2065.1.1"
+				ideology = junta
+			}
 		}
 	}
 	focus = {
@@ -436,6 +462,12 @@ focus_tree = {
 			focus = SOV_war_machine
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			is_power_balance_in_range = {
+				id = SOV_kremlin_siloviki
+				range = SOV_bop_contested
+			}
+		}
 		ai_will_do = { factor = 20 }
 		completion_reward = {
 			add_ideas = dd_sov_arbiter_of_clans
@@ -453,7 +485,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_state_council
+			dd_sov_council_ensure = yes
 		}
 	}
 	focus = {
@@ -467,7 +499,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 20 }
 		completion_reward = {
-			add_ideas = dd_sov_sovereign_equilibrium
+			dd_sov_council_equilibrium = yes
 			dd_sov_bop_center = yes
 		}
 	}
@@ -482,8 +514,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_zemsky_sobor
-			dd_sov_bop_establishment = yes
+			add_political_power = 50
 		}
 	}
 	focus = {
@@ -496,9 +527,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_ideas = dd_sov_adjust_constitution
-			add_popularity = { ideology = sovereign_democracy popularity = 0.10 }
-			dd_sov_bop_establishment = yes
+			add_stability = -0.10
+			set_politics = {
+				ruling_party = absolute_monarchy
+				elections_allowed = no
+			}
 		}
 	}
 	focus = {
@@ -511,9 +544,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { factor = 40 }
 		completion_reward = {
-			add_political_power = 150
-			add_ideas = dd_sov_petrine_edict
-			dd_sov_bop_establishment = yes
+			add_political_power = 100
+			create_country_leader = {
+				name = "Katerina Tikhonova"
+				picture = "GFX_portrait_SOV_katerina_tikhonova"
+				expire = "2065.1.1"
+				ideology = absolute_monarchist
+			}
 		}
 	}
 
@@ -637,6 +674,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			add_popularity = { ideology = communism popularity = 0.05 }
+			dd_sov_purge_siluanov = yes
 		}
 	}
 	focus = {
@@ -819,6 +857,7 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.05
 			add_popularity = { ideology = fascism popularity = 0.05 }
+			dd_sov_purge_siluanov = yes
 		}
 	}
 	focus = {
@@ -1006,6 +1045,8 @@ focus_tree = {
 			add_ideas = dd_sov_tactical_arsenal
 			add_tech_bonus = { name = SOV_tactical_arsenal bonus = 1.0 uses = 2 category = nuclear }
 			add_tech_bonus = { name = SOV_tactical_arsenal bonus = 1.0 uses = 2 category = rocketry }
+			set_country_flag = dd_nuke_free_use
+			custom_effect_tooltip = dd_nuke_free_use_tt
 		}
 	}
 	focus = {
@@ -1138,7 +1179,7 @@ focus_tree = {
 		id = SOV_georgian_puppets
 		icon = GFX_goal_generic_military_sphere
 		x = 36
-		y = 0
+		y = 2
 		cost = 5
 		prerequisite = { focus = SOV_challenge_nato }
 		available = { has_war_with = UKR }

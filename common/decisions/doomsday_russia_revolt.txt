@@ -1,0 +1,24 @@
+dd_sov_home_front_category = {
+	dd_sov_ignite_now = {
+		icon = generic_ignite_civil_war
+		allowed = { original_tag = RUS }
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = {
+			NOT = { has_civil_war = yes }
+			NOT = { has_country_flag = dd_sov_red_revolt }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = dd_sov_revolution_tt
+				communism > 0.299
+			}
+		}
+		complete_effect = {
+			set_country_flag = dd_sov_play_red
+			custom_effect_tooltip = dd_sov_play_red_tt
+			dd_sov_red_war = yes
+		}
+	}
+}

@@ -1,0 +1,42 @@
+operation_dd_sovereign_influence = {
+	icon = GFX_operations_coup_government
+	map_icon = GFX_operations_coup_government_map
+	name = dd_sov_sovereign_influence
+	desc = dd_sov_sovereign_influence_desc
+	priority = 40
+
+	days = 90
+	network_strength = 40
+	operatives = 1
+
+	visible = {
+		ROOT = { has_country_flag = dd_sov_disruption_open }
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+	}
+
+	available = {
+		NOT = { has_war_with = FROM }
+	}
+
+	risk_chance = 0.1
+	experience = 2
+
+	outcome_execute = {
+		FROM = { dd_sov_influence_target = yes }
+	}
+
+	outcome_potential = {
+		custom_effect_tooltip = dd_sov_influence_tt
+	}
+
+	phases = {
+		infiltration_diplomatic = { base = 50 }
+		infiltration_border = { base = 50 }
+	}
+	phases = {
+		infiltration_diplomatic = { base = 100 }
+	}
+}

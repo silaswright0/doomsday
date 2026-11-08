@@ -22,6 +22,12 @@ leader_traits = {
 		sprite = 5
 		experience_gain_army = 0.08
 	}
+	# Randy George only. Applies while he holds the army chief seat.
+	dd_george_org = {
+		random = no
+		sprite = 5
+		army_org_factor = 0.05
+	}
 	dd_exp_navy = {
 		random = no
 		sprite = 3
@@ -66,7 +72,7 @@ leader_traits = {
 		random = no
 		sprite = 13
 		political_power_factor = 0.10
-		war_support_factor = 0.05
+		communism_drift = 0.05
 		drift_defence_factor = 0.15
 	}
 	dd_green_new_deal = {
@@ -145,10 +151,362 @@ leader_traits = {
 		army_defence_factor = 0.05
 		planning_speed = 0.10
 	}
+	dd_apolitical = {
+		random = no
+		sprite = 13
+		political_power_gain = 0.10
+		stability_factor = 0.05
+	}
 	dd_digital_ministry = {
 		random = no
 		sprite = 13
 		research_speed_factor = 0.05
 		production_factory_max_efficiency_factor = 0.05
+	}
+	dd_sov_financial_technocrat = {
+		random = no
+		sprite = 13
+		consumer_goods_factor = -0.03
+		political_power_gain = 0.10
+		war_support_factor = -0.05
+	}
+	dd_sov_budgetary_administrator = {
+		random = no
+		sprite = 13
+		production_speed_industrial_complex_factor = 0.10
+		economy_cost_factor = -0.25
+	}
+	dd_sov_defense_economist = {
+		random = no
+		sprite = 13
+		industrial_capacity_factory = 0.10
+		production_factory_max_efficiency_factor = 0.05
+		experience_gain_army_factor = -0.05
+	}
+	dd_sov_digital_architect = {
+		random = no
+		sprite = 13
+		decryption_factor = 0.15
+		mobilization_laws_cost_factor = -0.25
+	}
+	dd_sov_industrial_coordinator = {
+		random = no
+		sprite = 13
+		production_speed_arms_factory_factor = 0.10
+		equipment_conversion_speed = 0.15
+	}
+	dd_sov_veteran_diplomat = {
+		random = no
+		sprite = 13
+		opinion_gain_monthly_factor = 0.25
+		trade_opinion_factor = 0.15
+		justify_war_goal_time = -0.10
+	}
+	dd_sov_agro_security = {
+		random = no
+		sprite = 13
+		monthly_population = 0.10
+		out_of_supply_factor = -0.10
+	}
+	dd_sov_political_technologist = {
+		random = no
+		sprite = 13
+		drift_defence_factor = 0.30
+		agency_upgrade_time = -0.20
+		political_power_gain = 0.20
+	}
+	dd_sov_macro_strategist = {
+		random = no
+		sprite = 13
+		trade_opinion_factor = 0.20
+	}
+	dd_sov_counter_intel = {
+		random = no
+		sprite = 13
+		operative_slot = 1
+		enemy_operative_capture_chance_factor = 0.35
+		resistance_growth = -0.20
+	}
+	dd_sov_spiritual_autocrat = {
+		random = no
+		sprite = 13
+		stability_factor = 0.15
+		war_support_factor = 0.10
+		surrender_limit = 0.15
+	}
+	dd_sov_orthodox_financier = {
+		random = no
+		sprite = 13
+		absolute_monarchy_drift = 0.10
+		compliance_growth = 0.15
+		consumer_goods_factor = 0.02
+	}
+	dd_sov_imperial_historian = {
+		random = no
+		sprite = 13
+		justify_war_goal_time = -0.20
+		army_core_defence_factor = 0.05
+		political_power_gain = 0.15
+	}
+	dd_sov_vanguard_whip = {
+		random = no
+		sprite = 13
+		communism_drift = 0.10
+		stability_factor = 0.10
+		political_power_gain = 0.15
+	}
+	dd_sov_anti_oligarch = {
+		random = no
+		sprite = 13
+		consumer_goods_factor = -0.05
+		production_speed_industrial_complex_factor = 0.10
+		stability_factor = -0.05
+	}
+	dd_sov_red_army_traditionalist = {
+		random = no
+		sprite = 13
+		army_defence_factor = 0.10
+		equipment_bonus = {
+			artillery_equipment = {
+				build_cost_ic = -0.10
+				instant = yes
+			}
+		}
+	}
+	dd_sov_ideological_crusader = {
+		random = no
+		sprite = 13
+		war_support_factor = 0.15
+		generate_wargoal_tension = -0.25
+		fascism_drift = 0.10
+	}
+	dd_sov_mobilization_agitator = {
+		random = no
+		sprite = 13
+		recruitable_population = 0.015
+		army_morale_factor = 0.10
+	}
+	dd_sov_frontline_envoy = {
+		random = no
+		sprite = 13
+		war_support_factor = 0.05
+	}
+	dd_sov_shock_organizer = {
+		random = no
+		sprite = 13
+		special_forces_cap = 0.20
+		training_time_army_factor = -0.10
+	}
+	dd_chi_smooth_charmer = {
+		random = no
+		sprite = 13
+		trade_opinion_factor = 0.15
+		improve_relations_maintain_cost_factor = -0.25
+		justify_war_goal_time = -0.10
+	}
+	dd_chi_financial_tsar = {
+		random = no
+		sprite = 13
+		consumer_goods_factor = -0.03
+		production_speed_industrial_complex_factor = 0.05
+	}
+	dd_chi_party_ideologue = {
+		random = no
+		sprite = 13
+		political_power_gain = 0.15
+		drift_defence_factor = 0.20
+	}
+	dd_chi_central_bank = {
+		random = no
+		sprite = 13
+		consumer_goods_factor = -0.02
+		stability_factor = 0.03
+		trade_laws_cost_factor = -0.25
+	}
+	dd_chi_fiscal_technocrat = {
+		random = no
+		sprite = 13
+		production_speed_buildings_factor = 0.05
+	}
+	dd_chi_grand_theorist = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.10
+		stability_factor = 0.05
+		research_speed_factor = 0.03
+	}
+	dd_chi_state_security = {
+		random = no
+		sprite = 13
+		encryption_factor = 0.15
+		enemy_operative_detection_chance_factor = 0.30
+		resistance_target = -0.10
+	}
+	dd_chi_iron_legalist = {
+		random = no
+		sprite = 13
+		foreign_subversive_activites = -0.35
+		stability_factor = 0.05
+		army_morale_factor = -0.05
+	}
+	dd_chi_inquisitor = {
+		random = no
+		sprite = 5
+		experience_gain_army_factor = 0.15
+		command_power_gain = 0.10
+		army_attack_factor = -0.03
+	}
+	dd_chi_propaganda_chief = {
+		random = no
+		sprite = 13
+		war_support_factor = 0.10
+		drift_defence_factor = 0.25
+	}
+	dd_chi_ndrc_planner = {
+		random = no
+		sprite = 13
+		industrial_capacity_factory = 0.05
+		production_factory_max_efficiency_factor = 0.05
+		production_speed_infrastructure_factor = 0.10
+	}
+	dd_chi_aerospace = {
+		random = no
+		sprite = 13
+		production_speed_arms_factory_factor = 0.10
+		equipment_bonus = {
+			small_plane_airframe = { build_cost_ic = -0.05 instant = yes }
+			cv_small_plane_airframe = { build_cost_ic = -0.05 instant = yes }
+			medium_plane_airframe = { build_cost_ic = -0.05 instant = yes }
+			large_plane_airframe = { build_cost_ic = -0.05 instant = yes }
+		}
+	}
+	dd_chi_science_minister = {
+		random = no
+		sprite = 13
+		research_speed_factor = 0.06
+	}
+	dd_chi_urban_economist = {
+		random = no
+		sprite = 13
+		consumer_goods_factor = -0.04
+	}
+	dd_chi_navy_chief = {
+		random = no
+		sprite = 3
+		navy_org_factor = 0.10
+		sortie_efficiency = 0.10
+		naval_invasion_prep_speed = 0.10
+	}
+	dd_chi_purged_general = {
+		random = no
+		sprite = 5
+		army_attack_factor = 0.10
+		army_armor_attack_factor = 0.10
+	}
+	dd_chi_theater_commander = {
+		random = no
+		sprite = 5
+		army_defence_factor = 0.10
+		planning_speed = 0.10
+	}
+	dd_chi_army_planner = {
+		random = no
+		sprite = 5
+		planning_speed = 0.15
+		army_org_factor = 0.05
+	}
+	dd_chi_air_theorist = {
+		random = no
+		sprite = 1
+		air_superiority_efficiency = 0.10
+		air_doctrine_cost_factor = -0.10
+	}
+	dd_chi_rocket_specialist = {
+		random = no
+		sprite = 5
+		air_strategic_bomber_bombing_factor = 0.15
+		equipment_bonus = {
+			guided_missile_equipment = { build_cost_ic = -0.15 instant = yes }
+			ballistic_missile_equipment = { build_cost_ic = -0.15 instant = yes }
+			nuclear_missile_equipment = { build_cost_ic = -0.15 instant = yes }
+			sam_missile_equipment = { build_cost_ic = -0.15 instant = yes }
+			hypersonic_missile_equipment = { build_cost_ic = -0.15 instant = yes }
+		}
+	}
+	dd_chi_neo_socialist = {
+		random = no
+		sprite = 13
+		consumer_goods_factor = -0.05
+		industrial_capacity_factory = 0.08
+		trade_opinion_factor = -0.20
+	}
+	dd_chi_vanguard_agitator = {
+		random = no
+		sprite = 13
+		war_support_factor = 0.10
+		recruitable_population = 0.015
+		stability_factor = -0.05
+	}
+	dd_chi_state_capacity = {
+		random = no
+		sprite = 13
+		political_power_gain = 0.20
+		mobilization_speed = 0.15
+	}
+	dd_chi_cultural_commissar = {
+		random = no
+		sprite = 13
+		progressive_populism_drift = 0.10
+		foreign_subversive_activites = -0.20
+	}
+	dd_chi_shanghai_broker = {
+		random = no
+		sprite = 13
+		trade_opinion_factor = 0.25
+		production_speed_industrial_complex_factor = 0.10
+		stability_factor = 0.05
+	}
+	dd_chi_digital_tycoon = {
+		random = no
+		sprite = 13
+		consumer_goods_factor = -0.05
+		research_speed_factor = 0.05
+		political_power_gain = -0.05
+	}
+	dd_chi_cyber_magnate = {
+		random = no
+		sprite = 13
+		encryption_factor = 0.10
+		decryption_factor = 0.10
+		production_factory_efficiency_gain_factor = 0.10
+	}
+	dd_chi_offshore_finance = {
+		random = no
+		sprite = 13
+		trade_opinion_factor = 0.30
+	}
+	dd_chi_constitutional_jurist = {
+		random = no
+		sprite = 13
+		stability_factor = 0.10
+		liberal_conservatism_drift = 0.10
+		political_power_gain = 0.10
+	}
+	dd_chi_party_reformist = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.15
+		required_garrison_factor = -0.15
+	}
+	dd_chi_federalist = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.20
+	}
+	dd_chi_property_advocate = {
+		random = no
+		sprite = 13
+		production_speed_industrial_complex_factor = 0.12
+		consumer_goods_factor = -0.03
 	}
 }

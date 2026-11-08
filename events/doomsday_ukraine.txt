@@ -566,8 +566,47 @@ country_event = {
 	id = dd_ukr_grid.1
 	title = dd_ukr_grid.1.t
 	desc = dd_ukr_grid.1.d
-	picture = GFX_report_event_generic_read_write
+	picture = GFX_report_event_generic_factory
 	is_triggered_only = yes
-
 	option = { name = dd_ukr_grid.1.a }
+}
+country_event = {
+	id = dd_ukr_grid.2
+	title = dd_ukr_grid.1.t
+	desc = dd_ukr_grid.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = { name = dd_ukr_grid.1.a }
+}
+country_event = {
+	id = dd_ukr_grid.3
+	title = dd_ukr_grid.1.t
+	desc = dd_ukr_grid.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = { name = dd_ukr_grid.1.a }
+}
+country_event = {
+	id = dd_ukr_grid.11
+	title = dd_ukr_grid.11.t
+	desc = dd_ukr_grid.11.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = { name = dd_ukr_grid.11.a }
+}
+country_event = {
+	id = dd_ukr_grid.12
+	title = dd_ukr_grid.11.t
+	desc = dd_ukr_grid.11.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = { name = dd_ukr_grid.11.a }
+}
+country_event = {
+	id = dd_ukr_grid.13
+	title = dd_ukr_grid.11.t
+	desc = dd_ukr_grid.11.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = { name = dd_ukr_grid.11.a }
 }

@@ -15341,7 +15341,7 @@ characters = {
 			idea_token = CHI_chang_dingqiu
 			cost = 150
 			allowed = { original_tag = CHI }
-			traits = { dd_exp_air }
+			traits = { dd_chi_air_theorist }
 			ai_will_do = { factor = 10 }
 		}
 	}
@@ -15355,9 +15355,10 @@ characters = {
 		advisor = {
 			slot = high_command
 			idea_token = CHI_wang_houbin
-			cost = 100
+			cost = 150
 			allowed = { original_tag = CHI }
-			traits = { army_artillery_1 }
+			available = { has_country_flag = dd_chi_rocket_spared }
+			traits = { dd_chi_rocket_specialist }
 			ai_will_do = { factor = 10 }
 		}
 	}
@@ -15433,12 +15434,12 @@ characters = {
 			civilian = { large = GFX_portrait_SOV_andrey_belousov small = GFX_portrait_SOV_andrey_belousov_small }
 		}
 		advisor = {
-			slot = high_command
+			slot = political_advisor
 			idea_token = SOV_andrey_belousov
-			cost = 100
+			cost = 150
 			allowed = { original_tag = RUS }
-			traits = { army_logistics_1 }
-			ai_will_do = { factor = 10 }
+			traits = { dd_sov_defense_economist }
+			ai_will_do = { factor = 6 }
 		}
 	}
 	SOV_aleksandr_chayko = {

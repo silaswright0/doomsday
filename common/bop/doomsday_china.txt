@@ -21,6 +21,7 @@ CHI_party_balance = {
 			min = -0.60
 			max = -0.15
 			modifier = {
+				political_power_gain = 0.10
 				stability_factor = 0.05
 				drift_defence_factor = 0.10
 			}
@@ -30,6 +31,7 @@ CHI_party_balance = {
 			min = -1.0
 			max = -0.60
 			modifier = {
+				political_power_gain = 0.20
 				stability_factor = 0.10
 				drift_defence_factor = 0.20
 				war_support_factor = 0.05

@@ -156,6 +156,28 @@ ideas = {
 			}
 		}
 
+		dd_usa_healthcare_reforms = {
+			picture = generic_pp_unity_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.05
+				conscription = 0.01
+				stability_factor = 0.10
+			}
+		}
+		dd_usa_rent_controls = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.10
+				monthly_population = 0.20
+				stability_factor = 0.10
+			}
+		}
 		dd_usa_tax_on_big_business = {
 			picture = generic_goods_red_bonus
 			allowed = { always = no }
@@ -165,6 +187,7 @@ ideas = {
 				production_speed_buildings_factor = -0.30
 				production_factory_max_efficiency_factor = -0.10
 				industrial_capacity_factory = -0.05
+				consumer_goods_factor = -0.05
 			}
 			custom_modifier_tooltip = dd_usa_tax_cash_tt
 		}
@@ -177,7 +200,9 @@ ideas = {
 			modifier = {
 				stability_factor = 0.20
 				war_support_factor = 0.20
-				monthly_population = 0.20
+				monthly_population = 0.05
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
 			}
 		}
 		dd_usa_final_liberal = {
@@ -717,6 +742,7 @@ ideas = {
 			}
 		}
 		dd_usa_mass_deportations = {
+			name = dd_usa_mass_deportations
 			picture = generic_intel_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }

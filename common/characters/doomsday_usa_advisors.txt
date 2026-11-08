@@ -459,7 +459,12 @@ characters = {
 			slot = political_advisor
 			idea_token = USA_elon_musk
 			allowed = { original_tag = USA }
-			available = { has_government = technocracy }
+			available = {
+				OR = {
+					has_government = technocracy
+					has_government = fascism
+				}
+			}
 			traits = { captain_of_industry }
 			ai_will_do = { factor = 1 }
 		}

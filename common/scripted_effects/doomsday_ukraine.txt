@@ -391,14 +391,49 @@ dd_ukr_grid_sync = {
 # Ukraine scope. Adds dd_ukr_hit_amount stacks, capped, and tells Ukraine.
 dd_ukr_grid_apply_hit = {
 	if = {
+		limit = { NOT = { has_variable = dd_ukr_blackout } }
+		set_variable = { dd_ukr_blackout = 0 }
+	}
+	if = {
 		limit = { NOT = { has_variable = dd_ukr_blackout_cap } }
 		set_variable = { dd_ukr_blackout_cap = 20 }
+	}
+	if = {
+		limit = { NOT = { has_variable = dd_ukr_hit_amount } }
+		set_variable = { dd_ukr_hit_amount = 1 }
 	}
 	if = {
 		limit = { check_variable = { dd_ukr_blackout < dd_ukr_blackout_cap } }
 		add_to_variable = { dd_ukr_blackout = dd_ukr_hit_amount }
 		dd_ukr_grid_sync = yes
+		dd_ukr_grid_popup = yes
+	}
+}
+
+dd_ukr_grid_popup = {
+	dd_mirror_enemy_stacks = yes
+	if = {
+		limit = { NOT = { has_variable = dd_ukr_grid_pop } }
+		set_variable = { dd_ukr_grid_pop = 0 }
+	}
+	if = {
+		limit = { check_variable = { dd_ukr_grid_pop = 0 } }
 		country_event = { id = dd_ukr_grid.1 }
+		RUS = { country_event = { id = dd_ukr_grid.11 } }
+	}
+	else_if = {
+		limit = { check_variable = { dd_ukr_grid_pop = 1 } }
+		country_event = { id = dd_ukr_grid.2 }
+		RUS = { country_event = { id = dd_ukr_grid.12 } }
+	}
+	else = {
+		country_event = { id = dd_ukr_grid.3 }
+		RUS = { country_event = { id = dd_ukr_grid.13 } }
+	}
+	add_to_variable = { dd_ukr_grid_pop = 1 }
+	if = {
+		limit = { check_variable = { dd_ukr_grid_pop > 2 } }
+		set_variable = { dd_ukr_grid_pop = 0 }
 	}
 }
 

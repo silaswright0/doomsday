@@ -1,4 +1,4 @@
-# Democratic socialism (not a democratic-socialist United States), market liberals, conservatives, or a national-populist United States.
+# Democratic socialism (not a democratic-socialist United States), market liberals, conservatives, sovereign democracies, or a national-populist United States.
 dd_isr_diaspora_eligible = {
 	exists = yes
 	NOT = { tag = ISR }
@@ -9,6 +9,7 @@ dd_isr_diaspora_eligible = {
 		}
 		has_government = social_liberalism
 		has_government = liberal_conservatism
+		has_government = sovereign_democracy
 		AND = {
 			tag = USA
 			has_government = national_populism

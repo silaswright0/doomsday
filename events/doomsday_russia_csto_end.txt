@@ -1,0 +1,59 @@
+add_namespace = dd_sov_csto_end
+
+# Fired on each CSTO member. Accept is annexed. Refuse sends Russia to war.
+country_event = {
+	id = dd_sov_csto_end.1
+	title = dd_sov_csto_end.1.t
+	desc = dd_sov_csto_end.1.d
+	picture = GFX_report_event_generic_sign_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = dd_sov_csto_end.1.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				is_subject_of = RUS
+			}
+		}
+		RUS = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = dd_sov_csto_end.1.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				is_subject_of = RUS
+			}
+		}
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		RUS = { country_event = { id = dd_sov_csto_end.2 } }
+	}
+}
+
+country_event = {
+	id = dd_sov_csto_end.2
+	title = dd_sov_csto_end.2.t
+	desc = dd_sov_csto_end.2.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = dd_sov_csto_end.2.a
+		ai_chance = { base = 100 }
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}

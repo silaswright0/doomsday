@@ -29,6 +29,7 @@ on_actions = {
 					}
 					if = { limit = { NOT = { has_variable = dd_sov_fuel_cd } } set_variable = { dd_sov_fuel_cd = 0 } }
 					dd_sov_fuel_sync = yes
+					dd_mirror_enemy_stacks = yes
 				}
 			}
 		}
@@ -36,6 +37,8 @@ on_actions = {
 	on_daily_RUS = {
 		effect = {
 			dd_sov_fuel_check_bombs = yes
+			dd_mirror_enemy_stacks = yes
+			dd_sov_zhoga_sync = yes
 			if = {
 				limit = {
 					date > 2026.7.14
@@ -62,15 +65,11 @@ on_actions = {
 			}
 		}
 	}
-	on_monthly = {
+	on_monthly_RUS = {
 		effect = {
-			if = {
-				limit = { RUS = { exists = yes } }
-				RUS = {
-					dd_sov_apply_scorched_land = yes
-					dd_sov_ukr_monthly = yes
-				}
-			}
+			dd_sov_apply_scorched_land = yes
+			dd_sov_ukr_monthly = yes
+			dd_mirror_enemy_stacks = yes
 		}
 	}
 	on_army_leader_lost_combat = {

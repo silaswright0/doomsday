@@ -226,6 +226,10 @@ dd_refresh_interest = {
 		limit = { check_variable = { expense_interest < 0 } }
 		set_variable = { expense_interest = 0 }
 	}
+	if = {
+		limit = { has_idea = CHI_he_lifeng }
+		multiply_variable = { expense_interest = 0.95 }
+	}
 	# Compact debt UI shows the yearly coupon, not the stock.
 	set_variable = { dd_debt_year = expense_interest }
 	multiply_variable = { dd_debt_year = 12 }

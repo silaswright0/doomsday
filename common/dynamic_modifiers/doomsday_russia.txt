@@ -11,7 +11,7 @@ dd_sov_scorched_land = {
 # One Ukraine-war spirit. The yearly clock writes these variables.
 dd_sov_ukr_war = {
 	enable = { always = yes }
-	icon = GFX_idea_generic_army_problems
+	icon = GFX_idea_generic_war_preparation
 	remove_trigger = {
 		OR = {
 			has_country_flag = dd_sov_ukr_first_war_over
@@ -32,29 +32,72 @@ dd_sov_ninth_duma = {
 	enable = { always = yes }
 	icon = GFX_idea_generic_pp_unity_bonus
 	political_power_gain = dd_duma_pp
-	war_support_factor = dd_duma_ws
 	stability_factor = dd_duma_stab
-	trade_opinion_factor = dd_duma_trade
-	army_morale_factor = dd_duma_rec
+	war_support_factor = dd_duma_ws
+	recruitable_population = dd_duma_rec
 	army_org_factor = dd_duma_org
-	army_attack_factor = dd_duma_atk
-	army_defence_factor = dd_duma_def
-	army_speed_factor = dd_duma_spd
-	breakthrough_factor = dd_duma_brk
-	experience_gain_army_factor = dd_duma_xp
-	training_time_army_factor = dd_duma_train
-	supply_consumption_factor = dd_duma_supply
-	industrial_capacity_factory = dd_duma_fac
-	production_speed_arms_factory_factor = dd_duma_mil
-	production_speed_industrial_complex_factor = dd_duma_civ
-	production_factory_efficiency_gain_factor = dd_duma_eff
-	production_factory_max_efficiency_factor = dd_duma_effcap
-	consumer_goods_factor = dd_duma_cg
-	encryption_factor = dd_duma_enc
 	decryption_factor = dd_duma_dec
+	encryption_factor = dd_duma_enc
+	intel_network_gain_factor = dd_duma_intel
+	enemy_operative_detection_chance_factor = dd_duma_catch
 	subversive_activites_upkeep = dd_duma_subcost
-	foreign_subversive_activites = dd_duma_foreign
-	operative_slot = dd_duma_ops
+	industrial_capacity_factory = dd_duma_fac
+	production_factory_max_efficiency_factor = dd_duma_effcap
+	air_strategic_bomber_bombing_factor = dd_duma_strat
+	rocket_attack_factor = dd_duma_rocket
+	boost_ideology_mission_factor = dd_duma_boost
+	opinion_gain_monthly_same_ideology_factor = dd_duma_opinion
+	army_artillery_attack_factor = dd_duma_arty
+	breakthrough_factor = dd_duma_brk
+	command_power_gain_mult = dd_duma_cp
+}
+
+# The Chekist Monolith. Centralize Special Services adds to these variables.
+dd_sov_chekist_monolith = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_intel_bonus
+	operative_slot = dd_chek_ops
+	encryption_factor = dd_chek_enc
+	decryption_factor = dd_chek_dec
+	war_support_factor = dd_chek_ws
+	political_power_gain = dd_chek_pp
+	subversive_activites_upkeep = dd_chek_sub
+	foreign_subversive_activites = dd_chek_foreign
+}
+
+# State Council Presidium. Sovereign Equilibrium adds to these variables.
+dd_sov_state_council = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_pp_unity_bonus
+	political_power_gain = dd_council_pp
+	stability_factor = dd_council_stab
+	trade_opinion_factor = dd_council_trade
+	war_support_factor = dd_council_ws
+}
+
+# Indomitable War Machine. Later focuses on that path add to these variables.
+dd_sov_war_machine = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_morale_bonus
+	army_attack_factor = dd_wm_atk
+	army_defence_factor = dd_wm_def
+	breakthrough_factor = dd_wm_brk
+	war_support_factor = dd_wm_ws
+	army_morale_factor = dd_wm_rec
+	planning_speed = dd_wm_plan
+	max_planning = dd_wm_maxplan
+	experience_gain_army_factor = dd_wm_xp
+	army_org_factor = dd_wm_org
+}
+
+# Military factories in the Urals while Artem Zhoga is hired.
+dd_sov_zhoga_urals = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_production_bonus
+	remove_trigger = {
+		NOT = { owner = { has_idea = SOV_artem_zhoga } }
+	}
+	industrial_capacity_factory = 0.10
 }
 
 # Country-scoped. One stack per Ukrainian strike on a fuel state.

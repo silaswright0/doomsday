@@ -52,7 +52,7 @@ dd_chi_paranoia_sync = {
 dd_chi_paranoia_month = {
 	if = {
 		limit = { NOT = { has_variable = dd_chi_paranoia } }
-		set_variable = { dd_chi_paranoia = 25 }
+		set_variable = { dd_chi_paranoia = 50 }
 	}
 	if = {
 		limit = { NOT = { has_country_flag = dd_chi_paranoia_halted } }
@@ -62,6 +62,14 @@ dd_chi_paranoia_month = {
 		}
 		else = {
 			add_to_variable = { dd_chi_paranoia = 4 }
+		}
+		if = {
+			limit = { has_idea = CHI_cai_qi }
+			add_to_variable = { dd_chi_paranoia = -1 }
+		}
+		if = {
+			limit = { has_idea = CHI_chen_yixin }
+			add_to_variable = { dd_chi_paranoia = 2 }
 		}
 	}
 	if = {
@@ -77,6 +85,20 @@ dd_chi_paranoia_month = {
 		country_event = { id = dd_chi_para.1 }
 	}
 	dd_chi_paranoia_sync = yes
+}
+
+# New Year. Safe if China is gone, the meter is gone, or confidence is already full.
+dd_chi_new_year_confidence = {
+	if = {
+		limit = {
+			exists = yes
+			has_variable = dd_chi_confidence
+			NOT = { has_country_flag = dd_chi_purge_begun }
+			check_variable = { dd_chi_confidence < 100 }
+		}
+		add_to_variable = { dd_chi_confidence = 10 }
+		dd_chi_sync_confidence = yes
+	}
 }
 
 # Full confidence has no officer penalty. Each purge cuts 25, and the penalty scales with what is missing.
@@ -124,6 +146,13 @@ dd_chi_sync_confidence = {
 		remove_ideas = dd_chi_army_fear
 	}
 	if = {
+		limit = { NOT = { original_tag = CHI } }
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_chi_confidence_fear } }
+			remove_dynamic_modifier = { modifier = dd_chi_confidence_fear }
+		}
+	}
+	else_if = {
 		limit = { check_variable = { dd_chi_confidence > 99.9 } }
 		if = {
 			limit = { has_dynamic_modifier = { modifier = dd_chi_confidence_fear } }
@@ -137,6 +166,30 @@ dd_chi_sync_confidence = {
 		}
 	}
 	force_update_dynamic_modifier = yes
+}
+
+# Kept. Paranoia +20. Confidence +20.
+dd_chi_purge_kept = {
+	add_to_variable = { dd_chi_paranoia = 20 }
+	dd_chi_paranoia_sync = yes
+	if = {
+		limit = { NOT = { has_variable = dd_chi_confidence } }
+		set_variable = { dd_chi_confidence = 100 }
+	}
+	add_to_variable = { dd_chi_confidence = 20 }
+	dd_chi_sync_confidence = yes
+}
+
+# Purged. Paranoia -20. Confidence -20.
+dd_chi_purge_taken = {
+	add_to_variable = { dd_chi_paranoia = -20 }
+	dd_chi_paranoia_sync = yes
+	if = {
+		limit = { NOT = { has_variable = dd_chi_confidence } }
+		set_variable = { dd_chi_confidence = 100 }
+	}
+	add_to_variable = { dd_chi_confidence = -20 }
+	dd_chi_sync_confidence = yes
 }
 
 dd_chi_begin_purge = {
@@ -351,7 +404,7 @@ dd_chi_regime_watch = {
 				NOT = { has_country_flag = dd_chi_civil_war_pending }
 				NOT = { has_country_flag = dd_chi_security_seized }
 				has_country_flag = dd_chi_taiwan_failed
-				check_variable = { dd_chi_confidence < 25 }
+				check_variable = { dd_chi_confidence < 30 }
 				NOT = { has_completed_focus = CHI_real_estate_3 }
 				NOT = { has_completed_focus = CHI_local_debt_3 }
 				NOT = { has_completed_focus = CHI_youth_unemployment_3 }
@@ -891,8 +944,812 @@ dd_chi_rev_prepare_state = {
 	}
 }
 
-# Two irregular divisions in FROM. Works in a state this country does not control:
-# the divisions are placed there, then the previous controller is restored so they open an attack.
+# Called in the state. Two militia on that state's own city, including enemy-held land.
+dd_chi_rev_spawn_cells = {
+	if = {
+		limit = { state = 283 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 2022
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 287 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 5016
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 322 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 2010
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 325 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1319
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 326 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10062
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 328 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10433
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 524 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7186
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 591 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1070
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 592 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1047
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 593 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7108
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 594 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7137
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 595 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4196
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 596 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7191
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 597 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1104
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 598 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7025
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 599 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10404
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 600 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 3992
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 601 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10856
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 602 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7097
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 603 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4504
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 604 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7940
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 605 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 11865
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 606 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7222
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 607 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 9958
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 608 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 9843
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 609 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1052
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 610 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 11801
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 611 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10397
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 612 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10372
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 613 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7014
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 614 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4190
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 615 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4174
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 616 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 8127
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 617 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4709
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 618 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4823
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 619 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 2015
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 620 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1612
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 621 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7631
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 622 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 12356
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 714 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1693
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 715 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 11836
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 716 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 11771
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 717 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10463
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 728 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 11981
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 729 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4189
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 743 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10000
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 744 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7301
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 745 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1150
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 746 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 3427
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 747 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7965
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 748 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1010
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 749 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 12019
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 750 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7101
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 751 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10841
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 752 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4999
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 753 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 5193
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 754 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 12732
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 755 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10750
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 756 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7971
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 757 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 5033
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 758 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1961
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 759 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 2074
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 760 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4704
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 761 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10612
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1032 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 8049
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1033 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4023
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1034 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 10076
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1035 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 11913
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1036 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4619
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1037 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 6999
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1038 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 1069
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1039 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 6904
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1040 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4783
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1041 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4925
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1042 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 4973
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1043 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 12331
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1044 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 5100
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1045 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 5025
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1046 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 7314
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+	if = {
+		limit = { state = 1119 }
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			prioritize_location = 5042
+			allow_spawning_on_enemy_provs = yes
+			count = 2
+		}
+	}
+}
+
+# Two irregular divisions in FROM, on that state's city.
+# They are not moved onto owned land.
 dd_chi_rev_raise_cells = {
 	if = {
 		limit = {
@@ -920,38 +1777,17 @@ dd_chi_rev_raise_cells = {
 			is_locked = yes
 		}
 		if = {
-			limit = { FROM = { is_controlled_by = ROOT } }
-			FROM = {
-				create_unit = {
-					division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
-					owner = ROOT
-					count = 2
-				}
-			}
-		}
-		else = {
+			limit = { FROM = { NOT = { is_controlled_by = ROOT } } }
 			FROM = {
 				controller = {
 					if = {
 						limit = { NOT = { has_war_with = ROOT } }
 						ROOT = { declare_war_on = { target = PREV type = dd_annex } }
 					}
-					save_event_target_as = dd_chi_rev_holder
 				}
-				save_event_target_as = dd_chi_rev_state
-				set_state_controller_to = ROOT
-			}
-			event_target:dd_chi_rev_state = {
-				create_unit = {
-					division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
-					owner = ROOT
-					count = 2
-				}
-			}
-			event_target:dd_chi_rev_holder = {
-				event_target:dd_chi_rev_state = { set_state_controller_to = PREV }
 			}
 		}
+		FROM = { dd_chi_rev_spawn_cells = yes }
 	}
 }
 
@@ -990,7 +1826,7 @@ dd_chi_adopt_tree = {
 	}
 	if = {
 		limit = { NOT = { has_variable = dd_chi_paranoia } }
-		set_variable = { dd_chi_paranoia = 25 }
+		set_variable = { dd_chi_paranoia = 50 }
 	}
 	if = {
 		limit = { NOT = { has_variable = dd_chi_confidence } }
@@ -1006,6 +1842,268 @@ dd_chi_adopt_tree = {
 		}
 	}
 	dd_chi_paranoia_sync = yes
+	dd_chi_recruit_advisors = yes
+}
+
+dd_chi_recruit_advisors = {
+	if = { limit = { NOT = { has_character = CHI_wang_yi } } recruit_character = CHI_wang_yi }
+	if = { limit = { NOT = { has_character = CHI_he_lifeng } } recruit_character = CHI_he_lifeng }
+	if = { limit = { NOT = { has_character = CHI_cai_qi } } recruit_character = CHI_cai_qi }
+	if = { limit = { NOT = { has_character = CHI_pan_gongsheng } } recruit_character = CHI_pan_gongsheng }
+	if = { limit = { NOT = { has_character = CHI_lan_foan } } recruit_character = CHI_lan_foan }
+	if = { limit = { NOT = { has_character = CHI_wang_huning } } recruit_character = CHI_wang_huning }
+	if = { limit = { NOT = { has_character = CHI_chen_yixin } } recruit_character = CHI_chen_yixin }
+	if = { limit = { NOT = { has_character = CHI_chen_wenqing } } recruit_character = CHI_chen_wenqing }
+	if = { limit = { NOT = { has_character = CHI_zhang_shengmin } } recruit_character = CHI_zhang_shengmin }
+	if = { limit = { NOT = { has_character = CHI_li_shulei } } recruit_character = CHI_li_shulei }
+	if = { limit = { NOT = { has_character = CHI_zheng_shanjie } } recruit_character = CHI_zheng_shanjie }
+	if = { limit = { NOT = { has_character = CHI_jin_zhuanglong } } recruit_character = CHI_jin_zhuanglong }
+	if = { limit = { NOT = { has_character = CHI_yin_hejun } } recruit_character = CHI_yin_hejun }
+	if = { limit = { NOT = { has_character = CHI_huang_qifan } } recruit_character = CHI_huang_qifan }
+	if = { limit = { NOT = { has_character = CHI_dong_jun } } recruit_character = CHI_dong_jun }
+	if = { limit = { NOT = { has_character = CHI_zhang_youxia } } recruit_character = CHI_zhang_youxia }
+	if = { limit = { NOT = { has_character = CHI_li_qiaoming } } recruit_character = CHI_li_qiaoming }
+	if = { limit = { NOT = { has_character = CHI_cui_zhiyuan } } recruit_character = CHI_cui_zhiyuan }
+	if = { limit = { NOT = { has_character = CHI_han_deqiang } } recruit_character = CHI_han_deqiang }
+	if = { limit = { NOT = { has_character = CHI_wang_shaoguang } } recruit_character = CHI_wang_shaoguang }
+	if = { limit = { NOT = { has_character = CHI_kong_qingdong } } recruit_character = CHI_kong_qingdong }
+	if = { limit = { NOT = { has_character = CHI_chen_jining } } recruit_character = CHI_chen_jining }
+	if = { limit = { NOT = { has_character = CHI_jack_ma } } recruit_character = CHI_jack_ma }
+	if = { limit = { NOT = { has_character = CHI_pony_ma } } recruit_character = CHI_pony_ma }
+	if = { limit = { NOT = { has_character = CHI_zhu_yunlai } } recruit_character = CHI_zhu_yunlai }
+	if = { limit = { NOT = { has_character = CHI_xu_zhangrun } } recruit_character = CHI_xu_zhangrun }
+	if = { limit = { NOT = { has_character = CHI_cai_xia } } recruit_character = CHI_cai_xia }
+	if = { limit = { NOT = { has_character = CHI_wu_guoguang } } recruit_character = CHI_wu_guoguang }
+	if = { limit = { NOT = { has_character = CHI_ren_zhiqiang } } recruit_character = CHI_ren_zhiqiang }
+	if = { limit = { NOT = { has_character = CHI_zhu_chuansheng } } recruit_character = CHI_zhu_chuansheng }
+}
+
+dd_chi_advisor_week = {
+	if = {
+		limit = {
+			has_power_balance = { id = CHI_party_balance }
+			NOT = { has_country_flag = dd_chi_bop_locked }
+			has_idea = CHI_he_lifeng
+		}
+		add_power_balance_value = {
+			id = CHI_party_balance
+			value = 0.02
+			tooltip_side = CHI_bop_technocrat
+		}
+	}
+	if = {
+		limit = {
+			has_power_balance = { id = CHI_party_balance }
+			NOT = { has_country_flag = dd_chi_bop_locked }
+			has_idea = CHI_cai_qi
+		}
+		add_power_balance_value = {
+			id = CHI_party_balance
+			value = -0.02
+			tooltip_side = CHI_bop_loyalist
+		}
+	}
+	if = {
+		limit = {
+			has_idea = CHI_lan_foan
+			has_completed_focus = CHI_deficit_target
+			NOT = { has_idea = dd_chi_lan_deficit_boost }
+		}
+		add_ideas = dd_chi_lan_deficit_boost
+	}
+	if = {
+		limit = {
+			has_idea = dd_chi_lan_deficit_boost
+			OR = {
+				NOT = { has_idea = CHI_lan_foan }
+				NOT = { has_completed_focus = CHI_deficit_target }
+			}
+		}
+		remove_ideas = dd_chi_lan_deficit_boost
+	}
+}
+
+dd_chi_advisor_month = {
+	if = {
+		limit = {
+			has_idea = CHI_zhu_yunlai
+			has_variable = debt
+			has_variable = dd_rate_interest
+			check_variable = { debt > 0 }
+		}
+		set_temp_variable = { dd_chi_debt_cut = debt }
+		multiply_temp_variable = { dd_chi_debt_cut = dd_rate_interest }
+		multiply_temp_variable = { dd_chi_debt_cut = 0.15 }
+		subtract_from_variable = { debt = dd_chi_debt_cut }
+		if = {
+			limit = { check_variable = { debt < 0 } }
+			set_variable = { debt = 0 }
+		}
+	}
+}
+
+dd_chi_west_opinion_add = {
+	if = {
+		limit = { USA = { exists = yes } }
+		add_opinion_modifier = { target = USA modifier = dd_chi_west_accept }
+		USA = { add_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+	if = {
+		limit = { JAP = { exists = yes } }
+		add_opinion_modifier = { target = JAP modifier = dd_chi_west_accept }
+		JAP = { add_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+	if = {
+		limit = { ENG = { exists = yes } }
+		add_opinion_modifier = { target = ENG modifier = dd_chi_west_accept }
+		ENG = { add_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+	if = {
+		limit = { FRA = { exists = yes } }
+		add_opinion_modifier = { target = FRA modifier = dd_chi_west_accept }
+		FRA = { add_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+	if = {
+		limit = { GER = { exists = yes } }
+		add_opinion_modifier = { target = GER modifier = dd_chi_west_accept }
+		GER = { add_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+}
+
+dd_chi_west_opinion_remove = {
+	if = {
+		limit = { USA = { exists = yes } }
+		remove_opinion_modifier = { target = USA modifier = dd_chi_west_accept }
+		USA = { remove_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+	if = {
+		limit = { JAP = { exists = yes } }
+		remove_opinion_modifier = { target = JAP modifier = dd_chi_west_accept }
+		JAP = { remove_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+	if = {
+		limit = { ENG = { exists = yes } }
+		remove_opinion_modifier = { target = ENG modifier = dd_chi_west_accept }
+		ENG = { remove_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+	if = {
+		limit = { FRA = { exists = yes } }
+		remove_opinion_modifier = { target = FRA modifier = dd_chi_west_accept }
+		FRA = { remove_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+	if = {
+		limit = { GER = { exists = yes } }
+		remove_opinion_modifier = { target = GER modifier = dd_chi_west_accept }
+		GER = { remove_opinion_modifier = { target = ROOT modifier = dd_chi_west_accept } }
+	}
+}
+
+# Hired advisors, high command, service chiefs, field marshals, and generals.
+# The cursor walks that list in recruit order. The same inputs pick the same person. No random.
+dd_chi_purge_wrap = {
+	if = {
+		limit = {
+			check_variable = { dd_chi_purge_count > 1 }
+			NOT = { check_variable = { dd_chi_purge_n < dd_chi_purge_count } }
+		}
+		subtract_from_variable = { dd_chi_purge_n = dd_chi_purge_count }
+	}
+}
+
+dd_chi_purge_pick = {
+	clr_country_flag = dd_chi_purge_found
+	if = {
+		limit = { NOT = { has_variable = dd_chi_purge_n } }
+		set_variable = { dd_chi_purge_n = 0 }
+	}
+	set_variable = { dd_chi_purge_count = 0 }
+	every_character = {
+		limit = { dd_chi_purge_eligible = yes }
+		PREV = { add_to_variable = { dd_chi_purge_count = 1 } }
+	}
+	if = {
+		limit = { check_variable = { dd_chi_purge_count > 0 } }
+		if = {
+			limit = {
+				OR = {
+					check_variable = { dd_chi_purge_count = 1 }
+					check_variable = { dd_chi_purge_n > 80 }
+				}
+			}
+			set_variable = { dd_chi_purge_n = 0 }
+		}
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		dd_chi_purge_wrap = yes
+		set_variable = { dd_chi_purge_seen = 0 }
+		every_character = {
+			limit = { dd_chi_purge_eligible = yes }
+			if = {
+				limit = {
+					PREV = {
+						NOT = { has_country_flag = dd_chi_purge_found }
+						check_variable = { dd_chi_purge_seen = dd_chi_purge_n }
+					}
+				}
+				save_event_target_as = dd_chi_purged
+				PREV = { set_country_flag = dd_chi_purge_found }
+			}
+			PREV = { add_to_variable = { dd_chi_purge_seen = 1 } }
+		}
+		add_to_variable = { dd_chi_purge_n = 1 }
+	}
+}
+
+dd_chi_purge_apply = {
+	add_to_variable = { dd_chi_paranoia = -40 }
+	dd_chi_paranoia_sync = yes
+	if = {
+		limit = { NOT = { has_variable = dd_chi_confidence } }
+		set_variable = { dd_chi_confidence = 100 }
+	}
+	add_to_variable = { dd_chi_confidence = -10 }
+	dd_chi_sync_confidence = yes
+	if = {
+		limit = { has_event_target = dd_chi_purged }
+		event_target:dd_chi_purged = { retire = yes }
+	}
 }
 
 # Elected governments cannot keep an embargo on China while at peace.

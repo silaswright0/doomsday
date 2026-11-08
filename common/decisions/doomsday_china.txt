@@ -1,3 +1,43 @@
+dd_chi_paranoia_category = {
+	dd_chi_enforce_loyalty = {
+		icon = generic_political_discourse
+		allowed = { original_tag = CHI }
+		cost = 0
+		days_re_enable = 180
+		ai_will_do = { factor = 0 }
+		available = { has_completed_focus = CHI_purge_rocket_force }
+		complete_effect = {
+			add_to_variable = { dd_chi_paranoia = -10 }
+			dd_chi_paranoia_sync = yes
+			if = {
+				limit = { NOT = { has_variable = dd_chi_confidence } }
+				set_variable = { dd_chi_confidence = 100 }
+			}
+			add_to_variable = { dd_chi_confidence = -5 }
+			dd_chi_sync_confidence = yes
+		}
+	}
+
+	dd_chi_purge_leader = {
+		icon = generic_political_discourse
+		allowed = { original_tag = CHI }
+		cost = 0
+		days_re_enable = 60
+		ai_will_do = { factor = 0 }
+		available = {
+			has_completed_focus = CHI_purge_rocket_force
+			dd_chi_purge_has_target = yes
+		}
+		complete_effect = {
+			dd_chi_purge_pick = yes
+			if = {
+				limit = { has_country_flag = dd_chi_purge_found }
+				country_event = { id = dd_chi_para.2 }
+			}
+		}
+	}
+}
+
 dd_chi_bop_category = {
 	dd_chi_rally_loyalists = {
 		icon = generic_political_discourse
@@ -42,6 +82,29 @@ dd_chi_bop_category = {
 		}
 		complete_effect = {
 			dd_chi_bop_technocrat = yes
+		}
+	}
+
+	dd_chi_coastal_lots = {
+		icon = generic_construction
+		allowed = {
+			OR = {
+				original_tag = CHI
+				original_tag = FRC
+				original_tag = NLC
+				original_tag = SBC
+				original_tag = CMJ
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = { factor = 0 }
+		visible = { has_idea = CHI_huang_qifan }
+		complete_effect = {
+			every_owned_state = {
+				limit = { is_coastal = yes }
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 }
@@ -130,6 +193,7 @@ dd_chi_rev_category = {
 
 	dd_chi_rev_rise = {
 		icon = generic_civil_support
+		priority = 100
 		allowed = {
 			OR = {
 				original_tag = FRC
@@ -138,11 +202,96 @@ dd_chi_rev_category = {
 		}
 		state_target = yes
 		on_map_mode = map_and_decisions_view
+		targets = {
+			state = 283
+			state = 287
+			state = 322
+			state = 325
+			state = 326
+			state = 328
+			state = 524
+			state = 591
+			state = 592
+			state = 593
+			state = 594
+			state = 595
+			state = 596
+			state = 597
+			state = 598
+			state = 599
+			state = 600
+			state = 601
+			state = 602
+			state = 603
+			state = 604
+			state = 605
+			state = 606
+			state = 607
+			state = 608
+			state = 609
+			state = 610
+			state = 611
+			state = 612
+			state = 613
+			state = 614
+			state = 615
+			state = 616
+			state = 617
+			state = 618
+			state = 619
+			state = 620
+			state = 621
+			state = 622
+			state = 714
+			state = 715
+			state = 716
+			state = 717
+			state = 728
+			state = 729
+			state = 743
+			state = 744
+			state = 745
+			state = 746
+			state = 747
+			state = 748
+			state = 749
+			state = 750
+			state = 751
+			state = 752
+			state = 753
+			state = 754
+			state = 755
+			state = 756
+			state = 757
+			state = 758
+			state = 759
+			state = 760
+			state = 761
+			state = 1032
+			state = 1033
+			state = 1034
+			state = 1035
+			state = 1036
+			state = 1037
+			state = 1038
+			state = 1039
+			state = 1040
+			state = 1041
+			state = 1042
+			state = 1043
+			state = 1044
+			state = 1045
+			state = 1046
+			state = 1119
+		}
 		target_root_trigger = { dd_chi_rev_unlocked = yes }
 		target_trigger = {
 			FROM = { dd_chi_rev_state_ready = yes }
 		}
-		visible = { dd_chi_rev_unlocked = yes }
+		visible = {
+			dd_chi_rev_unlocked = yes
+			FROM = { dd_chi_rev_state_ready = yes }
+		}
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = dd_chi_rev_wait_ready_tt
@@ -151,6 +300,9 @@ dd_chi_rev_category = {
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
+		highlight_states = {
+			highlight_states_trigger = { dd_chi_rev_state_ready = yes }
+		}
 		complete_effect = {
 			dd_chi_rev_raise_cells = yes
 		}

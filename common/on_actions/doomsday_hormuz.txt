@@ -17,6 +17,19 @@ on_actions = {
 			}
 		}
 	}
+	# History ideas do not run on_add, so a save that already has Overextended
+	# still drops it 60 days after 2026.1.1. New games use the timed idea.
+	on_daily_STC = {
+		effect = {
+			if = {
+				limit = {
+					has_idea = dd_stc_overextended
+					date > 2026.3.1
+				}
+				remove_ideas = dd_stc_overextended
+			}
+		}
+	}
 	on_call_allies = {
 		effect = {
 			if = {

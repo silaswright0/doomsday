@@ -36,16 +36,14 @@ country_event = {
 		add_stability = -0.03
 		army_experience = 20
 		dd_chi_bop_loyalist = yes
-		dd_chi_begin_purge = yes
+		dd_chi_purge_taken = yes
 		if = {
 			limit = { has_character = CHI_wang_houbin }
 			retire_character = CHI_wang_houbin
 		}
-		custom_effect_tooltip = CHI_para_minus_20_tt
 		hidden_effect = {
 			set_country_flag = dd_chi_rocket_purged
-			add_to_variable = { dd_chi_paranoia = -20 }
-			dd_chi_paranoia_sync = yes
+			set_country_flag = dd_chi_purge_begun
 		}
 		country_event = { id = dd_chi_rocket.3 }
 	}
@@ -53,11 +51,9 @@ country_event = {
 	option = {
 		name = dd_chi_rocket.2.b
 		ai_chance = { factor = 0 }
-		custom_effect_tooltip = CHI_para_plus_30_tt
+		dd_chi_purge_kept = yes
 		hidden_effect = {
 			set_country_flag = dd_chi_rocket_spared
-			add_to_variable = { dd_chi_paranoia = 30 }
-			dd_chi_paranoia_sync = yes
 		}
 		country_event = { id = dd_chi_rocket.4 }
 	}
@@ -72,6 +68,10 @@ country_event = {
 
 	option = {
 		name = dd_chi_rocket.3.a
+		if = {
+			limit = { has_character = CHI_zhang_youxia }
+			country_event = { id = dd_chi_rocket.6 }
+		}
 	}
 }
 
@@ -84,6 +84,111 @@ country_event = {
 
 	option = {
 		name = dd_chi_rocket.4.a
+		if = {
+			limit = { has_character = CHI_zhang_youxia }
+			country_event = { id = dd_chi_rocket.6 }
+		}
+	}
+}
+
+# Zhang Youxia follows Wang Houbin in the Rocket Force file.
+country_event = {
+	id = dd_chi_rocket.6
+	title = dd_chi_rocket.6.t
+	desc = dd_chi_rocket.6.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = dd_chi_rocket.6.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = { has_idea = CHI_zhang_youxia }
+			remove_ideas = CHI_zhang_youxia
+		}
+		if = {
+			limit = { has_character = CHI_zhang_youxia }
+			retire_character = CHI_zhang_youxia
+		}
+		dd_chi_purge_taken = yes
+		set_country_flag = dd_chi_zhang_expelled
+	}
+
+	option = {
+		name = dd_chi_rocket.6.b
+		ai_chance = { factor = 0 }
+		dd_chi_purge_kept = yes
+		set_country_flag = dd_chi_zhang_kept
+	}
+}
+
+# 28 August 2026. Liu Zhenli is removed from the Central Military Commission.
+country_event = {
+	id = dd_chi_rocket.5
+	title = dd_chi_rocket.5.t
+	desc = dd_chi_rocket.5.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = dd_chi_rocket.5.a
+		ai_chance = { factor = 0 }
+		if = {
+			limit = { has_idea = CHI_fm_liu_zhenli }
+			remove_ideas = CHI_fm_liu_zhenli
+		}
+		retire_character = CHI_fm_liu_zhenli
+		dd_chi_purge_taken = yes
+		set_country_flag = dd_chi_liu_expelled
+	}
+
+	option = {
+		name = dd_chi_rocket.5.b
+		ai_chance = { factor = 100 }
+		dd_chi_purge_kept = yes
+		set_country_flag = dd_chi_liu_kept
+	}
+}
+
+# 1 October 2026. Li Qiaoming is removed from the Eastern Theater Command.
+country_event = {
+	id = dd_chi_rocket.7
+	title = dd_chi_rocket.7.t
+	desc = dd_chi_rocket.7.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = dd_chi_rocket.7.a
+		ai_chance = { factor = 0 }
+		if = {
+			limit = { has_idea = CHI_li_qiaoming }
+			remove_ideas = CHI_li_qiaoming
+		}
+		retire_character = CHI_li_qiaoming
+		dd_chi_purge_taken = yes
+		set_country_flag = dd_chi_li_expelled
+	}
+
+	option = {
+		name = dd_chi_rocket.7.b
+		ai_chance = { factor = 100 }
+		dd_chi_purge_kept = yes
+		set_country_flag = dd_chi_li_kept
+	}
+}
+
+# Name of whoever the purge decision took. No portrait.
+country_event = {
+	id = dd_chi_para.2
+	title = dd_chi_para.2.t
+	desc = dd_chi_para.2.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = dd_chi_para.2.a
+		dd_chi_purge_apply = yes
 	}
 }
 
@@ -106,10 +211,40 @@ country_event = {
 	picture = GFX_report_event_generic_rally
 	is_triggered_only = yes
 
+	# Five majors only. Chengdu and Xinjiang break away, but they are not a choice.
 	option = {
 		name = dd_chi_cw.1.a
 		trigger = { NOT = { has_country_flag = dd_chi_security_seized } }
+		ai_chance = { factor = 100 }
 		dd_chi_start_civil_war = yes
+	}
+	option = {
+		name = dd_chi_cw.1.frc
+		trigger = { NOT = { has_country_flag = dd_chi_security_seized } }
+		ai_chance = { factor = 0 }
+		dd_chi_start_civil_war = yes
+		FRC = { change_tag_from = ROOT }
+	}
+	option = {
+		name = dd_chi_cw.1.nlc
+		trigger = { NOT = { has_country_flag = dd_chi_security_seized } }
+		ai_chance = { factor = 0 }
+		dd_chi_start_civil_war = yes
+		NLC = { change_tag_from = ROOT }
+	}
+	option = {
+		name = dd_chi_cw.1.sbc
+		trigger = { NOT = { has_country_flag = dd_chi_security_seized } }
+		ai_chance = { factor = 0 }
+		dd_chi_start_civil_war = yes
+		SBC = { change_tag_from = ROOT }
+	}
+	option = {
+		name = dd_chi_cw.1.cmj
+		trigger = { NOT = { has_country_flag = dd_chi_security_seized } }
+		ai_chance = { factor = 0 }
+		dd_chi_start_civil_war = yes
+		CMJ = { change_tag_from = ROOT }
 	}
 	option = {
 		name = dd_chi_cw.1.b

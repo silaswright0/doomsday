@@ -2095,14 +2095,41 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_pacify_radicals
-		icon = GFX_goal_generic_neutrality_focus
-		x = 1
+		id = USA_healthcare_reforms
+		icon = GFX_focus_generic_population_growth
+		x = 0
 		y = 30
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_big_industries }
+		completion_reward = {
+			add_ideas = dd_usa_healthcare_reforms
+		}
+	}
+	focus = {
+		id = USA_stricter_rent_controls
+		icon = GFX_goal_generic_consumer_goods
+		x = 2
+		y = 30
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_big_industries }
+		completion_reward = {
+			add_ideas = dd_usa_rent_controls
+		}
+	}
+	focus = {
+		id = USA_pacify_radicals
+		icon = GFX_goal_generic_neutrality_focus
+		x = 1
+		y = 31
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_healthcare_reforms }
+		prerequisite = { focus = USA_stricter_rent_controls }
 		completion_reward = {
 			add_popularity = { ideology = communism popularity = -0.05 }
 			add_to_variable = { dd_usa_aca_pop = -0.05 }
@@ -2114,7 +2141,7 @@ focus_tree = {
 		id = USA_demsoc_final
 		icon = GFX_focus_usa_guarantee_the_american_dream
 		x = 1
-		y = 31
+		y = 32
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -4480,9 +4507,6 @@ focus_tree = {
 				has_country_flag = dd_usa_civil_war_over
 			}
 		}
-		completion_reward = {
-			dd_usa_postcw_victory = yes
-		}
 	}
 	focus = {
 		id = USA_abolish_judiciary
@@ -4680,9 +4704,6 @@ focus_tree = {
 				has_country_flag = dd_usa_keep_rbl
 				AND = { tag = USA has_government = communism NOT = { dd_is_anarchist_gov = yes } }
 			}
-		}
-		completion_reward = {
-			dd_usa_postcw_victory = yes
 		}
 	}
 	focus = {
@@ -4957,7 +4978,6 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			dd_usa_postcw_victory = yes
 			set_country_flag = dd_usa_fascist_bop
 			set_power_balance = {
 				id = USA_fascist_bop
@@ -5233,6 +5253,8 @@ focus_tree = {
 		prerequisite = { focus = USA_expand_arsenal }
 		completion_reward = {
 			set_country_flag = dd_usa_abaddon_unlocked
+			set_country_flag = dd_nuke_free_use
+			custom_effect_tooltip = dd_nuke_free_use_tt
 		}
 	}
 }

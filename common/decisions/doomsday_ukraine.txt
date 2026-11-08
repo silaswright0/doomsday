@@ -168,3 +168,41 @@ dd_ukr_arms_category = {
 		}
 	}
 }
+
+dd_ukr_grid_status_category = {
+	dd_ukr_grid_status = {
+		icon = generic_industry
+		allowed = { original_tag = UKR }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = RUS }
+		available = { hidden_trigger = { always = no } }
+	}
+	dd_ukr_grid_how = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = RUS }
+		available = { hidden_trigger = { always = no } }
+	}
+}
+
+dd_ukr_their_fuel_category = {
+	dd_ukr_their_fuel_status = {
+		icon = generic_industry
+		allowed = { original_tag = UKR }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = RUS }
+		available = { hidden_trigger = { always = no } }
+	}
+	dd_ukr_their_fuel_how = {
+		icon = generic_political_discourse
+		allowed = { original_tag = UKR }
+		cost = 0
+		ai_will_do = { factor = 0 }
+		visible = { has_war_with = RUS }
+		available = { hidden_trigger = { always = no } }
+	}
+}

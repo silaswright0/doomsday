@@ -3,132 +3,370 @@
 dd_sov_duma_ensure = {
 	if = {
 		limit = { NOT = { has_dynamic_modifier = { modifier = dd_sov_ninth_duma } } }
-		set_variable = { dd_duma_pp = 0.10 }
-		set_variable = { dd_duma_ws = 0 }
+		custom_effect_tooltip = SOV_duma_base_tt
+		hidden_effect = {
+		set_variable = { dd_duma_pp = 0.05 }
 		set_variable = { dd_duma_stab = 0 }
-		set_variable = { dd_duma_trade = 0 }
+		set_variable = { dd_duma_ws = 0 }
 		set_variable = { dd_duma_rec = 0 }
 		set_variable = { dd_duma_org = 0 }
-		set_variable = { dd_duma_atk = 0 }
-		set_variable = { dd_duma_def = 0 }
-		set_variable = { dd_duma_spd = 0 }
-		set_variable = { dd_duma_brk = 0 }
-		set_variable = { dd_duma_xp = 0 }
-		set_variable = { dd_duma_train = 0 }
-		set_variable = { dd_duma_supply = 0 }
-		set_variable = { dd_duma_fac = 0 }
-		set_variable = { dd_duma_mil = 0 }
-		set_variable = { dd_duma_civ = 0 }
-		set_variable = { dd_duma_eff = 0 }
-		set_variable = { dd_duma_effcap = 0 }
-		set_variable = { dd_duma_cg = 0 }
-		set_variable = { dd_duma_enc = 0 }
 		set_variable = { dd_duma_dec = 0 }
+		set_variable = { dd_duma_enc = 0 }
+		set_variable = { dd_duma_intel = 0 }
+		set_variable = { dd_duma_catch = 0 }
 		set_variable = { dd_duma_subcost = 0 }
-		set_variable = { dd_duma_foreign = 0 }
-		set_variable = { dd_duma_ops = 0 }
+		set_variable = { dd_duma_fac = 0 }
+		set_variable = { dd_duma_effcap = 0 }
+		set_variable = { dd_duma_strat = 0 }
+		set_variable = { dd_duma_rocket = 0 }
+		set_variable = { dd_duma_boost = 0 }
+		set_variable = { dd_duma_opinion = 0 }
+		set_variable = { dd_duma_arty = 0 }
+		set_variable = { dd_duma_brk = 0 }
+		set_variable = { dd_duma_cp = 0 }
+		if = {
+			limit = { has_idea = dd_sov_ninth_duma }
+			remove_ideas = dd_sov_ninth_duma
+		}
 		add_dynamic_modifier = { modifier = dd_sov_ninth_duma }
-		remove_ideas = dd_sov_ninth_duma
+		}
 	}
 }
 
 dd_sov_duma_heroes = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_ws = 0.05 }
-	add_to_variable = { dd_duma_rec = 0.05 }
-	add_to_variable = { dd_duma_org = 0.05 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_heroes_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_ws = 0.10 }
+		add_to_variable = { dd_duma_rec = 0.01 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_arbat = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_stab = 0.10 }
-	add_to_variable = { dd_duma_pp = 0.10 }
-	add_to_variable = { dd_duma_trade = 0.10 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_arbat_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_stab = 0.10 }
+		add_to_variable = { dd_duma_fac = 0.05 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_fifth = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_ops = 1 }
-	add_to_variable = { dd_duma_dec = 0.10 }
-	add_to_variable = { dd_duma_subcost = -0.20 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_fifth_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_dec = 0.10 }
+		add_to_variable = { dd_duma_enc = 0.10 }
+		add_to_variable = { dd_duma_intel = 0.20 }
+		add_to_variable = { dd_duma_catch = 0.15 }
+		add_to_variable = { dd_duma_subcost = -0.15 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_audit = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_org = 0.05 }
-	add_to_variable = { dd_duma_xp = 0.10 }
-	add_to_variable = { dd_duma_eff = 0.05 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_audit_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_org = 0.02 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_procurement = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_fac = 0.05 }
-	add_to_variable = { dd_duma_mil = 0.10 }
-	add_to_variable = { dd_duma_eff = 0.10 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_procurement_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_fac = 0.03 }
+		add_to_variable = { dd_duma_effcap = 0.03 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_bureaucracy = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_stab = 0.10 }
-	add_to_variable = { dd_duma_pp = 0.10 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_bureaucracy_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_stab = 0.05 }
+		add_to_variable = { dd_duma_cp = 0.20 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_runet = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_enc = 0.25 }
-	add_to_variable = { dd_duma_dec = 0.10 }
-	add_to_variable = { dd_duma_foreign = -0.30 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_runet_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_enc = 0.10 }
+		add_to_variable = { dd_duma_stab = 0.02 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_monotowns = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_fac = 0.08 }
-	add_to_variable = { dd_duma_civ = 0.10 }
-	add_to_variable = { dd_duma_mil = 0.10 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_monotowns_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_fac = 0.02 }
+		add_to_variable = { dd_duma_effcap = 0.02 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_hybrid = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_atk = 0.05 }
-	add_to_variable = { dd_duma_brk = 0.05 }
-	add_to_variable = { dd_duma_rec = 0.05 }
-	add_to_variable = { dd_duma_spd = 0.05 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_hybrid_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_strat = 0.10 }
+		add_to_variable = { dd_duma_rocket = 0.10 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_budget = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_cg = -0.05 }
-	add_to_variable = { dd_duma_effcap = 0.05 }
-	add_to_variable = { dd_duma_mil = 0.10 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_budget_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_effcap = 0.04 }
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_disruption = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_dec = 0.15 }
-	add_to_variable = { dd_duma_enc = 0.10 }
-	add_to_variable = { dd_duma_subcost = -0.30 }
-	add_to_variable = { dd_duma_ws = 0.05 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_disruption_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_boost = 0.25 }
+		add_to_variable = { dd_duma_opinion = 0.25 }
+		set_country_flag = dd_sov_disruption_open
+		force_update_dynamic_modifier = yes
+	}
 }
 
 dd_sov_duma_doctrine = {
 	dd_sov_duma_ensure = yes
-	add_to_variable = { dd_duma_atk = 0.05 }
-	add_to_variable = { dd_duma_def = 0.05 }
-	add_to_variable = { dd_duma_org = 0.05 }
-	add_to_variable = { dd_duma_train = -0.10 }
-	add_to_variable = { dd_duma_supply = -0.05 }
-	force_update_dynamic_modifier = yes
+	custom_effect_tooltip = SOV_duma_doctrine_tt
+	hidden_effect = {
+		add_to_variable = { dd_duma_arty = 0.05 }
+		add_to_variable = { dd_duma_brk = 0.05 }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_sov_chekist_ensure = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_sov_chekist_monolith } } }
+		custom_effect_tooltip = SOV_chekist_base_tt
+		hidden_effect = {
+			set_variable = { dd_chek_ops = 1 }
+			set_variable = { dd_chek_enc = 0.15 }
+			set_variable = { dd_chek_dec = 0.10 }
+			set_variable = { dd_chek_ws = 0.05 }
+			set_variable = { dd_chek_pp = 0.10 }
+			set_variable = { dd_chek_sub = -0.25 }
+			set_variable = { dd_chek_foreign = 0 }
+			if = {
+				limit = { has_idea = dd_sov_chekist_monolith }
+				remove_ideas = dd_sov_chekist_monolith
+			}
+			if = {
+				limit = { has_idea = dd_sov_centralize_services }
+				remove_ideas = dd_sov_centralize_services
+			}
+			add_dynamic_modifier = { modifier = dd_sov_chekist_monolith }
+		}
+	}
+}
+
+dd_sov_centralize_services_mod = {
+	dd_sov_chekist_ensure = yes
+	custom_effect_tooltip = SOV_centralize_tt
+	hidden_effect = {
+		add_to_variable = { dd_chek_ops = 1 }
+		add_to_variable = { dd_chek_enc = 0.10 }
+		add_to_variable = { dd_chek_dec = 0.10 }
+		add_to_variable = { dd_chek_foreign = -0.25 }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_sov_council_ensure = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_sov_state_council } } }
+		custom_effect_tooltip = SOV_council_base_tt
+		hidden_effect = {
+			set_variable = { dd_council_pp = 0.20 }
+			set_variable = { dd_council_stab = 0.05 }
+			set_variable = { dd_council_trade = 0.10 }
+			set_variable = { dd_council_ws = 0 }
+			if = {
+				limit = { has_idea = dd_sov_state_council }
+				remove_ideas = dd_sov_state_council
+			}
+			if = {
+				limit = { has_idea = dd_sov_sovereign_equilibrium }
+				remove_ideas = dd_sov_sovereign_equilibrium
+			}
+			add_dynamic_modifier = { modifier = dd_sov_state_council }
+		}
+	}
+}
+
+dd_sov_council_equilibrium = {
+	dd_sov_council_ensure = yes
+	custom_effect_tooltip = SOV_equilibrium_tt
+	hidden_effect = {
+		add_to_variable = { dd_council_stab = 0.15 }
+		add_to_variable = { dd_council_pp = 0.10 }
+		add_to_variable = { dd_council_ws = 0.05 }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_sov_chekist_pie = {
+	if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.95 } }
+		set_variable = { dd_sov_chek_pie = 1 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.90 } }
+		set_variable = { dd_sov_chek_pie = 0.95 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.85 } }
+		set_variable = { dd_sov_chek_pie = 0.90 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.80 } }
+		set_variable = { dd_sov_chek_pie = 0.85 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.75 } }
+		set_variable = { dd_sov_chek_pie = 0.80 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.70 } }
+		set_variable = { dd_sov_chek_pie = 0.75 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.65 } }
+		set_variable = { dd_sov_chek_pie = 0.70 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.60 } }
+		set_variable = { dd_sov_chek_pie = 0.65 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.55 } }
+		set_variable = { dd_sov_chek_pie = 0.60 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.50 } }
+		set_variable = { dd_sov_chek_pie = 0.55 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.45 } }
+		set_variable = { dd_sov_chek_pie = 0.50 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.40 } }
+		set_variable = { dd_sov_chek_pie = 0.45 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.35 } }
+		set_variable = { dd_sov_chek_pie = 0.40 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.30 } }
+		set_variable = { dd_sov_chek_pie = 0.35 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.25 } }
+		set_variable = { dd_sov_chek_pie = 0.30 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.20 } }
+		set_variable = { dd_sov_chek_pie = 0.25 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.15 } }
+		set_variable = { dd_sov_chek_pie = 0.20 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.10 } }
+		set_variable = { dd_sov_chek_pie = 0.15 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < -0.05 } }
+		set_variable = { dd_sov_chek_pie = 0.10 }
+	}
+	else_if = {
+		limit = { power_balance_value = { id = SOV_kremlin_siloviki value < 0 } }
+		set_variable = { dd_sov_chek_pie = 0.05 }
+	}
+	else = {
+		set_variable = { dd_sov_chek_pie = 0 }
+	}
+}
+
+dd_sov_subjugate_staff = {
+	hidden_effect = { dd_sov_chekist_pie = yes }
+	set_politics = {
+		ruling_party = technocracy
+		elections_allowed = no
+	}
+	add_popularity = {
+		ideology = technocracy
+		popularity = var:dd_sov_chek_pie
+	}
+	create_country_leader = {
+		name = "Mikhail Mishustin"
+		picture = "GFX_portrait_SOV_mikhail_mishustin"
+		expire = "2065.1.1"
+		ideology = technocrat
+	}
+	set_country_flag = dd_sov_kiriyenko_open
+}
+
+dd_sov_influence_target = {
+	add_opinion_modifier = {
+		target = ROOT
+		modifier = dd_sov_influence_opinion
+	}
+	if = {
+		limit = { ROOT = { has_government = sovereign_democracy } }
+		add_popularity = { ideology = sovereign_democracy popularity = 0.05 }
+	}
+	else_if = {
+		limit = { ROOT = { has_government = technocracy } }
+		add_popularity = { ideology = technocracy popularity = 0.05 }
+	}
+	else_if = {
+		limit = { ROOT = { has_government = absolute_monarchy } }
+		add_popularity = { ideology = absolute_monarchy popularity = 0.05 }
+	}
+	else_if = {
+		limit = { ROOT = { has_government = communism } }
+		add_popularity = { ideology = communism popularity = 0.05 }
+	}
+	else_if = {
+		limit = { ROOT = { has_government = fascism } }
+		add_popularity = { ideology = fascism popularity = 0.05 }
+	}
+	else_if = {
+		limit = { ROOT = { has_government = national_populism } }
+		add_popularity = { ideology = national_populism popularity = 0.05 }
+	}
+	else_if = {
+		limit = { ROOT = { has_government = liberal_conservatism } }
+		add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
+	}
+	else_if = {
+		limit = { ROOT = { has_government = social_democracy } }
+		add_popularity = { ideology = social_democracy popularity = 0.05 }
+	}
 }
 
 dd_sov_claim_compatriots = {
@@ -329,6 +567,69 @@ dd_sov_bop_establishment = {
 	}
 }
 
+dd_sov_bop_chekist_5 = {
+	add_power_balance_value = {
+		id = SOV_kremlin_siloviki
+		value = -0.05
+		tooltip_side = SOV_bop_chekist
+	}
+}
+
+dd_sov_bop_chekist_20 = {
+	add_power_balance_value = {
+		id = SOV_kremlin_siloviki
+		value = -0.20
+		tooltip_side = SOV_bop_chekist
+	}
+}
+
+dd_sov_bop_establishment_5 = {
+	add_power_balance_value = {
+		id = SOV_kremlin_siloviki
+		value = 0.05
+		tooltip_side = SOV_bop_establishment
+	}
+}
+
+dd_sov_purge_siluanov = {
+	if = {
+		limit = { has_idea = SOV_anton_siluanov }
+		remove_ideas = SOV_anton_siluanov
+	}
+	custom_effect_tooltip = SOV_purge_siluanov_tt
+}
+
+dd_sov_zhoga_state = {
+	if = {
+		limit = {
+			is_owned_by = ROOT
+			NOT = { has_dynamic_modifier = { modifier = dd_sov_zhoga_urals } }
+		}
+		add_dynamic_modifier = { modifier = dd_sov_zhoga_urals }
+	}
+}
+
+dd_sov_zhoga_sync = {
+	if = {
+		limit = { has_idea = SOV_artem_zhoga }
+		398 = { dd_sov_zhoga_state = yes }
+		572 = { dd_sov_zhoga_state = yes }
+		573 = { dd_sov_zhoga_state = yes }
+		582 = { dd_sov_zhoga_state = yes }
+		651 = { dd_sov_zhoga_state = yes }
+		652 = { dd_sov_zhoga_state = yes }
+		653 = { dd_sov_zhoga_state = yes }
+	}
+}
+
+dd_sov_bop_establishment_20 = {
+	add_power_balance_value = {
+		id = SOV_kremlin_siloviki
+		value = 0.20
+		tooltip_side = SOV_bop_establishment
+	}
+}
+
 dd_sov_apply_scorched_land = {
 	if = {
 		limit = { has_idea = dd_sov_scorched }
@@ -357,23 +658,21 @@ dd_sov_to_service_by_requirement = {
 
 dd_sov_to_total_mobilization = {
 	if = {
-		limit = {
-			OR = {
-				has_idea = civilian_economy
-				has_idea = low_economic_mobilisation
-				has_idea = partial_economic_mobilisation
-				has_idea = war_economy
-			}
-		}
+		limit = { NOT = { has_idea = tot_economic_mobilisation } }
 		add_ideas = tot_economic_mobilisation
 	}
 }
 
 dd_sov_peoples_international = {
 	if = {
-		limit = { is_in_faction = no }
-		create_faction = SOV_peoples_international
+		limit = { is_faction_leader = yes }
+		dismantle_faction = yes
 	}
+	else_if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	create_faction = SOV_peoples_international
 	every_other_country = {
 		limit = {
 			has_government = communism
@@ -383,89 +682,29 @@ dd_sov_peoples_international = {
 	}
 }
 
+dd_sov_warsaw_wargoal = {
+	if = {
+		limit = {
+			exists = yes
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+			NOT = { has_war_with = ROOT }
+		}
+		ROOT = {
+			create_wargoal = { type = annex_everything target = PREV }
+		}
+	}
+}
+
 dd_sov_restore_warsaw_pact = {
-	if = {
-		limit = { is_faction_leader = yes }
-		set_faction_name = SOV_warsaw_pact
-	}
-	else_if = {
-		limit = { is_in_faction = yes }
-		leave_faction = yes
-		create_faction = SOV_warsaw_pact
-	}
-	else = {
-		create_faction = SOV_warsaw_pact
-	}
-	if = {
-		limit = {
-			POL = {
-				exists = yes
-				NOT = { has_war_with = ROOT }
-				is_in_faction = no
-			}
-		}
-		add_to_faction = POL
-	}
-	if = {
-		limit = {
-			DDR = {
-				exists = yes
-				NOT = { has_war_with = ROOT }
-				is_in_faction = no
-			}
-		}
-		add_to_faction = DDR
-	}
-	if = {
-		limit = {
-			CZE = {
-				exists = yes
-				NOT = { has_war_with = ROOT }
-				is_in_faction = no
-			}
-		}
-		add_to_faction = CZE
-	}
-	if = {
-		limit = {
-			SLO = {
-				exists = yes
-				NOT = { has_war_with = ROOT }
-				is_in_faction = no
-			}
-		}
-		add_to_faction = SLO
-	}
-	if = {
-		limit = {
-			HUN = {
-				exists = yes
-				NOT = { has_war_with = ROOT }
-				is_in_faction = no
-			}
-		}
-		add_to_faction = HUN
-	}
-	if = {
-		limit = {
-			ROM = {
-				exists = yes
-				NOT = { has_war_with = ROOT }
-				is_in_faction = no
-			}
-		}
-		add_to_faction = ROM
-	}
-	if = {
-		limit = {
-			BUL = {
-				exists = yes
-				NOT = { has_war_with = ROOT }
-				is_in_faction = no
-			}
-		}
-		add_to_faction = BUL
-	}
+	set_country_flag = dd_sov_warsaw_open
+	POL = { dd_sov_warsaw_wargoal = yes }
+	DDR = { dd_sov_warsaw_wargoal = yes }
+	CZE = { dd_sov_warsaw_wargoal = yes }
+	SLO = { dd_sov_warsaw_wargoal = yes }
+	HUN = { dd_sov_warsaw_wargoal = yes }
+	ROM = { dd_sov_warsaw_wargoal = yes }
+	BUL = { dd_sov_warsaw_wargoal = yes }
 }
 
 dd_sov_claim_novorossiya = {
@@ -490,6 +729,10 @@ dd_sov_claim_novorossiya = {
 }
 
 dd_sov_dissolve_csto = {
+	every_other_country = {
+		limit = { is_in_faction_with = ROOT }
+		country_event = { id = dd_sov_csto_end.1 }
+	}
 	if = {
 		limit = { is_faction_leader = yes }
 		dismantle_faction = yes
@@ -497,6 +740,63 @@ dd_sov_dissolve_csto = {
 	else_if = {
 		limit = { is_in_faction = yes }
 		leave_faction = yes
+	}
+}
+
+dd_sov_war_ensure = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_sov_war_machine } } }
+		custom_effect_tooltip = SOV_war_machine_tt
+		hidden_effect = {
+			set_variable = { dd_wm_atk = 0.10 }
+			set_variable = { dd_wm_def = 0.10 }
+			set_variable = { dd_wm_brk = 0.10 }
+			set_variable = { dd_wm_ws = 0.10 }
+			set_variable = { dd_wm_rec = 0.05 }
+			set_variable = { dd_wm_plan = 0 }
+			set_variable = { dd_wm_maxplan = 0 }
+			set_variable = { dd_wm_xp = 0 }
+			set_variable = { dd_wm_org = 0 }
+			if = {
+				limit = { has_idea = dd_sov_war_machine }
+				remove_ideas = dd_sov_war_machine
+			}
+			add_dynamic_modifier = { modifier = dd_sov_war_machine }
+		}
+	}
+}
+
+dd_sov_war_high_command = {
+	dd_sov_war_ensure = yes
+	custom_effect_tooltip = SOV_high_command_tt
+	hidden_effect = {
+		add_to_variable = { dd_wm_plan = 0.20 }
+		add_to_variable = { dd_wm_maxplan = 0.10 }
+		add_to_variable = { dd_wm_xp = 0.10 }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_sov_war_academy = {
+	dd_sov_war_ensure = yes
+	custom_effect_tooltip = SOV_war_academy_tt
+	hidden_effect = {
+		add_to_variable = { dd_wm_xp = 0.15 }
+		add_to_variable = { dd_wm_org = 0.05 }
+		add_to_variable = { dd_wm_plan = 0.10 }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_sov_war_marshals = {
+	dd_sov_war_ensure = yes
+	custom_effect_tooltip = SOV_marshals_tt
+	hidden_effect = {
+		add_to_variable = { dd_wm_atk = 0.10 }
+		add_to_variable = { dd_wm_def = 0.10 }
+		add_to_variable = { dd_wm_org = 0.05 }
+		add_to_variable = { dd_wm_brk = 0.05 }
+		force_update_dynamic_modifier = yes
 	}
 }
 
@@ -631,38 +931,33 @@ dd_sov_ukr_apply = {
 		remove_ideas = dd_sov_ukr_9
 	}
 	if = {
-		limit = { NOT = { check_variable = { dd_sov_ukr_stage < 9 } } }
+		limit = { check_variable = { dd_sov_ukr_months > 107 } }
 		dd_sov_ukr_surrender = yes
 	}
 	set_variable = { dd_sov_ukr_stage_applied = dd_sov_ukr_stage }
 }
 
-# February 2031. Russia capitulates. Ukraine gets a full victory conference.
-# Surrender progress cannot be set from script, and a winning war score blocks the diplomacy button.
+# February 2031. Russia capitulates. The conference is opened from Ukraine's event so Ukraine is the winner.
 dd_sov_ukr_surrender = {
 	if = {
 		limit = {
 			has_war_with = UKR
 			NOT = { has_country_flag = dd_sov_ukr_surrendered }
+			check_variable = { dd_sov_ukr_months > 107 }
 		}
 		set_country_flag = dd_sov_ukr_surrendered
 		set_country_flag = dd_sov_ukr_first_war_over
 		dd_sov_ukr_clear = yes
 		country_event = { id = dd_sov_ukr.1 }
-		UKR = {
-			country_event = { id = dd_sov_ukr.1 }
-			start_peace_conference = {
-				tag = ROOT
-				score_factor = 1
-				winner_scope = FACTION
-				loser_scope = FACTION
-				message = dd_sov_ukr_cap_tt
-			}
-		}
+		UKR = { country_event = { id = dd_sov_ukr.1 } }
 	}
 }
 
 dd_sov_ukr_sync = {
+	if = {
+		limit = { NOT = { has_variable = dd_sov_ukr_months } }
+		set_variable = { dd_sov_ukr_months = 46 }
+	}
 	if = {
 		limit = { check_variable = { dd_sov_ukr_months < 12 } }
 		set_variable = { dd_sov_ukr_stage = 0 }
@@ -841,14 +1136,50 @@ dd_sov_fuel_start_quiet = {
 
 dd_sov_fuel_apply_hit = {
 	if = {
+		limit = { NOT = { has_variable = dd_sov_fuel } }
+		set_variable = { dd_sov_fuel = 0 }
+	}
+	if = {
 		limit = { NOT = { has_variable = dd_sov_fuel_cap } }
 		set_variable = { dd_sov_fuel_cap = 30 }
+	}
+	if = {
+		limit = { NOT = { has_variable = dd_sov_fuel_hit_amount } }
+		set_variable = { dd_sov_fuel_hit_amount = 1 }
 	}
 	if = {
 		limit = { check_variable = { dd_sov_fuel < dd_sov_fuel_cap } }
 		add_to_variable = { dd_sov_fuel = dd_sov_fuel_hit_amount }
 		dd_sov_fuel_sync = yes
+		dd_sov_fuel_popup = yes
+	}
+}
+
+# A new event id each hit, so a popup still opens while an older one is on screen.
+dd_sov_fuel_popup = {
+	dd_mirror_enemy_stacks = yes
+	if = {
+		limit = { NOT = { has_variable = dd_sov_fuel_pop } }
+		set_variable = { dd_sov_fuel_pop = 0 }
+	}
+	if = {
+		limit = { check_variable = { dd_sov_fuel_pop = 0 } }
 		country_event = { id = dd_sov_fuel.1 }
+		UKR = { country_event = { id = dd_sov_fuel.11 } }
+	}
+	else_if = {
+		limit = { check_variable = { dd_sov_fuel_pop = 1 } }
+		country_event = { id = dd_sov_fuel.2 }
+		UKR = { country_event = { id = dd_sov_fuel.12 } }
+	}
+	else = {
+		country_event = { id = dd_sov_fuel.3 }
+		UKR = { country_event = { id = dd_sov_fuel.13 } }
+	}
+	add_to_variable = { dd_sov_fuel_pop = 1 }
+	if = {
+		limit = { check_variable = { dd_sov_fuel_pop > 2 } }
+		set_variable = { dd_sov_fuel_pop = 0 }
 	}
 }
 
@@ -935,6 +1266,52 @@ dd_sov_fuel_check_bombs = {
 		}
 		set_variable = { dd_sov_fuel = 0 }
 		dd_sov_fuel_sync = yes
+	}
+}
+
+# Copy the other side's stack totals onto the viewer. Decision text can only print local variables.
+dd_mirror_enemy_stacks = {
+	if = {
+		limit = { RUS = { exists = yes } }
+		RUS = {
+			if = {
+				limit = { UKR = { has_variable = dd_ukr_blackout } }
+				set_variable = { dd_seen_ukr_blackout = UKR.dd_ukr_blackout }
+				set_variable = { dd_seen_ukr_cap = UKR.dd_ukr_blackout_cap }
+				set_variable = { dd_seen_ukr_fac = UKR.dd_ukr_grid_fac }
+				set_variable = { dd_seen_ukr_stab = UKR.dd_ukr_grid_stab }
+				set_variable = { dd_seen_ukr_con = UKR.dd_ukr_grid_con }
+				set_variable = { dd_seen_ukr_cg = UKR.dd_ukr_grid_cg }
+			}
+			else = {
+				set_variable = { dd_seen_ukr_blackout = 0 }
+				set_variable = { dd_seen_ukr_cap = 20 }
+				set_variable = { dd_seen_ukr_fac = 0 }
+				set_variable = { dd_seen_ukr_stab = 0 }
+				set_variable = { dd_seen_ukr_con = 0 }
+				set_variable = { dd_seen_ukr_cg = 0 }
+			}
+		}
+	}
+	if = {
+		limit = { UKR = { exists = yes } }
+		UKR = {
+			if = {
+				limit = { RUS = { has_variable = dd_sov_fuel } }
+				set_variable = { dd_seen_rus_fuel = RUS.dd_sov_fuel }
+				set_variable = { dd_seen_rus_cap = RUS.dd_sov_fuel_cap }
+				set_variable = { dd_seen_rus_gain = RUS.dd_sov_fuel_gain }
+				set_variable = { dd_seen_rus_use = RUS.dd_sov_fuel_use }
+				set_variable = { dd_seen_rus_fac = RUS.dd_sov_fuel_fac }
+			}
+			else = {
+				set_variable = { dd_seen_rus_fuel = 0 }
+				set_variable = { dd_seen_rus_cap = 30 }
+				set_variable = { dd_seen_rus_gain = 0 }
+				set_variable = { dd_seen_rus_use = 0 }
+				set_variable = { dd_seen_rus_fac = 0 }
+			}
+		}
 	}
 }
 
@@ -1111,18 +1488,20 @@ dd_sov_red_spawn_militia = {
 	}
 }
 
-# Revolter scope. The dynamic rebel is retagged onto the real SOV tag.
+# Revolter scope. Leader, militia, and the Ukraine war. Tag changes happen after the war exists.
 dd_sov_red_born = {
+	set_cosmetic_tag = SOV_revolt
 	set_politics = { ruling_party = communism elections_allowed = no }
 	add_popularity = { ideology = communism popularity = 0.50 }
 	create_country_leader = {
-		name = "Gennady Zyuganov"
+		name = "Sergey Udaltsov"
 		desc = SOV_LEADER_DESC
-		picture = GFX_portrait_unknown
+		picture = GFX_portrait_SOV_sergey_udaltsov
 		expire = "2065.1.1"
 		ideology = marxism
 	}
 	set_country_flag = dd_sov_red_revolt
+	every_owned_state = { add_core_of = PREV }
 	dd_sov_red_spawn_militia = yes
 	if = {
 		limit = { RUS = { has_war_with = UKR } }
@@ -1131,23 +1510,43 @@ dd_sov_red_born = {
 			type = annex_everything
 		}
 	}
-	SOV = { change_tag_from = PREV }
-	SOV = { every_owned_state = { add_core_of = SOV } }
+}
+
+dd_sov_red_finish = {
+	if = {
+		limit = { has_event_target = dd_sov_red_side }
+		event_target:dd_sov_red_side = { dd_sov_red_born = yes }
+		if = {
+			limit = { has_country_flag = dd_sov_play_red }
+			event_target:dd_sov_red_side = { change_tag_from = ROOT }
+		}
+		SOV = { change_tag_from = event_target:dd_sov_red_side }
+		SOV = { set_cosmetic_tag = SOV_revolt }
+	}
 }
 
 dd_sov_red_war = {
+	hidden_effect = {
+		set_variable = { dd_sov_red_share = 0 }
+		add_to_variable = { dd_sov_red_share = party_popularity@communism }
+		if = {
+			limit = { check_variable = { dd_sov_red_share < 0.01 } }
+			set_variable = { dd_sov_red_share = 0.01 }
+		}
+	}
+	custom_effect_tooltip = dd_sov_revolution_army_tt
 	if = {
 		limit = { 219 = { is_owned_and_controlled_by = ROOT } }
 		start_civil_war = {
 			ideology = communism
 			size = 0.3
-			army_ratio = 0.3
-			navy_ratio = 0.3
-			air_ratio = 0.3
+			army_ratio = var:dd_sov_red_share
+			navy_ratio = var:dd_sov_red_share
+			air_ratio = var:dd_sov_red_share
 			capital = 219
 			states = { 219 195 217 218 408 242 763 252 249 247 224 222 248 239 234 220 214 213 251 223 240 398 409 254 400 399 }
 			states_filter = { is_owned_and_controlled_by = ROOT }
-			dd_sov_red_born = yes
+			save_event_target_as = dd_sov_red_side
 		}
 	}
 	else_if = {
@@ -1155,13 +1554,13 @@ dd_sov_red_war = {
 		start_civil_war = {
 			ideology = communism
 			size = 0.3
-			army_ratio = 0.3
-			navy_ratio = 0.3
-			air_ratio = 0.3
+			army_ratio = var:dd_sov_red_share
+			navy_ratio = var:dd_sov_red_share
+			air_ratio = var:dd_sov_red_share
 			capital = 195
 			states = { 219 195 217 218 408 242 763 252 249 247 224 222 248 239 234 220 214 213 251 223 240 398 409 254 400 399 }
 			states_filter = { is_owned_and_controlled_by = ROOT }
-			dd_sov_red_born = yes
+			save_event_target_as = dd_sov_red_side
 		}
 	}
 	else_if = {
@@ -1169,15 +1568,16 @@ dd_sov_red_war = {
 		start_civil_war = {
 			ideology = communism
 			size = 0.3
-			army_ratio = 0.3
-			navy_ratio = 0.3
-			air_ratio = 0.3
+			army_ratio = var:dd_sov_red_share
+			navy_ratio = var:dd_sov_red_share
+			air_ratio = var:dd_sov_red_share
 			capital = 217
 			states = { 219 195 217 218 408 242 763 252 249 247 224 222 248 239 234 220 214 213 251 223 240 398 409 254 400 399 }
 			states_filter = { is_owned_and_controlled_by = ROOT }
-			dd_sov_red_born = yes
+			save_event_target_as = dd_sov_red_side
 		}
 	}
+	dd_sov_red_finish = yes
 }
 
 dd_sov_approach_rosgvardia = {
@@ -1189,8 +1589,8 @@ dd_sov_approach_rosgvardia = {
 	}
 	set_politics = { ruling_party = fascism elections_allowed = no }
 	create_country_leader = {
-		name = "Viktor Zolotov"
-		picture = GFX_portrait_unknown
+		name = "Igor Girkin"
+		picture = GFX_portrait_SOV_igor_girkin
 		expire = "2065.1.1"
 		ideology = fascism_ideology
 	}

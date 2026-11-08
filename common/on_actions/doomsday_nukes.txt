@@ -1,0 +1,11 @@
+# First strike opens nuclear use for everyone.
+on_actions = {
+	on_nuke_drop = {
+		effect = {
+			if = {
+				limit = { NOT = { has_global_flag = dd_nuke_used } }
+				set_global_flag = dd_nuke_used
+			}
+		}
+	}
+}
