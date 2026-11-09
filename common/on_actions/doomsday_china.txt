@@ -10,6 +10,33 @@ on_actions = {
 				dd_chi_paranoia_sync = yes
 				dd_chi_recruit_advisors = yes
 				dd_chi_advisor_week = yes
+				dd_chi_plan_migrate = yes
+				dd_chi_crisis_migrate = yes
+				dd_chi_service_migrate = yes
+				if = {
+					limit = {
+						has_completed_focus = CHI_innovation_triangle
+						NOT = { has_country_flag = dd_chi_innovation_slot }
+					}
+					set_country_flag = dd_chi_innovation_slot
+					add_research_slot = 1
+				}
+				if = {
+					limit = { has_dynamic_modifier = { modifier = dd_chi_plan_spirit } }
+					dd_chi_plan_refresh = yes
+				}
+				if = {
+					limit = { has_dynamic_modifier = { modifier = dd_chi_army_spirit } }
+					dd_chi_army_refresh = yes
+				}
+				if = {
+					limit = { has_dynamic_modifier = { modifier = dd_chi_navy_spirit } }
+					dd_chi_navy_refresh = yes
+				}
+				if = {
+					limit = { has_dynamic_modifier = { modifier = dd_chi_air_spirit } }
+					dd_chi_air_refresh = yes
+				}
 				if = {
 					limit = {
 						NOT = { has_idea = dd_chi_peace_disease }
@@ -48,7 +75,19 @@ on_actions = {
 			FRC = { dd_chi_sync_inherited_focuses = yes }
 			NLC = { dd_chi_sync_inherited_focuses = yes }
 			SBC = { dd_chi_sync_inherited_focuses = yes }
+			SBC = {
+				if = {
+					limit = {
+						has_completed_focus = CHI_business_placeholder
+						NOT = { has_idea = dd_chi_unholy_investments }
+					}
+					add_ideas = dd_chi_unholy_investments
+				}
+			}
 			CMJ = { dd_chi_sync_inherited_focuses = yes }
+			CMJ = { dd_chi_junta_starting_spirits = yes }
+			CDW = { dd_chi_drop_paranoia = yes }
+			XIJ = { dd_chi_drop_paranoia = yes }
 		}
 	}
 	on_daily_CHI = {

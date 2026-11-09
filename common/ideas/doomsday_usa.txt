@@ -1,5 +1,16 @@
 ideas = {
 	country = {
+		dd_usa_divided_nation = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.05
+				political_power_gain = -0.15
+			}
+		}
+
 		dd_usa_socialist_poster_child = {
 			picture = dd_usa_socialist_poster_child
 			allowed = { always = no }

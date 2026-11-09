@@ -1,0 +1,37 @@
+focus_tree = {
+	id = dd_for_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FOR
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1200 }
+
+	focus = {
+		id = FOR_stand_with_the_republic
+		icon = GFX_goal_generic_improve_relations
+		x = 6
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FOR_feds_exist_tt
+				country_exists = FRC
+				FRC = { num_owned_states > 0 }
+			}
+		}
+		ai_will_do = { factor = 20 }
+		completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+			add_ideas = dd_for_strait_volunteers
+			add_opinion_modifier = { target = FRC modifier = dd_for_federal_friend }
+			FRC = { add_opinion_modifier = { target = ROOT modifier = dd_for_federal_friend } }
+		}
+	}
+}

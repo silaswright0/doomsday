@@ -1,4 +1,21 @@
+# Breakaways do not keep Beijing's paranoia or the officer penalty.
+dd_chi_drop_paranoia = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_paranoia } }
+		remove_dynamic_modifier = { modifier = dd_chi_paranoia }
+	}
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_confidence_fear } }
+		remove_dynamic_modifier = { modifier = dd_chi_confidence_fear }
+	}
+}
+
 dd_chi_paranoia_sync = {
+	if = {
+		limit = { NOT = { original_tag = CHI } }
+		dd_chi_drop_paranoia = yes
+	}
+	else = {
 	if = {
 		limit = { check_variable = { dd_chi_paranoia < 0 } }
 		set_variable = { dd_chi_paranoia = 0 }
@@ -16,7 +33,10 @@ dd_chi_paranoia_sync = {
 	set_variable = { dd_chi_para_org = dd_chi_paranoia }
 	multiply_variable = { dd_chi_para_org = -0.001 }
 	if = {
-		limit = { original_tag = CHI }
+		limit = {
+			original_tag = CHI
+			NOT = { has_country_flag = dd_chi_organs_sidelined }
+		}
 		if = {
 			limit = { NOT = { has_dynamic_modifier = { modifier = dd_chi_paranoia } } }
 			add_dynamic_modifier = { modifier = dd_chi_paranoia }
@@ -47,44 +67,463 @@ dd_chi_paranoia_sync = {
 		set_variable = { dd_chi_confidence = 100 }
 	}
 	dd_chi_sync_confidence = yes
+	}
 }
 
 dd_chi_paranoia_month = {
 	if = {
-		limit = { NOT = { has_variable = dd_chi_paranoia } }
-		set_variable = { dd_chi_paranoia = 50 }
+		limit = { has_country_flag = dd_chi_organs_sidelined }
+		dd_chi_paranoia_sync = yes
+	}
+	else = {
+		if = {
+			limit = { NOT = { has_variable = dd_chi_paranoia } }
+			set_variable = { dd_chi_paranoia = 50 }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = dd_chi_paranoia_halted } }
+			if = {
+				limit = { has_country_flag = dd_chi_paranoia_contained }
+				add_to_variable = { dd_chi_paranoia = 1 }
+			}
+			else = {
+				add_to_variable = { dd_chi_paranoia = 4 }
+			}
+			if = {
+				limit = { has_idea = CHI_cai_qi }
+				add_to_variable = { dd_chi_paranoia = -1 }
+			}
+			if = {
+				limit = { has_idea = CHI_chen_yixin }
+				add_to_variable = { dd_chi_paranoia = 2 }
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { dd_chi_paranoia > 99.9 }
+				NOT = { has_country_flag = dd_chi_security_seized }
+			}
+			set_country_flag = dd_chi_security_seized
+			set_variable = { dd_chi_paranoia = 50 }
+			add_stability = -0.10
+			add_war_support = -0.05
+			add_political_power = -75
+			country_event = { id = dd_chi_para.1 }
+		}
+		dd_chi_paranoia_sync = yes
+	}
+}
+
+# Sideline the Central Committee. The panel and both spirits stay off.
+dd_chi_remove_paranoia_panel = {
+	set_country_flag = dd_chi_organs_sidelined
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_paranoia } }
+		remove_dynamic_modifier = { modifier = dd_chi_paranoia }
 	}
 	if = {
-		limit = { NOT = { has_country_flag = dd_chi_paranoia_halted } }
-		if = {
-			limit = { has_country_flag = dd_chi_paranoia_contained }
-			add_to_variable = { dd_chi_paranoia = 1 }
+		limit = { has_dynamic_modifier = { modifier = dd_chi_confidence_fear } }
+		remove_dynamic_modifier = { modifier = dd_chi_confidence_fear }
+	}
+}
+
+# The spirit is rebuilt after the variables change, so a line that started at 0 still appears.
+dd_chi_plan_refresh = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_plan_spirit } }
+		remove_dynamic_modifier = { modifier = dd_chi_plan_spirit }
+	}
+	add_dynamic_modifier = { modifier = dd_chi_plan_spirit }
+	force_update_dynamic_modifier = yes
+}
+
+dd_chi_plan_open = {
+	set_country_flag = dd_chi_plan_folded
+	add_to_variable = { dd_chi_plan_build = 0.10 tooltip = production_speed_buildings_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_five_year_plan }
+		remove_ideas = dd_chi_five_year_plan
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_state_bank = {
+	add_to_variable = { dd_chi_plan_civ = 0.10 tooltip = production_speed_industrial_complex_factor_tt }
+	add_to_variable = { dd_chi_plan_cg = -0.03 tooltip = consumer_goods_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_state_bank }
+		remove_ideas = dd_chi_state_bank
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_foreign = {
+	add_to_variable = { dd_chi_plan_justify = -0.20 tooltip = justify_war_goal_time_tt }
+	add_to_variable = { dd_chi_plan_trade = -0.10 tooltip = trade_opinion_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_foreign_targets }
+		remove_ideas = dd_chi_foreign_targets
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_quality = {
+	add_to_variable = { dd_chi_plan_civ = -0.10 tooltip = production_speed_industrial_complex_factor_tt }
+	set_variable = { dd_prod = 7.5 }
+	dd_recalc_accounts = yes
+	if = {
+		limit = { has_idea = dd_chi_high_quality }
+		remove_ideas = dd_chi_high_quality
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_domination = {
+	add_to_variable = { dd_chi_plan_factory = 0.08 tooltip = industrial_capacity_factory_tt }
+	add_to_variable = { dd_chi_plan_pp = 0.10 tooltip = political_power_gain_tt }
+	if = {
+		limit = { has_idea = dd_chi_domination }
+		remove_ideas = dd_chi_domination
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_sanctions = {
+	add_to_variable = { dd_chi_plan_local = 0.10 tooltip = local_resources_factor_tt }
+	add_to_variable = { dd_chi_plan_cg = -0.05 tooltip = consumer_goods_factor_tt }
+	add_to_variable = { dd_chi_plan_trade = -0.15 tooltip = trade_opinion_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_sanctions_prep }
+		remove_ideas = dd_chi_sanctions_prep
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_deficit = {
+	add_to_variable = { dd_chi_plan_cg = 0.04 tooltip = consumer_goods_factor_tt }
+	add_to_variable = { dd_chi_plan_build = 0.10 tooltip = production_speed_buildings_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_deficit }
+		remove_ideas = dd_chi_deficit
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_innovation = {
+	add_to_variable = { dd_chi_plan_research = 0.08 tooltip = research_speed_factor_tt }
+	add_to_variable = { dd_chi_plan_eff = 0.10 tooltip = production_factory_max_efficiency_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_innovation }
+		remove_ideas = dd_chi_innovation
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_debt = {
+	add_to_variable = { dd_chi_plan_factory = 0.05 tooltip = industrial_capacity_factory_tt }
+	add_to_variable = { dd_chi_plan_cg = -0.02 tooltip = consumer_goods_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_outgrow_debt }
+		remove_ideas = dd_chi_outgrow_debt
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_mil_industry = {
+	add_to_variable = { dd_chi_plan_mil = 0.15 tooltip = production_speed_arms_factory_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_mil_industry }
+		remove_ideas = dd_chi_mil_industry
+	}
+	dd_chi_plan_refresh = yes
+}
+
+dd_chi_plan_mil_infra = {
+	add_to_variable = { dd_chi_plan_infra = 0.15 tooltip = production_speed_infrastructure_factor_tt }
+	add_to_variable = { dd_chi_plan_bunker = 0.25 tooltip = production_speed_bunker_factor_tt }
+	add_to_variable = { dd_chi_plan_supply = -0.08 tooltip = supply_consumption_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_mil_infrastructure }
+		remove_ideas = dd_chi_mil_infrastructure
+	}
+	dd_chi_plan_refresh = yes
+}
+
+# One pass for a save that already took these focuses as separate spirits.
+dd_chi_plan_migrate = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = dd_chi_plan_folded }
+			has_completed_focus = CHI_fifteenth_plan
 		}
-		else = {
-			add_to_variable = { dd_chi_paranoia = 4 }
+		set_country_flag = dd_chi_plan_folded
+		dd_chi_plan_open = yes
+		if = {
+			limit = { has_completed_focus = CHI_state_bank_credit }
+			dd_chi_plan_state_bank = yes
 		}
 		if = {
-			limit = { has_idea = CHI_cai_qi }
-			add_to_variable = { dd_chi_paranoia = -1 }
+			limit = { has_completed_focus = CHI_target_foreign_entities }
+			dd_chi_plan_foreign = yes
 		}
 		if = {
-			limit = { has_idea = CHI_chen_yixin }
-			add_to_variable = { dd_chi_paranoia = 2 }
+			limit = { has_completed_focus = CHI_high_quality_development }
+			dd_chi_plan_quality = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_chinese_domination }
+			dd_chi_plan_domination = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_prepare_against_sanctions }
+			dd_chi_plan_sanctions = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_deficit_target }
+			dd_chi_plan_deficit = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_innovation_triangle }
+			dd_chi_plan_innovation = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_outgrow_debt }
+			dd_chi_plan_debt = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_expand_military_industry }
+			dd_chi_plan_mil_industry = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_expand_military_infrastructure }
+			dd_chi_plan_mil_infra = yes
+		}
+	}
+}
+
+dd_chi_army_refresh = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_army_spirit } }
+		remove_dynamic_modifier = { modifier = dd_chi_army_spirit }
+	}
+	add_dynamic_modifier = { modifier = dd_chi_army_spirit }
+	force_update_dynamic_modifier = yes
+}
+
+dd_chi_army_open = {
+	set_country_flag = dd_chi_army_folded
+	add_to_variable = { dd_chi_army_arty = 0.10 tooltip = army_artillery_attack_factor_tt }
+	add_to_variable = { dd_chi_army_rocket = 0.10 tooltip = rocket_attack_factor_tt }
+	dd_chi_army_refresh = yes
+}
+
+dd_chi_army_ai = {
+	add_to_variable = { dd_chi_army_coord = 0.05 tooltip = coordination_bonus_tt }
+	add_to_variable = { dd_chi_army_plan = 0.10 tooltip = planning_speed_tt }
+	if = {
+		limit = { has_idea = dd_chi_integrate_ai }
+		remove_ideas = dd_chi_integrate_ai
+	}
+	dd_chi_army_refresh = yes
+}
+
+dd_chi_army_combined = {
+	add_to_variable = { dd_chi_army_mech = 0.10 tooltip = mechanized_attack_factor_tt }
+	add_to_variable = { dd_chi_army_armor = 0.05 tooltip = army_armor_attack_factor_tt }
+	add_to_variable = { dd_chi_army_moto = 0.05 tooltip = motorized_attack_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_combined_arms }
+		remove_ideas = dd_chi_combined_arms
+	}
+	dd_chi_army_refresh = yes
+}
+
+dd_chi_army_loops = {
+	add_to_variable = { dd_chi_army_orgmove = -0.10 tooltip = org_loss_when_moving_tt }
+	add_to_variable = { dd_chi_army_plan = 0.10 tooltip = planning_speed_tt }
+	add_to_variable = { dd_chi_army_cp = 0.15 tooltip = command_power_gain_tt }
+	if = {
+		limit = { has_idea = dd_chi_tight_loops }
+		remove_ideas = dd_chi_tight_loops
+	}
+	dd_chi_army_refresh = yes
+}
+
+dd_chi_navy_refresh = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_navy_spirit } }
+		remove_dynamic_modifier = { modifier = dd_chi_navy_spirit }
+	}
+	add_dynamic_modifier = { modifier = dd_chi_navy_spirit }
+	force_update_dynamic_modifier = yes
+}
+
+dd_chi_navy_open = {
+	set_country_flag = dd_chi_navy_folded
+	add_to_variable = { dd_chi_navy_attr = -0.10 tooltip = naval_attrition_tt }
+	add_to_variable = { dd_chi_navy_fuel = -0.05 tooltip = navy_fuel_consumption_factor_tt }
+	dd_chi_navy_refresh = yes
+}
+
+dd_chi_navy_carriers = {
+	add_to_variable = { dd_chi_navy_sortie = 0.20 tooltip = sortie_efficiency_tt }
+	if = {
+		limit = { has_idea = dd_chi_carrier_drills }
+		remove_ideas = dd_chi_carrier_drills
+	}
+	dd_chi_navy_refresh = yes
+}
+
+dd_chi_navy_fleet = {
+	add_to_variable = { dd_chi_navy_escort = 0.15 tooltip = convoy_escort_efficiency_tt }
+	if = {
+		limit = { has_idea = dd_chi_nationalized_fleet }
+		remove_ideas = dd_chi_nationalized_fleet
+	}
+	dd_chi_navy_refresh = yes
+}
+
+dd_chi_navy_logistics = {
+	add_to_variable = { dd_chi_navy_attr = -0.25 tooltip = naval_attrition_tt }
+	add_to_variable = { dd_chi_navy_fuel = -0.10 tooltip = navy_fuel_consumption_factor_tt }
+	add_to_variable = { dd_chi_navy_supply = -0.05 tooltip = supply_consumption_factor_tt }
+	if = {
+		limit = { has_idea = dd_chi_fleet_logistics }
+		remove_ideas = dd_chi_fleet_logistics
+	}
+	dd_chi_navy_refresh = yes
+}
+
+dd_chi_air_refresh = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_air_spirit } }
+		remove_dynamic_modifier = { modifier = dd_chi_air_spirit }
+	}
+	add_dynamic_modifier = { modifier = dd_chi_air_spirit }
+	force_update_dynamic_modifier = yes
+}
+
+dd_chi_air_open = {
+	set_country_flag = dd_chi_air_folded
+	add_to_variable = { dd_chi_air_atk = 0.10 tooltip = air_attack_factor_tt }
+	dd_chi_air_refresh = yes
+}
+
+dd_chi_air_space = {
+	add_to_variable = { dd_chi_air_detect = 0.10 tooltip = air_detection_tt }
+	add_to_variable = { dd_chi_air_super = 0.08 tooltip = air_superiority_efficiency_tt }
+	if = {
+		limit = { has_idea = dd_chi_space_systems }
+		remove_ideas = dd_chi_space_systems
+	}
+	dd_chi_air_refresh = yes
+}
+
+# Research focuses hand out a tech bonus. An old save that still has the spirit trades it for that bonus once.
+dd_chi_research_migrate = {
+	if = {
+		limit = { has_idea = dd_chi_mil_research_1 }
+		remove_ideas = dd_chi_mil_research_1
+		add_tech_bonus = { name = CHI_military_research_1 bonus = 0.5 uses = 1 category = land_doctrine }
+	}
+	if = {
+		limit = { has_idea = dd_chi_mil_research_2 }
+		remove_ideas = dd_chi_mil_research_2
+		add_tech_bonus = { name = CHI_military_research_2 bonus = 0.5 uses = 1 category = artillery }
+		add_tech_bonus = { name = CHI_military_research_2 bonus = 0.5 uses = 1 category = rocketry }
+	}
+	if = {
+		limit = { has_idea = dd_chi_mil_research_3 }
+		remove_ideas = dd_chi_mil_research_3
+		add_tech_bonus = { name = CHI_military_research_3 bonus = 0.5 uses = 1 category = armor }
+		add_tech_bonus = { name = CHI_military_research_3 bonus = 0.5 uses = 1 category = support_tech }
+	}
+	if = {
+		limit = { has_idea = dd_chi_navy_research_1 }
+		remove_ideas = dd_chi_navy_research_1
+		add_tech_bonus = { name = CHI_navy_research_1 bonus = 0.5 uses = 1 category = naval_doctrine }
+	}
+	if = {
+		limit = { has_idea = dd_chi_navy_research_2 }
+		remove_ideas = dd_chi_navy_research_2
+		add_tech_bonus = { name = CHI_navy_research_2 bonus = 0.5 uses = 1 category = naval_equipment }
+	}
+	if = {
+		limit = { has_idea = dd_chi_navy_research_3 }
+		remove_ideas = dd_chi_navy_research_3
+		add_tech_bonus = { name = CHI_navy_research_3 bonus = 1.0 uses = 1 category = naval_equipment }
+	}
+	if = {
+		limit = { has_idea = dd_chi_air_research_1 }
+		remove_ideas = dd_chi_air_research_1
+		add_tech_bonus = { name = CHI_air_research_1 bonus = 0.5 uses = 1 category = air_doctrine }
+	}
+	if = {
+		limit = { has_idea = dd_chi_air_research_2 }
+		remove_ideas = dd_chi_air_research_2
+		add_tech_bonus = { name = CHI_air_research_2 bonus = 0.5 uses = 1 category = air_equipment }
+	}
+	if = {
+		limit = { has_idea = dd_chi_air_research_3 }
+		remove_ideas = dd_chi_air_research_3
+		add_tech_bonus = { name = CHI_air_research_3 bonus = 1.0 uses = 1 category = air_equipment }
+	}
+}
+
+dd_chi_service_migrate = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = dd_chi_army_folded }
+			has_completed_focus = CHI_address_the_army
+		}
+		set_country_flag = dd_chi_army_folded
+		dd_chi_army_open = yes
+		if = {
+			limit = { has_completed_focus = CHI_integrate_ai }
+			dd_chi_army_ai = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_combined_arms }
+			dd_chi_army_combined = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_tighten_decision_loops }
+			dd_chi_army_loops = yes
 		}
 	}
 	if = {
 		limit = {
-			check_variable = { dd_chi_paranoia > 99.9 }
-			NOT = { has_country_flag = dd_chi_security_seized }
+			NOT = { has_country_flag = dd_chi_navy_folded }
+			has_completed_focus = CHI_address_the_navy
 		}
-		set_country_flag = dd_chi_security_seized
-		set_variable = { dd_chi_paranoia = 50 }
-		add_stability = -0.10
-		add_war_support = -0.05
-		add_political_power = -75
-		country_event = { id = dd_chi_para.1 }
+		set_country_flag = dd_chi_navy_folded
+		dd_chi_navy_open = yes
+		if = {
+			limit = { has_completed_focus = CHI_carrier_drills }
+			dd_chi_navy_carriers = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_nationalize_civilian_fleet }
+			dd_chi_navy_fleet = yes
+		}
+		if = {
+			limit = { has_completed_focus = CHI_fleet_logistics }
+			dd_chi_navy_logistics = yes
+		}
 	}
-	dd_chi_paranoia_sync = yes
+	if = {
+		limit = {
+			NOT = { has_country_flag = dd_chi_air_folded }
+			has_completed_focus = CHI_address_the_airforce
+		}
+		set_country_flag = dd_chi_air_folded
+		dd_chi_air_open = yes
+		if = {
+			limit = { has_completed_focus = CHI_space_systems }
+			dd_chi_air_space = yes
+		}
+	}
+	dd_chi_research_migrate = yes
 }
 
 # New Year. Safe if China is gone, the meter is gone, or confidence is already full.
@@ -147,6 +586,13 @@ dd_chi_sync_confidence = {
 	}
 	if = {
 		limit = { NOT = { original_tag = CHI } }
+		if = {
+			limit = { has_dynamic_modifier = { modifier = dd_chi_confidence_fear } }
+			remove_dynamic_modifier = { modifier = dd_chi_confidence_fear }
+		}
+	}
+	else_if = {
+		limit = { has_country_flag = dd_chi_organs_sidelined }
 		if = {
 			limit = { has_dynamic_modifier = { modifier = dd_chi_confidence_fear } }
 			remove_dynamic_modifier = { modifier = dd_chi_confidence_fear }
@@ -275,6 +721,124 @@ dd_chi_convert_civ_to_mil = {
 	set_variable = { dd_chi_mills_left = 0 }
 }
 
+# One military factory and one open slot in each interior province. The focus requires all six.
+dd_chi_barons_mills = {
+	if = {
+		limit = { owns_state = 283 }
+		283 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 616 }
+		616 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 621 }
+		621 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 752 }
+		752 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 754 }
+		754 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 1032 }
+		1032 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+	}
+}
+
+# Four infantry divisions in the capital. Equipment is drawn from the stockpile added here.
+dd_chi_raise_mercenaries = {
+	if = {
+		limit = { NOT = { has_template = "Infantry Division" } }
+		division_template = {
+			name = "Infantry Division"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				artillery = { x = 0 y = 1 }
+			}
+			is_locked = yes
+		}
+	}
+	add_manpower = 40000
+	add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 4000 producer = CHI }
+	add_equipment_to_stockpile = { type = support_equipment_cw3 amount = 150 producer = CHI }
+	add_equipment_to_stockpile = { type = artillery_equipment_cw3 amount = 48 producer = CHI }
+	capital_scope = {
+		create_unit = {
+			division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2 start_equipment_factor = 1"
+			owner = PREV
+			count = 4
+		}
+	}
+}
+
+# Twelve irregular militia in the capital.
+dd_chi_raise_irregulars = {
+	if = {
+		limit = { NOT = { has_template = "Irregular Militia" } }
+		division_template = {
+			name = "Irregular Militia"
+			regiments = {
+				irregular_infantry = { x = 0 y = 0 }
+				irregular_infantry = { x = 0 y = 1 }
+				irregular_infantry = { x = 0 y = 2 }
+				irregular_infantry = { x = 1 y = 0 }
+				irregular_infantry = { x = 1 y = 1 }
+				irregular_infantry = { x = 1 y = 2 }
+			}
+			is_locked = yes
+		}
+	}
+	add_manpower = 72000
+	add_equipment_to_stockpile = { type = infantry_equipment_cw6 amount = 6000 producer = CHI }
+	capital_scope = {
+		create_unit = {
+			division = "name = \"Irregular Militia\" division_template = \"Irregular Militia\" start_experience_factor = 0.1 start_equipment_factor = 1"
+			owner = PREV
+			count = 12
+		}
+	}
+}
+
+# States owned right now stay closed to Federal and New Left rebel cells.
+dd_chi_lock_cities = {
+	every_owned_state = {
+		set_state_flag = dd_chi_city_locked
+	}
+}
+
 # Puts the old warlord cores back on a save that already dropped them.
 # A new campaign gets the same cores from state history. Adding a core that is already there changes nothing.
 dd_chi_restore_warlord_cores = {
@@ -384,31 +948,211 @@ dd_chi_arm_militia = {
 	}
 }
 
-# Low confidence, the three standing strains still open, and Taiwan lost.
-dd_chi_regime_watch = {
+# Adds the spirit only when a save does not have it yet. Never removes it.
+dd_chi_debt_refresh = {
 	if = {
-		limit = { has_war_with = FOR }
-		set_country_flag = dd_chi_fought_taiwan
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_chi_debt_crisis } } }
+		add_dynamic_modifier = { modifier = dd_chi_debt_crisis }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+dd_chi_youth_refresh = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_chi_youth_crisis } } }
+		add_dynamic_modifier = { modifier = dd_chi_youth_crisis }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+dd_chi_estate_refresh = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = dd_chi_estate_crisis } } }
+		add_dynamic_modifier = { modifier = dd_chi_estate_crisis }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+dd_chi_debt_ease_1 = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_debt_crisis } }
+		add_to_variable = { dd_chi_debt_build = 0.10 tooltip = production_speed_buildings_factor_tt }
+		add_to_variable = { dd_chi_debt_cg = -0.10 tooltip = consumer_goods_factor_tt }
+		add_to_variable = { dd_chi_debt_stab = 0.02 tooltip = stability_factor_tt }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_chi_debt_ease_2 = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_debt_crisis } }
+		add_to_variable = { dd_chi_debt_build = 0.10 tooltip = production_speed_buildings_factor_tt }
+		add_to_variable = { dd_chi_debt_cg = -0.05 tooltip = consumer_goods_factor_tt }
+		add_to_variable = { dd_chi_debt_stab = 0.02 tooltip = stability_factor_tt }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_chi_debt_clear = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_debt_crisis } }
+		remove_dynamic_modifier = { modifier = dd_chi_debt_crisis }
+	}
+}
+
+dd_chi_youth_ease_1 = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_youth_crisis } }
+		add_to_variable = { dd_chi_youth_drift = 0.15 tooltip = drift_defence_factor_tt }
+		add_to_variable = { dd_chi_youth_pop = 0.05 tooltip = monthly_population_tt }
+		add_to_variable = { dd_chi_youth_stab = 0.02 tooltip = stability_factor_tt }
+		add_to_variable = { dd_chi_youth_factory = 0.05 tooltip = industrial_capacity_factory_tt }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_chi_youth_ease_2 = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_youth_crisis } }
+		add_to_variable = { dd_chi_youth_drift = 0.15 tooltip = drift_defence_factor_tt }
+		add_to_variable = { dd_chi_youth_pop = 0.10 tooltip = monthly_population_tt }
+		add_to_variable = { dd_chi_youth_stab = 0.02 tooltip = stability_factor_tt }
+		add_to_variable = { dd_chi_youth_factory = 0.10 tooltip = industrial_capacity_factory_tt }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_chi_youth_clear = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_youth_crisis } }
+		remove_dynamic_modifier = { modifier = dd_chi_youth_crisis }
+	}
+}
+
+dd_chi_estate_ease_1 = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_estate_crisis } }
+		add_to_variable = { dd_chi_estate_build = 0.15 tooltip = production_speed_buildings_factor_tt }
+		add_to_variable = { dd_chi_estate_pop = 0.10 tooltip = monthly_population_tt }
+		add_to_variable = { dd_chi_estate_stab = 0.02 tooltip = stability_factor_tt }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_chi_estate_ease_2 = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_estate_crisis } }
+		add_to_variable = { dd_chi_estate_build = 0.15 tooltip = production_speed_buildings_factor_tt }
+		add_to_variable = { dd_chi_estate_pop = 0.10 tooltip = monthly_population_tt }
+		add_to_variable = { dd_chi_estate_stab = 0.02 tooltip = stability_factor_tt }
+		force_update_dynamic_modifier = yes
+	}
+}
+
+dd_chi_estate_clear = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_estate_crisis } }
+		remove_dynamic_modifier = { modifier = dd_chi_estate_crisis }
+	}
+}
+
+# Puts an existing China save onto the one spirit per crisis. A new game already has them from history.
+dd_chi_crisis_migrate = {
+	if = {
+		limit = { has_completed_focus = CHI_local_debt_3 }
+		dd_chi_debt_clear = yes
+	}
+	else_if = {
+		limit = { has_completed_focus = CHI_local_debt_2 }
+		set_variable = { dd_chi_debt_build = -0.10 }
+		set_variable = { dd_chi_debt_cg = 0.05 }
+		set_variable = { dd_chi_debt_stab = -0.01 }
+		dd_chi_debt_refresh = yes
+	}
+	else_if = {
+		limit = { has_completed_focus = CHI_local_debt_1 }
+		set_variable = { dd_chi_debt_build = -0.20 }
+		set_variable = { dd_chi_debt_cg = 0.10 }
+		set_variable = { dd_chi_debt_stab = -0.03 }
+		dd_chi_debt_refresh = yes
+	}
+	else = {
+		set_variable = { dd_chi_debt_build = -0.30 }
+		set_variable = { dd_chi_debt_cg = 0.20 }
+		set_variable = { dd_chi_debt_stab = -0.05 }
+		dd_chi_debt_refresh = yes
+	}
+	if = {
+		limit = { has_completed_focus = CHI_youth_unemployment_3 }
+		dd_chi_youth_clear = yes
+	}
+	else_if = {
+		limit = { has_completed_focus = CHI_youth_unemployment_2 }
+		set_variable = { dd_chi_youth_drift = -0.10 }
+		set_variable = { dd_chi_youth_pop = -0.05 }
+		set_variable = { dd_chi_youth_stab = -0.01 }
+		set_variable = { dd_chi_youth_factory = -0.05 }
+		dd_chi_youth_refresh = yes
+	}
+	else_if = {
+		limit = { has_completed_focus = CHI_youth_unemployment_1 }
+		set_variable = { dd_chi_youth_drift = -0.25 }
+		set_variable = { dd_chi_youth_pop = -0.15 }
+		set_variable = { dd_chi_youth_stab = -0.03 }
+		set_variable = { dd_chi_youth_factory = -0.15 }
+		dd_chi_youth_refresh = yes
+	}
+	else = {
+		set_variable = { dd_chi_youth_drift = -0.40 }
+		set_variable = { dd_chi_youth_pop = -0.20 }
+		set_variable = { dd_chi_youth_stab = -0.05 }
+		set_variable = { dd_chi_youth_factory = -0.20 }
+		dd_chi_youth_refresh = yes
+	}
+	if = {
+		limit = { has_completed_focus = CHI_real_estate_3 }
+		dd_chi_estate_clear = yes
+	}
+	else_if = {
+		limit = { has_completed_focus = CHI_real_estate_2 }
+		set_variable = { dd_chi_estate_build = -0.10 }
+		set_variable = { dd_chi_estate_pop = -0.10 }
+		set_variable = { dd_chi_estate_stab = -0.01 }
+		dd_chi_estate_refresh = yes
+	}
+	else_if = {
+		limit = { has_completed_focus = CHI_real_estate_1 }
+		set_variable = { dd_chi_estate_build = -0.25 }
+		set_variable = { dd_chi_estate_pop = -0.20 }
+		set_variable = { dd_chi_estate_stab = -0.03 }
+		dd_chi_estate_refresh = yes
+	}
+	else = {
+		set_variable = { dd_chi_estate_build = -0.40 }
+		set_variable = { dd_chi_estate_pop = -0.30 }
+		set_variable = { dd_chi_estate_stab = -0.05 }
+		dd_chi_estate_refresh = yes
 	}
 	if = {
 		limit = {
-			has_country_flag = dd_chi_fought_taiwan
-			NOT = { has_war_with = FOR }
-			NOT = { owns_state = 524 }
+			has_completed_focus = CHI_recovery_capstone
+			NOT = { has_idea = dd_chi_rear_view }
 		}
-		set_country_flag = dd_chi_taiwan_failed
+		add_ideas = dd_chi_rear_view
 	}
-		if = {
-			limit = {
-				NOT = { has_global_flag = dd_chi_civil_war_started }
-				NOT = { has_country_flag = dd_chi_civil_war_pending }
-				NOT = { has_country_flag = dd_chi_security_seized }
-				has_country_flag = dd_chi_taiwan_failed
-				check_variable = { dd_chi_confidence < 30 }
-				NOT = { has_completed_focus = CHI_real_estate_3 }
-				NOT = { has_completed_focus = CHI_local_debt_3 }
-				NOT = { has_completed_focus = CHI_youth_unemployment_3 }
-			}
+}
+
+# Confidence below 30, all three crises still on the country, and the strait clock ran out.
+dd_chi_regime_watch = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = dd_chi_civil_war_started }
+			NOT = { has_country_flag = dd_chi_civil_war_pending }
+			NOT = { has_country_flag = dd_chi_security_seized }
+			has_country_flag = dd_chi_taiwan_failed
+			check_variable = { dd_chi_confidence < 30 }
+			dd_chi_crises_open = yes
+		}
 		set_country_flag = dd_chi_civil_war_pending
 		country_event = { id = dd_chi_cw.1 }
 	}
@@ -732,6 +1476,388 @@ dd_chi_raise_civil_war_armies = {
 	}
 }
 
+# The junta opens under both debuffs. A finished focus is not put back.
+dd_chi_junta_starting_spirits = {
+	if = {
+		limit = {
+			NOT = { has_completed_focus = CHI_junta_formalize }
+			NOT = { has_idea = dd_chi_junta_disorganized }
+		}
+		add_ideas = dd_chi_junta_disorganized
+	}
+	if = {
+		limit = {
+			NOT = { has_completed_focus = CHI_junta_restore }
+			NOT = { has_idea = dd_chi_junta_treason }
+		}
+		add_ideas = dd_chi_junta_treason
+	}
+	if = {
+		limit = {
+			has_completed_focus = CHI_junta_beijing
+			NOT = { has_idea = dd_chi_junta_beijing }
+		}
+		add_ideas = dd_chi_junta_beijing
+	}
+	if = {
+		limit = { has_idea = dd_chi_beijing_shaken }
+		remove_ideas = dd_chi_beijing_shaken
+	}
+	if = {
+		limit = {
+			has_completed_focus = CHI_junta_exploit
+			country_exists = CHI
+		}
+		CHI = { add_ideas = dd_chi_beijing_shaken }
+	}
+	if = {
+		limit = {
+			has_completed_focus = CHI_junta_soldiers
+			NOT = { has_idea = dd_chi_junta_drill_veteran }
+		}
+		if = {
+			limit = { has_idea = dd_chi_junta_drill }
+			swap_ideas = {
+				remove_idea = dd_chi_junta_drill
+				add_idea = dd_chi_junta_drill_veteran
+			}
+		}
+		else = {
+			add_ideas = dd_chi_junta_drill_veteran
+		}
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = CHI_junta_drill
+			NOT = { has_idea = dd_chi_junta_drill }
+		}
+		add_ideas = dd_chi_junta_drill
+	}
+	if = {
+		limit = {
+			has_completed_focus = CHI_junta_discredit
+			NOT = { has_idea = dd_chi_junta_discredit }
+		}
+		add_ideas = dd_chi_junta_discredit
+	}
+	if = {
+		limit = {
+			has_completed_focus = CHI_junta_expose
+			NOT = { has_idea = dd_chi_junta_expose }
+		}
+		add_ideas = dd_chi_junta_expose
+	}
+}
+
+# Rebuilt after each change so a line that started at 0 still appears.
+dd_chi_constitution_refresh = {
+	if = {
+		limit = { has_dynamic_modifier = { modifier = dd_chi_constitution } }
+		remove_dynamic_modifier = { modifier = dd_chi_constitution }
+	}
+	add_dynamic_modifier = { modifier = dd_chi_constitution }
+	force_update_dynamic_modifier = yes
+}
+
+# Constitutional assembly. Elections stay on, and the wartime opening penalty goes.
+# Paranoia is already gone by the time this fires.
+dd_chi_convene_assembly = {
+	add_political_power = 100
+	if = {
+		limit = { has_idea = dd_chi_federal_opening }
+		remove_ideas = dd_chi_federal_opening
+	}
+	set_politics = {
+		ruling_party = liberal_conservatism
+		last_election = "2026.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	add_to_variable = { dd_chi_fed_stab = 0.05 tooltip = stability_factor_tt }
+	dd_chi_constitution_refresh = yes
+}
+
+dd_chi_fed_party = {
+	add_to_variable = { dd_chi_fed_pp = 0.15 tooltip = political_power_gain_tt }
+	add_to_variable = { dd_chi_fed_drift = 0.15 tooltip = drift_defence_factor_tt }
+	dd_chi_constitution_refresh = yes
+}
+
+dd_chi_fed_courts = {
+	add_to_variable = { dd_chi_fed_subvert = -0.25 tooltip = foreign_subversive_activites_tt }
+	dd_chi_constitution_refresh = yes
+}
+
+dd_chi_fed_property = {
+	add_to_variable = { dd_chi_fed_build = 0.10 tooltip = production_speed_buildings_factor_tt }
+	add_to_variable = { dd_chi_fed_trade = 0.15 tooltip = trade_opinion_factor_tt }
+	dd_chi_constitution_refresh = yes
+}
+
+dd_chi_fed_firewall = {
+	add_to_variable = { dd_chi_fed_research = 0.08 tooltip = research_speed_factor_tt }
+	add_to_variable = { dd_chi_fed_encrypt = -0.10 tooltip = encryption_factor_tt }
+	dd_chi_constitution_refresh = yes
+}
+
+dd_chi_fed_market = {
+	add_to_variable = { dd_chi_fed_cg = -0.05 tooltip = consumer_goods_factor_tt }
+	add_to_variable = { dd_chi_fed_eff = 0.08 tooltip = production_factory_max_efficiency_factor_tt }
+	dd_chi_constitution_refresh = yes
+}
+
+dd_chi_fed_beacon = {
+	add_to_variable = { dd_chi_fed_research = 0.10 tooltip = research_speed_factor_tt }
+	add_to_variable = { dd_chi_fed_factory = 0.10 tooltip = industrial_capacity_factory_tt }
+	add_to_variable = { dd_chi_fed_stab = 0.10 tooltip = stability_factor_tt }
+	add_to_variable = { dd_chi_fed_cg = -0.05 tooltip = consumer_goods_factor_tt }
+	dd_chi_constitution_refresh = yes
+}
+
+# Mainland cores, except Taiwan and the autonomous regions.
+dd_chi_federal_compact = {
+	add_to_variable = { dd_chi_fed_cg = -0.03 tooltip = consumer_goods_factor_tt }
+	add_to_variable = { dd_chi_fed_infra = 0.10 tooltip = production_speed_infrastructure_factor_tt }
+	dd_chi_constitution_refresh = yes
+	every_owned_state = {
+		limit = {
+			is_core_of = CHI
+			NOT = { state = 524 }
+			NOT = { state = 752 }
+			NOT = { state = 757 }
+			NOT = { state = 758 }
+			NOT = { state = 617 }
+			NOT = { state = 618 }
+			NOT = { state = 619 }
+			NOT = { state = 760 }
+			NOT = { state = 1042 }
+			NOT = { state = 287 }
+			NOT = { state = 759 }
+			NOT = { state = 1119 }
+			NOT = { state = 621 }
+			NOT = { state = 612 }
+		}
+		add_core_of = ROOT
+	}
+}
+
+# Tibet, Xinjiang, and Inner Mongolia. Owned states only.
+dd_chi_autonomous_charter = {
+	add_to_variable = { dd_chi_fed_recruit = 0.015 tooltip = recruitable_population_factor_tt }
+	dd_chi_constitution_refresh = yes
+	every_owned_state = {
+		limit = {
+			OR = {
+				state = 752
+				state = 757
+				state = 758
+				state = 617
+				state = 618
+				state = 619
+				state = 760
+				state = 1042
+				state = 287
+				state = 759
+				state = 1119
+				state = 621
+				state = 612
+			}
+			NOT = { has_dynamic_modifier = { modifier = dd_chi_autonomous_region } }
+		}
+		add_dynamic_modifier = { modifier = dd_chi_autonomous_region }
+	}
+}
+
+dd_chi_democratic_opinion = {
+	every_other_country = {
+		limit = { dd_chi_is_liberal_democracy = yes }
+		add_opinion_modifier = { target = ROOT modifier = dd_chi_pacific_democrats }
+	}
+}
+
+# Join a liberal faction if one will have us. Otherwise found the Pacific concord.
+dd_chi_pacific_faction = {
+	if = {
+		limit = { NOT = { is_in_tech_sharing_group = CHI_pacific_research } }
+		add_to_tech_sharing_group = CHI_pacific_research
+	}
+	if = {
+		limit = { is_in_faction = no }
+		if = {
+			limit = {
+				FOR = {
+					is_faction_leader = yes
+					dd_chi_is_liberal_democracy = yes
+				}
+			}
+			FOR = { add_to_faction = ROOT }
+		}
+		else_if = {
+			limit = {
+				JAP = {
+					is_faction_leader = yes
+					dd_chi_is_liberal_democracy = yes
+				}
+			}
+			JAP = { add_to_faction = ROOT }
+		}
+		else_if = {
+			limit = {
+				USA = {
+					is_faction_leader = yes
+					dd_chi_is_liberal_democracy = yes
+				}
+			}
+			USA = { add_to_faction = ROOT }
+		}
+		else = {
+			create_faction = CHI_pacific_faction
+		}
+	}
+	if = {
+		limit = {
+			is_faction_leader = yes
+			country_exists = FOR
+			FOR = { is_in_faction = no }
+			FOR = { dd_chi_is_liberal_democracy = yes }
+			NOT = { has_war_with = FOR }
+		}
+		add_to_faction = FOR
+	}
+}
+
+# The vote only opens when Taipei can actually join. Taipei chooses.
+dd_chi_strait_vote = {
+	if = {
+		limit = {
+			country_exists = FOR
+			NOT = { has_war_with = FOR }
+			FOR = { dd_chi_is_liberal_democracy = yes }
+		}
+		FOR = { country_event = { id = dd_chi_tw.10 } }
+	}
+}
+
+# Called from Taiwan. FROM is the republic that offered the treaty.
+dd_chi_strait_annex = {
+	FROM = {
+		inherit_technology = ROOT
+		every_state = {
+			limit = { is_owned_by = ROOT }
+			add_core_of = PREV
+		}
+		annex_country = { target = ROOT transfer_troops = yes }
+		add_offsite_building = { type = dockyard level = 4 }
+		if = {
+			limit = { NOT = { is_in_tech_sharing_group = CHI_pacific_research } }
+			add_to_tech_sharing_group = CHI_pacific_research
+		}
+	}
+}
+
+dd_chi_strait_puppet = {
+	FROM = {
+		set_autonomy = {
+			target = ROOT
+			autonomous_state = autonomy_dominion
+			freedom_level = 0.7
+		}
+		diplomatic_relation = { country = ROOT relation = military_access active = yes }
+		add_offsite_building = { type = dockyard level = 4 }
+		if = {
+			limit = { NOT = { is_in_tech_sharing_group = CHI_pacific_research } }
+			add_to_tech_sharing_group = CHI_pacific_research
+		}
+		if = {
+			limit = {
+				is_faction_leader = yes
+				ROOT = { is_in_faction = no }
+			}
+			add_to_faction = ROOT
+		}
+	}
+	diplomatic_relation = { country = FROM relation = military_access active = yes }
+	if = {
+		limit = { NOT = { is_in_tech_sharing_group = CHI_pacific_research } }
+		add_to_tech_sharing_group = CHI_pacific_research
+	}
+}
+
+dd_chi_lift_western_embargoes = {
+	every_other_country = {
+		limit = {
+			OR = {
+				dd_chi_is_western = yes
+				dd_chi_is_liberal_democracy = yes
+			}
+			ROOT = { is_embargoed_by = PREV }
+		}
+		ROOT = { break_embargo = PREV }
+	}
+}
+
+# Lanzhou, Yinchuan, Xining, Yan'an, Yushu, and Haixi.
+dd_chi_rural_mills = {
+	add_ideas = dd_chi_rural_industry
+	if = {
+		limit = { owns_state = 283 }
+		283 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 616 }
+		616 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 754 }
+		754 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 1032 }
+		1032 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 604 }
+		604 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	if = {
+		limit = { owns_state = 755 }
+		755 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+}
+
+dd_chi_western_buyout = {
+	every_other_country = {
+		limit = { dd_chi_is_western = yes }
+		add_opinion_modifier = { target = ROOT modifier = dd_chi_western_buyout }
+	}
+}
+
+dd_chi_south_faction = {
+	add_ideas = dd_chi_internationale
+	if = {
+		limit = { is_in_faction = no }
+		create_faction = CHI_south_faction
+	}
+}
+
 dd_chi_start_civil_war = {
 	if = {
 		limit = {
@@ -867,6 +1993,13 @@ dd_chi_start_civil_war = {
 			declare_war_on = { target = XIJ type = dd_annex }
 		}
 		XIJ = { declare_war_on = { target = CHI type = dd_annex } }
+		CMJ = { dd_chi_junta_starting_spirits = yes }
+		FRC = { dd_chi_drop_paranoia = yes }
+		NLC = { dd_chi_drop_paranoia = yes }
+		SBC = { dd_chi_drop_paranoia = yes }
+		CMJ = { dd_chi_drop_paranoia = yes }
+		CDW = { dd_chi_drop_paranoia = yes }
+		XIJ = { dd_chi_drop_paranoia = yes }
 	}
 }
 
@@ -907,6 +2040,11 @@ dd_chi_strait_ceasefire = {
 			}
 			clr_country_flag = dd_chi_taiwan_clock_running
 			country_event = { id = dd_chi_tw.2 }
+			if = {
+				limit = { NOT = { owns_state = 524 } }
+				set_country_flag = dd_chi_taiwan_failed
+			}
+			dd_chi_regime_watch = yes
 		}
 		FOR = {
 			clr_country_flag = dd_chi_taiwan_clock_running
@@ -1825,14 +2963,6 @@ dd_chi_adopt_tree = {
 		}
 	}
 	if = {
-		limit = { NOT = { has_variable = dd_chi_paranoia } }
-		set_variable = { dd_chi_paranoia = 50 }
-	}
-	if = {
-		limit = { NOT = { has_variable = dd_chi_confidence } }
-		set_variable = { dd_chi_confidence = 100 }
-	}
-	if = {
 		limit = { NOT = { has_power_balance = { id = CHI_party_balance } } }
 		set_power_balance = {
 			id = CHI_party_balance
@@ -1841,7 +2971,7 @@ dd_chi_adopt_tree = {
 			set_value = -0.20
 		}
 	}
-	dd_chi_paranoia_sync = yes
+	dd_chi_drop_paranoia = yes
 	dd_chi_recruit_advisors = yes
 }
 

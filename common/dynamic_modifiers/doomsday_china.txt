@@ -21,9 +21,117 @@ dd_chi_confidence_fear = {
 	experience_gain_army = dd_chi_conf_xp
 }
 
+# 15th Five Year Plan. Later focuses in the Chinese Century add to these variables.
+dd_chi_plan_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_production_bonus
+	production_speed_buildings_factor = dd_chi_plan_build
+	production_speed_industrial_complex_factor = dd_chi_plan_civ
+	production_speed_arms_factory_factor = dd_chi_plan_mil
+	production_speed_infrastructure_factor = dd_chi_plan_infra
+	production_speed_bunker_factor = dd_chi_plan_bunker
+	consumer_goods_factor = dd_chi_plan_cg
+	industrial_capacity_factory = dd_chi_plan_factory
+	production_factory_max_efficiency_factor = dd_chi_plan_eff
+	local_resources_factor = dd_chi_plan_local
+	research_speed_factor = dd_chi_plan_research
+	political_power_gain = dd_chi_plan_pp
+	justify_war_goal_time = dd_chi_plan_justify
+	trade_opinion_factor = dd_chi_plan_trade
+	supply_consumption_factor = dd_chi_plan_supply
+}
+
+# Address the Army. Later army focuses add to this. Research focuses do not.
+dd_chi_army_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_army_problems
+	army_artillery_attack_factor = dd_chi_army_arty
+	rocket_attack_factor = dd_chi_army_rocket
+	coordination_bonus = dd_chi_army_coord
+	planning_speed = dd_chi_army_plan
+	mechanized_attack_factor = dd_chi_army_mech
+	army_armor_attack_factor = dd_chi_army_armor
+	motorized_attack_factor = dd_chi_army_moto
+	org_loss_when_moving = dd_chi_army_orgmove
+	command_power_gain = dd_chi_army_cp
+}
+
+# Address the Navy. Later navy focuses add to this. Research focuses do not.
+dd_chi_navy_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_navy_bonus
+	naval_attrition = dd_chi_navy_attr
+	navy_fuel_consumption_factor = dd_chi_navy_fuel
+	supply_consumption_factor = dd_chi_navy_supply
+	sortie_efficiency = dd_chi_navy_sortie
+	convoy_escort_efficiency = dd_chi_navy_escort
+}
+
+# Address the Air Force. Later air focuses add to this. Research focuses do not.
+dd_chi_air_spirit = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_air_bonus
+	air_attack_factor = dd_chi_air_atk
+	air_detection = dd_chi_air_detect
+	air_superiority_efficiency = dd_chi_air_super
+}
+
 # Applied to Yunnan by Eradicate the Border Syndicates.
 dd_chi_yunnan_quiet = {
 	enable = { always = yes }
 	icon = GFX_idea_generic_secret_police
 	resistance_target = -0.15
+}
+
+# Opened by the constitutional assembly. Later federal focuses add to these variables.
+dd_chi_constitution = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_democratic_drift_bonus
+	stability_factor = dd_chi_fed_stab
+	political_power_gain = dd_chi_fed_pp
+	drift_defence_factor = dd_chi_fed_drift
+	foreign_subversive_activites = dd_chi_fed_subvert
+	consumer_goods_factor = dd_chi_fed_cg
+	production_speed_infrastructure_factor = dd_chi_fed_infra
+	recruitable_population_factor = dd_chi_fed_recruit
+	production_speed_buildings_factor = dd_chi_fed_build
+	trade_opinion_factor = dd_chi_fed_trade
+	research_speed_factor = dd_chi_fed_research
+	encryption_factor = dd_chi_fed_encrypt
+	production_factory_max_efficiency_factor = dd_chi_fed_eff
+	industrial_capacity_factory = dd_chi_fed_factory
+}
+
+# One spirit each. The first two focuses in the column change the variables. The third removes it.
+dd_chi_debt_crisis = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_foreign_capital
+	production_speed_buildings_factor = dd_chi_debt_build
+	consumer_goods_factor = dd_chi_debt_cg
+	stability_factor = dd_chi_debt_stab
+}
+
+dd_chi_youth_crisis = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_oppression
+	drift_defence_factor = dd_chi_youth_drift
+	monthly_population = dd_chi_youth_pop
+	stability_factor = dd_chi_youth_stab
+	industrial_capacity_factory = dd_chi_youth_factory
+}
+
+dd_chi_estate_crisis = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_production_bonus
+	production_speed_buildings_factor = dd_chi_estate_build
+	monthly_population = dd_chi_estate_pop
+	stability_factor = dd_chi_estate_stab
+}
+
+# Tibet, Xinjiang, and Inner Mongolia after the Autonomous Regions Charter.
+dd_chi_autonomous_region = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_democratic_drift_bonus
+	resistance_target = -0.25
+	compliance_gain = 0.15
 }

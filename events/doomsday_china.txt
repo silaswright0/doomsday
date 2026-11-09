@@ -275,3 +275,23 @@ country_event = {
 		name = dd_chi_tw.2.a
 	}
 }
+
+# Fired on Taiwan. FROM is the republic that offered the treaty. No random.
+country_event = {
+	id = dd_chi_tw.10
+	title = dd_chi_tw.10.t
+	desc = dd_chi_tw.10.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+
+	option = {
+		name = dd_chi_tw.10.a
+		ai_chance = { factor = 70 }
+		dd_chi_strait_annex = yes
+	}
+	option = {
+		name = dd_chi_tw.10.b
+		ai_chance = { factor = 30 }
+		dd_chi_strait_puppet = yes
+	}
+}

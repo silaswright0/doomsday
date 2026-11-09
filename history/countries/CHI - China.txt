@@ -668,6 +668,19 @@ set_variable = { debt = 16573.3000 }
 set_variable = { treasury = 389.9600 }
 set_variable = { dd_prod = 4.8749 }
 set_variable = { dd_chi_confidence = 100 }
+set_variable = { dd_chi_debt_build = -0.30 }
+set_variable = { dd_chi_debt_cg = 0.20 }
+set_variable = { dd_chi_debt_stab = -0.05 }
+set_variable = { dd_chi_youth_drift = -0.40 }
+set_variable = { dd_chi_youth_pop = -0.20 }
+set_variable = { dd_chi_youth_stab = -0.05 }
+set_variable = { dd_chi_youth_factory = -0.20 }
+set_variable = { dd_chi_estate_build = -0.40 }
+set_variable = { dd_chi_estate_pop = -0.30 }
+set_variable = { dd_chi_estate_stab = -0.05 }
+add_dynamic_modifier = { modifier = dd_chi_debt_crisis }
+add_dynamic_modifier = { modifier = dd_chi_youth_crisis }
+add_dynamic_modifier = { modifier = dd_chi_estate_crisis }
 set_variable = { dd_chi_conf_frame = 20 }
 create_country_leader = {
 	name = "Xi Jinping"

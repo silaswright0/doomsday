@@ -180,6 +180,7 @@ on_actions = {
 				limit = {
 					NOT = { has_global_flag = dd_usa_civil_war_started }
 					NOT = { has_country_flag = dd_usa_civil_war }
+					has_idea = dd_usa_divided_nation
 					has_stability < 0.01
 				}
 				dd_usa_start_civil_war = yes

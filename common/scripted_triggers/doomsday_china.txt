@@ -16,7 +16,9 @@ dd_chi_rev_unlocked = {
 }
 
 # State scope. ROOT is the country choosing the state.
+# A state locked by Eradicate Resistance in the Cities stays closed.
 dd_chi_rev_state_open = {
+	NOT = { has_state_flag = dd_chi_city_locked }
 	OR = {
 		is_core_of = CHI
 		is_claimed_by = CHI
@@ -50,6 +52,7 @@ dd_chi_rev_state_due = {
 
 # State scope. Prepared, and the cells have not been raised. The 60-day wait is separate.
 dd_chi_rev_state_ready = {
+	NOT = { has_state_flag = dd_chi_city_locked }
 	OR = {
 		AND = {
 			ROOT = { original_tag = FRC }
@@ -66,11 +69,16 @@ dd_chi_rev_state_ready = {
 
 # Character scope. Hired advisors, high command, service chiefs, field marshals, and generals.
 # The country leader is left in place.
+# is_hired_as_advisor crashes on a character with no advisor role, so generals are tested first
+# and the hired check only runs after is_advisor.
 dd_chi_purge_eligible = {
 	NOT = { is_country_leader = yes }
 	OR = {
-		is_hired_as_advisor = yes
 		is_army_leader = yes
+		AND = {
+			is_advisor = yes
+			is_hired_as_advisor = yes
+		}
 	}
 }
 
@@ -79,6 +87,39 @@ dd_chi_purge_has_target = {
 	any_character = {
 		dd_chi_purge_eligible = yes
 	}
+}
+
+# Liberal democracies. Taiwan's vote and the Pacific concord use this.
+dd_chi_is_liberal_democracy = {
+	OR = {
+		has_government = social_liberalism
+		has_government = liberal_conservatism
+		has_government = social_democracy
+	}
+}
+
+# Western capitals for the buyout and the embargo lift.
+dd_chi_is_western = {
+	OR = {
+		original_tag = USA
+		original_tag = ENG
+		original_tag = FRA
+		original_tag = GER
+		original_tag = ITA
+		original_tag = CAN
+		original_tag = AST
+		original_tag = HOL
+		original_tag = BEL
+		original_tag = SPR
+		original_tag = POR
+	}
+}
+
+# All three crises have to still be on the country. The third focus in a column removes that one.
+dd_chi_crises_open = {
+	has_dynamic_modifier = { modifier = dd_chi_debt_crisis }
+	has_dynamic_modifier = { modifier = dd_chi_youth_crisis }
+	has_dynamic_modifier = { modifier = dd_chi_estate_crisis }
 }
 
 # Country scope, FROM is the state. The wait flag lasts 60 days.

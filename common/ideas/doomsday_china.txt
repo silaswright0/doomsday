@@ -48,9 +48,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_org_factor = 0.05
-				planning_speed = 0.10
-				dig_in_speed_factor = 0.15
+				army_org_factor = -0.05
+				planning_speed = -0.10
+				dig_in_speed_factor = -0.15
 			}
 		}
 		dd_chi_security_state = {
@@ -82,9 +82,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
+				stability_factor = -0.05
+				consumer_goods_factor = -0.10
 				industrial_capacity_factory = 0.05
-				consumer_goods_factor = 0.03
-				stability_factor = -0.03
 			}
 		}
 		dd_chi_opium_trade = {
@@ -93,9 +93,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				political_power_gain = 0.15
-				stability_factor = -0.08
-				war_support_factor = -0.05
+				stability_factor = -0.20
+				consumer_goods_factor = -0.20
+				industrial_capacity_factory = 0.05
 			}
 		}
 		dd_chi_business_council = {
@@ -128,6 +128,16 @@ ideas = {
 				army_attack_factor = 0.05
 			}
 		}
+		dd_chi_manchuria_strike = {
+			picture = generic_war_preparation
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.20
+			}
+		}
 		dd_chi_naval_dominance = {
 			picture = generic_navy_bonus
 			allowed = { always = no }
@@ -136,6 +146,25 @@ ideas = {
 			modifier = {
 				naval_hit_chance = 0.05
 				navy_org_factor = 0.05
+			}
+		}
+		dd_chi_naval_surge = {
+			picture = generic_navy_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				naval_hit_chance = 0.20
+				navy_org_factor = 0.20
+				naval_damage_factor = 0.20
+				navy_fuel_consumption_factor = -0.25
+				sortie_efficiency = 0.25
+				naval_detection = 0.20
+				screening_efficiency = 0.20
+				convoy_escort_efficiency = 0.25
+				naval_coordination = 0.15
+				naval_speed_factor = 0.10
+				experience_gain_navy_factor = 0.50
 			}
 		}
 		dd_chi_naval_supply = {
@@ -169,6 +198,20 @@ ideas = {
 				political_power_gain = 0.10
 			}
 		}
+		dd_chi_unholy_investments = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.20
+				industrial_capacity_factory = 0.20
+				war_support_factor = 0.10
+				army_org_factor = 0.10
+				army_attack_factor = 0.20
+				army_defence_factor = 0.20
+			}
+		}
 		dd_chi_federal_opening = {
 			picture = generic_democratic_drift_bonus
 			allowed = { always = no }
@@ -187,6 +230,143 @@ ideas = {
 			modifier = {
 				war_support_factor = 0.10
 				trade_opinion_factor = 0.10
+			}
+		}
+		dd_chi_federal_appeal = {
+			picture = generic_democratic_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				weekly_manpower = 1000
+			}
+		}
+		dd_chi_death_to_tyrants = {
+			picture = generic_war_preparation
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				surrender_limit = 0.50
+				war_support_factor = 0.20
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+			}
+		}
+		dd_for_strait_volunteers = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				send_volunteer_size = 4
+				send_volunteers_tension = -1.0
+			}
+		}
+		dd_chi_soe_shares = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		dd_chi_labor_councils = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.10
+				production_factory_max_efficiency_factor = 0.05
+				resistance_target = -0.10
+			}
+		}
+		dd_chi_rural_industry = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				production_speed_infrastructure_factor = 0.15
+			}
+		}
+		dd_chi_sannong = {
+			picture = generic_goods_red_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				recruitable_population_factor = 0.05
+				supply_consumption_factor = -0.10
+				monthly_population = 0.15
+			}
+		}
+		dd_chi_import_substitution = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				local_resources_factor = 0.15
+				production_speed_synthetic_refinery_factor = 0.10
+				production_speed_arms_factory_factor = 0.10
+			}
+		}
+		dd_chi_grassroots = {
+			picture = generic_communism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.20
+				drift_defence_factor = 0.30
+			}
+		}
+		dd_chi_internationale = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				lend_lease_tension = -1.0
+				send_volunteer_size = 4
+				send_volunteers_tension = -1.0
+			}
+		}
+		dd_chi_tech_commons = {
+			picture = generic_research_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+		dd_chi_socialist_renewal = {
+			picture = generic_communism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.10
+				mobilization_speed = 0.20
+				consumer_goods_factor = -0.05
+				war_support_factor = 0.10
+			}
+		}
+		dd_chi_freedom_at_last = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_core_attack_factor = 0.20
+				army_core_defence_factor = 0.20
+				army_morale_factor = 0.20
+				breakthrough_factor = 0.20
 			}
 		}
 		dd_chi_new_left = {
@@ -208,6 +388,138 @@ ideas = {
 			modifier = {
 				war_support_factor = 0.10
 				army_morale_factor = 0.05
+			}
+		}
+		dd_chi_workers_appeal = {
+			picture = generic_communism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				weekly_manpower = 1000
+			}
+		}
+		dd_chi_peasant_liberation = {
+			picture = generic_communism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				breakthrough_factor = 0.20
+				army_attack_factor = 0.20
+				army_defence_factor = 0.20
+				war_support_factor = 0.20
+			}
+		}
+		dd_chi_true_communism = {
+			picture = generic_communism_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				surrender_limit = 0.50
+				army_morale_factor = 0.20
+				org_loss_when_moving = -0.20
+				breakthrough_factor = 0.10
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					ap_attack = 0.10
+					instant = yes
+				}
+				artillery_equipment = {
+					ap_attack = 0.10
+					instant = yes
+				}
+				anti_tank_equipment = {
+					ap_attack = 0.10
+					instant = yes
+				}
+			}
+		}
+
+		dd_chi_junta_disorganized = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.20
+				army_org_factor = -0.20
+			}
+		}
+		dd_chi_junta_treason = {
+			picture = generic_morale_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.20
+				war_support_factor = -0.20
+				army_org_factor = -0.10
+			}
+		}
+		dd_chi_junta_beijing = {
+			picture = generic_war_preparation
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.20
+			}
+		}
+		dd_chi_beijing_shaken = {
+			picture = generic_army_problems
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.10
+			}
+		}
+		dd_chi_junta_drill = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				training_time_factor = 0.20
+				army_org_factor = 0.10
+			}
+		}
+		dd_chi_junta_drill_veteran = {
+			picture = generic_infantry_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				training_time_factor = 0.40
+				army_org_factor = 0.20
+			}
+		}
+		dd_chi_junta_discredit = {
+			picture = generic_intel_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			targeted_modifier = {
+				tag = FRC
+				attack_bonus_against = 0.20
+			}
+			targeted_modifier = {
+				tag = NLC
+				attack_bonus_against = 0.20
+			}
+		}
+		dd_chi_junta_expose = {
+			picture = generic_spy_intel
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			targeted_modifier = {
+				tag = SBC
+				attack_bonus_against = 0.20
 			}
 		}
 		dd_chi_five_year_plan = {
@@ -478,103 +790,15 @@ ideas = {
 				air_intercept_efficiency = 0.10
 			}
 		}
-		dd_chi_real_estate_1 = {
-			picture = generic_production_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				stability_factor = 0.03
-			}
-		}
-		dd_chi_real_estate_2 = {
-			picture = generic_production_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				stability_factor = 0.03
-				production_speed_buildings_factor = 0.08
-			}
-		}
-		dd_chi_real_estate_3 = {
-			picture = generic_production_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				stability_factor = 0.05
-				production_speed_buildings_factor = 0.12
-				consumer_goods_factor = -0.03
-			}
-		}
-		dd_chi_local_debt_1 = {
-			picture = generic_foreign_capital
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				consumer_goods_factor = -0.02
-			}
-		}
-		dd_chi_local_debt_2 = {
-			picture = generic_foreign_capital
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				consumer_goods_factor = -0.04
-				stability_factor = 0.03
-			}
-		}
-		dd_chi_local_debt_3 = {
-			picture = generic_foreign_capital
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				consumer_goods_factor = -0.05
-				stability_factor = 0.05
-				political_power_gain = 0.05
-			}
-		}
-		dd_chi_youth_1 = {
-			picture = generic_infantry_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				industrial_capacity_factory = 0.03
-			}
-		}
-		dd_chi_youth_2 = {
-			picture = generic_infantry_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				industrial_capacity_factory = 0.05
-				stability_factor = 0.02
-			}
-		}
-		dd_chi_youth_3 = {
-			picture = generic_infantry_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = yes }
-			removal_cost = -1
-			modifier = {
-				industrial_capacity_factory = 0.08
-				stability_factor = 0.03
-			}
-		}
-		dd_chi_recovery = {
+		dd_chi_rear_view = {
 			picture = generic_pp_unity_bonus
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				stability_factor = 0.05
-				production_speed_buildings_factor = 0.05
+				stability_factor = 0.10
+				surrender_limit = 0.10
+				army_morale_factor = 0.05
 			}
 		}
 		dd_chi_federal_manpower = {
@@ -623,6 +847,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				resistance_target = -0.10
+				army_org_factor = 0.10
 			}
 		}
 		dd_chi_party_algorithms = {
@@ -653,7 +878,8 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				consumer_goods_factor = 0.03
+				political_power_gain = 0.10
+				consumer_goods_factor = -0.05
 			}
 		}
 		dd_chi_unbreakable_center = {

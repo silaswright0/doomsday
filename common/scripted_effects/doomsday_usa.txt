@@ -3487,6 +3487,7 @@ dd_usa_start_civil_war = {
 		set_country_flag = dd_usa_civil_war
 		# End foreign wars before the country breaks up. Iran's peace is the gulf concessions.
 		dd_usa_peace_out_before_civil_war = yes
+		remove_ideas = dd_usa_divided_nation
 		remove_ideas = dd_usa_half_century_war
 		clr_country_flag = dd_usa_keep_eas
 		clr_country_flag = dd_usa_keep_wcl
