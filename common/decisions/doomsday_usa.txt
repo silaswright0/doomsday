@@ -332,21 +332,3 @@ dd_usa_escort_category = {
 	}
 }
 
-dd_usa_debug_category = {
-	dd_usa_trigger_civil_war = {
-		icon = generic_civil_support
-		allowed = { tag = USA }
-		cost = 0
-		ai_will_do = { factor = 0 }
-		visible = {
-			tag = USA
-			NOT = { has_global_flag = dd_usa_civil_war_started }
-			NOT = { has_country_flag = dd_usa_civil_war }
-		}
-		complete_effect = {
-			add_ideas = dd_usa_youll_have_to_kill_us
-			add_stability = -2
-			dd_usa_start_civil_war = yes
-		}
-	}
-}

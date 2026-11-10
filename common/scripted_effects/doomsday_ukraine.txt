@@ -135,58 +135,8 @@ dd_ukr_ask_nordics = {
 	}
 }
 
-# Deep refineries only. A silo on the contact line is the front, not a strategic strike.
+# Kept as a no-op. Starlink cut now fires from dd_sov_fuel_apply_hit when a fuel-fire stack lands.
 dd_ukr_check_refinery_strike = {
-	if = {
-		limit = {
-			has_country_flag = dd_ukr_diesel_watch
-			has_war_with = RUS
-		}
-		every_state = {
-			limit = {
-				is_controlled_by = RUS
-				NOT = { is_core_of = UKR }
-				NOT = { any_neighbor_state = { is_controlled_by = UKR } }
-				OR = {
-					synthetic_refinery > 0
-					fuel_silo > 0
-				}
-			}
-			if = {
-				limit = {
-					OR = {
-						check_variable = { damaged_building_level@fuel_silo > 0 }
-						check_variable = { damaged_building_level@synthetic_refinery > 0 }
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_state_flag = dd_ukr_ref_seen }
-						ROOT = { has_country_flag = dd_ukr_ref_baseline }
-					}
-					set_state_flag = dd_ukr_ref_seen
-					ROOT = { set_country_flag = dd_ukr_new_ref_hit }
-				}
-				else_if = {
-					limit = { NOT = { has_state_flag = dd_ukr_ref_seen } }
-					set_state_flag = dd_ukr_ref_seen
-				}
-			}
-			else = {
-				clr_state_flag = dd_ukr_ref_seen
-			}
-		}
-		if = {
-			limit = { has_country_flag = dd_ukr_new_ref_hit }
-			clr_country_flag = dd_ukr_new_ref_hit
-			if = {
-				limit = { NOT = { has_idea = dd_ukr_starlink_disabled } }
-				add_timed_idea = { idea = dd_ukr_starlink_disabled days = 7 }
-				country_event = { id = dd_ukr_aid.4 }
-			}
-		}
-		set_country_flag = dd_ukr_ref_baseline
-	}
 }
 
 # The largest slice takes the presidency. A tie stays with the party already ahead in this order.

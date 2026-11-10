@@ -109,25 +109,6 @@ dd_chi_bop_category = {
 	}
 }
 
-dd_chi_cw_category = {
-	dd_chi_manual_civil_war = {
-		icon = generic_prepare_civil_war
-		allowed = { original_tag = CHI }
-		cost = 0
-		fire_only_once = yes
-		ai_will_do = { factor = 0 }
-		visible = {
-			NOT = { has_global_flag = dd_chi_civil_war_started }
-			NOT = { has_country_flag = dd_chi_civil_war }
-			NOT = { has_country_flag = dd_chi_security_seized }
-		}
-		complete_effect = {
-			set_country_flag = dd_chi_civil_war_pending
-			country_event = { id = dd_chi_cw.1 }
-		}
-	}
-}
-
 dd_chi_strait_category = {
 	dd_chi_taiwan_countdown = {
 		icon = generic_naval

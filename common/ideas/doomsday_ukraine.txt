@@ -12,12 +12,22 @@ ideas = {
 					add_offsite_building = { type = industrial_complex level = 8 }
 					set_country_flag = dd_ukr_western_civs
 				}
+				if = {
+					limit = { NOT = { has_country_flag = dd_ukr_western_mils } }
+					add_offsite_building = { type = arms_factory level = 6 }
+					set_country_flag = dd_ukr_western_mils
+				}
 			}
 			on_remove = {
 				if = {
 					limit = { has_country_flag = dd_ukr_western_civs }
 					add_offsite_building = { type = industrial_complex level = -8 }
 					clr_country_flag = dd_ukr_western_civs
+				}
+				if = {
+					limit = { has_country_flag = dd_ukr_western_mils }
+					add_offsite_building = { type = arms_factory level = -6 }
+					clr_country_flag = dd_ukr_western_mils
 				}
 			}
 		}

@@ -1152,6 +1152,17 @@ dd_sov_fuel_apply_hit = {
 		add_to_variable = { dd_sov_fuel = dd_sov_fuel_hit_amount }
 		dd_sov_fuel_sync = yes
 		dd_sov_fuel_popup = yes
+		# USA diesel demand: a real fuel-fire stack while the watch is on costs Starlink.
+		UKR = {
+			if = {
+				limit = {
+					has_country_flag = dd_ukr_diesel_watch
+					NOT = { has_idea = dd_ukr_starlink_disabled }
+				}
+				add_timed_idea = { idea = dd_ukr_starlink_disabled days = 7 }
+				country_event = { id = dd_ukr_aid.4 }
+			}
+		}
 	}
 }
 

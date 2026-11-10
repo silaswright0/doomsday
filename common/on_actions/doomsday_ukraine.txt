@@ -35,6 +35,14 @@ on_actions = {
 					set_country_flag = dd_ukr_western_civs
 				}
 				if = {
+					limit = {
+						has_idea = dd_ukr_western_package
+						NOT = { has_country_flag = dd_ukr_western_mils }
+					}
+					add_offsite_building = { type = arms_factory level = 6 }
+					set_country_flag = dd_ukr_western_mils
+				}
+				if = {
 					limit = { NOT = { has_variable = dd_ukr_blackout } }
 					set_variable = { dd_ukr_blackout = 0 }
 				}
@@ -57,6 +65,15 @@ on_actions = {
 				}
 				add_offsite_building = { type = industrial_complex level = 8 }
 				set_country_flag = dd_ukr_western_civs
+			}
+			if = {
+				limit = {
+					has_war = yes
+					has_idea = dd_ukr_western_package
+					NOT = { has_country_flag = dd_ukr_western_mils }
+				}
+				add_offsite_building = { type = arms_factory level = 6 }
+				set_country_flag = dd_ukr_western_mils
 			}
 			if = {
 				limit = {

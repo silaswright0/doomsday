@@ -66,21 +66,6 @@ dd_sov_home_front_category = {
 	}
 }
 
-dd_sov_dev_category = {
-	icon = generic_communism
-	picture = GFX_decision_cat_picture_soviet_civil_war
-	priority = 0
-	allowed = {
-		original_tag = RUS
-		NOT = { has_country_flag = dd_sov_red_revolt }
-	}
-	visible = {
-		NOT = { has_civil_war = yes }
-		NOT = { has_country_flag = dd_sov_red_revolt }
-	}
-	visible_when_empty = yes
-}
-
 dd_sov_csto_category = {
 	icon = generic_political_actions
 	allowed = {

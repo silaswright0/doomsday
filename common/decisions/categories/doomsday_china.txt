@@ -30,17 +30,6 @@ dd_chi_bop_category = {
 	visible = { has_power_balance = { id = CHI_party_balance } }
 }
 
-dd_chi_cw_category = {
-	icon = generic_prepare_civil_war
-	picture = GFX_decision_cat_picture_generic_border_conflicts
-	priority = 70
-	allowed = { original_tag = CHI }
-	visible = {
-		NOT = { has_global_flag = dd_chi_civil_war_started }
-		NOT = { has_country_flag = dd_chi_security_seized }
-	}
-}
-
 dd_chi_rev_category = {
 	icon = generic_prepare_civil_war
 	picture = GFX_decision_cat_picture_generic_border_conflicts
