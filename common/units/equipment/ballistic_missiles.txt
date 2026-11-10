@@ -47,7 +47,7 @@ equipments = {
 		#Space taken in convoy
 		lend_lease_cost = 1.5
 		
-		build_cost_ic = 50
+		build_cost_ic = 60
 		resources = {
 			aluminium = 2
 			tungsten = 1
@@ -71,7 +71,7 @@ equipments = {
 		maximum_speed = 5760
 		air_agility = 10
 		air_defence = 40
-		air_bombing = 550
+		air_bombing = 40
 		resources = {
 			aluminium = 2
 			tungsten = 1
@@ -88,7 +88,7 @@ equipments = {
 		is_buildable = yes
 		one_use_only = yes
 		sprite = missile_default
-		build_cost_ic = 74
+		build_cost_ic = 80
 		resources = {
 			aluminium = 2
 			tungsten = 1
@@ -100,7 +100,7 @@ equipments = {
 		maximum_speed = 6500
 		air_agility = 10
 		air_defence = 44
-		air_bombing = 700
+		air_bombing = 55
 	}
 
 	#MM: Unused
@@ -113,7 +113,7 @@ equipments = {
 		is_buildable = yes
 		one_use_only = yes
 		sprite = missile_default
-		build_cost_ic = 90
+		build_cost_ic = 100
 		resources = {
 			aluminium = 2
 			tungsten = 1
@@ -126,7 +126,7 @@ equipments = {
 		maximum_speed = 9999
 		air_agility = 10
 		air_defence = 55
-		air_bombing = 900
+		air_bombing = 70
 	}
 
 	ballistic_missile_equipment_4 = {
@@ -138,7 +138,7 @@ equipments = {
 		is_buildable = yes
 		one_use_only = yes
 		sprite = missile_default
-		build_cost_ic = 70
+		build_cost_ic = 110
 		resources = {
 			aluminium = 2
 			tungsten = 1
@@ -151,6 +151,6 @@ equipments = {
 		maximum_speed = 5760
 		air_agility = 8
 		air_defence = 52
-		air_bombing = 800
+		air_bombing = 80
 	}
 }
