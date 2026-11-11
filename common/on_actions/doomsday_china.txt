@@ -92,6 +92,7 @@ on_actions = {
 	}
 	on_daily_CHI = {
 		effect = {
+			dd_chi_cw_copy_tech = yes
 			dd_chi_sync_confidence = yes
 			if = {
 				limit = {

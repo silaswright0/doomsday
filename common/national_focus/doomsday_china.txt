@@ -3990,6 +3990,36 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = CHI_cross_the_strait
+		icon = GFX_goal_generic_major_war
+		x = 0
+		y = 22
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		will_lead_to_war_with = FOR
+		bypass = {
+			OR = {
+				NOT = { country_exists = FOR }
+				has_war_with = FOR
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = CHI_security_blocked_tt
+				NOT = { has_country_flag = dd_chi_security_seized }
+			}
+			FOR = { exists = yes }
+			NOT = { has_war_with = FOR }
+		}
+		ai_will_do = { factor = 20 }
+		prerequisite = { focus = CHI_pacific_counter_encirclement }
+		completion_reward = {
+			create_wargoal = { type = dd_annex target = FOR }
+		}
+	}
+	focus = {
 		id = CHI_alternative_institutions
 		icon = GFX_goal_generic_national_unity
 		x = 8

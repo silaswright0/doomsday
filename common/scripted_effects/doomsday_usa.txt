@@ -733,7 +733,6 @@ dd_usa_cw_ensure_militia_template = {
 	set_technology = { militia_tech = 1 }
 	division_template = {
 		name = "Militia"
-		is_locked = yes
 		regiments = {
 			militia = { x = 0 y = 0 }
 			militia = { x = 0 y = 1 }
@@ -964,6 +963,19 @@ dd_usa_cw_wargoal_radicals = {
 			}
 		}
 		create_wargoal = { type = dd_annex target = USA }
+	}
+}
+
+dd_usa_cw_wargoal_texas = {
+	if = {
+		limit = {
+			TXG = {
+				exists = yes
+				NOT = { tag = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+			}
+		}
+		create_wargoal = { type = dd_annex target = TXG }
 	}
 }
 
@@ -2899,8 +2911,8 @@ dd_usa_enact_active_bill = {
 	if = {
 		limit = { check_variable = { dd_usa_bill_id = 1 } }
 		set_country_flag = dd_usa_bill_care_act_passed
-		add_stability = 0.05
-		add_war_support = 0.05
+		add_popularity = { ideology = national_populism popularity = 0.10 }
+		add_popularity = { ideology = liberal_conservatism popularity = 0.05 }
 	}
 	else_if = {
 		limit = { check_variable = { dd_usa_bill_id = 2 } }
@@ -3746,6 +3758,7 @@ dd_usa_start_civil_war = {
 			transfer_state = 1072
 			add_state_core = 1072
 			set_country_flag = dd_cw_released
+			add_ideas = dd_fva_federal_collapse
 		}
 		if = {
 			limit = { NOT = { has_country_flag = dd_usa_keep_fed } }
@@ -4017,16 +4030,48 @@ dd_usa_cw_copy_from_usa = {
 	if = { limit = { PREV = { has_country_flag = dd_usa_alt_ballot } } set_country_flag = dd_usa_alt_ballot }
 }
 
-# The USA tag is removed only after the player is on the faction tag, and only if that country is AI.
+# The day after the tags are created. A same-day inherit does not stick on a country that just received its first state.
+dd_usa_cw_copy_tech = {
+	if = {
+		limit = {
+			has_global_flag = dd_usa_civil_war_started
+			NOT = { has_global_flag = dd_usa_cw_tech_copied }
+			USA = { exists = yes }
+		}
+		every_country = {
+			limit = { has_country_flag = dd_cw_released }
+			inherit_technology = USA
+			set_research_slots = 2
+			if = { limit = { USA = { num_research_slots > 2 } } set_research_slots = 3 }
+			if = { limit = { USA = { num_research_slots > 3 } } set_research_slots = 4 }
+			if = { limit = { USA = { num_research_slots > 4 } } set_research_slots = 5 }
+			if = { limit = { USA = { num_research_slots > 5 } } set_research_slots = 6 }
+			dd_usa_cw_tpl_militia_2x6 = yes
+			if = {
+				limit = { NOT = { has_template = "Infantry Division" } }
+				dd_usa_cw_tpl_infantry_3x6_eng = yes
+			}
+			if = {
+				limit = { NOT = { has_template = "National Guard" } }
+				dd_usa_cw_tpl_national_guard = yes
+			}
+		}
+		set_global_flag = dd_usa_cw_tech_copied
+	}
+}
+
+# The USA tag is removed only after the player has left it. While Choose Your Banner is open, leave the player on USA.
 dd_usa_cw_finish_tag = {
+	dd_usa_cw_copy_tech = yes
 	if = {
 		limit = {
 			has_global_flag = dd_usa_tag_drop_pending
 			USA = { exists = yes }
+			NOT = { USA = { has_country_flag = dd_usa_cw_picking } }
 		}
 		if = {
 			limit = { USA = { is_ai = no } }
-			event_target:dd_usa_winner = { change_tag_from = USA }
+			USA = { country_event = { id = dd_usa_cw.2 } }
 		}
 		else = {
 			USA = {
@@ -4036,6 +4081,12 @@ dd_usa_cw_finish_tag = {
 			clr_global_flag = dd_usa_tag_drop_pending
 		}
 	}
+}
+
+# Fired from Choose Your Banner. The player has left USA, so the remnant can be removed next day.
+dd_usa_cw_picked = {
+	clr_country_flag = dd_usa_cw_picking
+	set_global_flag = dd_usa_tag_drop_pending
 }
 
 # Election winner takes their faction tag. The player is moved first. USA is removed the next day, and only if nobody is still playing it.
@@ -4112,13 +4163,20 @@ dd_usa_drop_usa_tag = {
 	if = { limit = { has_character = USA_marco_rubio } USA_marco_rubio = { set_nationality = event_target:dd_usa_winner } }
 	if = { limit = { has_character = USA_jd_vance } USA_jd_vance = { set_nationality = event_target:dd_usa_winner } }
 	if = { limit = { has_character = USA_james_fishback } USA_james_fishback = { set_nationality = event_target:dd_usa_winner } }
+	if = { limit = { has_character = USA_rinaldo_nazzaro } USA_rinaldo_nazzaro = { set_nationality = event_target:dd_usa_winner } }
+	if = { limit = { has_character = USA_james_mason } USA_james_mason = { set_nationality = event_target:dd_usa_winner } }
 	if = { limit = { has_character = USA_gavin_mcinnes } USA_gavin_mcinnes = { set_nationality = event_target:dd_usa_winner } }
 	event_target:dd_usa_winner = { dd_usa_name_ballot = yes }
+	# The stability check runs inside the daily pulse. Changing tag there skips every popup.
+	# The human stays on USA until Choose Your Banner. An AI USA is removed the next day.
 	if = {
 		limit = { is_ai = no }
-		event_target:dd_usa_winner = { change_tag_from = USA }
+		set_country_flag = dd_usa_cw_picking
+		country_event = { id = dd_usa_cw.2 }
 	}
-	set_global_flag = dd_usa_tag_drop_pending
+	else = {
+		set_global_flag = dd_usa_tag_drop_pending
+	}
 }
 
 dd_usa_congress_sweep = {
@@ -4141,6 +4199,117 @@ dd_usa_congress_cling = {
 	set_variable = { dd_usa_senate_dem = 49 }
 	set_variable = { dd_usa_senate_rep = 51 }
 	dd_usa_refresh_lobby_seats = yes
+}
+
+# create_country_leader (Alt-Right Nominee, Michael Hill) keeps the chair.
+# promote_character does not replace that leader. All three also share one
+# fascist role, so the later two never receive it.
+dd_usa_clear_fascist_roles = {
+	if = {
+		limit = { any_country = { has_character = USA_james_fishback } }
+		USA_james_fishback = {
+			if = {
+				limit = { has_ideology = fascism_ideology }
+				remove_country_leader_role = { ideology = fascism_ideology }
+			}
+		}
+	}
+	if = {
+		limit = { any_country = { has_character = USA_rinaldo_nazzaro } }
+		USA_rinaldo_nazzaro = {
+			if = {
+				limit = { has_ideology = fascism_ideology }
+				remove_country_leader_role = { ideology = fascism_ideology }
+			}
+		}
+	}
+	if = {
+		limit = { any_country = { has_character = USA_james_mason } }
+		USA_james_mason = {
+			if = {
+				limit = { has_ideology = fascism_ideology }
+				remove_country_leader_role = { ideology = fascism_ideology }
+			}
+		}
+	}
+}
+
+dd_usa_seat_fishback = {
+	if = {
+		limit = { NOT = { any_country = { has_character = USA_james_fishback } } }
+		recruit_character = USA_james_fishback
+	}
+	USA_james_fishback = { set_nationality = PREV }
+	dd_usa_clear_fascist_roles = yes
+	if = {
+		limit = {
+			has_government = fascism
+			NOT = { has_country_leader = { character = USA_james_fishback ruling_only = yes } }
+		}
+		retire_country_leader = yes
+	}
+	USA_james_fishback = {
+		add_country_leader_role = {
+			promote_leader = yes
+			country_leader = {
+				ideology = fascism_ideology
+				desc = USA_JAMES_FISHBACK_DESC
+				expire = "2065.1.1"
+			}
+		}
+	}
+}
+
+dd_usa_seat_nazzaro = {
+	if = {
+		limit = { NOT = { any_country = { has_character = USA_rinaldo_nazzaro } } }
+		recruit_character = USA_rinaldo_nazzaro
+	}
+	USA_rinaldo_nazzaro = { set_nationality = PREV }
+	dd_usa_clear_fascist_roles = yes
+	if = {
+		limit = {
+			has_government = fascism
+			NOT = { has_country_leader = { character = USA_rinaldo_nazzaro ruling_only = yes } }
+		}
+		retire_country_leader = yes
+	}
+	USA_rinaldo_nazzaro = {
+		add_country_leader_role = {
+			promote_leader = yes
+			country_leader = {
+				ideology = fascism_ideology
+				desc = USA_RINALDO_NAZZARO_DESC
+				expire = "2065.1.1"
+			}
+		}
+	}
+}
+
+dd_usa_seat_mason = {
+	if = {
+		limit = { NOT = { any_country = { has_character = USA_james_mason } } }
+		recruit_character = USA_james_mason
+	}
+	USA_james_mason = { set_nationality = PREV }
+	dd_usa_clear_fascist_roles = yes
+	if = {
+		limit = {
+			has_government = fascism
+			NOT = { has_country_leader = { character = USA_james_mason ruling_only = yes } }
+		}
+		retire_country_leader = yes
+	}
+	USA_james_mason = {
+		add_country_leader_role = {
+			promote_leader = yes
+			country_leader = {
+				ideology = fascism_ideology
+				desc = USA_JAMES_MASON_DESC
+				expire = "2065.1.1"
+			}
+		}
+	}
 }
 
 # One role per ideology a face can head. Promoting a non-ruling party

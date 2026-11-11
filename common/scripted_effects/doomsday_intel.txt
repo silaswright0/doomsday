@@ -742,9 +742,9 @@ dd_intel_ensure_militia = {
 	if = {
 		limit = { NOT = { has_country_flag = dd_intel_militia_ready } }
 		set_country_flag = dd_intel_militia_ready
+		set_technology = { militia_tech = 1 }
 		division_template = {
 			name = "Insurgent Militia"
-			is_locked = yes
 			regiments = {
 				militia = { x = 0 y = 0 }
 				militia = { x = 0 y = 1 }

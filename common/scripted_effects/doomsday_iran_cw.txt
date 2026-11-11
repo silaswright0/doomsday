@@ -45,11 +45,32 @@ dd_per_foreigners_leave = {
 	}
 }
 
+# The day after the split. A same-day inherit does not stick on a country that just received its first state.
+dd_per_cw_copy_tech = {
+	if = {
+		limit = {
+			has_global_flag = dd_per_cw_tech_wait
+			NOT = { has_global_flag = dd_per_cw_tech_copied }
+			PER = { exists = yes }
+		}
+		every_country = {
+			limit = { has_country_flag = dd_per_cw_released }
+			inherit_technology = PER
+			set_technology = { militia_tech = 1 }
+			set_research_slots = 2
+			if = { limit = { PER = { num_research_slots > 2 } } set_research_slots = 3 }
+			if = { limit = { PER = { num_research_slots > 3 } } set_research_slots = 4 }
+			if = { limit = { PER = { num_research_slots > 4 } } set_research_slots = 5 }
+			if = { limit = { PER = { num_research_slots > 5 } } set_research_slots = 6 }
+		}
+		set_global_flag = dd_per_cw_tech_copied
+	}
+}
+
 dd_per_cw_arm = {
 	set_technology = { militia_tech = 1 }
 	division_template = {
 		name = "Militia"
-		is_locked = yes
 		regiments = {
 			militia = { x = 0 y = 0 }
 			militia = { x = 0 y = 1 }
@@ -78,7 +99,8 @@ dd_per_state_collapse = {
 			NOT = { has_global_flag = dd_per_collapse_war }
 			PER = { exists = yes }
 		}
-		set_global_flag = dd_per_collapse_war
+			set_global_flag = dd_per_collapse_war
+			set_global_flag = dd_per_cw_tech_wait
 		dd_per_foreigners_leave = yes
 		dd_per_end_gulf_economy = yes
 		# Each side needs a province before it can take divisions. A quarter stays with each. The Guard keeps half.

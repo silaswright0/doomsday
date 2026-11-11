@@ -6,7 +6,6 @@ tags={
 	"Map"
 }
 name="Doomsday"
-supported_version="1.19.*"
 replace_path="common/bookmarks"
 replace_path="common/idea_tags"
 replace_path="common/ideologies"
@@ -30,3 +29,5 @@ replace_path="common/military_industrial_organization/policies"
 replace_path="history/general"
 replace_path="common/frontend/backgrounds"
 replace_path="gfx/loadingscreens"
+supported_version="1.19.*"
+remote_file_id="3837215005"

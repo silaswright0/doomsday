@@ -201,6 +201,8 @@ dd_sov_council_ensure = {
 			set_variable = { dd_council_stab = 0.05 }
 			set_variable = { dd_council_trade = 0.10 }
 			set_variable = { dd_council_ws = 0 }
+			set_variable = { dd_council_fac = 0 }
+			set_variable = { dd_council_research = 0 }
 			if = {
 				limit = { has_idea = dd_sov_state_council }
 				remove_ideas = dd_sov_state_council
@@ -218,9 +220,19 @@ dd_sov_council_equilibrium = {
 	dd_sov_council_ensure = yes
 	custom_effect_tooltip = SOV_equilibrium_tt
 	hidden_effect = {
+		if = {
+			limit = { NOT = { has_variable = dd_council_fac } }
+			set_variable = { dd_council_fac = 0 }
+		}
+		if = {
+			limit = { NOT = { has_variable = dd_council_research } }
+			set_variable = { dd_council_research = 0 }
+		}
 		add_to_variable = { dd_council_stab = 0.15 }
 		add_to_variable = { dd_council_pp = 0.10 }
 		add_to_variable = { dd_council_ws = 0.05 }
+		add_to_variable = { dd_council_fac = 0.05 }
+		add_to_variable = { dd_council_research = 0.05 }
 		force_update_dynamic_modifier = yes
 	}
 }

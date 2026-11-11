@@ -782,6 +782,7 @@ country_event = {
 			limit = { EAS = { has_country_flag = dd_cw_released } }
 			EAS = { change_tag_from = ROOT }
 		}
+		dd_usa_cw_picked = yes
 	}
 	option = {
 		name = dd_usa_cw.2.wcl
@@ -795,6 +796,7 @@ country_event = {
 			limit = { WCL = { has_country_flag = dd_cw_released } }
 			WCL = { change_tag_from = ROOT }
 		}
+		dd_usa_cw_picked = yes
 	}
 	option = {
 		name = dd_usa_cw.2.rbm
@@ -808,6 +810,7 @@ country_event = {
 			limit = { RBM = { has_country_flag = dd_cw_released } }
 			RBM = { change_tag_from = ROOT }
 		}
+		dd_usa_cw_picked = yes
 	}
 	option = {
 		name = dd_usa_cw.2.vnm
@@ -821,6 +824,7 @@ country_event = {
 			limit = { VNM = { has_country_flag = dd_cw_released } }
 			VNM = { change_tag_from = ROOT }
 		}
+		dd_usa_cw_picked = yes
 	}
 	option = {
 		name = dd_usa_cw.2.fds
@@ -834,6 +838,7 @@ country_event = {
 			limit = { FDS = { has_country_flag = dd_cw_released } }
 			FDS = { change_tag_from = ROOT }
 		}
+		dd_usa_cw_picked = yes
 	}
 	option = {
 		name = dd_usa_cw.2.rbl
@@ -847,6 +852,7 @@ country_event = {
 			limit = { RBL = { has_country_flag = dd_cw_released } }
 			RBL = { change_tag_from = ROOT }
 		}
+		dd_usa_cw_picked = yes
 	}
 }
 
@@ -969,7 +975,6 @@ country_event = {
 			recruit_character = USA_fm_christopher_laneve
 		}
 		# Hegseth keeps the army-chief seat. LaNeve is the new field marshal.
-		add_stability = -0.01
 	}
 }
 

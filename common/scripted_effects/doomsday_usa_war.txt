@@ -12,7 +12,6 @@
 dd_usa_cw_tpl_militia_2x6 = {
 	division_template = {
 		name = "Militia"
-		is_locked = yes
 		regiments = {
 			infantry = { x = 0 y = 0 }
 			infantry = { x = 0 y = 1 }
@@ -33,7 +32,6 @@ dd_usa_cw_tpl_militia_2x6 = {
 dd_usa_cw_tpl_militia_3x6 = {
 	division_template = {
 		name = "Militia"
-		is_locked = yes
 		regiments = {
 			infantry = { x = 0 y = 0 }
 			infantry = { x = 0 y = 1 }
@@ -60,7 +58,6 @@ dd_usa_cw_tpl_militia_3x6 = {
 dd_usa_cw_tpl_infantry_3x6_eng = {
 	division_template = {
 		name = "Infantry Division"
-		is_locked = yes
 		regiments = {
 			infantry = { x = 0 y = 0 }
 			infantry = { x = 0 y = 1 }
@@ -90,7 +87,6 @@ dd_usa_cw_tpl_infantry_3x6_eng = {
 dd_usa_cw_tpl_national_guard = {
 	division_template = {
 		name = "National Guard"
-		is_locked = yes
 		regiments = {
 			motorized = { x = 0 y = 0 }
 			motorized = { x = 0 y = 1 }
@@ -2704,7 +2700,6 @@ dd_usa_civil_war_fights = {
 			dd_usa_cw_spawn_militia_n = yes
 			division_template = {
 				name = "Nauvoo Legion"
-				is_locked = yes
 				regiments = {
 					infantry = { x = 0 y = 0 }
 					infantry = { x = 0 y = 1 }
@@ -2728,7 +2723,6 @@ dd_usa_civil_war_fights = {
 			}
 			division_template = {
 				name = "Deseret Mountaineers"
-				is_locked = yes
 				regiments = {
 					mountaineers = { x = 0 y = 0 }
 					mountaineers = { x = 0 y = 1 }
@@ -2807,7 +2801,6 @@ dd_usa_civil_war_fights = {
 			dd_usa_cw_tpl_infantry_3x6_eng = yes
 			division_template = {
 				name = "Federal Garrison"
-				is_locked = yes
 				regiments = {
 					infantry = { x = 0 y = 0 }
 					infantry = { x = 0 y = 1 }
@@ -2875,7 +2868,6 @@ dd_usa_civil_war_fights = {
 		dd_usa_cw_spawn_militia_3x6_n = yes
 		division_template = {
 			name = "Red Armor"
-			is_locked = yes
 			regiments = {
 				mechanized = { x = 0 y = 0 }
 				mechanized = { x = 0 y = 1 }

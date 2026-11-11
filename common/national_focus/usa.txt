@@ -174,7 +174,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_stability = -0.05
+			add_stability = -0.01
 			add_popularity = { ideology = national_populism popularity = 0.05 }
 			add_popularity = { ideology = social_liberalism popularity = -0.03 }
 			add_popularity = { ideology = progressive_populism popularity = 0.03 }
@@ -200,7 +200,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_stability = -0.05
+			add_stability = -0.01
 			add_popularity = { ideology = national_populism popularity = 0.05 }
 			add_popularity = { ideology = social_liberalism popularity = -0.03 }
 			add_popularity = { ideology = progressive_populism popularity = 0.03 }
@@ -4206,10 +4206,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_cw_absorb_minors
-		icon = GFX_focus_generic_annex_country_2
+		id = USA_cw_confront_texas
+		icon = GFX_goal_generic_major_war
 		x = -16
-		y = 12
+		y = 11
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 1 }
@@ -4222,6 +4222,26 @@ focus_tree = {
 			focus = USA_cw_natpop_late
 			focus = USA_cw_fascist_late
 		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = TXG }
+				tag = TXG
+				TXG = { is_in_faction_with = ROOT }
+			}
+		}
+		completion_reward = {
+			dd_usa_cw_wargoal_texas = yes
+		}
+	}
+	focus = {
+		id = USA_cw_absorb_minors
+		icon = GFX_focus_generic_annex_country_2
+		x = -16
+		y = 12
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 1 }
+		prerequisite = { focus = USA_cw_confront_texas }
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = USA_cw_america_settled_tt
@@ -4317,7 +4337,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_leg_care_act
-		icon = GFX_goal_generic_consumer_goods
+		icon = GFX_goal_generic_political_pressure
 		x = 10
 		y = 1
 		cost = 5
@@ -5104,7 +5124,7 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_fourth_reich }
 		available = {
 			has_power_balance = { id = USA_fascist_bop }
-			power_balance_value = { id = USA_fascist_bop value < -0.59 }
+			power_balance_value = { id = USA_fascist_bop value < -0.79 }
 		}
 		completion_reward = {
 			remove_power_balance = { id = USA_fascist_bop }
@@ -5112,7 +5132,7 @@ focus_tree = {
 			set_cosmetic_tag = USA_REBIRTH
 			add_ideas = dd_usa_american_rebirth
 			dd_usa_claim_north_america = yes
-			promote_character = { character = USA_james_fishback ideology = fascism_ideology }
+			dd_usa_seat_fishback = yes
 		}
 	}
 	focus = {
@@ -5125,10 +5145,16 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		prerequisite = { focus = USA_fascist_consolidation }
 		mutually_exclusive = { focus = USA_american_rebirth }
+		available = {
+			has_power_balance = { id = USA_fascist_bop }
+			power_balance_value = { id = USA_fascist_bop value > 0.79 }
+		}
 		completion_reward = {
+			remove_power_balance = { id = USA_fascist_bop }
+			clr_country_flag = dd_usa_fascist_bop
 			set_cosmetic_tag = USA_FOURTH_REICH
 			dd_usa_claim_americas = yes
-			promote_character = { character = USA_rinaldo_nazzaro ideology = fascism_ideology }
+			dd_usa_seat_nazzaro = yes
 		}
 	}
 	focus = {
@@ -5157,6 +5183,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.10
 			add_to_variable = { dd_prod = 4 }
+			add_ideas = dd_usa_every_man_share
 		}
 	}
 	focus = {
@@ -5213,7 +5240,7 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_nazi_blueprint }
 		completion_reward = {
 			set_cosmetic_tag = USA_ACCEL
-			promote_character = { character = USA_james_mason ideology = fascism_ideology }
+			dd_usa_seat_mason = yes
 		}
 	}
 	focus = {

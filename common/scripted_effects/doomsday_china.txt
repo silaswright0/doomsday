@@ -788,7 +788,6 @@ dd_chi_raise_mercenaries = {
 				engineer = { x = 0 y = 0 }
 				artillery = { x = 0 y = 1 }
 			}
-			is_locked = yes
 		}
 	}
 	add_manpower = 40000
@@ -818,7 +817,6 @@ dd_chi_raise_irregulars = {
 				irregular_infantry = { x = 1 y = 1 }
 				irregular_infantry = { x = 1 y = 2 }
 			}
-			is_locked = yes
 		}
 	}
 	add_manpower = 72000
@@ -932,7 +930,6 @@ dd_chi_arm_militia = {
 			irregular_infantry = { x = 1 y = 1 }
 			irregular_infantry = { x = 1 y = 2 }
 		}
-		is_locked = yes
 	}
 	add_equipment_to_stockpile = {
 		type = infantry_equipment_cw6
@@ -1189,7 +1186,7 @@ dd_chi_disband_field_army = {
 	}
 }
 
-# Same locked templates as the 2026 order of battle. Called on a breakaway, after it owns land.
+# Same templates as the 2026 order of battle. Called on a breakaway, after it owns land.
 dd_chi_field_templates = {
 	inherit_technology = CHI
 	division_template = {
@@ -1209,7 +1206,6 @@ dd_chi_field_templates = {
 			engineer = { x = 0 y = 0 }
 			artillery = { x = 0 y = 1 }
 		}
-		is_locked = yes
 	}
 	division_template = {
 		name = "Garrison Brigade"
@@ -1222,7 +1218,6 @@ dd_chi_field_templates = {
 		support = {
 			engineer = { x = 0 y = 0 }
 		}
-		is_locked = yes
 	}
 	division_template = {
 		name = "Armored Division"
@@ -1241,7 +1236,6 @@ dd_chi_field_templates = {
 			engineer = { x = 0 y = 0 }
 			artillery = { x = 0 y = 1 }
 		}
-		is_locked = yes
 	}
 	division_template = {
 		name = "Mechanized Brigade"
@@ -1257,7 +1251,6 @@ dd_chi_field_templates = {
 			engineer = { x = 0 y = 0 }
 			artillery = { x = 0 y = 1 }
 		}
-		is_locked = yes
 	}
 	division_template = {
 		name = "Mountain Division"
@@ -1273,7 +1266,6 @@ dd_chi_field_templates = {
 			engineer = { x = 0 y = 0 }
 			artillery = { x = 0 y = 1 }
 		}
-		is_locked = yes
 	}
 	division_template = {
 		name = "Marine Division"
@@ -1289,7 +1281,6 @@ dd_chi_field_templates = {
 			engineer = { x = 0 y = 0 }
 			artillery = { x = 0 y = 1 }
 		}
-		is_locked = yes
 	}
 }
 
@@ -1858,6 +1849,40 @@ dd_chi_south_faction = {
 	}
 }
 
+# The day after the split. A same-day inherit does not stick on a country that just received its first state.
+dd_chi_cw_copy_tech = {
+	if = {
+		limit = {
+			has_global_flag = dd_chi_cw_tech_wait
+			NOT = { has_global_flag = dd_chi_cw_tech_copied }
+		}
+		every_country = {
+			limit = {
+				exists = yes
+				OR = {
+					tag = FRC
+					tag = NLC
+					tag = SBC
+					tag = CMJ
+					tag = CDW
+					tag = XIJ
+				}
+			}
+			inherit_technology = CHI
+			set_research_slots = 2
+			if = { limit = { CHI = { num_research_slots > 2 } } set_research_slots = 3 }
+			if = { limit = { CHI = { num_research_slots > 3 } } set_research_slots = 4 }
+			if = { limit = { CHI = { num_research_slots > 4 } } set_research_slots = 5 }
+			if = { limit = { CHI = { num_research_slots > 5 } } set_research_slots = 6 }
+			if = {
+				limit = { NOT = { has_template = "Infantry Division" } }
+				dd_chi_field_templates = yes
+			}
+		}
+		set_global_flag = dd_chi_cw_tech_copied
+	}
+}
+
 dd_chi_start_civil_war = {
 	if = {
 		limit = {
@@ -1866,6 +1891,7 @@ dd_chi_start_civil_war = {
 		}
 		set_country_flag = dd_chi_civil_war
 		set_global_flag = dd_chi_civil_war_started
+		set_global_flag = dd_chi_cw_tech_wait
 		set_cosmetic_tag = CHI_BEIJING
 		FRC = { dd_chi_grant_china_map = yes }
 		NLC = { dd_chi_grant_china_map = yes }
@@ -2912,7 +2938,6 @@ dd_chi_rev_raise_cells = {
 				irregular_infantry = { x = 1 y = 1 }
 				irregular_infantry = { x = 1 y = 2 }
 			}
-			is_locked = yes
 		}
 		if = {
 			limit = { FROM = { NOT = { is_controlled_by = ROOT } } }

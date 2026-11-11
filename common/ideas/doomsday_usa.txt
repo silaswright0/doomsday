@@ -11,6 +11,17 @@ ideas = {
 			}
 		}
 
+		dd_fva_federal_collapse = {
+			picture = generic_disjointed_gov
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.20
+				surrender_limit = -0.80
+			}
+		}
+
 		dd_usa_socialist_poster_child = {
 			picture = dd_usa_socialist_poster_child
 			allowed = { always = no }
@@ -719,17 +730,14 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				surrender_limit = 0.35
-				stability_factor = -0.20
-				war_support_factor = 0.20
-				production_speed_buildings_factor = -5
+				surrender_limit = 0.25
 				ai_get_ally_desire_factor = -1000
 				ai_join_ally_desire_factor = -1000
 				ai_call_ally_desire_factor = -1000
 				join_faction_tension = 2.0
 				guarantee_tension = 2.0
 				lend_lease_tension = 2.0
-				embargo_threshold_factor = 2.0
+				embargo_threshold_factor = 20.0
 				improve_relations_maintain_cost_factor = 10
 			}
 			rule = {
@@ -817,6 +825,15 @@ ideas = {
 				breakthrough_factor = 0.10
 			}
 		}
+		dd_usa_every_man_share = {
+			picture = generic_production_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.20
+			}
+		}
 		dd_usa_blood_and_soil = {
 			picture = generic_manpower_bonus
 			allowed = { always = no }
@@ -845,9 +862,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_morale_factor = 0.10
-				industrial_capacity_factory = 0.10
-				war_support_factor = 0.10
+				army_morale_factor = 0.20
+				industrial_capacity_factory = 0.20
+				war_support_factor = 0.20
 			}
 		}
 		dd_usa_the_vanguard = {
@@ -856,7 +873,9 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				army_org_factor = 0.10
+				army_org_factor = 0.20
+				army_defence_factor = 0.20
+				breakthrough_factor = 0.10
 			}
 		}
 		dd_usa_the_spectre = {
