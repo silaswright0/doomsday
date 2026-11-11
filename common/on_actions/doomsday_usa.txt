@@ -152,8 +152,12 @@ on_actions = {
 		effect = {
 			# This fires once per country. Do the work on that country. Do not scan the world from here.
 			if = {
-				limit = { has_idea = dd_usa_civil_war_cause }
+				limit = {
+					has_idea = dd_usa_civil_war_cause
+					NOT = { has_country_flag = dd_usa_cw_diplo_cleared }
+				}
 				dd_usa_cw_strip_diplomacy = yes
+				set_country_flag = dd_usa_cw_diplo_cleared
 			}
 			if = {
 				limit = {

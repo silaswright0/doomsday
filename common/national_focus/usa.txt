@@ -4000,6 +4000,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = dd_usa_cw_black_sun
+			set_country_flag = dd_usa_fascist_bop
+			set_power_balance = {
+				id = USA_fascist_bop
+				left_side = USA_bop_christian
+				right_side = USA_bop_nazi
+				set_value = 0
+			}
 		}
 	}
 	focus = {
@@ -4998,12 +5005,15 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			set_country_flag = dd_usa_fascist_bop
-			set_power_balance = {
-				id = USA_fascist_bop
-				left_side = USA_bop_christian
-				right_side = USA_bop_nazi
-				set_value = 0
+			if = {
+				limit = { NOT = { has_power_balance = { id = USA_fascist_bop } } }
+				set_country_flag = dd_usa_fascist_bop
+				set_power_balance = {
+					id = USA_fascist_bop
+					left_side = USA_bop_christian
+					right_side = USA_bop_nazi
+					set_value = 0
+				}
 			}
 		}
 	}

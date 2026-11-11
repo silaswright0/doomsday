@@ -34,6 +34,10 @@ country_event = {
 			}
 		}
 		dd_ukr_deliver_usa = yes
+		if = {
+			limit = { has_global_flag = dd_hormuz_blockade }
+			country_event = { id = dd_ukr_aid.2 }
+		}
 	}
 	option = {
 		name = dd_ukr_aid_reject

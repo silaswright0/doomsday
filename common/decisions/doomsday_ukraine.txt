@@ -14,12 +14,11 @@ dd_ukr_arms_category = {
 		complete_effect = {
 			set_country_flag = { flag = dd_ukr_asked_usa days = 365 value = 1 }
 			custom_effect_tooltip = dd_ukr_aid_usa_tt
-			USA = { country_event = { id = dd_ukr_aid.1 } }
 			if = {
 				limit = { has_global_flag = dd_hormuz_blockade }
 				custom_effect_tooltip = dd_ukr_aid_usa_hormuz_tt
-				USA = { country_event = { id = dd_ukr_aid.2 } }
 			}
+			USA = { country_event = { id = dd_ukr_aid.1 } }
 		}
 	}
 

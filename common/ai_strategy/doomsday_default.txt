@@ -92,10 +92,8 @@ dd_csto_no_offensive = {
 	}
 }
 
-# While the American ultimatum is running, members keep training infantry.
-# build_army is how many of that role to aim for. 6 was already met, so they stopped.
-# The new target sits above any member's starting infantry arm, so the year is spent queuing.
-# Rifles, guns, and support gear have to be in production or the queue never deploys.
+# During the ultimatum, want a larger army and keep training it.
+# The mix stays whatever that country already builds.
 dd_nato_ultimatum_divisions = {
 	enable = {
 		has_country_flag = dd_nato_ultimatum
@@ -109,46 +107,6 @@ dd_nato_ultimatum_divisions = {
 	ai_strategy = {
 		type = force_build_armies
 		value = 100
-	}
-	ai_strategy = {
-		type = build_army
-		id = infantry
-		value = 40
-	}
-	ai_strategy = {
-		type = build_army
-		id = armor
-		value = -50
-	}
-	ai_strategy = {
-		type = equipment_production_factor
-		id = infantry
-		value = 50
-	}
-	ai_strategy = {
-		type = equipment_production_factor
-		id = artillery
-		value = 40
-	}
-	ai_strategy = {
-		type = equipment_production_factor
-		id = support
-		value = 40
-	}
-	ai_strategy = {
-		type = equipment_production_min_factories_archetype
-		id = infantry_equipment
-		value = 1
-	}
-	ai_strategy = {
-		type = equipment_production_min_factories_archetype
-		id = artillery_equipment
-		value = 1
-	}
-	ai_strategy = {
-		type = equipment_production_min_factories_archetype
-		id = support_equipment
-		value = 1
 	}
 }
 

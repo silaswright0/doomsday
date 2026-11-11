@@ -172,7 +172,7 @@ dd_usa_nato_ultimatum_start = {
 		multiply_variable = { dd_nato_need_divs = 1.2 }
 		set_country_flag = dd_nato_ultimatum
 	}
-	country_event = { id = dd_usa_nato.1 days = 365 }
+	country_event = { id = dd_usa_nato.1 days = 650 }
 }
 
 dd_usa_apply_tariffs = {
@@ -3120,23 +3120,33 @@ dd_usa_legislature_daily = {
 	}
 }
 
-# Every CW participant claims every USA core so losers can be fully annexed.
+# Every released splinter claims every prewar USA core, in one pass over those cores.
 dd_usa_cw_grant_all_us_claims = {
-	every_country = {
-		limit = {
-			OR = {
-				tag = USA
-				has_country_flag = dd_cw_released
-				has_country_flag = dd_usa_civil_war
-			}
-		}
-		every_state = {
-			limit = {
-				is_core_of = USA
-				NOT = { is_claimed_by = PREV }
-				NOT = { is_core_of = PREV }
-			}
-			PREV = { add_state_claim = PREV }
+	USA = {
+		every_core_state = {
+			if = { limit = { EAS = { has_country_flag = dd_cw_released } NOT = { is_core_of = EAS } NOT = { is_claimed_by = EAS } } add_claim_by = EAS }
+			if = { limit = { WCL = { has_country_flag = dd_cw_released } NOT = { is_core_of = WCL } NOT = { is_claimed_by = WCL } } add_claim_by = WCL }
+			if = { limit = { RBM = { has_country_flag = dd_cw_released } NOT = { is_core_of = RBM } NOT = { is_claimed_by = RBM } } add_claim_by = RBM }
+			if = { limit = { VNM = { has_country_flag = dd_cw_released } NOT = { is_core_of = VNM } NOT = { is_claimed_by = VNM } } add_claim_by = VNM }
+			if = { limit = { FDS = { has_country_flag = dd_cw_released } NOT = { is_core_of = FDS } NOT = { is_claimed_by = FDS } } add_claim_by = FDS }
+			if = { limit = { RBL = { has_country_flag = dd_cw_released } NOT = { is_core_of = RBL } NOT = { is_claimed_by = RBL } } add_claim_by = RBL }
+			if = { limit = { ACA = { has_country_flag = dd_cw_released } NOT = { is_core_of = ACA } NOT = { is_claimed_by = ACA } } add_claim_by = ACA }
+			if = { limit = { DES = { has_country_flag = dd_cw_released } NOT = { is_core_of = DES } NOT = { is_claimed_by = DES } } add_claim_by = DES }
+			if = { limit = { AOG = { has_country_flag = dd_cw_released } NOT = { is_core_of = AOG } NOT = { is_claimed_by = AOG } } add_claim_by = AOG }
+			if = { limit = { SCN = { has_country_flag = dd_cw_released } NOT = { is_core_of = SCN } NOT = { is_claimed_by = SCN } } add_claim_by = SCN }
+			if = { limit = { FLO = { has_country_flag = dd_cw_released } NOT = { is_core_of = FLO } NOT = { is_claimed_by = FLO } } add_claim_by = FLO }
+			if = { limit = { SFT = { has_country_flag = dd_cw_released } NOT = { is_core_of = SFT } NOT = { is_claimed_by = SFT } } add_claim_by = SFT }
+			if = { limit = { NYF = { has_country_flag = dd_cw_released } NOT = { is_core_of = NYF } NOT = { is_claimed_by = NYF } } add_claim_by = NYF }
+			if = { limit = { VIR = { has_country_flag = dd_cw_released } NOT = { is_core_of = VIR } NOT = { is_claimed_by = VIR } } add_claim_by = VIR }
+			if = { limit = { ABR = { has_country_flag = dd_cw_released } NOT = { is_core_of = ABR } NOT = { is_claimed_by = ABR } } add_claim_by = ABR }
+			if = { limit = { PTF = { has_country_flag = dd_cw_released } NOT = { is_core_of = PTF } NOT = { is_claimed_by = PTF } } add_claim_by = PTF }
+			if = { limit = { ASK = { has_country_flag = dd_cw_released } NOT = { is_core_of = ASK } NOT = { is_claimed_by = ASK } } add_claim_by = ASK }
+			if = { limit = { TXG = { has_country_flag = dd_cw_released } NOT = { is_core_of = TXG } NOT = { is_claimed_by = TXG } } add_claim_by = TXG }
+			if = { limit = { TXR = { has_country_flag = dd_cw_released } NOT = { is_core_of = TXR } NOT = { is_claimed_by = TXR } } add_claim_by = TXR }
+			if = { limit = { ETX = { has_country_flag = dd_cw_released } NOT = { is_core_of = ETX } NOT = { is_claimed_by = ETX } } add_claim_by = ETX }
+			if = { limit = { EBC = { has_country_flag = dd_cw_released } NOT = { is_core_of = EBC } NOT = { is_claimed_by = EBC } } add_claim_by = EBC }
+			if = { limit = { TXO = { has_country_flag = dd_cw_released } NOT = { is_core_of = TXO } NOT = { is_claimed_by = TXO } } add_claim_by = TXO }
+			if = { limit = { FVA = { has_country_flag = dd_cw_released } NOT = { is_core_of = FVA } NOT = { is_claimed_by = FVA } } add_claim_by = FVA }
 		}
 	}
 }
@@ -4031,6 +4041,34 @@ dd_usa_cw_copy_from_usa = {
 }
 
 # The day after the tags are created. A same-day inherit does not stick on a country that just received its first state.
+# One splinter per call. inherit_technology of the full American tree is slow, so the day after the war copies a few tags, majors first.
+dd_usa_cw_inherit_one = {
+	if = {
+		limit = {
+			has_country_flag = dd_cw_released
+			NOT = { has_country_flag = dd_cw_tech_done }
+			check_variable = { PREV.dd_cw_tech_left > 0 }
+		}
+		inherit_technology = USA
+		set_country_flag = dd_cw_tech_done
+		set_research_slots = 2
+		if = { limit = { USA = { num_research_slots > 2 } } set_research_slots = 3 }
+		if = { limit = { USA = { num_research_slots > 3 } } set_research_slots = 4 }
+		if = { limit = { USA = { num_research_slots > 4 } } set_research_slots = 5 }
+		if = { limit = { USA = { num_research_slots > 5 } } set_research_slots = 6 }
+		dd_usa_cw_tpl_militia_2x6 = yes
+		if = {
+			limit = { NOT = { has_template = "Infantry Division" } }
+			dd_usa_cw_tpl_infantry_3x6_eng = yes
+		}
+		if = {
+			limit = { NOT = { has_template = "National Guard" } }
+			dd_usa_cw_tpl_national_guard = yes
+		}
+		PREV = { subtract_from_variable = { dd_cw_tech_left = 1 } }
+	}
+}
+
 dd_usa_cw_copy_tech = {
 	if = {
 		limit = {
@@ -4038,25 +4076,42 @@ dd_usa_cw_copy_tech = {
 			NOT = { has_global_flag = dd_usa_cw_tech_copied }
 			USA = { exists = yes }
 		}
-		every_country = {
-			limit = { has_country_flag = dd_cw_released }
-			inherit_technology = USA
-			set_research_slots = 2
-			if = { limit = { USA = { num_research_slots > 2 } } set_research_slots = 3 }
-			if = { limit = { USA = { num_research_slots > 3 } } set_research_slots = 4 }
-			if = { limit = { USA = { num_research_slots > 4 } } set_research_slots = 5 }
-			if = { limit = { USA = { num_research_slots > 5 } } set_research_slots = 6 }
-			dd_usa_cw_tpl_militia_2x6 = yes
-			if = {
-				limit = { NOT = { has_template = "Infantry Division" } }
-				dd_usa_cw_tpl_infantry_3x6_eng = yes
+		set_variable = { dd_cw_tech_left = 4 }
+		EAS = { dd_usa_cw_inherit_one = yes }
+		WCL = { dd_usa_cw_inherit_one = yes }
+		RBM = { dd_usa_cw_inherit_one = yes }
+		VNM = { dd_usa_cw_inherit_one = yes }
+		FDS = { dd_usa_cw_inherit_one = yes }
+		RBL = { dd_usa_cw_inherit_one = yes }
+		ACA = { dd_usa_cw_inherit_one = yes }
+		DES = { dd_usa_cw_inherit_one = yes }
+		AOG = { dd_usa_cw_inherit_one = yes }
+		SCN = { dd_usa_cw_inherit_one = yes }
+		FLO = { dd_usa_cw_inherit_one = yes }
+		SFT = { dd_usa_cw_inherit_one = yes }
+		NYF = { dd_usa_cw_inherit_one = yes }
+		VIR = { dd_usa_cw_inherit_one = yes }
+		ABR = { dd_usa_cw_inherit_one = yes }
+		PTF = { dd_usa_cw_inherit_one = yes }
+		ASK = { dd_usa_cw_inherit_one = yes }
+		TXG = { dd_usa_cw_inherit_one = yes }
+		TXR = { dd_usa_cw_inherit_one = yes }
+		ETX = { dd_usa_cw_inherit_one = yes }
+		EBC = { dd_usa_cw_inherit_one = yes }
+		TXO = { dd_usa_cw_inherit_one = yes }
+		FVA = { dd_usa_cw_inherit_one = yes }
+		if = {
+			limit = {
+				NOT = {
+					any_country = {
+						has_country_flag = dd_cw_released
+						NOT = { has_country_flag = dd_cw_tech_done }
+					}
+				}
 			}
-			if = {
-				limit = { NOT = { has_template = "National Guard" } }
-				dd_usa_cw_tpl_national_guard = yes
-			}
+			set_global_flag = dd_usa_cw_tech_copied
 		}
-		set_global_flag = dd_usa_cw_tech_copied
+		clear_variable = dd_cw_tech_left
 	}
 }
 
@@ -4093,7 +4148,7 @@ dd_usa_cw_picked = {
 dd_usa_drop_usa_tag = {
 	event_target:dd_usa_winner = {
 		dd_usa_cw_copy_from_usa = yes
-		inherit_technology = USA
+		# Tech is copied the next day. A same-day inherit does not stick on a tag that just received its states.
 		load_focus_tree = { tree = usa_focus copy_completed_from = USA }
 		set_country_flag = dd_usa_civil_war
 	}
