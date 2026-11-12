@@ -1,12 +1,15 @@
 guiTypes = {
 
-	# Vanilla packs PP/stability/war support, manpower, then factories through
-	# command power from x=100 to ~794, then land/navy/air/nukes to ~978. Date and
-	# world tension sit on UPPER_RIGHT. This panel uses that gap.
+	# Vanilla keeps resources on UPPER_LEFT and pins the date, speed controls,
+	# and world tension to UPPER_RIGHT. The time cluster's left edge is 378px
+	# in from the right. This strip uses that same edge, so cash, income, and
+	# debt stay just left of the clock as the window width changes.
+	# Width 230; right edge is 12px clear of the clock.
 	containerWindowType = {
 		name = "dd_topbar_econ_window"
-		position = { x = 1034 y = 4 }
-		size = { width = 210 height = 30 }
+		position = { x = -620 y = 4 }
+		size = { width = 230 height = 30 }
+		Orientation = "UPPER_RIGHT"
 		clipping = no
 
 		background = {
