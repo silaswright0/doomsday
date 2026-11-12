@@ -6,7 +6,7 @@ tags={
 	"Map"
 }
 name="Doomsday"
-picture="thumbnail.jpg"
+picture="thumbnail.png"
 replace_path="common/bookmarks"
 replace_path="common/idea_tags"
 replace_path="common/ideologies"
