@@ -8,8 +8,7 @@ ideas = {
 			modifier = {
 				static_anti_air_hit_chance_factor = -0.25
 				industry_air_damage_factor = 0.20
-				combat_width_factor = -0.05
-				surrender_limit = 0.25
+				surrender_limit = 0.15
 			}
 		}
 		dd_sov_decree_604 = {
@@ -798,6 +797,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				war_support_factor = 0.10
+				breakthrough_factor = -0.02
 				consumer_goods_factor = 0.02
 			}
 		}
@@ -808,17 +808,19 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				war_support_factor = 0.05
-				army_attack_factor = 0.02
+				army_attack_factor = -0.02
+				breakthrough_factor = -0.02
 				consumer_goods_factor = 0.02
 			}
 		}
 		dd_sov_ukr_2 = {
-			picture = generic_manpower_bonus
+			picture = generic_army_problems
 			allowed = { always = no }
 			allowed_civil_war = { always = yes }
 			removal_cost = -1
 			modifier = {
-				recruitable_population = 0.02
+				army_attack_factor = -0.02
+				breakthrough_factor = -0.02
 				army_morale_factor = -0.02
 				consumer_goods_factor = 0.04
 			}
@@ -831,6 +833,7 @@ ideas = {
 			modifier = {
 				army_attack_factor = -0.02
 				army_defence_factor = -0.02
+				breakthrough_factor = -0.02
 				consumer_goods_factor = 0.04
 			}
 		}
@@ -841,6 +844,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				war_support_factor = -0.02
+				breakthrough_factor = -0.02
 				army_morale_factor = -0.02
 				consumer_goods_factor = 0.04
 			}
@@ -853,6 +857,7 @@ ideas = {
 			modifier = {
 				war_support_factor = -0.03
 				army_defence_factor = -0.03
+				breakthrough_factor = -0.04
 				consumer_goods_factor = 0.08
 			}
 		}
@@ -864,6 +869,7 @@ ideas = {
 			modifier = {
 				war_support_factor = -0.03
 				army_attack_factor = -0.03
+				breakthrough_factor = -0.04
 				consumer_goods_factor = 0.08
 			}
 		}
@@ -875,6 +881,7 @@ ideas = {
 			modifier = {
 				stability_factor = -0.04
 				war_support_factor = -0.04
+				breakthrough_factor = -0.08
 				consumer_goods_factor = 0.10
 			}
 		}
@@ -885,6 +892,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				stability_factor = -0.05
+				breakthrough_factor = -0.10
 				army_morale_factor = -0.05
 				consumer_goods_factor = 0.12
 			}

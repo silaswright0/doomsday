@@ -843,6 +843,7 @@ dd_sov_ukr_apply = {
 			set_variable = { dd_sov_ukr_cg = 0.02 }
 			set_variable = { dd_sov_ukr_atk = 0 }
 			set_variable = { dd_sov_ukr_def = 0 }
+			set_variable = { dd_sov_ukr_brk = -0.02 }
 			set_variable = { dd_sov_ukr_rec = 0 }
 			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = 0 }
@@ -851,8 +852,9 @@ dd_sov_ukr_apply = {
 			limit = { check_variable = { dd_sov_ukr_stage = 1 } }
 			set_variable = { dd_sov_ukr_ws = 0.15 }
 			set_variable = { dd_sov_ukr_cg = 0.04 }
-			set_variable = { dd_sov_ukr_atk = 0.02 }
+			set_variable = { dd_sov_ukr_atk = -0.02 }
 			set_variable = { dd_sov_ukr_def = 0 }
+			set_variable = { dd_sov_ukr_brk = -0.04 }
 			set_variable = { dd_sov_ukr_rec = 0 }
 			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = 0 }
@@ -861,69 +863,76 @@ dd_sov_ukr_apply = {
 			limit = { check_variable = { dd_sov_ukr_stage = 2 } }
 			set_variable = { dd_sov_ukr_ws = 0.15 }
 			set_variable = { dd_sov_ukr_cg = 0.08 }
-			set_variable = { dd_sov_ukr_atk = 0.02 }
+			set_variable = { dd_sov_ukr_atk = -0.04 }
 			set_variable = { dd_sov_ukr_def = 0 }
+			set_variable = { dd_sov_ukr_brk = -0.06 }
 			set_variable = { dd_sov_ukr_rec = -0.02 }
-			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = 0 }
 		}
 		else_if = {
 			limit = { check_variable = { dd_sov_ukr_stage = 3 } }
 			set_variable = { dd_sov_ukr_ws = 0.15 }
 			set_variable = { dd_sov_ukr_cg = 0.12 }
-			set_variable = { dd_sov_ukr_atk = 0 }
+			set_variable = { dd_sov_ukr_atk = -0.06 }
 			set_variable = { dd_sov_ukr_def = -0.02 }
+			set_variable = { dd_sov_ukr_brk = -0.08 }
 			set_variable = { dd_sov_ukr_rec = -0.02 }
-			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = 0 }
 		}
 		else_if = {
 			limit = { check_variable = { dd_sov_ukr_stage = 4 } }
 			set_variable = { dd_sov_ukr_ws = 0.13 }
 			set_variable = { dd_sov_ukr_cg = 0.16 }
-			set_variable = { dd_sov_ukr_atk = 0 }
+			set_variable = { dd_sov_ukr_atk = -0.06 }
 			set_variable = { dd_sov_ukr_def = -0.02 }
+			set_variable = { dd_sov_ukr_brk = -0.10 }
 			set_variable = { dd_sov_ukr_rec = -0.04 }
-			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = 0 }
 		}
 		else_if = {
 			limit = { check_variable = { dd_sov_ukr_stage = 5 } }
 			set_variable = { dd_sov_ukr_ws = 0.10 }
 			set_variable = { dd_sov_ukr_cg = 0.24 }
-			set_variable = { dd_sov_ukr_atk = 0 }
+			set_variable = { dd_sov_ukr_atk = -0.06 }
 			set_variable = { dd_sov_ukr_def = -0.05 }
+			set_variable = { dd_sov_ukr_brk = -0.14 }
 			set_variable = { dd_sov_ukr_rec = -0.04 }
-			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = 0 }
 		}
 		else_if = {
 			limit = { check_variable = { dd_sov_ukr_stage = 6 } }
 			set_variable = { dd_sov_ukr_ws = 0.07 }
 			set_variable = { dd_sov_ukr_cg = 0.32 }
-			set_variable = { dd_sov_ukr_atk = -0.03 }
+			set_variable = { dd_sov_ukr_atk = -0.09 }
 			set_variable = { dd_sov_ukr_def = -0.05 }
+			set_variable = { dd_sov_ukr_brk = -0.18 }
 			set_variable = { dd_sov_ukr_rec = -0.04 }
-			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = 0 }
 		}
 		else_if = {
 			limit = { check_variable = { dd_sov_ukr_stage = 7 } }
 			set_variable = { dd_sov_ukr_ws = 0.03 }
 			set_variable = { dd_sov_ukr_cg = 0.42 }
-			set_variable = { dd_sov_ukr_atk = -0.03 }
+			set_variable = { dd_sov_ukr_atk = -0.09 }
 			set_variable = { dd_sov_ukr_def = -0.05 }
+			set_variable = { dd_sov_ukr_brk = -0.26 }
 			set_variable = { dd_sov_ukr_rec = -0.04 }
-			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = -0.04 }
 		}
 		else = {
 			set_variable = { dd_sov_ukr_ws = 0.03 }
 			set_variable = { dd_sov_ukr_cg = 0.54 }
-			set_variable = { dd_sov_ukr_atk = -0.03 }
+			set_variable = { dd_sov_ukr_atk = -0.09 }
 			set_variable = { dd_sov_ukr_def = -0.05 }
+			set_variable = { dd_sov_ukr_brk = -0.36 }
 			set_variable = { dd_sov_ukr_rec = -0.09 }
-			set_variable = { dd_sov_ukr_man = 0.02 }
+			set_variable = { dd_sov_ukr_man = 0 }
 			set_variable = { dd_sov_ukr_stab = -0.09 }
 		}
 		if = {
