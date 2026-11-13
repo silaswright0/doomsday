@@ -1,3 +1,43 @@
-# Vanilla country MIOs gated on 1936 national foci. Those trees are replaced,
-# so country org files are not loaded (replace_path). Generic designers below
-# cover every tag until 2026 MIOs exist.
+# Arms Against Tyranny builds one of these for every country when history starts.
+# The generic file refuses the 1936 majors once their DLC is installed, and the
+# country files that used to cover them are not loaded. This entry is the one
+# those tags get. It is never shown and cannot be assigned.
+# The game requires initial_trait and at least one trait. An entry with neither
+# is what it tries to build during "Executing History".
+
+dd_mio_dummy = {
+	name = dd_mio_dummy
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_1
+
+	allowed = { always = yes }
+	visible = { always = no }
+	available = { always = no }
+
+	research_bonus = 0
+	task_capacity = 1
+	ai_will_do = { factor = 0 }
+
+	equipment_type = {
+		infantry_equipment
+	}
+	research_categories = { infantry_weapons }
+
+	initial_trait = {
+		name = dd_mio_dummy_trait
+
+		equipment_bonus = {
+			soft_attack = 0
+		}
+	}
+
+	trait = {
+		token = dd_mio_dummy_trait_unused
+		name = dd_mio_dummy_trait_unused
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = { x = 0 y = 0 }
+
+		equipment_bonus = {
+			reliability = 0
+		}
+	}
+}
