@@ -93,22 +93,17 @@ guiTypes = {
 
 				containerWindowType = {
 					name = "resource_strip_container"
-					position = { x = 0 y = 16 }
-					size = { width = -20 height = 25 }
-
-					#iconType ={
-					#	name = "resources_bg"
-					#	quadTextureSprite = "GFX_trade_filter_bg"
-					#	position = { x= 0 y = 0 }
-					#	Orientation = "UPPER_LEFT"
-					#}
+					position = { x = 0 y = 8 }
+					size = { width = -20 height = 48 }
+					clipping = yes
+					horizontalScrollbar = "bottom_horizontal_slider"
 
 					gridBoxType = {
 						orientation = "UPPER_LEFT"
 						name = "resources_grid"
-						position = { x = 8 y = 1 }
-						size = { width = 690 height = 100% }
-						slotsize = { width = 46 height = 31 }
+						position = { x = 0 y = 0 }
+						size = { width = 1350 height = 32 }
+						slotsize = { width = 90 height = 32 }
 						max_slots = { x = 15 y = 1 }
 						add_horizontal = no
 						format = "UPPER_LEFT"
@@ -4995,7 +4990,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "resource_strip_item"
 		position = { x=0 y=0 }
-		size = { width = 70 height = 30 }
+		size = { width = 90 height = 30 }
 		clipping = no
 
 		buttonType = {
@@ -5018,12 +5013,12 @@ guiTypes = {
 		
 		instantTextboxType = {
 			name = "value"
-			position = { x=35 y=7 }
+			position = { x=32 y=6 }
 			font = "hoi_16mbs"
 			fixedsize = yes
 			text = "15"
-			maxWidth = 50
-			maxHeight = 30
+			maxWidth = 54
+			maxHeight = 22
 			format = left
 			orientation = "UPPER_LEFT"
 			alwaystransparent = yes

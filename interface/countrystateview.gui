@@ -204,10 +204,10 @@ guiTypes = {
 			
 				gridBoxType = {
 					name = "state_resources_entries"
-					position = { x = -44 y = 3 }
-					size = { width = 132 height = 240 }
+					position = { x = 2 y = 3 }
+					size = { width = 140 height = 240 }
 					format = "UPPER_LEFT"
-					slotsize = { width = 55 height = 30 }
+					slotsize = { width = 70 height = 30 }
 					max_slots_horizontal = 2
 					max_slots_vertical = 8
 				}
@@ -668,23 +668,24 @@ guiTypes = {
 	containerWindowType = {
 		name = "state_resource_entry"
 		position = { x=0 y=0 }
-		size = { width=23 height= 27 }
+		size = { width=70 height= 27 }
 		clipping = no
 		
 		
 		iconType = {
 			name = "resource"
-			position = { x=53 y=11 }	
+			position = { x=0 y=2 }
 			spriteType = "GFX_resources_strip"
+			alwaystransparent = yes
 		}
 		
 		instantTextboxType = {
 			name = "amount"
-			position = { x = 70 y = 11 }
-			font = "hoi_20b"
-			maxWidth = 37
+			position = { x = 30 y = 5 }
+			font = "hoi_16mbs"
+			maxWidth = 38
 			maxHeight = 18
-			format = center
+			format = left
 		}
 	}
 	
