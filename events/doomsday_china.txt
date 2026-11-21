@@ -38,6 +38,10 @@ country_event = {
 		dd_chi_bop_loyalist = yes
 		dd_chi_purge_taken = yes
 		if = {
+			limit = { has_idea = CHI_wang_houbin }
+			remove_ideas = CHI_wang_houbin
+		}
+		if = {
 			limit = { has_character = CHI_wang_houbin }
 			retire_character = CHI_wang_houbin
 		}
@@ -132,7 +136,7 @@ country_event = {
 
 	option = {
 		name = dd_chi_rocket.5.a
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 100 }
 		if = {
 			limit = { has_idea = CHI_fm_liu_zhenli }
 			remove_ideas = CHI_fm_liu_zhenli
@@ -144,7 +148,7 @@ country_event = {
 
 	option = {
 		name = dd_chi_rocket.5.b
-		ai_chance = { factor = 100 }
+		ai_chance = { factor = 0 }
 		dd_chi_purge_kept = yes
 		set_country_flag = dd_chi_liu_kept
 	}
@@ -160,7 +164,7 @@ country_event = {
 
 	option = {
 		name = dd_chi_rocket.7.a
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 100 }
 		if = {
 			limit = { has_idea = CHI_li_qiaoming }
 			remove_ideas = CHI_li_qiaoming
@@ -172,7 +176,7 @@ country_event = {
 
 	option = {
 		name = dd_chi_rocket.7.b
-		ai_chance = { factor = 100 }
+		ai_chance = { factor = 0 }
 		dd_chi_purge_kept = yes
 		set_country_flag = dd_chi_li_kept
 	}

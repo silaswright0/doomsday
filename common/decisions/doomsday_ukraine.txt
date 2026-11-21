@@ -7,6 +7,7 @@ dd_ukr_arms_category = {
 		ai_will_do = { factor = 5 }
 		visible = { has_completed_focus = UKR_secure_arms_support }
 		available = {
+			has_war_with = RUS
 			USA = { exists = yes }
 			NOT = { has_war_with = USA }
 			NOT = { has_country_flag = dd_ukr_asked_usa }
@@ -30,6 +31,7 @@ dd_ukr_arms_category = {
 		ai_will_do = { factor = 5 }
 		visible = { has_completed_focus = UKR_secure_arms_support }
 		available = {
+			has_war_with = RUS
 			GER = { exists = yes }
 			NOT = { has_war_with = GER }
 			NOT = { has_country_flag = dd_ukr_asked_ger }
@@ -49,6 +51,7 @@ dd_ukr_arms_category = {
 		ai_will_do = { factor = 5 }
 		visible = { has_completed_focus = UKR_secure_arms_support }
 		available = {
+			has_war_with = RUS
 			ENG = { exists = yes }
 			NOT = { has_war_with = ENG }
 			NOT = { has_country_flag = dd_ukr_asked_eng }
@@ -68,6 +71,7 @@ dd_ukr_arms_category = {
 		ai_will_do = { factor = 5 }
 		visible = { has_completed_focus = UKR_secure_arms_support }
 		available = {
+			has_war_with = RUS
 			OR = {
 				DEN = {
 					exists = yes
@@ -99,6 +103,7 @@ dd_ukr_arms_category = {
 		ai_will_do = { factor = 5 }
 		visible = { has_completed_focus = UKR_secure_arms_support }
 		available = {
+			has_war_with = RUS
 			HOL = { exists = yes }
 			NOT = { has_war_with = HOL }
 			NOT = { has_country_flag = dd_ukr_asked_hol }
@@ -118,6 +123,7 @@ dd_ukr_arms_category = {
 		ai_will_do = { factor = 5 }
 		visible = { has_completed_focus = UKR_secure_arms_support }
 		available = {
+			has_war_with = RUS
 			FRA = { exists = yes }
 			NOT = { has_war_with = FRA }
 			NOT = { has_country_flag = dd_ukr_asked_fra }
@@ -137,6 +143,7 @@ dd_ukr_arms_category = {
 		ai_will_do = { factor = 5 }
 		visible = { has_completed_focus = UKR_secure_arms_support }
 		available = {
+			has_war_with = RUS
 			POL = { exists = yes }
 			NOT = { has_war_with = POL }
 			NOT = { has_country_flag = dd_ukr_asked_pol }
@@ -156,6 +163,7 @@ dd_ukr_arms_category = {
 		ai_will_do = { factor = 5 }
 		visible = { has_completed_focus = UKR_secure_arms_support }
 		available = {
+			has_war_with = RUS
 			CAN = { exists = yes }
 			NOT = { has_war_with = CAN }
 			NOT = { has_country_flag = dd_ukr_asked_can }

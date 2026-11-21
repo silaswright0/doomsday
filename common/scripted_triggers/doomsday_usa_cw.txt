@@ -138,6 +138,22 @@ dd_usa_cw_pair_spared = {
 			tag = SCN
 			PREV = { tag = PTF }
 		}
+		AND = {
+			tag = ACA
+			PREV = { OR = { tag = RBL has_country_flag = dd_usa_keep_rbl } }
+		}
+		AND = {
+			OR = { tag = RBL has_country_flag = dd_usa_keep_rbl }
+			PREV = { tag = ACA }
+		}
+		AND = {
+			tag = ACA
+			PREV = { OR = { tag = TXG tag = TXR tag = ETX tag = TXO } }
+		}
+		AND = {
+			OR = { tag = TXG tag = TXR tag = ETX tag = TXO }
+			PREV = { tag = ACA }
+		}
 	}
 }
 

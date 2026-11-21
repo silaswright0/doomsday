@@ -362,6 +362,7 @@ dd_chi_navy_open = {
 	set_country_flag = dd_chi_navy_folded
 	add_to_variable = { dd_chi_navy_attr = -0.10 tooltip = naval_attrition_tt }
 	add_to_variable = { dd_chi_navy_fuel = -0.05 tooltip = navy_fuel_consumption_factor_tt }
+	add_to_variable = { dd_chi_navy_range = 0.20 tooltip = navy_max_range_factor_tt }
 	dd_chi_navy_refresh = yes
 }
 
@@ -3258,6 +3259,80 @@ dd_chi_purge_apply = {
 	if = {
 		limit = { has_event_target = dd_chi_purged }
 		event_target:dd_chi_purged = { retire = yes }
+	}
+}
+
+# AI only. Above 70 paranoia, the named Rocket Force officers go first, one a month.
+# Once they are gone, the purge decision fires on its 60-day cooldown.
+dd_chi_ai_paranoia_purge = {
+	if = {
+		limit = {
+			is_ai = yes
+			check_variable = { dd_chi_paranoia > 70 }
+			NOT = { has_country_flag = dd_chi_security_seized }
+		}
+		if = {
+			limit = {
+				has_character = CHI_wang_houbin
+				has_country_flag = dd_chi_rocket_spared
+			}
+			if = {
+				limit = { has_idea = CHI_wang_houbin }
+				remove_ideas = CHI_wang_houbin
+			}
+			retire_character = CHI_wang_houbin
+			dd_chi_purge_taken = yes
+			set_country_flag = dd_chi_rocket_purged
+		}
+		else_if = {
+			limit = {
+				has_character = CHI_zhang_youxia
+				has_country_flag = dd_chi_zhang_kept
+			}
+			if = {
+				limit = { has_idea = CHI_zhang_youxia }
+				remove_ideas = CHI_zhang_youxia
+			}
+			retire_character = CHI_zhang_youxia
+			dd_chi_purge_taken = yes
+			set_country_flag = dd_chi_zhang_expelled
+		}
+		else_if = {
+			limit = {
+				has_character = CHI_fm_liu_zhenli
+				has_country_flag = dd_chi_liu_kept
+			}
+			if = {
+				limit = { has_idea = CHI_fm_liu_zhenli }
+				remove_ideas = CHI_fm_liu_zhenli
+			}
+			retire_character = CHI_fm_liu_zhenli
+			dd_chi_purge_taken = yes
+			set_country_flag = dd_chi_liu_expelled
+		}
+		else_if = {
+			limit = {
+				has_character = CHI_li_qiaoming
+				has_country_flag = dd_chi_li_kept
+			}
+			if = {
+				limit = { has_idea = CHI_li_qiaoming }
+				remove_ideas = CHI_li_qiaoming
+			}
+			retire_character = CHI_li_qiaoming
+			dd_chi_purge_taken = yes
+			set_country_flag = dd_chi_li_expelled
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = CHI_purge_rocket_force
+				NOT = { has_country_flag = dd_chi_ai_purged }
+				dd_chi_purge_has_target = yes
+			}
+			set_country_flag = { flag = dd_chi_ai_purged days = 60 }
+			dd_chi_purge_pick = yes
+			dd_chi_purge_apply = yes
+		}
 	}
 }
 

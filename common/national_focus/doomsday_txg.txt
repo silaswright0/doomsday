@@ -47,7 +47,6 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = dd_cw_released
-			has_war = no
 		}
 		ai_will_do = { factor = 10 }
 		completion_reward = {
@@ -69,7 +68,6 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = dd_cw_released
-			has_war = no
 			NOT = { is_in_faction = yes }
 			OR = {
 				RBM = {
@@ -115,7 +113,6 @@ focus_tree = {
 		}
 		available = {
 			has_country_flag = dd_cw_released
-			has_war = no
 			NOT = { is_in_faction = yes }
 			OR = {
 				VNM = {

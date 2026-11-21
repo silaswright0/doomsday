@@ -1144,6 +1144,101 @@ dd_usa_cw_declare_general_wars = {
 	}
 }
 
+# The anarchist tag is a puppet, so a declare from ACA does not open the war.
+# Join the overlord's civil-war enemies. Texas stays a Texas war.
+dd_usa_cw_aca_join_wars = {
+	if = {
+		limit = {
+			ACA = {
+				has_country_flag = dd_cw_released
+				is_subject = yes
+			}
+		}
+		ACA = { overlord = { save_event_target_as = dd_aca_overlord } }
+		event_target:dd_aca_overlord = {
+			every_enemy_country = {
+				limit = {
+					OR = {
+						tag = USA
+						tag = EAS
+						tag = WCL
+						tag = RBM
+						tag = VNM
+						tag = FDS
+						tag = RBL
+						tag = DES
+						tag = AOG
+						tag = SCN
+						tag = FLO
+						tag = SFT
+						tag = NYF
+						tag = VIR
+						tag = ABR
+						tag = PTF
+						tag = ASK
+						tag = EBC
+						tag = FVA
+					}
+					NOT = { has_war_with = ACA }
+				}
+				ACA = {
+					add_to_war = {
+						targeted_alliance = event_target:dd_aca_overlord
+						enemy = PREV
+					}
+				}
+			}
+		}
+	}
+}
+
+# Anarchist Demand Autonomy. Ending the puppet drops the subject out of the party's wars.
+dd_usa_cw_aca_break_free = {
+	if = {
+		limit = { ACA = { is_subject_of = ROOT } }
+		end_puppet = ACA
+	}
+	ACA = {
+		set_country_flag = dd_usa_anarchist_branch
+		if = {
+			limit = { NOT = { has_idea = dd_usa_workers_fight } }
+			add_ideas = dd_usa_workers_fight
+		}
+		if = {
+			limit = { NOT = { has_war_with = ROOT } }
+			declare_war_on = { target = ROOT type = dd_annex }
+		}
+	}
+	every_country = {
+		limit = {
+			OR = {
+				tag = USA
+				tag = EAS
+				tag = WCL
+				tag = RBM
+				tag = VNM
+				tag = FDS
+				tag = RBL
+				tag = DES
+				tag = AOG
+				tag = SCN
+				tag = FLO
+				tag = SFT
+				tag = NYF
+				tag = VIR
+				tag = ABR
+				tag = PTF
+				tag = ASK
+				tag = EBC
+				tag = FVA
+			}
+			has_war_with = ROOT
+			NOT = { has_war_with = ACA }
+		}
+		ACA = { declare_war_on = { target = PREV type = dd_annex } }
+	}
+}
+
 # Called on the target. Federal Command is already at war with the business coalition's exceptions.
 dd_usa_cw_fva_declare = {
 	if = {
@@ -1971,6 +2066,7 @@ dd_usa_civil_war_fights = {
 	if = { limit = { VNM = { has_country_flag = dd_cw_released } } VNM = { set_country_flag = dd_cw_general } }
 	if = { limit = { FDS = { has_country_flag = dd_cw_released } } FDS = { set_country_flag = dd_cw_general } }
 	if = { limit = { RBL = { has_country_flag = dd_cw_released } } RBL = { set_country_flag = dd_cw_general } }
+	if = { limit = { ACA = { has_country_flag = dd_cw_released } } ACA = { set_country_flag = dd_cw_general } }
 	DES = { set_country_flag = dd_cw_general }
 	AOG = { set_country_flag = dd_cw_general }
 	SCN = { set_country_flag = dd_cw_general }
@@ -1999,6 +2095,7 @@ dd_usa_civil_war_fights = {
 	ABR = { dd_usa_cw_declare_general_wars = yes }
 	PTF = { dd_usa_cw_declare_general_wars = yes }
 	ASK = { dd_usa_cw_declare_general_wars = yes }
+	dd_usa_cw_aca_join_wars = yes
 	USA = { clr_country_flag = dd_cw_general }
 	EAS = { clr_country_flag = dd_cw_general }
 	WCL = { clr_country_flag = dd_cw_general }
@@ -2006,6 +2103,7 @@ dd_usa_civil_war_fights = {
 	VNM = { clr_country_flag = dd_cw_general }
 	FDS = { clr_country_flag = dd_cw_general }
 	RBL = { clr_country_flag = dd_cw_general }
+	ACA = { clr_country_flag = dd_cw_general }
 	DES = { clr_country_flag = dd_cw_general }
 	AOG = { clr_country_flag = dd_cw_general }
 	SCN = { clr_country_flag = dd_cw_general }
@@ -2016,6 +2114,39 @@ dd_usa_civil_war_fights = {
 	ABR = { clr_country_flag = dd_cw_general }
 	PTF = { clr_country_flag = dd_cw_general }
 	ASK = { clr_country_flag = dd_cw_general }
+	# Anarchists fight the civil war, not Texas, and not their communist overlord.
+	if = {
+		limit = {
+			ACA = { has_country_flag = dd_cw_released }
+			RBL = { has_country_flag = dd_cw_released }
+			ACA = { has_war_with = RBL }
+		}
+		ACA = { white_peace = RBL }
+	}
+	if = {
+		limit = {
+			has_country_flag = dd_usa_keep_rbl
+			ACA = { has_country_flag = dd_cw_released is_subject_of = ROOT }
+			ACA = { has_war_with = ROOT }
+		}
+		white_peace = ACA
+	}
+	if = {
+		limit = { ACA = { has_country_flag = dd_cw_released has_war_with = TXG } }
+		ACA = { white_peace = TXG }
+	}
+	if = {
+		limit = { ACA = { has_country_flag = dd_cw_released has_war_with = TXR } }
+		ACA = { white_peace = TXR }
+	}
+	if = {
+		limit = { ACA = { has_country_flag = dd_cw_released has_war_with = ETX } }
+		ACA = { white_peace = ETX }
+	}
+	if = {
+		limit = { ACA = { has_country_flag = dd_cw_released has_war_with = TXO } }
+		ACA = { white_peace = TXO }
+	}
 	# Enforce opening peaces if anything else declared.
 	if = {
 		limit = {

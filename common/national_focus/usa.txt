@@ -700,7 +700,6 @@ focus_tree = {
 			add_to_variable = { dd_usa_aca_pop = 0.02 }
 			add_popularity = { ideology = anarcho_communism popularity = 0.02 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
-			dd_usa_anarchist_policy_1 = yes
 		}
 	}
 	focus = {
@@ -726,7 +725,6 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = communism popularity = 0.02 }
 			add_popularity = { ideology = fascism popularity = 0.01 }
-			dd_usa_communist_policy_1 = yes
 		}
 	}
 	focus = {
@@ -2037,7 +2035,10 @@ focus_tree = {
 		ai_will_do = { factor = 1 }
 		prerequisite = { focus = USA_adjust_policies }
 		bypass = {
-			NOT = { has_war_with = PER }
+			OR = {
+				has_war = no
+				NOT = { has_war_with = PER }
+			}
 		}
 		completion_reward = {
 			dd_usa_iran_victory_peace = yes
@@ -3369,15 +3370,7 @@ focus_tree = {
 			NOT = { dd_is_anarchist_gov = yes }
 		}
 		completion_reward = {
-			if = { limit = { ACA = { is_subject_of = ROOT } } end_puppet = ACA }
-			ACA = {
-				set_country_flag = dd_usa_anarchist_branch
-				if = {
-					limit = { NOT = { has_idea = dd_usa_workers_fight } }
-					add_ideas = dd_usa_workers_fight
-				}
-				declare_war_on = { target = ROOT type = dd_annex }
-			}
+			dd_usa_cw_aca_break_free = yes
 			country_event = { id = dd_usa_cw.1 }
 		}
 	}
