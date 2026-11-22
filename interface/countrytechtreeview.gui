@@ -57,7 +57,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2800 height = 2000
+					width = 3200 height = 2600
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -258,32 +258,28 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_infantry_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_at_2_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_inf_2_tree" position = { x = 445 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mech_2_tree" position = { x = 650 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_sup_2_tree" position = { x = 855 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_sf_2_tree" position = { x = 1060 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_manpad_2_tree" position = { x = 1265 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nv_2_tree" position = { x = 1470 y = 690 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_truck_2_tree" position = { x = 1675 y = 690 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_infantry_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_battle_rifle_cw_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_rpg_early_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_apc_tracked_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_sf_airborne_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "support_weapons_tree"
 				position = { x = 140 y = 210 }
@@ -404,7 +400,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2800 height = 2000
+					width = 3200 height = 2600
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -602,33 +598,33 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_support_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_support_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_ewc_1_tree" position = { x = 240 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_eng_2_tree" position = { x = 415 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_hos_2_tree" position = { x = 590 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_log_2_tree" position = { x = 765 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_rec_2_tree" position = { x = 940 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mnt_2_tree" position = { x = 1115 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mp_2_tree" position = { x = 1290 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_sig_2_tree" position = { x = 1465 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_supkit_2_tree" position = { x = 1640 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_support_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_supkit_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_eng_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_rec_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_hos_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_log_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_mp_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_sig_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_mnt_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_ewc_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "tech_support_tree"
 				position = { x = 100 y = 160 }
@@ -676,7 +672,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2800 height = 2000
+					width = 3200 height = 2600
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -954,30 +950,28 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_armour_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_armour_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_spaa_1_tree" position = { x = 240 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_prot_1_tree" position = { x = 445 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_lt_2_tree" position = { x = 770 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_td_2_tree" position = { x = 975 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mbt_3_tree" position = { x = 1180 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_fcs_2_tree" position = { x = 1385 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_armour_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_mbt_gen1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_recon_car_cw_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_composite_armor_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_smoothbore_125mm_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "main_battle_tank_tree"
 				position = { x = 10% y = 172 }
@@ -1006,7 +1000,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2800 height = 2000
+					width = 3200 height = 2600
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -1297,30 +1291,28 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_spaa_1_tree" position = { x = 240 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_prot_1_tree" position = { x = 445 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_lt_2_tree" position = { x = 770 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_td_2_tree" position = { x = 975 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mbt_3_tree" position = { x = 1180 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_fcs_2_tree" position = { x = 1385 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_nsb_armour_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_mbt_gen1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_recon_car_cw_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_composite_armor_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_smoothbore_125mm_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "main_battle_tank_chassis_tree"
 				position = { x= 750 y = 40 }
@@ -1365,7 +1357,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x=0 y=0 }
 				size = {
-					width = 2800 height = 2000
+					width = 3200 height = 2600
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
@@ -1706,54 +1698,31 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_artillery_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_tow_1_tree" position = { x = 240 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_spg_1_tree" position = { x = 445 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mor_1_tree" position = { x = 650 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_rkt_1_tree" position = { x = 855 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_atg_1_tree" position = { x = 1060 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_shorad_1_tree" position = { x = 1265 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_sam_1_tree" position = { x = 1470 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_dew_1_tree" position = { x = 1675 y = 1190 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_artillery_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_towed_art_cw_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_mlrs_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_shorad_gun_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "artillery2_tree"
 				position = { x = 300 y = 172 }
 				size = { width = 80% height = 80% }
-				slotsize = { width = 70 height = 70 }
-				format = "UP"
-			}
-			gridboxtype = {
-				name = "dd_manpads_tree"
-				position = { x = 80 y = 1012 }
-				slotsize = { width = 70 height = 70 }
-				format = "UP"
-			}
-			gridboxtype = {
-				name = "dd_shorad_tree"
-				position = { x = 80 y = 1082 }
-				slotsize = { width = 70 height = 70 }
-				format = "UP"
-			}
-			gridboxtype = {
-				name = "dd_sam_tree"
-				position = { x = 80 y = 1152 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
@@ -1966,39 +1935,36 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_naval_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_naval_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_cv_1_tree" position = { x = 450 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ssbn_1_tree" position = { x = 810 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cg_1_tree" position = { x = 1170 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_esc_2_tree" position = { x = 1530 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ssk_1_tree" position = { x = 1890 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_amph_2_tree" position = { x = 2250 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_usv_1_tree" position = { x = 2610 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_vls_1_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_son_2_tree" position = { x = 415 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ciws_1_tree" position = { x = 590 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_torp_2_tree" position = { x = 765 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_dc_2_tree" position = { x = 940 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nav_2_tree" position = { x = 1115 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_neng_2_tree" position = { x = 1290 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ngun_4_tree" position = { x = 1465 y = 1090 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_naval_folder_2040" position = { x = 2523 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2040" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_frigate_cw_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_carrier_super_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_sub_diesel_cw_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_ngun_4_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_vls_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_ciws_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_torp_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_son_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_neng_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_nav_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_dc_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "basic_destroyer_tree"
 				position = { x = 150 y = 60}
@@ -2292,31 +2258,28 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_cv_1_tree" position = { x = 450 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ssbn_1_tree" position = { x = 810 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cg_1_tree" position = { x = 1170 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_esc_2_tree" position = { x = 1530 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ssk_1_tree" position = { x = 1890 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_amph_2_tree" position = { x = 2250 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_usv_1_tree" position = { x = 2610 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalfolder_2040" position = { x = 2523 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2040" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_frigate_cw_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_carrier_super_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_sub_diesel_cw_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "basic_ship_hull_light_tree"
 				position = { x = 70 y = 60}
@@ -2546,32 +2509,32 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_vls_1_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_son_2_tree" position = { x = 415 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ciws_1_tree" position = { x = 590 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_torp_2_tree" position = { x = 765 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_dc_2_tree" position = { x = 940 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nav_2_tree" position = { x = 1115 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_neng_2_tree" position = { x = 1290 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ngun_4_tree" position = { x = 1465 y = 1090 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_mtgnavalsupportfolder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_ngun_4_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_vls_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_ciws_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_torp_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_son_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_neng_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_nav_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_dc_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "basic_battery_tree"
 				position = { x = 150 y = 150 }
@@ -2657,7 +2620,7 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = {
-					width = 2800 height = 2000
+					width = 3200 height = 2600
 					min = { width=100%% height=100%% }
 				}
 				clipping = no
@@ -2980,36 +2943,29 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_air_techs_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_cvf_2_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_isr_1_tree" position = { x = 445 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nbm_1_tree" position = { x = 650 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_tac_1_tree" position = { x = 855 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mpa_1_tree" position = { x = 1060 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_str_2_tree" position = { x = 1265 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_hel_2_tree" position = { x = 1470 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_wpn_2_tree" position = { x = 1675 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cas_2_tree" position = { x = 1880 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ftr_4_tree" position = { x = 2085 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_uav_1_tree" position = { x = 2290 y = 890 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_uav_4_tree" position = { x = 2495 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_air_techs_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_jet_gen2_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_cas_jet_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_str_jet_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_uav_recon_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_heli_utility_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "photo_reconnaisance_tree"
 				position = { x = 2700 y = 90 }
@@ -3063,30 +3019,6 @@ guiTypes = {
 				size = { width = 400 height = 400 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
-			}
-			gridboxtype = {
-				name = "dd_recon_uav_tree"
-				position = { x = 300 y = 998 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-			gridboxtype = {
-				name = "dd_strike_uav_tree"
-				position = { x = 440 y = 998 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-			gridboxtype = {
-				name = "dd_transport_heli_tree"
-				position = { x = 580 y = 998 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-			gridboxtype = {
-				name = "dd_loitering_munition_tree"
-				position = { x = 720 y = 998 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
 			}
 		}
 
@@ -3382,36 +3314,29 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_cvf_2_tree" position = { x = 240 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_isr_1_tree" position = { x = 445 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nbm_1_tree" position = { x = 650 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_tac_1_tree" position = { x = 855 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mpa_1_tree" position = { x = 1060 y = 190 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_str_2_tree" position = { x = 1265 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_hel_2_tree" position = { x = 1470 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_wpn_2_tree" position = { x = 1675 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cas_2_tree" position = { x = 1880 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ftr_4_tree" position = { x = 2085 y = 590 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_uav_1_tree" position = { x = 2290 y = 890 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_uav_4_tree" position = { x = 2495 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_bba_air_techs_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_jet_gen2_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_cas_jet_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_str_jet_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_uav_recon_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_heli_utility_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "advanced_small_airframe_tree"
 				position = { x = 90 y = 32 }
@@ -3491,30 +3416,6 @@ guiTypes = {
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
-			gridboxtype = {
-				name = "dd_recon_uav_tree"
-				position = { x = 300 y = 998 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-			gridboxtype = {
-				name = "dd_strike_uav_tree"
-				position = { x = 440 y = 998 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-			gridboxtype = {
-				name = "dd_transport_heli_tree"
-				position = { x = 580 y = 998 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-			gridboxtype = {
-				name = "dd_loitering_munition_tree"
-				position = { x = 720 y = 998 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
 		}
 
 		containerWindowType = {
@@ -3537,7 +3438,7 @@ guiTypes = {
 				name = "size_filler"
 				position = { x=0 y=0 }
 				size = {
-					width = 2800 height = 2000
+					width = 3200 height = 2600
 					min = { width = 100%% height = 100%% }
 				}
 
@@ -3816,33 +3717,33 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_industry_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_industry_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_ind_fork_tree" position = { x = 240 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_syn_1_tree" position = { x = 590 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_nrg_1_tree" position = { x = 765 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_mat_2_tree" position = { x = 940 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_bld_2_tree" position = { x = 1115 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ext_2_tree" position = { x = 1290 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_fuel_2_tree" position = { x = 1465 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_tol_3_tree" position = { x = 1640 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_slot_3_tree" position = { x = 1815 y = 1390 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_industry_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_ind_fork_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_tol_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_fuel_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_syn_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_mat_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_bld_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_ext_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_nrg_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_slot_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "basic_machine_tools_tree"
 				position = { x = 0 y = 172 }
@@ -3903,7 +3804,7 @@ guiTypes = {
 				name = "size_filler"
 				position = { x=0 y=0 }
 				size = {
-					width = 2800 height = 2000
+					width = 3200 height = 2600
 					min = { width= 100%% height = 100%% }
 				}
 
@@ -4274,32 +4175,32 @@ guiTypes = {
 			
 			
 			# DD_TECH_GRID_START
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1955" position = { x = 40 y = 90 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1960" position = { x = 40 y = 190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1965" position = { x = 40 y = 290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1970" position = { x = 40 y = 390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1975" position = { x = 40 y = 490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1980" position = { x = 40 y = 590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1985" position = { x = 40 y = 690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1990" position = { x = 40 y = 790 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_1995" position = { x = 40 y = 890 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_2000" position = { x = 40 y = 990 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_2005" position = { x = 40 y = 1090 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_2010" position = { x = 40 y = 1190 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_2015" position = { x = 40 y = 1290 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_2020" position = { x = 40 y = 1390 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_2025" position = { x = 40 y = 1490 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_2030" position = { x = 40 y = 1590 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			instantTextBoxType = { name = "dd_yr_electronics_folder_2035" position = { x = 40 y = 1690 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 48 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
-			gridboxtype = { name = "dd_nuke_2_tree" position = { x = 240 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_spc_1_tree" position = { x = 415 y = 90 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cpu_2_tree" position = { x = 590 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_rdr_2_tree" position = { x = 765 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_rad_2_tree" position = { x = 940 y = 290 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_ew_2_tree" position = { x = 1115 y = 390 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cry_2_tree" position = { x = 1290 y = 490 } slotsize = { width = 70 height = 100 } format = "UP" }
-			gridboxtype = { name = "dd_cyb_1_tree" position = { x = 1465 y = 890 } slotsize = { width = 70 height = 100 } format = "UP" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1955" position = { x = 143 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1955" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1960" position = { x = 283 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1960" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1965" position = { x = 423 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1965" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1970" position = { x = 563 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1970" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1975" position = { x = 703 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1975" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1980" position = { x = 843 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1980" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1985" position = { x = 983 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1985" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1990" position = { x = 1123 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1990" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_1995" position = { x = 1263 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "1995" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_2000" position = { x = 1403 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2000" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_2005" position = { x = 1543 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2005" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_2010" position = { x = 1683 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2010" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_2015" position = { x = 1823 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2015" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_2020" position = { x = 1963 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2020" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_2025" position = { x = 2103 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2025" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_2030" position = { x = 2243 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2030" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
+			instantTextBoxType = { name = "dd_yr_electronics_folder_2035" position = { x = 2383 y = 40 } textureFile = "" font = "hoi_22tech" borderSize = { x = 0 y = 0 } text = "2035" maxWidth = 90 maxHeight = 24 format = left Orientation = "UPPER_LEFT" }
 			# DD_TECH_GRID_END
+			gridboxtype = { name = "dd_rad_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_rdr_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_cpu_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_cry_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_cyb_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_ew_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_spc_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
+			gridboxtype = { name = "dd_nuke_1_tree" position = { x = 130 y = 110 } slotsize = { width = 70 height = 70 } format = "LEFT" }
 			gridboxtype = {
 				name = "electronic_mechanical_engineering_tree"
 				position = { x=0 y=172 }
@@ -4331,18 +4232,6 @@ guiTypes = {
 				size = { width = 480 height = 650 }
 				slotsize = { width=60 height= 60 }
 				format = "UP"
-			}
-			gridboxtype = {
-				name = "dd_cruise_missile_tree"
-				position = { x=1050 y=820 }
-				slotsize = { width=60 height= 60 }
-				format = "LEFT"
-			}
-			gridboxtype = {
-				name = "dd_srbm_tree"
-				position = { x=1170 y=820 }
-				slotsize = { width=60 height= 60 }
-				format = "LEFT"
 			}
 
 

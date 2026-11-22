@@ -27,6 +27,10 @@ technologies = {
 		}
 		research_cost = 1.5
 		start_year = 1955
+		folder = {
+			name = industry_folder
+			position = { x = 4 y = 0 }
+		}
 		categories = {
 			industry
 		}
@@ -43,6 +47,10 @@ technologies = {
 		}
 		research_cost = 1.5
 		start_year = 1965
+		folder = {
+			name = industry_folder
+			position = { x = 4 y = 4 }
+		}
 		categories = {
 			industry
 		}
@@ -61,7 +69,7 @@ technologies = {
 		start_year = 1975
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 4 y = 8 }
 		}
 		categories = {
 			industry
@@ -81,7 +89,7 @@ technologies = {
 		start_year = 1985
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 2 }
+			position = { x = 4 y = 12 }
 		}
 		categories = {
 			industry
@@ -101,7 +109,7 @@ technologies = {
 		start_year = 1995
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 4 }
+			position = { x = 4 y = 16 }
 		}
 		categories = {
 			industry
@@ -121,7 +129,7 @@ technologies = {
 		start_year = 2005
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 6 }
+			position = { x = 4 y = 20 }
 		}
 		categories = {
 			industry
@@ -141,7 +149,7 @@ technologies = {
 		start_year = 2015
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 8 }
+			position = { x = 4 y = 24 }
 		}
 		categories = {
 			industry
@@ -161,7 +169,7 @@ technologies = {
 		start_year = 2025
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 10 }
+			position = { x = 4 y = 28 }
 		}
 		categories = {
 			industry
@@ -177,7 +185,7 @@ technologies = {
 		start_year = 2035
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 12 }
+			position = { x = 4 y = 32 }
 		}
 		categories = {
 			industry
@@ -250,7 +258,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 3 }
+			position = { x = 0 y = 6 }
 		}
 		categories = {
 			industry
@@ -271,7 +279,7 @@ technologies = {
 		start_year = 1985
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 6 }
+			position = { x = 0 y = 12 }
 		}
 		categories = {
 			industry
@@ -292,7 +300,7 @@ technologies = {
 		start_year = 2005
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 10 }
+			position = { x = 0 y = 20 }
 		}
 		categories = {
 			industry
@@ -309,7 +317,7 @@ technologies = {
 		start_year = 2025
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 14 }
+			position = { x = 0 y = 28 }
 		}
 		categories = {
 			industry
@@ -354,7 +362,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = industry_folder
-			position = { x = 2 y = 3 }
+			position = { x = 2 y = 6 }
 		}
 		categories = {
 			industry
@@ -375,7 +383,7 @@ technologies = {
 		start_year = 1985
 		folder = {
 			name = industry_folder
-			position = { x = 2 y = 6 }
+			position = { x = 2 y = 12 }
 		}
 		categories = {
 			industry
@@ -396,7 +404,7 @@ technologies = {
 		start_year = 2005
 		folder = {
 			name = industry_folder
-			position = { x = 2 y = 10 }
+			position = { x = 2 y = 20 }
 		}
 		categories = {
 			industry
@@ -413,7 +421,7 @@ technologies = {
 		start_year = 2025
 		folder = {
 			name = industry_folder
-			position = { x = 2 y = 14 }
+			position = { x = 2 y = 28 }
 		}
 		categories = {
 			industry
@@ -431,6 +439,10 @@ technologies = {
 		}
 		research_cost = 2.0
 		start_year = 1955
+		folder = {
+			name = industry_folder
+			position = { x = 6 y = 0 }
+		}
 		categories = {
 			industry
 		}
@@ -449,7 +461,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 6 y = 6 }
 		}
 		categories = {
 			industry
@@ -469,7 +481,7 @@ technologies = {
 		start_year = 1991
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 4 }
+			position = { x = 6 y = 14 }
 		}
 		categories = {
 			industry
@@ -489,7 +501,7 @@ technologies = {
 		start_year = 2005
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 7 }
+			position = { x = 6 y = 20 }
 		}
 		categories = {
 			industry
@@ -509,7 +521,7 @@ technologies = {
 		start_year = 2020
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 10 }
+			position = { x = 6 y = 26 }
 		}
 		categories = {
 			industry
@@ -525,7 +537,7 @@ technologies = {
 		start_year = 2032
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 12 }
+			position = { x = 6 y = 30 }
 		}
 		categories = {
 			industry
@@ -549,7 +561,7 @@ technologies = {
 		start_year = 1955
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 8 y = 0 }
 		}
 		categories = {
 			industry
@@ -573,7 +585,7 @@ technologies = {
 		start_year = 1974
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 3 }
+			position = { x = 8 y = 8 }
 		}
 		categories = {
 			industry
@@ -597,7 +609,7 @@ technologies = {
 		start_year = 1993
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 7 }
+			position = { x = 8 y = 16 }
 		}
 		categories = {
 			industry
@@ -621,7 +633,7 @@ technologies = {
 		start_year = 2008
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 10 }
+			position = { x = 8 y = 22 }
 		}
 		categories = {
 			industry
@@ -645,7 +657,7 @@ technologies = {
 		start_year = 2024
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 13 }
+			position = { x = 8 y = 28 }
 		}
 		categories = {
 			industry
@@ -665,7 +677,7 @@ technologies = {
 		start_year = 2034
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 15 }
+			position = { x = 8 y = 32 }
 		}
 		categories = {
 			industry
@@ -683,6 +695,10 @@ technologies = {
 		}
 		research_cost = 2.0
 		start_year = 1955
+		folder = {
+			name = industry_folder
+			position = { x = 10 y = 0 }
+		}
 		categories = {
 			industry
 		}
@@ -701,7 +717,7 @@ technologies = {
 		start_year = 1965
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 10 y = 4 }
 		}
 		categories = {
 			industry
@@ -721,7 +737,7 @@ technologies = {
 		start_year = 1975
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 2 }
+			position = { x = 10 y = 8 }
 		}
 		categories = {
 			industry
@@ -741,7 +757,7 @@ technologies = {
 		start_year = 1985
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 4 }
+			position = { x = 10 y = 12 }
 		}
 		categories = {
 			industry
@@ -761,7 +777,7 @@ technologies = {
 		start_year = 1995
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 6 }
+			position = { x = 10 y = 16 }
 		}
 		categories = {
 			industry
@@ -781,7 +797,7 @@ technologies = {
 		start_year = 2008
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 8 }
+			position = { x = 10 y = 22 }
 		}
 		categories = {
 			industry
@@ -801,7 +817,7 @@ technologies = {
 		start_year = 2018
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 10 }
+			position = { x = 10 y = 26 }
 		}
 		categories = {
 			industry
@@ -821,7 +837,7 @@ technologies = {
 		start_year = 2026
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 12 }
+			position = { x = 10 y = 28 }
 		}
 		categories = {
 			industry
@@ -837,7 +853,7 @@ technologies = {
 		start_year = 2034
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 13 }
+			position = { x = 10 y = 32 }
 		}
 		categories = {
 			industry
@@ -855,6 +871,10 @@ technologies = {
 		}
 		research_cost = 2.0
 		start_year = 1955
+		folder = {
+			name = industry_folder
+			position = { x = 12 y = 0 }
+		}
 		categories = {
 			industry
 		}
@@ -873,7 +893,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 12 y = 6 }
 		}
 		categories = {
 			industry
@@ -893,7 +913,7 @@ technologies = {
 		start_year = 1990
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 4 }
+			position = { x = 12 y = 14 }
 		}
 		categories = {
 			industry
@@ -913,7 +933,7 @@ technologies = {
 		start_year = 2010
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 8 }
+			position = { x = 12 y = 22 }
 		}
 		categories = {
 			industry
@@ -933,7 +953,7 @@ technologies = {
 		start_year = 2025
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 11 }
+			position = { x = 12 y = 28 }
 		}
 		categories = {
 			industry
@@ -949,7 +969,7 @@ technologies = {
 		start_year = 2032
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 12 }
+			position = { x = 12 y = 30 }
 		}
 		categories = {
 			industry
@@ -967,6 +987,10 @@ technologies = {
 		}
 		research_cost = 2.0
 		start_year = 1955
+		folder = {
+			name = industry_folder
+			position = { x = 14 y = 0 }
+		}
 		categories = {
 			industry
 		}
@@ -985,7 +1009,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 14 y = 6 }
 		}
 		categories = {
 			industry
@@ -1005,7 +1029,7 @@ technologies = {
 		start_year = 1990
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 4 }
+			position = { x = 14 y = 14 }
 		}
 		categories = {
 			industry
@@ -1025,7 +1049,7 @@ technologies = {
 		start_year = 2008
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 7 }
+			position = { x = 14 y = 22 }
 		}
 		categories = {
 			industry
@@ -1045,7 +1069,7 @@ technologies = {
 		start_year = 2022
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 10 }
+			position = { x = 14 y = 26 }
 		}
 		categories = {
 			industry
@@ -1061,7 +1085,7 @@ technologies = {
 		start_year = 2032
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 12 }
+			position = { x = 14 y = 30 }
 		}
 		categories = {
 			industry
@@ -1085,7 +1109,7 @@ technologies = {
 		start_year = 1957
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 16 y = 0 }
 		}
 		categories = {
 			industry
@@ -1109,7 +1133,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 3 }
+			position = { x = 16 y = 6 }
 		}
 		categories = {
 			industry
@@ -1129,7 +1153,7 @@ technologies = {
 		start_year = 1990
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 7 }
+			position = { x = 16 y = 14 }
 		}
 		categories = {
 			industry
@@ -1149,7 +1173,7 @@ technologies = {
 		start_year = 2010
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 11 }
+			position = { x = 16 y = 22 }
 		}
 		categories = {
 			industry
@@ -1173,7 +1197,7 @@ technologies = {
 		start_year = 2028
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 14 }
+			position = { x = 16 y = 30 }
 		}
 		categories = {
 			industry
@@ -1189,7 +1213,7 @@ technologies = {
 		start_year = 2035
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 16 }
+			position = { x = 16 y = 32 }
 		}
 		categories = {
 			industry
@@ -1207,6 +1231,10 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 1965
+		folder = {
+			name = industry_folder
+			position = { x = 18 y = 4 }
+		}
 		categories = {
 			industry
 		}
@@ -1223,6 +1251,10 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 1995
+		folder = {
+			name = industry_folder
+			position = { x = 18 y = 16 }
+		}
 		categories = {
 			industry
 		}
@@ -1237,7 +1269,7 @@ technologies = {
 		start_year = 2020
 		folder = {
 			name = industry_folder
-			position = { x = 0 y = 0 }
+			position = { x = 18 y = 26 }
 		}
 		categories = {
 			industry

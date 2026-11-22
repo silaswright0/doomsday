@@ -934,4 +934,253 @@ equipments = {
 			microchips = 1
 		}
 	}
+
+	# Small craft. Separate chain from the destroyer hulls so a speedboat is not an upgrade of DDG(X).
+	# Picture reuses the destroyer silhouette. These boats were not on any hull.
+	ship_hull_fac_1 = {
+		picture = ship_hull_fac_1
+		year = 1955
+		archetype = ship_hull_light
+		parent = ship_hull_light_4
+		priority = 1900
+		visual_level = 1
+		sprite = destroyer
+		alias = destroyer
+		type = screen_ship
+		interface_category = interface_category_screen_ships
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_torpedo_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+		}
+		default_modules = {
+			fixed_ship_battery_slot = empty
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_torpedo_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_radar_slot = empty
+		}
+		manpower = 16
+		build_cost_ic = 150
+		naval_range = 400
+		max_strength = 14
+		reliability = 0.85
+		naval_speed = 46
+		surface_visibility = 4
+		naval_dominance_factor = 4
+		naval_weather_penalty_factor = 1.45
+		resources = {
+			steel = 1
+		}
+	}
+
+	ship_hull_fac_2 = {
+		picture = ship_hull_fac_2
+		year = 1965
+		archetype = ship_hull_light
+		parent = ship_hull_fac_1
+		priority = 1900
+		visual_level = 1
+		sprite = destroyer
+		alias = destroyer
+		type = screen_ship
+		interface_category = interface_category_screen_ships
+		module_slots = inherit
+		manpower = 35
+		build_cost_ic = 280
+		naval_range = 1000
+		max_strength = 28
+		reliability = 0.88
+		naval_speed = 40
+		surface_visibility = 6
+		naval_dominance_factor = 10
+		naval_weather_penalty_factor = 1.3
+		resources = {
+			steel = 1
+		}
+	}
+
+	ship_hull_fac_3 = {
+		picture = ship_hull_fac_3
+		year = 2004
+		archetype = ship_hull_light
+		parent = ship_hull_fac_2
+		priority = 1900
+		visual_level = 1
+		sprite = destroyer
+		alias = destroyer
+		type = screen_ship
+		interface_category = interface_category_screen_ships
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_torpedo_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			rear_1_custom_slot = {
+				required = no
+				allowed_module_categories = { ship_airplane_launcher }
+			}
+		}
+		default_modules = {
+			fixed_ship_battery_slot = empty
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_torpedo_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_radar_slot = empty
+			rear_1_custom_slot = empty
+		}
+		manpower = 70
+		build_cost_ic = 650
+		naval_range = 2200
+		max_strength = 50
+		reliability = 0.9
+		naval_speed = 35
+		surface_visibility = 7
+		naval_dominance_factor = 22
+		naval_weather_penalty_factor = 1.2
+		resources = {
+			steel = 1
+			copper = 1
+		}
+	}
+
+	ship_hull_opv_1 = {
+		picture = ship_hull_opv_1
+		year = 2003
+		archetype = ship_hull_light
+		parent = ship_hull_light_4
+		priority = 1800
+		visual_level = 1
+		sprite = destroyer
+		alias = destroyer
+		type = screen_ship
+		interface_category = interface_category_screen_ships
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			rear_1_custom_slot = {
+				required = no
+				allowed_module_categories = { ship_airplane_launcher }
+			}
+		}
+		default_modules = {
+			fixed_ship_battery_slot = empty
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_radar_slot = empty
+			rear_1_custom_slot = empty
+		}
+		manpower = 50
+		build_cost_ic = 480
+		naval_range = 3500
+		max_strength = 40
+		reliability = 0.9
+		naval_speed = 24
+		surface_visibility = 8
+		naval_dominance_factor = 16
+		naval_weather_penalty_factor = 1.15
+		resources = {
+			steel = 1
+		}
+	}
+
+	ship_hull_mcm_1 = {
+		picture = ship_hull_mcm_1
+		year = 1987
+		archetype = ship_hull_light
+		parent = ship_hull_light_4
+		priority = 1800
+		visual_level = 1
+		sprite = destroyer
+		alias = destroyer
+		type = screen_ship
+		interface_category = interface_category_screen_ships
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar ship_sonar }
+			}
+			mid_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_mine_warfare
+					ship_mine_layer
+					ship_depth_charge
+				}
+			}
+		}
+		default_modules = {
+			fixed_ship_battery_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_radar_slot = empty
+			mid_1_custom_slot = empty
+		}
+		manpower = 45
+		build_cost_ic = 320
+		naval_range = 2500
+		max_strength = 22
+		reliability = 0.88
+		naval_speed = 16
+		surface_visibility = 8
+		naval_dominance_factor = 6
+		naval_weather_penalty_factor = 1.25
+		resources = {
+			steel = 1
+		}
+	}
 }

@@ -3,52 +3,52 @@ dd_intel_has_stealable_tech = {
 	# Country scope: has at least one listed tech that ROOT lacks.
 	OR = {
 		AND = {
-			has_tech = dd_mbt_9
-			ROOT = { NOT = { has_tech = dd_mbt_9 } }
+			has_tech = dd_mbt_gen4_unmanned_turret
+			ROOT = { NOT = { has_tech = dd_mbt_gen4_unmanned_turret } }
 		}
 		AND = {
-			has_tech = dd_mbt_8
-			ROOT = { NOT = { has_tech = dd_mbt_8 } }
+			has_tech = dd_mbt_gen4
+			ROOT = { NOT = { has_tech = dd_mbt_gen4 } }
 		}
 		AND = {
-			has_tech = dd_mbt_7
-			ROOT = { NOT = { has_tech = dd_mbt_7 } }
+			has_tech = dd_mbt_gen3_modernized
+			ROOT = { NOT = { has_tech = dd_mbt_gen3_modernized } }
 		}
 		AND = {
-			has_tech = dd_mbt_6
-			ROOT = { NOT = { has_tech = dd_mbt_6 } }
+			has_tech = dd_mbt_gen3
+			ROOT = { NOT = { has_tech = dd_mbt_gen3 } }
 		}
 		AND = {
-			has_tech = dd_mbt_5
-			ROOT = { NOT = { has_tech = dd_mbt_5 } }
+			has_tech = dd_mbt_gen3
+			ROOT = { NOT = { has_tech = dd_mbt_gen3 } }
 		}
 		AND = {
-			has_tech = dd_mbt_4
-			ROOT = { NOT = { has_tech = dd_mbt_4 } }
+			has_tech = dd_mbt_gen2
+			ROOT = { NOT = { has_tech = dd_mbt_gen2 } }
 		}
 		AND = {
-			has_tech = dd_ftr_6
-			ROOT = { NOT = { has_tech = dd_ftr_6 } }
+			has_tech = dd_jet_gen6_optionally_manned
+			ROOT = { NOT = { has_tech = dd_jet_gen6_optionally_manned } }
 		}
 		AND = {
-			has_tech = dd_ftr_5b
-			ROOT = { NOT = { has_tech = dd_ftr_5b } }
+			has_tech = dd_jet_gen5_stealth
+			ROOT = { NOT = { has_tech = dd_jet_gen5_stealth } }
 		}
 		AND = {
-			has_tech = dd_ftr_5a
-			ROOT = { NOT = { has_tech = dd_ftr_5a } }
+			has_tech = dd_jet_gen4_plus
+			ROOT = { NOT = { has_tech = dd_jet_gen4_plus } }
 		}
 		AND = {
-			has_tech = dd_ftr_45
-			ROOT = { NOT = { has_tech = dd_ftr_45 } }
+			has_tech = dd_jet_gen4_plus
+			ROOT = { NOT = { has_tech = dd_jet_gen4_plus } }
 		}
 		AND = {
-			has_tech = dd_ftr_4
-			ROOT = { NOT = { has_tech = dd_ftr_4 } }
+			has_tech = dd_jet_gen4
+			ROOT = { NOT = { has_tech = dd_jet_gen4 } }
 		}
 		AND = {
-			has_tech = dd_ftr_3
-			ROOT = { NOT = { has_tech = dd_ftr_3 } }
+			has_tech = dd_jet_gen3
+			ROOT = { NOT = { has_tech = dd_jet_gen3 } }
 		}
 		AND = {
 			has_tech = dd_cpu_9
@@ -75,120 +75,124 @@ dd_intel_has_stealable_tech = {
 			ROOT = { NOT = { has_tech = dd_cpu_4 } }
 		}
 		AND = {
-			has_tech = dd_inf_8
-			ROOT = { NOT = { has_tech = dd_inf_8 } }
+			has_tech = dd_directed_energy_squad_wpn
+			ROOT = { NOT = { has_tech = dd_directed_energy_squad_wpn } }
 		}
 		AND = {
-			has_tech = dd_inf_7
-			ROOT = { NOT = { has_tech = dd_inf_7 } }
+			has_tech = dd_ngsw_program
+			ROOT = { NOT = { has_tech = dd_ngsw_program } }
 		}
 		AND = {
-			has_tech = dd_inf_6
-			ROOT = { NOT = { has_tech = dd_inf_6 } }
+			has_tech = dd_advanced_ballistics
+			ROOT = { NOT = { has_tech = dd_advanced_ballistics } }
 		}
 		AND = {
-			has_tech = dd_inf_5
-			ROOT = { NOT = { has_tech = dd_inf_5 } }
+			has_tech = dd_modular_rifle_sys
+			ROOT = { NOT = { has_tech = dd_modular_rifle_sys } }
 		}
 		AND = {
-			has_tech = dd_at_8
-			ROOT = { NOT = { has_tech = dd_at_8 } }
+			has_tech = dd_atgm_next_gen
+			ROOT = { NOT = { has_tech = dd_atgm_next_gen } }
 		}
 		AND = {
-			has_tech = dd_at_7
-			ROOT = { NOT = { has_tech = dd_at_7 } }
+			has_tech = dd_atgm_next_gen
+			ROOT = { NOT = { has_tech = dd_atgm_next_gen } }
 		}
 		AND = {
-			has_tech = dd_at_6
-			ROOT = { NOT = { has_tech = dd_at_6 } }
+			has_tech = dd_atgm_top_attack
+			ROOT = { NOT = { has_tech = dd_atgm_top_attack } }
 		}
 		AND = {
-			has_tech = dd_mech_6
-			ROOT = { NOT = { has_tech = dd_mech_6 } }
+			has_tech = dd_ifv_next_gen
+			ROOT = { NOT = { has_tech = dd_ifv_next_gen } }
 		}
 		AND = {
-			has_tech = dd_mech_5
-			ROOT = { NOT = { has_tech = dd_mech_5 } }
+			has_tech = dd_ifv_heavy
+			ROOT = { NOT = { has_tech = dd_ifv_heavy } }
 		}
 		AND = {
-			has_tech = dd_cas_6
-			ROOT = { NOT = { has_tech = dd_cas_6 } }
+			has_tech = dd_ifv_3
+			ROOT = { NOT = { has_tech = dd_ifv_3 } }
 		}
 		AND = {
-			has_tech = dd_cas_5
-			ROOT = { NOT = { has_tech = dd_cas_5 } }
+			has_tech = dd_cas_stealth
+			ROOT = { NOT = { has_tech = dd_cas_stealth } }
 		}
 		AND = {
-			has_tech = dd_str_6
-			ROOT = { NOT = { has_tech = dd_str_6 } }
+			has_tech = dd_laser_guided_bombs
+			ROOT = { NOT = { has_tech = dd_laser_guided_bombs } }
 		}
 		AND = {
-			has_tech = dd_str_5
-			ROOT = { NOT = { has_tech = dd_str_5 } }
+			has_tech = dd_str_orbital_strike_platform
+			ROOT = { NOT = { has_tech = dd_str_orbital_strike_platform } }
 		}
 		AND = {
-			has_tech = dd_uav_6
-			ROOT = { NOT = { has_tech = dd_uav_6 } }
+			has_tech = dd_str_hypersonic_glide_vehicle
+			ROOT = { NOT = { has_tech = dd_str_hypersonic_glide_vehicle } }
 		}
 		AND = {
-			has_tech = dd_uav_5
-			ROOT = { NOT = { has_tech = dd_uav_5 } }
+			has_tech = dd_uav_stealth_swarm
+			ROOT = { NOT = { has_tech = dd_uav_stealth_swarm } }
 		}
 		AND = {
-			has_tech = dd_hel_6
-			ROOT = { NOT = { has_tech = dd_hel_6 } }
+			has_tech = dd_uav_ucav_strike
+			ROOT = { NOT = { has_tech = dd_uav_ucav_strike } }
 		}
 		AND = {
-			has_tech = dd_hel_5
-			ROOT = { NOT = { has_tech = dd_hel_5 } }
+			has_tech = dd_heli_stealth
+			ROOT = { NOT = { has_tech = dd_heli_stealth } }
 		}
 		AND = {
-			has_tech = dd_esc_7
-			ROOT = { NOT = { has_tech = dd_esc_7 } }
+			has_tech = dd_heli_attack_2
+			ROOT = { NOT = { has_tech = dd_heli_attack_2 } }
 		}
 		AND = {
-			has_tech = dd_esc_6
-			ROOT = { NOT = { has_tech = dd_esc_6 } }
+			has_tech = dd_arsenal_ship
+			ROOT = { NOT = { has_tech = dd_arsenal_ship } }
 		}
 		AND = {
-			has_tech = dd_esc_5
-			ROOT = { NOT = { has_tech = dd_esc_5 } }
+			has_tech = dd_destroyer_stealth
+			ROOT = { NOT = { has_tech = dd_destroyer_stealth } }
 		}
 		AND = {
-			has_tech = dd_esc_4
-			ROOT = { NOT = { has_tech = dd_esc_4 } }
+			has_tech = dd_destroyer_aegis
+			ROOT = { NOT = { has_tech = dd_destroyer_aegis } }
 		}
 		AND = {
-			has_tech = dd_ssn_6
-			ROOT = { NOT = { has_tech = dd_ssn_6 } }
+			has_tech = dd_frigate_stealth
+			ROOT = { NOT = { has_tech = dd_frigate_stealth } }
 		}
 		AND = {
-			has_tech = dd_ssn_5
-			ROOT = { NOT = { has_tech = dd_ssn_5 } }
+			has_tech = dd_sub_nuclear_stealth
+			ROOT = { NOT = { has_tech = dd_sub_nuclear_stealth } }
 		}
 		AND = {
-			has_tech = dd_ssbn_4
-			ROOT = { NOT = { has_tech = dd_ssbn_4 } }
+			has_tech = dd_sub_nuclear_stealth
+			ROOT = { NOT = { has_tech = dd_sub_nuclear_stealth } }
 		}
 		AND = {
-			has_tech = dd_sam_6
-			ROOT = { NOT = { has_tech = dd_sam_6 } }
+			has_tech = dd_sub_ssbn_hypersonic
+			ROOT = { NOT = { has_tech = dd_sub_ssbn_hypersonic } }
 		}
 		AND = {
-			has_tech = dd_sam_5
-			ROOT = { NOT = { has_tech = dd_sam_5 } }
+			has_tech = dd_abm_exoatmospheric
+			ROOT = { NOT = { has_tech = dd_abm_exoatmospheric } }
 		}
 		AND = {
-			has_tech = dd_spg_7
-			ROOT = { NOT = { has_tech = dd_spg_7 } }
+			has_tech = dd_theater_missile_defense
+			ROOT = { NOT = { has_tech = dd_theater_missile_defense } }
 		}
 		AND = {
-			has_tech = dd_rkt_7
-			ROOT = { NOT = { has_tech = dd_rkt_7 } }
+			has_tech = dd_precision_guided_shells
+			ROOT = { NOT = { has_tech = dd_precision_guided_shells } }
 		}
 		AND = {
-			has_tech = dd_dew_6
-			ROOT = { NOT = { has_tech = dd_dew_6 } }
+			has_tech = dd_hypersonic_cruise_missile
+			ROOT = { NOT = { has_tech = dd_hypersonic_cruise_missile } }
+		}
+		AND = {
+			has_tech = dd_high_energy_laser_defense
+			ROOT = { NOT = { has_tech = dd_high_energy_laser_defense } }
 		}
 		AND = {
 			has_tech = jet_engines

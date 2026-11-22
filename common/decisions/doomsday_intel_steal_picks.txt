@@ -10,8 +10,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_mbt_9 }
-			NOT = { has_tech = dd_mbt_9 }
+			var:dd_intel_mission_target = { has_tech = dd_mbt_gen4_unmanned_turret }
+			NOT = { has_tech = dd_mbt_gen4_unmanned_turret }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -19,14 +19,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_mbt_9 = 1 }
+				set_technology = { dd_mbt_gen4_unmanned_turret = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_mbt_9 = 1 }
+					set_technology = { dd_mbt_gen4_unmanned_turret = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -51,8 +51,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_mbt_8 }
-			NOT = { has_tech = dd_mbt_8 }
+			var:dd_intel_mission_target = { has_tech = dd_mbt_gen4 }
+			NOT = { has_tech = dd_mbt_gen4 }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -60,14 +60,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_mbt_8 = 1 }
+				set_technology = { dd_mbt_gen4 = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_mbt_8 = 1 }
+					set_technology = { dd_mbt_gen4 = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -92,8 +92,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_mbt_7 }
-			NOT = { has_tech = dd_mbt_7 }
+			var:dd_intel_mission_target = { has_tech = dd_mbt_gen3_modernized }
+			NOT = { has_tech = dd_mbt_gen3_modernized }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -101,14 +101,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_mbt_7 = 1 }
+				set_technology = { dd_mbt_gen3_modernized = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_mbt_7 = 1 }
+					set_technology = { dd_mbt_gen3_modernized = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -133,8 +133,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_mbt_6 }
-			NOT = { has_tech = dd_mbt_6 }
+			var:dd_intel_mission_target = { has_tech = dd_mbt_gen3 }
+			NOT = { has_tech = dd_mbt_gen3 }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -142,14 +142,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_mbt_6 = 1 }
+				set_technology = { dd_mbt_gen3 = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_mbt_6 = 1 }
+					set_technology = { dd_mbt_gen3 = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -174,8 +174,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_mbt_5 }
-			NOT = { has_tech = dd_mbt_5 }
+			var:dd_intel_mission_target = { has_tech = dd_mbt_gen3 }
+			NOT = { has_tech = dd_mbt_gen3 }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -183,14 +183,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_mbt_5 = 1 }
+				set_technology = { dd_mbt_gen3 = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_mbt_5 = 1 }
+					set_technology = { dd_mbt_gen3 = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -215,8 +215,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_mbt_4 }
-			NOT = { has_tech = dd_mbt_4 }
+			var:dd_intel_mission_target = { has_tech = dd_mbt_gen2 }
+			NOT = { has_tech = dd_mbt_gen2 }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -224,14 +224,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_mbt_4 = 1 }
+				set_technology = { dd_mbt_gen2 = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_mbt_4 = 1 }
+					set_technology = { dd_mbt_gen2 = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -256,8 +256,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ftr_6 }
-			NOT = { has_tech = dd_ftr_6 }
+			var:dd_intel_mission_target = { has_tech = dd_jet_gen6_optionally_manned }
+			NOT = { has_tech = dd_jet_gen6_optionally_manned }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -265,14 +265,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ftr_6 = 1 }
+				set_technology = { dd_jet_gen6_optionally_manned = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ftr_6 = 1 }
+					set_technology = { dd_jet_gen6_optionally_manned = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -297,8 +297,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ftr_5b }
-			NOT = { has_tech = dd_ftr_5b }
+			var:dd_intel_mission_target = { has_tech = dd_jet_gen5_stealth }
+			NOT = { has_tech = dd_jet_gen5_stealth }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -306,14 +306,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ftr_5b = 1 }
+				set_technology = { dd_jet_gen5_stealth = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ftr_5b = 1 }
+					set_technology = { dd_jet_gen5_stealth = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -338,8 +338,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ftr_5a }
-			NOT = { has_tech = dd_ftr_5a }
+			var:dd_intel_mission_target = { has_tech = dd_jet_gen4_plus }
+			NOT = { has_tech = dd_jet_gen4_plus }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -347,14 +347,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ftr_5a = 1 }
+				set_technology = { dd_jet_gen4_plus = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ftr_5a = 1 }
+					set_technology = { dd_jet_gen4_plus = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -379,8 +379,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ftr_45 }
-			NOT = { has_tech = dd_ftr_45 }
+			var:dd_intel_mission_target = { has_tech = dd_jet_gen4_plus }
+			NOT = { has_tech = dd_jet_gen4_plus }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -388,14 +388,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ftr_45 = 1 }
+				set_technology = { dd_jet_gen4_plus = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ftr_45 = 1 }
+					set_technology = { dd_jet_gen4_plus = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -420,8 +420,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ftr_4 }
-			NOT = { has_tech = dd_ftr_4 }
+			var:dd_intel_mission_target = { has_tech = dd_jet_gen4 }
+			NOT = { has_tech = dd_jet_gen4 }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -429,14 +429,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ftr_4 = 1 }
+				set_technology = { dd_jet_gen4 = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ftr_4 = 1 }
+					set_technology = { dd_jet_gen4 = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -461,8 +461,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ftr_3 }
-			NOT = { has_tech = dd_ftr_3 }
+			var:dd_intel_mission_target = { has_tech = dd_jet_gen3 }
+			NOT = { has_tech = dd_jet_gen3 }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -470,14 +470,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ftr_3 = 1 }
+				set_technology = { dd_jet_gen3 = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ftr_3 = 1 }
+					set_technology = { dd_jet_gen3 = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -748,8 +748,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_inf_8 }
-			NOT = { has_tech = dd_inf_8 }
+			var:dd_intel_mission_target = { has_tech = dd_directed_energy_squad_wpn }
+			NOT = { has_tech = dd_directed_energy_squad_wpn }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -757,14 +757,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_inf_8 = 1 }
+				set_technology = { dd_directed_energy_squad_wpn = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_inf_8 = 1 }
+					set_technology = { dd_directed_energy_squad_wpn = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -789,8 +789,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_inf_7 }
-			NOT = { has_tech = dd_inf_7 }
+			var:dd_intel_mission_target = { has_tech = dd_ngsw_program }
+			NOT = { has_tech = dd_ngsw_program }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -798,14 +798,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_inf_7 = 1 }
+				set_technology = { dd_ngsw_program = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_inf_7 = 1 }
+					set_technology = { dd_ngsw_program = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -830,8 +830,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_inf_6 }
-			NOT = { has_tech = dd_inf_6 }
+			var:dd_intel_mission_target = { has_tech = dd_advanced_ballistics }
+			NOT = { has_tech = dd_advanced_ballistics }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -839,14 +839,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_inf_6 = 1 }
+				set_technology = { dd_advanced_ballistics = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_inf_6 = 1 }
+					set_technology = { dd_advanced_ballistics = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -871,8 +871,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_inf_5 }
-			NOT = { has_tech = dd_inf_5 }
+			var:dd_intel_mission_target = { has_tech = dd_modular_rifle_sys }
+			NOT = { has_tech = dd_modular_rifle_sys }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -880,14 +880,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_inf_5 = 1 }
+				set_technology = { dd_modular_rifle_sys = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_inf_5 = 1 }
+					set_technology = { dd_modular_rifle_sys = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -912,8 +912,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_at_8 }
-			NOT = { has_tech = dd_at_8 }
+			var:dd_intel_mission_target = { has_tech = dd_atgm_next_gen }
+			NOT = { has_tech = dd_atgm_next_gen }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -921,14 +921,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_at_8 = 1 }
+				set_technology = { dd_atgm_next_gen = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_at_8 = 1 }
+					set_technology = { dd_atgm_next_gen = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -953,8 +953,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_at_7 }
-			NOT = { has_tech = dd_at_7 }
+			var:dd_intel_mission_target = { has_tech = dd_atgm_next_gen }
+			NOT = { has_tech = dd_atgm_next_gen }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -962,14 +962,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_at_7 = 1 }
+				set_technology = { dd_atgm_next_gen = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_at_7 = 1 }
+					set_technology = { dd_atgm_next_gen = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -994,8 +994,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_at_6 }
-			NOT = { has_tech = dd_at_6 }
+			var:dd_intel_mission_target = { has_tech = dd_atgm_top_attack }
+			NOT = { has_tech = dd_atgm_top_attack }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1003,14 +1003,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_at_6 = 1 }
+				set_technology = { dd_atgm_top_attack = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_at_6 = 1 }
+					set_technology = { dd_atgm_top_attack = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1035,8 +1035,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_mech_6 }
-			NOT = { has_tech = dd_mech_6 }
+			var:dd_intel_mission_target = { has_tech = dd_ifv_next_gen }
+			NOT = { has_tech = dd_ifv_next_gen }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1044,14 +1044,55 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_mech_6 = 1 }
+				set_technology = { dd_ifv_next_gen = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_mech_6 = 1 }
+					set_technology = { dd_ifv_next_gen = 1 }
+					set_country_flag = dd_intel_steal_ok
+				}
+			}
+			var:dd_intel_mission_target = {
+				if = {
+					limit = { ROOT = { has_country_flag = dd_intel_steal_ok } }
+					news_event = { id = doomsday_intel.12 hours = 2 }
+				}
+				else = {
+					news_event = { id = doomsday_intel.13 hours = 2 }
+				}
+			}
+			clr_country_flag = dd_intel_steal_ok
+			dd_intel_finish_locked = yes
+		}
+	}
+
+	dd_intel_steal_pick_dd_mech_4 = {
+		icon = generic_research
+		allowed = { always = yes }
+		priority = 40
+		visible = {
+			check_variable = { dd_intel_mission = 6 }
+			has_country_flag = dd_intel_locked
+			var:dd_intel_mission_target = { has_tech = dd_ifv_3 }
+			NOT = { has_tech = dd_ifv_3 }
+		}
+		cost = 0
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			clr_country_flag = dd_intel_steal_ok
+			if = {
+				limit = { dd_intel_is_t1 = yes }
+				set_technology = { dd_ifv_3 = 1 }
+				set_country_flag = dd_intel_steal_ok
+			}
+			else = {
+				dd_intel_det_flip = yes
+				if = {
+					limit = { check_variable = { dd_intel_flip = 0 } }
+					set_technology = { dd_ifv_3 = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1076,8 +1117,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_mech_5 }
-			NOT = { has_tech = dd_mech_5 }
+			var:dd_intel_mission_target = { has_tech = dd_ifv_heavy }
+			NOT = { has_tech = dd_ifv_heavy }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1085,14 +1126,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_mech_5 = 1 }
+				set_technology = { dd_ifv_heavy = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_mech_5 = 1 }
+					set_technology = { dd_ifv_heavy = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1117,8 +1158,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_cas_6 }
-			NOT = { has_tech = dd_cas_6 }
+			var:dd_intel_mission_target = { has_tech = dd_cas_stealth }
+			NOT = { has_tech = dd_cas_stealth }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1126,14 +1167,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_cas_6 = 1 }
+				set_technology = { dd_cas_stealth = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_cas_6 = 1 }
+					set_technology = { dd_cas_stealth = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1158,8 +1199,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_cas_5 }
-			NOT = { has_tech = dd_cas_5 }
+			var:dd_intel_mission_target = { has_tech = dd_laser_guided_bombs }
+			NOT = { has_tech = dd_laser_guided_bombs }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1167,14 +1208,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_cas_5 = 1 }
+				set_technology = { dd_laser_guided_bombs = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_cas_5 = 1 }
+					set_technology = { dd_laser_guided_bombs = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1199,8 +1240,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_str_6 }
-			NOT = { has_tech = dd_str_6 }
+			var:dd_intel_mission_target = { has_tech = dd_str_orbital_strike_platform }
+			NOT = { has_tech = dd_str_orbital_strike_platform }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1208,14 +1249,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_str_6 = 1 }
+				set_technology = { dd_str_orbital_strike_platform = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_str_6 = 1 }
+					set_technology = { dd_str_orbital_strike_platform = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1240,8 +1281,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_str_5 }
-			NOT = { has_tech = dd_str_5 }
+			var:dd_intel_mission_target = { has_tech = dd_str_hypersonic_glide_vehicle }
+			NOT = { has_tech = dd_str_hypersonic_glide_vehicle }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1249,14 +1290,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_str_5 = 1 }
+				set_technology = { dd_str_hypersonic_glide_vehicle = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_str_5 = 1 }
+					set_technology = { dd_str_hypersonic_glide_vehicle = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1281,8 +1322,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_uav_6 }
-			NOT = { has_tech = dd_uav_6 }
+			var:dd_intel_mission_target = { has_tech = dd_uav_stealth_swarm }
+			NOT = { has_tech = dd_uav_stealth_swarm }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1290,14 +1331,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_uav_6 = 1 }
+				set_technology = { dd_uav_stealth_swarm = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_uav_6 = 1 }
+					set_technology = { dd_uav_stealth_swarm = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1322,8 +1363,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_uav_5 }
-			NOT = { has_tech = dd_uav_5 }
+			var:dd_intel_mission_target = { has_tech = dd_uav_ucav_strike }
+			NOT = { has_tech = dd_uav_ucav_strike }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1331,14 +1372,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_uav_5 = 1 }
+				set_technology = { dd_uav_ucav_strike = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_uav_5 = 1 }
+					set_technology = { dd_uav_ucav_strike = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1363,8 +1404,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_hel_6 }
-			NOT = { has_tech = dd_hel_6 }
+			var:dd_intel_mission_target = { has_tech = dd_heli_stealth }
+			NOT = { has_tech = dd_heli_stealth }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1372,14 +1413,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_hel_6 = 1 }
+				set_technology = { dd_heli_stealth = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_hel_6 = 1 }
+					set_technology = { dd_heli_stealth = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1404,8 +1445,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_hel_5 }
-			NOT = { has_tech = dd_hel_5 }
+			var:dd_intel_mission_target = { has_tech = dd_heli_attack_2 }
+			NOT = { has_tech = dd_heli_attack_2 }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1413,14 +1454,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_hel_5 = 1 }
+				set_technology = { dd_heli_attack_2 = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_hel_5 = 1 }
+					set_technology = { dd_heli_attack_2 = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1445,8 +1486,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_esc_7 }
-			NOT = { has_tech = dd_esc_7 }
+			var:dd_intel_mission_target = { has_tech = dd_arsenal_ship }
+			NOT = { has_tech = dd_arsenal_ship }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1454,14 +1495,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_esc_7 = 1 }
+				set_technology = { dd_arsenal_ship = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_esc_7 = 1 }
+					set_technology = { dd_arsenal_ship = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1486,8 +1527,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_esc_6 }
-			NOT = { has_tech = dd_esc_6 }
+			var:dd_intel_mission_target = { has_tech = dd_destroyer_stealth }
+			NOT = { has_tech = dd_destroyer_stealth }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1495,14 +1536,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_esc_6 = 1 }
+				set_technology = { dd_destroyer_stealth = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_esc_6 = 1 }
+					set_technology = { dd_destroyer_stealth = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1527,8 +1568,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_esc_5 }
-			NOT = { has_tech = dd_esc_5 }
+			var:dd_intel_mission_target = { has_tech = dd_destroyer_aegis }
+			NOT = { has_tech = dd_destroyer_aegis }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1536,14 +1577,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_esc_5 = 1 }
+				set_technology = { dd_destroyer_aegis = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_esc_5 = 1 }
+					set_technology = { dd_destroyer_aegis = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1568,8 +1609,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_esc_4 }
-			NOT = { has_tech = dd_esc_4 }
+			var:dd_intel_mission_target = { has_tech = dd_frigate_stealth }
+			NOT = { has_tech = dd_frigate_stealth }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1577,14 +1618,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_esc_4 = 1 }
+				set_technology = { dd_frigate_stealth = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_esc_4 = 1 }
+					set_technology = { dd_frigate_stealth = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1609,8 +1650,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ssn_6 }
-			NOT = { has_tech = dd_ssn_6 }
+			var:dd_intel_mission_target = { has_tech = dd_sub_nuclear_stealth }
+			NOT = { has_tech = dd_sub_nuclear_stealth }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1618,14 +1659,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ssn_6 = 1 }
+				set_technology = { dd_sub_nuclear_stealth = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ssn_6 = 1 }
+					set_technology = { dd_sub_nuclear_stealth = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1650,8 +1691,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ssn_5 }
-			NOT = { has_tech = dd_ssn_5 }
+			var:dd_intel_mission_target = { has_tech = dd_sub_nuclear_stealth }
+			NOT = { has_tech = dd_sub_nuclear_stealth }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1659,14 +1700,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ssn_5 = 1 }
+				set_technology = { dd_sub_nuclear_stealth = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ssn_5 = 1 }
+					set_technology = { dd_sub_nuclear_stealth = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1691,8 +1732,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_ssbn_4 }
-			NOT = { has_tech = dd_ssbn_4 }
+			var:dd_intel_mission_target = { has_tech = dd_sub_ssbn_hypersonic }
+			NOT = { has_tech = dd_sub_ssbn_hypersonic }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1700,14 +1741,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_ssbn_4 = 1 }
+				set_technology = { dd_sub_ssbn_hypersonic = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_ssbn_4 = 1 }
+					set_technology = { dd_sub_ssbn_hypersonic = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1732,8 +1773,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_sam_6 }
-			NOT = { has_tech = dd_sam_6 }
+			var:dd_intel_mission_target = { has_tech = dd_abm_exoatmospheric }
+			NOT = { has_tech = dd_abm_exoatmospheric }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1741,14 +1782,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_sam_6 = 1 }
+				set_technology = { dd_abm_exoatmospheric = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_sam_6 = 1 }
+					set_technology = { dd_abm_exoatmospheric = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1773,8 +1814,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_sam_5 }
-			NOT = { has_tech = dd_sam_5 }
+			var:dd_intel_mission_target = { has_tech = dd_theater_missile_defense }
+			NOT = { has_tech = dd_theater_missile_defense }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1782,14 +1823,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_sam_5 = 1 }
+				set_technology = { dd_theater_missile_defense = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_sam_5 = 1 }
+					set_technology = { dd_theater_missile_defense = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1814,8 +1855,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_spg_7 }
-			NOT = { has_tech = dd_spg_7 }
+			var:dd_intel_mission_target = { has_tech = dd_precision_guided_shells }
+			NOT = { has_tech = dd_precision_guided_shells }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1823,14 +1864,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_spg_7 = 1 }
+				set_technology = { dd_precision_guided_shells = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_spg_7 = 1 }
+					set_technology = { dd_precision_guided_shells = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1855,8 +1896,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_rkt_7 }
-			NOT = { has_tech = dd_rkt_7 }
+			var:dd_intel_mission_target = { has_tech = dd_hypersonic_cruise_missile }
+			NOT = { has_tech = dd_hypersonic_cruise_missile }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1864,14 +1905,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_rkt_7 = 1 }
+				set_technology = { dd_hypersonic_cruise_missile = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_rkt_7 = 1 }
+					set_technology = { dd_hypersonic_cruise_missile = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}
@@ -1896,8 +1937,8 @@ doomsday_intel_category = {
 		visible = {
 			check_variable = { dd_intel_mission = 6 }
 			has_country_flag = dd_intel_locked
-			var:dd_intel_mission_target = { has_tech = dd_dew_6 }
-			NOT = { has_tech = dd_dew_6 }
+			var:dd_intel_mission_target = { has_tech = dd_high_energy_laser_defense }
+			NOT = { has_tech = dd_high_energy_laser_defense }
 		}
 		cost = 0
 		ai_will_do = { factor = 0 }
@@ -1905,14 +1946,14 @@ doomsday_intel_category = {
 			clr_country_flag = dd_intel_steal_ok
 			if = {
 				limit = { dd_intel_is_t1 = yes }
-				set_technology = { dd_dew_6 = 1 }
+				set_technology = { dd_high_energy_laser_defense = 1 }
 				set_country_flag = dd_intel_steal_ok
 			}
 			else = {
 				dd_intel_det_flip = yes
 				if = {
 					limit = { check_variable = { dd_intel_flip = 0 } }
-					set_technology = { dd_dew_6 = 1 }
+					set_technology = { dd_high_energy_laser_defense = 1 }
 					set_country_flag = dd_intel_steal_ok
 				}
 			}

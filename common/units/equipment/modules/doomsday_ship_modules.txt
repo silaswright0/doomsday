@@ -257,6 +257,8 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 		add_stats = {
 			carrier_size = 1
+			sub_detection = 4
+			surface_detection = 2
 			build_cost_ic = 80.0
 		}
 	}
@@ -268,6 +270,8 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 		add_stats = {
 			carrier_size = 1
+			sub_detection = 6
+			surface_detection = 3
 			build_cost_ic = 140.0
 		}
 	}
@@ -278,7 +282,9 @@ equipment_modules = {
 		parent = ship_hangar_1
 		sfx = sfx_ui_sd_module_turret
 		add_stats = {
-			carrier_size = 1
+			carrier_size = 2
+			sub_detection = 8
+			surface_detection = 4
 			build_cost_ic = 160.0
 		}
 	}
@@ -291,6 +297,19 @@ equipment_modules = {
 		add_stats = {
 			carrier_size = 1
 			build_cost_ic = 600.0
+		}
+	}
+
+	ship_uav_deck_1 = {
+		abbreviation = "d303"
+		category = ship_airplane_launcher
+		parent = ship_hangar_2
+		sfx = sfx_ui_sd_module_turret
+		add_stats = {
+			carrier_size = 1
+			sub_detection = 5
+			surface_detection = 3
+			build_cost_ic = 220.0
 		}
 	}
 }

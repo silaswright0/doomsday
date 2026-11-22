@@ -402,87 +402,87 @@ dd_intel_steal_pick = {
 	# Covers main Doomsday trees so the mission rarely no-ops against peers.
 	if = {
 		limit = {
-			FROM = { has_tech = dd_mbt_9 }
-			NOT = { has_tech = dd_mbt_9 }
+			FROM = { has_tech = dd_mbt_gen4_unmanned_turret }
+			NOT = { has_tech = dd_mbt_gen4_unmanned_turret }
 		}
-		set_technology = { dd_mbt_9 = 1 }
+		set_technology = { dd_mbt_gen4_unmanned_turret = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mbt_8 }
-			NOT = { has_tech = dd_mbt_8 }
+			FROM = { has_tech = dd_mbt_gen4 }
+			NOT = { has_tech = dd_mbt_gen4 }
 		}
-		set_technology = { dd_mbt_8 = 1 }
+		set_technology = { dd_mbt_gen4 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mbt_7 }
-			NOT = { has_tech = dd_mbt_7 }
+			FROM = { has_tech = dd_mbt_gen3_modernized }
+			NOT = { has_tech = dd_mbt_gen3_modernized }
 		}
-		set_technology = { dd_mbt_7 = 1 }
+		set_technology = { dd_mbt_gen3_modernized = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mbt_6 }
-			NOT = { has_tech = dd_mbt_6 }
+			FROM = { has_tech = dd_mbt_gen3 }
+			NOT = { has_tech = dd_mbt_gen3 }
 		}
-		set_technology = { dd_mbt_6 = 1 }
+		set_technology = { dd_mbt_gen3 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mbt_5 }
-			NOT = { has_tech = dd_mbt_5 }
+			FROM = { has_tech = dd_mbt_gen3 }
+			NOT = { has_tech = dd_mbt_gen3 }
 		}
-		set_technology = { dd_mbt_5 = 1 }
+		set_technology = { dd_mbt_gen3 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mbt_4 }
-			NOT = { has_tech = dd_mbt_4 }
+			FROM = { has_tech = dd_mbt_gen2 }
+			NOT = { has_tech = dd_mbt_gen2 }
 		}
-		set_technology = { dd_mbt_4 = 1 }
+		set_technology = { dd_mbt_gen2 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ftr_6 }
-			NOT = { has_tech = dd_ftr_6 }
+			FROM = { has_tech = dd_jet_gen6_optionally_manned }
+			NOT = { has_tech = dd_jet_gen6_optionally_manned }
 		}
-		set_technology = { dd_ftr_6 = 1 }
+		set_technology = { dd_jet_gen6_optionally_manned = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ftr_5b }
-			NOT = { has_tech = dd_ftr_5b }
+			FROM = { has_tech = dd_jet_gen5_stealth }
+			NOT = { has_tech = dd_jet_gen5_stealth }
 		}
-		set_technology = { dd_ftr_5b = 1 }
+		set_technology = { dd_jet_gen5_stealth = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ftr_5a }
-			NOT = { has_tech = dd_ftr_5a }
+			FROM = { has_tech = dd_jet_gen4_plus }
+			NOT = { has_tech = dd_jet_gen4_plus }
 		}
-		set_technology = { dd_ftr_5a = 1 }
+		set_technology = { dd_jet_gen4_plus = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ftr_45 }
-			NOT = { has_tech = dd_ftr_45 }
+			FROM = { has_tech = dd_jet_gen4_plus }
+			NOT = { has_tech = dd_jet_gen4_plus }
 		}
-		set_technology = { dd_ftr_45 = 1 }
+		set_technology = { dd_jet_gen4_plus = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ftr_4 }
-			NOT = { has_tech = dd_ftr_4 }
+			FROM = { has_tech = dd_jet_gen4 }
+			NOT = { has_tech = dd_jet_gen4 }
 		}
-		set_technology = { dd_ftr_4 = 1 }
+		set_technology = { dd_jet_gen4 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ftr_3 }
-			NOT = { has_tech = dd_ftr_3 }
+			FROM = { has_tech = dd_jet_gen3 }
+			NOT = { has_tech = dd_jet_gen3 }
 		}
-		set_technology = { dd_ftr_3 = 1 }
+		set_technology = { dd_jet_gen3 = 1 }
 	}
 	else_if = {
 		limit = {
@@ -528,206 +528,213 @@ dd_intel_steal_pick = {
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_inf_8 }
-			NOT = { has_tech = dd_inf_8 }
+			FROM = { has_tech = dd_directed_energy_squad_wpn }
+			NOT = { has_tech = dd_directed_energy_squad_wpn }
 		}
-		set_technology = { dd_inf_8 = 1 }
+		set_technology = { dd_directed_energy_squad_wpn = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_inf_7 }
-			NOT = { has_tech = dd_inf_7 }
+			FROM = { has_tech = dd_ngsw_program }
+			NOT = { has_tech = dd_ngsw_program }
 		}
-		set_technology = { dd_inf_7 = 1 }
+		set_technology = { dd_ngsw_program = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_inf_6 }
-			NOT = { has_tech = dd_inf_6 }
+			FROM = { has_tech = dd_advanced_ballistics }
+			NOT = { has_tech = dd_advanced_ballistics }
 		}
-		set_technology = { dd_inf_6 = 1 }
+		set_technology = { dd_advanced_ballistics = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_inf_5 }
-			NOT = { has_tech = dd_inf_5 }
+			FROM = { has_tech = dd_modular_rifle_sys }
+			NOT = { has_tech = dd_modular_rifle_sys }
 		}
-		set_technology = { dd_inf_5 = 1 }
+		set_technology = { dd_modular_rifle_sys = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_at_8 }
-			NOT = { has_tech = dd_at_8 }
+			FROM = { has_tech = dd_atgm_next_gen }
+			NOT = { has_tech = dd_atgm_next_gen }
 		}
-		set_technology = { dd_at_8 = 1 }
+		set_technology = { dd_atgm_next_gen = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_at_7 }
-			NOT = { has_tech = dd_at_7 }
+			FROM = { has_tech = dd_atgm_next_gen }
+			NOT = { has_tech = dd_atgm_next_gen }
 		}
-		set_technology = { dd_at_7 = 1 }
+		set_technology = { dd_atgm_next_gen = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_at_6 }
-			NOT = { has_tech = dd_at_6 }
+			FROM = { has_tech = dd_atgm_top_attack }
+			NOT = { has_tech = dd_atgm_top_attack }
 		}
-		set_technology = { dd_at_6 = 1 }
+		set_technology = { dd_atgm_top_attack = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mech_6 }
-			NOT = { has_tech = dd_mech_6 }
+			FROM = { has_tech = dd_ifv_next_gen }
+			NOT = { has_tech = dd_ifv_next_gen }
 		}
-		set_technology = { dd_mech_6 = 1 }
+		set_technology = { dd_ifv_next_gen = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_mech_5 }
-			NOT = { has_tech = dd_mech_5 }
+			FROM = { has_tech = dd_ifv_heavy }
+			NOT = { has_tech = dd_ifv_heavy }
 		}
-		set_technology = { dd_mech_5 = 1 }
+		set_technology = { dd_ifv_heavy = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_cas_6 }
-			NOT = { has_tech = dd_cas_6 }
+			FROM = { has_tech = dd_ifv_3 }
+			NOT = { has_tech = dd_ifv_3 }
 		}
-		set_technology = { dd_cas_6 = 1 }
+		set_technology = { dd_ifv_3 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_cas_5 }
-			NOT = { has_tech = dd_cas_5 }
+			FROM = { has_tech = dd_cas_stealth }
+			NOT = { has_tech = dd_cas_stealth }
 		}
-		set_technology = { dd_cas_5 = 1 }
+		set_technology = { dd_cas_stealth = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_str_6 }
-			NOT = { has_tech = dd_str_6 }
+			FROM = { has_tech = dd_laser_guided_bombs }
+			NOT = { has_tech = dd_laser_guided_bombs }
 		}
-		set_technology = { dd_str_6 = 1 }
+		set_technology = { dd_laser_guided_bombs = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_str_5 }
-			NOT = { has_tech = dd_str_5 }
+			FROM = { has_tech = dd_str_orbital_strike_platform }
+			NOT = { has_tech = dd_str_orbital_strike_platform }
 		}
-		set_technology = { dd_str_5 = 1 }
+		set_technology = { dd_str_orbital_strike_platform = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_uav_6 }
-			NOT = { has_tech = dd_uav_6 }
+			FROM = { has_tech = dd_str_hypersonic_glide_vehicle }
+			NOT = { has_tech = dd_str_hypersonic_glide_vehicle }
 		}
-		set_technology = { dd_uav_6 = 1 }
+		set_technology = { dd_str_hypersonic_glide_vehicle = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_uav_5 }
-			NOT = { has_tech = dd_uav_5 }
+			FROM = { has_tech = dd_uav_stealth_swarm }
+			NOT = { has_tech = dd_uav_stealth_swarm }
 		}
-		set_technology = { dd_uav_5 = 1 }
+		set_technology = { dd_uav_stealth_swarm = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_hel_6 }
-			NOT = { has_tech = dd_hel_6 }
+			FROM = { has_tech = dd_uav_ucav_strike }
+			NOT = { has_tech = dd_uav_ucav_strike }
 		}
-		set_technology = { dd_hel_6 = 1 }
+		set_technology = { dd_uav_ucav_strike = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_hel_5 }
-			NOT = { has_tech = dd_hel_5 }
+			FROM = { has_tech = dd_heli_stealth }
+			NOT = { has_tech = dd_heli_stealth }
 		}
-		set_technology = { dd_hel_5 = 1 }
+		set_technology = { dd_heli_stealth = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_esc_7 }
-			NOT = { has_tech = dd_esc_7 }
+			FROM = { has_tech = dd_heli_attack_2 }
+			NOT = { has_tech = dd_heli_attack_2 }
 		}
-		set_technology = { dd_esc_7 = 1 }
+		set_technology = { dd_heli_attack_2 = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_esc_6 }
-			NOT = { has_tech = dd_esc_6 }
+			FROM = { has_tech = dd_arsenal_ship }
+			NOT = { has_tech = dd_arsenal_ship }
 		}
-		set_technology = { dd_esc_6 = 1 }
+		set_technology = { dd_arsenal_ship = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_esc_5 }
-			NOT = { has_tech = dd_esc_5 }
+			FROM = { has_tech = dd_destroyer_stealth }
+			NOT = { has_tech = dd_destroyer_stealth }
 		}
-		set_technology = { dd_esc_5 = 1 }
+		set_technology = { dd_destroyer_stealth = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_esc_4 }
-			NOT = { has_tech = dd_esc_4 }
+			FROM = { has_tech = dd_destroyer_aegis }
+			NOT = { has_tech = dd_destroyer_aegis }
 		}
-		set_technology = { dd_esc_4 = 1 }
+		set_technology = { dd_destroyer_aegis = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ssn_6 }
-			NOT = { has_tech = dd_ssn_6 }
+			FROM = { has_tech = dd_frigate_stealth }
+			NOT = { has_tech = dd_frigate_stealth }
 		}
-		set_technology = { dd_ssn_6 = 1 }
+		set_technology = { dd_frigate_stealth = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ssn_5 }
-			NOT = { has_tech = dd_ssn_5 }
+			FROM = { has_tech = dd_sub_nuclear_stealth }
+			NOT = { has_tech = dd_sub_nuclear_stealth }
 		}
-		set_technology = { dd_ssn_5 = 1 }
+		set_technology = { dd_sub_nuclear_stealth = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_ssbn_4 }
-			NOT = { has_tech = dd_ssbn_4 }
+			FROM = { has_tech = dd_sub_nuclear_stealth }
+			NOT = { has_tech = dd_sub_nuclear_stealth }
 		}
-		set_technology = { dd_ssbn_4 = 1 }
+		set_technology = { dd_sub_nuclear_stealth = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_sam_6 }
-			NOT = { has_tech = dd_sam_6 }
+			FROM = { has_tech = dd_sub_ssbn_hypersonic }
+			NOT = { has_tech = dd_sub_ssbn_hypersonic }
 		}
-		set_technology = { dd_sam_6 = 1 }
+		set_technology = { dd_sub_ssbn_hypersonic = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_sam_5 }
-			NOT = { has_tech = dd_sam_5 }
+			FROM = { has_tech = dd_abm_exoatmospheric }
+			NOT = { has_tech = dd_abm_exoatmospheric }
 		}
-		set_technology = { dd_sam_5 = 1 }
+		set_technology = { dd_abm_exoatmospheric = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_spg_7 }
-			NOT = { has_tech = dd_spg_7 }
+			FROM = { has_tech = dd_theater_missile_defense }
+			NOT = { has_tech = dd_theater_missile_defense }
 		}
-		set_technology = { dd_spg_7 = 1 }
+		set_technology = { dd_theater_missile_defense = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_rkt_7 }
-			NOT = { has_tech = dd_rkt_7 }
+			FROM = { has_tech = dd_precision_guided_shells }
+			NOT = { has_tech = dd_precision_guided_shells }
 		}
-		set_technology = { dd_rkt_7 = 1 }
+		set_technology = { dd_precision_guided_shells = 1 }
 	}
 	else_if = {
 		limit = {
-			FROM = { has_tech = dd_dew_6 }
-			NOT = { has_tech = dd_dew_6 }
+			FROM = { has_tech = dd_hypersonic_cruise_missile }
+			NOT = { has_tech = dd_hypersonic_cruise_missile }
 		}
-		set_technology = { dd_dew_6 = 1 }
+		set_technology = { dd_hypersonic_cruise_missile = 1 }
+	}
+	else_if = {
+		limit = {
+			FROM = { has_tech = dd_high_energy_laser_defense }
+			NOT = { has_tech = dd_high_energy_laser_defense }
+		}
+		set_technology = { dd_high_energy_laser_defense = 1 }
 	}
 	else_if = {
 		limit = {

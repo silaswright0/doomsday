@@ -29,6 +29,10 @@ technologies = {
 		}
 		research_cost = 1.0
 		start_year = 1955
+		folder = {
+			name = support_folder
+			position = { x = 0 y = 0 }
+		}
 		categories = {
 			support_tech
 		}
@@ -46,10 +50,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 1975
+		start_year = 1968
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 0 y = 6 }
 		}
 		categories = {
 			support_tech
@@ -68,10 +72,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 1995
+		start_year = 1990
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 4 }
+			position = { x = 0 y = 14 }
 		}
 		categories = {
 			support_tech
@@ -90,10 +94,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 2.0
-		start_year = 2015
+		start_year = 2008
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 8 }
+			position = { x = 0 y = 22 }
 		}
 		categories = {
 			support_tech
@@ -111,7 +115,7 @@ technologies = {
 		start_year = 2030
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 11 }
+			position = { x = 0 y = 30 }
 		}
 		categories = {
 			support_tech
@@ -132,6 +136,10 @@ technologies = {
 		}
 		research_cost = 1.5
 		start_year = 1955
+		folder = {
+			name = support_folder
+			position = { x = 2 y = 0 }
+		}
 		categories = {
 			support_tech
 		}
@@ -162,7 +170,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 2 y = 6 }
 		}
 		categories = {
 			support_tech
@@ -185,7 +193,7 @@ technologies = {
 		start_year = 1991
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 4 }
+			position = { x = 2 y = 14 }
 		}
 		categories = {
 			support_tech
@@ -205,7 +213,7 @@ technologies = {
 		start_year = 2006
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 7 }
+			position = { x = 2 y = 20 }
 		}
 		categories = {
 			support_tech
@@ -221,7 +229,7 @@ technologies = {
 		start_year = 2026
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 11 }
+			position = { x = 2 y = 28 }
 		}
 		categories = {
 			support_tech
@@ -242,6 +250,10 @@ technologies = {
 		}
 		research_cost = 1.5
 		start_year = 1955
+		folder = {
+			name = support_folder
+			position = { x = 4 y = 0 }
+		}
 		categories = {
 			support_tech
 		}
@@ -260,7 +272,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 4 y = 6 }
 		}
 		categories = {
 			support_tech
@@ -280,7 +292,7 @@ technologies = {
 		start_year = 1991
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 4 }
+			position = { x = 4 y = 14 }
 		}
 		categories = {
 			support_tech
@@ -300,7 +312,7 @@ technologies = {
 		start_year = 2010
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 8 }
+			position = { x = 4 y = 22 }
 		}
 		categories = {
 			support_tech
@@ -316,7 +328,7 @@ technologies = {
 		start_year = 2026
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 11 }
+			position = { x = 4 y = 28 }
 		}
 		categories = {
 			support_tech
@@ -338,6 +350,10 @@ technologies = {
 		}
 		research_cost = 1.5
 		start_year = 1955
+		folder = {
+			name = support_folder
+			position = { x = 6 y = 0 }
+		}
 		categories = {
 			support_tech
 		}
@@ -357,7 +373,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 6 y = 6 }
 		}
 		categories = {
 			support_tech
@@ -378,7 +394,7 @@ technologies = {
 		start_year = 1991
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 4 }
+			position = { x = 6 y = 14 }
 		}
 		categories = {
 			support_tech
@@ -399,7 +415,7 @@ technologies = {
 		start_year = 2010
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 8 }
+			position = { x = 6 y = 22 }
 		}
 		categories = {
 			support_tech
@@ -416,7 +432,7 @@ technologies = {
 		start_year = 2028
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 11 }
+			position = { x = 6 y = 30 }
 		}
 		categories = {
 			support_tech
@@ -430,13 +446,17 @@ technologies = {
 		enable_subunits = {
 			logistics_company
 		}
-		supply_consumption_factor = -0.1
+		supply_consumption_factor = -0.03
 		path = {
 			leads_to_tech = dd_log_2
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
 		start_year = 1955
+		folder = {
+			name = support_folder
+			position = { x = 8 y = 0 }
+		}
 		categories = {
 			support_tech
 		}
@@ -446,7 +466,7 @@ technologies = {
 	}
 
 	dd_log_2 = {
-		supply_consumption_factor = -0.15000000000000002
+		supply_consumption_factor = -0.03
 		path = {
 			leads_to_tech = dd_log_3
 			research_cost_coeff = 1
@@ -455,7 +475,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 8 y = 6 }
 		}
 		categories = {
 			support_tech
@@ -466,7 +486,7 @@ technologies = {
 	}
 
 	dd_log_3 = {
-		supply_consumption_factor = -0.2
+		supply_consumption_factor = -0.04
 		path = {
 			leads_to_tech = dd_log_4
 			research_cost_coeff = 1
@@ -475,7 +495,7 @@ technologies = {
 		start_year = 1991
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 4 }
+			position = { x = 8 y = 14 }
 		}
 		categories = {
 			support_tech
@@ -486,7 +506,7 @@ technologies = {
 	}
 
 	dd_log_4 = {
-		supply_consumption_factor = -0.25
+		supply_consumption_factor = -0.04
 		path = {
 			leads_to_tech = dd_log_5
 			research_cost_coeff = 1
@@ -495,7 +515,7 @@ technologies = {
 		start_year = 2010
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 8 }
+			position = { x = 8 y = 22 }
 		}
 		categories = {
 			support_tech
@@ -506,12 +526,12 @@ technologies = {
 	}
 
 	dd_log_5 = {
-		supply_consumption_factor = -0.30000000000000004
+		supply_consumption_factor = -0.05
 		research_cost = 2.5
 		start_year = 2026
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 11 }
+			position = { x = 8 y = 28 }
 		}
 		categories = {
 			support_tech
@@ -532,6 +552,10 @@ technologies = {
 		}
 		research_cost = 1.5
 		start_year = 1955
+		folder = {
+			name = support_folder
+			position = { x = 10 y = 0 }
+		}
 		categories = {
 			support_tech
 		}
@@ -550,7 +574,7 @@ technologies = {
 		start_year = 1975
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 10 y = 8 }
 		}
 		categories = {
 			support_tech
@@ -570,7 +594,7 @@ technologies = {
 		start_year = 2003
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 5 }
+			position = { x = 10 y = 20 }
 		}
 		categories = {
 			support_tech
@@ -586,7 +610,7 @@ technologies = {
 		start_year = 2020
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 9 }
+			position = { x = 10 y = 26 }
 		}
 		categories = {
 			support_tech
@@ -600,13 +624,19 @@ technologies = {
 		enable_subunits = {
 			signal_company
 		}
-		land_reinforce_rate = 0.02
+		signal_company = {
+			initiative = 0.02
+		}
 		path = {
 			leads_to_tech = dd_sig_2
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
 		start_year = 1955
+		folder = {
+			name = support_folder
+			position = { x = 12 y = 0 }
+		}
 		categories = {
 			support_tech
 		}
@@ -616,16 +646,18 @@ technologies = {
 	}
 
 	dd_sig_2 = {
-		land_reinforce_rate = 0.04
+		signal_company = {
+			initiative = 0.02
+		}
 		path = {
 			leads_to_tech = dd_sig_3
 			research_cost_coeff = 1
 		}
 		research_cost = 2.0
-		start_year = 1975
+		start_year = 1968
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 12 y = 6 }
 		}
 		categories = {
 			support_tech
@@ -636,16 +668,18 @@ technologies = {
 	}
 
 	dd_sig_3 = {
-		land_reinforce_rate = 0.06
+		signal_company = {
+			initiative = 0.03
+		}
 		path = {
 			leads_to_tech = dd_sig_4
 			research_cost_coeff = 1
 		}
 		research_cost = 2.0
-		start_year = 1995
+		start_year = 1990
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 4 }
+			position = { x = 12 y = 14 }
 		}
 		categories = {
 			support_tech
@@ -656,7 +690,9 @@ technologies = {
 	}
 
 	dd_sig_4 = {
-		land_reinforce_rate = 0.08
+		signal_company = {
+			initiative = 0.03
+		}
 		path = {
 			leads_to_tech = dd_sig_5
 			research_cost_coeff = 1
@@ -665,7 +701,7 @@ technologies = {
 		start_year = 2012
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 7 }
+			position = { x = 12 y = 22 }
 		}
 		categories = {
 			support_tech
@@ -676,12 +712,14 @@ technologies = {
 	}
 
 	dd_sig_5 = {
-		land_reinforce_rate = 0.1
+		signal_company = {
+			initiative = 0.04
+		}
 		research_cost = 2.5
 		start_year = 2026
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 10 }
+			position = { x = 12 y = 28 }
 		}
 		categories = {
 			support_tech
@@ -695,13 +733,24 @@ technologies = {
 		enable_subunits = {
 			maintenance_company
 		}
-		reliability_factor = 0.05
+		maintenance_company = {
+			reliability_factor = 0.02
+			equipment_capture_factor = 0.02
+		}
+		armored_maintenance = {
+			reliability_factor = 0.01
+			equipment_capture_factor = 0.02
+		}
 		path = {
 			leads_to_tech = dd_mnt_2
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
 		start_year = 1955
+		folder = {
+			name = support_folder
+			position = { x = 14 y = 0 }
+		}
 		categories = {
 			support_tech
 		}
@@ -711,7 +760,15 @@ technologies = {
 	}
 
 	dd_mnt_2 = {
-		reliability_factor = 0.1
+		maintenance_company = {
+			reliability_factor = 0.03
+			equipment_capture_factor = 0.03
+		}
+		armored_maintenance = {
+			reliability_factor = 0.02
+			equipment_capture_factor = 0.03
+			recovery = 0.02
+		}
 		path = {
 			leads_to_tech = dd_mnt_3
 			research_cost_coeff = 1
@@ -720,7 +777,7 @@ technologies = {
 		start_year = 1975
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 14 y = 8 }
 		}
 		categories = {
 			support_tech
@@ -731,7 +788,14 @@ technologies = {
 	}
 
 	dd_mnt_3 = {
-		reliability_factor = 0.15000000000000002
+		maintenance_company = {
+			reliability_factor = 0.03
+			equipment_capture_factor = 0.02
+		}
+		armored_maintenance = {
+			reliability_factor = 0.02
+			equipment_capture_factor = 0.02
+		}
 		path = {
 			leads_to_tech = dd_mnt_4
 			research_cost_coeff = 1
@@ -740,7 +804,7 @@ technologies = {
 		start_year = 1995
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 4 }
+			position = { x = 14 y = 16 }
 		}
 		categories = {
 			support_tech
@@ -751,7 +815,12 @@ technologies = {
 	}
 
 	dd_mnt_4 = {
-		reliability_factor = 0.2
+		maintenance_company = {
+			reliability_factor = 0.03
+		}
+		armored_maintenance = {
+			reliability_factor = 0.02
+		}
 		path = {
 			leads_to_tech = dd_mnt_5
 			research_cost_coeff = 1
@@ -760,7 +829,7 @@ technologies = {
 		start_year = 2015
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 8 }
+			position = { x = 14 y = 24 }
 		}
 		categories = {
 			support_tech
@@ -771,12 +840,17 @@ technologies = {
 	}
 
 	dd_mnt_5 = {
-		reliability_factor = 0.25
+		maintenance_company = {
+			reliability_factor = 0.04
+		}
+		armored_maintenance = {
+			reliability_factor = 0.02
+		}
 		research_cost = 2.5
 		start_year = 2028
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 10 }
+			position = { x = 14 y = 30 }
 		}
 		categories = {
 			support_tech
@@ -796,7 +870,7 @@ technologies = {
 		start_year = 1968
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 0 }
+			position = { x = 16 y = 6 }
 		}
 		categories = {
 			support_tech
@@ -816,7 +890,7 @@ technologies = {
 		start_year = 1991
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 5 }
+			position = { x = 16 y = 14 }
 		}
 		categories = {
 			support_tech
@@ -836,7 +910,7 @@ technologies = {
 		start_year = 2015
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 10 }
+			position = { x = 16 y = 24 }
 		}
 		categories = {
 			support_tech
@@ -852,7 +926,7 @@ technologies = {
 		start_year = 2026
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 12 }
+			position = { x = 16 y = 28 }
 		}
 		categories = {
 			support_tech

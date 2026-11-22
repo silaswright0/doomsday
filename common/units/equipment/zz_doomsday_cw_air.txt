@@ -1603,4 +1603,68 @@ equipments = {
 			microchips = 1
 		}
 	}
+
+	ship_heli_equipment_1 = {
+		picture = helicopter_equipment_1
+		year = 1961
+		archetype = cv_small_plane_naval_bomber_airframe
+		carrier_capable = yes
+		is_buildable = yes
+		priority = 50
+		allow_mission_type = {
+			naval_bomber
+			naval_patrol
+			naval_mines_sweeping
+		}
+		air_range = 500
+		maximum_speed = 220
+		air_agility = 35
+		air_attack = 2
+		air_defence = 6
+		naval_strike_attack = 6
+		naval_strike_targetting = 8
+		sub_detection = 8
+		surface_detection = 12
+		build_cost_ic = 28
+		manpower = 4
+		reliability = 0.8
+		fuel_consumption = 0.2
+		resources = {
+			aluminium = 2
+			steel = 1
+		}
+	}
+
+	ship_heli_equipment_2 = {
+		picture = helicopter_equipment_1
+		year = 1984
+		archetype = cv_small_plane_naval_bomber_airframe
+		parent = ship_heli_equipment_1
+		carrier_capable = yes
+		is_buildable = yes
+		priority = 50
+		allow_mission_type = {
+			naval_bomber
+			naval_patrol
+			naval_mines_sweeping
+		}
+		air_range = 600
+		maximum_speed = 270
+		air_agility = 40
+		air_attack = 3
+		air_defence = 8
+		naval_strike_attack = 10
+		naval_strike_targetting = 12
+		sub_detection = 12
+		surface_detection = 16
+		build_cost_ic = 36
+		manpower = 4
+		reliability = 0.85
+		fuel_consumption = 0.22
+		resources = {
+			aluminium = 2
+			steel = 1
+			copper = 1
+		}
+	}
 }
